@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Marketing — Vorhersehbarer Leadflow für B2B-Unternehmen</title>
+<style>
+@font-face { font-family:'Syne'; src:url('../../fonts/Syne-VariableFont_wght.ttf') format('truetype'); font-weight:100 900; }
+@font-face { font-family:'Epilogue'; src:url('../../fonts/Epilogue-VariableFont_wght.ttf') format('truetype'); font-weight:100 900; }
+@font-face { font-family:'DM Mono'; src:url('../../fonts/DMMono-Regular.ttf') format('truetype'); font-weight:400; }
+
+:root {
+  --forest:      #1B4332;
+  --forest-mid:  #2d6a4f;
+  --lime:        #86EFAC;
+  --nearblack:   #0a0a0a;
+  --offwhite:    #f5f4f0;
+  --n200:        #e8e6e0;
+  --n400:        #a8a49a;
+  --n600:        #57534a;
+  --border-l:    rgba(0,0,0,0.09);
+  --border-d:    rgba(255,255,255,0.09);
+  --ease:        cubic-bezier(0.16,1,0.3,1);
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--nearblack); color:var(--offwhite); font-family:'Epilogue',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+
+/* ── NAV ───────────────────────────────────────────────────────────── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 48px; height:64px;
+  background:rgba(10,10,10,0); backdrop-filter:blur(0px);
+  border-bottom:1px solid transparent;
+  transition:all 300ms var(--ease);
+}
+nav.scrolled {
+  background:rgba(10,10,10,0.88); backdrop-filter:blur(12px);
+  border-bottom-color:var(--border-d);
+}
+.nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
+.nav-bolt { display:block; }
+.nav-pill {
+  background:var(--forest-mid); border-radius:7px; padding:5px 13px;
+  font-family:'Syne',sans-serif; font-weight:800; font-size:16px; color:#fff;
+  letter-spacing:-0.3px; line-height:1;
+}
+.nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+.nav-links a {
+  font-family:'Epilogue',sans-serif; font-size:14px; font-weight:500;
+  color:rgba(245,244,240,0.6); text-decoration:none;
+  transition:color 150ms;
+}
+.nav-links a:hover { color:var(--offwhite); }
+.btn {
+  font-family:'Syne',sans-serif; font-weight:700; cursor:pointer;
+  display:inline-flex; align-items:center; border:none;
+  transition:all 200ms var(--ease); text-decoration:none; white-space:nowrap;
+  border-radius:9999px; line-height:1;
+}
+.btn-lime  { background:var(--lime); color:var(--nearblack); padding:10px 20px; font-size:14px; }
+.btn-lime:hover  { background:#74c69d; transform:translateY(-1px); }
+.btn-ghost { background:transparent; color:var(--offwhite); padding:9px 19px; font-size:14px; border:1px solid var(--border-d); }
+.btn-ghost:hover { border-color:rgba(255,255,255,0.3); transform:translateY(-1px); }
+.btn-dark  { background:var(--nearblack); color:var(--lime); padding:13px 26px; font-size:15px; }
+.btn-dark:hover  { background:var(--forest); transform:translateY(-1px); }
+.btn-lg { padding:14px 28px; font-size:16px; }
+
+/* ── HERO ───────────────────────────────────────────────────────────── */
+.hero {
+  min-height:100vh; display:flex; align-items:center;
+  padding:120px 48px 80px; position:relative; overflow:hidden;
+}
+.hero-glow {
+  position:absolute; top:45%; left:50%; transform:translate(-50%,-50%);
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(27,67,50,0.4) 0%, transparent 68%);
+  pointer-events:none;
+}
+.hero-content { position:relative; max-width:800px; }
+.eyebrow {
+  font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--lime); display:inline-block;
+  margin-bottom:24px;
+  opacity:0; animation:fadeUp 0.7s 0.2s var(--ease) forwards;
+}
+.hero h1 {
+  font-family:'Syne',sans-serif; font-weight:800;
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  line-height:1.05; letter-spacing:-0.03em; color:var(--offwhite);
+  margin-bottom:28px;
+  opacity:0; animation:fadeUp 0.7s 0.35s var(--ease) forwards;
+}
+.hero h1 .accent { color:var(--lime); }
+.hero-sub {
+  font-family:'Epilogue',sans-serif; font-size:clamp(1rem,1.8vw,1.15rem);
+  color:rgba(245,244,240,0.6); line-height:1.7; max-width:580px;
+  margin-bottom:40px;
+  opacity:0; animation:fadeUp 0.7s 0.5s var(--ease) forwards;
+}
+.hero-actions {
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  opacity:0; animation:fadeUp 0.7s 0.65s var(--ease) forwards;
+}
+.hero-trust {
+  display:flex; align-items:center; gap:28px; margin-top:52px; flex-wrap:wrap;
+  opacity:0; animation:fadeUp 0.7s 0.8s var(--ease) forwards;
+}
+.hero-trust-item { display:flex; align-items:center; gap:8px; }
+.hero-trust-dot { width:5px; height:5px; border-radius:50%; background:var(--lime); flex-shrink:0; }
+.hero-trust-item span { font-family:'Epilogue',sans-serif; font-size:13px; color:rgba(245,244,240,0.45); }
+
+/* ── STATS STRIP ────────────────────────────────────────────────────── */
+.stats-strip {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border-d); border-bottom:1px solid var(--border-d);
+  background:rgba(255,255,255,0.025);
+}
+.stat-item {
+  padding:32px 40px;
+  border-right:1px solid var(--border-d);
+}
+.stat-item:last-child { border-right:none; }
+.stat-num {
+  font-family:'Syne',sans-serif; font-weight:800; font-size:2.4rem;
+  color:var(--lime); line-height:1; margin-bottom:6px; letter-spacing:-0.02em;
+}
+.stat-lbl { font-family:'Epilogue',sans-serif; font-size:13px; color:rgba(245,244,240,0.5); line-height:1.4; }
+
+/* ── SECTION BASE ───────────────────────────────────────────────────── */
+.section { padding:96px 48px; }
+.section-label {
+  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em;
+  text-transform:uppercase; color:var(--n400); margin-bottom:20px; display:block;
+}
+.section-label.lime { color:var(--lime); }
+.section-label.forest { color:rgba(134,239,172,0.7); }
+.section-h {
+  font-family:'Syne',sans-serif; font-weight:700;
+  font-size:clamp(1.9rem,3.5vw,2.9rem);
+  line-height:1.12; letter-spacing:-0.02em; margin-bottom:20px;
+}
+.section-lead { font-family:'Epilogue',sans-serif; font-size:17px; line-height:1.7; max-width:560px; }
+.inner { max-width:1200px; margin:0 auto; }
+
+/* ── HOW IT WORKS ───────────────────────────────────────────────────── */
+.how-section { background:var(--offwhite); }
+.how-section .section-h { color:var(--nearblack); }
+.how-section .section-lead { color:var(--n600); }
+.how-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-top:56px; }
+
+.steps { display:flex; flex-direction:column; }
+.step {
+  display:flex; gap:24px; padding:28px 0;
+  border-bottom:1px solid var(--border-l); cursor:default;
+}
+.step:first-child { border-top:1px solid var(--border-l); }
+.step-num {
+  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em;
+  color:var(--n400); padding-top:4px; min-width:28px;
+}
+.step-title {
+  font-family:'Syne',sans-serif; font-weight:700; font-size:17px;
+  color:var(--nearblack); margin-bottom:8px;
+}
+.step p { font-family:'Epilogue',sans-serif; font-size:14px; color:var(--n600); line-height:1.65; }
+.step-badge {
+  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em;
+  text-transform:uppercase; padding:3px 8px; border-radius:4px;
+  background:var(--forest); color:var(--lime); display:inline-block; margin-top:10px;
+}
+
+.flow-panel {
+  background:var(--nearblack); border:1px solid var(--border-d); border-radius:8px;
+  padding:28px; display:flex; flex-direction:column; gap:0;
+}
+.flow-node {
+  display:flex; align-items:flex-start; gap:14px; padding:18px 0;
+  border-bottom:1px solid var(--border-d); position:relative;
+}
+.flow-node:last-child { border-bottom:none; }
+.flow-icon {
+  width:36px; height:36px; border-radius:6px; background:rgba(134,239,172,0.1);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.flow-icon svg { width:18px; height:18px; stroke:var(--lime); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.flow-title { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:var(--offwhite); margin-bottom:3px; }
+.flow-sub { font-family:'Epilogue',sans-serif; font-size:13px; color:rgba(245,244,240,0.5); }
+
+/* ── PAIN SECTION ───────────────────────────────────────────────────── */
+.pain-section { background:var(--nearblack); border-top:1px solid var(--border-d); }
+.pain-section .section-h { color:var(--offwhite); }
+.pain-section .section-lead { color:rgba(245,244,240,0.6); }
+.pain-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-top:56px; }
+.pain-list { display:flex; flex-direction:column; gap:10px; }
+.pain-item {
+  display:flex; align-items:flex-start; gap:14px; padding:16px 18px;
+  border:1px solid var(--border-d); border-radius:8px;
+  background:rgba(255,255,255,0.025);
+  transition:border-color 200ms;
+}
+.pain-item:hover { border-color:rgba(134,239,172,0.2); }
+.pain-x {
+  font-family:'DM Mono',monospace; font-size:12px; color:rgba(134,239,172,0.4);
+  padding-top:1px; flex-shrink:0; line-height:1;
+}
+.pain-text { font-family:'Epilogue',sans-serif; font-size:14px; color:rgba(245,244,240,0.7); line-height:1.55; }
+
+.contact-box {
+  background:var(--forest); border-radius:8px; padding:40px 36px;
+  position:sticky; top:80px;
+}
+.contact-box h3 {
+  font-family:'Syne',sans-serif; font-weight:800; font-size:1.5rem;
+  color:var(--offwhite); line-height:1.2; margin-bottom:14px; letter-spacing:-0.02em;
+}
+.contact-box p { font-family:'Epilogue',sans-serif; font-size:14px; color:rgba(245,244,240,0.65); line-height:1.65; margin-bottom:28px; }
+.contact-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.contact-row-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.10em; text-transform:uppercase; color:rgba(245,244,240,0.4); min-width:28px; }
+.contact-row a { font-family:'Epilogue',sans-serif; font-size:14px; color:var(--lime); text-decoration:none; }
+.contact-row a:hover { text-decoration:underline; }
+
+/* ── NICHES ─────────────────────────────────────────────────────────── */
+.niches-section { background:var(--offwhite); }
+.niches-section .section-h { color:var(--nearblack); }
+.niches-section .section-lead { color:var(--n600); }
+.niches-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); margin-top:56px;
+  border:1px solid var(--border-l); border-radius:8px; overflow:hidden;
+}
+.niche-card {
+  padding:32px 28px; border-right:1px solid var(--border-l);
+  border-bottom:1px solid var(--border-l);
+  text-decoration:none; display:block; background:#fff;
+  transition:background 200ms var(--ease);
+}
+.niche-card:nth-child(3n) { border-right:none; }
+.niche-card:nth-child(4), .niche-card:nth-child(5), .niche-card:nth-child(6) { border-bottom:none; }
+.niche-card:hover { background:var(--offwhite); }
+.niche-ico {
+  width:40px; height:40px; border-radius:6px;
+  background:rgba(27,67,50,0.08); display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px;
+}
+.niche-ico svg { width:20px; height:20px; stroke:var(--forest); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.niche-name { font-family:'Syne',sans-serif; font-weight:700; font-size:16px; color:var(--nearblack); margin-bottom:8px; }
+.niche-desc { font-family:'Epilogue',sans-serif; font-size:13px; color:var(--n600); line-height:1.6; margin-bottom:14px; }
+.niche-link { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.10em; text-transform:uppercase; color:var(--forest); }
+.niche-soon {
+  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--n400); border:1px solid var(--border-l);
+  padding:3px 8px; border-radius:4px; display:inline-block;
+}
+
+/* ── CASE STUDIES ───────────────────────────────────────────────────── */
+.cases-section { background:var(--nearblack); }
+.cases-section .section-h { color:var(--offwhite); }
+.cases-section .section-lead { color:rgba(245,244,240,0.6); }
+.cases-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
+.case-card {
+  background:rgba(255,255,255,0.04); border:1px solid var(--border-d);
+  border-radius:8px; padding:32px 28px;
+  transition:transform 200ms var(--ease), border-color 200ms;
+}
+.case-card:hover { transform:translateY(-3px); border-color:rgba(134,239,172,0.25); }
+.case-kpi { font-family:'Syne',sans-serif; font-weight:800; font-size:3rem; color:var(--lime); line-height:1; margin-bottom:4px; }
+.case-kpi-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(134,239,172,0.5); margin-bottom:20px; }
+.case-divider { width:32px; height:1px; background:var(--border-d); margin-bottom:16px; }
+.case-title { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:var(--offwhite); margin-bottom:8px; }
+.case-desc { font-family:'Epilogue',sans-serif; font-size:13px; color:rgba(245,244,240,0.55); line-height:1.65; }
+.case-quote { margin-top:18px; padding-top:18px; border-top:1px solid var(--border-d); font-family:'Epilogue',sans-serif; font-style:italic; font-size:13px; color:rgba(245,244,240,0.5); line-height:1.65; }
+
+/* ── TESTIMONIAL ────────────────────────────────────────────────────── */
+.testimonial-strip {
+  background:var(--forest); padding:64px 48px;
+  display:flex; gap:64px; align-items:flex-start;
+}
+.testimonial-quote {
+  font-family:'Syne',sans-serif; font-weight:700; font-size:clamp(1.2rem,2.5vw,1.8rem);
+  color:var(--offwhite); line-height:1.3; flex:1; letter-spacing:-0.01em;
+}
+.testimonial-mark { font-family:'Syne',sans-serif; font-weight:800; font-size:5rem; color:var(--lime); opacity:0.4; line-height:0.8; margin-bottom:16px; }
+.testimonial-meta { min-width:200px; padding-top:6px; }
+.testimonial-name { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; color:var(--offwhite); margin-bottom:4px; }
+.testimonial-role { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; color:rgba(245,244,240,0.5); text-transform:uppercase; }
+
+/* ── AI SECTION ─────────────────────────────────────────────────────── */
+.ai-section { background:rgba(10,10,10,1); border-top:1px solid var(--border-d); }
+.ai-section .section-h { color:var(--offwhite); }
+.ai-section .section-lead { color:rgba(245,244,240,0.6); }
+.ai-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-top:56px; }
+.ai-features { display:flex; flex-direction:column; gap:24px; margin-top:8px; }
+.ai-feature { display:flex; gap:16px; align-items:flex-start; }
+.ai-feature-ico {
+  width:40px; height:40px; border-radius:6px; border:1px solid var(--border-d);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.ai-feature-ico svg { width:18px; height:18px; stroke:var(--lime); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.ai-feature-title { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--offwhite); margin-bottom:4px; }
+.ai-feature-body { font-family:'Epilogue',sans-serif; font-size:13px; color:rgba(245,244,240,0.55); line-height:1.65; }
+
+.terminal {
+  background:#0d0d0b; border:1px solid var(--border-d); border-radius:8px; padding:24px;
+  font-family:'DM Mono',monospace; font-size:12px; line-height:1.8;
+}
+.term-header {
+  display:flex; align-items:center; gap:8px; margin-bottom:20px;
+  padding-bottom:14px; border-bottom:1px solid var(--border-d);
+}
+.term-dot { width:8px; height:8px; border-radius:50%; }
+.term-title { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(134,239,172,0.4); margin-left:4px; }
+.tl { margin-bottom:2px; }
+.tl .t { color:rgba(245,244,240,0.25); }
+.tl .tag { color:var(--lime); }
+.tl .val { color:rgba(245,244,240,0.75); }
+.tl .hi { color:var(--lime); }
+
+/* ── WHO WE ARE ─────────────────────────────────────────────────────── */
+.about-section { background:var(--offwhite); }
+.about-section .section-h { color:var(--nearblack); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-top:48px; }
+.about-lead { font-family:'Epilogue',sans-serif; font-size:17px; color:var(--n600); line-height:1.7; margin-bottom:16px; }
+.about-numbers { display:flex; gap:40px; margin-top:32px; }
+.about-num-val { font-family:'Syne',sans-serif; font-weight:800; font-size:2.4rem; color:var(--forest); line-height:1; letter-spacing:-0.02em; margin-bottom:4px; }
+.about-num-lbl { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--n400); }
+.about-card {
+  background:#fff; border:1px solid var(--border-l); border-radius:8px; padding:36px 32px;
+}
+.about-card-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--n400); margin-bottom:20px; }
+.tags-row { display:flex; flex-wrap:wrap; gap:8px; }
+.tag-chip {
+  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.10em; text-transform:uppercase;
+  padding:5px 10px; border-radius:4px; background:rgba(27,67,50,0.08); color:var(--forest);
+  border:1px solid rgba(27,67,50,0.15);
+}
+.about-person { margin-top:28px; padding-top:24px; border-top:1px solid var(--border-l); }
+.about-person-name { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--nearblack); margin-bottom:4px; }
+.about-person-role { font-family:'Epilogue',sans-serif; font-size:13px; color:var(--n400); margin-bottom:6px; }
+.about-person-mail { font-family:'DM Mono',monospace; font-size:12px; color:var(--forest); text-decoration:none; }
+.about-person-mail:hover { text-decoration:underline; }
+
+/* ── FOOTER ─────────────────────────────────────────────────────────── */
+footer { background:var(--nearblack); padding:64px 48px 0; border-top:1px solid var(--border-d); }
+.footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px; max-width:1200px; margin-left:auto; margin-right:auto; }
+.footer-tagline { font-family:'Epilogue',sans-serif; font-size:14px; color:rgba(245,244,240,0.45); line-height:1.6; margin-top:14px; max-width:280px; }
+.footer-col-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(245,244,240,0.3); margin-bottom:18px; display:block; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.footer-links a { font-family:'Epilogue',sans-serif; font-size:14px; color:rgba(245,244,240,0.55); text-decoration:none; transition:color 150ms; }
+.footer-links a:hover { color:var(--offwhite); }
+.footer-bottom {
+  max-width:1200px; margin:0 auto;
+  border-top:1px solid var(--border-d); padding:20px 0;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.footer-bottom span { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; color:rgba(245,244,240,0.25); }
+
+/* ── ANIMATIONS ─────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.reveal.in { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <svg class="nav-bolt" width="18" height="24" viewBox="0 0 20 28" fill="none">
+      <polygon points="14,0 4,14 10,14 6,28 20,10 12,10 16,0" fill="#86EFAC"/>
+    </svg>
+    <div class="nav-pill">Get Marketing</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#wie-es-funktioniert">Wie es funktioniert</a></li>
+    <li><a href="#branchen">Branchen</a></li>
+    <li><a href="#ki">KI & Automation</a></li>
+    <li><a href="#ergebnisse">Ergebnisse</a></li>
+  </ul>
+  <a href="#kontakt" class="btn btn-lime">Gespräch anfragen</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <span class="eyebrow">B2B Lead Generation · DACH</span>
+    <h1>Vorhersehbarer Leadflow —<br><span class="accent">der ohne euch läuft.</span></h1>
+    <p class="hero-sub">
+      Eure Kunden suchen bereits nach Lösungen. Wir bauen das System, das sie zu euch bringt — über SEO, Besucheridentifikation und LinkedIn. Keine gekauften Leads. Keine Plattformabhängigkeit.
+    </p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn btn-lime btn-lg">Kostenloses Erstgespräch</a>
+      <a href="#wie-es-funktioniert" class="btn btn-ghost btn-lg">Wie es funktioniert</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Keine gekauften Leads</span></div>
+      <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Messbarer ROI ab Woche 1</span></div>
+      <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Senior-Expertise direkt</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ─────────────────────────────────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stat-item"><div class="stat-num">6M+</div><div class="stat-lbl">Impressionen in 12 Monaten<br>B2B-Produzent, DACH</div></div>
+  <div class="stat-item"><div class="stat-num">×7</div><div class="stat-lbl">Anfragenwachstum<br>von 2/Woche auf 2/Tag</div></div>
+  <div class="stat-item"><div class="stat-num">#1</div><div class="stat-lbl">Google-Position<br>kommerzielles Keyword</div></div>
+  <div class="stat-item"><div class="stat-num">383K</div><div class="stat-lbl">Organische Besucher/Monat<br>ohne bezahlte Werbung</div></div>
+</div>
+
+<!-- ── HOW IT WORKS ──────────────────────────────────────────────────────── -->
+<section class="section how-section" id="wie-es-funktioniert">
+  <div class="inner">
+    <span class="section-label">Methode</span>
+    <h2 class="section-h" style="color:var(--nearblack);">Drei Schritte vom Fremden zur Anfrage.</h2>
+    <p class="section-lead">Wir kombinieren organische Sichtbarkeit, Intent-Daten und personalisiertes Outreach zu einer Maschine, die kontinuierlich qualifizierte Leads produziert.</p>
+    <div class="how-grid">
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <div class="step-title">SEO & Content</div>
+            <p>Potenzielle Kunden suchen täglich nach Lösungen in Google. Wir positionieren euch genau dort — für Anfragen, die zu echten Verhandlungen führen. Der Traffic arbeitet, auch wenn ihr nicht für Anzeigen zahlt.</p>
+            <span class="step-badge">Nachhaltig</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <div class="step-title">Besucheridentifikation via Leadinfo</div>
+            <p>Leadinfo zeigt, welche Unternehmen eure Website besucht haben — mit Name, Branche und Größe. Ihr seht heiße Interessenten, bevor sie wieder verschwinden. Kein Blindflug mehr.</p>
+            <span class="step-badge">Intent-Daten</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <div class="step-title">LinkedIn & Direktkontakt</div>
+            <p>Wir identifizieren den richtigen Ansprechpartner im Besucherunternehmen und schreiben eine persönliche Nachricht. Die Konversionsrate ist um ein Vielfaches höher als bei klassischem Kaltakquise-Outreach.</p>
+            <span class="step-badge">Warmer Kontakt</span>
+          </div>
+        </div>
+      </div>
+      <div class="flow-panel reveal">
+        <div class="flow-node">
+          <div class="flow-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div>
+            <div class="flow-title">Interessent googelt "Solaranlage EPC Hersteller"</div>
+            <div class="flow-sub">Euer Artikel rankt auf Position 1 → Klick</div>
+          </div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-icon">
+            <svg viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg>
+          </div>
+          <div>
+            <div class="flow-title">Leadinfo identifiziert: "Müller Energie GmbH, 80 MA"</div>
+            <div class="flow-sub">Branche, Unternehmensgröße, besuchte Seiten</div>
+          </div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <div class="flow-title">VA findet: Geschäftsführer auf LinkedIn</div>
+            <div class="flow-sub">Personalisierte Nachricht wird gesendet</div>
+          </div>
+        </div>
+        <div class="flow-node">
+          <div class="flow-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="flow-title">Gesprächstermin vereinbart</div>
+            <div class="flow-sub">Kein Kaltanruf. Warm. Kontextualisiert.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAIN POINTS ───────────────────────────────────────────────────────── -->
+<section class="section pain-section" id="problem">
+  <div class="inner">
+    <span class="section-label lime">Das Problem</span>
+    <h2 class="section-h">Ihr seid abhängig von externen Leadquellen.</h2>
+    <p class="section-lead">Die meisten B2B-Unternehmen kaufen Leads oder sind auf Empfehlungen angewiesen. Das ist teuer, unkontrollierbar — und ein Risiko.</p>
+    <div class="pain-grid">
+      <div class="pain-list reveal">
+        <div class="pain-item"><span class="pain-x">×</span><span class="pain-text">Die Lead-Plattform erhöht die Preise oder verlässt den Markt — euer Leadflow bricht zusammen</span></div>
+        <div class="pain-item"><span class="pain-x">×</span><span class="pain-text">Eingekaufte Leads sind nicht zielgruppengenau. Zeit wird verschwendet, ohne Ergebnis</span></div>
+        <div class="pain-item"><span class="pain-x">×</span><span class="pain-text">Werbung funktioniert nur so lange wie das Budget läuft — danach ist alles weg</span></div>
+        <div class="pain-item"><span class="pain-x">×</span><span class="pain-text">Ihr wisst nicht, wer eure Website besucht und woher die Interessenten kommen</span></div>
+        <div class="pain-item"><span class="pain-x">×</span><span class="pain-text">Die Wettbewerber sind bereits auf LinkedIn präsent und aktiv. Ihr nicht</span></div>
+        <div class="pain-item"><span class="pain-x">×</span><span class="pain-text">Kaltakquise erzeugt schlechte Konversionsraten und schadet dem Markenimage</span></div>
+      </div>
+      <div class="contact-box reveal" id="kontakt">
+        <h3>Wir bauen eure eigene Lead-Maschine.</h3>
+        <p>Im kostenlosen Erstgespräch analysieren wir eure Nische, zeigen das realistische Trafficpotenzial und legen einen konkreten Plan vor. Keine Verpflichtung. Keine Vorlagen.</p>
+        <div class="contact-row">
+          <span class="contact-row-label">Mail</span>
+          <a href="/cdn-cgi/l/email-protection#781c190a0119381f1d0c15190a131d0c11161f561c1d"><span class="__cf_email__" data-cfemail="224643505b43624547564f43504947564b4c450c4647">[email&#160;protected]</span></a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">In</span>
+          <a href="https://linkedin.com/in/darya-k" target="_blank">linkedin.com/in/darya-k</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">Web</span>
+          <a href="https://getmarketing.de" target="_blank">getmarketing.de</a>
+        </div>
+        <a href="/cdn-cgi/l/email-protection#e98d889b9088a98e8c9d84889b828c9d80878ec78d8c" class="btn btn-lime" style="margin-top:28px; font-size:14px; padding:12px 22px;">Jetzt Gespräch anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ──────────────────────────────────────────────────────── -->
+<section class="section cases-section" id="ergebnisse">
+  <div class="inner">
+    <span class="section-label lime">Ergebnisse</span>
+    <h2 class="section-h">Was möglich ist — in Zahlen.</h2>
+    <p class="section-lead">Echte Projekte. Echte Ergebnisse. Keine Hochglanz-Versprechen.</p>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-kpi">6M+</div>
+        <div class="case-kpi-label">Impressionen · 12 Monate</div>
+        <div class="case-divider"></div>
+        <div class="case-title">B2B Hersteller Industrieequipment, DACH</div>
+        <div class="case-desc">Null Online-Präsenz. SEO aufgebaut, LinkedIn von 0 gestartet, Ads mit deutlich unter-marktüblichem CPC konfiguriert. 34.000 Besucher, 9.000+ LinkedIn-Follower.</div>
+        <div class="case-quote">„Wir bekommen ständig Anfragen über die Website und müssen uns darum gar nicht mehr kümmern."</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-kpi">×7</div>
+        <div class="case-kpi-label">Anfragenwachstum</div>
+        <div class="case-divider"></div>
+        <div class="case-title">B2B Marketing-Agentur</div>
+        <div class="case-desc">Von 2 Anfragen pro Woche auf 2 pro Tag. LinkedIn-Präsenz von Grund auf aufgebaut. 1,1 Millionen Impressionen. Vollständige Neupositionierung im Markt.</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-kpi">#1</div>
+        <div class="case-kpi-label">Google-Position · komm. Keyword</div>
+        <div class="case-divider"></div>
+        <div class="case-title">Industrieequipment, DACH</div>
+        <div class="case-desc">SEO-Strategie brachte das wichtigste kommerzielle Keyword auf Platz 1. Direkte Folge: über 200 Verkäufe pro Monat aus organischem Traffic allein.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIAL ───────────────────────────────────────────────────────── -->
+<div class="testimonial-strip reveal">
+  <div style="flex:1;">
+    <div class="testimonial-mark">"</div>
+    <div class="testimonial-quote">Wir bekommen ständig Anfragen über die Website und müssen uns darum gar nicht mehr kümmern, also alles gut, danke.</div>
+  </div>
+  <div class="testimonial-meta">
+    <div class="testimonial-name">Anonym auf Wunsch</div>
+    <div class="testimonial-role">Geschäftsführer · B2B Industrieequipment · DACH</div>
+  </div>
+</div>
+
+<!-- ── NICHES ────────────────────────────────────────────────────────────── -->
+<section class="section niches-section" id="branchen">
+  <div class="inner">
+    <span class="section-label">Branchen</span>
+    <h2 class="section-h" style="color:var(--nearblack);">Spezialisiert auf eure Industrie.</h2>
+    <p class="section-lead" style="color:var(--n600);">Generische Marketingagenturen kennen eure Zielgruppe nicht. Wir arbeiten in spezifischen Nischen — mit echtem Branchenwissen, den richtigen Keywords und dem richtigen Messaging.</p>
+    <div class="niches-grid reveal">
+      <a href="/green-energy" class="niche-card">
+        <div class="niche-ico">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="niche-name">Erneuerbare Energien & Solar</div>
+        <div class="niche-desc">Photovoltaik, EPC-Dienstleister, Speichersysteme. Lead-Systeme für Solarprojekte im industriellen und B2B-Segment.</div>
+        <span class="niche-link">Zur Branchenseite →</span>
+      </a>
+      <a href="/healthcare" class="niche-card">
+        <div class="niche-ico">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="niche-name">Healthcare & MedTech</div>
+        <div class="niche-desc">Medizinische Einrichtungen, Pharmaunternehmen, digitale Gesundheitslösungen. Sichtbarkeit in regulierten Märkten.</div>
+        <span class="niche-link">Zur Branchenseite →</span>
+      </a>
+      <a href="/industrial" class="niche-card">
+        <div class="niche-ico">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="niche-name">Industrie & Maschinenbau</div>
+        <div class="niche-desc">Produzenten, Maschinenhersteller, Zulieferer. Lange Sales Cycles, technische Zielgruppe, geringe Fehlertoleranz.</div>
+        <span class="niche-link">Zur Branchenseite →</span>
+      </a>
+      <a href="/b2b-tech" class="niche-card">
+        <div class="niche-ico">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="niche-name">B2B SaaS & Tech</div>
+        <div class="niche-desc">Software, Plattformen, IT-Dienstleistungen. SEO für technische Entscheider und LinkedIn-Outreach zu CTOs und IT-Leitern.</div>
+        <span class="niche-link">Zur Branchenseite →</span>
+      </a>
+      <a href="/education" class="niche-card">
+        <div class="niche-ico">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="niche-name">Bildung & Zertifizierung</div>
+        <div class="niche-desc">Weiterbildungsanbieter, Zertifizierungsstellen, E-Learning. 383.000 organische Besucher — ohne bezahlte Werbung. Bewiesen.</div>
+        <span class="niche-link">Zur Branchenseite →</span>
+      </a>
+      <div class="niche-card" style="cursor:default;">
+        <div class="niche-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="niche-name">Weitere Branchen</div>
+        <div class="niche-desc">Arbeitsmedizin, Immobilien, Logistik und mehr. Wenn eure Nische hier nicht steht — fragt trotzdem an.</div>
+        <span class="niche-soon">Demnächst</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AI SECTION ────────────────────────────────────────────────────────── -->
+<section class="section ai-section" id="ki">
+  <div class="inner">
+    <span class="section-label lime">KI & Automation</span>
+    <h2 class="section-h">Lead Generation mit KI-Unterstützung.</h2>
+    <p class="section-lead">Neben unserer organischen Methode bieten wir KI-gestütztes Outbound an — für Unternehmen, die schnell skalieren wollen.</p>
+    <div class="ai-inner">
+      <div class="reveal">
+        <div class="ai-features">
+          <div class="ai-feature">
+            <div class="ai-feature-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div><div class="ai-feature-title">KI-gesteuertes LinkedIn-Outreach</div><div class="ai-feature-body">Automatisierte, aber personalisierte Nachrichten über HeyReach — skalierbar über mehrere Accounts ohne Spamrisiko.</div></div>
+          </div>
+          <div class="ai-feature">
+            <div class="ai-feature-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <div><div class="ai-feature-title">Apollo.io Zielgruppen-Targeting</div><div class="ai-feature-body">Präzise ICP-Segmentierung nach Unternehmensgröße, Branche, Technologie-Stack und Entscheider-Rolle.</div></div>
+          </div>
+          <div class="ai-feature">
+            <div class="ai-feature-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="ai-feature-title">Automatisierte E-Mail-Sequenzen</div><div class="ai-feature-body">Mehrstufige Brevo-Sequenzen, die auf Basis von Verhalten und Intent personalisiert und getriggert werden.</div></div>
+          </div>
+          <div class="ai-feature">
+            <div class="ai-feature-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div><div class="ai-feature-title">Reporting & Attribution</div><div class="ai-feature-body">UTM-Tracking, GA4-Attribution, klare Dashboards. Ihr seht genau, woher jede Anfrage kommt.</div></div>
+          </div>
+        </div>
+        <a href="/ki-lead-generation" class="btn btn-ghost" style="margin-top:32px; display:inline-flex;">Zur KI-Seite →</a>
+      </div>
+      <div class="terminal reveal">
+        <div class="term-header">
+          <div class="term-dot" style="background:#86EFAC; animation:pulse 1.5s infinite;"></div>
+          <div class="term-dot" style="background:rgba(255,255,255,0.15);"></div>
+          <div class="term-dot" style="background:rgba(255,255,255,0.15);"></div>
+          <span class="term-title">AI Outreach Pipeline</span>
+        </div>
+        <div class="tl"><span class="t">10:14:22 </span><span class="tag">[SCAN]   </span><span class="val"> ICP-Match: Müller Energie GmbH</span></div>
+        <div class="tl"><span class="t">10:14:23 </span><span class="tag">[ENRICH] </span><span class="val"> CEO identifiziert: Thomas M.</span></div>
+        <div class="tl"><span class="t">10:14:24 </span><span class="tag">[MSG]    </span><span class="val"> Personalisierung generiert ✓</span></div>
+        <div class="tl"><span class="t">10:14:25 </span><span class="tag">[SEND]   </span><span class="val"> LinkedIn-Nachricht abgesandt</span></div>
+        <div class="tl"><span class="t">10:18:41 </span><span class="tag">[REPLY]  </span><span class="hi"> Antwort erhalten ●</span></div>
+        <div class="tl"><span class="t">10:18:42 </span><span class="tag">[CRM]    </span><span class="val"> Lead als "warm" markiert</span></div>
+        <div class="tl"><span class="t">10:19:00 </span><span class="tag">[NEXT]   </span><span class="val"> Follow-up geplant: +3 Tage</span></div>
+        <div style="margin-top:18px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06);">
+          <span class="t">— Pipeline aktiv · </span><span class="tag">23 neue Matches heute</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO WE ARE ────────────────────────────────────────────────────────── -->
+<section class="section about-section">
+  <div class="inner">
+    <span class="section-label">Wer wir sind</span>
+    <div class="about-grid">
+      <div class="reveal">
+        <h2 class="section-h" style="color:var(--nearblack); margin-bottom:20px;">7 Jahre. 45 Projekte. Keine Imitation.</h2>
+        <p class="about-lead">Get Marketing ist auf einen einzigen Fokus ausgerichtet: Marketing aufbauen, das echte Anfragen bringt — keine Aktivitätssimulation. Wir haben mit industriellen Unternehmen, B2B-Tech, E-Commerce und Bildungsanbietern in Deutschland und international gearbeitet.</p>
+        <p class="about-lead">Kein Großteam. Keine Übergaben an Junior-Mitarbeiter. Direkte Arbeit mit Senior-Expertise — SEO, LinkedIn, Google Ads, KI-Outreach, Webdesign.</p>
+        <div class="about-numbers">
+          <div><div class="about-num-val">7+</div><div class="about-num-lbl">Jahre Digital Marketing</div></div>
+          <div><div class="about-num-val">45</div><div class="about-num-lbl">Abgeschlossene Projekte</div></div>
+        </div>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-card-label">Leistungen</div>
+        <div class="tags-row">
+          <span class="tag-chip">SEO & Content</span>
+          <span class="tag-chip">LinkedIn Organic</span>
+          <span class="tag-chip">LinkedIn Ads</span>
+          <span class="tag-chip">Google Ads</span>
+          <span class="tag-chip">KI-Outreach</span>
+          <span class="tag-chip">Leadinfo</span>
+          <span class="tag-chip">Webdesign</span>
+          <span class="tag-chip">Landing Pages</span>
+          <span class="tag-chip">GA4 & Tracking</span>
+          <span class="tag-chip">Sales Navigator</span>
+        </div>
+        <div class="about-person">
+          <div class="about-person-name">Daria Kablash</div>
+          <div class="about-person-role">Senior Marketing Manager</div>
+          <a class="about-person-mail" href="/cdn-cgi/l/email-protection#385c594a4159785f5d4c55594a535d4c51565f165c5d"><span class="__cf_email__" data-cfemail="bbdfdac9c2dafbdcdecfd6dac9d0decfd2d5dc95dfde">[email&#160;protected]</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="/" class="nav-logo" style="text-decoration:none;">
+        <svg width="16" height="22" viewBox="0 0 20 28" fill="none"><polygon points="14,0 4,14 10,14 6,28 20,10 12,10 16,0" fill="#86EFAC"/></svg>
+        <div class="nav-pill" style="font-size:15px; padding:5px 12px;">Get Marketing</div>
+      </a>
+      <p class="footer-tagline">Lead Generation für B2B-Unternehmen in der DACH-Region. Eure Kunden finden euch — nicht umgekehrt.</p>
+    </div>
+    <div>
+      <span class="footer-col-label">Leistungen</span>
+      <ul class="footer-links">
+        <li><a href="#wie-es-funktioniert">Wie es funktioniert</a></li>
+        <li><a href="/ki-lead-generation">KI & Automation</a></li>
+        <li><a href="#branchen">Branchen</a></li>
+        <li><a href="#ergebnisse">Ergebnisse</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-label">Branchen</span>
+      <ul class="footer-links">
+        <li><a href="/green-energy">Erneuerbare Energien</a></li>
+        <li><a href="/healthcare">Healthcare & MedTech</a></li>
+        <li><a href="/industrial">Industrie & Maschinenbau</a></li>
+        <li><a href="/b2b-tech">B2B SaaS & Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-label">Kontakt</span>
+      <ul class="footer-links">
+        <li><a href="/cdn-cgi/l/email-protection#4d292c3f342c0d2a2839202c3f26283924232a632928"><span class="__cf_email__" data-cfemail="cfabaebdb6ae8fa8aabba2aebda4aabba6a1a8e1abaa">[email&#160;protected]</span></a></li>
+        <li><a href="https://linkedin.com/in/darya-k" target="_blank">LinkedIn</a></li>
+        <li><a href="https://getmarketing.de" target="_blank">getmarketing.de</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Get Marketing · Daria Kablash</span>
+    <span>Impressum · Datenschutz</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
