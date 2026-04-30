@@ -71,46 +71,84 @@ nav.scrolled {
 /* ── HERO ───────────────────────────────────────────────────────────── */
 .hero {
   min-height:100vh; display:flex; align-items:center;
-  padding:120px 48px 80px; position:relative; overflow:hidden;
+  padding:100px 48px 72px; position:relative; overflow:hidden;
 }
 .hero-glow {
-  position:absolute; top:45%; left:50%; transform:translate(-50%,-50%);
-  width:700px; height:700px; border-radius:50%;
-  background:radial-gradient(circle, rgba(27,67,50,0.4) 0%, transparent 68%);
+  position:absolute; top:50%; right:0; transform:translateY(-50%);
+  width:600px; height:600px; border-radius:50%;
+  background:radial-gradient(circle, rgba(27,67,50,0.45) 0%, transparent 70%);
   pointer-events:none;
 }
-.hero-content { position:relative; max-width:800px; }
+.hero-inner {
+  position:relative; width:100%; max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
+}
+.hero-left { display:flex; flex-direction:column; }
 .eyebrow {
-  font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em;
+  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.16em;
   text-transform:uppercase; color:var(--lime); display:inline-block;
-  margin-bottom:24px;
+  margin-bottom:20px;
   opacity:0; animation:fadeUp 0.7s 0.2s var(--ease) forwards;
 }
 .hero h1 {
   font-family:'Syne',sans-serif; font-weight:800;
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  line-height:1.05; letter-spacing:-0.03em; color:var(--offwhite);
-  margin-bottom:28px;
+  font-size:clamp(2.2rem,3.8vw,3.4rem);
+  line-height:1.08; letter-spacing:-0.025em; color:var(--offwhite);
+  margin-bottom:20px;
   opacity:0; animation:fadeUp 0.7s 0.35s var(--ease) forwards;
 }
 .hero h1 .accent { color:var(--lime); }
 .hero-sub {
-  font-family:'Epilogue',sans-serif; font-size:clamp(1rem,1.8vw,1.15rem);
-  color:rgba(245,244,240,0.6); line-height:1.7; max-width:580px;
-  margin-bottom:40px;
+  font-family:'Epilogue',sans-serif; font-size:16px;
+  color:rgba(245,244,240,0.6); line-height:1.7;
+  margin-bottom:36px;
   opacity:0; animation:fadeUp 0.7s 0.5s var(--ease) forwards;
 }
 .hero-actions {
-  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
   opacity:0; animation:fadeUp 0.7s 0.65s var(--ease) forwards;
 }
 .hero-trust {
-  display:flex; align-items:center; gap:28px; margin-top:52px; flex-wrap:wrap;
+  display:flex; align-items:center; gap:24px; margin-top:40px; flex-wrap:wrap;
   opacity:0; animation:fadeUp 0.7s 0.8s var(--ease) forwards;
 }
-.hero-trust-item { display:flex; align-items:center; gap:8px; }
+.hero-trust-item { display:flex; align-items:center; gap:7px; }
 .hero-trust-dot { width:5px; height:5px; border-radius:50%; background:var(--lime); flex-shrink:0; }
-.hero-trust-item span { font-family:'Epilogue',sans-serif; font-size:13px; color:rgba(245,244,240,0.45); }
+.hero-trust-item span { font-family:'Epilogue',sans-serif; font-size:13px; color:rgba(245,244,240,0.4); }
+
+/* Hero right panel */
+.hero-right {
+  opacity:0; animation:fadeUp 0.8s 0.5s var(--ease) forwards;
+}
+.hero-panel {
+  background:rgba(255,255,255,0.04); border:1px solid var(--border-d);
+  border-radius:12px; overflow:hidden;
+}
+.hero-panel-header {
+  padding:16px 20px; border-bottom:1px solid var(--border-d);
+  display:flex; align-items:center; gap:8px;
+}
+.hero-panel-dot { width:8px; height:8px; border-radius:50%; }
+.hero-panel-title { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(245,244,240,0.3); margin-left:4px; }
+.hero-stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border-d); }
+.hero-stat {
+  background:#0a0a0a; padding:24px 22px;
+}
+.hero-stat-val { font-family:'Syne',sans-serif; font-weight:800; font-size:2rem; color:var(--lime); line-height:1; letter-spacing:-0.02em; margin-bottom:4px; }
+.hero-stat-lbl { font-family:'Epilogue',sans-serif; font-size:12px; color:rgba(245,244,240,0.45); line-height:1.4; }
+.hero-flow { padding:20px; display:flex; flex-direction:column; gap:0; border-top:1px solid var(--border-d); }
+.hero-flow-row {
+  display:flex; align-items:center; gap:12px; padding:12px 0;
+  border-bottom:1px solid var(--border-d);
+}
+.hero-flow-row:last-child { border-bottom:none; }
+.hero-flow-num { font-family:'DM Mono',monospace; font-size:10px; color:rgba(134,239,172,0.5); min-width:20px; }
+.hero-flow-label { font-family:'Epilogue',sans-serif; font-size:13px; font-weight:500; color:var(--offwhite); flex:1; }
+.hero-flow-badge {
+  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.10em;
+  text-transform:uppercase; padding:3px 7px; border-radius:3px;
+  background:rgba(27,67,50,0.6); color:var(--lime);
+}
 
 /* ── STATS STRIP ────────────────────────────────────────────────────── */
 .stats-strip {
@@ -389,31 +427,72 @@ footer { background:var(--nearblack); padding:64px 48px 0; border-top:1px solid 
 <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-content">
-    <span class="eyebrow">B2B Lead Generation · DACH</span>
-    <h1>Vorhersehbarer Leadflow —<br><span class="accent">der ohne euch läuft.</span></h1>
-    <p class="hero-sub">
-      Eure Kunden suchen bereits nach Lösungen. Wir bauen das System, das sie zu euch bringt — über SEO, Besucheridentifikation und LinkedIn. Keine gekauften Leads. Keine Plattformabhängigkeit.
-    </p>
-    <div class="hero-actions">
-      <a href="#kontakt" class="btn btn-lime btn-lg">Kostenloses Erstgespräch</a>
-      <a href="#wie-es-funktioniert" class="btn btn-ghost btn-lg">Wie es funktioniert</a>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="eyebrow">B2B Lead Generation · DACH</span>
+      <h1>Vorhersehbarer Leadflow —<br><span class="accent">der ohne euch läuft.</span></h1>
+      <p class="hero-sub">
+        Eure Kunden suchen bereits nach Lösungen. Wir bauen das System, das sie zu euch bringt — über SEO, Besucheridentifikation und LinkedIn. Keine gekauften Leads. Keine Plattformabhängigkeit.
+      </p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-lime btn-lg">Kostenloses Erstgespräch</a>
+        <a href="#wie-es-funktioniert" class="btn btn-ghost btn-lg">Wie es funktioniert</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Keine gekauften Leads</span></div>
+        <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Messbarer ROI ab Woche 1</span></div>
+        <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Senior-Expertise direkt</span></div>
+      </div>
     </div>
-    <div class="hero-trust">
-      <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Keine gekauften Leads</span></div>
-      <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Messbarer ROI ab Woche 1</span></div>
-      <div class="hero-trust-item"><div class="hero-trust-dot"></div><span>Senior-Expertise direkt</span></div>
+    <div class="hero-right">
+      <div class="hero-panel">
+        <div class="hero-panel-header">
+          <div class="hero-panel-dot" style="background:#86EFAC; animation:pulse 1.5s infinite;"></div>
+          <div class="hero-panel-dot" style="background:rgba(255,255,255,0.15);"></div>
+          <div class="hero-panel-dot" style="background:rgba(255,255,255,0.15);"></div>
+          <span class="hero-panel-title">Ergebnisse · Aktuelle Projekte</span>
+        </div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <div class="hero-stat-val">6M+</div>
+            <div class="hero-stat-lbl">Impressionen in 12 Monaten</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val">×7</div>
+            <div class="hero-stat-lbl">Anfragenwachstum in 6 Monaten</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val">#1</div>
+            <div class="hero-stat-lbl">Google-Position, komm. Keyword</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val">383K</div>
+            <div class="hero-stat-lbl">Organische Besucher/Monat</div>
+          </div>
+        </div>
+        <div class="hero-flow">
+          <div class="hero-flow-row">
+            <span class="hero-flow-num">01</span>
+            <span class="hero-flow-label">SEO & Content aufbauen</span>
+            <span class="hero-flow-badge">Nachhaltig</span>
+          </div>
+          <div class="hero-flow-row">
+            <span class="hero-flow-num">02</span>
+            <span class="hero-flow-label">Besucher identifizieren</span>
+            <span class="hero-flow-badge">Intent</span>
+          </div>
+          <div class="hero-flow-row">
+            <span class="hero-flow-num">03</span>
+            <span class="hero-flow-label">Warm kontaktieren</span>
+            <span class="hero-flow-badge">LinkedIn</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── STATS ─────────────────────────────────────────────────────────────── -->
-<div class="stats-strip">
-  <div class="stat-item"><div class="stat-num">6M+</div><div class="stat-lbl">Impressionen in 12 Monaten<br>B2B-Produzent, DACH</div></div>
-  <div class="stat-item"><div class="stat-num">×7</div><div class="stat-lbl">Anfragenwachstum<br>von 2/Woche auf 2/Tag</div></div>
-  <div class="stat-item"><div class="stat-num">#1</div><div class="stat-lbl">Google-Position<br>kommerzielles Keyword</div></div>
-  <div class="stat-item"><div class="stat-num">383K</div><div class="stat-lbl">Organische Besucher/Monat<br>ohne bezahlte Werbung</div></div>
-</div>
+<!-- ── STATS strip removed — stats now live in hero panel ── -->
 
 <!-- ── HOW IT WORKS ──────────────────────────────────────────────────────── -->
 <section class="section how-section" id="wie-es-funktioniert">
@@ -510,7 +589,7 @@ footer { background:var(--nearblack); padding:64px 48px 0; border-top:1px solid 
         <p>Im kostenlosen Erstgespräch analysieren wir eure Nische, zeigen das realistische Trafficpotenzial und legen einen konkreten Plan vor. Keine Verpflichtung. Keine Vorlagen.</p>
         <div class="contact-row">
           <span class="contact-row-label">Mail</span>
-          <a href="/cdn-cgi/l/email-protection#781c190a0119381f1d0c15190a131d0c11161f561c1d"><span class="__cf_email__" data-cfemail="224643505b43624547564f43504947564b4c450c4647">[email&#160;protected]</span></a>
+          <a href="/cdn-cgi/l/email-protection#610500131800210604150c00130a0415080f064f0504"><span class="__cf_email__" data-cfemail="650104171c04250200110804170e00110c0b024b0100">[email&#160;protected]</span></a>
         </div>
         <div class="contact-row">
           <span class="contact-row-label">In</span>
@@ -520,7 +599,7 @@ footer { background:var(--nearblack); padding:64px 48px 0; border-top:1px solid 
           <span class="contact-row-label">Web</span>
           <a href="https://getmarketing.de" target="_blank">getmarketing.de</a>
         </div>
-        <a href="/cdn-cgi/l/email-protection#e98d889b9088a98e8c9d84889b828c9d80878ec78d8c" class="btn btn-lime" style="margin-top:28px; font-size:14px; padding:12px 22px;">Jetzt Gespräch anfragen</a>
+        <a href="/cdn-cgi/l/email-protection#d2b6b3a0abb392b5b7a6bfb3a0b9b7a6bbbcb5fcb6b7" class="btn btn-lime" style="margin-top:28px; font-size:14px; padding:12px 22px;">Jetzt Gespräch anfragen</a>
       </div>
     </div>
   </div>
@@ -711,7 +790,7 @@ footer { background:var(--nearblack); padding:64px 48px 0; border-top:1px solid 
         <div class="about-person">
           <div class="about-person-name">Daria Kablash</div>
           <div class="about-person-role">Senior Marketing Manager</div>
-          <a class="about-person-mail" href="/cdn-cgi/l/email-protection#385c594a4159785f5d4c55594a535d4c51565f165c5d"><span class="__cf_email__" data-cfemail="bbdfdac9c2dafbdcdecfd6dac9d0decfd2d5dc95dfde">[email&#160;protected]</span></a>
+          <a class="about-person-mail" href="/cdn-cgi/l/email-protection#670306151e06270002130a06150c02130e0900490302"><span class="__cf_email__" data-cfemail="debabfaca7bf9eb9bbaab3bfacb5bbaab7b0b9f0babb">[email&#160;protected]</span></a>
         </div>
       </div>
     </div>
@@ -749,7 +828,7 @@ footer { background:var(--nearblack); padding:64px 48px 0; border-top:1px solid 
     <div>
       <span class="footer-col-label">Kontakt</span>
       <ul class="footer-links">
-        <li><a href="/cdn-cgi/l/email-protection#4d292c3f342c0d2a2839202c3f26283924232a632928"><span class="__cf_email__" data-cfemail="cfabaebdb6ae8fa8aabba2aebda4aabba6a1a8e1abaa">[email&#160;protected]</span></a></li>
+        <li><a href="/cdn-cgi/l/email-protection#d2b6b3a0abb392b5b7a6bfb3a0b9b7a6bbbcb5fcb6b7"><span class="__cf_email__" data-cfemail="157174676c74557270617874677e70617c7b723b7170">[email&#160;protected]</span></a></li>
         <li><a href="https://linkedin.com/in/darya-k" target="_blank">LinkedIn</a></li>
         <li><a href="https://getmarketing.de" target="_blank">getmarketing.de</a></li>
       </ul>
