@@ -170,6 +170,58 @@
   .s-dark  .section-body,
   .s-dark2 .section-body { color: var(--muted-d); }
 
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .service-card {
+    background: var(--n200);
+    padding: 36px 32px;
+    transition: background 0.2s;
+    border-top: 3px solid transparent;
+  }
+  .service-card:hover {
+    background: var(--n300);
+    border-top-color: var(--forest);
+  }
+  .service-icon {
+    font-size: 22px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--nearblack);
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--n600);
+    font-weight: 300;
+    line-height: 1.72;
+  }
+  .services-note {
+    margin-top: 32px;
+    padding: 22px 28px;
+    border-left: 3px solid var(--forest);
+    background: var(--n200);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--n600);
+    line-height: 1.7;
+  }
+  .services-note strong { color: var(--nearblack); }
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; gap: 2px; }
+    .service-card { padding: 26px 22px; }
+  }
   /* ── PROBLEM (light) ── */
   .problem-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px;
@@ -533,6 +585,48 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="replaces-item"><span class="old">Analytics &amp; Reporting</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN (light) -->
+<section class="s-light">
+  <span class="section-label">Leistungen</span>
+  <h2 class="section-title reveal">Alles aus einer Hand.<br>Nichts ausgelagert.</h2>
+  <p class="section-body reveal">Wir bündeln alle Kanäle, die B2B-Unternehmen heute brauchen — und führen sie als geschlossenes System. Kein Tool-Dschungel, keine Schnittstellenverluste.</p>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">🔍</span>
+      <h3>SEO</h3>
+      <p>Technische Optimierung, Content-Strategie und Aufbau thematischer Autorität — damit Sie dauerhaft gefunden werden, auch wenn Sie die Werbung pausieren.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🤖</span>
+      <h3>GEO — KI-Sichtbarkeit</h3>
+      <p>Optimierung für KI-Antworten in ChatGPT, Perplexity und Google AI Overviews. Wer hier erscheint, wird als Autorität wahrgenommen — bevor der Besucher überhaupt auf Ihre Website kommt.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📈</span>
+      <h3>Google Ads</h3>
+      <p>Suchmaschinenwerbung mit präzisem Targeting auf kaufbereite Anfragen. Kein Streuverlust — nur Anfragen von Menschen, die aktiv nach Ihrer Lösung suchen.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💼</span>
+      <h3>LinkedIn Ads</h3>
+      <p>Bezahlte Reichweite auf Entscheider-Ebene. Geschäftsführer, Einkaufsleiter, Projektverantwortliche — LinkedIn Ads bringen Ihre Botschaft direkt in den richtigen Feed.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🖥️</span>
+      <h3>Websites und Landing Pages</h3>
+      <p>Conversion-optimierte Seiten, die aus Besuchern Anfragen machen. Wir bauen und optimieren — von der Struktur bis zum finalen Satz auf dem CTA-Button.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📊</span>
+      <h3>CRO-Analyse</h3>
+      <p>Systematische Analyse, wo Besucher abspringen und warum. Heatmaps, Nutzerverhalten, A/B-Tests — damit mehr aus dem Traffic wird, den Sie bereits haben.</p>
+    </div>
+  </div>
+  <div class="services-note reveal">
+    <strong>Einzeln buchbar oder als Paket.</strong> Die meisten Kunden starten mit zwei bis drei Kanälen und erweitern sobald die ersten Ergebnisse sichtbar sind.
   </div>
 </section>
 
