@@ -22,7 +22,6 @@
     --muted-l:   rgba(10,10,10,0.52);
     --border-d:  rgba(255,255,255,0.09);
     --border-l:  rgba(0,0,0,0.09);
-    /* legacy aliases */
     --dark:   var(--forest);
     --dark2:  var(--nearblack);
     --green:  var(--lime);
@@ -44,7 +43,7 @@
     color: var(--offwhite);
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -59,6 +58,14 @@
   }
   .nav-logo span { color: var(--lime); }
   .logo-bolt { width: 11px; height: 18px; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; flex-shrink: 0; display: inline-block; }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-linkedin {
+    font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(245,244,240,0.38); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-linkedin:hover { color: var(--lime); }
   .nav-cta {
     background: var(--green); color: var(--dark);
     font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
@@ -67,7 +74,7 @@
   }
   .nav-cta:hover { background: var(--offwhite); transform: translateY(-1px); }
 
-  /* ── HERO (dark) ── */
+  /* HERO */
   .hero {
     background: var(--dark);
     display: flex; flex-direction: column;
@@ -92,7 +99,7 @@
   .hero h1 {
     font-family: 'Syne', sans-serif; font-weight: 800;
     font-size: clamp(36px,5.5vw,82px); line-height: 0.95;
-    letter-spacing: -3px; width: 100%; color: var(--light);
+    letter-spacing: -2px; width: 100%; color: var(--light);
     opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
   }
   .hero h1 em { font-style: normal; color: var(--green); }
@@ -118,29 +125,7 @@
     font-style: italic; line-height: 1.6; max-width: 380px;
   }
 
-  /* ── METRICS BAR (green) ── */
-  .metrics-section { background: var(--green); }
-  .metrics-label {
-    padding: 24px 48px 0; font-size: 11px; letter-spacing: 2.5px;
-    text-transform: uppercase; color: rgba(10,10,10,0.5); font-weight: 600;
-  }
-  .metrics-bar {
-    display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-  }
-  .metrics-bar::-webkit-scrollbar { display: none; }
-  .metric-item {
-    flex: 1; min-width: 150px; padding: 22px 36px 36px;
-    border-right: 1px solid rgba(10,10,10,0.12);
-  }
-  .metric-item:last-child { border-right: none; }
-  .metric-num {
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(28px,3.2vw,44px); letter-spacing: -2px; color: var(--dark); line-height: 1;
-  }
-  .metric-num span { color: rgba(10,10,10,0.4); }
-  .metric-label { font-size: 12px; color: rgba(10,10,10,0.55); font-weight: 400; margin-top: 8px; line-height: 1.5; }
-
-  /* ── SECTION BASES ── */
+  /* SECTION BASES */
   .s-light { background: var(--light); color: var(--dark); border-top: 1px solid var(--border-l); }
   .s-dark  { background: var(--forest);  color: var(--offwhite); border-top: 1px solid var(--border-d); }
   .s-dark2 { background: var(--nearblack); color: var(--offwhite); border-top: 1px solid var(--border-d); }
@@ -155,7 +140,7 @@
   .s-dark2 .section-label { color: var(--green); }
 
   .section-title {
-    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-family: 'Syne', sans-serif; font-weight: 700;
     font-size: clamp(28px,4vw,54px); line-height: 1.05;
     letter-spacing: -1.5px; width: 100%; max-width: 900px;
   }
@@ -170,59 +155,33 @@
   .s-dark  .section-body,
   .s-dark2 .section-body { color: var(--muted-d); }
 
-
-  /* ── SERVICES ── */
+  /* SERVICES */
   .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 48px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px;
   }
   .service-card {
-    background: var(--n200);
-    padding: 36px 32px;
-    transition: background 0.2s;
-    border-top: 3px solid transparent;
+    background: var(--n200); padding: 36px 32px;
+    transition: background 0.2s; border-top: 3px solid transparent;
   }
-  .service-card:hover {
-    background: var(--n300);
-    border-top-color: var(--forest);
-  }
-  .service-icon {
-    font-size: 22px;
-    margin-bottom: 16px;
-    display: block;
-  }
+  .service-card:hover { background: var(--n300); border-top-color: var(--forest); }
+  .service-icon { font-size: 22px; margin-bottom: 16px; display: block; }
   .service-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    color: var(--nearblack);
-    margin-bottom: 10px;
-    letter-spacing: -0.3px;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px;
+    color: var(--nearblack); margin-bottom: 10px; letter-spacing: -0.3px;
   }
-  .service-card p {
-    font-size: 14px;
-    color: var(--n600);
-    font-weight: 300;
-    line-height: 1.72;
-  }
+  .service-card p { font-size: 14px; color: var(--n600); font-weight: 300; line-height: 1.72; }
   .services-note {
-    margin-top: 32px;
-    padding: 22px 28px;
-    border-left: 3px solid var(--forest);
-    background: var(--n200);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--n600);
-    line-height: 1.7;
+    margin-top: 32px; padding: 22px 28px;
+    border-left: 3px solid var(--forest); background: var(--n200);
+    font-size: 15px; font-weight: 300; color: var(--n600); line-height: 1.7;
   }
   .services-note strong { color: var(--nearblack); }
   @media (max-width: 768px) {
     .services-grid { grid-template-columns: 1fr; gap: 2px; }
     .service-card { padding: 26px 22px; }
   }
-  /* ── PROBLEM (light) ── */
+
+  /* PROBLEM */
   .problem-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px;
   }
@@ -234,6 +193,11 @@
   }
   .problem-item h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 10px; color: var(--dark); }
   .problem-item p { font-size: 15px; color: rgba(10,10,10,0.52); line-height: 1.72; font-weight: 300; }
+  .problem-quote {
+    margin-top: 14px; font-size: 13px; font-style: italic;
+    color: rgba(10,10,10,0.38); line-height: 1.6;
+    border-left: 2px solid rgba(10,10,10,0.12); padding-left: 12px;
+  }
   .problem-closer {
     margin-top: 48px; font-family: 'Syne', sans-serif; font-weight: 700;
     font-size: clamp(20px,2.8vw,36px); letter-spacing: -0.6px;
@@ -241,7 +205,7 @@
   }
   .problem-closer em { font-style: normal; color: var(--dark); }
 
-  /* ── SOLUTION (dark) ── */
+  /* SOLUTION */
   .solution-layout {
     display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 56px; align-items: start;
   }
@@ -254,7 +218,7 @@
   .replaces-item .arrow { color: var(--green); font-size: 16px; flex-shrink: 0; }
   .replaces-item .new { color: var(--light); font-weight: 600; font-family: 'Syne', sans-serif; font-size: 14px; }
 
-  /* ── HOW IT WORKS (light) ── */
+  /* HOW IT WORKS */
   .steps { margin-top: 56px; display: flex; flex-direction: column; }
   .step {
     display: grid; grid-template-columns: 100px 1fr; gap: 28px;
@@ -277,7 +241,7 @@
   }
   .step-content p { font-size: 15px; font-weight: 300; color: rgba(10,10,10,0.52); line-height: 1.78; }
 
-  /* ── WHO DOES WORK (dark) ── */
+  /* WHO DOES WORK */
   .work-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px; }
   .work-card { background: var(--forest-mid); padding: 48px 40px; border: 1px solid rgba(255,255,255,0.1); }
   .work-card.accent-card { background: var(--green); border-color: var(--green); }
@@ -297,7 +261,7 @@
   }
   .bridge-line em { font-style: normal; color: var(--green); }
 
-  /* ── RESULTS (light) ── */
+  /* RESULTS */
   .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 56px; }
   .result-card { background: var(--light2); padding: 40px 36px; transition: background 0.2s; }
   .result-card:hover { background: var(--light3); }
@@ -329,6 +293,30 @@
   .result-card.dark-card  .result-desc { color: rgba(245,243,238,0.42); border-top: 1px solid var(--border-d); }
   .result-card.green-card .result-desc { color: rgba(10,10,10,0.55);   border-top: 1px solid rgba(10,10,10,0.14); }
 
+  .results-more {
+    margin-top: 2px; padding: 32px 36px; background: var(--n200);
+    border-top: none;
+  }
+  .results-more-label {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(10,10,10,0.35); font-weight: 600; margin-bottom: 16px;
+  }
+  .results-list { display: flex; flex-direction: column; }
+  .results-list-item {
+    display: flex; gap: 20px; align-items: baseline;
+    padding: 12px 0; border-bottom: 1px solid var(--border-l); font-size: 14px;
+  }
+  .results-list-item:last-child { border-bottom: none; }
+  .results-list-num {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px;
+    color: var(--dark); min-width: 64px; flex-shrink: 0;
+  }
+  .results-list-label { color: var(--muted-l); font-weight: 300; flex: 1; }
+  .results-list-context {
+    font-size: 11px; color: rgba(10,10,10,0.28); text-transform: uppercase;
+    letter-spacing: 1px; flex-shrink: 0;
+  }
+
   .testimonial-bar {
     margin-top: 2px; padding: 56px 48px; background: var(--forest);
     display: flex; align-items: center; gap: 36px;
@@ -338,7 +326,7 @@
   .quote-text { font-size: clamp(18px,2vw,26px); font-weight: 300; color: rgba(245,243,238,0.88); line-height: 1.6; font-style: italic; }
   .quote-attribution { font-size: 13px; color: rgba(245,243,238,0.38); margin-top: 14px; letter-spacing: 0.5px; }
 
-  /* ── FOR WHO (dark2) ── */
+  /* FOR WHO */
   .icp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 56px; }
   .icp-card { background: var(--forest-mid); border: 1px solid rgba(255,255,255,0.1); padding: 36px 30px; transition: background 0.25s, border-color 0.25s; }
   .icp-card:hover { background: #3a7a5f; border-color: rgba(134,239,172,0.3); }
@@ -348,7 +336,7 @@
   .icp-closer { margin-top: 2px; padding: 28px 36px; border-left: 4px solid var(--lime); background: var(--forest-mid); font-size: 17px; font-weight: 300; color: rgba(245,244,240,0.7); line-height: 1.75; }
   .icp-closer strong { color: var(--light); }
 
-  /* ── FOUNDER (light) ── */
+  /* FOUNDER */
   .founder-layout { display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start; margin-top: 56px; }
   .founder-img { width: 100%; aspect-ratio: 3/4; overflow: hidden; }
   .founder-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%); transition: filter 0.3s; }
@@ -362,8 +350,20 @@
   .founder-stat-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -1.5px; color: var(--dark); line-height: 1; }
   .founder-stat-num span { color: var(--green2); }
   .founder-stat-label { font-size: 12px; color: rgba(10,10,10,0.42); font-weight: 300; margin-top: 5px; line-height: 1.4; }
+  .founder-linkedin {
+    display: inline-block; margin-top: 22px;
+    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 13px;
+    color: var(--green2); text-decoration: none; letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(27,67,50,0.3); padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .founder-linkedin:hover { color: var(--nearblack); border-color: var(--nearblack); }
+  .founder-note {
+    font-size: 11px; color: rgba(10,10,10,0.3); margin-top: 16px;
+    font-style: italic; line-height: 1.5; max-width: 480px;
+  }
 
-  /* ── FAQ (dark) ── */
+  /* FAQ */
   .faq-list { margin-top: 48px; max-width: 780px; }
   .faq-item { border-bottom: 1px solid var(--border-d); overflow: hidden; }
   .faq-q {
@@ -382,10 +382,10 @@
   }
   .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--lime); color: var(--forest); border-color: var(--lime); }
   .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-item.open .faq-a { max-height: 400px; }
   .faq-a p { font-size: 15px; font-weight: 300; color: var(--muted-d); line-height: 1.78; padding-bottom: 24px; max-width: 640px; }
 
-  /* ── FINAL CTA (green) ── */
+  /* FINAL CTA */
   .final-cta {
     background: var(--green); text-align: center;
     padding: 140px 48px; position: relative; overflow: hidden; border-top: none;
@@ -420,7 +420,7 @@
   }
   .btn-dark:hover { background: var(--nearblack); transform: translateY(-2px); }
 
-  /* ── FOOTER (dark) ── */
+  /* FOOTER */
   footer {
     padding: 32px 48px; border-top: 1px solid rgba(255,255,255,0.1);
     display: flex; align-items: center; justify-content: space-between;
@@ -428,9 +428,15 @@
   }
   .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: var(--light); }
   .footer-logo span { color: var(--green); }
+  .footer-links { display: flex; align-items: center; gap: 24px; }
+  .footer-linkedin {
+    font-size: 12px; color: rgba(245,243,238,0.3); text-decoration: none;
+    font-weight: 300; letter-spacing: 0.5px; transition: color 0.2s;
+  }
+  .footer-linkedin:hover { color: var(--lime); }
   .footer-note { font-size: 12px; color: rgba(245,243,238,0.25); font-weight: 300; }
 
-  /* ── ANIMATIONS ── */
+  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -438,7 +444,7 @@
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── MODAL ── */
+  /* MODAL */
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(10,10,10,0.88);
     z-index: 1000; display: flex; align-items: center; justify-content: center;
@@ -466,19 +472,17 @@
   .modal-success h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; margin-bottom: 8px; color: var(--light); }
   .modal-success p { font-size: 14px; color: var(--muted-d); margin-bottom: 0; }
 
-  /* ── MOBILE ── */
+  /* MOBILE */
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
     .nav-logo { font-size: 16px; }
     .nav-cta { padding: 9px 16px; font-size: 12px; }
+    .nav-linkedin { display: none; }
     .hero { padding: 100px 20px 56px; }
     .hero h1 { font-size: 40px; letter-spacing: -1.8px; }
     .hero-sub { font-size: 16px; }
     .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
     .btn-primary { padding: 14px 26px; font-size: 14px; width: 100%; text-align: center; }
-    .hero-bg-text { display: none; }
-    .metrics-label { padding: 18px 20px 0; }
-    .metric-item { padding: 16px 20px 26px; min-width: 130px; }
     section { padding: 64px 20px; }
     .problem-grid { grid-template-columns: 1fr; gap: 2px; }
     .problem-item { padding: 28px 24px; }
@@ -491,6 +495,8 @@
     .work-card { padding: 32px 24px; }
     .results-grid { grid-template-columns: 1fr; gap: 2px; }
     .result-card { padding: 32px 24px; }
+    .results-more { padding: 24px 20px; }
+    .results-list-context { display: none; }
     .testimonial-bar { flex-direction: column; gap: 14px; padding: 36px 20px; border-left-width: 3px; }
     .icp-grid { grid-template-columns: 1fr; gap: 2px; }
     .icp-card { padding: 26px 22px; }
@@ -503,6 +509,7 @@
     .final-cta { padding: 90px 20px; }
     .final-cta h2 { font-size: 36px; letter-spacing: -1.5px; }
     footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
     .modal { padding: 32px 22px; }
     .bridge-line { padding: 20px 22px; }
   }
@@ -521,33 +528,33 @@ document.head.appendChild(o)}initApollo();</script>
 
 <nav>
   <a href="#" class="nav-logo"><svg class="logo-bolt" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0L0 11h5l-1 9 8-13H7L8 0z" fill="#86EFAC"/></svg>Get<span>Marketing</span></a>
-  <a href="mailto:darya@getmarketing.team?subject=Anfrage%20%E2%80%94%20GetMarketing&body=Hallo%20Darya%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20mit%20GetMarketing%20und%20w%C3%BCrde%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20vereinbaren.%0A%0AUnternehmen%3A%20%0ABranche%3A%20%0AKurze%20Beschreibung%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="nav-cta">Gespräch anfragen</a>
+  <div class="nav-right">
+    <a href="https://linkedin.com/in/daryakablash" target="_blank" class="nav-linkedin">LinkedIn ↗</a>
+    <a href="mailto:darya@getmarketing.team?subject=Anfrage%20%E2%80%94%20GetMarketing&body=Hallo%20Darya%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20mit%20GetMarketing%20und%20w%C3%BCrde%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20vereinbaren.%0A%0AUnternehmen%3A%20%0ABranche%3A%20%0AKurze%20Beschreibung%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="nav-cta">Gespräch anfragen</a>
+  </div>
 </nav>
 
-<!-- HERO (dark) -->
+
+<!-- HERO -->
 <section class="hero" style="border-top:none;">
-  <div class="hero-bg-text">MARKETING</div>
-  <div class="hero-tag">KI-gestütztes Marketing-Team für B2B</div>
+  <div class="hero-tag">Für KMU im DACH-Raum</div>
   <h1>Von <em>unsichtbar</em><br>zu ausgebucht.</h1>
-  <p class="hero-sub">Wir bauen ein vollständiges KI-gestütztes Marketing-Team direkt in Ihrem Unternehmen auf — geführt von erfahrenen Experten. SEO, LinkedIn, Content, Outreach. Alles läuft, ohne dass Sie es managen müssen.</p>
+  <p class="hero-sub">Ihr Vertrieb läuft über Empfehlungen und Messen. Das funktioniert — bis es nicht mehr reicht. Wir bauen das System, das kontinuierlich qualifizierte Anfragen bringt: SEO, LinkedIn, Outreach. Sie managen nichts davon.</p>
   <div class="hero-actions">
     <a href="mailto:darya@getmarketing.team?subject=Anfrage%20%E2%80%94%20GetMarketing&body=Hallo%20Darya%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20mit%20GetMarketing%20und%20w%C3%BCrde%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20vereinbaren.%0A%0AUnternehmen%3A%20%0ABranche%3A%20%0AKurze%20Beschreibung%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn-primary">Kostenloses Erstgespräch</a>
-    <span class="hero-note">Im Erstgespräch analysieren wir Ihre aktuelle Situation und zeigen konkrete Möglichkeiten auf. Das hat Wert für Sie, egal wie es danach weitergeht.</span>
+    <span class="hero-note">Im Erstgespräch analysieren wir Ihre Situation — konkret, ohne Pitch.</span>
   </div>
 </section>
 
 
-
-
-
-<!-- PROBLEM (light) -->
+<!-- PROBLEM -->
 <section class="s-light">
   <h2 class="section-title reveal">Ihr habt etwas Gutes aufgebaut.<br>Kaum jemand weiß es.</h2>
   <div class="problem-grid reveal">
     <div class="problem-item">
       <div class="problem-number">01</div>
-      <h3>Agenturen sind zu teuer</h3>
-      <p>Und am Ende nutzen die dasselbe KI-Tool, das Sie auch kennen — nur mit einem fetten Aufschlag und wenig Eigeninitiative.</p>
+      <h3>Agenturen liefern Reports</h3>
+      <p>Viele Agenturen liefern Berichte. Wenig davon landet als Anfrage in Ihrem Postfach — und am Ende nutzen die dasselbe Tool, das Sie auch kennen.</p>
     </div>
     <div class="problem-item">
       <div class="problem-number">02</div>
@@ -556,25 +563,54 @@ document.head.appendChild(o)}initApollo();</script>
     </div>
     <div class="problem-item">
       <div class="problem-number">03</div>
-      <h3>Selbst machen funktioniert nicht</h3>
-      <p>Marketing landet immer hinten. Es passiert sporadisch, halbherzig, oder gar nicht. Das Ergebnis: Stagnation trotz gutem Produkt.</p>
+      <h3>Sie wissen nicht, was davon wirklich funktioniert</h3>
+      <p>LinkedIn-Posts, Google Ads, Blog-Artikel. Irgendwas passiert. Aber ob es an der Kampagne lag, am Timing oder am Angebot — unklar. Marketing ohne saubere Rückkopplung ist teures Raten.</p>
+      <p class="problem-quote">„Die Herausforderung ist nicht, Marketing zu machen — dafür gibt es Tools. Sondern zu wissen, ob man das Richtige tut. Wie viele LinkedIn-Posts mit 3 Likes brauche ich, bevor ich weiß, dass es nicht funktioniert?"</p>
     </div>
     <div class="problem-item">
       <div class="problem-number">04</div>
-      <h3>Ihr Wettbewerb bekommt Ihre Leads</h3>
-      <p>Während Sie warten, investiert der Wettbewerb in Sichtbarkeit und bekommt die Anfragen, die eigentlich Ihnen gehören.</p>
+      <h3>Marketing passiert nur, wenn Zeit übrig ist</h3>
+      <p>Wenn die Auftragslage gut ist, wird Marketing verschoben. Wenn sie schlechter wird, ist es zu spät. Das Ergebnis: Sichtbarkeit, die mit der Pipeline schwankt statt sie zu stabilisieren.</p>
     </div>
   </div>
   <p class="problem-closer reveal">Das alles sollte <em>nicht Ihr Problem sein.</em></p>
 </section>
 
-<!-- SOLUTION (dark) -->
+
+<!-- FOR WHO -->
 <section class="s-dark">
+  <span class="section-label">Für wen</span>
+  <h2 class="section-title reveal">Stark in Ihrem Bereich.<br>Unsichtbar online.</h2>
+  <div class="icp-grid reveal">
+    <div class="icp-card">
+      <div class="icp-icon">🏭</div>
+      <h3>Industrie und Maschinenbau</h3>
+      <p>Familiengeführte Hersteller, starkes Produkt, wenig Online-Präsenz. Lange Verkaufszyklen, technische Zielgruppe — genau unser Terrain.</p>
+    </div>
+    <div class="icp-card">
+      <div class="icp-icon">⚡</div>
+      <h3>Solar und Energietechnik</h3>
+      <p>PV, Dienstleister, EPC. Großprojekte kommen über Kontakte — bis der nächste Auftrag am letzten Kontakt hängt. Wir bauen die Infrastruktur dahinter.</p>
+    </div>
+    <div class="icp-card">
+      <div class="icp-icon">💻</div>
+      <h3>SaaS und Software</h3>
+      <p>Gutes Produkt, schwierige Auffindbarkeit. Kaufentscheidungen fallen online — SEO, LinkedIn und gezielter Outreach bringen die Demos, keine Stellenanzeige.</p>
+    </div>
+  </div>
+  <div class="icp-closer reveal">
+    Wenn Ihre besten Kunden noch immer über Empfehlungen kommen und Sie wissen, dass das nicht skaliert: <strong>Das hier ist für Sie.</strong>
+  </div>
+</section>
+
+
+<!-- SOLUTION -->
+<section class="s-dark" style="border-top:1px solid var(--border-d);">
   <span class="section-label">Die Lösung</span>
   <div class="solution-layout">
     <div>
-      <h2 class="section-title reveal">Ihr Marketing-Team.<br>Aufgebaut. Am Laufen.</h2>
-      <p class="section-body reveal">GetMarketing ist Ihr KI-gestütztes Marketing-Team — SEO, LinkedIn, Content, Outreach — alles koordiniert, alles getrackt, alles in einer Hand. Sie managen nichts. Sie schließen die Anfragen ab, die wir generieren.</p>
+      <h2 class="section-title reveal">Ihr Marketing-System.<br>Aufgebaut. Am Laufen.</h2>
+      <p class="section-body reveal">GetMarketing baut Ihr Marketing-System — SEO, LinkedIn, Outreach — und betreibt es. Keine Übergabe an Junioren. Kein Tool-Dschungel. Direkte Arbeit, messbare Anfragen.</p>
     </div>
     <div class="reveal">
       <div class="replaces-list">
@@ -582,13 +618,14 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="replaces-item"><span class="old">LinkedIn Manager</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
         <div class="replaces-item"><span class="old">Content Writer</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
         <div class="replaces-item"><span class="old">Outreach-Tool</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
-        <div class="replaces-item"><span class="old">Analytics &amp; Reporting</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
+        <div class="replaces-item"><span class="old">Monatliches Reporting auf Deutsch</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LEISTUNGEN (light) -->
+
+<!-- LEISTUNGEN -->
 <section class="s-light">
   <span class="section-label">Leistungen</span>
   <h2 class="section-title reveal">Alles aus einer Hand.<br>Nichts ausgelagert.</h2>
@@ -626,23 +663,16 @@ document.head.appendChild(o)}initApollo();</script>
     </div>
   </div>
   <div class="services-note reveal">
-    <strong>Einzeln buchbar oder als Paket.</strong> Die meisten Kunden starten mit zwei bis drei Kanälen und erweitern sobald die ersten Ergebnisse sichtbar sind.
+    <strong>Einzeln buchbar oder als Paket.</strong> Die meisten Kunden starten mit zwei bis drei Kanälen und erweitern, sobald die ersten Ergebnisse sichtbar sind.
   </div>
 </section>
 
-<!-- HOW IT WORKS (light) -->
-<section class="s-light">
+
+<!-- HOW IT WORKS -->
+<section class="s-light" style="border-top:1px solid var(--border-l);">
   <span class="section-label">So funktioniert es</span>
   <h2 class="section-title reveal">Vier Schritte.<br>Ein Ergebnis.</h2>
   <div class="steps">
-    <div class="step reveal">
-      <div class="step-number">00</div>
-      <div class="step-content">
-        <span class="step-tag">Fundament</span>
-        <h3>Wir optimieren Ihre Website</h3>
-        <p>Bevor wir Traffic generieren, stellen wir sicher, dass er auch konvertiert. Wir analysieren Ihre Website, identifizieren was Besucher verliert und beheben es. Design, Messaging, Struktur. Kein Lead landet auf einer Seite, die ihn nicht abholt.</p>
-      </div>
-    </div>
     <div class="step reveal">
       <div class="step-number">01</div>
       <div class="step-content">
@@ -654,13 +684,21 @@ document.head.appendChild(o)}initApollo();</script>
     <div class="step reveal">
       <div class="step-number">02</div>
       <div class="step-content">
+        <span class="step-tag">Fundament</span>
+        <h3>Wir optimieren Ihre Website</h3>
+        <p>Bevor wir Traffic generieren, stellen wir sicher, dass er auch konvertiert. Wir analysieren Ihre Website, identifizieren was Besucher verliert und beheben es. Design, Messaging, Struktur. Kein Lead landet auf einer Seite, die ihn nicht abholt.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">03</div>
+      <div class="step-content">
         <span class="step-tag">Execution</span>
         <h3>GetMarketing Team legt los</h3>
         <p>SEO-Content geht live. LinkedIn baut Autorität auf. Outreach erreicht die richtigen Entscheider mit Nachrichten, die sich nicht wie Spam anfühlen. Alles koordiniert, alles getrackt.</p>
       </div>
     </div>
     <div class="step reveal">
-      <div class="step-number">03</div>
+      <div class="step-number">04</div>
       <div class="step-content">
         <span class="step-tag">Ergebnis</span>
         <h3>Sie erhalten qualifizierte Anfragen</h3>
@@ -670,7 +708,8 @@ document.head.appendChild(o)}initApollo();</script>
   </div>
 </section>
 
-<!-- WHO DOES THE WORK (dark) -->
+
+<!-- WHO DOES THE WORK -->
 <section class="s-dark">
   <span class="section-label">Wer die Arbeit macht</span>
   <h2 class="section-title reveal">KI-Geschwindigkeit unter<br>Experten-Aufsicht.</h2>
@@ -701,104 +740,69 @@ document.head.appendChild(o)}initApollo();</script>
   </div>
 </section>
 
-<!-- RESULTS (light) -->
+
+<!-- RESULTS -->
 <section class="s-light">
   <span class="section-label">Ergebnisse</span>
   <h2 class="section-title reveal">Echte Projekte.<br>Echte Zahlen.</h2>
   <p class="section-body reveal">Keine Hochglanz-Versprechen. Was hier steht, ist passiert.</p>
   <div class="results-grid reveal">
+    <div class="result-card green-card">
+      <span class="result-industry">B2B Marketing · DACH</span>
+      <div class="result-num" style="color:var(--dark)"><span style="color:rgba(10,10,10,0.38)">×</span>7</div>
+      <div class="result-label">Anfragenwachstum</div>
+      <div class="result-desc">Von 2 Anfragen pro Woche auf 2 pro Tag. LinkedIn von Grund auf aufgebaut. 1,1 Millionen Impressionen in 12 Monaten.</div>
+    </div>
     <div class="result-card dark-card">
       <span class="result-industry">Industrie und Maschinenbau · DACH</span>
       <div class="result-num">6M<span>+</span></div>
       <div class="result-label">Impressionen · 12 Monate</div>
       <div class="result-desc">Null Online-Präsenz zu Beginn. SEO aufgebaut, LinkedIn von 0 gestartet. 34.000 Besucher, 9.000+ Follower. Anfragen kommen heute automatisch.</div>
     </div>
-    <div class="result-card green-card">
-      <span class="result-industry">B2B Marketing · DACH</span>
-      <div class="result-num" style="color:var(--dark)"><span style="color:rgba(10,10,10,0.38)">×</span>7</div>
-      <div class="result-label">Anfragenwachstum</div>
-      <div class="result-desc">Von 2 Anfragen pro Woche auf 2 pro Tag. LinkedIn von Grund auf aufgebaut. 1,1 Millionen Impressionen.</div>
-    </div>
     <div class="result-card">
-      <span class="result-industry">E-Commerce · Schmuck · KI-Automation</span>
+      <span class="result-industry">E-Commerce · KI-Content-Automation</span>
       <div class="result-num">383K</div>
       <div class="result-label">Organische Besucher pro Monat</div>
       <div class="result-desc">Ohne bezahlte Werbung. KI-gestützte Content-Automatisierung aufgebaut. 54.376 rankende Keywords.</div>
     </div>
-    <div class="result-card">
-      <span class="result-industry">B2B · Software · SEO</span>
-      <div class="result-num">360K</div>
-      <div class="result-label">Impressionen gesamt</div>
-      <div class="result-desc">B2B-Softwareanbieter. Top-Autorität in einer technischen Spezial-Nische aufgebaut. Mehrere Ziel-Keywords auf Position 1. 4.590 Klicks gesamt.</div>
-    </div>
-    <div class="result-card dark-card">
-      <span class="result-industry">Local SEO · Bildung · Berlin</span>
-      <div class="result-num">~200</div>
-      <div class="result-label">Kursverkäufe pro Monat</div>
-      <div class="result-desc">Bildungsanbieter Berlin. Website von Grund auf aufgebaut. Seite-1-Ranking für das wichtigste lokale Suchbegriff.</div>
-    </div>
-    <div class="result-card">
-      <span class="result-industry">B2B · Nischen-SEO · Industrie</span>
-      <div class="result-num">+96<span>%</span></div>
-      <div class="result-label">Sichtbarkeitsindex-Wachstum</div>
-      <div class="result-desc">Spezialmaschinenhersteller DACH. Haupt-Keyword auf Rank 1 mit 566 Klicks pro Monat. Traffic-Wert 1.486 Euro pro Monat.</div>
-    </div>
-    <div class="result-card green-card">
-      <span class="result-industry">Bildung · Content-Marketing · SEO</span>
-      <div class="result-num" style="color:var(--dark)">240K</div>
-      <div class="result-label">Impressionen gesamt</div>
-      <div class="result-desc">Bildungsanbieter Gastronomie. 7.580 organische Klicks. CTR von 3,2% — deutlich über dem Branchendurchschnitt.</div>
-    </div>
-    <div class="result-card">
-      <span class="result-industry">Finance · Bildung · SEO</span>
-      <div class="result-num">1K<span>+</span></div>
-      <div class="result-label">Organische Besucher pro Monat</div>
-      <div class="result-desc">Finanzbildungsplattform. 111K Impressionen, 1.180 Klicks in einem wettbewerbsintensiven Markt aufgebaut.</div>
-    </div>
-    <div class="result-card dark-card">
-      <span class="result-industry">E-Commerce · Health · SEO</span>
-      <div class="result-num">2.1K</div>
-      <div class="result-label">Impressionen · frühe Wachstumsphase</div>
-      <div class="result-desc">Health E-Commerce. Von null auf organische Sichtbarkeit. Content-Strategie und Marketing-Automatisierung aufgebaut.</div>
+  </div>
+  <div class="results-more reveal">
+    <div class="results-more-label">Weitere Projekte</div>
+    <div class="results-list">
+      <div class="results-list-item">
+        <span class="results-list-num">+96%</span>
+        <span class="results-list-label">Sichtbarkeitsindex-Wachstum · Hauptkeyword auf Rang 1 · Traffic-Wert 1.486 €/Monat</span>
+        <span class="results-list-context">B2B Industrie · Nischen-SEO</span>
+      </div>
+      <div class="results-list-item">
+        <span class="results-list-num">~200</span>
+        <span class="results-list-label">Kursverkäufe pro Monat · Rang 1 für Hauptkeyword · Website von Grund auf aufgebaut</span>
+        <span class="results-list-context">Local SEO · Berlin</span>
+      </div>
+      <div class="results-list-item">
+        <span class="results-list-num">360K</span>
+        <span class="results-list-label">Impressionen gesamt · mehrere Ziel-Keywords auf Position 1 · 4.590 Klicks</span>
+        <span class="results-list-context">B2B Software · SEO</span>
+      </div>
+      <div class="results-list-item">
+        <span class="results-list-num">240K</span>
+        <span class="results-list-label">Impressionen · 7.580 organische Klicks · CTR 3,2% deutlich über Branchendurchschnitt</span>
+        <span class="results-list-context">Bildung · Content-Marketing</span>
+      </div>
     </div>
   </div>
   <div class="testimonial-bar reveal">
     <div class="quote-mark">"</div>
     <div>
       <div class="quote-text">Wir bekommen ständig Anfragen über die Website und müssen uns darum gar nicht mehr kümmern — also alles gut, danke.</div>
-      <div class="quote-attribution">Anonym auf Wunsch · Geschäftsführer · B2B Industrieequipment · DACH</div>
+      <div class="quote-attribution">Auf Wunsch anonym · Geschäftsführer · B2B Industrieequipment · DACH</div>
     </div>
   </div>
 </section>
 
-<!-- FOR WHO (dark) -->
-<section class="s-dark">
-  <span class="section-label">Für wen</span>
-  <h2 class="section-title reveal">Stark in Ihrem Bereich.<br>Unsichtbar online.</h2>
-  <div class="icp-grid reveal">
-    <div class="icp-card">
-      <div class="icp-icon">🏭</div>
-      <h3>Industrie und Maschinenbau</h3>
-      <p>Familiengeführte Hersteller, starkes Produkt, wenig Online-Präsenz. Lange Verkaufszyklen, technische Zielgruppe — genau unser Terrain.</p>
-    </div>
-    <div class="icp-card">
-      <div class="icp-icon">⚖️</div>
-      <h3>Kanzleien und Beratungen</h3>
-      <p>Hochqualifiziert, stark im Netzwerk, unsichtbar online. Neukunden kommen über Empfehlungen — Sie wissen, dass das nicht reicht.</p>
-    </div>
-    <div class="icp-card">
-      <div class="icp-icon">⚡</div>
-      <h3>Erneuerbare Energien und Solar</h3>
-      <p>PV, Dienstleister, Speichersysteme. Wachstumsmarkt — aber die meisten Unternehmen haben noch keine eigene Lead-Maschine.</p>
-    </div>
-  </div>
-  <div class="icp-closer reveal">
-    Wenn Ihre besten Kunden noch immer über Empfehlungen kommen und Sie wissen, dass das ein Problem ist: <strong>Das hier ist für Sie.</strong>
-  </div>
-</section>
 
-<!-- FOUNDER (light) -->
-<section class="s-light">
+<!-- FOUNDER -->
+<section class="s-light" style="border-top:1px solid var(--border-l);">
   <span class="section-label">Wer dahinter steckt</span>
   <div class="founder-layout reveal">
     <div>
@@ -808,8 +812,8 @@ document.head.appendChild(o)}initApollo();</script>
     </div>
     <div>
       <div class="founder-name">Darya Kablash</div>
-      <div class="founder-title">Senior Marketing Manager · Gründerin · Berlin</div>
-      <p class="founder-bio">7 Jahre. 45 Projekte. Von Industrieunternehmen im Mittelstand bis zu internationalen Tech-Unternehmen — ich baue Marketing-Systeme, die echte Anfragen bringen, nicht Aktivitätssimulation.<br><br>Kein Großteam. Keine Übergaben an Junior-Mitarbeiter. Direkte Arbeit mit Senior-Expertise in allen relevanten Disziplinen.</p>
+      <div class="founder-title">Marketing-Strategin · Gründerin · Berlin</div>
+      <p class="founder-bio">Ich habe selbst Marken von null aufgebaut — das ändert, wie ich über Marketing denke. Nicht als Kanal, sondern als System mit messbarem Output. 45 Projekte, von KMU in Industrie und Solar bis zu internationalem Tech. Alles direkt, ohne Weitergabe an Junioren.</p>
       <div class="skills-list">
         <span class="skill-tag">SEO und Content</span>
         <span class="skill-tag">LinkedIn Organic</span>
@@ -822,10 +826,6 @@ document.head.appendChild(o)}initApollo();</script>
       </div>
       <div class="founder-stats">
         <div>
-          <div class="founder-stat-num">7<span>+</span></div>
-          <div class="founder-stat-label">Jahre Digital<br>Marketing</div>
-        </div>
-        <div>
           <div class="founder-stat-num">45</div>
           <div class="founder-stat-label">Abgeschlossene<br>Projekte</div>
         </div>
@@ -833,19 +833,26 @@ document.head.appendChild(o)}initApollo();</script>
           <div class="founder-stat-num">1M<span>+</span></div>
           <div class="founder-stat-label">Organische<br>Impressionen</div>
         </div>
+        <div>
+          <div class="founder-stat-num">~€1M<span>*</span></div>
+          <div class="founder-stat-label">Generierter<br>Geschäftswert</div>
+        </div>
       </div>
+      <a href="https://linkedin.com/in/daryakablash" target="_blank" class="founder-linkedin">→ LinkedIn-Profil ansehen ↗</a>
+      <p class="founder-note">* Schätzung auf Basis von Traffic-Werten, Anfragewachstum und durchschnittlichen Deal-Größen der Kundenprojekte</p>
     </div>
   </div>
 </section>
 
-<!-- FAQ (dark) -->
+
+<!-- FAQ -->
 <section class="s-dark">
   <span class="section-label">Häufige Fragen</span>
   <h2 class="section-title reveal">Gute Fragen.<br>Ehrliche Antworten.</h2>
   <div class="faq-list reveal">
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Ist das nicht einfach eine Agentur?<div class="faq-icon">+</div></button>
-      <div class="faq-a"><p>Nein. Agenturen liefern Reports und Rechnungen. Wir liefern ein laufendes System und messbares Wachstum in der Anfrage-Pipeline. Wir bauen Infrastruktur, keine Kampagnen — Sie profitieren dauerhaft davon.</p></div>
+      <div class="faq-a"><p>Nein. Agenturen liefern Kampagnen-Reports. Wir bauen ein System, das nach dem ersten Monat weiterläuft — auch wenn Sie uns morgen anrufen und sagen, Sie wollen pausieren. SEO-Rankings gehen nicht weg. LinkedIn-Autorität bleibt. Das ist der Unterschied zwischen Aktivität und Infrastruktur.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Was müssen wir selbst tun?<div class="faq-icon">+</div></button>
@@ -861,12 +868,13 @@ document.head.appendChild(o)}initApollo();</script>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Für welche Unternehmen ist es geeignet?<div class="faq-icon">+</div></button>
-      <div class="faq-a"><p>B2B-Unternehmen mit hochwertigem Angebot und zu wenig Sichtbarkeit dafür. Mittelstand, Kanzleien, Industrieunternehmen, Solar und Energietechnik. Wenn Sie exzellent in Ihrem Bereich sind und online noch nicht sichtbar — passt es.</p></div>
+      <div class="faq-a"><p>B2B-KMU mit hochwertigem Angebot und zu wenig Sichtbarkeit dafür. Industrie, Maschinenbau, Solar, SaaS. Wenn Sie exzellent in Ihrem Bereich sind und online noch nicht sichtbar — passt es.</p></div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA (green) -->
+
+<!-- FINAL CTA -->
 <section class="final-cta">
   <h2 class="reveal">Von <em>unsichtbar</em><br>zu ausgebucht.</h2>
   <p class="reveal">Ihr Wettbewerb bekommt gerade die Anfragen, die Ihnen gehören sollten. Das lässt sich ändern.</p>
@@ -875,8 +883,12 @@ document.head.appendChild(o)}initApollo();</script>
 
 <footer>
   <div class="footer-logo">Get<span>Marketing</span></div>
-  <div class="footer-note">© 2026 GetMarketing · Darya Kablash · Berlin</div>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/daryakablash" target="_blank" class="footer-linkedin">LinkedIn ↗</a>
+    <div class="footer-note">© 2026 GetMarketing · Darya Kablash · Berlin</div>
+  </div>
 </footer>
+
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
@@ -930,14 +942,6 @@ document.head.appendChild(o)}initApollo();</script>
 
   function closeModalOutside(e) {
     if (e.target === document.getElementById('modal')) closeModal();
-  }
-
-  function submitForm() {
-    const name = document.getElementById('m-name').value.trim();
-    const email = document.getElementById('m-email').value.trim();
-    if (!name || !email) return;
-    document.getElementById('modal-form').style.display = 'none';
-    document.getElementById('modal-success').style.display = 'block';
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
