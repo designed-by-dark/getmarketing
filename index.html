@@ -1,968 +1,633 @@
 <!DOCTYPE html>
-<html lang="de" style="background:#1B4332;">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1B4332">
-<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAMAEBAAAAEAIABoBAAANgAAACAgAAABACAAKBEAAJ4EAAAwMAAAAQAgAGgmAADGFQAAKAAAABAAAAAgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/OUwg/0NSL/9kcFP/XmxN/0taOP9ndFf/aHRY/2l1Wf9kcFT/aXVZ/2RxVf9odVn/X2xO/3WBZ/8zRB3/MkMc/zpNIP9JWDX/ZXJV/1ZkRP9ea03/a3hc/298Yf9ndFj/dIBm/2RxVP9uel//dYFn/2VyVf9lclX/M0Qd/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAACAAAABAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zNEHf82SB7/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zRFHv86SiX/Okol/zpKJf86SiX/Okol/zpKJf86SiX/Okol/zpKJf86SiX/Okol/zpKJf86SiX/Okol/zpKJf86SiX/Okol/0NTMP8yQxz/MkMc/zJDHP8yQxz/OUwg/0FYJP8zRB3/dH9l/5CZhP+aoo//hpB5/46Yg/9mc1b/XmxO/46Yg/+Zoo//jpeD/56mlP+Xn4z/l6CN/4yWgf+Ol4P/k5yI/5ykkv+ep5b/f4lz/4SPef+osKD/VmVG/7G3qf/M0Mf/i5aA/zVGIP8yQxz/MkMc/zJDHP89UiL/QVgk/zRGHf+KlH7/kZqF/6Colv9wfGH/go12/4uUfv+Ej3j/usC0/3B8Yv+UnYr/p6+f/5Gbhv+KlH//mKGO/7e9sP+GkHv/iJJ8/5Weiv+fqJb/qrGi/6Ormv+KlH//hpB7/5Gahv+CjHb/NkYg/zJDHP8yQxz/MkMc/zNEHf82Rx7/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zdHIf9BUS3/QVEt/0FRLf9BUS3/QVEt/0FRLf9BUS3/QVEt/0FRLf9BUS3/QVEt/0FRLf9EUzD/RFQw/0FRLf9BUS3/QVEt/0BQLP8zRB3/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAADAAAABgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP82Rx7/M0Qc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/M0Qd/zVFH/81RR//NUUf/zVFH/81RR//NUUf/zVFH/81RR//NUUf/zVFH/81RR//NUUf/zVFH/81RR//NUUf/zVFH/81RR//NUUf/zVFH/81RR//NUUf/zVFH/81RR//NUUf/zVFH/83SCL/Nkch/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP84TCD/Nkke/zJDHP8yQxz/O0sm/1BfPv9HVjP/RVQy/zdIIv9MWzn/SVg2/zVGH/9AUCv/QVEt/1RjQ/9QXz7/WmhK/1JhQf9VY0P/TVw7/15rTf9XZUb/V2VG/1poSf9PXj7/VGND/01cPP9XZUb/WmhJ/2FvUf9RYED/VGJD/1JhQf9VZET/XGpL/0lZN/9UY0P/cX1i/4uUfv+MloH/W2lL/zVGH/8yQxz/MkMc/zJDHP8yQxz/M0Qd/zxQIf9BWCT/RV4m/zRGHf9GVjL/wca6/6Srmv+zuav/0tXN/5ykkf+0uqz/sLeo/297YP+TnIf/VGND/6SsnP+vtqj/wMW6/8jNw/+zuqz/rran/7q/s/+eppX/v8O4/87Syv+Djnj/rbSl/7e9sP+nr5//yc3D/7C2qf+bpJL/qK+g/5WejP+rsqP/3N7Y/1RjRP+jq5r/sLep/9LVzf/Axrr/ZHFV/zhII/8yQxz/MkMc/zJDHP8yQxz/MkMc/zlNIP9JYyj/RV0m/zhLH/9SYED/xcq//255Xv+PmIT/sbip/3+Jcf+2vK7/vcO3/5Sdif/P08r/e4Zu/7W7rv/R1c3/Y3BU/42Xgv/o6ub/nKWT/8XLwP+qsqL/tryu/9LVzf/Cx73/vsS4/7C3qf+YoI7/v8W6/7rBtP+zuav/0dXN/8vPxv+4vrH/09fP/6Orm/++w7j/oKiX/7vBtP/Gy8D/fYhw/zhII/8yQxz/MkMc/zJDHP8yQxz/MkMc/zNFHf88USH/NUYd/zJDHP8zRB3/WWdH/3mEa/94g2n/UV8+/zJDHP80RB7/M0Qd/zlJJP9XZUX/SVg2/3J9Y/9pdlr/UF8+/1RjQ/94g2v/WWdJ/1FgP/9QXz//UF8//1BfP/9kcVT/eoVt/1BfPv9QXz//UF8//1FgQP9QXz//bnpg/2p3XP9yfmT/VmRF/1BfPv9QXz//UF8+/1FgP/9TYkL/UV8//zdHIf8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP80RR3/M0Qc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/NUUf/zdIIv83SCL/N0gi/zdIIv83SCL/N0gi/zdIIv83SCL/N0gi/zdIIv83SCL/N0gi/zdIIv83SCL/N0gi/zdIIv83SCL/N0gi/zdIIv85SST/N0gi/zdIIv83SCL/N0gi/zdIIv83SCL/N0ch/zNEHf8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/zJDHP8yQxz/MkMc/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
-<title>GetMarketing: Von unsichtbar zu ausgebucht</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<!-- Primary SEO -->
+<title>GetMarketing AI — Your AI Marketing Team for B2B Growth | DACH</title>
+<meta name="description" content="GetMarketing gives B2B companies in the DACH region a full AI marketing team running SEO, content, ads, and LinkedIn end-to-end. You approve. The system delivers. Launching July 2026.">
+<meta name="keywords" content="AI marketing team, B2B marketing automation, AI marketing agency DACH, SEO automation, LinkedIn marketing AI, marketing AI software, GetMarketing">
+<meta name="author" content="Darya Kablash, GetMarketing">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://getmarketing.team">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getmarketing.team">
+<meta property="og:title" content="GetMarketing AI — Your AI Marketing Team for B2B Growth">
+<meta property="og:description" content="A full AI marketing team running your SEO, content, ads, and LinkedIn end-to-end. You approve. The system delivers. Built for B2B companies in the DACH region.">
+<meta property="og:image" content="https://getmarketing.team/og-image.jpg">
+<meta property="og:locale" content="en_DE">
+<meta property="og:site_name" content="GetMarketing">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GetMarketing AI — Your AI Marketing Team for B2B Growth">
+<meta name="twitter:description" content="A full AI marketing team running your SEO, content, ads, and LinkedIn end-to-end. Built for B2B companies in DACH.">
+<meta name="twitter:image" content="https://getmarketing.team/og-image.jpg">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://getmarketing.team/#organization",
+      "name": "GetMarketing",
+      "url": "https://getmarketing.team",
+      "logo": "https://getmarketing.team/logo.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Darya Kablash",
+        "url": "https://linkedin.com/in/daryakablash"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Berlin",
+        "addressCountry": "DE"
+      },
+      "description": "GetMarketing is an AI marketing team for B2B companies in the DACH region, running SEO, content, ads, and LinkedIn end-to-end.",
+      "sameAs": [
+        "https://linkedin.com/company/getmarketingteam"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://getmarketing.team/#webpage",
+      "url": "https://getmarketing.team",
+      "name": "GetMarketing AI — Your AI Marketing Team for B2B Growth",
+      "description": "A full AI marketing team running SEO, content, ads, and LinkedIn for B2B companies in the DACH region. You approve. The system delivers.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://getmarketing.team/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "GetMarketing AI",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "AI-powered marketing automation platform that deploys a full AI marketing team for B2B companies. Covers SEO, content, ads, LinkedIn, and analytics.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "description": "Early access waitlist — launching July 2026"
+      }
+    }
+  ]
+}
+</script>
+
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,900;1,900&display=swap');
+
+  blockquote { quotes: none; }
+  blockquote::before, blockquote::after { content: none; }
+  cite { font-style: normal; }
+
+
   :root {
-    --forest:    #1B4332;
-    --forest-mid:#2d6a4f;
-    --lime:      #86EFAC;
-    --nearblack: #0a0a0a;
-    --offwhite:  #f5f4f0;
-    --n200:      #e8e6e0;
-    --n300:      #d8d6d0;
-    --n400:      #a8a49a;
-    --n600:      #57534a;
-    --muted-d:   rgba(245,244,240,0.55);
-    --muted-l:   rgba(10,10,10,0.52);
-    --border-d:  rgba(255,255,255,0.09);
-    --border-l:  rgba(0,0,0,0.09);
-    --dark:   var(--forest);
-    --dark2:  var(--nearblack);
-    --green:  var(--lime);
-    --green2: var(--forest);
-    --light:  var(--offwhite);
-    --light2: var(--n200);
-    --light3: var(--n300);
+    --forest:  #1B4332;
+    --accent:  #52B788;
+    --black:   #0A0A0A;
+    --gray:    #888;
+    --gray2:   #bbb;
+    --card:    #F4F4F4;
+    --white:   #FFFFFF;
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    overflow-x: hidden;
+  html, body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
-    background: var(--forest);
-    color: var(--offwhite);
+    overflow-x: hidden;
   }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 22px 48px;
-    border-bottom: 1px solid var(--border-d);
-    background: rgba(27,67,50,0.97);
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 19px;
-    letter-spacing: -0.5px; color: var(--light); text-decoration: none;
-  }
-  .nav-logo span { color: var(--lime); }
-  .logo-bolt { width: 11px; height: 18px; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; flex-shrink: 0; display: inline-block; }
-  .nav-right { display: flex; align-items: center; gap: 28px; }
-  .nav-linkedin {
-    font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600;
-    letter-spacing: 1px; text-transform: uppercase;
-    color: rgba(245,244,240,0.38); text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-linkedin:hover { color: var(--lime); }
-  .nav-cta {
-    background: var(--green); color: var(--dark);
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
-    padding: 10px 22px; border: none; cursor: pointer; text-decoration: none;
-    transition: background 0.2s, transform 0.2s; display: inline-block;
-  }
-  .nav-cta:hover { background: var(--offwhite); transform: translateY(-1px); }
+  .page { display: flex; flex-direction: column; align-items: center; }
 
-  /* HERO */
+  /* ── HERO ── */
   .hero {
-    background: var(--dark);
-    display: flex; flex-direction: column;
-    justify-content: flex-end; padding: 120px 48px 64px;
-    position: relative; overflow: hidden;
-    border-bottom: 1px solid var(--border-d);
+    width: 100%;
+    background: var(--forest);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px 72px;
   }
-  .hero::after {
-    content: ''; position: absolute; bottom: -120px; right: -120px;
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(134,239,172,0.15) 0%, transparent 65%);
-    pointer-events: none;
+
+  .hero-topbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px 0 0;
   }
-  .hero-bg-text { display: none; }
-  .hero-tag {
-    display: inline-block; font-size: 11px; font-weight: 500;
-    letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--green); border: 1px solid rgba(200,255,69,0.28);
-    padding: 6px 14px; margin-bottom: 36px; width: fit-content;
-    opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
+  .launch-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 7px 16px;
+    border-radius: 30px;
+    letter-spacing: 0.02em;
   }
-  .hero h1 {
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(36px,5.5vw,82px); line-height: 0.95;
-    letter-spacing: -2px; width: 100%; color: var(--light);
-    opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
   }
-  .hero h1 em { font-style: normal; color: var(--green); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .hero-headline {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 32px;
+    font-size: clamp(60px, 10vw, 128px);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+    color: #fff;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
   .hero-sub {
-    margin-top: 28px; font-size: 18px; font-weight: 300;
-    color: var(--muted-d); max-width: 800px; line-height: 1.75;
-    opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 48px;
   }
-  .hero-actions {
-    margin-top: 32px; display: flex; flex-direction: row;
-    align-items: center; gap: 28px; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.7s ease forwards 0.65s;
+
+  .hero-ctas {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  .btn-primary {
-    background: var(--green); color: var(--dark);
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px;
-    padding: 16px 36px; border: none; cursor: pointer; text-decoration: none;
-    display: inline-block; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  .btn-white {
+    background: #fff;
+    color: var(--forest);
+    border: none;
+    border-radius: 50px;
+    padding: 16px 36px;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: -0.02em;
+    transition: opacity 0.18s;
+    white-space: nowrap;
   }
-  .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,255,69,0.18); }
+  .btn-white:hover { opacity: 0.88; }
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 16px 36px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+    transition: border-color 0.18s, color 0.18s;
+    white-space: nowrap;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
   .hero-note {
-    font-size: 13px; color: rgba(245,243,238,0.35);
-    font-style: italic; line-height: 1.6; max-width: 380px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 18px;
+    letter-spacing: 0.02em;
   }
+  .hero-note strong { color: rgba(255,255,255,0.6); font-weight: 400; }
 
-  /* SECTION BASES */
-  .s-light { background: var(--light); color: var(--dark); border-top: 1px solid var(--border-l); }
-  .s-dark  { background: var(--forest);  color: var(--offwhite); border-top: 1px solid var(--border-d); }
-  .s-dark2 { background: var(--nearblack); color: var(--offwhite); border-top: 1px solid var(--border-d); }
-  section { padding: 100px 48px; }
+  /* ── TICKER ── */
+  .ticker-strip {
+    width: 100%;
+    background: var(--card);
+    border-bottom: 1px solid #E8E8E8;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .ticker-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .t-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--white);
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    padding: 5px 11px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--black);
+  }
+  .t-dot { width:5px; height:5px; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; flex-shrink:0; }
+  .t-status { font-size:10px; color:var(--accent); }
 
+  /* ── SHARED ── */
+  .faded { color: var(--gray2); }
+  .green { color: var(--accent); }
+
+  /* ── POSITIONING ── */
+  .pos-section {
+    width: 100%;
+    padding: 120px 40px;
+    text-align: center;
+  }
+  .pos-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--gray2);
+    letter-spacing: 0.06em;
+    border: 1px solid #E4E4E4;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 48px;
+  }
+  .pos-statement {
+    font-size: clamp(28px, 5vw, 68px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    max-width: 960px;
+    margin: 0 auto;
+    color: var(--black);
+  }
+  .pos-statement em { font-style: italic; color: var(--accent); }
+
+  /* ── QUOTE ── */
+  .quote-section {
+    width: 100%;
+    max-width: 680px;
+    padding: 0 24px 120px;
+  }
+  .qcard {
+    background: var(--forest);
+    border-radius: 24px;
+    padding: 52px 56px;
+    position: relative;
+  }
+  .qmark-big {
+    font-size: 80px;
+    line-height: 0.5;
+    font-family: Georgia, serif;
+    color: var(--accent);
+    opacity: 0.35;
+    position: absolute;
+    top: 36px;
+    left: 44px;
+  }
+  .qtext {
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 300;
+    line-height: 1.6;
+    color: #fff;
+    padding-top: 24px;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+  .qattr { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 24px; letter-spacing: 0.04em; }
+
+  /* ── CONTENT ── */
+  .content-section {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 40px 100px;
+  }
   .section-label {
-    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-    font-weight: 600; margin-bottom: 20px; display: block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    text-align: center;
+    margin-bottom: 18px;
   }
-  .s-light .section-label { color: var(--green2); }
-  .s-dark  .section-label,
-  .s-dark2 .section-label { color: var(--green); }
+  .display-h2 {
+    font-size: clamp(40px, 6.5vw, 84px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    text-align: center;
+    margin-bottom: 64px;
+    color: var(--black);
+  }
+  .display-h2 em { font-style: italic; color: var(--accent); }
 
-  .section-title {
-    font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: clamp(28px,4vw,54px); line-height: 1.05;
-    letter-spacing: -1.5px; width: 100%; max-width: 900px;
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-  .s-light .section-title { color: var(--dark); }
-  .s-dark  .section-title,
-  .s-dark2 .section-title { color: var(--light); }
+  .pain-card { background: var(--card); border-radius: 16px; padding: 32px; }
+  .pain-micro { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray2); margin-bottom: 12px; }
+  .pain-title { font-size: clamp(17px, 1.8vw, 21px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; color: var(--black); margin-bottom: 10px; }
+  .pain-body { font-size: 13px; font-weight: 300; line-height: 1.7; color: var(--gray); }
 
-  .section-body {
-    font-size: 17px; font-weight: 300; max-width: 560px; line-height: 1.8; margin-top: 20px;
-  }
-  .s-light .section-body { color: var(--muted-l); }
-  .s-dark  .section-body,
-  .s-dark2 .section-body { color: var(--muted-d); }
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
+  .how-card { background: var(--card); border-radius: 16px; padding: 32px 28px; }
+  .how-icon { font-size: 22px; margin-bottom: 18px; display: block; }
+  .how-title { font-size: 17px; font-weight: 900; letter-spacing: -0.03em; color: var(--black); margin-bottom: 10px; line-height: 1.2; }
+  .how-body { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.7; }
 
-  /* SERVICES */
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px;
-  }
-  .service-card {
-    background: var(--n200); padding: 36px 32px;
-    transition: background 0.2s; border-top: 3px solid transparent;
-  }
-  .service-card:hover { background: var(--n300); border-top-color: var(--forest); }
-  .service-icon { font-size: 22px; margin-bottom: 16px; display: block; }
-  .service-card h3 {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px;
-    color: var(--nearblack); margin-bottom: 10px; letter-spacing: -0.3px;
-  }
-  .service-card p { font-size: 14px; color: var(--n600); font-weight: 300; line-height: 1.72; }
-  .services-note {
-    margin-top: 32px; padding: 22px 28px;
-    border-left: 3px solid var(--forest); background: var(--n200);
-    font-size: 15px; font-weight: 300; color: var(--n600); line-height: 1.7;
-  }
-  .services-note strong { color: var(--nearblack); }
-  @media (max-width: 768px) {
-    .services-grid { grid-template-columns: 1fr; gap: 2px; }
-    .service-card { padding: 26px 22px; }
-  }
+  .how-wide { background: var(--card); border-radius: 16px; padding: 32px 36px; display: flex; align-items: flex-start; gap: 28px; }
+  .how-wide-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .how-wide-title { font-size: 17px; font-weight: 900; letter-spacing: -0.03em; color: var(--black); margin-bottom: 8px; }
+  .how-wide-body { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.7; }
 
-  /* PROBLEM */
-  .problem-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px;
-  }
-  .problem-item { background: var(--light2); padding: 40px 36px; transition: background 0.25s; }
-  .problem-item:hover { background: var(--light3); }
-  .problem-number {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 48px;
-    color: rgba(10,10,10,0.06); line-height: 1; margin-bottom: 12px; letter-spacing: -3px;
-  }
-  .problem-item h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 10px; color: var(--dark); }
-  .problem-item p { font-size: 15px; color: rgba(10,10,10,0.52); line-height: 1.72; font-weight: 300; }
-  .problem-quote {
-    margin-top: 14px; font-size: 13px; font-style: italic;
-    color: rgba(10,10,10,0.38); line-height: 1.6;
-    border-left: 2px solid rgba(10,10,10,0.12); padding-left: 12px;
-  }
-  .problem-closer {
-    margin-top: 48px; font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: clamp(20px,2.8vw,36px); letter-spacing: -0.6px;
-    color: rgba(10,10,10,0.22); white-space: nowrap;
-  }
-  .problem-closer em { font-style: normal; color: var(--dark); }
+  /* ── BOTTOM CTA ── */
+  .bottom-section { width: 100%; padding: 0 24px 100px; text-align: center; }
+  .bottom-h { font-size: clamp(44px, 7vw, 96px); font-weight: 900; line-height: 0.95; letter-spacing: -0.05em; color: var(--black); margin-bottom: 28px; }
+  .bottom-h em { font-style: italic; color: var(--accent); }
+  .bottom-sub { font-size: 15px; font-weight: 300; color: var(--gray); max-width: 440px; margin: 0 auto 40px; line-height: 1.65; }
+  .bottom-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn-black { background: var(--black); color: #fff; border: none; border-radius: 50px; padding: 16px 36px; font-size: 15px; font-weight: 900; font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: -0.02em; transition: opacity 0.18s; }
+  .btn-black:hover { opacity: 0.78; }
+  .btn-outline { background: transparent; color: var(--black); border: 1.5px solid #D0D0D0; border-radius: 50px; padding: 16px 36px; font-size: 15px; font-weight: 400; font-family: 'Inter', sans-serif; cursor: pointer; transition: border-color 0.18s; }
+  .btn-outline:hover { border-color: var(--black); }
 
-  /* SOLUTION */
-  .solution-layout {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 56px; align-items: start;
-  }
-  .replaces-list { display: flex; flex-direction: column; }
-  .replaces-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 0; border-bottom: 1px solid var(--border-d); font-size: 15px; gap: 12px;
-  }
-  .replaces-item .old { color: rgba(245,243,238,0.22); text-decoration: line-through; font-weight: 300; }
-  .replaces-item .arrow { color: var(--green); font-size: 16px; flex-shrink: 0; }
-  .replaces-item .new { color: var(--light); font-weight: 600; font-family: 'Syne', sans-serif; font-size: 14px; }
+  /* ── FOOTER ── */
+  footer { width: 100%; border-top: 1px solid #EBEBEB; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--gray2); }
+  footer a { color: var(--gray2); text-decoration: none; }
+  footer a:hover { color: var(--black); }
 
-  /* HOW IT WORKS */
-  .steps { margin-top: 56px; display: flex; flex-direction: column; }
-  .step {
-    display: grid; grid-template-columns: 100px 1fr; gap: 28px;
-    padding: 44px 0; border-bottom: 1px solid var(--border-l); align-items: start;
-  }
-  .step:first-child { border-top: 1px solid var(--border-l); }
-  .step-number {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px;
-    line-height: 1; color: rgba(10,10,10,0.07); letter-spacing: -3px;
-    transition: color 0.3s; padding-top: 2px;
-  }
-  .step:hover .step-number { color: var(--green2); }
-  .step-tag {
-    display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--green2); border: 1px solid rgba(138,184,0,0.3); padding: 3px 10px; margin-bottom: 10px;
-  }
-  .step-content h3 {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 21px;
-    letter-spacing: -0.4px; margin-bottom: 10px; color: var(--dark);
-  }
-  .step-content p { font-size: 15px; font-weight: 300; color: rgba(10,10,10,0.52); line-height: 1.78; }
+  /* ── MODAL ── */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); backdrop-filter: blur(8px); z-index: 200; display: none; align-items: center; justify-content: center; padding: 24px; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--white); border-radius: 24px; padding: 44px; max-width: 480px; width: 100%; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,0.15); }
+  .modal-close { position: absolute; top: 18px; right: 22px; background: none; border: none; font-size: 20px; color: var(--gray2); cursor: pointer; line-height: 1; }
+  .modal-close:hover { color: var(--black); }
+  .modal h3 { font-size: 24px; font-weight: 900; letter-spacing: -0.04em; margin-bottom: 8px; }
+  .modal > div > p { font-size: 13px; font-weight: 300; color: var(--gray); margin-bottom: 28px; line-height: 1.6; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray2); margin-bottom: 6px; }
+  .field input, .field textarea { width: 100%; background: var(--card); border: 1px solid transparent; border-radius: 10px; padding: 12px 14px; font-size: 14px; font-family: 'Inter', sans-serif; font-weight: 300; color: var(--black); outline: none; transition: border-color 0.2s; resize: none; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--gray2); }
+  .field input:focus, .field textarea:focus { border-color: var(--accent); }
+  .modal-btn { width: 100%; background: var(--forest); color: #fff; border: none; border-radius: 50px; padding: 14px; font-size: 14px; font-weight: 900; font-family: 'Inter', sans-serif; letter-spacing: -0.02em; cursor: pointer; margin-top: 8px; transition: opacity 0.18s; }
+  .modal-btn:hover { opacity: 0.82; }
+  .modal-success { display: none; text-align: center; padding: 24px 0 8px; }
+  .modal-success.show { display: block; }
+  .modal-success .check { font-size: 40px; margin-bottom: 14px; }
+  .modal-success h4 { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
+  .modal-success p { font-size: 13px; font-weight: 300; color: var(--gray); }
 
-  /* WHO DOES WORK */
-  .work-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px; }
-  .work-card { background: var(--forest-mid); padding: 48px 40px; border: 1px solid rgba(255,255,255,0.1); }
-  .work-card.accent-card { background: var(--green); border-color: var(--green); }
-  .work-card h3 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.5px; margin-bottom: 14px; color: var(--light); }
-  .work-card.accent-card h3 { color: var(--dark); }
-  .work-card p { font-size: 15px; font-weight: 300; line-height: 1.75; color: var(--muted-d); }
-  .work-card.accent-card p { color: rgba(10,10,10,0.62); }
-  .work-card ul { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
-  .work-card ul li { font-size: 14px; color: rgba(245,243,238,0.42); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
-  .work-card.accent-card ul li { color: rgba(10,10,10,0.6); }
-  .work-card ul li::before { content: '→'; color: var(--green); font-size: 12px; margin-top: 2px; flex-shrink: 0; }
-  .work-card.accent-card ul li::before { color: rgba(10,10,10,0.5); }
-  .bridge-line {
-    margin-top: 2px; padding: 28px 36px; background: var(--forest-mid);
-    border: 1px solid var(--border-d); font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: clamp(16px,2vw,26px); letter-spacing: -0.3px; color: rgba(245,243,238,0.28);
-  }
-  .bridge-line em { font-style: normal; color: var(--green); }
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    .hero { padding: 0 20px 52px; }
+    .hero-headline { font-size: clamp(52px, 13vw, 80px); margin-top: 40px; margin-bottom: 24px; }
+    .hero-sub { font-size: 15px; margin-bottom: 36px; }
+    .hero-ctas { flex-direction: column; width: 100%; }
+    .btn-white, .btn-ghost { width: 100%; max-width: 340px; text-align: center; }
 
-  /* RESULTS */
-  .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 56px; }
-  .result-card { background: var(--light2); padding: 40px 36px; transition: background 0.2s; }
-  .result-card:hover { background: var(--light3); }
-  .result-card.dark-card { background: var(--forest); }
-  .result-card.dark-card:hover { background: var(--forest-mid); }
-  .result-card.green-card { background: var(--lime); }
-  .result-card.green-card:hover { background: #a5e89c; }
+    .ticker-strip { padding: 12px 16px; gap: 8px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .ticker-label { display: none; }
+    .t-pill { flex-shrink: 0; }
 
-  .result-industry { display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
-  .result-card            .result-industry { color: var(--green2); }
-  .result-card.dark-card  .result-industry { color: var(--green); }
-  .result-card.green-card .result-industry { color: rgba(10,10,10,0.52); }
+    .pos-section { padding: 80px 20px; }
+    .pos-statement { font-size: clamp(24px, 6.5vw, 44px); }
 
-  .result-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(38px,4vw,56px); letter-spacing: -2px; line-height: 1; margin-bottom: 6px; }
-  .result-card            .result-num { color: var(--dark); }
-  .result-card.dark-card  .result-num { color: var(--offwhite); }
-  .result-card.green-card .result-num { color: var(--dark); }
-  .result-num span { color: var(--green2); }
-  .result-card.dark-card  .result-num span { color: var(--green); }
-  .result-card.green-card .result-num span { color: rgba(10,10,10,0.4); }
+    .quote-section { padding: 0 20px 80px; }
+    .qcard { padding: 36px 24px; }
+    .qtext { font-size: 16px; }
+    .qmark-big { left: 24px; }
 
-  .result-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
-  .result-card            .result-label { color: rgba(10,10,10,0.42); }
-  .result-card.dark-card  .result-label { color: rgba(245,243,238,0.38); }
-  .result-card.green-card .result-label { color: rgba(10,10,10,0.48); }
+    .content-section { padding: 0 20px 72px; }
+    .display-h2 { font-size: clamp(34px, 9vw, 52px); margin-bottom: 40px; }
 
-  .result-desc { font-size: 14px; font-weight: 300; line-height: 1.7; padding-top: 18px; }
-  .result-card            .result-desc { color: rgba(10,10,10,0.48);    border-top: 1px solid var(--border-l); }
-  .result-card.dark-card  .result-desc { color: rgba(245,243,238,0.42); border-top: 1px solid var(--border-d); }
-  .result-card.green-card .result-desc { color: rgba(10,10,10,0.55);   border-top: 1px solid rgba(10,10,10,0.14); }
+    .pain-grid { grid-template-columns: 1fr; gap: 8px; }
+    .pain-card { padding: 24px 20px; }
 
-  .results-more {
-    margin-top: 2px; padding: 32px 36px; background: var(--n200);
-    border-top: none;
-  }
-  .results-more-label {
-    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(10,10,10,0.35); font-weight: 600; margin-bottom: 16px;
-  }
-  .results-list { display: flex; flex-direction: column; }
-  .results-list-item {
-    display: flex; gap: 20px; align-items: baseline;
-    padding: 12px 0; border-bottom: 1px solid var(--border-l); font-size: 14px;
-  }
-  .results-list-item:last-child { border-bottom: none; }
-  .results-list-num {
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px;
-    color: var(--dark); min-width: 64px; flex-shrink: 0;
-  }
-  .results-list-label { color: var(--muted-l); font-weight: 300; flex: 1; }
-  .results-list-context {
-    font-size: 11px; color: rgba(10,10,10,0.28); text-transform: uppercase;
-    letter-spacing: 1px; flex-shrink: 0;
-  }
+    .how-grid { grid-template-columns: 1fr; gap: 8px; }
+    .how-card { padding: 24px 20px; }
+    .how-wide { flex-direction: column; gap: 14px; padding: 24px 20px; }
 
-  .testimonial-bar {
-    margin-top: 2px; padding: 56px 48px; background: var(--forest);
-    display: flex; align-items: center; gap: 36px;
-    border-left: 5px solid var(--green);
-  }
-  .quote-mark { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 80px; color: var(--green); line-height: 0.7; flex-shrink: 0; }
-  .quote-text { font-size: clamp(18px,2vw,26px); font-weight: 300; color: rgba(245,243,238,0.88); line-height: 1.6; font-style: italic; }
-  .quote-attribution { font-size: 13px; color: rgba(245,243,238,0.38); margin-top: 14px; letter-spacing: 0.5px; }
+    .bottom-section { padding: 0 20px 80px; }
+    .bottom-h { font-size: clamp(36px, 9vw, 56px); }
+    .bottom-ctas { flex-direction: column; align-items: center; }
+    .btn-black, .btn-outline { width: 100%; max-width: 340px; }
 
-  /* FOR WHO */
-  .icp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 56px; }
-  .icp-card { background: var(--forest-mid); border: 1px solid rgba(255,255,255,0.1); padding: 36px 30px; transition: background 0.25s, border-color 0.25s; }
-  .icp-card:hover { background: #3a7a5f; border-color: rgba(134,239,172,0.3); }
-  .icp-icon { font-size: 26px; margin-bottom: 18px; }
-  .icp-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 10px; color: var(--light); }
-  .icp-card p { font-size: 14px; color: var(--muted-d); font-weight: 300; line-height: 1.7; }
-  .icp-closer { margin-top: 2px; padding: 28px 36px; border-left: 4px solid var(--lime); background: var(--forest-mid); font-size: 17px; font-weight: 300; color: rgba(245,244,240,0.7); line-height: 1.75; }
-  .icp-closer strong { color: var(--light); }
-
-  /* FOUNDER */
-  .founder-layout { display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start; margin-top: 56px; }
-  .founder-img { width: 100%; aspect-ratio: 3/4; overflow: hidden; }
-  .founder-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%); transition: filter 0.3s; }
-  .founder-img:hover img { filter: grayscale(0%); }
-  .founder-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(32px,4vw,52px); letter-spacing: -2px; margin-bottom: 6px; line-height: 1; color: var(--dark); }
-  .founder-title { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green2); font-weight: 600; margin-bottom: 24px; }
-  .founder-bio { font-size: 16px; font-weight: 300; color: var(--muted-l); line-height: 1.85; max-width: 540px; }
-  .skills-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 24px; }
-  .skill-tag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; border: 1px solid var(--border-l); padding: 5px 11px; color: rgba(10,10,10,0.45); background: var(--light2); }
-  .founder-stats { display: flex; gap: 36px; margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--border-l); flex-wrap: wrap; }
-  .founder-stat-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -1.5px; color: var(--dark); line-height: 1; }
-  .founder-stat-num span { color: var(--green2); }
-  .founder-stat-label { font-size: 12px; color: rgba(10,10,10,0.42); font-weight: 300; margin-top: 5px; line-height: 1.4; }
-  .founder-linkedin {
-    display: inline-block; margin-top: 22px;
-    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 13px;
-    color: var(--green2); text-decoration: none; letter-spacing: 0.5px;
-    border-bottom: 1px solid rgba(27,67,50,0.3); padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .founder-linkedin:hover { color: var(--nearblack); border-color: var(--nearblack); }
-  .founder-note {
-    font-size: 11px; color: rgba(10,10,10,0.3); margin-top: 16px;
-    font-style: italic; line-height: 1.5; max-width: 480px;
-  }
-
-  /* FAQ */
-  .faq-list { margin-top: 48px; max-width: 780px; }
-  .faq-item { border-bottom: 1px solid var(--border-d); overflow: hidden; }
-  .faq-q {
-    width: 100%; background: none; border: none; color: var(--light);
-    font-family: 'Syne', sans-serif; font-weight: 600;
-    font-size: clamp(14px,2vw,17px); text-align: left; padding: 24px 0;
-    cursor: pointer; display: flex; justify-content: space-between;
-    align-items: center; gap: 16px; letter-spacing: -0.2px;
-    transition: color 0.2s; line-height: 1.4;
-  }
-  .faq-q:hover { color: var(--green); }
-  .faq-icon {
-    width: 24px; height: 24px; border: 1px solid var(--border-d);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; flex-shrink: 0; transition: all 0.3s; color: var(--green);
-  }
-  .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--lime); color: var(--forest); border-color: var(--lime); }
-  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-  .faq-item.open .faq-a { max-height: 400px; }
-  .faq-a p { font-size: 15px; font-weight: 300; color: var(--muted-d); line-height: 1.78; padding-bottom: 24px; max-width: 640px; }
-
-  /* FINAL CTA */
-  .final-cta {
-    background: var(--green); text-align: center;
-    padding: 140px 48px; position: relative; overflow: hidden; border-top: none;
-  }
-  .final-cta::before {
-    content: ''; position: absolute; top: -80px; left: -80px;
-    width: 350px; height: 350px; background: rgba(10,10,10,0.05);
-    transform: rotate(30deg); pointer-events: none;
-  }
-  .final-cta::after {
-    content: ''; position: absolute; bottom: -100px; right: -60px;
-    width: 450px; height: 450px; background: rgba(10,10,10,0.04);
-    transform: rotate(15deg); pointer-events: none;
-  }
-  .final-cta h2 {
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(36px,7vw,92px); letter-spacing: -3px; line-height: 0.95;
-    margin-bottom: 24px; color: var(--dark); position: relative; z-index: 1;
-  }
-  .final-cta h2 em { font-style: normal; color: rgba(10,10,10,0.35); }
-  .final-cta p {
-    font-size: 17px; font-weight: 400; color: rgba(10,10,10,0.58);
-    max-width: 420px; margin: 0 auto 40px; line-height: 1.75;
-    position: relative; z-index: 1;
-  }
-  .btn-dark {
-    background: var(--forest); color: var(--lime);
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px;
-    padding: 16px 36px; border: none; cursor: pointer; text-decoration: none;
-    display: inline-block; transition: background 0.2s, transform 0.2s;
-    position: relative; z-index: 1;
-  }
-  .btn-dark:hover { background: var(--nearblack); transform: translateY(-2px); }
-
-  /* FOOTER */
-  footer {
-    padding: 32px 48px; border-top: 1px solid rgba(255,255,255,0.1);
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 12px; background: var(--nearblack);
-  }
-  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: var(--light); }
-  .footer-logo span { color: var(--green); }
-  .footer-links { display: flex; align-items: center; gap: 24px; }
-  .footer-linkedin {
-    font-size: 12px; color: rgba(245,243,238,0.3); text-decoration: none;
-    font-weight: 300; letter-spacing: 0.5px; transition: color 0.2s;
-  }
-  .footer-linkedin:hover { color: var(--lime); }
-  .footer-note { font-size: 12px; color: rgba(245,243,238,0.25); font-weight: 300; }
-
-  .results-secondary-label {
-    margin-top: 40px; padding: 0 0 14px 0;
-    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(10,10,10,0.35); font-weight: 600;
-    border-bottom: 1px solid var(--border-l);
-  }
-  .results-secondary-grid {
-    display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 2px;
-  }
-  @media (max-width: 900px) {
-    .results-secondary-grid { grid-template-columns: repeat(2,1fr); }
-  }
-  @media (max-width: 520px) {
-    .results-secondary-grid { grid-template-columns: 1fr; }
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* MODAL */
-  .modal-overlay {
-    position: fixed; inset: 0; background: rgba(10,10,10,0.88);
-    z-index: 1000; display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s;
-    backdrop-filter: blur(12px); padding: 20px;
-  }
-  .modal-overlay.active { opacity: 1; pointer-events: all; }
-  .modal { background: var(--forest); padding: 48px 44px; max-width: 440px; width: 100%; position: relative; border: 1px solid rgba(134,239,172,0.2); }
-  .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: rgba(245,243,238,0.3); font-size: 22px; cursor: pointer; transition: color 0.2s; line-height: 1; }
-  .modal-close:hover { color: var(--light); }
-  .modal h3 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.6px; margin-bottom: 8px; color: var(--light); }
-  .modal > p { font-size: 14px; color: rgba(245,243,238,0.35); margin-bottom: 24px; font-weight: 300; line-height: 1.6; }
-  .modal input {
-    width: 100%; background: var(--forest-mid); border: 1px solid rgba(255,255,255,0.12);
-    color: var(--light); font-family: 'DM Sans', sans-serif; font-size: 15px;
-    padding: 12px 14px; margin-bottom: 10px; outline: none;
-    transition: border-color 0.2s; border-radius: 0; -webkit-appearance: none;
-  }
-  .modal input:focus { border-color: var(--green); }
-  .modal input::placeholder { color: rgba(245,243,238,0.18); }
-  .modal-submit { width: 100%; background: var(--lime); color: var(--forest); border: none; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; padding: 14px; cursor: pointer; margin-top: 6px; transition: background 0.2s; }
-  .modal-submit:hover { background: var(--offwhite); }
-  .modal-success { display: none; text-align: center; padding: 20px 0; }
-  .modal-success .check { font-size: 40px; margin-bottom: 12px; }
-  .modal-success h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; margin-bottom: 8px; color: var(--light); }
-  .modal-success p { font-size: 14px; color: var(--muted-d); margin-bottom: 0; }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .nav-logo { font-size: 16px; }
-    .nav-cta { padding: 9px 16px; font-size: 12px; }
-    .nav-linkedin { display: none; }
-    .hero { padding: 100px 20px 56px; }
-    .hero h1 { font-size: 40px; letter-spacing: -1.8px; }
-    .hero-sub { font-size: 16px; }
-    .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
-    .btn-primary { padding: 14px 26px; font-size: 14px; width: 100%; text-align: center; }
-    section { padding: 64px 20px; }
-    .problem-grid { grid-template-columns: 1fr; gap: 2px; }
-    .problem-item { padding: 28px 24px; }
-    .problem-closer { white-space: normal; }
-    .solution-layout { grid-template-columns: 1fr; gap: 36px; }
-    .step { grid-template-columns: 68px 1fr; gap: 16px; padding: 32px 0; }
-    .step-number { font-size: 40px; }
-    .step-content h3 { font-size: 17px; }
-    .work-split { grid-template-columns: 1fr; gap: 2px; }
-    .work-card { padding: 32px 24px; }
-    .results-grid { grid-template-columns: 1fr; gap: 2px; }
-    .result-card { padding: 32px 24px; }
-    .results-more { padding: 24px 20px; }
-    .results-list-context { display: none; }
-    .testimonial-bar { flex-direction: column; gap: 14px; padding: 36px 20px; border-left-width: 3px; }
-    .icp-grid { grid-template-columns: 1fr; gap: 2px; }
-    .icp-card { padding: 26px 22px; }
-    .icp-closer { padding: 22px 24px; }
-    .founder-layout { grid-template-columns: 1fr; gap: 32px; }
-    .founder-img { max-width: 180px; aspect-ratio: 1/1; }
-    .founder-name { font-size: 34px; }
-    .founder-stats { gap: 24px; }
-    .faq-list { max-width: 100%; }
-    .final-cta { padding: 90px 20px; }
-    .final-cta h2 { font-size: 36px; letter-spacing: -1.5px; }
-    footer { padding: 24px 20px; flex-direction: column; text-align: center; }
-    .footer-links { justify-content: center; }
-    .modal { padding: 32px 22px; }
-    .bridge-line { padding: 20px 22px; }
-  }
-  @media (max-width: 420px) {
-    .hero h1 { font-size: 34px; }
-    .section-title { font-size: 24px; letter-spacing: -0.8px; }
-    .founder-stats { flex-direction: column; gap: 18px; }
+    footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
+    .modal { padding: 28px 20px; }
+    .modal-overlay { padding: 16px; align-items: flex-end; }
   }
 </style>
-<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-o.onload=function(){window.trackingFunctions.onLoad({appId:"69f266d9d04146001d74f8c3"})},
-document.head.appendChild(o)}initApollo();</script>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="nav-logo"><svg class="logo-bolt" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0L0 11h5l-1 9 8-13H7L8 0z" fill="#86EFAC"/></svg>Get<span>Marketing</span></a>
-  <div class="nav-right">
-    <a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" class="nav-linkedin">LinkedIn ↗</a>
-    <a href="mailto:darya@getmarketing.team?subject=Anfrage%20%E2%80%94%20GetMarketing&body=Hallo%20Darya%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20mit%20GetMarketing%20und%20w%C3%BCrde%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20vereinbaren.%0A%0AUnternehmen%3A%20%0ABranche%3A%20%0AKurze%20Beschreibung%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="nav-cta">Gespräch anfragen</a>
-  </div>
-</nav>
-
-
-<!-- HERO -->
-<section class="hero" style="border-top:none;">
-  <div class="hero-tag">Für KMU im DACH-Raum</div>
-  <h1>Von <em>unsichtbar</em><br>zu ausgebucht.</h1>
-  <p class="hero-sub">Ihr Vertrieb läuft über Empfehlungen und Messen. Das funktioniert, bis es nicht mehr reicht. Wir bauen das System, das kontinuierlich qualifizierte Anfragen bringt: SEO, LinkedIn, Outreach. Sie managen nichts davon.</p>
-  <div class="hero-actions">
-    <a href="mailto:darya@getmarketing.team?subject=Anfrage%20%E2%80%94%20GetMarketing&body=Hallo%20Darya%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20mit%20GetMarketing%20und%20w%C3%BCrde%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20vereinbaren.%0A%0AUnternehmen%3A%20%0ABranche%3A%20%0AKurze%20Beschreibung%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn-primary">Kostenloses Erstgespräch</a>
-    <span class="hero-note">Im Erstgespräch analysieren wir Ihre Situation: konkret, ohne Pitch.</span>
-  </div>
-</section>
-
-
-<!-- PROBLEM -->
-<section class="s-light">
-  <h2 class="section-title reveal">Ihr habt etwas Gutes aufgebaut.<br>Kaum jemand weiß es.</h2>
-  <div class="problem-grid reveal">
-    <div class="problem-item">
-      <div class="problem-number">01</div>
-      <h3>Agenturen liefern Reports</h3>
-      <p>Viele Agenturen liefern Berichte. Wenig davon landet als Anfrage in Ihrem Postfach. Wir arbeiten anders: als Teil Ihrer Prozesse, nicht als externer Dienstleister auf Abstand.</p>
-    </div>
-    <div class="problem-item">
-      <div class="problem-number">02</div>
-      <h3>Freelancer brauchen Management</h3>
-      <p>5 Freelancer, 3 Plattformen, 8 Tools. Ein zweiter Job on top Ihres echten Jobs.</p>
-    </div>
-    <div class="problem-item">
-      <div class="problem-number">03</div>
-      <h3>Sie wissen nicht, was davon wirklich funktioniert</h3>
-      <p>LinkedIn-Posts, Google Ads, Blog-Artikel. Irgendwas passiert. Aber ob es an der Kampagne lag, am Timing oder am Angebot: unklar. Marketing ohne saubere Rückkopplung ist teures Raten.</p>
-      <p class="problem-quote">„Die Herausforderung ist nicht, Marketing zu machen, dafür gibt es Tools. Sondern zu wissen, ob man das Richtige tut. Wie viele LinkedIn-Posts mit 3 Likes brauche ich, bevor ich weiß, dass es nicht funktioniert?"</p>
-    </div>
-    <div class="problem-item">
-      <div class="problem-number">04</div>
-      <h3>Marketing passiert nur, wenn Zeit übrig ist</h3>
-      <p>Wenn die Auftragslage gut ist, wird Marketing verschoben. Wenn sie schlechter wird, ist es zu spät. Das Ergebnis: Sichtbarkeit, die mit der Pipeline schwankt statt sie zu stabilisieren.</p>
-    </div>
-  </div>
-  <p class="problem-closer reveal">Das alles sollte <em>nicht Ihr Problem sein.</em></p>
-</section>
-
-
-<!-- FOR WHO -->
-<section class="s-dark">
-  <span class="section-label">Für wen</span>
-  <h2 class="section-title reveal">Stark in Ihrem Bereich.<br>Unsichtbar online.</h2>
-  <div class="icp-grid reveal">
-    <div class="icp-card">
-      <div class="icp-icon">🏭</div>
-      <h3>Industrie und Maschinenbau</h3>
-      <p>Familiengeführte Hersteller, starkes Produkt, wenig Online-Präsenz. Lange Verkaufszyklen, technische Zielgruppe: genau unser Terrain.</p>
-    </div>
-    <div class="icp-card">
-      <div class="icp-icon">⚡</div>
-      <h3>Solar und Energietechnik</h3>
-      <p>PV, Dienstleister, EPC. Großprojekte kommen über Kontakte, bis der nächste Auftrag am letzten Kontakt hängt. Wir bauen die Infrastruktur dahinter.</p>
-    </div>
-    <div class="icp-card">
-      <div class="icp-icon">💻</div>
-      <h3>SaaS und Software</h3>
-      <p>Gutes Produkt, schwierige Auffindbarkeit. Kaufentscheidungen fallen online: SEO, LinkedIn und gezielter Outreach bringen die Demos, keine Stellenanzeige.</p>
-    </div>
-  </div>
-  <div class="icp-closer reveal">
-    Wenn Ihre besten Kunden noch immer über Empfehlungen kommen und Sie wissen, dass das nicht skaliert: <strong>Das hier ist für Sie.</strong>
-  </div>
-</section>
-
-
-<!-- SOLUTION -->
-<section class="s-dark" style="border-top:1px solid var(--border-d);">
-  <span class="section-label">Die Lösung</span>
-  <div class="solution-layout">
-    <div>
-      <h2 class="section-title reveal">Ihr Marketing-System.<br>Aufgebaut. Am Laufen.</h2>
-      <p class="section-body reveal">GetMarketing baut Ihr Marketing-System aus SEO, LinkedIn und Outreach, und betreibt es. Wir integrieren uns in Ihre Abläufe wie ein internes Team: direkter Austausch, volle Transparenz, keine Blackbox. Keine Übergabe an Junioren.</p>
-    </div>
-    <div class="reveal">
-      <div class="replaces-list">
-        <div class="replaces-item"><span class="old">SEO-Agentur</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
-        <div class="replaces-item"><span class="old">LinkedIn Manager</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
-        <div class="replaces-item"><span class="old">Content Writer</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
-        <div class="replaces-item"><span class="old">Outreach-Tool</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
-        <div class="replaces-item"><span class="old">Monatliches Reporting auf Deutsch</span><span class="arrow">→</span><span class="new">GetMarketing</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- LEISTUNGEN -->
-<section class="s-light">
-  <span class="section-label">Leistungen</span>
-  <h2 class="section-title reveal">Alles aus einer Hand.<br>Nichts ausgelagert.</h2>
-  <p class="section-body reveal">Wir bündeln alle Kanäle, die B2B-Unternehmen heute brauchen, und führen sie als geschlossenes System. Kein Tool-Dschungel, keine Schnittstellenverluste.</p>
-  <div class="services-grid reveal">
-    <div class="service-card">
-      <span class="service-icon">🔍</span>
-      <h3>SEO</h3>
-      <p>Technische Optimierung, Content-Strategie und Aufbau thematischer Autorität, damit Sie dauerhaft gefunden werden, auch wenn Sie die Werbung pausieren.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🤖</span>
-      <h3>GEO: KI-Sichtbarkeit</h3>
-      <p>Optimierung für KI-Antworten in ChatGPT, Perplexity und Google AI Overviews. Wer hier erscheint, wird als Autorität wahrgenommen, bevor der Besucher überhaupt auf Ihre Website kommt.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📈</span>
-      <h3>Google Ads</h3>
-      <p>Suchmaschinenwerbung mit präzisem Targeting auf kaufbereite Anfragen. Kein Streuverlust, nur Anfragen von Menschen, die aktiv nach Ihrer Lösung suchen.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">💼</span>
-      <h3>LinkedIn Ads</h3>
-      <p>Bezahlte Reichweite auf Entscheider-Ebene. Geschäftsführer, Einkaufsleiter, Projektverantwortliche: LinkedIn Ads bringen Ihre Botschaft direkt in den richtigen Feed.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🖥️</span>
-      <h3>Websites und Landing Pages</h3>
-      <p>Conversion-optimierte Seiten, die aus Besuchern Anfragen machen. Wir bauen und optimieren: von der Struktur bis zum finalen Satz auf dem CTA-Button.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📊</span>
-      <h3>CRO-Analyse</h3>
-      <p>Systematische Analyse, wo Besucher abspringen und warum. Heatmaps, Nutzerverhalten, A/B-Tests, damit mehr aus dem Traffic wird, den Sie bereits haben.</p>
-    </div>
-  </div>
-  <div class="services-note reveal">
-    <strong>Einzeln buchbar oder als Paket.</strong> Die meisten Kunden starten mit zwei bis drei Kanälen und erweitern, sobald die ersten Ergebnisse sichtbar sind.
-  </div>
-</section>
-
-
-<!-- HOW IT WORKS -->
-<section class="s-light" style="border-top:1px solid var(--border-l);">
-  <span class="section-label">So funktioniert es</span>
-  <h2 class="section-title reveal">Vier Schritte.<br>Ein Ergebnis.</h2>
-  <div class="steps">
-    <div class="step reveal">
-      <div class="step-number">01</div>
-      <div class="step-content">
-        <span class="step-tag">Analyse</span>
-        <h3>Wir analysieren Ihren Markt</h3>
-        <p>ICP, Wettbewerber, Positionierung, Ziele. Ein Onboarding-Gespräch. Wir zeigen Ihnen genau, wo die Chancen liegen, die der Wettbewerb noch nicht besetzt hat, und darauf bauen wir die gesamte Strategie.</p>
-      </div>
-    </div>
-    <div class="step reveal">
-      <div class="step-number">02</div>
-      <div class="step-content">
-        <span class="step-tag">Fundament</span>
-        <h3>Wir optimieren Ihre Website</h3>
-        <p>Bevor wir Traffic generieren, stellen wir sicher, dass er auch konvertiert. Wir analysieren Ihre Website, identifizieren was Besucher verliert und beheben es. Design, Messaging, Struktur. Kein Lead landet auf einer Seite, die ihn nicht abholt.</p>
-      </div>
-    </div>
-    <div class="step reveal">
-      <div class="step-number">03</div>
-      <div class="step-content">
-        <span class="step-tag">Execution</span>
-        <h3>GetMarketing Team legt los</h3>
-        <p>SEO-Content geht live. LinkedIn baut Autorität auf. Outreach erreicht die richtigen Entscheider mit Nachrichten, die sich nicht wie Spam anfühlen. Alles koordiniert, alles getrackt.</p>
-      </div>
-    </div>
-    <div class="step reveal">
-      <div class="step-number">04</div>
-      <div class="step-content">
-        <span class="step-tag">Ergebnis</span>
-        <h3>Sie erhalten qualifizierte Anfragen</h3>
-        <p>Leads und Gespräche von Menschen, die bereits nach dem suchen, was Sie anbieten. Sie fokussieren sich aufs Abschließen. Alles davor gehört uns.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- WHO DOES THE WORK -->
-<section class="s-dark">
-  <span class="section-label">Wer die Arbeit macht</span>
-  <h2 class="section-title reveal">KI-Geschwindigkeit unter<br>Experten-Aufsicht.</h2>
-  <div class="work-split reveal">
-    <div class="work-card">
-      <h3>KI-Agenten</h3>
-      <p>Übernehmen die Ausführungsebene in einer Geschwindigkeit und Tiefe, die kein klassisches Team erreicht.</p>
-      <ul>
-        <li>Markt- und Wettbewerbsrecherche</li>
-        <li>Content-Produktion und Optimierung</li>
-        <li>Outreach-Sequenzierung und Personalisierung</li>
-        <li>Analyse und Reporting</li>
-      </ul>
-    </div>
-    <div class="work-card accent-card">
-      <h3>Senior Marketer</h3>
-      <p>Übernehmen Strategie, Qualitätssicherung und alle Entscheidungen, die echtes Urteilsvermögen erfordern.</p>
-      <ul>
-        <li>Strategische Ausrichtung und Zieldefinition</li>
-        <li>Qualitätskontrolle aller Inhalte</li>
-        <li>Positionierung und Messaging</li>
-        <li>Laufende Optimierung und Anpassung</li>
-      </ul>
-    </div>
-  </div>
-  <div class="bridge-line reveal">
-    Sie bekommen <em>beides</em> ohne eines davon selbst einzustellen.
-  </div>
-</section>
-
-
-<!-- RESULTS -->
-<section class="s-light">
-  <span class="section-label">Ergebnisse</span>
-  <h2 class="section-title reveal">Echte Projekte.<br>Echte Zahlen.</h2>
-  <p class="section-body reveal">Keine Hochglanz-Versprechen. Was hier steht, ist passiert.</p>
-  <div class="results-grid reveal">
-    <div class="result-card green-card">
-      <span class="result-industry">B2B Marketing · DACH</span>
-      <div class="result-num" style="color:var(--dark)"><span style="color:rgba(10,10,10,0.38)">×</span>7</div>
-      <div class="result-label">Anfragenwachstum</div>
-      <div class="result-desc">Von 2 Anfragen pro Woche auf 2 pro Tag. LinkedIn von Grund auf aufgebaut. 1,1 Millionen Impressionen in 12 Monaten.</div>
-    </div>
-    <div class="result-card dark-card">
-      <span class="result-industry">Industrie und Maschinenbau · DACH</span>
-      <div class="result-num">6M<span>+</span></div>
-      <div class="result-label">Impressionen · 12 Monate</div>
-      <div class="result-desc">Null Online-Präsenz zu Beginn. SEO aufgebaut, LinkedIn von 0 gestartet. 34.000 Besucher, 9.000+ Follower. Anfragen kommen heute automatisch.</div>
-    </div>
-    <div class="result-card">
-      <span class="result-industry">E-Commerce · KI-Content-Automation</span>
-      <div class="result-num">383K</div>
-      <div class="result-label">Organische Besucher pro Monat</div>
-      <div class="result-desc">Ohne bezahlte Werbung. KI-gestützte Content-Automatisierung aufgebaut. 54.376 rankende Keywords.</div>
-    </div>
-  </div>
-  <div class="results-secondary-label reveal">Weitere Projekte</div>
-  <div class="results-secondary-grid reveal">
-    <div class="result-card">
-      <span class="result-industry">B2B Industrie · Nischen-SEO</span>
-      <div class="result-num">+96<span>%</span></div>
-      <div class="result-label">Sichtbarkeitsindex-Wachstum</div>
-      <div class="result-desc">Hauptkeyword auf Rang 1. Traffic-Wert 1.486 Euro pro Monat. Spezialmaschinenhersteller DACH.</div>
-    </div>
-    <div class="result-card">
-      <span class="result-industry">Local SEO · Berlin</span>
-      <div class="result-num">~200</div>
-      <div class="result-label">Kursverkäufe pro Monat</div>
-      <div class="result-desc">Rang 1 für das wichtigste lokale Suchbegriff. Website von Grund auf aufgebaut. Bildungsanbieter Berlin.</div>
-    </div>
-    <div class="result-card">
-      <span class="result-industry">B2B Software · SEO</span>
-      <div class="result-num">360K</div>
-      <div class="result-label">Impressionen gesamt</div>
-      <div class="result-desc">Mehrere Ziel-Keywords auf Position 1. 4.590 Klicks gesamt. Top-Autorität in technischer Spezial-Nische.</div>
-    </div>
-    <div class="result-card">
-      <span class="result-industry">Bildung · Content-Marketing</span>
-      <div class="result-num">240K</div>
-      <div class="result-label">Impressionen gesamt</div>
-      <div class="result-desc">7.580 organische Klicks. CTR 3,2 % deutlich über Branchendurchschnitt. Bildungsanbieter Gastronomie.</div>
-    </div>
-  </div>
-  <div class="testimonial-bar reveal">
-    <div class="quote-mark">"</div>
-    <div>
-      <div class="quote-text">Wir bekommen ständig Anfragen über die Website und müssen uns darum gar nicht mehr kümmern, also alles gut, danke.</div>
-      <div class="quote-attribution">Auf Wunsch anonym · Geschäftsführer · B2B Industrieequipment · DACH</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- FOUNDER -->
-<section class="s-light" style="border-top:1px solid var(--border-l);">
-  <span class="section-label">Wer dahinter steckt</span>
-  <div class="founder-layout reveal">
-    <div>
-      <div class="founder-img">
-        <img src="https://ik.imagekit.io/daryakab/IMG_1996.jpg" alt="Darya Kablash · GetMarketing" loading="lazy">
-      </div>
-    </div>
-    <div>
-      <div class="founder-name">Darya Kablash</div>
-      <div class="founder-title">Marketing-Strategin · Gründerin · Berlin</div>
-      <p class="founder-bio">Ich habe selbst Marken von null aufgebaut, das ändert, wie ich über Marketing denke. Nicht als Kanal, sondern als System mit messbarem Output. 45 Projekte, von KMU in Industrie und Solar bis zu internationalem Tech. Alles direkt, ohne Weitergabe an Junioren.</p>
-      <div class="skills-list">
-        <span class="skill-tag">SEO und Content</span>
-        <span class="skill-tag">LinkedIn Organic</span>
-        <span class="skill-tag">Google Ads</span>
-        <span class="skill-tag">KI-Outreach</span>
-        <span class="skill-tag">Leadinfo</span>
-        <span class="skill-tag">GA4 und Tracking</span>
-        <span class="skill-tag">Webdesign</span>
-        <span class="skill-tag">LinkedIn Ads</span>
-      </div>
-      <div class="founder-stats">
-        <div>
-          <div class="founder-stat-num">45</div>
-          <div class="founder-stat-label">Abgeschlossene<br>Projekte</div>
-        </div>
-        <div>
-          <div class="founder-stat-num">1M<span>+</span></div>
-          <div class="founder-stat-label">Organische<br>Impressionen</div>
-        </div>
-        <div>
-          <div class="founder-stat-num">~€1M<span>*</span></div>
-          <div class="founder-stat-label">Generierter<br>Geschäftswert</div>
-        </div>
-      </div>
-      <a href="https://linkedin.com/in/daryakablash" target="_blank" class="founder-linkedin">→ LinkedIn-Profil ansehen ↗</a>
-      <p class="founder-note">* Schätzung auf Basis von Traffic-Werten, Anfragewachstum und durchschnittlichen Deal-Größen der Kundenprojekte</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- FAQ -->
-<section class="s-dark">
-  <span class="section-label">Häufige Fragen</span>
-  <h2 class="section-title reveal">Gute Fragen.<br>Ehrliche Antworten.</h2>
-  <div class="faq-list reveal">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Ist das nicht einfach eine Agentur?<div class="faq-icon">+</div></button>
-      <div class="faq-a"><p>Nein. Agenturen liefern Kampagnen-Reports. Wir bauen ein System, das nach dem ersten Monat weiterläuft, auch wenn Sie uns morgen anrufen und sagen, Sie wollen pausieren. SEO-Rankings gehen nicht weg. LinkedIn-Autorität bleibt. Das ist der Unterschied zwischen Aktivität und Infrastruktur.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Was müssen wir selbst tun?<div class="faq-icon">+</div></button>
-      <div class="faq-a"><p>Ein Onboarding-Gespräch, gelegentliches Feedback, und Anfragen abschließen. Das war's. Alles andere liegt bei uns.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Welche Rolle spielt KI konkret?<div class="faq-icon">+</div></button>
-      <div class="faq-a"><p>KI-Agenten übernehmen Recherche, Content-Erstellung, Outreach-Sequenzierung und Analyse. Senior-Marketer übernehmen Strategie und Qualitätssicherung. Sie bekommen die Geschwindigkeit der KI mit dem Urteil erfahrener Marketer.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Wie schnell sieht man Ergebnisse?<div class="faq-icon">+</div></button>
-      <div class="faq-a"><p>SEO baut über Monate auf, das ist die Wahrheit, die keine seriöse Agentur verschweigen darf. LinkedIn und Outreach erzeugen schneller erste Gespräche. Wir setzen beim Onboarding realistische Erwartungen.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Für welche Unternehmen ist es geeignet?<div class="faq-icon">+</div></button>
-      <div class="faq-a"><p>B2B-KMU mit hochwertigem Angebot und zu wenig Sichtbarkeit dafür. Industrie, Maschinenbau, Solar, SaaS. Wenn Sie exzellent in Ihrem Bereich sind und online noch nicht sichtbar: passt es.</p></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <h2 class="reveal">Von <em>unsichtbar</em><br>zu ausgebucht.</h2>
-  <p class="reveal">Ihr Wettbewerb bekommt gerade die Anfragen, die Ihnen gehören sollten. Das lässt sich ändern.</p>
-  <a href="mailto:darya@getmarketing.team?subject=Anfrage%20%E2%80%94%20GetMarketing&body=Hallo%20Darya%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20mit%20GetMarketing%20und%20w%C3%BCrde%20gerne%20ein%20kostenloses%20Erstgespr%C3%A4ch%20vereinbaren.%0A%0AUnternehmen%3A%20%0ABranche%3A%20%0AKurze%20Beschreibung%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn-dark reveal">Kostenloses Erstgespräch anfragen</a>
-</section>
-
-<footer>
-  <div class="footer-logo">Get<span>Marketing</span></div>
-  <div class="footer-links">
-    <a href="https://linkedin.com/in/daryakablash" target="_blank" class="footer-linkedin">LinkedIn ↗</a>
-    <div class="footer-note">© 2026 GetMarketing · Darya Kablash · Berlin</div>
-  </div>
-</footer>
-
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+<div class="modal-overlay" id="overlay" onclick="outClose(event)">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div id="modal-form">
-      <h3>Gespräch anfragen</h3>
-      <p>Kostenloses Erstgespräch. Wir analysieren Ihre Situation und zeigen konkrete Schritte auf.</p>
-      <input type="text" placeholder="Ihr Name" id="m-name" autocomplete="name">
-      <input type="email" placeholder="Ihre E-Mail" id="m-email" autocomplete="email">
-      <input type="text" placeholder="Unternehmen und Branche" id="m-company" autocomplete="organization">
-      <button class="modal-submit" onclick="submitForm()">Gespräch anfragen →</button>
+    <button class="modal-close" onclick="closeModal()">&#215;</button>
+    <div id="mForm">
+      <h3>Get early access.</h3>
+      <p>See your AI marketing team running on your market. No deck, no pitch — just the system live on your business.</p>
+      <div class="field"><label>Your name</label><input type="text" id="mName" placeholder="Anna Müller" /></div>
+      <div class="field"><label>Work email</label><input type="email" id="mEmail" placeholder="anna@company.com" /></div>
+      <div class="field"><label>Company and what you do (optional)</label><textarea id="mNote" rows="3" placeholder="Solar EPC, DACH region, want more inbound leads..."></textarea></div>
+      <button class="modal-btn" onclick="sendReq()">Get early access</button>
     </div>
-    <div class="modal-success" id="modal-success">
+    <div class="modal-success" id="mSuccess">
       <div class="check">✓</div>
-      <h4>Anfrage erhalten.</h4>
-      <p>Wir melden uns innerhalb von 48 Stunden.</p>
+      <h4>You're in.</h4>
+      <p>Darya will be in touch within 24 hours. Your competitors don't know yet.</p>
     </div>
   </div>
 </div>
 
+<div class="page">
+  <main>
+
+  <header class="hero">
+    <div class="hero-topbar">
+      <div class="launch-badge">
+        <div class="badge-dot"></div>
+        Early Access Open · Launching July 2026
+      </div>
+    </div>
+
+    <h1 class="hero-headline">
+      The one and only<br>
+      marketing hire<br>
+      you'll ever <em>make.</em>
+    </h1>
+
+    <p class="hero-sub">
+      A full AI marketing team running your SEO, content, ads, and LinkedIn end-to-end. You approve. Your AI marketing team handles the rest.
+    </p>
+
+    <div class="hero-ctas">
+      <button class="btn-white" onclick="openModal()">Be the first to run marketing carefree</button>
+      <button class="btn-ghost" onclick="openModal()">See it live</button>
+    </div>
+    <p class="hero-note"><strong>24 companies</strong> already on the waitlist</p>
+  </header>
+
+  <div class="ticker-strip">
+    <span class="ticker-label">Running now</span>
+    <div class="t-pill"><div class="t-dot"></div>Strategy Agent<span class="t-status" id="s0">Planning Q3</span></div>
+    <div class="t-pill"><div class="t-dot"></div>SEO Agent<span class="t-status" id="s1">Keyword research</span></div>
+    <div class="t-pill"><div class="t-dot"></div>Content Agent<span class="t-status" id="s2">Drafting article</span></div>
+    <div class="t-pill"><div class="t-dot"></div>Ads Agent<span class="t-status" id="s3">A/B testing</span></div>
+    <div class="t-pill"><div class="t-dot"></div>Analytics Agent<span class="t-status" id="s4">Weekly report</span></div>
+  </div>
+
+  <section class="pos-section" aria-label="About GetMarketing">
+    <div class="pos-eyebrow">✦ What GetMarketing is</div>
+    <h2 class="pos-statement">
+      GetMarketing is an <em>AI marketing team</em> that runs strategy, SEO, content, and ads for your business <span class="faded">so you stop managing marketing and start closing deals.</span>
+    </h2>
+  </section>
+
+  <section class="quote-section" aria-label="Customer testimonial">
+    <div class="qcard">
+      <div class="qmark-big" aria-hidden="true">"</div>
+      <blockquote class="qtext">We kept getting inbound requests through the website. At some point we stopped thinking about marketing entirely.</blockquote>
+      <cite class="qattr">Founder of a B2B industrial equipment company · DACH</cite>
+    </div>
+  </section>
+
+  <section class="content-section" aria-label="Why marketing is broken">
+    <div class="section-label">Sound familiar?</div>
+    <h2 class="display-h2">
+      You built something good.<br><em>Marketing</em> <span class="faded">is the bottleneck.</span>
+    </h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-micro">The agency problem</div>
+        <h3 class="pain-title">Reports every month. Leads almost never.</h3>
+        <p class="pain-body">Busy metrics, empty inbox. Activity on paper, silence in practice.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-micro">The freelancer problem</div>
+        <h3 class="pain-title">Five freelancers is a second job.</h3>
+        <p class="pain-body">Three platforms, eight tools. Coordinating your marketing takes as much time as running your business.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-micro">The visibility problem</div>
+        <h3 class="pain-title">You don't know what's actually working.</h3>
+        <p class="pain-body">LinkedIn, Ads, blog articles. Something is happening. Whether it works: unclear. Marketing without feedback is expensive guessing.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-micro">The timing problem</div>
+        <h3 class="pain-title">Marketing only happens when there's time left over.</h3>
+        <p class="pain-body">When business is good, it gets pushed. When it slows down, it's too late.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" style="padding-top:0;" aria-label="How GetMarketing AI works">
+    <div class="section-label">How it works</div>
+    <h2 class="display-h2">
+      A full marketing department.<br><span class="faded">Without the</span> <em>headcount.</em>
+    </h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <span class="how-icon" aria-hidden="true">🤖</span>
+        <h3 class="how-title">Your AI marketing team executes</h3>
+        <p class="how-body">Specialized agents run SEO, content, ads, LinkedIn, and analytics in parallel. Speed and depth no human team can match.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-icon" aria-hidden="true">🧠</span>
+        <h3 class="how-title">Senior marketers own quality</h3>
+        <p class="how-body">Every output is reviewed by experienced marketers before it reaches your brand. AI speed, human judgment.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-icon" aria-hidden="true">✅</span>
+        <h3 class="how-title">You only approve</h3>
+        <p class="how-body">Clear view of what is running and what is next. One approval step. No briefing rounds. No project management on your end.</p>
+      </div>
+    </div>
+    <div class="how-wide">
+      <div class="how-wide-icon" aria-hidden="true">📋</div>
+      <div>
+        <h3 class="how-wide-title">The whole system is managed for you</h3>
+        <p class="how-wide-body">Strategy, prioritization, execution, reporting, and optimization all run internally. No freelancer chaos, no monthly reporting calls. Your AI marketing team runs the system. You focus on closing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-section" aria-label="Get early access to GetMarketing AI">
+    <h2 class="bottom-h">
+      Ready to run<br>marketing <em>carefree?</em>
+    </h2>
+    <p class="bottom-sub">Your competitors might already be on the waitlist. Get early access and see the system live on your market before July 2026.</p>
+    <div class="bottom-ctas">
+      <button class="btn-black" onclick="openModal()">Get early access</button>
+      <button class="btn-outline" onclick="openModal()">Request a live demo</button>
+    </div>
+  </section>
+
+  </main>
+
+  <footer aria-label="Site footer">
+    <span>2026 GetMarketing · Darya Kablash · Berlin</span>
+    <span>
+      <a href="https://getmarketing.team">getmarketing.team</a>
+      &nbsp;·&nbsp;
+      <a href="https://linkedin.com/company/getmarketingteam">LinkedIn</a>
+    </span>
+  </footer>
+
+</div>
+
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 65);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => io.observe(el));
+  const statuses = [
+    ['Planning Q3','Analyzing ICP','Setting goals','Competitor audit'],
+    ['Keyword research','Fixing meta tags','Building links','Content gap'],
+    ['Drafting article','Writing email','Landing page copy','Blog post ready'],
+    ['A/B testing','Launching campaign','Optimizing bids','Reducing CPA'],
+    ['Weekly report','Tracking KPIs','Revenue attribution','Funnel analysis'],
+  ];
+  setInterval(() => {
+    const i = Math.floor(Math.random() * 5);
+    document.getElementById('s' + i).textContent = statuses[i][Math.floor(Math.random() * statuses[i].length)];
+  }, 2500);
 
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+  function openModal() { document.getElementById('overlay').classList.add('open'); }
+  function closeModal() { document.getElementById('overlay').classList.remove('open'); }
+  function outClose(e) { if (e.target === document.getElementById('overlay')) closeModal(); }
+
+  function sendReq() {
+    const email = document.getElementById('mEmail').value.trim();
+    if (!email || !email.includes('@')) { document.getElementById('mEmail').focus(); return; }
+    const name = document.getElementById('mName').value.trim();
+    const note = document.getElementById('mNote').value.trim();
+    const subj = encodeURIComponent('Early Access Request — GetMarketing AI');
+    const body = encodeURIComponent('Name: '+(name||'Not provided')+'\nEmail: '+email+'\n\nContext:\n'+(note||'Not provided')+'\n\n— getmarketing.team waitlist');
+    window.location.href = 'mailto:darya@getmarketing.team?subject='+subj+'&body='+body;
+    setTimeout(() => {
+      document.getElementById('mForm').style.display = 'none';
+      document.getElementById('mSuccess').classList.add('show');
+    }, 500);
   }
-
-  function openModal(e) {
-    if (e) e.preventDefault();
-    document.getElementById('modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('modal')) closeModal();
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
