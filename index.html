@@ -402,42 +402,115 @@
 
   /* ── MOBILE ── */
   @media (max-width: 720px) {
-    .hero { padding: 0 20px 52px; }
-    .hero-headline { font-size: clamp(52px, 13vw, 80px); margin-top: 40px; margin-bottom: 24px; }
-    .hero-sub { font-size: 15px; margin-bottom: 36px; }
-    .hero-ctas { flex-direction: column; width: 100%; }
-    .btn-white, .btn-ghost { width: 100%; max-width: 340px; text-align: center; }
 
-    .ticker-strip { padding: 12px 16px; gap: 8px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    /* Hero */
+    .hero { padding: 0 20px 48px; }
+    .hero-topbar { padding: 20px 0 0; }
+    .launch-badge { font-size: 11px; padding: 6px 13px; }
+    h1.hero-headline {
+      font-size: clamp(44px, 12vw, 68px);
+      margin-top: 36px;
+      margin-bottom: 22px;
+      line-height: 0.95;
+    }
+    .hero-sub { font-size: 15px; margin-bottom: 32px; max-width: 100%; }
+    .hero-ctas { flex-direction: column; width: 100%; align-items: center; }
+    .btn-white, .btn-ghost {
+      width: 100%;
+      max-width: 360px;
+      padding: 16px 20px;
+      font-size: 15px;
+      text-align: center;
+    }
+    .hero-note { font-size: 12px; margin-top: 14px; }
+
+    /* Ticker — horizontal scroll, no wrap */
+    .ticker-strip {
+      padding: 12px 16px;
+      gap: 8px;
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .ticker-strip::-webkit-scrollbar { display: none; }
     .ticker-label { display: none; }
-    .t-pill { flex-shrink: 0; }
+    .t-pill { flex-shrink: 0; padding: 6px 10px; font-size: 11px; }
 
-    .pos-section { padding: 80px 20px; }
-    .pos-statement { font-size: clamp(24px, 6.5vw, 44px); }
+    /* Positioning statement */
+    .pos-section { padding: 72px 20px 64px; }
+    .pos-eyebrow { margin-bottom: 32px; }
+    h2.pos-statement {
+      font-size: clamp(22px, 6vw, 36px);
+      line-height: 1.1;
+    }
 
-    .quote-section { padding: 0 20px 80px; }
-    .qcard { padding: 36px 24px; }
-    .qtext { font-size: 16px; }
-    .qmark-big { left: 24px; }
+    /* Quote */
+    .quote-section { padding: 0 20px 72px; }
+    .qcard { padding: 40px 24px 32px; }
+    .qmark-big { font-size: 60px; top: 24px; left: 24px; }
+    .qtext { font-size: 16px; line-height: 1.6; padding-top: 20px; }
+    .qattr { font-size: 11px; margin-top: 20px; }
 
-    .content-section { padding: 0 20px 72px; }
-    .display-h2 { font-size: clamp(34px, 9vw, 52px); margin-bottom: 40px; }
+    /* Content sections */
+    .content-section { padding: 0 20px 64px; }
+    h2.display-h2 {
+      font-size: clamp(32px, 8.5vw, 48px);
+      margin-bottom: 36px;
+      line-height: 1.0;
+    }
 
+    /* Pain cards */
     .pain-grid { grid-template-columns: 1fr; gap: 8px; }
-    .pain-card { padding: 24px 20px; }
+    .pain-card { padding: 24px 20px; border-radius: 14px; }
+    .pain-micro { margin-bottom: 10px; }
+    h3.pain-title { font-size: 18px; }
+    .pain-body { font-size: 13px; }
 
-    .how-grid { grid-template-columns: 1fr; gap: 8px; }
-    .how-card { padding: 24px 20px; }
-    .how-wide { flex-direction: column; gap: 14px; padding: 24px 20px; }
+    /* How it works */
+    .how-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 8px; }
+    .how-card { padding: 24px 20px; border-radius: 14px; }
+    h3.how-title { font-size: 17px; }
+    .how-wide { flex-direction: column; gap: 12px; padding: 24px 20px; border-radius: 14px; }
+    h3.how-wide-title { font-size: 17px; }
 
-    .bottom-section { padding: 0 20px 80px; }
-    .bottom-h { font-size: clamp(36px, 9vw, 56px); }
-    .bottom-ctas { flex-direction: column; align-items: center; }
-    .btn-black, .btn-outline { width: 100%; max-width: 340px; }
+    /* Bottom CTA */
+    .bottom-section { padding: 0 20px 72px; }
+    h2.bottom-h { font-size: clamp(36px, 9vw, 52px); margin-bottom: 20px; }
+    .bottom-sub { font-size: 14px; margin-bottom: 32px; }
+    .bottom-ctas { flex-direction: column; align-items: center; gap: 8px; }
+    .btn-black, .btn-outline {
+      width: 100%;
+      max-width: 360px;
+      padding: 16px 20px;
+      font-size: 15px;
+    }
 
+    /* Footer */
     footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
-    .modal { padding: 28px 20px; }
-    .modal-overlay { padding: 16px; align-items: flex-end; }
+
+    /* Modal — bottom sheet on mobile */
+    .modal-overlay { padding: 0; align-items: flex-end; }
+    .modal {
+      border-radius: 24px 24px 0 0;
+      padding: 32px 24px 40px;
+      max-width: 100%;
+      width: 100%;
+    }
+    .modal h3 { font-size: 22px; }
+    /* Prevent iOS zoom on input focus */
+    .field input, .field textarea { font-size: 16px; }
+    .modal-btn { padding: 16px; font-size: 15px; }
+  }
+
+  /* Very small phones */
+  @media (max-width: 380px) {
+    h1.hero-headline { font-size: 42px; }
+    h2.pos-statement { font-size: 21px; }
+    h2.display-h2 { font-size: 30px; }
+    h2.bottom-h { font-size: 34px; }
   }
 </style>
 </head>
