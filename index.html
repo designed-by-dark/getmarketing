@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Primary SEO -->
 <title>GetMarketing AI — Your AI Marketing Team for B2B Growth | DACH</title>
 <meta name="description" content="GetMarketing gives B2B companies in the DACH region a full AI marketing team running SEO, content, ads, and LinkedIn end-to-end. You approve. The system delivers. Launching July 2026.">
 <meta name="keywords" content="AI marketing team, B2B marketing automation, AI marketing agency DACH, SEO automation, LinkedIn marketing AI, marketing AI software, GetMarketing">
 <meta name="author" content="Darya Kablash, GetMarketing">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://getmarketing.team">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getmarketing.team">
 <meta property="og:title" content="GetMarketing AI — Your AI Marketing Team for B2B Growth">
@@ -20,511 +17,521 @@
 <meta property="og:image" content="https://getmarketing.team/og-image.jpg">
 <meta property="og:locale" content="en_DE">
 <meta property="og:site_name" content="GetMarketing">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GetMarketing AI — Your AI Marketing Team for B2B Growth">
 <meta name="twitter:description" content="A full AI marketing team running your SEO, content, ads, and LinkedIn end-to-end. Built for B2B companies in DACH.">
 <meta name="twitter:image" content="https://getmarketing.team/og-image.jpg">
 
-<!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://getmarketing.team/#organization",
-      "name": "GetMarketing",
-      "url": "https://getmarketing.team",
-      "logo": "https://getmarketing.team/logo.png",
-      "founder": {
-        "@type": "Person",
-        "name": "Darya Kablash",
-        "url": "https://linkedin.com/in/daryakablash"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Berlin",
-        "addressCountry": "DE"
-      },
-      "description": "GetMarketing is an AI marketing team for B2B companies in the DACH region, running SEO, content, ads, and LinkedIn end-to-end.",
-      "sameAs": [
-        "https://linkedin.com/company/getmarketingteam"
-      ]
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://getmarketing.team/#webpage",
-      "url": "https://getmarketing.team",
-      "name": "GetMarketing AI — Your AI Marketing Team for B2B Growth",
-      "description": "A full AI marketing team running SEO, content, ads, and LinkedIn for B2B companies in the DACH region. You approve. The system delivers.",
-      "inLanguage": "en",
-      "isPartOf": { "@id": "https://getmarketing.team/#organization" }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "GetMarketing AI",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "description": "AI-powered marketing automation platform that deploys a full AI marketing team for B2B companies. Covers SEO, content, ads, LinkedIn, and analytics.",
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/PreOrder",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "description": "Early access waitlist — launching July 2026"
-      }
-    }
-  ]
-}
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://getmarketing.team/#organization","name":"GetMarketing","url":"https://getmarketing.team","founder":{"@type":"Person","name":"Darya Kablash"},"address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"description":"GetMarketing is an AI marketing team for B2B companies in the DACH region.","sameAs":["https://linkedin.com/company/getmarketingteam"]},{"@type":"WebPage","@id":"https://getmarketing.team/#webpage","url":"https://getmarketing.team","name":"GetMarketing AI — Your AI Marketing Team for B2B Growth","inLanguage":"en"},{"@type":"SoftwareApplication","name":"GetMarketing AI","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","availability":"https://schema.org/PreOrder","price":"0","priceCurrency":"EUR"}}]}
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,900;1,900&display=swap');
 
-  blockquote { quotes: none; }
-  blockquote::before, blockquote::after { content: none; }
-  cite { font-style: normal; }
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+blockquote { quotes: none; }
+blockquote::before, blockquote::after { content: none; }
+cite { font-style: normal; }
 
+/* ── TOKENS ── */
+:root {
+  --forest: #1B4332;
+  --accent: #52B788;
+  --black:  #0A0A0A;
+  --gray:   #6B7280;
+  --gray2:  #B0B8C1;
+  --card:   #F4F4F4;
+  --white:  #FFFFFF;
+}
 
-  :root {
-    --forest:  #1B4332;
-    --accent:  #52B788;
-    --black:   #0A0A0A;
-    --gray:    #888;
-    --gray2:   #bbb;
-    --card:    #F4F4F4;
-    --white:   #FFFFFF;
-  }
+/* ── BASE ── */
+html {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--white);
+  color: var(--black);
+}
 
-  html, body {
-    background: var(--white);
-    color: var(--black);
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
-  .page { display: flex; flex-direction: column; align-items: center; }
+/* ── LAYOUT ── */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
 
-  /* ── HERO ── */
-  .hero {
-    width: 100%;
-    background: var(--forest);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 24px 72px;
-  }
+/* every content block constrained and centered */
+.inner {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-  .hero-topbar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 24px 0 0;
-  }
-  .launch-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 7px 16px;
-    border-radius: 30px;
-    letter-spacing: 0.02em;
-  }
-  .badge-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+/* ── HERO ── */
+header.hero {
+  background: var(--forest);
+  width: 100%;
+  padding: 20px 20px 48px;
+  text-align: center;
+}
 
-  .hero-headline {
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 32px;
-    font-size: clamp(60px, 10vw, 128px);
-    font-weight: 900;
-    line-height: 0.92;
-    letter-spacing: -0.05em;
-    color: #fff;
-  }
-  .hero-headline em {
-    font-style: italic;
-    color: var(--accent);
-  }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin-bottom: 32px;
+}
+.bdot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
 
-  .hero-sub {
-    font-size: clamp(15px, 1.6vw, 18px);
-    font-weight: 300;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.6);
-    max-width: 500px;
-    text-align: center;
-    margin-bottom: 48px;
-  }
+h1 {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 18px;
+}
+h1 em { font-style: italic; color: var(--accent); }
 
-  .hero-ctas {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn-white {
-    background: #fff;
-    color: var(--forest);
-    border: none;
-    border-radius: 50px;
-    padding: 16px 36px;
-    font-size: 15px;
-    font-weight: 900;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    letter-spacing: -0.02em;
-    transition: opacity 0.18s;
-    white-space: nowrap;
-  }
-  .btn-white:hover { opacity: 0.88; }
-  .btn-ghost {
-    background: transparent;
-    color: rgba(255,255,255,0.75);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 50px;
-    padding: 16px 36px;
-    font-size: 15px;
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    letter-spacing: -0.01em;
-    transition: border-color 0.18s, color 0.18s;
-    white-space: nowrap;
-  }
-  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 32px;
+}
 
-  .hero-note {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 18px;
-    letter-spacing: 0.02em;
-  }
-  .hero-note strong { color: rgba(255,255,255,0.6); font-weight: 400; }
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.btn-main {
+  display: block;
+  width: 100%;
+  background: #fff;
+  color: var(--forest);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: opacity 0.18s;
+}
+.btn-main:hover { opacity: 0.88; }
+.btn-ghost {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.18s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
 
-  /* ── TICKER ── */
-  .ticker-strip {
-    width: 100%;
-    background: var(--card);
-    border-bottom: 1px solid #E8E8E8;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .ticker-label {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray2);
-    margin-right: 6px;
-    flex-shrink: 0;
-  }
-  .t-pill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--white);
-    border: 1px solid #E0E0E0;
-    border-radius: 6px;
-    padding: 5px 11px;
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--black);
-  }
-  .t-dot { width:5px; height:5px; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; flex-shrink:0; }
-  .t-status { font-size:10px; color:var(--accent); }
+.hero-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.38);
+}
+.hero-note strong { color: rgba(255,255,255,0.62); font-weight: 400; }
 
-  /* ── SHARED ── */
-  .faded { color: var(--gray2); }
-  .green { color: var(--accent); }
+/* ── TICKER ── */
+.ticker-wrap {
+  width: 100%;
+  background: var(--card);
+  border-bottom: 1px solid #E8E8E8;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+.ticker-wrap::-webkit-scrollbar { display: none; }
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  white-space: nowrap;
+}
+.t-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray2);
+  flex-shrink: 0;
+}
+.t-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--white);
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: 11px;
+  color: var(--black);
+  flex-shrink: 0;
+}
+.t-dot { width:5px; height:5px; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; }
+.t-status { font-size:10px; color:var(--accent); }
 
-  /* ── POSITIONING ── */
-  .pos-section {
-    width: 100%;
-    padding: 120px 40px;
-    text-align: center;
-  }
-  .pos-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    color: var(--gray2);
-    letter-spacing: 0.06em;
-    border: 1px solid #E4E4E4;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 48px;
-  }
-  .pos-statement {
-    font-size: clamp(28px, 5vw, 68px);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.045em;
-    max-width: 960px;
-    margin: 0 auto;
-    color: var(--black);
-  }
-  .pos-statement em { font-style: italic; color: var(--accent); }
+/* ── SECTIONS ── */
+.sec {
+  width: 100%;
+  padding: 64px 20px;
+}
+.sec-sm { padding: 48px 20px; }
 
-  /* ── QUOTE ── */
-  .quote-section {
-    width: 100%;
-    max-width: 680px;
-    padding: 0 24px 120px;
-  }
-  .qcard {
-    background: var(--forest);
-    border-radius: 24px;
-    padding: 52px 56px;
-    position: relative;
-  }
-  .qmark-big {
-    font-size: 80px;
-    line-height: 0.5;
-    font-family: Georgia, serif;
-    color: var(--accent);
-    opacity: 0.35;
-    position: absolute;
-    top: 36px;
-    left: 44px;
-  }
-  .qtext {
-    font-size: clamp(17px, 2vw, 22px);
-    font-weight: 300;
-    line-height: 1.6;
-    color: #fff;
-    padding-top: 24px;
-    font-style: italic;
-    letter-spacing: -0.01em;
-  }
-  .qattr { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 24px; letter-spacing: 0.04em; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--gray2);
+  letter-spacing: 0.06em;
+  border: 1px solid #E4E4E4;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+}
+.sec-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray2);
+  text-align: center;
+  margin-bottom: 14px;
+}
 
-  /* ── CONTENT ── */
-  .content-section {
-    width: 100%;
-    max-width: 1000px;
-    padding: 0 40px 100px;
-  }
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray2);
-    text-align: center;
-    margin-bottom: 18px;
-  }
-  .display-h2 {
-    font-size: clamp(40px, 6.5vw, 84px);
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -0.05em;
-    text-align: center;
-    margin-bottom: 64px;
-    color: var(--black);
-  }
-  .display-h2 em { font-style: italic; color: var(--accent); }
+h2 {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--black);
+  margin-bottom: 32px;
+}
+h2 em { font-style: italic; color: var(--accent); }
+h2 .fd { color: var(--gray2); }
 
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-  .pain-card { background: var(--card); border-radius: 16px; padding: 32px; }
-  .pain-micro { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray2); margin-bottom: 12px; }
-  .pain-title { font-size: clamp(17px, 1.8vw, 21px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; color: var(--black); margin-bottom: 10px; }
-  .pain-body { font-size: 13px; font-weight: 300; line-height: 1.7; color: var(--gray); }
+/* positioning statement h2 — slightly bigger */
+.pos-h2 {
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+  color: var(--black);
+  margin-bottom: 0;
+}
+.pos-h2 em { font-style: italic; color: var(--accent); }
+.pos-h2 .fd { color: var(--gray2); }
 
-  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
-  .how-card { background: var(--card); border-radius: 16px; padding: 32px 28px; }
-  .how-icon { font-size: 22px; margin-bottom: 18px; display: block; }
-  .how-title { font-size: 17px; font-weight: 900; letter-spacing: -0.03em; color: var(--black); margin-bottom: 10px; line-height: 1.2; }
-  .how-body { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.7; }
+/* ── QUOTE ── */
+.qcard {
+  background: var(--forest);
+  border-radius: 20px;
+  padding: 44px 24px 32px;
+  position: relative;
+  text-align: left;
+}
+.qmark {
+  font-size: 52px;
+  line-height: 0.5;
+  font-family: Georgia, serif;
+  color: var(--accent);
+  opacity: 0.3;
+  position: absolute;
+  top: 22px;
+  left: 24px;
+}
+blockquote.qtext {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #fff;
+  padding-top: 16px;
+  font-style: italic;
+}
+cite.qattr {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.32);
+  margin-top: 18px;
+  letter-spacing: 0.03em;
+}
 
-  .how-wide { background: var(--card); border-radius: 16px; padding: 32px 36px; display: flex; align-items: flex-start; gap: 28px; }
-  .how-wide-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
-  .how-wide-title { font-size: 17px; font-weight: 900; letter-spacing: -0.03em; color: var(--black); margin-bottom: 8px; }
-  .how-wide-body { font-size: 13px; font-weight: 300; color: var(--gray); line-height: 1.7; }
+/* ── CARDS ── */
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.grid-3 { display: grid; grid-template-columns: 1fr; gap: 8px; }
 
-  /* ── BOTTOM CTA ── */
-  .bottom-section { width: 100%; padding: 0 24px 100px; text-align: center; }
-  .bottom-h { font-size: clamp(44px, 7vw, 96px); font-weight: 900; line-height: 0.95; letter-spacing: -0.05em; color: var(--black); margin-bottom: 28px; }
-  .bottom-h em { font-style: italic; color: var(--accent); }
-  .bottom-sub { font-size: 15px; font-weight: 300; color: var(--gray); max-width: 440px; margin: 0 auto 40px; line-height: 1.65; }
-  .bottom-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .btn-black { background: var(--black); color: #fff; border: none; border-radius: 50px; padding: 16px 36px; font-size: 15px; font-weight: 900; font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: -0.02em; transition: opacity 0.18s; }
-  .btn-black:hover { opacity: 0.78; }
-  .btn-outline { background: transparent; color: var(--black); border: 1.5px solid #D0D0D0; border-radius: 50px; padding: 16px 36px; font-size: 15px; font-weight: 400; font-family: 'Inter', sans-serif; cursor: pointer; transition: border-color 0.18s; }
-  .btn-outline:hover { border-color: var(--black); }
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 24px 20px;
+}
+.card-micro {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray2);
+  margin-bottom: 10px;
+}
+h3 {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.card-body {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gray);
+}
 
-  /* ── FOOTER ── */
-  footer { width: 100%; border-top: 1px solid #EBEBEB; padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--gray2); }
-  footer a { color: var(--gray2); text-decoration: none; }
-  footer a:hover { color: var(--black); }
+.card-icon {
+  font-size: 22px;
+  margin-bottom: 16px;
+  display: block;
+}
 
-  /* ── MODAL ── */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); backdrop-filter: blur(8px); z-index: 200; display: none; align-items: center; justify-content: center; padding: 24px; }
-  .modal-overlay.open { display: flex; }
-  .modal { background: var(--white); border-radius: 24px; padding: 44px; max-width: 480px; width: 100%; position: relative; box-shadow: 0 24px 80px rgba(0,0,0,0.15); }
-  .modal-close { position: absolute; top: 18px; right: 22px; background: none; border: none; font-size: 20px; color: var(--gray2); cursor: pointer; line-height: 1; }
-  .modal-close:hover { color: var(--black); }
-  .modal h3 { font-size: 24px; font-weight: 900; letter-spacing: -0.04em; margin-bottom: 8px; }
-  .modal > div > p { font-size: 13px; font-weight: 300; color: var(--gray); margin-bottom: 28px; line-height: 1.6; }
-  .field { margin-bottom: 14px; }
-  .field label { display: block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray2); margin-bottom: 6px; }
-  .field input, .field textarea { width: 100%; background: var(--card); border: 1px solid transparent; border-radius: 10px; padding: 12px 14px; font-size: 14px; font-family: 'Inter', sans-serif; font-weight: 300; color: var(--black); outline: none; transition: border-color 0.2s; resize: none; }
-  .field input::placeholder, .field textarea::placeholder { color: var(--gray2); }
-  .field input:focus, .field textarea:focus { border-color: var(--accent); }
-  .modal-btn { width: 100%; background: var(--forest); color: #fff; border: none; border-radius: 50px; padding: 14px; font-size: 14px; font-weight: 900; font-family: 'Inter', sans-serif; letter-spacing: -0.02em; cursor: pointer; margin-top: 8px; transition: opacity 0.18s; }
-  .modal-btn:hover { opacity: 0.82; }
-  .modal-success { display: none; text-align: center; padding: 24px 0 8px; }
-  .modal-success.show { display: block; }
-  .modal-success .check { font-size: 40px; margin-bottom: 14px; }
-  .modal-success h4 { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
-  .modal-success p { font-size: 13px; font-weight: 300; color: var(--gray); }
+/* wide card */
+.card-wide {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin-top: 8px;
+}
 
-  /* ── MOBILE ── */
-  @media (max-width: 720px) {
+/* ── BOTTOM CTA ── */
+.bcta {
+  width: 100%;
+  padding: 64px 20px 80px;
+  text-align: center;
+}
+.bcta h2 { margin-bottom: 16px; }
+.bcta-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.btn-dark {
+  display: block;
+  width: 100%;
+  background: var(--black);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: opacity 0.18s;
+}
+.btn-dark:hover { opacity: 0.78; }
+.btn-outline {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: var(--black);
+  border: 1.5px solid #D0D0D0;
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.18s;
+}
+.btn-outline:hover { border-color: var(--black); }
 
-    /* Hero */
-    .hero { padding: 0 20px 48px; }
-    .hero-topbar { padding: 20px 0 0; }
-    .launch-badge { font-size: 11px; padding: 6px 13px; }
-    h1.hero-headline {
-      font-size: clamp(44px, 12vw, 68px);
-      margin-top: 36px;
-      margin-bottom: 22px;
-      line-height: 0.95;
-    }
-    .hero-sub { font-size: 15px; margin-bottom: 32px; max-width: 100%; }
-    .hero-ctas { flex-direction: column; width: 100%; align-items: center; }
-    .btn-white, .btn-ghost {
-      width: 100%;
-      max-width: 360px;
-      padding: 16px 20px;
-      font-size: 15px;
-      text-align: center;
-    }
-    .hero-note { font-size: 12px; margin-top: 14px; }
+/* ── FOOTER ── */
+footer {
+  width: 100%;
+  border-top: 1px solid #EBEBEB;
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--gray2);
+  line-height: 1.8;
+}
+footer a { color: var(--gray2); text-decoration: none; }
+footer a:hover { color: var(--black); }
 
-    /* Ticker — horizontal scroll, no wrap */
-    .ticker-strip {
-      padding: 12px 16px;
-      gap: 8px;
-      justify-content: flex-start;
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .ticker-strip::-webkit-scrollbar { display: none; }
-    .ticker-label { display: none; }
-    .t-pill { flex-shrink: 0; padding: 6px 10px; font-size: 11px; }
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: 24px 24px 0 0;
+  padding: 28px 20px 40px;
+  width: 100%;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 18px;
+  background: none; border: none;
+  font-size: 22px;
+  color: var(--gray2);
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover { color: var(--black); }
+.modal h3 { font-size: 22px; margin-bottom: 6px; }
+.modal-desc { font-size: 13px; font-weight: 300; color: var(--gray); margin-bottom: 24px; line-height: 1.6; }
+.field { margin-bottom: 12px; }
+.field label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray2);
+  margin-bottom: 5px;
+}
+.field input, .field textarea {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 13px 14px;
+  font-size: 16px; /* 16px prevents iOS zoom */
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--gray2); }
+.field input:focus, .field textarea:focus { border-color: var(--accent); }
+.modal-btn {
+  width: 100%;
+  background: var(--forest);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.18s;
+}
+.modal-btn:hover { opacity: 0.82; }
+.modal-success { display: none; text-align: center; padding: 20px 0 8px; }
+.modal-success.show { display: block; }
+.modal-success .check { font-size: 36px; margin-bottom: 12px; }
+.modal-success h4 { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
+.modal-success p { font-size: 13px; font-weight: 300; color: var(--gray); }
 
-    /* Positioning statement */
-    .pos-section { padding: 72px 20px 64px; }
-    .pos-eyebrow { margin-bottom: 32px; }
-    h2.pos-statement {
-      font-size: clamp(22px, 6vw, 36px);
-      line-height: 1.1;
-    }
+/* ── DESKTOP UPGRADES (min-width: 768px) ── */
+@media (min-width: 768px) {
+  h1 { font-size: clamp(56px, 8vw, 108px); line-height: 0.93; }
+  .hero { padding: 28px 40px 80px; }
+  .hero-sub { font-size: 18px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .cta-stack { flex-direction: row; justify-content: center; }
+  .btn-main, .btn-ghost { width: auto; padding: 16px 36px; }
 
-    /* Quote */
-    .quote-section { padding: 0 20px 72px; }
-    .qcard { padding: 40px 24px 32px; }
-    .qmark-big { font-size: 60px; top: 24px; left: 24px; }
-    .qtext { font-size: 16px; line-height: 1.6; padding-top: 20px; }
-    .qattr { font-size: 11px; margin-top: 20px; }
+  .sec { padding: 100px 40px; }
+  .sec-sm { padding: 80px 40px; }
 
-    /* Content sections */
-    .content-section { padding: 0 20px 64px; }
-    h2.display-h2 {
-      font-size: clamp(32px, 8.5vw, 48px);
-      margin-bottom: 36px;
-      line-height: 1.0;
-    }
+  h2 { font-size: clamp(40px, 6vw, 80px); }
+  .pos-h2 { font-size: clamp(28px, 4vw, 60px); line-height: 1.1; }
 
-    /* Pain cards */
-    .pain-grid { grid-template-columns: 1fr; gap: 8px; }
-    .pain-card { padding: 24px 20px; border-radius: 14px; }
-    .pain-micro { margin-bottom: 10px; }
-    h3.pain-title { font-size: 18px; }
-    .pain-body { font-size: 13px; }
+  .qcard { padding: 52px 56px; }
+  .qmark { font-size: 80px; top: 36px; left: 44px; }
+  blockquote.qtext { font-size: 20px; }
 
-    /* How it works */
-    .how-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 8px; }
-    .how-card { padding: 24px 20px; border-radius: 14px; }
-    h3.how-title { font-size: 17px; }
-    .how-wide { flex-direction: column; gap: 12px; padding: 24px 20px; border-radius: 14px; }
-    h3.how-wide-title { font-size: 17px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
 
-    /* Bottom CTA */
-    .bottom-section { padding: 0 20px 72px; }
-    h2.bottom-h { font-size: clamp(36px, 9vw, 52px); margin-bottom: 20px; }
-    .bottom-sub { font-size: 14px; margin-bottom: 32px; }
-    .bottom-ctas { flex-direction: column; align-items: center; gap: 8px; }
-    .btn-black, .btn-outline {
-      width: 100%;
-      max-width: 360px;
-      padding: 16px 20px;
-      font-size: 15px;
-    }
+  .card { padding: 32px; }
+  .card-wide { padding: 32px 36px; display: flex; align-items: flex-start; gap: 28px; }
+  .card-wide-icon { flex-shrink: 0; margin-top: 2px; }
 
-    /* Footer */
-    footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
+  .bcta { padding: 100px 40px 120px; }
+  .bcta-sub { font-size: 16px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .btn-stack { flex-direction: row; justify-content: center; }
+  .btn-dark, .btn-outline { width: auto; padding: 16px 36px; }
 
-    /* Modal — bottom sheet on mobile */
-    .modal-overlay { padding: 0; align-items: flex-end; }
-    .modal {
-      border-radius: 24px 24px 0 0;
-      padding: 32px 24px 40px;
-      max-width: 100%;
-      width: 100%;
-    }
-    .modal h3 { font-size: 22px; }
-    /* Prevent iOS zoom on input focus */
-    .field input, .field textarea { font-size: 16px; }
-    .modal-btn { padding: 16px; font-size: 15px; }
-  }
+  footer { display: flex; justify-content: space-between; align-items: center; padding: 28px 40px; text-align: left; }
 
-  /* Very small phones */
-  @media (max-width: 380px) {
-    h1.hero-headline { font-size: 42px; }
-    h2.pos-statement { font-size: 21px; }
-    h2.display-h2 { font-size: 30px; }
-    h2.bottom-h { font-size: 34px; }
-  }
+  .modal-overlay { align-items: center; }
+  .modal { border-radius: 24px; padding: 44px; max-width: 480px; }
+
+  .ticker-inner { padding: 14px 40px; }
+  .t-label { display: inline; }
+
+  .inner { padding-left: 40px; padding-right: 40px; max-width: 1040px; margin: 0 auto; }
+}
 </style>
 </head>
 <body>
 
+<!-- MODAL -->
 <div class="modal-overlay" id="overlay" onclick="outClose(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&#215;</button>
     <div id="mForm">
       <h3>Get early access.</h3>
-      <p>See your AI marketing team running on your market. No deck, no pitch — just the system live on your business.</p>
+      <p class="modal-desc">See your AI marketing team running on your market. No deck, no pitch — just the system live on your business.</p>
       <div class="field"><label>Your name</label><input type="text" id="mName" placeholder="Anna Müller" /></div>
       <div class="field"><label>Work email</label><input type="email" id="mEmail" placeholder="anna@company.com" /></div>
-      <div class="field"><label>Company and what you do (optional)</label><textarea id="mNote" rows="3" placeholder="Solar EPC, DACH region, want more inbound leads..."></textarea></div>
+      <div class="field"><label>Company and context (optional)</label><textarea id="mNote" rows="3" placeholder="Solar EPC, DACH region, want more inbound leads..."></textarea></div>
       <button class="modal-btn" onclick="sendReq()">Get early access</button>
     </div>
     <div class="modal-success" id="mSuccess">
@@ -536,138 +543,132 @@
 </div>
 
 <div class="page">
-  <main>
+<main>
 
-  <header class="hero">
-    <div class="hero-topbar">
-      <div class="launch-badge">
-        <div class="badge-dot"></div>
-        Early Access Open · Launching July 2026
-      </div>
-    </div>
+  <!-- HERO -->
+  <header class="hero" style="text-align:center;">
+    <div class="badge"><div class="bdot"></div>Early Access Open · Launching July 2026</div>
 
-    <h1 class="hero-headline">
-      The one and only<br>
-      marketing hire<br>
-      you'll ever <em>make.</em>
-    </h1>
+    <h1>The one and only<br>marketing hire<br>you'll ever <em>make.</em></h1>
 
-    <p class="hero-sub">
-      A full AI marketing team running your SEO, content, ads, and LinkedIn end-to-end. You approve. Your AI marketing team handles the rest.
-    </p>
+    <p class="hero-sub">A full AI marketing team running your SEO, content, ads, and LinkedIn end-to-end. You approve. Your AI marketing team handles the rest.</p>
 
-    <div class="hero-ctas">
-      <button class="btn-white" onclick="openModal()">Be the first to run marketing carefree</button>
+    <div class="cta-stack">
+      <button class="btn-main" onclick="openModal()">Be the first to run marketing carefree</button>
       <button class="btn-ghost" onclick="openModal()">See it live</button>
     </div>
     <p class="hero-note"><strong>24 companies</strong> already on the waitlist</p>
   </header>
 
-  <div class="ticker-strip">
-    <span class="ticker-label">Running now</span>
-    <div class="t-pill"><div class="t-dot"></div>Strategy Agent<span class="t-status" id="s0">Planning Q3</span></div>
-    <div class="t-pill"><div class="t-dot"></div>SEO Agent<span class="t-status" id="s1">Keyword research</span></div>
-    <div class="t-pill"><div class="t-dot"></div>Content Agent<span class="t-status" id="s2">Drafting article</span></div>
-    <div class="t-pill"><div class="t-dot"></div>Ads Agent<span class="t-status" id="s3">A/B testing</span></div>
-    <div class="t-pill"><div class="t-dot"></div>Analytics Agent<span class="t-status" id="s4">Weekly report</span></div>
+  <!-- TICKER -->
+  <div class="ticker-wrap" role="marquee" aria-label="AI agents running now">
+    <div class="ticker-inner">
+      <span class="t-label">Running now</span>
+      <div class="t-pill"><div class="t-dot"></div>Strategy Agent<span class="t-status" id="s0">Planning Q3</span></div>
+      <div class="t-pill"><div class="t-dot"></div>SEO Agent<span class="t-status" id="s1">Keyword research</span></div>
+      <div class="t-pill"><div class="t-dot"></div>Content Agent<span class="t-status" id="s2">Drafting article</span></div>
+      <div class="t-pill"><div class="t-dot"></div>Ads Agent<span class="t-status" id="s3">A/B testing</span></div>
+      <div class="t-pill"><div class="t-dot"></div>Analytics Agent<span class="t-status" id="s4">Weekly report</span></div>
+    </div>
   </div>
 
-  <section class="pos-section" aria-label="About GetMarketing">
-    <div class="pos-eyebrow">✦ What GetMarketing is</div>
-    <h2 class="pos-statement">
-      GetMarketing is an <em>AI marketing team</em> that runs strategy, SEO, content, and ads for your business <span class="faded">so you stop managing marketing and start closing deals.</span>
-    </h2>
+  <!-- POSITIONING -->
+  <section class="sec" style="text-align:center;" aria-label="About GetMarketing">
+    <div class="eyebrow">✦ What GetMarketing is</div>
+    <h2 class="pos-h2">GetMarketing is an <em>AI marketing team</em> that runs strategy, SEO, content, and ads for your business <span class="fd">so you stop managing marketing and start closing deals.</span></h2>
   </section>
 
-  <section class="quote-section" aria-label="Customer testimonial">
-    <div class="qcard">
-      <div class="qmark-big" aria-hidden="true">"</div>
-      <blockquote class="qtext">We kept getting inbound requests through the website. At some point we stopped thinking about marketing entirely.</blockquote>
-      <cite class="qattr">Founder of a B2B industrial equipment company · DACH</cite>
-    </div>
-  </section>
-
-  <section class="content-section" aria-label="Why marketing is broken">
-    <div class="section-label">Sound familiar?</div>
-    <h2 class="display-h2">
-      You built something good.<br><em>Marketing</em> <span class="faded">is the bottleneck.</span>
-    </h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-micro">The agency problem</div>
-        <h3 class="pain-title">Reports every month. Leads almost never.</h3>
-        <p class="pain-body">Busy metrics, empty inbox. Activity on paper, silence in practice.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-micro">The freelancer problem</div>
-        <h3 class="pain-title">Five freelancers is a second job.</h3>
-        <p class="pain-body">Three platforms, eight tools. Coordinating your marketing takes as much time as running your business.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-micro">The visibility problem</div>
-        <h3 class="pain-title">You don't know what's actually working.</h3>
-        <p class="pain-body">LinkedIn, Ads, blog articles. Something is happening. Whether it works: unclear. Marketing without feedback is expensive guessing.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-micro">The timing problem</div>
-        <h3 class="pain-title">Marketing only happens when there's time left over.</h3>
-        <p class="pain-body">When business is good, it gets pushed. When it slows down, it's too late.</p>
+  <!-- QUOTE -->
+  <section class="sec-sm" style="padding-top:0;" aria-label="Customer testimonial">
+    <div class="inner">
+      <div class="qcard">
+        <div class="qmark" aria-hidden="true">"</div>
+        <blockquote class="qtext">We kept getting inbound requests through the website. At some point we stopped thinking about marketing entirely.</blockquote>
+        <cite class="qattr">Founder of a B2B industrial equipment company · DACH</cite>
       </div>
     </div>
   </section>
 
-  <section class="content-section" style="padding-top:0;" aria-label="How GetMarketing AI works">
-    <div class="section-label">How it works</div>
-    <h2 class="display-h2">
-      A full marketing department.<br><span class="faded">Without the</span> <em>headcount.</em>
-    </h2>
-    <div class="how-grid">
-      <div class="how-card">
-        <span class="how-icon" aria-hidden="true">🤖</span>
-        <h3 class="how-title">Your AI marketing team executes</h3>
-        <p class="how-body">Specialized agents run SEO, content, ads, LinkedIn, and analytics in parallel. Speed and depth no human team can match.</p>
-      </div>
-      <div class="how-card">
-        <span class="how-icon" aria-hidden="true">🧠</span>
-        <h3 class="how-title">Senior marketers own quality</h3>
-        <p class="how-body">Every output is reviewed by experienced marketers before it reaches your brand. AI speed, human judgment.</p>
-      </div>
-      <div class="how-card">
-        <span class="how-icon" aria-hidden="true">✅</span>
-        <h3 class="how-title">You only approve</h3>
-        <p class="how-body">Clear view of what is running and what is next. One approval step. No briefing rounds. No project management on your end.</p>
+  <!-- PAIN POINTS -->
+  <section class="sec" aria-label="Why marketing is broken for B2B">
+    <div class="inner">
+      <div class="sec-label">Sound familiar?</div>
+      <h2>You built something good.<br><em>Marketing</em> <span class="fd">is the bottleneck.</span></h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-micro">The agency problem</div>
+          <h3>Reports every month. Leads almost never.</h3>
+          <p class="card-body">Busy metrics, empty inbox. Activity on paper, silence in practice.</p>
+        </div>
+        <div class="card">
+          <div class="card-micro">The freelancer problem</div>
+          <h3>Five freelancers is a second job.</h3>
+          <p class="card-body">Three platforms, eight tools. Coordinating your marketing takes as much time as running your business.</p>
+        </div>
+        <div class="card">
+          <div class="card-micro">The visibility problem</div>
+          <h3>You don't know what's actually working.</h3>
+          <p class="card-body">LinkedIn, Ads, blog articles. Something is happening. Whether it works: unclear. Marketing without feedback is expensive guessing.</p>
+        </div>
+        <div class="card">
+          <div class="card-micro">The timing problem</div>
+          <h3>Marketing only happens when there's time left over.</h3>
+          <p class="card-body">When business is good, it gets pushed. When it slows down, it's too late.</p>
+        </div>
       </div>
     </div>
-    <div class="how-wide">
-      <div class="how-wide-icon" aria-hidden="true">📋</div>
-      <div>
-        <h3 class="how-wide-title">The whole system is managed for you</h3>
-        <p class="how-wide-body">Strategy, prioritization, execution, reporting, and optimization all run internally. No freelancer chaos, no monthly reporting calls. Your AI marketing team runs the system. You focus on closing.</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec" style="padding-top:0;" aria-label="How GetMarketing AI works">
+    <div class="inner">
+      <div class="sec-label">How it works</div>
+      <h2>A full marketing department.<br><span class="fd">Without the</span> <em>headcount.</em></h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-icon" aria-hidden="true">🤖</span>
+          <h3>Your AI marketing team executes</h3>
+          <p class="card-body">Specialized agents run SEO, content, ads, LinkedIn, and analytics in parallel. Speed and depth no human team can match.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon" aria-hidden="true">🧠</span>
+          <h3>Senior marketers own quality</h3>
+          <p class="card-body">Every output is reviewed by experienced marketers before it reaches your brand. AI speed, human judgment.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon" aria-hidden="true">✅</span>
+          <h3>You only approve</h3>
+          <p class="card-body">Clear view of what is running and what is next. One approval step. No briefing rounds. No project management on your end.</p>
+        </div>
+      </div>
+      <div class="card-wide">
+        <span class="card-icon card-wide-icon" aria-hidden="true">📋</span>
+        <div>
+          <h3>The whole system is managed for you</h3>
+          <p class="card-body">Strategy, prioritization, execution, reporting, and optimization all run internally. No freelancer chaos, no monthly reporting calls. Your AI marketing team runs the system. You focus on closing.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="bottom-section" aria-label="Get early access to GetMarketing AI">
-    <h2 class="bottom-h">
-      Ready to run<br>marketing <em>carefree?</em>
-    </h2>
-    <p class="bottom-sub">Your competitors might already be on the waitlist. Get early access and see the system live on your market before July 2026.</p>
-    <div class="bottom-ctas">
-      <button class="btn-black" onclick="openModal()">Get early access</button>
-      <button class="btn-outline" onclick="openModal()">Request a live demo</button>
+  <!-- BOTTOM CTA -->
+  <section class="bcta" aria-label="Get early access to GetMarketing AI">
+    <div class="inner" style="text-align:center;">
+      <h2>Ready to run<br>marketing <em>carefree?</em></h2>
+      <p class="bcta-sub">Your competitors might already be on the waitlist. Get early access and see the system live on your market before July 2026.</p>
+      <div class="btn-stack">
+        <button class="btn-dark" onclick="openModal()">Get early access</button>
+        <button class="btn-outline" onclick="openModal()">Request a live demo</button>
+      </div>
     </div>
   </section>
 
-  </main>
+</main>
 
-  <footer aria-label="Site footer">
-    <span>2026 GetMarketing · Darya Kablash · Berlin</span>
-    <span>
-      <a href="https://getmarketing.team">getmarketing.team</a>
-      &nbsp;·&nbsp;
-      <a href="https://linkedin.com/company/getmarketingteam">LinkedIn</a>
-    </span>
-  </footer>
+<footer aria-label="Site footer">
+  <span>2026 GetMarketing · Darya Kablash · Berlin</span>
+  <span><a href="https://getmarketing.team">getmarketing.team</a> · <a href="https://linkedin.com/company/getmarketingteam">LinkedIn</a></span>
+</footer>
 
 </div>
 
