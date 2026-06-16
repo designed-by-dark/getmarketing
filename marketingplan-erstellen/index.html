@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Marketingplan erstellen mit KI — in 3 Sekunden fertig | GetMarketing</title>
+<meta name="description" content="Marketingplan erstellen leicht gemacht: Gib deine Website ein, definiere dein Ziel — GetMarketing baut die Strategie automatisch und setzt sie durch KI-Agenten um." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://getmarketing.team/marketingplan-erstellen/" />
+<link rel="icon" href="/logo.jpg" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://getmarketing.team/marketingplan-erstellen/" />
+<meta property="og:title" content="Marketingplan erstellen mit KI — in 3 Sekunden fertig | GetMarketing" />
+<meta property="og:description" content="Marketingplan erstellen leicht gemacht: Gib deine Website ein, definiere dein Ziel — GetMarketing baut die Strategie und setzt sie automatisch um." />
+<meta property="og:image" content="https://getmarketing.team/og-marketing-plan.jpg" />
+<meta property="og:site_name" content="GetMarketing" />
+<meta property="og:locale" content="de_DE" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Marketingplan erstellen mit KI — in 3 Sekunden | GetMarketing" />
+<meta name="twitter:description" content="KI erstellt deinen B2B-Marketingplan in Sekunden und setzt ihn automatisch um." />
+<meta name="twitter:image" content="https://getmarketing.team/og-marketing-plan.jpg" />
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="de" href="https://getmarketing.team/marketingplan-erstellen/" />
+<link rel="alternate" hreflang="en" href="https://getmarketing.team/marketing-plan-generator/" />
+<link rel="alternate" hreflang="x-default" href="https://getmarketing.team/marketing-plan-generator/" />
+
+<!-- JSON-LD: WebPage + Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Marketingplan erstellen mit KI",
+  "description": "Marketingplan erstellen leicht gemacht: Gib deine Website ein, definiere dein Ziel — GetMarketing baut die Strategie und setzt sie automatisch um.",
+  "url": "https://getmarketing.team/marketingplan-erstellen/",
+  "isPartOf": { "@type": "WebSite", "name": "GetMarketing", "url": "https://getmarketing.team" },
+  "inLanguage": "de",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://getmarketing.team/de/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketingplan erstellen", "item": "https://getmarketing.team/marketingplan-erstellen/" }
+    ]
+  }
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ist das nur eine generische Vorlage?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nein. Der Plan wird aus deinen Website-Inhalten, deinem Ziel und aktuellen Wettbewerbsdaten erstellt. Zwei Unternehmen aus verschiedenen Branchen bekommen vollständig unterschiedliche Pläne." }
+    },
+    {
+      "@type": "Question",
+      "name": "Was wenn ich nur den Plan will, nicht die Umsetzung?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Du kannst den Plan kostenlos erstellen und einsehen. Die Umsetzung durch Agenten ist ein kostenpflichtiges Feature. Der Plan selbst ist auch allein nützlich." }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der Unterschied zu ChatGPT?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT produziert Text. GetMarketing produziert einen strukturierten, priorisierten Plan, der direkt mit der Umsetzung verbunden ist. Wenn du ihn freigibst, beginnen KI-Agenten zu arbeiten: Inhalte veröffentlichen, Keywords ansteuern, Posts planen. Das Ergebnis ist ein laufendes Marketingsystem, kein Dokument." }
+    },
+    {
+      "@type": "Question",
+      "name": "Funktioniert das für meine Branche?",
+      "acceptedAnswer": { "@type": "Answer", "text": "GetMarketing ist für B2B-Gründer in technischen und dienstleistungsnahen Branchen gebaut: Maschinenbau, SaaS, professionelle Dienstleistungen, Industrieausrüstung. Wenn deine Kunden Unternehmen sind und du einen konstanten Lead-Zufluss brauchst, passt es." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F4;
+    --line:       #E8E8E8;
+    --white:      #FFFFFF;
+    --tint:       #E7F3EC;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --maxw: 1140px;
+    --pad-y: 120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  section { padding: var(--pad-y) 0; }
+
+  h1, h2, h3 { font-weight: 900; letter-spacing: -0.035em; line-height: 1.06; text-wrap: balance; }
+  h1 { font-size: clamp(36px, 6vw, 76px); }
+  h2 { font-size: clamp(26px, 3.6vw, 44px); }
+  em { font-style: italic; color: var(--accent); }
+  p { color: var(--black); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--font); font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+    padding: 15px 30px; border-radius: 50px; cursor: pointer; border: 1.5px solid transparent;
+    text-decoration: none;
+    transition: transform .18s ease, opacity .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn-dark  { background: var(--black); color: #fff; }
+  .btn-dark:hover  { transform: translateY(-2px); opacity: .88; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-light:hover { transform: translateY(-2px); opacity: .9; }
+  .btn-ghost-light { background: transparent; color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.3); }
+  .btn-ghost-light:hover { border-color: rgba(255,255,255,.65); }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 60; background: var(--forest); border-bottom: 1px solid rgba(255,255,255,.07); }
+  .nav-inner { display: flex; align-items: center; height: 70px; gap: 20px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+  .nav-logo img { width: 34px; height: 34px; border-radius: 7px; display: block; object-fit: cover; }
+  .nav-logo-text { font-size: 19px; font-weight: 900; letter-spacing: -0.04em; color: #fff; }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; flex: 1; justify-content: center; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.65); text-decoration: none; transition: color .14s; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .nav-cta { flex-shrink: 0; font-size: 14px; font-weight: 600; padding: 9px 20px; border-radius: 50px; background: transparent; color: rgba(255,255,255,.88); border: 1.5px solid rgba(255,255,255,.35); text-decoration: none; transition: border-color .14s, color .14s; }
+  .nav-cta:hover { border-color: rgba(255,255,255,.75); color: #fff; }
+  .nav-lang { flex-shrink: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: rgba(255,255,255,.45); text-decoration: none; transition: color .14s; padding: 4px 2px; }
+  .nav-lang:hover { color: rgba(255,255,255,.9); }
+
+  /* Eyebrow */
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 14px; display: block; }
+
+  /* Hero */
+  .hero { background: var(--forest); text-align: center; padding-top: 86px; padding-bottom: 80px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 500px at 50% 120%, rgba(82,183,136,.14), transparent 70%); pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero h1 { color: #fff; max-width: 22ch; margin: 0 auto 22px; }
+  .hero .sub { max-width: 52ch; margin: 0 auto 44px; font-size: clamp(16px, 1.55vw, 19px); font-weight: 300; line-height: 1.65; color: rgba(255,255,255,.62); }
+  .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+  /* Steps */
+  .steps-section { background: var(--white); }
+  .steps-head { text-align: center; max-width: 760px; margin: 0 auto 72px; }
+  .steps-head .sub { margin-top: 18px; font-size: 17px; font-weight: 300; color: var(--gray); line-height: 1.7; }
+  .step { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; padding: 52px 0; border-top: 1px solid var(--line); }
+  .step:first-child { border-top: none; }
+  .step-num { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 16px; }
+  .step-num b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: var(--tint); color: var(--forest); font-weight: 900; }
+  .step h3 { font-size: clamp(20px, 2.2vw, 28px); margin-bottom: 16px; }
+  .step p { color: var(--gray); font-size: 16px; font-weight: 300; line-height: 1.7; }
+  .step:nth-child(even) .step-visual { order: -1; }
+  .step-visual { background: var(--card); border-radius: 20px; padding: 28px; min-height: 220px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+  .vis-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray2); }
+  .mini-row { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 13px 16px; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 11px; }
+  .mini-row .ck { width: 20px; height: 20px; border-radius: 50%; background: var(--tint); color: var(--accent-ink); display: grid; place-items: center; font-size: 12px; font-weight: 900; flex-shrink: 0; }
+
+  /* Agent diagram */
+  .agent-diagram { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; }
+  .agent-pm-card { background: var(--forest); color: #fff; border-radius: 14px; padding: 12px 16px; text-align: center; font-size: 12px; font-weight: 700; line-height: 1.35; box-shadow: 0 4px 16px rgba(27,67,50,.25); }
+  .agent-chips-col { display: flex; flex-direction: column; gap: 7px; }
+  .agent-chip { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--black); display: flex; align-items: center; gap: 7px; animation: chipGlow 3s ease-in-out infinite; }
+  .agent-chip:nth-child(2) { animation-delay: .6s; }
+  .agent-chip:nth-child(3) { animation-delay: 1.2s; }
+  .agent-chip:nth-child(4) { animation-delay: 1.8s; }
+  @keyframes chipGlow { 0%,100% { border-color: var(--line); } 50% { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(82,183,136,.1); } }
+  .chip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .agent-divider-col { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .agent-line { width: 1px; height: 28px; background: #D1E7D9; }
+
+  /* Approval */
+  .doc-thumb { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .doc-thumb .pl { height: 9px; border-radius: 5px; background: #e6e6e2; margin-bottom: 9px; }
+  .doc-thumb .pl.s { width: 52%; } .doc-thumb .pl.m { width: 82%; }
+  .doc-thumb .doc-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray2); margin-bottom: 12px; }
+  .reviewed { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-ink); font-weight: 700; font-size: 14px; }
+  .reviewed .ck { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 12px; }
+  .approve-btn { background: var(--black); color: #fff; border: none; border-radius: 12px; padding: 15px; font-family: var(--font); font-weight: 900; font-size: 15px; width: 100%; cursor: pointer; transition: background .2s; }
+  .approve-btn:hover { background: var(--forest); }
+
+  /* Channel bars */
+  .channel-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+  .channel-bar-row { display: flex; align-items: center; gap: 10px; }
+  .channel-bar-label { font-size: 12px; font-weight: 600; color: var(--black); width: 68px; flex-shrink: 0; }
+  .channel-bar-track { flex: 1; height: 8px; background: #E8E8E8; border-radius: 4px; overflow: hidden; }
+  .channel-bar-fill { height: 100%; border-radius: 4px; background: var(--accent); }
+  .channel-bar-pct { font-size: 11px; font-weight: 700; color: var(--accent-ink); width: 60px; text-align: right; flex-shrink: 0; }
+
+  /* Bento */
+  .bento-section { background: #F7F7F5; }
+  .bento-head { margin-bottom: 52px; }
+  .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .bento-card { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 32px; overflow: hidden; }
+  .bento-card h3 { font-size: clamp(17px, 1.55vw, 21px); margin-bottom: 10px; }
+  .bento-card > p { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.75; }
+  .bento-lg { grid-column: span 2; }
+  .bento-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray2); margin-bottom: 14px; }
+  .bento-feat-icon { width: 44px; height: 44px; border-radius: 13px; background: var(--tint); color: var(--forest); display: grid; place-items: center; font-size: 20px; margin-bottom: 20px; }
+  .bento-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--tint); color: var(--accent-ink); border-radius: 40px; padding: 5px 11px; font-size: 12px; font-weight: 700; margin-top: 16px; }
+  .exec-badges { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+  .exec-badge { display: inline-flex; align-items: center; gap: 5px; background: var(--tint); color: var(--forest); border-radius: 40px; padding: 5px 12px; font-size: 12px; font-weight: 700; }
+  .exec-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: bento-pulse 2.2s ease-in-out infinite; }
+  @keyframes bento-pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+
+  /* Objections */
+  .obj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .obj-card { background: var(--card); border-radius: 20px; padding: 32px; }
+  .obj-q { font-size: 16px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.3; }
+  .obj-a { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.75; }
+
+  /* Final CTA */
+  .cta-final { background: var(--forest); color: #fff; text-align: center; position: relative; overflow: hidden; }
+  .cta-final::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 360px at 50% 120%, rgba(82,183,136,.18), transparent 70%); pointer-events: none; }
+  .cta-final .wrap { position: relative; z-index: 1; }
+  .cta-final h2 { color: #fff; max-width: 20ch; margin: 0 auto; }
+  .cta-final .sub { margin: 22px auto 36px; font-size: 18px; font-weight: 300; color: rgba(255,255,255,.72); max-width: 50ch; line-height: 1.65; }
+
+  /* SEO */
+  .seo-section { background: var(--white); padding: var(--pad-y) 0; border-top: 1px solid var(--line); }
+  .seo-inner { max-width: 720px; }
+  .seo-inner h2 { font-size: clamp(22px, 2.4vw, 30px); margin-bottom: 16px; }
+  .seo-inner h3 { font-size: 20px; margin-top: 36px; margin-bottom: 12px; }
+  .seo-inner p { font-size: 15px; color: var(--gray); font-weight: 300; line-height: 1.8; margin-bottom: 12px; }
+
+  /* Footer */
+  footer { padding: 40px 0; border-top: 1px solid var(--line); color: var(--gray2); font-size: 13px; }
+  .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .foot-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .foot-logo-mark { width: 26px; height: 26px; border-radius: 6px; background: var(--forest); color: #fff; display: grid; place-items: center; font-size: 11px; font-weight: 900; flex-shrink: 0; opacity: .7; }
+  .foot-logo-text { font-size: 16px; font-weight: 900; letter-spacing: -0.04em; color: var(--gray2); }
+  footer a { color: var(--gray2); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    :root { --pad-y: 80px; }
+    .nav-links { display: none; }
+    .step { grid-template-columns: 1fr; gap: 22px; }
+    .step .step-visual { display: none; }
+    .bento-grid { grid-template-columns: 1fr 1fr; }
+    .bento-lg { grid-column: span 2; }
+    .obj-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    :root { --pad-y: 60px; }
+    .nav-inner { height: 60px; }
+    .hero { padding-top: 52px; padding-bottom: 52px; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-lg { grid-column: span 1; }
+    .foot-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+    .chip-dot, .exec-badge .dot { animation: none; }
+    .agent-chip { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="/de/" class="nav-logo">
+      <img src="/logo.jpg" alt="GetMarketing" />
+      <span class="nav-logo-text">GetMarketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/de/#solution">Funktionen</a></li>
+      <li><a href="/de/#solution">So funktioniert's</a></li>
+      <li><a href="/de/#diff">Vergleich</a></li>
+      <li><a href="/marketingplan-erstellen/" class="active">Marketingplan</a></li>
+    </ul>
+    <a href="/marketing-plan-generator/" class="nav-lang">EN</a>
+    <a href="mailto:darya@getmarketing.team?subject=Ich%20m%C3%B6chte%20GetMarketing%20ausprobieren&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20GetMarketing%20ausprobieren.%0A%0AIch%20freue%20mich%20auf%20deine%20Antwort." class="nav-cta">Jetzt testen</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(82,183,136,.8);margin-bottom:18px">KI Marketingplan Generator</p>
+    <h1>Marketingplan erstellen in 3 Sekunden. <em>Und dann läuft er von selbst.</em></h1>
+    <p class="sub">Gib deine Website ein oder beschreibe, was du machst. GetMarketing erstellt einen vollständigen Marketingplan auf Basis deiner Ziele, deines Markts und deiner Wettbewerber. Und gibt ihn direkt an die Agenten weiter, die ihn umsetzen.</p>
+    <div class="hero-cta-wrap">
+      <a href="https://app.getmarketing.team" class="btn btn-dark">Marketingplan erstellen →</a>
+    </div>
+  </div>
+</header>
+
+<section class="steps-section">
+  <div class="wrap">
+    <div class="steps-head reveal">
+      <p class="eyebrow">So funktioniert's</p>
+      <h2>Von null zum laufenden Marketingplan in unter einer Minute.</h2>
+      <p class="sub">Sag GetMarketing, was dein Unternehmen macht. Es übernimmt die Recherche, erstellt den Plan und übergibt ihn an die Agenten, die ihn umsetzen.</p>
+    </div>
+
+    <div>
+      <div class="step reveal">
+        <div>
+          <div class="step-num"><b>1</b> Eingabe</div>
+          <h3>Sag uns, was du machst</h3>
+          <p>Gib deine Website-URL oder eine kurze Beschreibung deines Unternehmens und Ziels ein. Das ist alles. GetMarketing übernimmt die Recherche: Markt, Wettbewerber, Zielgruppe.</p>
+        </div>
+        <div class="step-visual">
+          <div class="vis-label">Markt wird analysiert...</div>
+          <div class="mini-row" style="color:var(--gray)">
+            <span class="ck" style="background:var(--tint);animation:bento-pulse 2s ease-in-out infinite">↻</span>
+            Analyse von acme-maschinenbau.de
+          </div>
+          <div class="mini-row" style="color:var(--gray)">
+            <span class="ck" style="background:var(--tint);animation:bento-pulse 2s ease-in-out infinite .4s">↻</span>
+            Wettbewerbslücken werden ermittelt
+          </div>
+          <div class="mini-row">
+            <span class="ck">✓</span>
+            Ziel: mehr Inbound-Leads
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <div class="step-num"><b>2</b> Plan</div>
+          <h3>Dein priorisierter Marketingplan</h3>
+          <p>In Sekunden erstellt GetMarketing einen priorisierten Plan: welche Kanäle du nutzen solltest, was du produzierst und in welcher Reihenfolge. Basierend darauf, was für dein Unternehmen tatsächlich Leads generiert.</p>
+        </div>
+        <div class="step-visual">
+          <div class="vis-label">Dein Plan · Kanal-Prioritäten</div>
+          <div class="channel-bars">
+            <div class="channel-bar-row">
+              <span class="channel-bar-label">LinkedIn</span>
+              <div class="channel-bar-track"><div class="channel-bar-fill" style="width:82%"></div></div>
+              <span class="channel-bar-pct">Priorität 1</span>
+            </div>
+            <div class="channel-bar-row">
+              <span class="channel-bar-label">SEO</span>
+              <div class="channel-bar-track"><div class="channel-bar-fill" style="width:65%;background:var(--forest)"></div></div>
+              <span class="channel-bar-pct" style="color:var(--forest)">Priorität 2</span>
+            </div>
+            <div class="channel-bar-row">
+              <span class="channel-bar-label">E-Mail</span>
+              <div class="channel-bar-track"><div class="channel-bar-fill" style="width:40%;background:var(--gray2)"></div></div>
+              <span class="channel-bar-pct" style="color:var(--gray2)">Priorität 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <div class="step-num"><b>3</b> Übergabe</div>
+          <h3>Der Project Manager verteilt die Aufgaben an die Agenten</h3>
+          <p>Sobald du den Plan freigibst, verteilt der Project Manager Agent die Umsetzung auf spezialisierte Agenten: SEO, Content, LinkedIn, Analytics. Jeder bekommt sein Briefing. Jeder fängt an zu arbeiten.</p>
+        </div>
+        <div class="step-visual">
+          <div class="vis-label">Project Manager verteilt Briefings</div>
+          <div class="agent-diagram">
+            <div class="agent-chips-col">
+              <div class="agent-chip"><span class="chip-dot"></span>SEO Agent</div>
+              <div class="agent-chip"><span class="chip-dot"></span>Content Agent</div>
+            </div>
+            <div class="agent-divider-col">
+              <div class="agent-line"></div>
+              <div class="agent-pm-card">Project<br/>Manager</div>
+              <div class="agent-line"></div>
+            </div>
+            <div class="agent-chips-col">
+              <div class="agent-chip"><span class="chip-dot"></span>LinkedIn Agent</div>
+              <div class="agent-chip"><span class="chip-dot"></span>Analytics Agent</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <div class="step-num"><b>4</b> Freigabe</div>
+          <h3>Du gibst frei. Sie setzen um.</h3>
+          <p>Inhalte landen in deiner Freigabe-Warteschlange. Ein Klick zum Veröffentlichen. Keine Koordination, keine Briefing-Runden, kein Nachhaken. Der Plan läuft nach Zeitplan, mit oder ohne dich.</p>
+        </div>
+        <div class="step-visual">
+          <div class="vis-label">Deine einzige Aufgabe</div>
+          <div class="doc-thumb">
+            <div class="doc-label">Woche 25 · LinkedIn-Artikel</div>
+            <div class="pl m"></div>
+            <div class="pl"></div>
+            <div class="pl s"></div>
+            <span class="reviewed"><span class="ck">✓</span> Von einem Senior-Marketer geprüft</span>
+          </div>
+          <button class="approve-btn" onclick="this.textContent='Freigegeben ✓';this.style.background='var(--accent-ink)';setTimeout(()=>{this.textContent='Freigeben';this.style.background='';},1600)">Freigeben</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bento-section">
+  <div class="wrap reveal">
+    <div class="bento-head">
+      <p class="eyebrow">Was du bekommst</p>
+      <h2>Ein Marketingplan, der dir sagt, was als nächstes zu tun ist.</h2>
+      <p style="margin-top:14px;font-size:17px;font-weight:300;color:var(--gray);max-width:52ch;line-height:1.7">Die meisten Marketingpläne sind Dokumente, die in einem Ordner verstauben. Dieser hier wird umgesetzt.</p>
+    </div>
+    <div class="bento-grid">
+
+      <div class="bento-card bento-lg">
+        <p class="bento-eyebrow">Kanal-Priorisierung</p>
+        <h3>Welche 2–3 Kanäle jetzt den Unterschied machen.</h3>
+        <p>Basierend auf deiner Nische, deinem Wettbewerbsumfeld und wo deine Kunden bereits Zeit verbringen. Keine generischen Empfehlungen, sondern spezifisch für dich.</p>
+        <div class="channel-bars" style="margin-top:24px">
+          <div class="channel-bar-row"><span class="channel-bar-label">LinkedIn</span><div class="channel-bar-track"><div class="channel-bar-fill" style="width:80%"></div></div><span class="channel-bar-pct">Hoch</span></div>
+          <div class="channel-bar-row"><span class="channel-bar-label">SEO</span><div class="channel-bar-track"><div class="channel-bar-fill" style="width:62%;background:var(--forest)"></div></div><span class="channel-bar-pct" style="color:var(--forest)">Mittel</span></div>
+          <div class="channel-bar-row"><span class="channel-bar-label">E-Mail</span><div class="channel-bar-track"><div class="channel-bar-fill" style="width:38%;background:var(--gray2)"></div></div><span class="channel-bar-pct" style="color:var(--gray2)">Später</span></div>
+          <div class="channel-bar-row"><span class="channel-bar-label">Paid Ads</span><div class="channel-bar-track"><div class="channel-bar-fill" style="width:20%;background:#E0E0DC"></div></div><span class="channel-bar-pct" style="color:var(--gray2)">Skip</span></div>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-feat-icon">📅</div>
+        <h3>Wöchentlicher Content-Plan</h3>
+        <p>Was wann veröffentlicht wird und warum. Bereits geplant mit dem richtigen Rhythmus für deine Branche.</p>
+        <span class="bento-pill">↗ 3 Posts · Woche 25</span>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-feat-icon">↗</div>
+        <h3>SEO-Keyword-Roadmap</h3>
+        <p>Welche Keywords du angreifst, basierend auf deiner Nische und realistischem Ranking-Potenzial. Aus Live-Wettbewerbsdaten, nicht aus generischen Listen.</p>
+        <span class="bento-pill">↗ 14 Keywords gefunden</span>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-feat-icon">⊕</div>
+        <h3>Wettbewerbsanalyse</h3>
+        <p>Wo deine Wettbewerber schwach sind und wo du Positionen besetzen kannst. Lücken angreifen statt auf umkämpftem Terrain kämpfen.</p>
+        <span class="bento-pill">↗ 8 Lücken identifiziert</span>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-feat-icon">↑</div>
+        <h3>Analytics-Baseline</h3>
+        <p>Was du messen solltest, was gut aussieht und wann du anpassen musst. Du weißt immer, ob es funktioniert.</p>
+        <span class="bento-pill">✓ Tracking eingerichtet</span>
+      </div>
+
+      <div class="bento-card bento-lg">
+        <p class="bento-eyebrow">Umsetzungs-Übergabe</p>
+        <h3>Jeder Punkt im Plan wird einem Agenten zugewiesen, der ihn umsetzt.</h3>
+        <p>Plan und Umsetzung sind dasselbe System. Einmal freigeben. Die Agenten laufen von da an nach einem festen Wochenplan.</p>
+        <div class="exec-badges">
+          <span class="exec-badge"><span class="dot"></span> SEO Agent</span>
+          <span class="exec-badge"><span class="dot"></span> Content Agent</span>
+          <span class="exec-badge"><span class="dot"></span> LinkedIn Agent</span>
+          <span class="exec-badge"><span class="dot"></span> Analytics Agent</span>
+          <span class="exec-badge"><span class="dot"></span> Project Manager</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="steps-head reveal" style="margin-bottom:52px">
+      <p class="eyebrow">Häufige Fragen</p>
+      <h2>Bevor du deinen Plan erstellst.</h2>
+    </div>
+    <div class="obj-grid reveal">
+      <div class="obj-card">
+        <div class="obj-q">„Ist das nur eine generische Vorlage?"</div>
+        <p class="obj-a">Nein. Der Plan wird aus deinen Website-Inhalten, deinem Ziel und aktuellen Wettbewerbsdaten erstellt. Zwei Unternehmen aus verschiedenen Branchen bekommen vollständig unterschiedliche Pläne.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-q">„Was wenn ich nur den Plan will, nicht die Umsetzung?"</div>
+        <p class="obj-a">Du kannst den Plan kostenlos erstellen und einsehen. Die Umsetzung durch Agenten ist ein kostenpflichtiges Feature. Der Plan selbst ist auch allein nützlich.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-q">„Was ist der Unterschied zu ChatGPT?"</div>
+        <p class="obj-a">ChatGPT produziert Text. GetMarketing produziert einen strukturierten, priorisierten Plan, der direkt mit der Umsetzung verbunden ist. Wenn du ihn freigibst, beginnen Agenten zu arbeiten: Inhalte veröffentlichen, Keywords ansteuern, Posts planen. Das Ergebnis ist ein laufendes Marketingsystem, kein Dokument.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-q">„Funktioniert das für meine Branche?"</div>
+        <p class="obj-a">GetMarketing ist für B2B-Gründer in technischen und dienstleistungsnahen Branchen gebaut: Maschinenbau, SaaS, professionelle Dienstleistungen, Industrieausrüstung. Wenn deine Kunden Unternehmen sind und du konstante Leads brauchst, passt es.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>Jetzt Marketingplan erstellen. Dauert 3 Sekunden.</h2>
+    <p class="sub">Kein Abo nötig. Der Plan gehört dir.</p>
+    <a href="https://app.getmarketing.team" class="btn btn-light">Marketingplan erstellen →</a>
+  </div>
+</section>
+
+<section class="seo-section">
+  <div class="wrap">
+    <div class="seo-inner">
+      <h2>Was macht einen guten KI-Marketingplan aus?</h2>
+      <p>Ein Marketingplan scheitert, wenn er nur ein Dokument bleibt. Die meisten Gründer haben schon einen geschrieben oder von einer Agentur schreiben lassen und ihn danach nie wieder angeschaut. Das eigentliche Problem ist die Lücke zwischen Planung und Umsetzung.</p>
+      <p>Ein effektiver KI-Marketingplan tut drei Dinge: er identifiziert die richtigen Kanäle für dein Unternehmen und deine Zielgruppe, er legt einen realistischen Umsetzungsplan fest, der nicht davon abhängt, dass du drei Stunden pro Woche übrig hast, und er zeigt dir, woran du erkennst, ob es funktioniert.</p>
+      <p>GetMarketing erstellt Pläne auf Basis von Live-Daten (deine Website, deine Wettbewerber, dein Markt) und schließt den Kreislauf, indem die Umsetzung direkt an Agenten übergeben wird. Plan und Umsetzung sind dasselbe System.</p>
+
+      <h3>Marketingplan erstellen: Was gehört dazu?</h3>
+      <p>Ein vollständiger Marketingplan enthält eine Kanalstrategie (wo du aktiv sein solltest und warum), einen Content-Plan (was du produzierst und in welcher Frequenz), eine SEO-Roadmap (welche Keywords du angreifst), eine Wettbewerbsanalyse und ein Tracking-Setup, das dir zeigt, was funktioniert. GetMarketing erstellt alle diese Bestandteile automatisch und setzt sie dann auch um.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="/de/" class="foot-logo">
+      <span class="foot-logo-mark">G</span>
+      <span class="foot-logo-text">GetMarketing</span>
+    </a>
+    <span>© 2026 GetMarketing · <a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
