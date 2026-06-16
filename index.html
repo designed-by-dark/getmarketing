@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GetMarketing — The AI marketing team that runs your marketing</title>
 <meta name="description" content="GetMarketing builds your strategy, creates your content, and publishes it on a consistent schedule every week. You review what goes out." />
-<link rel="icon" href="logo.jpg" />
+<link rel="icon" href="https://scontent-ber1-1.cdninstagram.com/v/t51.82787-19/722447542_18122211406601492_2846864422331679204_n.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet" />
@@ -81,7 +81,7 @@
   }
   .nav-inner { display: flex; align-items: center; height: 70px; gap: 20px; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-  .nav-logo img { width: 34px; height: 34px; border-radius: 7px; display: block; }
+  .nav-logo img { width: 34px; height: 34px; border-radius: 7px; display: block; object-fit: cover; }
   .nav-logo-text { font-size: 19px; font-weight: 900; letter-spacing: -0.04em; color: #fff; }
   .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; flex: 1; justify-content: center; }
   .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.65); text-decoration: none; transition: color .14s; }
@@ -133,7 +133,6 @@
     width: max-content;
   }
 
-  /* Each row drifts at a different speed and direction */
   @keyframes drift-left  { from { transform: translateX(0);    } to { transform: translateX(-50%); } }
   @keyframes drift-right { from { transform: translateX(-50%); } to { transform: translateX(0);    } }
 
@@ -172,6 +171,108 @@
   .pain-icon { width: 40px; height: 40px; border-radius: 11px; background: var(--tint); display: grid; place-items: center; margin-bottom: 18px; color: var(--accent-ink); font-size: 18px; font-weight: 900; }
   .pain-card h3 { font-size: 18px; margin-bottom: 9px; line-height: 1.2; }
   .pain-card p { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.7; }
+
+  /* ---- Bento features ---- */
+  .bento-section { background: #F7F7F5; }
+  .bento-head { margin-bottom: 52px; }
+  .bento-head .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: 14px;
+  }
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .bento-card {
+    background: #fff;
+    border: 1px solid #E8E8E8;
+    border-radius: 22px;
+    padding: 32px;
+    overflow: hidden;
+  }
+  .bento-card h3 {
+    font-size: clamp(17px, 1.55vw, 21px);
+    margin-bottom: 10px;
+  }
+  .bento-card > p {
+    font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.75;
+  }
+  .bento-lg { grid-column: span 2; }
+  .bento-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray2); margin-bottom: 14px;
+  }
+
+  /* Team status rows (inside big bento card) */
+  .bento-team {
+    margin-top: 28px;
+    display: flex; flex-direction: column; gap: 9px;
+  }
+  .btm-row {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--card); border-radius: 12px; padding: 12px 15px;
+  }
+  .btm-av {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #D6ECE0; color: var(--forest);
+    display: grid; place-items: center;
+    font-size: 10px; font-weight: 900; flex-shrink: 0;
+    letter-spacing: 0;
+  }
+  .btm-info { flex: 1; }
+  .btm-name { font-size: 13px; font-weight: 700; color: var(--black); line-height: 1.2; }
+  .btm-task { font-size: 12px; color: var(--gray); }
+  .btm-done { color: var(--accent-ink); font-size: 14px; font-weight: 900; }
+  .btm-live {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+    animation: bento-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes bento-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+  /* Approval card visual */
+  .bento-approve { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .bento-doc {
+    background: var(--card); border-radius: 12px; padding: 16px 18px;
+  }
+  .bento-doc .doc-week {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--gray2); margin-bottom: 12px;
+  }
+  .bento-doc .pl { height: 8px; border-radius: 5px; background: #DCDCD8; margin-bottom: 8px; }
+  .bento-doc .pl.m { width: 84%; }
+  .bento-doc .pl.s { width: 60%; }
+  .bento-doc .pl.xs { width: 38%; margin-bottom: 0; }
+  .bento-doc-reviewed {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; color: var(--accent-ink); font-weight: 600; margin-top: 12px;
+  }
+  .bento-doc-reviewed .rck {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: grid; place-items: center; font-size: 10px; flex-shrink: 0;
+  }
+
+  /* Feature icon for small bento cards */
+  .bento-feat-icon {
+    width: 44px; height: 44px; border-radius: 13px;
+    background: var(--tint); color: var(--forest);
+    display: grid; place-items: center;
+    font-size: 20px; margin-bottom: 20px;
+  }
+  .bento-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--tint); color: var(--accent-ink);
+    border-radius: 40px; padding: 5px 11px;
+    font-size: 12px; font-weight: 700; margin-top: 16px;
+  }
+  .bento-mini-bars {
+    display: flex; align-items: flex-end; gap: 6px;
+    height: 50px; margin-top: 18px;
+  }
+  .bento-mini-bar { flex: 1; border-radius: 4px 4px 0 0; background: #E3E3DF; }
+  .bento-mini-bar.hl { background: var(--accent); }
 
   /* ---- Solution ---- */
   .sol-head { text-align: center; max-width: 800px; margin: 0 auto 76px; }
@@ -215,6 +316,47 @@
   .no { color: #C9C9C9; font-weight: 700; }
   .meh { color: var(--gray); font-size: 13px; }
 
+  /* ---- Mobile compare card (hidden on desktop) ---- */
+  .compare-mobile { display: none; }
+  .cmc-card {
+    background: var(--forest);
+    border-radius: 22px;
+    overflow: hidden;
+  }
+  .cmc-card-head {
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  .cmc-gm-label {
+    display: block;
+    font-size: 20px; font-weight: 900; letter-spacing: -0.04em; color: #fff;
+    margin-bottom: 5px;
+  }
+  .cmc-vs-label {
+    font-size: 13px; color: rgba(255,255,255,.45);
+  }
+  .cmc-list { list-style: none; padding: 4px 0; }
+  .cmc-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    font-size: 15px; color: #fff; font-weight: 500; line-height: 1.4;
+  }
+  .cmc-list li:last-child { border-bottom: none; }
+  .cmc-check {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 900; flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .cmc-footer {
+    padding: 16px 24px;
+    font-size: 13px; color: rgba(255,255,255,.4);
+    border-top: 1px solid rgba(255,255,255,.10);
+    line-height: 1.55;
+  }
+
   /* ---- Quotes ---- */
   .q-head { text-align: center; max-width: 820px; margin: 0 auto 56px; }
   .q-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -240,7 +382,7 @@
   footer { padding: 40px 0; border-top: 1px solid var(--line); color: var(--gray2); font-size: 13px; }
   .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
   .foot-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-  .foot-logo img { width: 26px; height: 26px; border-radius: 5px; opacity: .55; }
+  .foot-logo img { width: 26px; height: 26px; border-radius: 5px; opacity: .55; object-fit: cover; }
   .foot-logo-text { font-size: 16px; font-weight: 900; letter-spacing: -0.04em; color: var(--gray2); }
   footer a { color: var(--gray2); text-decoration: none; }
   footer a:hover { color: var(--black); }
@@ -262,6 +404,8 @@
     .hero h1 { max-width: none; }
     .compare-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .compare { min-width: 660px; }
+    .bento-grid { grid-template-columns: 1fr 1fr; }
+    .bento-lg { grid-column: span 2; }
   }
 
   /* ---- Mobile (≤600px) ---- */
@@ -286,11 +430,18 @@
     .team-online { gap: 8px; }
     .chip { font-size: 12px; padding: 7px 13px 7px 8px; }
     .foot-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    /* Bento: single column on mobile */
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-lg { grid-column: span 1; }
+    /* Compare table: hide on mobile, show card instead */
+    .compare-scroll { display: none; }
+    .compare-mobile { display: block; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .badge-row-inner { animation: none !important; }
     .reveal { transition: none; opacity: 1; transform: none; }
+    .btm-live { animation: none; }
   }
 </style>
 </head>
@@ -300,7 +451,7 @@
 <nav>
   <div class="wrap nav-inner">
     <a href="#" class="nav-logo">
-      <img src="logo.jpg" alt="GetMarketing" />
+      <img src="https://scontent-ber1-1.cdninstagram.com/v/t51.82787-19/722447542_18122211406601492_2846864422331679204_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4zMjAuYzIifQ&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gGEb-oXhFydl_LOb6sPlFjLn_31OVENQk81H3DOOIQfwqgKA18cHCn-k6u90CB3K5PvCjnwduUQkGpTkEBIY92a&_nc_ohc=TUId58WWlbMQ7kNvwGmvGvq&_nc_gid=5ZXIimS8rKwcODHIz5K2Ew&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_N7Gctws2-PaQv095yhECoWYAjwhoR0P1FsS8auuigSg&oe=6A36E7B0&_nc_sid=7a9f4b" alt="GetMarketing" />
       <span class="nav-logo-text">GetMarketing</span>
     </a>
     <ul class="nav-links">
@@ -324,13 +475,12 @@
     </div>
   </div>
 
-  <!-- Badge grid — animated, integrated into hero bottom -->
+  <!-- Badge grid — animated -->
   <div class="badge-grid">
 
     <!-- Row 1: drifts left -->
     <div class="badge-row-wrap">
       <div class="badge-row-inner">
-        <!-- Set A -->
         <div class="badge badge-agent"><span class="badge-icon">St</span> Strategy Director</div>
         <div class="badge badge-notif"><span class="badge-icon">✓</span> Content ready</div>
         <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
@@ -341,7 +491,6 @@
         <div class="badge badge-notif"><span class="badge-icon">✓</span> Week plan ready</div>
         <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
         <div class="badge badge-notif"><span class="badge-icon">↑</span> Reach: +2.4K</div>
-        <!-- Set B (duplicate for seamless loop) -->
         <div class="badge badge-agent"><span class="badge-icon">St</span> Strategy Director</div>
         <div class="badge badge-notif"><span class="badge-icon">✓</span> Content ready</div>
         <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
@@ -358,7 +507,6 @@
     <!-- Row 2: drifts right -->
     <div class="badge-row-wrap">
       <div class="badge-row-inner">
-        <!-- Set A -->
         <div class="badge badge-notif"><span class="badge-icon">✓</span> Email sequence live</div>
         <div class="badge badge-agent"><span class="badge-icon">Em</span> Email Marketer</div>
         <div class="badge badge-notif"><span class="badge-icon">↑</span> Rankings improved</div>
@@ -369,7 +517,6 @@
         <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO Specialist</div>
         <div class="badge badge-notif"><span class="badge-icon">✓</span> Strategy reviewed</div>
         <div class="badge badge-agent"><span class="badge-icon">Ad</span> Ads Manager</div>
-        <!-- Set B (duplicate for seamless loop) -->
         <div class="badge badge-notif"><span class="badge-icon">✓</span> Email sequence live</div>
         <div class="badge badge-agent"><span class="badge-icon">Em</span> Email Marketer</div>
         <div class="badge badge-notif"><span class="badge-icon">↑</span> Rankings improved</div>
@@ -383,10 +530,9 @@
       </div>
     </div>
 
-    <!-- Row 3: drifts left (offset via animation-delay) -->
+    <!-- Row 3: drifts left (offset) -->
     <div class="badge-row-wrap">
       <div class="badge-row-inner">
-        <!-- Set A -->
         <div class="badge badge-agent"><span class="badge-icon">St</span> Strategy Director</div>
         <div class="badge badge-notif"><span class="badge-icon">↑</span> Traffic +18%</div>
         <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
@@ -397,7 +543,6 @@
         <div class="badge badge-notif"><span class="badge-icon">↗</span> 8 competitor gaps found</div>
         <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics Lead</div>
         <div class="badge badge-notif"><span class="badge-icon">✓</span> Report ready</div>
-        <!-- Set B (duplicate for seamless loop) -->
         <div class="badge badge-agent"><span class="badge-icon">St</span> Strategy Director</div>
         <div class="badge badge-notif"><span class="badge-icon">↑</span> Traffic +18%</div>
         <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
@@ -442,6 +587,121 @@
         <h3>Marketing only runs when you push it.</h3>
         <p>The moment delivery gets busy, marketing stops. By the time you come back to it, you're starting from scratch again.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENTO FEATURES ===== -->
+<section class="bento-section">
+  <div class="wrap reveal">
+    <div class="bento-head">
+      <p class="eyebrow">What's included</p>
+      <h2>Everything your marketing needs, covered.</h2>
+    </div>
+
+    <div class="bento-grid">
+
+      <!-- Big card: AI team status -->
+      <div class="bento-card bento-lg">
+        <p class="bento-eyebrow">Your AI marketing team</p>
+        <h3>Strategy, content, SEO — all assigned and running.</h3>
+        <p>GetMarketing builds the plan, assigns every task to the right agent, and executes on a consistent weekly schedule. No briefing, no chasing, no status meetings.</p>
+        <div class="bento-team">
+          <div class="btm-row">
+            <span class="btm-av">St</span>
+            <div class="btm-info">
+              <div class="btm-name">Strategy Lead</div>
+              <div class="btm-task">Week 25 brief sent to team</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">Se</span>
+            <div class="btm-info">
+              <div class="btm-name">SEO Specialist</div>
+              <div class="btm-task">14 keywords briefed</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">Wr</span>
+            <div class="btm-info">
+              <div class="btm-name">Content Writer</div>
+              <div class="btm-task">2 articles in progress</div>
+            </div>
+            <span class="btm-live"></span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">Li</span>
+            <div class="btm-info">
+              <div class="btm-name">LinkedIn Manager</div>
+              <div class="btm-task">3 posts queued for the week</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">An</span>
+            <div class="btm-info">
+              <div class="btm-name">Analytics Lead</div>
+              <div class="btm-task">Weekly report ready</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Small card: approval -->
+      <div class="bento-card">
+        <p class="bento-eyebrow">Your only job</p>
+        <h3>Review and approve before anything goes live.</h3>
+        <p>You see every piece of content before it publishes. One click to approve, nothing to rewrite.</p>
+        <div class="bento-approve">
+          <div class="bento-doc">
+            <div class="doc-week">Week 25 · LinkedIn article</div>
+            <div class="pl m"></div>
+            <div class="pl"></div>
+            <div class="pl s"></div>
+            <div class="pl xs"></div>
+            <div class="bento-doc-reviewed"><span class="rck">✓</span> Reviewed by a senior marketer</div>
+          </div>
+          <button class="approve-btn">Approve</button>
+        </div>
+      </div>
+
+      <!-- Feature card: SEO -->
+      <div class="bento-card">
+        <div class="bento-feat-icon">↗</div>
+        <h3>SEO &amp; keyword strategy</h3>
+        <p>Competitor gaps found, keyword briefs written, content mapped to what your audience is searching. Every week, automatically.</p>
+        <span class="bento-pill">↗ 14 keywords found</span>
+      </div>
+
+      <!-- Feature card: Content -->
+      <div class="bento-card">
+        <div class="bento-feat-icon">✎</div>
+        <h3>Content, written on schedule</h3>
+        <p>Articles, LinkedIn posts, and email copy produced and reviewed before they go anywhere. No more blank page, no more missed weeks.</p>
+        <div class="bento-doc" style="margin-top:16px">
+          <div class="pl m"></div>
+          <div class="pl s"></div>
+          <div class="pl" style="width:70%"></div>
+        </div>
+      </div>
+
+      <!-- Feature card: Analytics -->
+      <div class="bento-card">
+        <div class="bento-feat-icon">↑</div>
+        <h3>Analytics that close the loop</h3>
+        <p>See which channel is driving results, where to double down, and what to drop — without pulling a single number yourself.</p>
+        <div class="bento-mini-bars">
+          <div class="bento-mini-bar" style="height:42%"></div>
+          <div class="bento-mini-bar" style="height:58%"></div>
+          <div class="bento-mini-bar hl" style="height:100%"></div>
+          <div class="bento-mini-bar" style="height:48%"></div>
+          <div class="bento-mini-bar" style="height:30%"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -522,6 +782,8 @@
       <h2>An AI marketing team that plans, executes, and tells you what's working.</h2>
       <p class="body">Most AI tools help you produce content faster. What's actually missing from most marketing efforts is the strategy behind it, consistent execution on a schedule, and a feedback loop that shows what's working. GetMarketing handles all three.</p>
     </div>
+
+    <!-- Desktop/tablet: scrollable table -->
     <div class="compare-scroll reveal">
       <table class="compare">
         <thead>
@@ -536,6 +798,27 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Mobile: card comparison (shown only on ≤600px) -->
+    <div class="compare-mobile reveal">
+      <div class="cmc-card">
+        <div class="cmc-card-head">
+          <span class="cmc-gm-label">GetMarketing</span>
+          <span class="cmc-vs-label">vs. agencies, freelancers &amp; AI content tools</span>
+        </div>
+        <ul class="cmc-list">
+          <li><span class="cmc-check">✓</span> Builds the strategy for you — others do this rarely or never</li>
+          <li><span class="cmc-check">✓</span> Runs on a consistent schedule without you pushing it</li>
+          <li><span class="cmc-check">✓</span> Human review before anything goes live</li>
+          <li><span class="cmc-check">✓</span> Shows you what's working and what to do next</li>
+          <li><span class="cmc-check">✓</span> Doesn't require weekly input from you</li>
+        </ul>
+        <div class="cmc-footer">
+          Agencies, freelancers, and AI content tools check at most one or two of these. GetMarketing covers all five.
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -589,7 +872,7 @@
 <footer>
   <div class="wrap foot-inner">
     <a href="#" class="foot-logo">
-      <img src="logo.jpg" alt="" />
+      <img src="https://scontent-ber1-1.cdninstagram.com/v/t51.82787-19/722447542_18122211406601492_2846864422331679204_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4zMjAuYzIifQ&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gGEb-oXhFydl_LOb6sPlFjLn_31OVENQk81H3DOOIQfwqgKA18cHCn-k6u90CB3K5PvCjnwduUQkGpTkEBIY92a&_nc_ohc=TUId58WWlbMQ7kNvwGmvGvq&_nc_gid=5ZXIimS8rKwcODHIz5K2Ew&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_N7Gctws2-PaQv095yhECoWYAjwhoR0P1FsS8auuigSg&oe=6A36E7B0&_nc_sid=7a9f4b" alt="" />
       <span class="foot-logo-text">GetMarketing</span>
     </a>
     <span>© 2026 GetMarketing · Your last marketing hire · <a href="#">LinkedIn</a></span>
@@ -603,7 +886,7 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-  /* Approve micro-interaction */
+  /* Approve micro-interaction (works on both step visual and bento card) */
   document.querySelectorAll('.approve-btn').forEach((b) => {
     b.addEventListener('click', () => {
       b.textContent = 'Approved ✓';
