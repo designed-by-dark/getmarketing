@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GetMarketing — Das KI-Marketingteam, das dein Marketing übernimmt</title>
+<meta name="description" content="GetMarketing entwickelt deine Strategie, erstellt deinen Content und veröffentlicht ihn jede Woche nach Plan. Du prüfst, was rausgeht." />
+<link rel="icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F4;
+    --line:       #E8E8E8;
+    --white:      #FFFFFF;
+    --tint:       #E7F3EC;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --maxw: 1140px;
+    --pad-y: 120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  section { padding: var(--pad-y) 0; }
+
+  /* ---- Typography ---- */
+  h1, h2, h3 {
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+  h1 { font-size: clamp(36px, 6vw, 76px); }
+  h2 { font-size: clamp(26px, 3.6vw, 44px); }
+  em { font-style: italic; color: var(--accent); }
+  .em-ink em { color: var(--accent-ink); }
+  p { color: var(--black); }
+  .muted { color: var(--gray); }
+
+  /* ---- Buttons ---- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--font); font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+    padding: 15px 30px; border-radius: 50px; cursor: pointer; border: 1.5px solid transparent;
+    text-decoration: none;
+    transition: transform .18s ease, opacity .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn-dark  { background: var(--black); color: #fff; }
+  .btn-dark:hover  { transform: translateY(-2px); opacity: .88; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-light:hover { transform: translateY(-2px); opacity: .9; }
+  .btn-ghost-light { background: transparent; color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.3); }
+  .btn-ghost-light:hover { border-color: rgba(255,255,255,.65); }
+  .btn-outline { background: transparent; color: var(--black); border-color: #D6D6D6; font-weight: 700; }
+  .btn-outline:hover { border-color: var(--black); }
+
+  /* ---- Nav ---- */
+  nav {
+    position: sticky; top: 0; z-index: 60;
+    background: var(--forest);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .nav-inner { display: flex; align-items: center; height: 70px; gap: 20px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+  .nav-logo img { width: 34px; height: 34px; border-radius: 7px; display: block; object-fit: cover; }
+  .nav-logo-text { font-size: 19px; font-weight: 900; letter-spacing: -0.04em; color: #fff; }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; flex: 1; justify-content: center; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.65); text-decoration: none; transition: color .14s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    flex-shrink: 0; font-size: 14px; font-weight: 600;
+    padding: 9px 20px; border-radius: 50px;
+    background: transparent; color: rgba(255,255,255,.88);
+    border: 1.5px solid rgba(255,255,255,.35); text-decoration: none;
+    transition: border-color .14s, color .14s;
+  }
+  .nav-cta:hover { border-color: rgba(255,255,255,.75); color: #fff; }
+  .nav-lang {
+    flex-shrink: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+    color: rgba(255,255,255,.45); text-decoration: none; transition: color .14s;
+    padding: 4px 2px;
+  }
+  .nav-lang:hover { color: rgba(255,255,255,.9); }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: var(--forest);
+    text-align: center;
+    padding-top: 86px;
+    padding-bottom: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-text { padding-bottom: 52px; }
+  .hero h1 { color: #fff; max-width: 22ch; margin: 0 auto 22px; }
+  .hero .sub {
+    max-width: 50ch; margin: 0 auto 36px;
+    font-size: clamp(16px, 1.55vw, 19px);
+    font-weight: 300; line-height: 1.65;
+    color: rgba(255,255,255,.62);
+  }
+  .hero-cta { display: flex; justify-content: center; }
+
+  /* ---- Badge grid (animated) ---- */
+  .badge-grid {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .badge-row-wrap {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
+    mask-image:         linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
+  }
+  .badge-row-inner {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+  }
+
+  @keyframes drift-left  { from { transform: translateX(0);    } to { transform: translateX(-50%); } }
+  @keyframes drift-right { from { transform: translateX(-50%); } to { transform: translateX(0);    } }
+
+  .badge-row-wrap:nth-child(1) .badge-row-inner { animation: drift-left  80s linear infinite; }
+  .badge-row-wrap:nth-child(2) .badge-row-inner { animation: drift-right 110s linear infinite; }
+  .badge-row-wrap:nth-child(3) .badge-row-inner { animation: drift-left  95s linear infinite; animation-delay: -30s; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 7px 16px 7px 7px;
+    border-radius: 40px;
+    white-space: nowrap; flex-shrink: 0;
+    font-size: 13.5px; font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .badge-agent { background: rgba(255,255,255,.96); color: var(--black); box-shadow: 0 1px 4px rgba(0,0,0,.13); }
+  .badge-notif { background: var(--accent); color: #fff; }
+  .badge-icon {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: grid; place-items: center; flex-shrink: 0;
+    font-size: 10.5px; font-weight: 800; line-height: 1; letter-spacing: 0;
+  }
+  .badge-agent .badge-icon { background: #d6ecdf; color: var(--forest); }
+  .badge-notif .badge-icon { background: rgba(255,255,255,.24); color: #fff; font-size: 12px; }
+
+  /* ---- Hero pull-quote ---- */
+  .hero-quote { background: var(--tint); padding: 64px 0; }
+  .hero-quote-block { text-align: center; max-width: 700px; margin: 0 auto; }
+  .hq-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(18px, 2vw, 24px); font-style: italic; font-weight: 400;
+    color: var(--forest); line-height: 1.65; margin-bottom: 20px;
+  }
+  .hq-src {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--accent-ink); font-style: normal;
+  }
+
+  /* ---- Problem ---- */
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .problem-grid h2 { max-width: 16ch; }
+  .problem-grid .intro { margin-top: 22px; color: var(--gray); font-size: 17px; font-weight: 300; line-height: 1.7; max-width: 44ch; }
+  .pain-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pain-card { background: var(--card); border-radius: 16px; padding: 26px 24px; }
+  .pain-icon { width: 40px; height: 40px; border-radius: 11px; background: var(--tint); display: grid; place-items: center; margin-bottom: 18px; color: var(--accent-ink); font-size: 18px; font-weight: 900; }
+  .pain-card h3 { font-size: 18px; margin-bottom: 9px; line-height: 1.2; }
+  .pain-card p { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.7; }
+
+  /* ---- Bento features ---- */
+  .bento-section { background: #F7F7F5; }
+  .bento-head { margin-bottom: 52px; }
+  .bento-head .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: 14px;
+  }
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .bento-card {
+    background: #fff;
+    border: 1px solid #E8E8E8;
+    border-radius: 22px;
+    padding: 32px;
+    overflow: hidden;
+  }
+  .bento-card h3 {
+    font-size: clamp(17px, 1.55vw, 21px);
+    margin-bottom: 10px;
+  }
+  .bento-card > p {
+    font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.75;
+  }
+  .bento-lg { grid-column: span 2; }
+  .bento-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray2); margin-bottom: 14px;
+  }
+
+  /* Team status rows */
+  .bento-team {
+    margin-top: 28px;
+    display: flex; flex-direction: column; gap: 9px;
+  }
+  .btm-row {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--card); border-radius: 12px; padding: 12px 15px;
+  }
+  .btm-av {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #D6ECE0; color: var(--forest);
+    display: grid; place-items: center;
+    font-size: 10px; font-weight: 900; flex-shrink: 0;
+    letter-spacing: 0;
+  }
+  .btm-info { flex: 1; }
+  .btm-name { font-size: 13px; font-weight: 700; color: var(--black); line-height: 1.2; }
+  .btm-task { font-size: 12px; color: var(--gray); }
+  .btm-done { color: var(--accent-ink); font-size: 14px; font-weight: 900; }
+  .btm-live {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+    animation: bento-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes bento-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+  /* Approval card visual */
+  .bento-approve { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .bento-doc {
+    background: var(--card); border-radius: 12px; padding: 16px 18px;
+  }
+  .bento-doc .doc-week {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--gray2); margin-bottom: 12px;
+  }
+  .bento-doc .pl { height: 8px; border-radius: 5px; background: #DCDCD8; margin-bottom: 8px; }
+  .bento-doc .pl.m { width: 84%; }
+  .bento-doc .pl.s { width: 60%; }
+  .bento-doc .pl.xs { width: 38%; margin-bottom: 0; }
+  .bento-doc-reviewed {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; color: var(--accent-ink); font-weight: 600; margin-top: 12px;
+  }
+  .bento-doc-reviewed .rck {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: grid; place-items: center; font-size: 10px; flex-shrink: 0;
+  }
+
+  /* Feature icon for small bento cards */
+  .bento-feat-icon {
+    width: 44px; height: 44px; border-radius: 13px;
+    background: var(--tint); color: var(--forest);
+    display: grid; place-items: center;
+    font-size: 20px; margin-bottom: 20px;
+  }
+  .bento-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--tint); color: var(--accent-ink);
+    border-radius: 40px; padding: 5px 11px;
+    font-size: 12px; font-weight: 700; margin-top: 16px;
+  }
+  .bento-mini-bars {
+    display: flex; align-items: flex-end; gap: 6px;
+    height: 50px; margin-top: 18px;
+  }
+  .bento-mini-bar { flex: 1; border-radius: 4px 4px 0 0; background: #E3E3DF; }
+  .bento-mini-bar.hl { background: var(--accent); }
+
+  /* ---- Solution ---- */
+  .sol-head { text-align: center; max-width: 800px; margin: 0 auto 76px; }
+  .sol-head .sub { margin-top: 20px; font-size: 18px; color: var(--gray); font-weight: 300; line-height: 1.65; }
+  .step { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 44px 0; border-top: 1px solid var(--line); }
+  .step:first-of-type { border-top: none; }
+  .step-num { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 16px; }
+  .step-num b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: var(--tint); color: var(--forest); font-weight: 900; }
+  .step h3 { font-size: clamp(20px, 2.2vw, 28px); margin-bottom: 16px; max-width: 18ch; }
+  .step p { color: var(--gray); font-size: 16px; font-weight: 300; line-height: 1.7; max-width: 46ch; }
+  .step-visual { background: var(--card); border-radius: 20px; padding: 28px; min-height: 220px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+  .step:nth-child(even) .step-visual { order: -1; }
+  .vis-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray2); }
+  .mini-row { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 13px 16px; font-size: 14px; display: flex; align-items: center; gap: 11px; font-weight: 500; }
+  .mini-row .ck { width: 20px; height: 20px; border-radius: 50%; background: var(--tint); color: var(--accent-ink); display: grid; place-items: center; font-size: 12px; font-weight: 900; flex: none; }
+  .doc-thumb { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .doc-thumb .pl { height: 9px; border-radius: 5px; background: #e6e6e2; margin-bottom: 9px; }
+  .doc-thumb .pl.s { width: 52%; } .doc-thumb .pl.m { width: 82%; }
+  .reviewed { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-ink); font-weight: 700; font-size: 14px; }
+  .reviewed .ck { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 12px; }
+  .approve-btn { background: var(--black); color: #fff; border: none; border-radius: 12px; padding: 15px; font-family: var(--font); font-weight: 900; font-size: 15px; width: 100%; cursor: pointer; transition: background .2s; }
+  .bars { display: flex; align-items: flex-end; gap: 12px; height: 96px; }
+  .bar { flex: 1; background: #e3e3df; border-radius: 7px 7px 0 0; }
+  .bar.hl { background: var(--accent); }
+  .bar-row { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--gray); margin-top: 6px; }
+
+  /* ---- Differentiation ---- */
+  .diff-head { max-width: 820px; margin: 0 auto 56px; text-align: center; }
+  .diff-head .body { margin-top: 20px; color: var(--gray); font-size: 17px; font-weight: 300; line-height: 1.7; }
+  .compare { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 15px; }
+  .compare th, .compare td { padding: 18px 16px; text-align: center; }
+  .compare thead th { font-weight: 700; font-size: 14px; color: var(--gray); border-bottom: 1px solid var(--line); }
+  .compare tbody td { border-bottom: 1px solid var(--line); color: var(--gray); }
+  .compare tbody tr td:first-child, .compare thead th:first-child { text-align: left; font-weight: 700; color: var(--black); width: 36%; }
+  .compare .gm-col { background: var(--forest); color: #fff; }
+  .compare thead .gm-col { color: #fff; font-weight: 900; letter-spacing: -0.02em; border-radius: 14px 14px 0 0; border-bottom: none; }
+  .compare tbody .gm-col { color: #fff; font-weight: 900; }
+  .compare tbody tr:last-child .gm-col { border-radius: 0 0 14px 14px; }
+  .yes { color: var(--accent-ink); font-weight: 900; }
+  .gm-col .yes { color: #fff; }
+  .no { color: #C9C9C9; font-weight: 700; }
+  .meh { color: var(--gray); font-size: 13px; }
+
+  /* ---- Mobile compare card (nur auf Mobile sichtbar) ---- */
+  .compare-mobile { display: none; }
+  .cmc-card {
+    background: var(--forest);
+    border-radius: 22px;
+    overflow: hidden;
+  }
+  .cmc-card-head {
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  .cmc-gm-label {
+    display: block;
+    font-size: 20px; font-weight: 900; letter-spacing: -0.04em; color: #fff;
+    margin-bottom: 5px;
+  }
+  .cmc-vs-label {
+    font-size: 13px; color: rgba(255,255,255,.45);
+  }
+  .cmc-list { list-style: none; padding: 4px 0; }
+  .cmc-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    font-size: 15px; color: #fff; font-weight: 500; line-height: 1.4;
+  }
+  .cmc-list li:last-child { border-bottom: none; }
+  .cmc-check {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 900; flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .cmc-footer {
+    padding: 16px 24px;
+    font-size: 13px; color: rgba(255,255,255,.4);
+    border-top: 1px solid rgba(255,255,255,.10);
+    line-height: 1.55;
+  }
+
+  /* ---- About / Gründerin ---- */
+  .about-section { background: #fff; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .about-photo-wrap { position: sticky; top: 90px; }
+  .about-photo {
+    width: 100%; aspect-ratio: 1 / 1.1;
+    object-fit: cover; object-position: top center;
+    border-radius: 22px; display: block;
+  }
+  .about-eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: 16px;
+  }
+  .about-name {
+    font-size: clamp(30px, 3.2vw, 46px); font-weight: 900;
+    letter-spacing: -0.04em; line-height: 1.0;
+    color: var(--black); margin-bottom: 8px;
+  }
+  .about-title { font-size: 17px; color: var(--gray); font-weight: 400; margin-bottom: 18px; }
+  .about-exp {
+    display: inline-flex; align-items: center;
+    background: var(--tint); color: var(--forest);
+    border-radius: 40px; padding: 6px 14px;
+    font-size: 13px; font-weight: 700; margin-bottom: 26px;
+  }
+  .about-bio {
+    font-size: 16px; color: var(--gray); font-weight: 300;
+    line-height: 1.75; max-width: 54ch; margin-bottom: 36px;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 26px 0; margin-bottom: 32px;
+  }
+  .about-stat { display: flex; flex-direction: column; gap: 5px; }
+  .about-stat + .about-stat { border-left: 1px solid var(--line); padding-left: 24px; }
+  .stat-num {
+    font-size: clamp(24px, 2.6vw, 34px); font-weight: 900;
+    letter-spacing: -0.04em; color: var(--black); line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--gray); font-weight: 400; line-height: 1.35; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+  .about-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; background: var(--card);
+    color: var(--black); border-radius: 7px; padding: 7px 12px;
+  }
+  .about-li-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 15px; font-weight: 700; color: var(--forest); text-decoration: none;
+    border-bottom: 2px solid var(--accent); padding-bottom: 2px;
+    transition: color .14s, border-color .14s; margin-bottom: 20px;
+  }
+  .about-li-btn:hover { color: var(--accent-ink); border-color: var(--accent-ink); }
+  .about-footnote {
+    font-size: 12px; color: var(--gray2); font-weight: 300;
+    line-height: 1.6; max-width: 52ch;
+  }
+
+  /* ---- Quotes ---- */
+  .q-head { text-align: center; max-width: 820px; margin: 0 auto 56px; }
+  .q-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .q-card { background: var(--forest); border-radius: 22px; padding: 40px 28px 30px; display: flex; flex-direction: column; gap: 22px; }
+  .q-card .qmark { font-family: Georgia, serif; font-size: 70px; line-height: .4; color: var(--accent); opacity: .35; height: 24px; }
+  .q-card .qt { font-size: 18px; font-weight: 300; font-style: italic; line-height: 1.6; color: #fff; }
+  .q-card .src { font-size: 12px; color: rgba(255,255,255,.45); letter-spacing: 0.02em; }
+
+  /* ---- Final CTA ---- */
+  .cta-final { background: var(--forest); color: #fff; text-align: center; position: relative; overflow: hidden; }
+  .cta-final::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 360px at 50% 120%, rgba(82,183,136,.18), transparent 70%); pointer-events: none; }
+  .cta-final .wrap { position: relative; z-index: 1; }
+  .cta-final h2 { color: #fff; max-width: 18ch; margin: 0 auto; }
+  .cta-final .sub { margin: 22px auto 32px; font-size: 18px; font-weight: 300; color: rgba(255,255,255,.72); max-width: 50ch; line-height: 1.65; }
+  .cta-final .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-final .trust { margin-top: 20px; font-size: 14px; color: rgba(255,255,255,.5); }
+  .team-online { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 50px; }
+  .chip { display: inline-flex; align-items: center; gap: 9px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 40px; padding: 8px 16px 8px 9px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.9); }
+  .chip .av { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 900; color: var(--forest); }
+  .chip .on { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+  /* ---- Footer ---- */
+  footer { padding: 40px 0; border-top: 1px solid var(--line); color: var(--gray2); font-size: 13px; }
+  .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .foot-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .foot-logo-mark {
+    width: 26px; height: 26px; border-radius: 6px;
+    background: var(--forest); color: #fff;
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 900; flex-shrink: 0;
+    opacity: .7;
+  }
+  .foot-logo-text { font-size: 16px; font-weight: 900; letter-spacing: -0.04em; color: var(--gray2); }
+  footer a { color: var(--gray2); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+
+  /* ---- Scroll reveal ---- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---- Tablet (≤900px) ---- */
+  @media (max-width: 900px) {
+    :root { --pad-y: 80px; }
+    .nav-links { display: none; }
+    .problem-grid { grid-template-columns: 1fr; gap: 28px; }
+    .problem-grid h2 { max-width: none; }
+    .pain-cards { grid-template-columns: 1fr 1fr; }
+    .step { grid-template-columns: 1fr; gap: 22px; }
+    .step .step-visual { display: none; }
+    .q-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { max-width: none; }
+    .compare-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare { min-width: 660px; }
+    .bento-grid { grid-template-columns: 1fr 1fr; }
+    .bento-lg { grid-column: span 2; }
+    .about-grid { grid-template-columns: 240px 1fr; gap: 40px; }
+  }
+
+  /* ---- Mobile (≤600px) ---- */
+  @media (max-width: 600px) {
+    :root { --pad-y: 60px; }
+    .nav-inner { height: 60px; }
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo-text { font-size: 17px; }
+    .nav-cta { font-size: 13px; padding: 8px 16px; }
+    .hero { padding-top: 52px; }
+    .hero-text { padding-bottom: 36px; }
+    .hero .sub { font-size: 15px; margin-bottom: 28px; }
+    .badge-grid { padding-top: 28px; padding-bottom: 36px; gap: 8px; }
+    .badge { font-size: 12.5px; padding: 6px 13px 6px 6px; gap: 7px; }
+    .badge-icon { width: 22px; height: 22px; font-size: 9.5px; }
+    .pain-cards { grid-template-columns: 1fr; }
+    .q-grid { grid-template-columns: 1fr; }
+    .q-card .qt { font-size: 16px; }
+    .sol-head { margin-bottom: 48px; }
+    .sol-head .sub { font-size: 16px; }
+    .cta-final .sub { font-size: 16px; }
+    .team-online { gap: 8px; }
+    .chip { font-size: 12px; padding: 7px 13px 7px 8px; }
+    .foot-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    /* Bento: eine Spalte auf Mobile */
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-lg { grid-column: span 1; }
+    /* About: stapeln auf Mobile */
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-photo-wrap { position: static; max-width: 220px; }
+    .about-stats { grid-template-columns: 1fr 1fr 1fr; }
+    .about-stat + .about-stat { padding-left: 16px; }
+    .stat-num { font-size: 22px; }
+    /* Vergleichstabelle auf Mobile ausblenden, Karte zeigen */
+    .compare-scroll { display: none; }
+    .compare-mobile { display: block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .badge-row-inner { animation: none !important; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+    .btm-live { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo.jpg" alt="GetMarketing" />
+      <span class="nav-logo-text">GetMarketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#solution">Funktionen</a></li>
+      <li><a href="#solution">So funktioniert's</a></li>
+      <li><a href="#diff">Vergleich</a></li>
+    </ul>
+    <a href="/" class="nav-lang" id="switch-en">EN</a>
+    <a href="#cta" class="nav-cta">Jetzt testen</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>Das KI-Marketingteam, das <em>dein Marketing übernimmt</em>, während du dein Unternehmen führst.</h1>
+      <p class="sub">Strategie, Content und Veröffentlichung laufen automatisch, jede Woche. Du prüfst, was rausgeht, bevor es passiert.</p>
+      <div class="hero-cta">
+        <a href="mailto:darya@getmarketing.team?subject=Ich%20m%C3%B6chte%20GetMarketing%20ausprobieren&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20GetMarketing%20ausprobieren%20und%20mein%20Marketing%20sorgenfrei%20laufen%20lassen.%0A%0AIch%20freue%20mich%20auf%20deine%20Antwort." class="btn btn-dark">Jetzt testen</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badge grid -->
+  <div class="badge-grid">
+
+    <!-- Reihe 1: drifts left -->
+    <div class="badge-row-wrap">
+      <div class="badge-row-inner">
+        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Content fertig</div>
+        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
+        <div class="badge badge-notif"><span class="badge-icon">↗</span> 14 Keywords gefunden</div>
+        <div class="badge badge-agent"><span class="badge-icon">So</span> Social Manager</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> 3 Posts geplant</div>
+        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Wochenplan bereit</div>
+        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
+        <div class="badge badge-notif"><span class="badge-icon">↑</span> Reichweite: +2,4K</div>
+        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Content fertig</div>
+        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
+        <div class="badge badge-notif"><span class="badge-icon">↗</span> 14 Keywords gefunden</div>
+        <div class="badge badge-agent"><span class="badge-icon">So</span> Social Manager</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> 3 Posts geplant</div>
+        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Wochenplan bereit</div>
+        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
+        <div class="badge badge-notif"><span class="badge-icon">↑</span> Reichweite: +2,4K</div>
+      </div>
+    </div>
+
+    <!-- Reihe 2: drifts right -->
+    <div class="badge-row-wrap">
+      <div class="badge-row-inner">
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> E-Mail-Sequenz live</div>
+        <div class="badge badge-agent"><span class="badge-icon">Em</span> E-Mail Marketing</div>
+        <div class="badge badge-notif"><span class="badge-icon">↑</span> Rankings verbessert</div>
+        <div class="badge badge-agent"><span class="badge-icon">Bd</span> Brand Designer</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Blog-Entwurf geprüft</div>
+        <div class="badge badge-agent"><span class="badge-icon">Cp</span> Kampagnenplanung</div>
+        <div class="badge badge-notif"><span class="badge-icon">★</span> Leads +34%</div>
+        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Strategie geprüft</div>
+        <div class="badge badge-agent"><span class="badge-icon">Ad</span> Ads Manager</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> E-Mail-Sequenz live</div>
+        <div class="badge badge-agent"><span class="badge-icon">Em</span> E-Mail Marketing</div>
+        <div class="badge badge-notif"><span class="badge-icon">↑</span> Rankings verbessert</div>
+        <div class="badge badge-agent"><span class="badge-icon">Bd</span> Brand Designer</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Blog-Entwurf geprüft</div>
+        <div class="badge badge-agent"><span class="badge-icon">Cp</span> Kampagnenplanung</div>
+        <div class="badge badge-notif"><span class="badge-icon">★</span> Leads +34%</div>
+        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Strategie geprüft</div>
+        <div class="badge badge-agent"><span class="badge-icon">Ad</span> Ads Manager</div>
+      </div>
+    </div>
+
+    <!-- Reihe 3: drifts left (offset) -->
+    <div class="badge-row-wrap">
+      <div class="badge-row-inner">
+        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">↑</span> Traffic +18%</div>
+        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Kampagne live</div>
+        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> 2 Artikel veröffentlicht</div>
+        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
+        <div class="badge badge-notif"><span class="badge-icon">↗</span> 8 Lücken beim Wettbewerb</div>
+        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Bericht fertig</div>
+        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">↑</span> Traffic +18%</div>
+        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Kampagne live</div>
+        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> 2 Artikel veröffentlicht</div>
+        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
+        <div class="badge badge-notif"><span class="badge-icon">↗</span> 8 Lücken beim Wettbewerb</div>
+        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
+        <div class="badge badge-notif"><span class="badge-icon">✓</span> Bericht fertig</div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ===== HERO PULL-QUOTE ===== -->
+<section class="hero-quote">
+  <div class="wrap">
+    <blockquote class="hero-quote-block reveal">
+      <p class="hq-text">&ldquo;Wir haben aufgehört, über Marketing nachzudenken. Die Leads kamen einfach rein.&rdquo;</p>
+      <cite class="hq-src">Gründer eines B2B-Industrieunternehmens · Deutschland</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section>
+  <div class="wrap problem-grid reveal">
+    <div>
+      <h2>Marketing wird immer wieder aufgeschoben, weil die Zeit dafür einfach nicht da ist.</h2>
+      <p class="intro">Die meisten Gründer wissen genau, was ihrem Marketing fehlt. Konsequente Umsetzung erfordert Zeit, die sie nicht haben, nach einem Plan, der sich nie mit dem laufenden Geschäft vereinbaren lässt.</p>
+    </div>
+    <div class="pain-cards">
+      <div class="pain-card">
+        <div class="pain-icon">?</div>
+        <h3>Du weißt nicht, ob die richtigen Dinge gemacht werden.</h3>
+        <p>Ab und zu geht etwas raus, aber ob es wirklich etwas bewegt, bleibt unklar.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">‖</div>
+        <h3>Du weißt nicht, wann du aufhören oder nachlegen sollst.</h3>
+        <p>Wie viele LinkedIn-Posts mit 3 Likes, bis du weißt, dass es nicht funktioniert? Wie viele Blogartikel ohne Traffic, bis du aufgibst? Die Frage, wann man aufhört und wann man weitermacht, ist das Schwierigste.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">→</div>
+        <h3>KI-Tools produzieren Output, sagen dir aber nicht, was du produzieren sollst.</h3>
+        <p>Es gibt viele Tools, die einen Post schreiben oder ein Design erstellen, aber keines sagt dir, worüber du schreiben sollst, für wen, oder ob irgendetwas davon wirklich etwas bewegt.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">⏻</div>
+        <h3>Marketing läuft nur, wenn du es antreibst.</h3>
+        <p>Sobald das operative Geschäft anzieht, bleibt das Marketing liegen. Wenn du dich wieder darum kümmerst, fängst du von vorne an.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENTO FEATURES ===== -->
+<section class="bento-section">
+  <div class="wrap reveal">
+    <div class="bento-head">
+      <p class="eyebrow">Was du bekommst</p>
+      <h2>Alles, was dein Marketing braucht — abgedeckt.</h2>
+    </div>
+
+    <div class="bento-grid">
+
+      <!-- Große Kachel: KI-Team-Status -->
+      <div class="bento-card bento-lg">
+        <p class="bento-eyebrow">Dein KI-Marketingteam</p>
+        <h3>Strategie, Content, SEO — alles vergeben und läuft.</h3>
+        <p>GetMarketing erstellt den Plan, verteilt jede Aufgabe an den richtigen Agenten und setzt alles nach einem festen Wochenplan um. Kein Briefing, kein Nachfragen, keine Status-Meetings.</p>
+        <div class="bento-team">
+          <div class="btm-row">
+            <span class="btm-av">St</span>
+            <div class="btm-info">
+              <div class="btm-name">Strategie-Lead</div>
+              <div class="btm-task">Wochenbrief Woche 25 gesendet</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">Se</span>
+            <div class="btm-info">
+              <div class="btm-name">SEO-Spezialist</div>
+              <div class="btm-task">14 Keywords gebriefte</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">Wr</span>
+            <div class="btm-info">
+              <div class="btm-name">Content Writer</div>
+              <div class="btm-task">2 Artikel in Arbeit</div>
+            </div>
+            <span class="btm-live"></span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">Li</span>
+            <div class="btm-info">
+              <div class="btm-name">LinkedIn Manager</div>
+              <div class="btm-task">3 Posts für die Woche geplant</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+          <div class="btm-row">
+            <span class="btm-av">An</span>
+            <div class="btm-info">
+              <div class="btm-name">Analytics-Lead</div>
+              <div class="btm-task">Wochenbericht fertig</div>
+            </div>
+            <span class="btm-done">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Freigabe-Kachel -->
+      <div class="bento-card">
+        <p class="bento-eyebrow">Deine einzige Aufgabe</p>
+        <h3>Prüfen und freigeben, bevor etwas veröffentlicht wird.</h3>
+        <p>Du siehst jeden Content, bevor er live geht. Ein Klick zur Freigabe, nichts zum Umschreiben.</p>
+        <div class="bento-approve">
+          <div class="bento-doc">
+            <div class="doc-week">Woche 25 · LinkedIn-Artikel</div>
+            <div class="pl m"></div>
+            <div class="pl"></div>
+            <div class="pl s"></div>
+            <div class="pl xs"></div>
+            <div class="bento-doc-reviewed"><span class="rck">✓</span> Von einem erfahrenen Marketer geprüft</div>
+          </div>
+          <button class="approve-btn">Freigeben</button>
+        </div>
+      </div>
+
+      <!-- SEO-Kachel -->
+      <div class="bento-card">
+        <div class="bento-feat-icon">↗</div>
+        <h3>SEO &amp; Keyword-Strategie</h3>
+        <p>Wettbewerberlücken gefunden, Keyword-Briefs geschrieben, Content auf das abgestimmt, wonach deine Zielgruppe sucht. Jede Woche, automatisch.</p>
+        <span class="bento-pill">↗ 14 Keywords gefunden</span>
+      </div>
+
+      <!-- Content-Kachel -->
+      <div class="bento-card">
+        <div class="bento-feat-icon">✎</div>
+        <h3>Content, der nach Plan produziert wird</h3>
+        <p>Artikel, LinkedIn-Posts und E-Mail-Texte werden produziert und geprüft, bevor sie irgendwo hingehen. Kein leeres Blatt mehr, keine verpassten Wochen.</p>
+        <div class="bento-doc" style="margin-top:16px">
+          <div class="pl m"></div>
+          <div class="pl s"></div>
+          <div class="pl" style="width:70%"></div>
+        </div>
+      </div>
+
+      <!-- Analytics-Kachel -->
+      <div class="bento-card">
+        <div class="bento-feat-icon">↑</div>
+        <h3>Analytics, die den Kreis schließen</h3>
+        <p>Sieh, welcher Kanal Ergebnisse bringt, wo du nachlegen solltest und was du streichen kannst — ohne eine einzige Zahl selbst zusammenzusuchen.</p>
+        <div class="bento-mini-bars">
+          <div class="bento-mini-bar" style="height:42%"></div>
+          <div class="bento-mini-bar" style="height:58%"></div>
+          <div class="bento-mini-bar hl" style="height:100%"></div>
+          <div class="bento-mini-bar" style="height:48%"></div>
+          <div class="bento-mini-bar" style="height:30%"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section id="solution">
+  <div class="wrap">
+    <div class="sol-head reveal">
+      <h2>Ein vollständiges KI-Marketingteam, das alles übernimmt und von Anfang an nach einem festen Plan läuft.</h2>
+      <p class="sub">Teile deine Ziele und GetMarketing baut die Strategie, übernimmt die Umsetzung und meldet zurück, was funktioniert.</p>
+    </div>
+
+    <div class="step reveal">
+      <div>
+        <div class="step-num"><b>1</b> Der Plan</div>
+        <h3>Die Strategie wird automatisch erstellt.</h3>
+        <p>GetMarketing analysiert dein Unternehmen, deinen Markt und deine Wettbewerber und setzt dann Prioritäten danach, was Leads generiert, nicht was am einfachsten zu produzieren ist. Du siehst den Plan, bevor irgendetwas live geht.</p>
+      </div>
+      <div class="step-visual">
+        <div class="vis-label">Strategie → Wochenplanung läuft</div>
+        <div class="mini-row"><span class="ck">✓</span> SEO-Agent · Brief erhalten</div>
+        <div class="mini-row"><span class="ck">✓</span> Content-Agent · Brief erhalten</div>
+        <div class="mini-row"><span class="ck">✓</span> Social-Agent · Brief erhalten</div>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div>
+        <div class="step-num"><b>2</b> Die Arbeit</div>
+        <h3>Content wird jede Woche erstellt und eingeplant.</h3>
+        <p>Artikel, LinkedIn-Posts und Anzeigentexte werden geschrieben, von einem erfahrenen Marketer geprüft und nach einem festen Plan eingeplant. Du musst niemanden briefen oder nachverfolgen, was erledigt wurde.</p>
+      </div>
+      <div class="step-visual">
+        <div class="vis-label">Content-Agent → Entwurf bereit zur Prüfung</div>
+        <div class="doc-thumb"><div class="pl m"></div><div class="pl"></div><div class="pl s"></div></div>
+        <span class="reviewed"><span class="ck">✓</span> Von einem erfahrenen Marketer geprüft</span>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div>
+        <div class="step-num"><b>3</b> Dein Part</div>
+        <h3>Du gibst mit einem Klick frei.</h3>
+        <p>Du siehst, was veröffentlicht wird, bevor es rausgeht, prüfst es mit einem Klick und behältst die Kontrolle, ohne den Prozess selbst zu managen.</p>
+      </div>
+      <div class="step-visual">
+        <div class="vis-label">Deine einzige Aufgabe</div>
+        <div class="doc-thumb"><div class="pl m"></div><div class="pl"></div><div class="pl s"></div></div>
+        <button class="approve-btn">Freigeben</button>
+      </div>
+    </div>
+
+    <div class="step reveal">
+      <div>
+        <div class="step-num"><b>4</b> Die Rückkopplung</div>
+        <h3>Du siehst immer, was funktioniert und wo es sich lohnt, mehr zu investieren.</h3>
+        <p>GetMarketing verfolgt, welche Kanäle und Inhalte Ergebnisse bringen, passt die Prioritäten entsprechend an und zeigt dir genau, wo du nachlegen solltest. Du bekommst das vollständige Bild, ohne selbst Zahlen zusammensuchen zu müssen.</p>
+      </div>
+      <div class="step-visual">
+        <div class="vis-label">Analytics → Rückmeldung an Strategie</div>
+        <div class="bars">
+          <div class="bar" style="height:38%"></div>
+          <div class="bar" style="height:54%"></div>
+          <div class="bar hl" style="height:100%"></div>
+          <div class="bar" style="height:46%"></div>
+        </div>
+        <div class="bar-row"><span>Blog</span><span>SEO</span><span style="color:var(--accent-ink)">LinkedIn 62%</span><span>Ads</span></div>
+        <div class="mini-row"><span class="ck">↑</span> Analytics → Strategie · mehr Fokus auf LinkedIn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIFFERENTIATION ===== -->
+<section id="diff">
+  <div class="wrap">
+    <div class="diff-head reveal em-ink">
+      <h2>Ein KI-Marketingteam, das plant, umsetzt und dir zeigt, was funktioniert.</h2>
+      <p class="body">Die meisten KI-Tools helfen dir, schneller Content zu produzieren. Was in den meisten Marketingbemühungen wirklich fehlt, ist die Strategie dahinter, eine konsequente Umsetzung nach Plan und eine Feedbackschleife, die zeigt, was funktioniert. GetMarketing übernimmt alle drei.</p>
+    </div>
+
+    <!-- Desktop/Tablet: scrollbare Tabelle -->
+    <div class="compare-scroll reveal">
+      <table class="compare">
+        <thead>
+          <tr><th></th><th>Agentur</th><th>Freelancer</th><th>KI-Content-Tools</th><th class="gm-col">GetMarketing</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Baut die Strategie für dich</td><td class="meh">Manchmal</td><td class="meh">Selten</td><td class="no">—</td><td class="gm-col"><span class="yes">✓</span></td></tr>
+          <tr><td>Läuft nach Plan, ohne dass du es antreiben musst</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="gm-col"><span class="yes">✓</span></td></tr>
+          <tr><td>Menschliche Prüfung, bevor etwas live geht</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="gm-col"><span class="yes">✓</span></td></tr>
+          <tr><td>Zeigt dir, was funktioniert und was als nächstes zu tun ist</td><td class="meh">Selten</td><td class="no">—</td><td class="no">—</td><td class="gm-col"><span class="yes">✓</span></td></tr>
+          <tr><td>Braucht keinen wöchentlichen Input von dir</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="gm-col"><span class="yes">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile: Karten-Vergleich (nur auf ≤600px sichtbar) -->
+    <div class="compare-mobile reveal">
+      <div class="cmc-card">
+        <div class="cmc-card-head">
+          <span class="cmc-gm-label">GetMarketing</span>
+          <span class="cmc-vs-label">vs. Agenturen, Freelancer &amp; KI-Content-Tools</span>
+        </div>
+        <ul class="cmc-list">
+          <li><span class="cmc-check">✓</span> Baut die Strategie für dich — andere tun das selten oder nie</li>
+          <li><span class="cmc-check">✓</span> Läuft nach Plan, ohne dass du es antreiben musst</li>
+          <li><span class="cmc-check">✓</span> Menschliche Prüfung, bevor etwas live geht</li>
+          <li><span class="cmc-check">✓</span> Zeigt dir, was funktioniert und was als nächstes zu tun ist</li>
+          <li><span class="cmc-check">✓</span> Braucht keinen wöchentlichen Input von dir</li>
+        </ul>
+        <div class="cmc-footer">
+          Agenturen, Freelancer und KI-Content-Tools erfüllen davon höchstens einen oder zwei Punkte. GetMarketing deckt alle fünf ab.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== ABOUT / GRÜNDERIN ===== -->
+<section class="about-section">
+  <div class="wrap">
+    <div class="about-grid reveal">
+      <div class="about-photo-wrap">
+        <img src="darya.jpg" alt="Darya Kablash" class="about-photo" />
+      </div>
+      <div class="about-content">
+        <p class="about-eyebrow">Die Gründerin hinter GetMarketing</p>
+        <h2 class="about-name">Darya Kablash</h2>
+        <p class="about-title">Growth Marketing Managerin</p>
+        <span class="about-exp">7+ Jahre Digital Marketing</span>
+        <p class="about-bio">Ich habe selbst Marken von null aufgebaut, das ändert, wie ich über Marketing denke. Nicht als Kanal, sondern als System mit messbarem Output. 45 Projekte, von KMU in Industrie und Solar bis zu internationalem Tech. Alles direkt, ohne Weitergabe an Junioren.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="stat-num">45</span>
+            <span class="stat-label">Abgeschlossene Projekte</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-num">1M+</span>
+            <span class="stat-label">Organische Impressionen</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-num">~€1M*</span>
+            <span class="stat-label">Generierter Geschäftswert</span>
+          </div>
+        </div>
+        <div class="about-tags">
+          <span class="about-tag">SEO &amp; Content</span>
+          <span class="about-tag">LinkedIn Organic</span>
+          <span class="about-tag">Google Ads</span>
+          <span class="about-tag">KI-Outreach</span>
+          <span class="about-tag">Leadinfo</span>
+          <span class="about-tag">GA4 &amp; Tracking</span>
+          <span class="about-tag">Webdesign</span>
+          <span class="about-tag">LinkedIn Ads</span>
+        </div>
+        <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener" class="about-li-btn">LinkedIn-Profil ansehen ↗</a>
+        <p class="about-footnote">* Schätzung auf Basis von Traffic-Werten, Anfragewachstum und durchschnittlichen Deal-Größen der Kundenprojekte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTES ===== -->
+<section>
+  <div class="wrap">
+    <div class="q-head reveal em-ink">
+      <h2>Was sich Gründer wünschen, damit Marketing sich endlich <em>gelöst anfühlt.</em></h2>
+    </div>
+    <div class="q-grid reveal">
+      <div class="q-card">
+        <div class="qmark">&ldquo;</div>
+        <p class="qt">Ich gebe meine Ziele und mein Budget ein. Es startet die Kampagnen. Wir prüfen jeden Monat, was sich ändern muss. Ergebnisse auf Autopilot.</p>
+        <span class="src">Gründer, managt sein Marketing selbst</span>
+      </div>
+      <div class="q-card">
+        <div class="qmark">&ldquo;</div>
+        <p class="qt">Klare Attribution, die zeigt, welcher Kanal Umsatz bringt, ohne manuelle Tabellenarbeit. Das wäre für mich Marketing, das endlich gelöst ist.</p>
+        <span class="src">Gründer, B2B</span>
+      </div>
+      <div class="q-card">
+        <div class="qmark">&ldquo;</div>
+        <p class="qt">Eine Automatisierungsplattform, die kein Vermögen kostet.</p>
+        <span class="src">Gründer, B2B</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section id="cta" class="cta-final">
+  <div class="wrap reveal">
+    <h2>Bereit, es für dein Unternehmen auszuprobieren?</h2>
+    <p class="sub">24 Unternehmen testen es bereits. Schreib uns kurz und wir richten alles für dich ein.</p>
+    <div class="btn-row">
+      <a href="mailto:darya@getmarketing.team?subject=Ich%20m%C3%B6chte%20GetMarketing%20ausprobieren&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20GetMarketing%20ausprobieren%20und%20mein%20Marketing%20sorgenfrei%20laufen%20lassen.%0A%0AIch%20freue%20mich%20auf%20deine%20Antwort." class="btn btn-light">Jetzt testen</a>
+    </div>
+    <p class="trust">Keine Kreditkarte. Keine Bindung.</p>
+
+    <div class="team-online">
+      <span class="chip"><span class="av" style="background:#D6ECE0">St</span> Strategie <span class="on"></span></span>
+      <span class="chip"><span class="av" style="background:#D6ECE0">Se</span> SEO <span class="on"></span></span>
+      <span class="chip"><span class="av" style="background:#D6ECE0">Wr</span> Content <span class="on"></span></span>
+      <span class="chip"><span class="av" style="background:#D6ECE0">Li</span> LinkedIn <span class="on"></span></span>
+      <span class="chip"><span class="av" style="background:#D6ECE0">Ad</span> Ads <span class="on"></span></span>
+      <span class="chip"><span class="av" style="background:#D6ECE0">An</span> Analytics <span class="on"></span></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#" class="foot-logo">
+      <span class="foot-logo-mark">G</span>
+      <span class="foot-logo-text">GetMarketing</span>
+    </a>
+    <span>© 2026 GetMarketing · Dein letzter Marketing-Hire · <a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  /* Wenn jemand manuell auf EN klickt, merken wir uns das */
+  var enBtn = document.getElementById('switch-en');
+  if (enBtn) {
+    enBtn.addEventListener('click', function () {
+      localStorage.setItem('gm-lang', 'en');
+    });
+  }
+
+  document.querySelectorAll('.approve-btn').forEach((b) => {
+    b.addEventListener('click', () => {
+      b.textContent = 'Freigegeben ✓';
+      b.style.background = 'var(--accent-ink)';
+      setTimeout(() => { b.textContent = 'Freigeben'; b.style.background = ''; }, 1600);
+    });
+  });
+</script>
+</body>
+</html>
