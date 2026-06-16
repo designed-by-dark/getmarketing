@@ -359,6 +359,70 @@
     line-height: 1.55;
   }
 
+  /* ---- About / Gründerin ---- */
+  .about-section { background: #fff; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .about-photo-wrap { position: sticky; top: 90px; }
+  .about-photo {
+    width: 100%; aspect-ratio: 1 / 1.1;
+    object-fit: cover; object-position: top center;
+    border-radius: 22px; display: block;
+  }
+  .about-eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: 16px;
+  }
+  .about-name {
+    font-size: clamp(30px, 3.2vw, 46px); font-weight: 900;
+    letter-spacing: -0.04em; line-height: 1.0;
+    color: var(--black); margin-bottom: 8px;
+  }
+  .about-title { font-size: 17px; color: var(--gray); font-weight: 400; margin-bottom: 18px; }
+  .about-exp {
+    display: inline-flex; align-items: center;
+    background: var(--tint); color: var(--forest);
+    border-radius: 40px; padding: 6px 14px;
+    font-size: 13px; font-weight: 700; margin-bottom: 26px;
+  }
+  .about-bio {
+    font-size: 16px; color: var(--gray); font-weight: 300;
+    line-height: 1.75; max-width: 54ch; margin-bottom: 36px;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 26px 0; margin-bottom: 32px;
+  }
+  .about-stat { display: flex; flex-direction: column; gap: 5px; }
+  .about-stat + .about-stat { border-left: 1px solid var(--line); padding-left: 24px; }
+  .stat-num {
+    font-size: clamp(24px, 2.6vw, 34px); font-weight: 900;
+    letter-spacing: -0.04em; color: var(--black); line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--gray); font-weight: 400; line-height: 1.35; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+  .about-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; background: var(--card);
+    color: var(--black); border-radius: 7px; padding: 7px 12px;
+  }
+  .about-li-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 15px; font-weight: 700; color: var(--forest); text-decoration: none;
+    border-bottom: 2px solid var(--accent); padding-bottom: 2px;
+    transition: color .14s, border-color .14s; margin-bottom: 20px;
+  }
+  .about-li-btn:hover { color: var(--accent-ink); border-color: var(--accent-ink); }
+  .about-footnote {
+    font-size: 12px; color: var(--gray2); font-weight: 300;
+    line-height: 1.6; max-width: 52ch;
+  }
+
   /* ---- Quotes ---- */
   .q-head { text-align: center; max-width: 820px; margin: 0 auto 56px; }
   .q-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -408,6 +472,7 @@
     .compare { min-width: 660px; }
     .bento-grid { grid-template-columns: 1fr 1fr; }
     .bento-lg { grid-column: span 2; }
+    .about-grid { grid-template-columns: 240px 1fr; gap: 40px; }
   }
 
   /* ---- Mobile (≤600px) ---- */
@@ -435,6 +500,12 @@
     /* Bento: eine Spalte auf Mobile */
     .bento-grid { grid-template-columns: 1fr; }
     .bento-lg { grid-column: span 1; }
+    /* About: stapeln auf Mobile */
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-photo-wrap { position: static; max-width: 220px; }
+    .about-stats { grid-template-columns: 1fr 1fr 1fr; }
+    .about-stat + .about-stat { padding-left: 16px; }
+    .stat-num { font-size: 22px; }
     /* Vergleichstabelle auf Mobile ausblenden, Karte zeigen */
     .compare-scroll { display: none; }
     .compare-mobile { display: block; }
@@ -453,7 +524,7 @@
 <nav>
   <div class="wrap nav-inner">
     <a href="#" class="nav-logo">
-      <img src="https://scontent-ber1-1.cdninstagram.com/v/t51.82787-19/722447542_18122211406601492_2846864422331679204_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4zMjAuYzIifQ&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gGEb-oXhFydl_LOb6sPlFjLn_31OVENQk81H3DOOIQfwqgKA18cHCn-k6u90CB3K5PvCjnwduUQkGpTkEBIY92a&_nc_ohc=TUId58WWlbMQ7kNvwGmvGvq&_nc_gid=5ZXIimS8rKwcODHIz5K2Ew&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_N7Gctws2-PaQv095yhECoWYAjwhoR0P1FsS8auuigSg&oe=6A36E7B0&_nc_sid=7a9f4b" alt="GetMarketing" />
+      <img src="logo.jpg" alt="GetMarketing" />
       <span class="nav-logo-text">GetMarketing</span>
     </a>
     <ul class="nav-links">
@@ -825,6 +896,50 @@
   </div>
 </section>
 
+<!-- ===== ABOUT / GRÜNDERIN ===== -->
+<section class="about-section">
+  <div class="wrap">
+    <div class="about-grid reveal">
+      <div class="about-photo-wrap">
+        <img src="darya.jpg" alt="Darya Kablash" class="about-photo" />
+      </div>
+      <div class="about-content">
+        <p class="about-eyebrow">Die Gründerin hinter GetMarketing</p>
+        <h2 class="about-name">Darya Kablash</h2>
+        <p class="about-title">Growth Marketing Managerin</p>
+        <span class="about-exp">7+ Jahre Digital Marketing</span>
+        <p class="about-bio">Ich habe selbst Marken von null aufgebaut, das ändert, wie ich über Marketing denke. Nicht als Kanal, sondern als System mit messbarem Output. 45 Projekte, von KMU in Industrie und Solar bis zu internationalem Tech. Alles direkt, ohne Weitergabe an Junioren.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="stat-num">45</span>
+            <span class="stat-label">Abgeschlossene Projekte</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-num">1M+</span>
+            <span class="stat-label">Organische Impressionen</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-num">~€1M*</span>
+            <span class="stat-label">Generierter Geschäftswert</span>
+          </div>
+        </div>
+        <div class="about-tags">
+          <span class="about-tag">SEO &amp; Content</span>
+          <span class="about-tag">LinkedIn Organic</span>
+          <span class="about-tag">Google Ads</span>
+          <span class="about-tag">KI-Outreach</span>
+          <span class="about-tag">Leadinfo</span>
+          <span class="about-tag">GA4 &amp; Tracking</span>
+          <span class="about-tag">Webdesign</span>
+          <span class="about-tag">LinkedIn Ads</span>
+        </div>
+        <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener" class="about-li-btn">LinkedIn-Profil ansehen ↗</a>
+        <p class="about-footnote">* Schätzung auf Basis von Traffic-Werten, Anfragewachstum und durchschnittlichen Deal-Größen der Kundenprojekte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== QUOTES ===== -->
 <section>
   <div class="wrap">
@@ -878,7 +993,7 @@
       <img src="https://scontent-ber1-1.cdninstagram.com/v/t51.82787-19/722447542_18122211406601492_2846864422331679204_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4zMjAuYzIifQ&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gGEb-oXhFydl_LOb6sPlFjLn_31OVENQk81H3DOOIQfwqgKA18cHCn-k6u90CB3K5PvCjnwduUQkGpTkEBIY92a&_nc_ohc=TUId58WWlbMQ7kNvwGmvGvq&_nc_gid=5ZXIimS8rKwcODHIz5K2Ew&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_N7Gctws2-PaQv095yhECoWYAjwhoR0P1FsS8auuigSg&oe=6A36E7B0&_nc_sid=7a9f4b" alt="" />
       <span class="foot-logo-text">GetMarketing</span>
     </a>
-    <span>© 2026 GetMarketing · Dein letzter Marketing-Hire · <a href="#">LinkedIn</a></span>
+    <span>© 2026 GetMarketing · Dein letzter Marketing-Hire · <a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></span>
   </div>
 </footer>
 
