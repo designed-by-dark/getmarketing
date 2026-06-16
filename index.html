@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GetMarketing — The AI marketing team that runs your marketing</title>
 <meta name="description" content="GetMarketing builds your strategy, creates your content, and publishes it on a consistent schedule every week. You review what goes out." />
-<link rel="icon" href="https://scontent-ber1-1.cdninstagram.com/v/t51.82787-19/722447542_18122211406601492_2846864422331679204_n.jpg" />
+<link rel="icon" href="logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet" />
@@ -94,6 +94,12 @@
     transition: border-color .14s, color .14s;
   }
   .nav-cta:hover { border-color: rgba(255,255,255,.75); color: #fff; }
+  .nav-lang {
+    flex-shrink: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+    color: rgba(255,255,255,.45); text-decoration: none; transition: color .14s;
+    padding: 4px 2px;
+  }
+  .nav-lang:hover { color: rgba(255,255,255,.9); }
 
   /* ---- Hero ---- */
   .hero {
@@ -459,6 +465,7 @@
       <li><a href="#solution">How it works</a></li>
       <li><a href="#diff">Compare</a></li>
     </ul>
+    <a href="de.html" class="nav-lang" id="switch-de">DE</a>
     <a href="#cta" class="nav-cta">Get early access</a>
   </div>
 </nav>
@@ -885,6 +892,23 @@
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  /* Geo-redirect: send German-speaking visitors to de.html */
+  (function () {
+    // Don't redirect if user already chose English manually
+    if (localStorage.getItem('gm-lang') === 'en') return;
+    // Only check once per browser session
+    if (sessionStorage.getItem('gm-geo-done')) return;
+    sessionStorage.setItem('gm-geo-done', '1');
+    fetch('https://api.country.is/')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (['DE', 'AT', 'CH'].includes(d.country)) {
+          window.location.replace('de.html');
+        }
+      })
+      .catch(function () { /* fail silently, stay on English */ });
+  })();
 
   /* Approve micro-interaction (works on both step visual and bento card) */
   document.querySelectorAll('.approve-btn').forEach((b) => {
