@@ -164,6 +164,19 @@
   .badge-agent .badge-icon { background: #d6ecdf; color: var(--forest); }
   .badge-notif .badge-icon { background: rgba(255,255,255,.24); color: #fff; font-size: 12px; }
 
+  /* ---- Hero pull-quote ---- */
+  .hero-quote { background: var(--tint); padding: 64px 0; }
+  .hero-quote-block { text-align: center; max-width: 700px; margin: 0 auto; }
+  .hq-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(18px, 2vw, 24px); font-style: italic; font-weight: 400;
+    color: var(--forest); line-height: 1.65; margin-bottom: 20px;
+  }
+  .hq-src {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--accent-ink); font-style: normal;
+  }
+
   /* ---- Problem ---- */
   .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
   .problem-grid h2 { max-width: 16ch; }
@@ -448,7 +461,13 @@
   footer { padding: 40px 0; border-top: 1px solid var(--line); color: var(--gray2); font-size: 13px; }
   .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
   .foot-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-  .foot-logo img { width: 26px; height: 26px; border-radius: 5px; opacity: .55; object-fit: cover; }
+  .foot-logo-mark {
+    width: 26px; height: 26px; border-radius: 6px;
+    background: var(--forest); color: #fff;
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 900; flex-shrink: 0;
+    opacity: .7;
+  }
   .foot-logo-text { font-size: 16px; font-weight: 900; letter-spacing: -0.04em; color: var(--gray2); }
   footer a { color: var(--gray2); text-decoration: none; }
   footer a:hover { color: var(--black); }
@@ -632,6 +651,16 @@
 
   </div>
 </header>
+
+<!-- ===== HERO PULL-QUOTE ===== -->
+<section class="hero-quote">
+  <div class="wrap">
+    <blockquote class="hero-quote-block reveal">
+      <p class="hq-text">&ldquo;Wir haben aufgehört, über Marketing nachzudenken. Die Leads kamen einfach rein.&rdquo;</p>
+      <cite class="hq-src">Gründer eines B2B-Industrieunternehmens · Deutschland</cite>
+    </blockquote>
+  </div>
+</section>
 
 <!-- ===== PROBLEM ===== -->
 <section>
@@ -990,7 +1019,7 @@
 <footer>
   <div class="wrap foot-inner">
     <a href="#" class="foot-logo">
-      <img src="https://scontent-ber1-1.cdninstagram.com/v/t51.82787-19/722447542_18122211406601492_2846864422331679204_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4zMjAuYzIifQ&_nc_ht=scontent-ber1-1.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gGEb-oXhFydl_LOb6sPlFjLn_31OVENQk81H3DOOIQfwqgKA18cHCn-k6u90CB3K5PvCjnwduUQkGpTkEBIY92a&_nc_ohc=TUId58WWlbMQ7kNvwGmvGvq&_nc_gid=5ZXIimS8rKwcODHIz5K2Ew&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_N7Gctws2-PaQv095yhECoWYAjwhoR0P1FsS8auuigSg&oe=6A36E7B0&_nc_sid=7a9f4b" alt="" />
+      <span class="foot-logo-mark">G</span>
       <span class="foot-logo-text">GetMarketing</span>
     </a>
     <span>© 2026 GetMarketing · Dein letzter Marketing-Hire · <a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></span>
