@@ -1155,7 +1155,7 @@
       .then(function (r) { return r.json(); })
       .then(function (d) {
         if (['DE', 'AT', 'CH'].includes(d.country)) {
-          window.location.replace('de.html');
+          window.location.replace('/de/');
         }
       })
       .catch(function () { /* fail silently, stay on English */ });
