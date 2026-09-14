@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Partners — GetMarketing</title>
-<meta name="description" content="The tools and teams GetMarketing partners with to run marketing and go-to-market end to end for B2B founders. First partner: Walego, the AI system that runs your go-to-market." />
+<meta name="description" content="The tools and communities GetMarketing partners with to help B2B founders run go-to-market. Featured partners: Walego, the AI go-to-market system, and Young Founders Network — whose members get 3 months of GetMarketing free." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://getmarketing.team/partners/" />
+<link rel="alternate" hreflang="en" href="https://getmarketing.team/partners/" />
+<link rel="alternate" hreflang="de" href="https://getmarketing.team/de/partners/" />
+<link rel="alternate" hreflang="x-default" href="https://getmarketing.team/partners/" />
 <link rel="icon" href="/logo.jpg" />
 
 <!-- Google tag (gtag.js) -->
@@ -23,7 +26,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://getmarketing.team/partners/" />
 <meta property="og:title" content="Partners — GetMarketing" />
-<meta property="og:description" content="The tools and teams GetMarketing partners with to run marketing and go-to-market end to end for B2B founders." />
+<meta property="og:description" content="The tools and communities GetMarketing partners with to help B2B founders run go-to-market." />
 <meta property="og:image" content="https://getmarketing.team/og-home.jpg" />
 <meta property="og:site_name" content="GetMarketing" />
 <meta property="og:locale" content="en_US" />
@@ -31,7 +34,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Partners — GetMarketing" />
-<meta name="twitter:description" content="The tools and teams GetMarketing partners with to run marketing and go-to-market end to end." />
+<meta name="twitter:description" content="The tools and communities GetMarketing partners with to help founders run go-to-market." />
 <meta name="twitter:image" content="https://getmarketing.team/og-home.jpg" />
 
 <!-- JSON-LD: Partners collection -->
@@ -42,12 +45,20 @@
   "name": "GetMarketing Partners",
   "url": "https://getmarketing.team/partners/",
   "isPartOf": { "@type": "WebSite", "name": "GetMarketing", "url": "https://getmarketing.team" },
-  "about": {
-    "@type": "Organization",
-    "name": "Walego",
-    "url": "https://walego.co/",
-    "description": "Walego is an AI go-to-market system that decides who to contact, what to say, and where to reach them, then runs multi-channel B2B outreach with a built-in CRM."
-  }
+  "about": [
+    {
+      "@type": "Organization",
+      "name": "Walego",
+      "url": "https://walego.co/",
+      "description": "Walego is an AI go-to-market system that decides who to contact, what to say, and where to reach them, then runs multi-channel B2B outreach with a built-in CRM."
+    },
+    {
+      "@type": "Organization",
+      "name": "Young Founders Network",
+      "url": "https://youngfounders.network/",
+      "description": "Young Founders Network is a non-profit community for everyone under 25 in Germany who wants to build something. Members receive 3 months of GetMarketing free."
+    }
+  ]
 }
 </script>
 
@@ -161,7 +172,7 @@
   }
   .hero h1 { color: #fff; max-width: 20ch; margin: 0 auto 22px; }
   .hero .sub {
-    max-width: 54ch; margin: 0 auto;
+    max-width: 56ch; margin: 0 auto;
     font-size: clamp(16px, 1.55vw, 19px);
     font-weight: 300; line-height: 1.65;
     color: rgba(255,255,255,.62);
@@ -206,8 +217,15 @@
   .partner-card.soon .pc-mark { background: #E5E9E6; color: var(--gray2); }
   .partner-card.soon .pc-badge { background: var(--card); color: var(--gray); }
 
+  /* ---- Logo marks (real logos instead of letters) ---- */
+  .pc-mark img, .ph-mark img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+  .mark-img { background: #fff; overflow: hidden; }
+  .mark-yfn svg { width: 80%; height: auto; display: block; }
+  .mark-yfn svg path { fill: #fff; }
+
   /* ---- Featured partner profile ---- */
   .profile-section { background: #F7F7F5; }
+  .profile-section + .profile-section { padding-top: 0; }
   .profile-card {
     background: #fff; border: 1px solid var(--line); border-radius: 26px;
     overflow: hidden;
@@ -288,6 +306,27 @@
   .cap-card h5 { font-size: 15px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 7px; }
   .cap-card p { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.65; }
 
+  /* ---- Offer highlight (member deal) ---- */
+  .offer-strip {
+    margin-top: 34px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--forest), var(--forest-2));
+    border-radius: 18px; padding: 26px 30px; color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .offer-strip::after { content: ""; position: absolute; inset: 0; background: radial-gradient(420px 200px at 92% 130%, rgba(82,183,136,.28), transparent 70%); pointer-events: none; }
+  .offer-strip .os-main { z-index: 1; }
+  .offer-strip .os-big { font-size: clamp(20px, 2.4vw, 28px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; max-width: 20ch; }
+  .offer-strip .os-big em { color: var(--accent); font-style: italic; }
+  .offer-strip .os-sub { font-size: 14px; font-weight: 300; color: rgba(255,255,255,.72); margin-top: 8px; }
+  .offer-strip .os-code {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;
+    background: rgba(255,255,255,.1); border: 1px dashed rgba(255,255,255,.4);
+    border-radius: 10px; padding: 7px 14px; font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
+  }
+  .offer-strip .os-code b { letter-spacing: 0.14em; }
+  .offer-strip .btn { z-index: 1; }
+
   .why-note {
     margin-top: 34px; padding: 24px 26px; border-radius: 16px;
     background: var(--tint); border-left: 3px solid var(--accent);
@@ -342,6 +381,7 @@
     .cap-grid { grid-template-columns: 1fr; }
     .profile-body { padding: 32px 26px; }
     .profile-header { padding: 28px 26px; }
+    .offer-strip { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 600px) {
     :root { --pad-y: 60px; }
@@ -354,6 +394,7 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .reveal { transition: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
   }
 </style>
 
@@ -388,7 +429,7 @@
   <div class="wrap">
     <span class="eyebrow">Partners</span>
     <h1>The teams we <em>run alongside</em>.</h1>
-    <p class="sub">GetMarketing runs your inbound marketing end to end. Our partners cover the rest of the go-to-market — so founders get the full funnel from tools that actually work together.</p>
+    <p class="sub">GetMarketing runs your inbound marketing end to end. Our partners cover the rest — the tools that complete the go-to-market and the communities building the next generation of founders — so founders get more from tools that actually work together.</p>
   </div>
 </header>
 
@@ -401,7 +442,7 @@
     </div>
     <div class="partner-cards reveal">
       <a href="#walego" class="partner-card">
-        <span class="pc-mark">W</span>
+        <span class="pc-mark mark-img"><img src="data:image/webp;base64,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" alt="Walego logo" /></span>
         <div class="pc-body">
           <div class="pc-name">Walego</div>
           <div class="pc-tag">AI that runs your go-to-market</div>
@@ -409,14 +450,17 @@
         </div>
         <span class="pc-arrow">→</span>
       </a>
-      <div class="partner-card soon">
-        <span class="pc-mark">+</span>
+      <a href="#youngfounders" class="partner-card">
+        <span class="pc-mark mark-yfn">
+          <svg viewBox="0 25 394 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Young Founders Network logo"><path d="M105.727 32.7109H31.6406L38.6388 53.0131L84.8654 56.3263L101.701 106.18L95.1406 152.26H122.821L129.381 106.18L176.261 32.7405H145.541L123.461 73.7005L118.821 84.2605L116.901 73.7005L105.861 32.7405H105.727V32.7109Z"/><path d="M166.878 152.26L183.998 32.7405H251.038L247.678 54.1805L208.638 53.8605L204.478 82.9805L237.918 82.5005L235.038 105.22L201.278 104.74L194.558 152.26H166.878Z"/><path d="M268.373 32.7405L251.253 152.26H277.653L286.613 87.1405L286.453 65.7005L294.133 87.1405L321.333 152.26H344.533L361.653 32.7405H334.933L327.413 94.6605L326.293 114.98L320.213 94.6605L292.373 32.7405H268.373Z"/></svg>
+        </span>
         <div class="pc-body">
-          <div class="pc-name">Your tool here</div>
-          <div class="pc-tag">We partner with tools founders love</div>
-          <span class="pc-badge">Coming soon</span>
+          <div class="pc-name">Young Founders Network</div>
+          <div class="pc-tag">The community for founders under 25</div>
+          <span class="pc-badge">★ Community partner · 3 months free</span>
         </div>
-      </div>
+        <span class="pc-arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -429,7 +473,7 @@
 
       <!-- header -->
       <div class="profile-header">
-        <span class="ph-mark">W</span>
+        <span class="ph-mark mark-img"><img src="data:image/webp;base64,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" alt="Walego logo" /></span>
         <div class="ph-meta">
           <div class="ph-name">Walego</div>
           <div class="ph-sub">
@@ -530,11 +574,131 @@
   </div>
 </section>
 
+<!-- ===== FEATURED PARTNER: YOUNG FOUNDERS NETWORK ===== -->
+<section id="youngfounders" class="profile-section">
+  <div class="wrap">
+    <p class="sec-eyebrow reveal">Community partner</p>
+    <div class="profile-card reveal">
+
+      <!-- header -->
+      <div class="profile-header">
+        <span class="ph-mark mark-yfn">
+          <svg viewBox="0 25 394 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Young Founders Network logo"><path d="M105.727 32.7109H31.6406L38.6388 53.0131L84.8654 56.3263L101.701 106.18L95.1406 152.26H122.821L129.381 106.18L176.261 32.7405H145.541L123.461 73.7005L118.821 84.2605L116.901 73.7005L105.861 32.7405H105.727V32.7109Z"/><path d="M166.878 152.26L183.998 32.7405H251.038L247.678 54.1805L208.638 53.8605L204.478 82.9805L237.918 82.5005L235.038 105.22L201.278 104.74L194.558 152.26H166.878Z"/><path d="M268.373 32.7405L251.253 152.26H277.653L286.613 87.1405L286.453 65.7005L294.133 87.1405L321.333 152.26H344.533L361.653 32.7405H334.933L327.413 94.6605L326.293 114.98L320.213 94.6605L292.373 32.7405H268.373Z"/></svg>
+        </span>
+        <div class="ph-meta">
+          <div class="ph-name">Young Founders Network</div>
+          <div class="ph-sub">
+            <span class="ph-badge">★ Community partner · 3 months free</span>
+            <span class="ph-loc">Founder community · Germany</span>
+          </div>
+        </div>
+        <div class="ph-cta">
+          <a href="https://app.getmarketing.team/?ref=yfn" target="_blank" rel="noopener" class="ph-btn ph-btn-primary">Activate in the app ↗</a>
+          <a href="https://youngfounders.network/" target="_blank" rel="noopener" class="ph-btn ph-btn-ghost">Young Founders Network ↗</a>
+        </div>
+      </div>
+
+      <!-- body -->
+      <div class="profile-body">
+        <p class="profile-lede">3 months of GetMarketing, <em>free for young founders</em>.</p>
+        <p class="profile-desc">Young Founders Network is a non-profit community for everyone under 25 in Germany who wants to build (or rebuild) something — 1,950+ members, average age 21.5, with regional chapters, events, the <em>Roots 2 Disrupt</em> podcast, an incubator, and the annual Young Founders Conference (1,000+ attendees). Through this partnership, every YFN member gets <em>3 months of GetMarketing free</em> — a full marketing team from day one that runs strategy, content and publishing every week, with your approval. Your access code and the full terms are published in the Young Founders member portal; activate them at app.getmarketing.team. No credit card, no commitment.</p>
+
+        <!-- attributes -->
+        <div class="attr-grid">
+          <div class="attr-block">
+            <h4>Best for</h4>
+            <ul class="attr-list">
+              <li>YFN members building a startup who need reach, not another hire</li>
+              <li>Under-25 founders with no marketing team and no budget for one</li>
+              <li>Solo founders who want strategy, content and publishing handled weekly</li>
+              <li>Anyone who'd rather build the product than manage marketing</li>
+            </ul>
+          </div>
+          <div class="attr-block">
+            <h4>What members get</h4>
+            <ul class="attr-list">
+              <li>Your own marketing strategy, tailored to your startup and audience</li>
+              <li>Weekly content — social posts, blog and SEO articles, ready to approve</li>
+              <li>Publishing on your channels — LinkedIn, Instagram, blog and more</li>
+              <li>Analytics and clear attribution instead of guesswork</li>
+              <li>A personal 1:1 onboarding call</li>
+            </ul>
+          </div>
+          <div class="attr-block">
+            <h4>The offer</h4>
+            <div class="attr-tags">
+              <span class="attr-tag">3 months free</span>
+              <span class="attr-tag">No credit card</span>
+              <span class="attr-tag">No commitment</span>
+              <span class="attr-tag">Weekly delivery</span>
+              <span class="attr-tag">You approve everything</span>
+              <span class="attr-tag">Cancel anytime</span>
+            </div>
+          </div>
+          <div class="attr-block">
+            <h4>The community</h4>
+            <div class="attr-tags">
+              <span class="attr-tag">1,950+ members</span>
+              <span class="attr-tag">Ø age 21.5</span>
+              <span class="attr-tag">Under 25</span>
+              <span class="attr-tag">Non-profit</span>
+              <span class="attr-tag">Regional chapters</span>
+              <span class="attr-tag">Young Founders Conference</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- use cases -->
+        <div class="cap-grid">
+          <div class="cap-card">
+            <h5>Strategy for your startup</h5>
+            <p>GetMarketing builds a marketing strategy around your product, audience and goals — before a single post goes out.</p>
+          </div>
+          <div class="cap-card">
+            <h5>Weekly content, done</h5>
+            <p>Social posts, blog and SEO articles land every week, ready for you to approve in a few minutes.</p>
+          </div>
+          <div class="cap-card">
+            <h5>Published on your channels</h5>
+            <p>Approved content ships to LinkedIn, Instagram, your blog and more — published, not just planned.</p>
+          </div>
+          <div class="cap-card">
+            <h5>Clear attribution</h5>
+            <p>Reporting shows what actually drives reach, so you always know where your marketing pays off.</p>
+          </div>
+        </div>
+
+        <!-- member offer strip -->
+        <div class="offer-strip">
+          <div class="os-main">
+            <div class="os-big">Every YFN member gets <em>3 months of GetMarketing, free.</em></div>
+            <div class="os-sub">Find your access code and the full terms in the Young Founders member portal, then activate them in the app. No credit card, no commitment.</div>
+          </div>
+          <a href="https://app.getmarketing.team/?ref=yfn" target="_blank" rel="noopener" class="btn btn-light">Activate in the app →</a>
+        </div>
+
+        <!-- why we partner -->
+        <div class="why-note">
+          <h4>Why we partner</h4>
+          <p>GetMarketing gives founders a full marketing team from day one. Young Founders Network backs the next generation of founders under 25. Together we remove one of the biggest early hurdles — getting seen — so YFN members can focus on building. Every member gets 3 months of GetMarketing, free.</p>
+        </div>
+
+        <!-- footer CTA -->
+        <div class="profile-foot">
+          <span class="pf-q">A YFN member? Activate your 3 months.</span>
+          <a href="https://app.getmarketing.team/?ref=yfn" target="_blank" rel="noopener" class="btn btn-dark">Activate in the app →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== BECOME A PARTNER ===== -->
 <section class="cta-final">
   <div class="wrap reveal">
     <h2>Build something founders should use with GetMarketing?</h2>
-    <p class="sub">If your tool or agency helps B2B founders run go-to-market, we'd like to feature you here. Send us a note and let's talk.</p>
+    <p class="sub">If your tool, agency or community helps founders build and grow, we'd like to feature you here. Send us a note and let's talk.</p>
     <div class="btn-row">
       <a href="mailto:darya@getmarketing.team?subject=Partnership%20with%20GetMarketing&body=Hi%20Darya%2C%0A%0AI%27d%20like%20to%20explore%20a%20partnership%20with%20GetMarketing.%0A%0AHere%27s%20what%20we%20do%3A" class="btn btn-light">Become a partner</a>
       <a href="/" class="btn btn-ghost-light">Back to GetMarketing →</a>
