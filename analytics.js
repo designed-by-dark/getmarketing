@@ -16,7 +16,7 @@
 
   // ---- Configuration -------------------------------------------------------
   // Amplitude → Settings → Projects → "default" → API Key (client-side, public):
-  var AMPLITUDE_API_KEY = 'REPLACE_WITH_AMPLITUDE_BROWSER_API_KEY';
+  var AMPLITUDE_API_KEY = '76d34022534107357a0a7cef0d6030a9';
   var GA_MEASUREMENT_ID = 'G-T7EBFEM00R';
   var COOKIE_DOMAIN     = '.getmarketing.team'; // share identity across www + app subdomains
   var CONSENT_KEY       = 'gm_analytics_consent'; // localStorage: 'granted' | 'denied'
