@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angebot Tasty Pott — GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Angebot: SEO, KI-Sichtbarkeit und Social Media für tasty-pott.de, mynatura.eu und fit-and-life.de." />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --ink:        #1F2A24;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F2;
+    --line:       #E6E6E1;
+    --tint:       #E7F3EC;
+    --warn:       #B4532A;
+    --warn-bg:    #F7EBE2;
+    --tp: #C8321F; --mn: #8A5530; --fl: #2F9E74;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --s: 1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font); color: var(--ink); background: #E4E1D9;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow: hidden;
+  }
+  h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; text-wrap: balance; color: var(--black); }
+
+  /* ================= Deck / stage ================= */
+  .deck { position: fixed; inset: 0; }
+  .slide {
+    position: absolute; left: 50%; top: 50%;
+    width: 1280px; height: 720px;
+    transform: translate(-50%, -50%) scale(var(--s));
+    background: #fff; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 72px 0;
+    opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+  .slide.dark { background: var(--forest); color: #fff; }
+  .slide.dark h1, .slide.dark h2 { color: #fff; }
+
+  .s-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 28px; }
+  .s-head h2 { font-size: 38px; max-width: 920px; }
+  .s-head .s-sub { font-size: 17px; color: var(--gray); margin-top: 10px; font-weight: 400; max-width: 860px; line-height: 1.5; }
+  .s-logo { height: 58px; width: auto; flex-shrink: 0; object-fit: contain; }
+  .s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .s-foot {
+    height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: var(--gray2); border-top: 1px solid var(--line); margin-top: 18px;
+  }
+  .s-foot b { color: var(--gray); font-weight: 700; }
+  .dark .s-foot { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
+  .dark .s-foot b { color: rgba(255,255,255,.7); }
+
+  .take {
+    margin-top: auto; display: flex; gap: 18px; align-items: center;
+    background: var(--forest); color: #fff; border-radius: 14px; padding: 18px 24px;
+    font-size: 16.5px; line-height: 1.5;
+  }
+  .take b.k { flex-shrink: 0; font-size: 14px; font-weight: 800; color: var(--accent); }
+
+  /* ================= Shared blocks ================= */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card { background: var(--card); border-radius: 16px; padding: 26px; }
+  .num { font-size: 58px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
+  .num.warn { color: var(--warn); }
+  .lbl { font-size: 15px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .logo-box { height: 56px; display: flex; align-items: center; margin-bottom: 22px; }
+  .logo-box img { max-height: 56px; max-width: 170px; object-fit: contain; }
+  .col-h { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .stat { background: var(--card); border-radius: 14px; padding: 18px 20px; }
+  .stat b { display: block; font-size: 34px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; color: var(--forest); }
+  .stat span { display: block; font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.4; }
+  .stat.warn b { color: var(--warn); }
+
+  table.kw { width: 100%; border-collapse: collapse; font-size: 16px; }
+  table.kw th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 12px 10px; border-bottom: 2px solid var(--ink); }
+  table.kw td { padding: 12px; border-bottom: 1px solid var(--line); }
+  table.kw .r { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pos { display: inline-block; min-width: 64px; text-align: center; font-size: 13.5px; font-weight: 800; padding: 4px 10px; border-radius: 6px; background: var(--tint); color: var(--forest); }
+  .pos.bad { background: var(--warn-bg); color: var(--warn); }
+  .pos.none { background: var(--card); color: var(--gray); font-weight: 600; }
+
+  .bars { display: flex; flex-direction: column; gap: 22px; }
+  .bar-l { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .bar-l span { color: var(--gray); font-weight: 500; }
+  .bar-t { height: 44px; background: var(--card); border-radius: 8px; overflow: hidden; }
+  .bar-f { height: 100%; border-radius: 8px; }
+
+  .check { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .check li { position: relative; padding-left: 30px; font-size: 16px; line-height: 1.45; }
+  .check li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 19px; height: 19px; border-radius: 5px;
+    background: var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;
+  }
+  .check.sm li { font-size: 14.5px; }
+
+  .price { background: var(--forest); color: #fff; border-radius: 16px; padding: 26px; }
+  .price .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .price .v { font-size: 50px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; }
+  .price .v small { font-size: 18px; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,.7); }
+  .price p { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 10px; line-height: 1.5; }
+  .result { background: var(--tint); border-radius: 16px; padding: 22px 24px; }
+  .result .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
+  .result p { font-size: 16px; color: var(--forest); line-height: 1.5; font-weight: 500; }
+  .note { background: var(--warn-bg); border-radius: 14px; padding: 16px 20px; font-size: 14px; line-height: 1.5; color: #5b3a28; }
+  .note b { color: var(--warn); }
+  .small-note { font-size: 12.5px; color: var(--gray); margin-top: 12px; line-height: 1.5; }
+  .small-note b { color: var(--ink); }
+
+  /* ================= Individual slides ================= */
+  .cover { padding-top: 70px; }
+  .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
+  .cover .gm img { width: 38px; height: 38px; border-radius: 8px; }
+  .cover h1 { font-size: 60px; max-width: 980px; margin-top: 70px; letter-spacing: -0.035em; line-height: 1.05; }
+  .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; }
+  .cover .logos { display: flex; gap: 16px; margin-top: 48px; }
+  .cover .logos div { background: #fff; border-radius: 14px; width: 200px; height: 92px; display: grid; place-items: center; }
+  .cover .logos img { max-width: 150px; max-height: 58px; object-fit: contain; }
+  .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
+  .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
+
+  .brand-card { background: var(--card); border-radius: 18px; padding: 28px 28px 30px; display: flex; flex-direction: column; }
+  .brand-card .logo-box { background: #fff; border-radius: 12px; height: 84px; justify-content: center; margin: -8px -8px 26px; }
+  .brand-card h3 { font-size: 20px; margin-top: 16px; line-height: 1.25; }
+  .brand-card p { font-size: 14.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+
+  .canni { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .canni > div { border: 1px solid var(--line); border-radius: 18px; padding: 24px; text-align: center; }
+  .canni .logo-box { justify-content: center; margin-bottom: 10px; }
+  .canni .p { font-size: 96px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: var(--forest); }
+  .canni .p small { font-size: 34px; color: var(--gray2); }
+  .canni .c { font-size: 14px; color: var(--gray); margin-top: 6px; }
+  .product { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+  .product span { font-weight: 400; color: var(--gray); }
+
+  .quote { border-left: 4px solid var(--warn); background: var(--card); border-radius: 0 14px 14px 0; padding: 22px 26px; }
+  .quote .q { font-size: 22px; font-weight: 700; }
+  .quote .a { font-size: 15.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .quote .a b { color: var(--warn); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tags span { font-size: 14.5px; font-weight: 600; padding: 8px 14px; border-radius: 8px; background: var(--card); }
+
+  .goals { list-style: none; display: flex; flex-direction: column; gap: 12px; counter-reset: g; }
+  .goals li {
+    counter-increment: g; display: grid; grid-template-columns: 46px 1fr auto; gap: 18px; align-items: center;
+    background: var(--card); border-radius: 14px; padding: 15px 22px 15px 18px; font-size: 16.5px; line-height: 1.4;
+  }
+  .goals li::before { content: counter(g); width: 38px; height: 38px; border-radius: 10px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 17px; }
+  .goals li b { font-weight: 700; }
+  .goals .mini { display: flex; gap: 8px; }
+  .goals .mini img { height: 30px; max-width: 70px; object-fit: contain; background: #fff; border-radius: 6px; padding: 3px 6px; }
+
+  .road { display: flex; flex-direction: column; gap: 10px; }
+  .road a {
+    display: grid; grid-template-columns: 56px 270px 1fr 200px; gap: 22px; align-items: center;
+    background: var(--card); border-radius: 14px; padding: 16px 22px; text-decoration: none; color: inherit;
+    transition: background .15s ease;
+  }
+  .road a:hover { background: var(--tint); }
+  .road .n { width: 44px; height: 44px; border-radius: 11px; background: #fff; color: var(--forest); display: grid; place-items: center; font-weight: 900; font-size: 19px; border: 1.5px solid var(--line); }
+  .road .t { font-weight: 800; font-size: 17.5px; letter-spacing: -0.015em; }
+  .road .t small { display: block; font-weight: 500; font-size: 13px; color: var(--accent-ink); letter-spacing: 0; margin-top: 2px; }
+  .road .d { font-size: 15px; color: var(--gray); line-height: 1.45; }
+  .road .pr { font-weight: 800; font-size: 17px; text-align: right; }
+  .road .pr small { display: block; font-weight: 500; font-size: 12.5px; color: var(--gray); }
+  .road a.hl { background: var(--forest); color: #fff; }
+  .road a.hl .n { background: var(--accent); color: var(--forest); border: 0; }
+  .road a.hl .d { color: rgba(255,255,255,.7); }
+  .road a.hl .t small { color: var(--accent); }
+  .road a.run { background: #fff; border: 1.5px dashed var(--gray2); }
+
+  .phase { display: grid; grid-template-columns: 1fr 340px; gap: 36px; flex: 1; min-height: 0; }
+  .phase .side { display: flex; flex-direction: column; gap: 14px; }
+
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .track { background: var(--card); border-radius: 16px; padding: 22px 24px; }
+  .track-h { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .track-h i { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-style: normal; font-weight: 900; font-size: 13px; background: var(--forest); color: #fff; flex-shrink: 0; }
+  .track-h b { display: block; font-size: 17px; }
+  .track-h span { display: block; font-size: 13px; color: var(--gray); }
+  .weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 14px; }
+  .weeks div { font-size: 12px; font-weight: 700; color: var(--forest); background: var(--tint); border-radius: 6px; padding: 6px 0; text-align: center; }
+
+  /* Phase 2 page list */
+  table.plan { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.plan th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 10px 8px; border-bottom: 2px solid var(--ink); }
+  table.plan td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  table.plan td.n { width: 34px; font-weight: 800; color: var(--gray2); }
+  table.plan td.lg { width: 92px; }
+  table.plan td.lg img { height: 26px; max-width: 76px; object-fit: contain; display: block; }
+  table.plan td b { font-weight: 700; }
+  table.plan .r { text-align: right; white-space: nowrap; }
+  .ft { font-size: 12.5px; font-weight: 800; white-space: nowrap; }
+  .ft s { color: var(--gray); text-decoration: none; font-weight: 600; }
+  .ft s::after { content: " → "; color: var(--gray2); }
+  .ft em { font-style: normal; color: var(--accent-ink); }
+
+  /* Page preview cards */
+  .pg-grid { display: grid; gap: 16px; }
+  .pg-grid.c4 { grid-template-columns: repeat(4, 1fr); }
+  .pg-grid.c3 { grid-template-columns: repeat(3, 1fr); }
+  .pg-grid.c1 { grid-template-columns: 1fr; }
+  .pgc { background: var(--card); border-radius: 16px; padding: 14px 14px 16px; display: flex; flex-direction: column; }
+  .pgc.wide { display: grid; grid-template-columns: 330px 1fr 1fr; gap: 28px; padding: 18px 22px; align-items: start; }
+  .pgc.wide .why { margin-top: 0; padding-top: 0; border-top: 0; }
+  .mock { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,.04); }
+  .mock-bar { height: 22px; background: #F1F0EC; display: flex; align-items: center; gap: 4px; padding: 0 8px; font-size: 9.5px; color: var(--gray); }
+  .mock-bar i { width: 6px; height: 6px; border-radius: 50%; background: #D5D3CC; flex-shrink: 0; }
+  .mock-bar span { margin-left: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mock-in { padding: 10px 12px 12px; }
+  .mock-in .ml { height: 14px; margin-bottom: 8px; }
+  .mock-in .ml img { height: 14px; display: block; }
+  .mock-h { font-size: 13px; font-weight: 800; line-height: 1.22; color: var(--black); letter-spacing: -0.01em; }
+  .mock-line { height: 5px; background: #ECEBE6; border-radius: 3px; margin-top: 6px; }
+  .mock-sec { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .mock-sec span { font-size: 9.5px; font-weight: 700; background: var(--card); color: var(--ink); padding: 2px 6px; border-radius: 4px; }
+  .mock-cta { display: inline-block; margin-top: 9px; font-size: 9.5px; font-weight: 800; color: #fff; padding: 4px 10px; border-radius: 50px; }
+  .pgc h3 { font-size: 16px; margin-top: 12px; letter-spacing: -0.015em; }
+  .pgc.wide h3 { margin-top: 0; font-size: 19px; }
+  .pgc .kind { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-top: 2px; }
+  .targets { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .tg { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; align-items: baseline; }
+  .tg > span:first-child { font-weight: 600; }
+  .why { font-size: 12.5px; color: var(--gray); margin-top: 10px; line-height: 1.45; padding-top: 10px; border-top: 1px solid #E2E1DB; }
+  .why b { color: var(--ink); }
+  .pgc.wide .targets .tg { font-size: 14px; }
+  .pgc.wide .why { font-size: 14px; }
+
+  /* Retainer content */
+  .cycle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .cyc { background: var(--card); border-radius: 16px; padding: 20px 20px 22px; position: relative; }
+  .cyc:not(:last-child)::after { content: "→"; position: absolute; right: -15px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 12px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+  .cyc .n { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); }
+  .cyc b { display: block; font-size: 19px; margin-top: 6px; letter-spacing: -0.015em; }
+  .cyc p { font-size: 14px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .fast { background: var(--forest); color: #fff; border-radius: 16px; padding: 22px 26px; }
+  .fast .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .fast p { font-size: 16px; line-height: 1.55; margin-top: 8px; color: rgba(255,255,255,.88); }
+
+  /* Case studies */
+  .cases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .case { border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; }
+  .case .ind { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); min-height: 30px; }
+  .case .big { font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); margin-top: 10px; }
+  .case .big small { font-size: 18px; letter-spacing: -0.01em; color: var(--gray); font-weight: 600; }
+  .case b { font-size: 15px; margin-top: 12px; line-height: 1.35; }
+  .case p { font-size: 13.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .case.hl { background: var(--tint); border-color: var(--tint); }
+  .proof { display: flex; gap: 14px; margin-top: 18px; }
+  .proof div { flex: 1; background: var(--card); border-radius: 14px; padding: 16px 20px; display: flex; align-items: baseline; gap: 12px; }
+  .proof b { font-size: 28px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); }
+  .proof span { font-size: 14px; color: var(--gray); }
+  .quote-line { margin-top: 16px; font-size: 15px; color: var(--ink); font-style: italic; }
+  .quote-line span { font-style: normal; color: var(--gray); font-size: 13px; }
+
+  .tiers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .tiers .tier .v { font-size: 42px; white-space: nowrap; }
+  .tier.agency { background: var(--card); border-color: var(--card); }
+  .tier.agency .k { color: var(--gray); }
+  .tier.agency .v { color: var(--gray); }
+  .tier.agency li span:last-child { color: var(--gray); }
+  .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 26px 28px; }
+  .tier.full { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .tier .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .tier.full .k { color: var(--accent); }
+  .tier .v { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 12px 0 4px; }
+  .tier .v small { font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .tier.full .v small, .tier.full .sub { color: rgba(255,255,255,.65); }
+  .tier .sub { font-size: 13.5px; color: var(--gray); }
+  .tier ul { list-style: none; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; }
+  .tier.full ul { border-color: rgba(255,255,255,.15); }
+  .tier li { display: flex; justify-content: space-between; font-size: 15px; }
+  .tier li span:last-child { font-weight: 700; }
+  .tier .on { color: var(--accent-ink); }
+  .tier.full .on { color: var(--accent); }
+  .tier .off { color: var(--gray); }
+  .tier .incl { font-size: 14px; margin-top: 14px; color: var(--gray); line-height: 1.5; }
+  .tier.full .incl { color: rgba(255,255,255,.75); }
+
+  .close h2 { font-size: 50px; max-width: 900px; margin-top: 40px; line-height: 1.08; }
+  .close .lead { font-size: 19px; color: rgba(255,255,255,.7); margin-top: 22px; max-width: 760px; line-height: 1.55; }
+  .who { display: flex; align-items: center; gap: 18px; margin-top: 40px; }
+  .who img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+  .who b { display: block; font-size: 17px; }
+  .who span { font-size: 14.5px; color: rgba(255,255,255,.65); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 16px var(--font); padding: 15px 28px; border-radius: 50px; text-decoration: none; transition: transform .18s ease, opacity .18s ease; }
+  .btn:hover { transform: translateY(-2px); opacity: .92; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
+
+  /* Cannibalisation comparison */
+  .vs { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 16px; align-items: stretch; margin-bottom: 18px; }
+  .vs-card { border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; }
+  .vs-card.good { background: var(--tint); border-color: var(--tint); }
+  .vs-k { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+  .vs-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .vs-logos.one { grid-template-columns: 1fr; }
+  .vs-logos > div { background: #fff; border-radius: 12px; height: 88px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; gap: 8px; }
+  .vs-card:not(.good) .vs-logos > div { background: var(--card); }
+  .vs-logos img { max-height: 40px; max-width: 70px; object-fit: contain; }
+  .vs-logos b { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--gray); }
+  .vs-card.good .vs-logos b { font-size: 44px; color: var(--forest); }
+  .vs-one { font-size: 16px; font-weight: 700; color: var(--forest); }
+  .vs-res { margin-top: 16px; display: flex; gap: 14px; align-items: baseline; }
+  .vs-res b { font-size: 36px; font-weight: 900; letter-spacing: -0.04em; color: var(--warn); white-space: nowrap; }
+  .vs-card.good .vs-res b { color: var(--forest); }
+  .vs-res span { font-size: 14.5px; color: var(--gray); line-height: 1.45; }
+  .vs-arrow { display: grid; place-items: center; font-size: 26px; font-weight: 800; color: var(--accent-ink); }
+
+  /* Goals KPI strip */
+  .kpi3 { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 12px; margin-bottom: 16px; align-items: stretch; }
+  .kpi3 > div { background: var(--forest); color: #fff; border-radius: 14px; padding: 16px 20px; }
+  .kpi3 b { display: block; font-size: 28px; font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; }
+  .kpi3 span { font-size: 13.5px; color: rgba(255,255,255,.7); }
+  .kpi3 a span { display: block; color: var(--gray); font-weight: 500; font-size: 13px; margin-bottom: 4px; }
+  .kpi3 a { align-self: center; font-size: 14px; font-weight: 700; color: var(--accent-ink); text-decoration: none; padding: 0 6px; white-space: nowrap; }
+  .goals.tight { gap: 9px; }
+  .goals.tight li { padding: 11px 20px 11px 16px; font-size: 15.5px; }
+  .goals.tight li::before { width: 34px; height: 34px; }
+
+  /* Forecast table */
+  table.prog td { padding: 14px 10px; font-size: 14px; line-height: 1.45; }
+  table.prog td.lg { width: 130px; }
+  table.prog td.lg img { height: 34px; max-width: 110px; object-fit: contain; display: block; }
+  table.prog .lg-t { font-size: 13px; font-weight: 700; color: var(--forest); }
+  table.prog td.r { font-size: 16px; font-weight: 700; }
+  table.prog tr.sum td { border-bottom: 0; border-top: 2px solid var(--ink); font-size: 16px; }
+  table.prog tr.sum td span { color: var(--gray); font-size: 13px; margin-left: 6px; }
+  table.prog tr.sum td.r b { font-size: 19px; color: var(--forest); }
+  .calc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  /* Phase 0 steps */
+  .steps5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .steps5 > div { background: var(--card); border-radius: 16px; padding: 18px 18px 20px; position: relative; }
+  .steps5 .n, .flow .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .steps5 b, .flow b { display: block; font-size: 16.5px; letter-spacing: -0.015em; }
+  .steps5 p, .flow p { font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+
+  /* Phase 2 process */
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  .flow > div { background: var(--tint); border-radius: 16px; padding: 18px 20px; }
+
+  /* Optional */
+  .opt .card { display: flex; flex-direction: column; padding: 22px 24px; }
+  .opt h3 { font-size: 21px; margin-bottom: 14px; }
+  .why2 { font-size: 13.5px; color: var(--gray); line-height: 1.5; margin-top: 10px; }
+  .why2 b { color: var(--ink); }
+  .opt .why2:first-of-type { margin-top: auto; padding-top: 14px; border-top: 1px solid #E2E1DB; }
+  .opt .check { margin-bottom: 14px; }
+
+  /* Close */
+  .close-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; flex: 1; }
+  .close .close-grid h2 { font-size: 42px; margin-top: 0; }
+  .close .close-grid .lead { font-size: 17px; }
+  .invest { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 24px 26px; }
+  .invest .k { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+  .invest .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 15px; }
+  .invest .row span { color: rgba(255,255,255,.8); }
+  .invest .row b { white-space: nowrap; }
+  .invest .row.sub { border-top: 0; padding-top: 0; font-size: 13.5px; }
+  .invest .row.sub span, .invest .row.sub b { color: rgba(255,255,255,.55); font-weight: 500; padding-left: 0; }
+  .invest p { font-size: 12.5px; color: rgba(255,255,255,.5); margin-top: 12px; }
+
+  /* Traffic value explainer */
+  .price.tw { padding: 22px 24px; }
+  .price.tw .tw-lead { font-size: 15.5px; color: #fff; margin-top: 8px; line-height: 1.5; }
+  .tw-ex { background: rgba(255,255,255,.08); border-radius: 10px; padding: 10px 12px; margin-top: 12px; }
+  .tw-ex span { display: block; font-size: 12px; color: rgba(255,255,255,.6); }
+  .tw-ex b { display: block; font-size: 14px; margin-top: 2px; }
+
+  /* Process steps as lists */
+  .flow ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+  .flow li { font-size: 14px; color: var(--ink); line-height: 1.4; padding-left: 16px; position: relative; }
+  .flow li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-ink); }
+  .flow > div { padding: 20px 22px 22px; }
+  .flow > div:not(:last-child) { position: relative; }
+  .flow > div:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 26px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+
+  /* Retainer cycle */
+  .cyc-wrap { display: grid; grid-template-columns: 600px 1fr; gap: 36px; align-items: center; flex: 1; min-height: 0; }
+  .ring { position: relative; width: 600px; height: 460px; }
+  .ring svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ring-arc { transform-origin: 300px 230px; transform: rotate(-155deg); }
+  .ring-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .ring-center b { display: block; font-size: 22px; font-weight: 900; letter-spacing: -0.03em; color: var(--forest); }
+  .ring-center span { font-size: 13.5px; color: var(--gray); }
+  .node {
+    position: absolute; width: 176px; transform: translate(-50%, -50%);
+    background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px 13px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.05);
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .node em { font-style: normal; font-size: 11.5px; font-weight: 800; color: var(--accent-ink); }
+  .node b { display: block; font-size: 16px; letter-spacing: -0.015em; margin-top: 1px; }
+  .node p { font-size: 12.5px; color: var(--gray); line-height: 1.4; margin-top: 4px; }
+  .node.n1 { left: 300px; top: 60px; }
+  .node.n2 { left: 470px; top: 230px; }
+  .node.n3 { left: 300px; top: 400px; }
+  .node.n4 { left: 130px; top: 230px; }
+  .node.on { border-color: var(--accent); box-shadow: 0 8px 24px rgba(47,138,94,.22); }
+  .cyc-side { display: flex; flex-direction: column; gap: 16px; }
+  .cyc-side .fast p { font-size: 15px; }
+
+  /* ================= Cockpit demo (styled after the client's Social Media Hub) ================= */
+  .cockpit { display: grid; grid-template-columns: 300px 1fr; gap: 36px; flex: 1; min-height: 0; padding-bottom: 4px; }
+  .cockpit-intro { display: flex; flex-direction: column; }
+  .cockpit-intro h2 { font-size: 36px; }
+  .cockpit-intro p { font-size: 15.5px; color: var(--gray); margin-top: 16px; line-height: 1.55; }
+  .cockpit-intro ol { margin-top: 20px; list-style: none; counter-reset: t; display: flex; flex-direction: column; gap: 10px; }
+  .cockpit-intro li { counter-increment: t; display: flex; gap: 12px; font-size: 14.5px; line-height: 1.4; align-items: flex-start; }
+  .cockpit-intro li::before { content: counter(t); flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: #F2CB3C; color: #1F4B3A; font-weight: 800; font-size: 12.5px; display: grid; place-items: center; }
+  .cockpit-intro .demo-note { font-size: 12.5px; color: var(--gray2); margin-top: auto; padding-top: 16px; }
+
+  .hub {
+    --hs: #1F4B3A; --hy: #F2CB3C; --hc: #F8F5EC; --hl: #EAE4D6; --hi: #163A2C; --hm: #6E7B72;
+    position: relative; font-family: "Plus Jakarta Sans", var(--font); color: var(--hi);
+    display: grid; grid-template-columns: 196px 1fr; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 18px 50px rgba(20,40,30,.22), 0 0 0 1px rgba(0,0,0,.05); min-height: 0; height: 100%;
+    background: var(--hc);
+  }
+  .hub button { font-family: inherit; }
+  .hub-side { background: var(--hs); padding: 18px 14px; display: flex; flex-direction: column; gap: 4px; position: relative; }
+  .hub-brand { display: flex; align-items: center; gap: 10px; padding: 2px 4px 14px; }
+  .hub-brand i { width: 38px; height: 38px; border-radius: 10px; background: var(--hy); display: grid; place-items: center; flex-shrink: 0; }
+  .hub-brand b { color: #fff; font-size: 15px; font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; }
+  .sw-btn {
+    display: flex; align-items: center; gap: 8px; width: 100%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    border-radius: 11px; padding: 7px 10px 7px 7px; cursor: pointer; color: #fff; font-size: 13px; font-weight: 700; text-align: left; margin-bottom: 10px;
+  }
+  .sw-btn:hover { background: rgba(255,255,255,.13); }
+  .chip { width: 44px; height: 28px; border-radius: 7px; background: #fff; display: grid; place-items: center; flex-shrink: 0; }
+  .chip img { max-width: 36px; max-height: 22px; object-fit: contain; }
+  .chip.all { background: var(--hy); color: var(--hs); font-weight: 800; font-size: 13px; }
+  .sw-btn .car { margin-left: auto; opacity: .7; font-size: 10px; }
+  .sw-menu {
+    position: absolute; left: 14px; right: -150px; top: 106px; z-index: 5; background: #fff; border-radius: 12px; padding: 6px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.2); display: none;
+  }
+  .sw-menu.open { display: block; animation: hubIn .18s ease; }
+  .sw-menu button { display: flex; align-items: center; gap: 10px; width: 100%; border: 0; background: none; border-radius: 8px; padding: 7px; cursor: pointer; font-size: 13.5px; font-weight: 700; color: var(--hi); text-align: left; }
+  .sw-menu button:hover, .sw-menu button[aria-selected="true"] { background: var(--hc); }
+  .sw-menu .chip { border: 1px solid var(--hl); }
+  .hub-nav button {
+    display: flex; align-items: center; gap: 11px; width: 100%; border: 0; background: none; cursor: pointer;
+    border-radius: 11px; padding: 9px 11px; color: rgba(255,255,255,.82); font-size: 13.5px; font-weight: 700; text-align: left;
+  }
+  .hub-nav button:hover { background: rgba(255,255,255,.06); }
+  .hub-nav button[aria-current="true"] { background: rgba(255,255,255,.12); color: #fff; }
+  .hub-nav svg { width: 17px; height: 17px; flex-shrink: 0; }
+  .hub-nav .cnt { margin-left: auto; background: var(--hy); color: var(--hs); font-size: 10.5px; font-weight: 800; border-radius: 50px; padding: 1px 7px; }
+  .hub-lang { margin-top: auto; display: inline-flex; background: rgba(255,255,255,.1); border-radius: 50px; padding: 3px; align-self: flex-start; }
+  .hub-lang span { font-size: 11px; font-weight: 800; color: rgba(255,255,255,.7); padding: 3px 9px; border-radius: 50px; }
+  .hub-lang span:first-child { background: #fff; color: var(--hs); }
+
+  .hub-main { overflow-y: auto; padding: 20px 22px 22px; min-width: 0; scrollbar-width: thin; }
+  .hub-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .hub-top h4 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+  .hub-top .crumb { font-size: 12px; color: var(--hm); font-weight: 600; margin-top: 1px; }
+  .h-lab { font-size: 10.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--hm); }
+  .h-pill { font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; background: #E3EFE5; color: var(--hs); white-space: nowrap; }
+  .h-pill.warn { background: #F7E6DA; color: #9A4520; }
+  .h-pill.gray { background: #EFECE3; color: var(--hm); }
+  .h-card { background: #fff; border: 1px solid var(--hl); border-radius: 14px; padding: 15px 16px; }
+  .h-card + .h-card { margin-top: 12px; }
+  .h-card-t { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 13.5px; font-weight: 800; }
+  .h-brands { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+  .h-brand { background: #fff; border: 1px solid var(--hl); border-radius: 14px; padding: 12px 14px; cursor: pointer; text-align: left; transition: border-color .15s, transform .15s; color: var(--hi); }
+  .h-brand:hover { border-color: var(--hs); transform: translateY(-1px); }
+  .h-brand .lg { height: 40px; display: flex; align-items: center; margin-bottom: 8px; }
+  .h-brand .lg img { max-height: 36px; max-width: 110px; object-fit: contain; }
+  .h-brand dl { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; font-size: 12px; }
+  .h-brand dt { color: var(--hm); font-weight: 600; }
+  .h-brand dd { font-weight: 800; text-align: right; }
+  .dash { color: #C3BDAE; font-weight: 700; }
+  .h-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+  .h-kpi { background: #fff; border: 1px solid var(--hl); border-radius: 12px; padding: 12px 14px; }
+  .h-kpi b { display: block; font-size: 23px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  .h-kpi b.pend { font-size: 13px; color: #B5AE9E; padding: 5px 0 3px; }
+  .h-kpi span { font-size: 11.5px; color: var(--hm); font-weight: 600; }
+  .dup-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 9px 0; border-top: 1px solid var(--hl); font-size: 13px; }
+  .h-card-t + .dup-row { border-top: 0; padding-top: 0; }
+  .dup-row .ps { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  .dup-row .ps span { font-size: 10.5px; font-weight: 800; padding: 2px 7px; border-radius: 5px; background: #EFECE3; color: var(--hm); }
+  .dup-row .ps span.win { background: var(--hs); color: #fff; }
+  .h-btn { font-size: 12px; font-weight: 800; padding: 6px 11px; border-radius: 9px; cursor: pointer; border: 1.5px solid var(--hl); background: #fff; color: var(--hi); white-space: nowrap; transition: border-color .15s, background .15s; }
+  .h-btn:hover { border-color: var(--hs); }
+  .h-btn.y { background: var(--hy); border-color: var(--hy); color: var(--hs); }
+  .h-btn:disabled { opacity: .4; cursor: default; }
+  .h-choose { display: flex; gap: 4px; }
+  .h-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .h-table th { text-align: left; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--hm); padding: 0 8px 8px; }
+  .h-table td { padding: 9px 8px; border-top: 1px solid var(--hl); }
+  .h-table .r { text-align: right; white-space: nowrap; }
+  .bdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 7px; vertical-align: 1px; }
+  .h-bar-t { height: 30px; background: #EFECE3; border-radius: 7px; overflow: hidden; margin: 5px 0 12px; }
+  .h-bar-f { height: 100%; border-radius: 7px; }
+  .h-bar-l { font-size: 12px; font-weight: 700; display: flex; justify-content: space-between; }
+  .h-bar-l span { color: var(--hm); font-weight: 600; }
+  .kan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .kan-col { background: #EFEBE0; border-radius: 12px; padding: 10px; min-height: 300px; }
+  .kan-h { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--hm); margin-bottom: 8px; }
+  .kcard { display: block; width: 100%; text-align: left; cursor: pointer; background: #fff; border: 1px solid var(--hl); border-radius: 10px; padding: 9px 10px; margin-bottom: 7px; font-size: 12.5px; font-weight: 700; line-height: 1.3; color: var(--hi); animation: hubIn .3s ease; transition: border-color .15s; }
+  .kcard:hover { border-color: var(--hs); }
+  .kcard small { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--hm); font-weight: 600; margin-top: 5px; }
+  .ai-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--hl); font-size: 13px; }
+  .h-card-t + .ai-row, .h-card > .ai-row:first-child { border-top: 0; padding-top: 0; }
+  .ai-row .src { font-size: 11.5px; color: var(--hm); margin-top: 2px; font-weight: 500; }
+  .posts { display: grid; grid-template-columns: 175px 1fr; gap: 12px; }
+  .post-list { display: flex; flex-direction: column; gap: 6px; }
+  .post-it { text-align: left; background: #fff; border: 1.5px solid var(--hl); border-radius: 11px; padding: 9px 10px; cursor: pointer; font-size: 12px; font-weight: 700; line-height: 1.3; color: var(--hi); }
+  .post-it[aria-current="true"] { border-color: var(--hs); }
+  .post-it small { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; font-size: 10px; color: var(--hm); }
+  .post-it .ok { color: #2F8A5E; font-weight: 800; }
+  .post-d { background: #fff; border: 1px solid var(--hl); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .post-d-in { display: grid; grid-template-columns: 150px 1fr; gap: 14px; padding: 14px; }
+  .post-img { border-radius: 10px; aspect-ratio: 4/5; display: flex; flex-direction: column; justify-content: space-between; padding: 10px; color: #fff; }
+  .post-img .lgw { background: #fff; border-radius: 6px; padding: 3px 5px; align-self: flex-end; }
+  .post-img .lgw img { height: 18px; display: block; }
+  .post-img b { font-size: 13px; line-height: 1.2; }
+  .post-txt { font-size: 12.5px; line-height: 1.5; color: var(--hi); border: 2px solid var(--hy); border-radius: 10px; padding: 9px 10px; margin-top: 6px; }
+  .post-txt .ht { color: var(--hm); }
+  .approve { background: var(--hs); color: #fff; padding: 11px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 8px; margin-top: auto; }
+  .approve label + .h-btn { margin-left: auto; }
+  .approve label { display: flex; gap: 8px; align-items: flex-start; font-size: 11px; line-height: 1.35; color: rgba(255,255,255,.85); flex: 1 1 100%; cursor: pointer; }
+  .approve label b { display: block; color: #fff; font-size: 12.5px; }
+  .approve input { margin-top: 2px; accent-color: var(--hy); width: 15px; height: 15px; flex-shrink: 0; }
+  .approve .h-btn { background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+  .approve .h-btn.y { background: var(--hy); color: var(--hs); border-color: var(--hy); }
+  .approve .done { font-size: 12.5px; font-weight: 800; color: var(--hy); }
+  .hub-toast { position: absolute; left: 50%; bottom: 16px; transform: translate(-50%, 16px); opacity: 0; pointer-events: none; background: var(--hi); color: #fff; font-size: 12.5px; font-weight: 700; padding: 9px 15px; border-radius: 50px; transition: opacity .25s, transform .25s; white-space: nowrap; z-index: 6; }
+  .hub-toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .fade { animation: hubIn .25s ease; }
+  @keyframes hubIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+  /* ================= Controls ================= */
+  .ctrl {
+    position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 50px; padding: 5px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .ctrl button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; font: 700 16px var(--font); color: var(--ink); display: grid; place-items: center; }
+  .ctrl button:hover { background: var(--card); }
+  .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
+  .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
+  body:not(.stack) .s-foot .pg { visibility: hidden; }
+  .progress { position: fixed; left: 0; top: 0; height: 3px; background: var(--accent); z-index: 50; transition: width .3s ease; }
+
+  /* ================= Stacked mode (phones / portrait) ================= */
+  body.stack { overflow: auto; background: #fff; }
+  .stack .deck { position: static; }
+  .stack .slide {
+    position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto;
+    opacity: 1; visibility: visible; box-shadow: none; padding: 48px 16px 0;
+    border-bottom: 8px solid #EEEDE8;
+  }
+  .stack .ctrl, .stack .progress { display: none; }
+  .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
+  .stack .s-head h2, .stack .cockpit-intro h2 { font-size: 26px; }
+  .stack .s-head .s-sub { font-size: 15px; }
+  .stack .s-logo { height: 40px; }
+  .stack .grid3, .stack .grid2, .stack .canni, .stack .tracks, .stack .tiers, .stack .phase, .stack .cockpit,
+  .stack .pg-grid.c4, .stack .pg-grid.c3, .stack .pg-grid.c1, .stack .pgc.wide, .stack .cycle, .stack .cases { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .slide * { min-width: 0; }
+  .stack .hub-nav button, .stack .h-btn, .stack .chip { min-width: auto; }
+  .stack .cyc::after { display: none; }
+  .stack .proof { flex-direction: column; }
+  .stack .stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .stack .stat { padding: 14px; }
+  .stack .stat b { font-size: 24px; }
+  .stack .take { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 15px; margin-top: 22px; }
+  .stack .cover { padding-top: 40px; }
+  .stack .cover h1 { font-size: 34px; margin-top: 40px; }
+  .stack .cover .for { font-size: 17px; }
+  .stack .cover .logos { flex-wrap: wrap; gap: 10px; }
+  .stack .cover .logos div { width: calc(50% - 5px); height: 72px; }
+  .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
+  .stack .road a { grid-template-columns: 44px 1fr auto; gap: 6px 14px; padding: 14px; }
+  .stack .road .d { grid-column: 2 / 4; }
+  .stack .road .n { grid-row: span 2; width: 38px; height: 38px; }
+  .stack .road .pr { font-size: 14.5px; }
+  .stack .goals li { grid-template-columns: 40px 1fr; font-size: 15px; }
+  .stack .goals .mini { grid-column: 2; }
+  .stack .num { font-size: 44px; }
+  .stack .canni .p { font-size: 64px; }
+  .stack .close h2 { font-size: 32px; }
+  .stack .price .v { font-size: 40px; }
+  .stack table.plan td.lg, .stack table.plan th.lg, .stack table.plan td.n, .stack table.plan th.n { display: none; }
+  .stack table.plan { font-size: 13.5px; }
+  .stack .hub { grid-template-columns: 1fr; height: 640px; }
+  .stack .hub-side { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; padding: 12px; }
+  .stack .hub-brand { display: none; }
+  .stack .sw-btn { width: auto; margin: 0; }
+  .stack .sw-menu { top: 56px; right: 14px; }
+  .stack .hub-nav { display: flex; gap: 2px; overflow-x: auto; width: 100%; scrollbar-width: none; }
+  .stack .hub-nav button { width: auto; white-space: nowrap; padding: 8px 10px; }
+  .stack .hub-nav svg { display: none; }
+  .stack .hub-lang { display: none; }
+  .stack .h-brands, .stack .kan, .stack .posts, .stack .post-d-in { grid-template-columns: 1fr; }
+  .stack .h-kpis { grid-template-columns: 1fr 1fr; }
+  .stack .dup-row { grid-template-columns: 1fr; }
+  .stack .h-choose { flex-wrap: wrap; }
+  .stack .post-img { aspect-ratio: auto; height: 120px; }
+  .stack .approve { flex-wrap: wrap; }
+  .stack .vs { grid-template-columns: 1fr; }
+  .stack .vs-arrow { transform: rotate(90deg); }
+  .stack .kpi3, .stack .steps5, .stack .flow, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .vs-res { flex-direction: column; gap: 4px; }
+  .stack .close .close-grid h2 { font-size: 30px; }
+  .stack table.prog td.lg { width: 80px; }
+  .stack table.prog td.lg img { height: 24px; max-width: 70px; }
+  .stack table.prog td { font-size: 13px; padding: 10px 6px; }
+  .stack table.prog th:nth-child(2), .stack table.prog td:nth-child(2) { display: none; }
+  .stack .cyc-wrap { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .ring { width: auto; height: auto; display: flex; flex-direction: column; gap: 8px; }
+  .stack .ring svg, .stack .ring-center { display: none; }
+  .stack .node { position: static; transform: none; width: auto; }
+  .stack .flow > div::after { display: none; }
+  .stack table.kw { font-size: 14px; }
+  .stack table.kw .r, .stack table.plan .r { white-space: normal; }
+  .stack .pos { min-width: 0; }
+  .stack .ft { white-space: normal; }
+  .stack table.kw td, .stack table.kw th { padding-left: 6px; padding-right: 6px; }
+
+  /* ================= Print / PDF ================= */
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: #fff; }
+    .deck { position: static; }
+    .slide { position: relative; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; box-shadow: none; break-after: page; page-break-after: always; }
+    .ctrl, .progress { display: none !important; }
+    body:not(.stack) .s-foot .pg { visibility: visible; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- Cover -->
+  <section class="slide dark cover">
+    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
+    <h1>SEO, KI-Sichtbarkeit und Social Media für eure drei Shops</h1>
+    <p class="for">Angebot für die Tasty Pott GmbH</p>
+    <div class="logos">
+      <div><img src="img/tasty-pott.png" alt="Tasty Pott" /></div>
+      <div><img src="img/mynatura.png" alt="MyNatura" /></div>
+      <div><img src="img/fit-and-life.png" alt="Fit &amp; Life" /></div>
+    </div>
+    <div class="meta">
+      <div>Von<b>Darya Kablash, GetMarketing</b></div>
+      <div>Kontakt<b>darya@getmarketing.team</b></div>
+      <div>Start<b>Oktober 2026</b></div>
+      <div>Hinweis<b style="font-weight:400;color:rgba(255,255,255,.7)">Angaben sind Richtwerte bis zur Auswertung der Search Console</b></div>
+    </div>
+    <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
+  </section>
+
+  <!-- Summary -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Jeder eurer drei Shops hat heute ein anderes Hauptproblem</h2>
+        <p class="s-sub">Das Ergebnis meiner Analyse aller drei Domains, auf einen Blick.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="grid3">
+        <div class="brand-card">
+          <div class="logo-box"><img src="img/fit-and-life.png" alt="Fit &amp; Life" /></div>
+          <div class="num warn">−97 %</div>
+          <h3>Sichtbarkeit seit dem Umzug von special-fitness.de verloren</h3>
+          <p>Für Kaufanfragen wie „Creatin kaufen" gibt es keine passende Seite.</p>
+        </div>
+        <div class="brand-card">
+          <div class="logo-box"><img src="img/mynatura.png" alt="MyNatura" /></div>
+          <div class="num warn">0</div>
+          <h3>Rankings für Rohstoffe, Großgebinde und Großhandel</h3>
+          <p>Gefunden wird MyNatura fast nur von Endkunden.</p>
+        </div>
+        <div class="brand-card">
+          <div class="logo-box"><img src="img/tasty-pott.png" alt="Tasty Pott" /></div>
+          <div class="num">~700</div>
+          <h3>Suchen pro Monat nach Firmengeschenken, ohne eigene Seite</h3>
+          <p>Bei Private Label steht Tasty Pott dagegen schon auf Platz 4 und 5.</p>
+        </div>
+      </div>
+      <div class="take"><b class="k">Dazu kommt</b>Die drei Shops konkurrieren bei Google um dieselben Produkte und bremsen sich dabei gegenseitig aus.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Fit & Life -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Fit &amp; Life hat beim Domain-Umzug rund 97 % der Sichtbarkeit verloren</h2>
+        <p class="s-sub">fit-and-life.de ist erst seit Juni 2026 bei Google sichtbar.</p>
+      </div>
+      <img class="s-logo" src="img/fit-and-life.png" alt="Fit &amp; Life" />
+    </div>
+    <div class="s-body">
+      <div class="grid2">
+        <div>
+          <div class="col-h">Sichtbarkeitsindex vorher und nachher</div>
+          <div class="bars">
+            <div><div class="bar-l">special-fitness.de (früher)<span>0,15 bis 0,18</span></div><div class="bar-t"><div class="bar-f" style="width:100%;background:var(--gray2)"></div></div></div>
+            <div><div class="bar-l">fit-and-life.de (heute)<span>rund 3 % davon</span></div><div class="bar-t"><div class="bar-f" style="width:3%;background:var(--fl)"></div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="col-h">fit-and-life.de heute</div>
+          <div class="stats">
+            <div class="stat"><b>255</b><span>Keywords ranken</span></div>
+            <div class="stat"><b>84</b><span>davon in den Top 10</span></div>
+            <div class="stat warn"><b>~43</b><span>Besuche pro Monat (geschätzt)</span></div>
+          </div>
+          <table class="kw" style="margin-top:20px">
+            <tbody><tr><td><b>„Creatin kaufen"</b><br><span style="color:var(--gray);font-size:14px">rund 500 Suchen pro Monat</span></td><td class="r"><span class="pos none">kein Ranking</span></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Google bewertet die Marken- und Produktseiten gut. Es fehlen saubere Weiterleitungen von der alten Domain und eine Creatin-Kategorie für Kaufanfragen.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- MyNatura -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>MyNatura wird von Endkunden gefunden, von Geschäftskunden nicht</h2>
+        <p class="s-sub">Rund 188 Besuche pro Monat, fast nur über den Markennamen, Superfoods und Rezepte.</p>
+      </div>
+      <img class="s-logo" src="img/mynatura.png" alt="MyNatura" />
+    </div>
+    <div class="s-body">
+      <table class="kw">
+        <thead><tr><th>Suchbegriff</th><th>Zielgruppe</th><th class="r">Position heute</th></tr></thead>
+        <tbody>
+          <tr><td>Rohstoffhandel</td><td>Geschäftskunden</td><td class="r"><span class="pos none">kein Ranking</span></td></tr>
+          <tr><td>Großgebinde</td><td>Geschäftskunden</td><td class="r"><span class="pos none">kein Ranking</span></td></tr>
+          <tr><td>Großhandel</td><td>Geschäftskunden</td><td class="r"><span class="pos none">kein Ranking</span></td></tr>
+          <tr><td>„superfood private label"</td><td>Geschäftskunden (einziges Signal)</td><td class="r"><span class="pos">Platz 7</span></td></tr>
+        </tbody>
+      </table>
+      <div class="take"><b class="k">Was das heißt</b>Die Nachfrage nach Rohstoffen und Großgebinden ist da. Es gibt nur noch keine Seite bei MyNatura, die sie abholt.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Tasty Pott -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Tasty Pott ist bei Private Label vorne, für Firmengeschenke und Abfüllung fehlen die Seiten</h2>
+      </div>
+      <img class="s-logo" src="img/tasty-pott.png" alt="Tasty Pott" />
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.5fr 1fr">
+        <table class="kw">
+          <thead><tr><th>Suchbegriff</th><th class="r">Suchen / Monat</th><th class="r">Position heute</th></tr></thead>
+          <tbody>
+            <tr><td>„private label gewürze"</td><td class="r">–</td><td class="r"><span class="pos">Platz 4</span></td></tr>
+            <tr><td>„private label feinkost"</td><td class="r">–</td><td class="r"><span class="pos">Platz 5</span></td></tr>
+            <tr><td>„private label"</td><td class="r">–</td><td class="r"><span class="pos bad">Platz 58</span></td></tr>
+            <tr><td>„Firmengeschenke"</td><td class="r">~700</td><td class="r"><span class="pos none">keine Seite</span></td></tr>
+            <tr><td>Individuelle Mischungen, Abfüllung kleiner Mengen</td><td class="r">regelmäßig</td><td class="r"><span class="pos none">keine Seite</span></td></tr>
+          </tbody>
+        </table>
+        <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+          <div class="num">77</div>
+          <div class="lbl">Keywords, bei denen Tasty Pott in KI-Antworten auftaucht. Damit liegt Tasty Pott bei der KI-Suche klar vor MyNatura und Fit &amp; Life.</div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Die Basis ist gut. Eigene Seiten für Firmengeschenke, Mischungen und Kleinmengen bringen neue Anfragen, ohne bei null anzufangen.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Cannibalisation -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Drei Plätze auf 7 bis 9 bringen weniger Käufer als ein Platz ganz oben</h2>
+        <p class="s-sub">Ist es nicht gut, wenn alle drei Shops ranken? Nein, denn die meisten Klicks gehen an die obersten Plätze.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="product">Beispiel Hühnereiweißpulver <span>· rund 210 Suchen pro Monat</span></div>
+      <div class="vs">
+        <div class="vs-card">
+          <div class="vs-k">Heute: drei Shops auf 7, 8 und 9</div>
+          <div class="vs-logos">
+            <div><img src="img/tasty-pott.png" alt="Tasty Pott" /><b>#7</b></div>
+            <div><img src="img/mynatura.png" alt="MyNatura" /><b>#8</b></div>
+            <div><img src="img/fit-and-life.png" alt="Fit &amp; Life" /><b>#9</b></div>
+          </div>
+          <div class="vs-res"><b>~9 %</b><span>der Klicks zusammen, also rund 19 Besuche im Monat für alle drei Shops</span></div>
+        </div>
+        <div class="vs-arrow">→</div>
+        <div class="vs-card good">
+          <div class="vs-k">Gebündelt: ein Shop weit oben</div>
+          <div class="vs-logos one"><div><span class="vs-one">ein Shop</span><b>#1–3</b></div></div>
+          <div class="vs-res"><b>11–28 %</b><span>der Klicks, also rund 23 bis 59 Besuche im Monat für einen Shop</span></div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Google zeigt fast gleiche Seiten ungern nebeneinander und verteilt die Signale auf drei Seiten. Bündeln wir sie, rückt ein Shop nach oben. Bestellbar bleibt das Produkt in allen Shops. Genauso bei Baobab-Pulver, Hanfherzen und weiteren Produkten.</div>
+      <p class="small-note">Klickraten nach Position: Durchschnittswerte aus Branchenstudien, Richtwerte.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- KI-Suche -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Die KI-Suche bringt euch schon Kunden, verweist aber noch auf die alte Domain</h2>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="grid2">
+        <div>
+          <div class="card" style="margin-bottom:18px"><div class="num">7</div><div class="lbl">Suchanfragen, bei denen eine KI eure Shops als Quelle nennt, über alle drei Domains zusammen.</div></div>
+          <div class="quote">
+            <div class="q">„Sportbedarf Jeske Hünxe"</div>
+            <div class="a">Die KI verweist hier noch auf <b>special-fitness.de</b>, mitsamt der <b>alten E-Mail-Adresse</b>.</div>
+          </div>
+        </div>
+        <div>
+          <div class="col-h">Hier werdet ihr noch gar nicht genannt</div>
+          <div class="tags"><span>Creatin</span><span>Private Label</span><span>Rohstoffe</span><span>B2B-Abfüllung</span></div>
+          <p class="lbl" style="margin-top:26px">Die Sichtbarkeit in den Google-KI-Antworten messen wir automatisch mit. Für ChatGPT gibt es im deutschen Markt derzeit keine verlässlichen Messdaten. Unsere Optimierung wirkt trotzdem darauf, Zahlen können wir bei Bedarf über ein externes Tool ergänzen.</p>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Gerade weil dieser Kanal bei euch schon funktioniert, lohnt es sich, die Angaben zu korrigieren und neue Themen aufzubauen.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ziele -->
+  <section class="slide">
+    <div class="s-head"><div><h2>Das wollen wir gemeinsam erreichen</h2></div></div>
+    <div class="s-body">
+      <div class="kpi3">
+        <div><b>+270 bis +860</b><span>zusätzliche Besuche pro Monat</span></div>
+        <div><b>670 bis 2.150 €</b><span>Traffic-Wert pro Monat, also was diese Besucher bei Google Ads kosten würden</span></div>
+        <div><b>8.000 bis 25.800 €</b><span>Traffic-Wert pro Jahr, ohne Klickkosten</span></div>
+        <a href="#prognose"><span>Prognose nach<br>6 bis 12 Monaten</span>So haben wir gerechnet →</a>
+      </div>
+      <ol class="goals tight">
+        <li><span><b>Sichtbarkeit von Fit &amp; Life zurückholen</b> und einen Einstieg für Kaufanfragen wie „Creatin kaufen" schaffen.</span><span class="mini"><img src="img/fit-and-life.png" alt="Fit &amp; Life" /></span></li>
+        <li><span><b>Die drei Shops sauber abgrenzen:</b> Jede Domain bekommt ihren eigenen Bereich, jedes Produkt bleibt überall bestellbar.</span><span class="mini"><img src="img/tasty-pott.png" alt="" /><img src="img/mynatura.png" alt="" /><img src="img/fit-and-life.png" alt="" /></span></li>
+        <li><span><b>B2B-Themen sichtbar machen,</b> in eurer Reihenfolge: Private Label und Abfüllung, dann Rohstoffe und Großgebinde, danach Firmengeschenke.</span><span class="mini"><img src="img/tasty-pott.png" alt="" /><img src="img/mynatura.png" alt="" /></span></li>
+        <li><span><b>KI-Sichtbarkeit ausbauen</b> und euer Unternehmen bei Google und KI wieder der richtigen Domain zuordnen.</span><span class="mini"></span></li>
+        <li><span><b>Alles an einer Stelle steuern:</b> ein Cockpit für SEO, KI-Sichtbarkeit und Social Media aller drei Marken.</span><span class="mini"></span></li>
+      </ol>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Prognose -->
+  <section class="slide" id="prognose">
+    <div class="s-head">
+      <div>
+        <h2>SEO-Prognose: bis zu 860 zusätzliche Besuche im Monat, ohne Werbebudget</h2>
+        <p class="s-sub">Nach 6 bis 12 Monaten, gerechnet mit echten Suchvolumen und den Zielpositionen aus dem Seitenplan.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="phase" style="grid-template-columns:1fr 300px;align-items:start">
+        <table class="kw prog">
+          <thead><tr><th>Bereich</th><th>Zielbegriffe (Suchen pro Monat)</th><th class="r">Besuche / Monat</th><th class="r">Traffic-Wert / Monat</th></tr></thead>
+          <tbody>
+            <tr><td class="lg"><img src="img/tasty-pott.png" alt="Tasty Pott" /></td><td>private label (1.300), firmengeschenke (480), lohnabfüllung (390), gewürze großhandel (260), firmengeschenke weihnachten (170)</td><td class="r">78 – 156</td><td class="r">327 – 653 €</td></tr>
+            <tr><td class="lg"><span class="lg-t">Dubletten gebündelt</span></td><td>baobab pulver (1.600), hühnereiweißpulver (210), hanfherzen (140)</td><td class="r">128 – 214</td><td class="r">194 – 340 €</td></tr>
+            <tr><td class="lg"><img src="img/fit-and-life.png" alt="Fit &amp; Life" /></td><td>creatin pulver (1.000), creatin kaufen (880), creatin monohydrat kaufen (170), im ambitionierten Fall zusätzlich creatin monohydrat (18.100)</td><td class="r">62 – 485</td><td class="r">146 – 1.157 €</td></tr>
+            <tr class="sum"><td colspan="2"><b>Gesamt</b> <span>konservativ – ambitioniert</span></td><td class="r"><b>~270 – 860</b></td><td class="r"><b>~670 – 2.150 €</b></td></tr>
+          </tbody>
+        </table>
+        <div class="side">
+          <div class="price tw">
+            <div class="k">Was ist der Traffic-Wert?</div>
+            <p class="tw-lead">Der Betrag, den ihr zahlen müsstet, wenn ihr dieselben Besucher über Google Ads kaufen würdet.</p>
+            <div class="tw-ex"><span>Beispiel „creatin kaufen"</span><b>26 Besuche × 2,72 € Klickpreis ≈ 72 € pro Monat</b></div>
+            <p>Über SEO kommen diese Besucher ohne Klickkosten, und zwar jeden Monat wieder.</p>
+          </div>
+        </div>
+      </div>
+      <p class="small-note"><b>So haben wir gerechnet:</b> Suchvolumen und Klickpreise aus Google Ads (Deutschland, Ø 12 Monate). Klickrate je Zielposition: Platz 1–3 ≈ 11 %, Platz 5 ≈ 6 %, Platz 8 ≈ 3 %, Platz 10 ≈ 2 %. Nicht eingerechnet: Longtail-Begriffe, KI-Suche und B2B-Anfragen mit wenig Suchvolumen, aber hohem Auftragswert. Prognose, keine Garantie.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 0 -->
+  <section class="slide" id="phase-0">
+    <div class="s-head">
+      <div>
+        <h2>Phase 0: Bevor wir bauen, schaffen wir eine saubere Datenbasis</h2>
+        <p class="s-sub">Die Erstanalyse aller drei Domains ist fertig. Mit euren Zugängen gehen wir diese fünf Schritte durch.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="steps5">
+        <div><span class="n">1</span><b>Zugänge anbinden</b><p>Search Console und GA4 der drei Shops verbinden, damit wir mit echten Zahlen arbeiten.</p></div>
+        <div><span class="n">2</span><b>SEO-Fehler finden</b><p>Technisches Audit: Weiterleitungen, /en/-Seiten, Indexierung, Dubletten, alte Adressen.</p></div>
+        <div><span class="n">3</span><b>Gaps und Quick Wins</b><p>Fehlende Themen und Seiten knapp unter den Top 10, die sich schnell nach oben holen lassen.</p></div>
+        <div><span class="n">4</span><b>Keyword-Liste sammeln</b><p>Je Marke alle relevanten Begriffe, sortiert nach Suchvolumen und Kaufabsicht.</p></div>
+        <div><span class="n">5</span><b>Plan bestätigen</b><p>Seitenplan, Prioritäten und finale Preise mit euch abstimmen.</p></div>
+      </div>
+      <div class="grid2" style="margin-top:22px;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div class="card" style="padding:20px 22px"><div class="col-h" style="margin-bottom:10px">Schon erledigt</div>
+          <ul class="check sm"><li>Erstanalyse aller drei Domains</li><li>Rankings und KI-Nennungen je Marke</li><li>Dubletten zwischen den Shops</li></ul></div>
+        <div class="result"><div class="k">Ergebnis</div><p>Eine Fehlerliste, eure Quick Wins und eine priorisierte Keyword-Liste je Marke als Grundlage für Phase 1 und 2.</p></div>
+        <div class="price"><div class="k">Preis</div><div class="v">0 €</div><p>Die Analyse berechne ich euch nicht.</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 1 (Fundament + Cockpit) -->
+  <section class="slide" id="phase-1">
+    <div class="s-head">
+      <div>
+        <h2>Phase 1: In einem Monat stehen das Fundament und euer Cockpit</h2>
+        <p class="s-sub">Zwei Stränge laufen parallel: Ich behebe die SEO-Probleme und setze die Strategie auf, unser Developer baut in derselben Zeit das Cockpit inklusive Social Media.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="phase">
+        <div class="tracks">
+          <div class="track">
+            <div class="track-h"><i>SEO</i><div><b>Fundament und Strategie</b><span>Darya Kablash</span></div></div>
+            <ul class="check sm">
+              <li>Alle alten Adressen von special-fitness.de einzeln auf Fit &amp; Life umleiten</li>
+              <li>Umzug in der Search Console melden</li>
+              <li>Verzeichnisse, Google und KI auf die neue Domain bringen</li>
+              <li>Dubletten auflösen, jedem Shop seinen Bereich geben</li>
+              <li>Technische Fehler beheben, z. B. /en/-Seiten und alte Adressen</li>
+              <li>Strategie und Seitenplan für Phase 2</li>
+            </ul>
+          </div>
+          <div class="track">
+            <div class="track-h"><i style="background:#F2CB3C;color:#1F4B3A">DEV</i><div><b>Cockpit und Social Media</b><span>unser Developer</span></div></div>
+            <ul class="check sm">
+              <li>Ein Login mit Umschalter für alle drei Marken, Daten je Marke getrennt</li>
+              <li>Überblick: Traffic, Rankings, Content und KI-Sichtbarkeit</li>
+              <li>Search Console und GA4 angebunden</li>
+              <li>Unsere Content-Automatisierung läuft direkt im Cockpit</li>
+              <li>Social-Posting für alle Marken integriert, statt Buffer</li>
+              <li>Im Look eures Social Media Hubs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="side">
+          <div class="price"><div class="k">Preis</div><div class="v">1.500 €</div><p>einmalig, für alles zusammen. Laufzeit: ein Monat.</p></div>
+          <div class="result"><div class="k">Nach vier Wochen</div>
+            <ul class="check sm" style="margin-top:4px">
+              <li>Fit &amp; Life holt verlorene Sichtbarkeit zurück</li>
+              <li>Jede Domain arbeitet wieder mit voller Kraft</li>
+              <li>SEO, KI und Social aller Marken an einer Stelle</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Cockpit demo -->
+  <section class="slide" id="cockpit">
+    <div class="s-body" style="padding-top:4px">
+      <div class="cockpit">
+        <div class="cockpit-intro">
+          <h2>So könnte euer Cockpit aussehen</h2>
+          <p>Im Look eures Social Media Hubs, erweitert um SEO und KI-Sichtbarkeit für alle drei Marken. Hier deployen wir auch unsere Automatisierung: Content-Produktion, Monitoring und Posting laufen direkt über das Cockpit.</p>
+          <p style="margin-top:12px;color:var(--ink);font-weight:600">Probiert es aus:</p>
+          <ol>
+            <li>Oben links die Marke wechseln</li>
+            <li>Unter „Übersicht" eine Dublette einem Shop zuordnen</li>
+            <li>Im „Seitenplan" eine Seite weiterschieben</li>
+            <li>Unter „Beiträge" einen Post prüfen und freigeben</li>
+          </ol>
+          <p class="demo-note">Demo. Zahlen stammen aus der Analyse, Beiträge sind Beispiele.</p>
+        </div>
+        <div class="hub" id="hub">
+          <aside class="hub-side">
+            <div class="hub-brand">
+              <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F4B3A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></i>
+              <b>Marken<br>Cockpit</b>
+            </div>
+            <button class="sw-btn" id="swBtn" aria-haspopup="listbox" aria-expanded="false"></button>
+            <div class="sw-menu" id="swMenu" role="listbox"></div>
+            <nav class="hub-nav" id="hubNav"></nav>
+            <div class="hub-lang"><span>DE</span><span>EN</span></div>
+          </aside>
+          <div class="hub-main" id="hubMain"></div>
+          <div class="hub-toast" id="hubToast" role="status"></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Social -->
+  <section class="slide" id="social">
+    <div class="s-head">
+      <div>
+        <h2>Teil von Phase 1: Social Media läuft zentral über das Cockpit</h2>
+        <p class="s-sub">Das Posting bauen wir in Phase 1 mit ins Cockpit. Die Inhalte dafür produzieren wir danach laufend in der Betreuung.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="phase">
+        <div>
+          <div class="grid2" style="gap:18px">
+            <div class="track"><div class="col-h" style="margin-bottom:12px">Wird gebaut (Phase 1)</div>
+              <ul class="check sm">
+                <li>Eigene Posting-Lösung (Postiz) im Cockpit</li>
+                <li>Eure bestehenden n8n-Abläufe laufen darauf statt auf Buffer</li>
+                <li>Alle Accounts der drei Marken an einer Stelle</li>
+                <li>Freigabe vor der Veröffentlichung bleibt bei euch, wie heute im Hub</li>
+              </ul></div>
+            <div class="track"><div class="col-h" style="margin-bottom:12px">Läuft danach (Betreuung)</div>
+              <ul class="check sm">
+                <li>Posts für alle Marken zentral produziert</li>
+                <li>Redaktionsplan passend zu SEO-Themen und Saison</li>
+                <li>Ihr prüft und gebt frei, wir planen ein</li>
+              </ul></div>
+          </div>
+          <div class="note" style="margin-top:18px"><b>Zum Zeitplan:</b> Der Start hängt an den Freigaben von LinkedIn und Meta, die einige Wochen dauern können. Bis dahin läuft euer bisheriger Weg einfach weiter.</div>
+        </div>
+        <div class="side">
+          <div class="price"><div class="k">Preis</div><div class="v">inklusive</div><p>Teil der 1.500 € aus Phase 1. Hosting zum Selbstkostenpreis: rund 15 € im Monat.</p></div>
+          <div class="result"><div class="k">Ergebnis</div><p>Alle Marken aus einer Hand posten, die Buffer-Gebühren pro Account fallen weg.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 2 overview -->
+  <section class="slide" id="phase-2">
+    <div class="s-head">
+      <div>
+        <h2>Phase 2: Neun neue Seiten, jede mit einem klaren Ranking-Ziel</h2>
+        <p class="s-sub">Reihenfolge nach eurer Priorität. Wir setzen jede Seite selbst um, von Text über Design bis live im Shop. Danach seht ihr jede Seite als Vorschau.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="phase" style="grid-template-columns:1fr 290px">
+        <table class="plan">
+          <thead><tr><th class="n">#</th><th class="lg">Shop</th><th>Seite</th><th>Wichtigster Zielbegriff</th><th class="r">Heute → Ziel</th></tr></thead>
+          <tbody>
+            <tr><td class="n">1</td><td class="lg"><img src="img/tasty-pott.png" alt="Tasty Pott" /></td><td><b>Private Label</b> (Ausbau)</td><td>„private label"</td><td class="r"><span class="ft"><s>58</s><em>Top 10</em></span></td></tr>
+            <tr><td class="n">2</td><td class="lg"><img src="img/tasty-pott.png" alt="Tasty Pott" /></td><td><b>Individuelle Mischungen</b></td><td>„gewürzmischung herstellen lassen"</td><td class="r"><span class="ft"><s>kein</s><em>Top 10</em></span></td></tr>
+            <tr><td class="n">3</td><td class="lg"><img src="img/tasty-pott.png" alt="Tasty Pott" /></td><td><b>Abfüllung kleiner Mengen</b></td><td>„gewürze abfüllen lassen"</td><td class="r"><span class="ft"><s>kein</s><em>Top 10</em></span></td></tr>
+            <tr><td class="n">4</td><td class="lg"><img src="img/mynatura.png" alt="MyNatura" /></td><td><b>B2B Rohstoffe</b></td><td>„superfood rohstoffe"</td><td class="r"><span class="ft"><s>kein</s><em>Top 10</em></span></td></tr>
+            <tr><td class="n">5</td><td class="lg"><img src="img/mynatura.png" alt="MyNatura" /></td><td><b>Großgebinde mit Anfrage</b></td><td>„superfood private label"</td><td class="r"><span class="ft"><s>7</s><em>Top 3</em></span></td></tr>
+            <tr><td class="n">6</td><td class="lg"><img src="img/tasty-pott.png" alt="Tasty Pott" /></td><td><b>Firmengeschenke</b></td><td>„firmengeschenke" (~700/Monat)</td><td class="r"><span class="ft"><s>kein</s><em>Seite 1</em></span></td></tr>
+            <tr><td class="n">7</td><td class="lg"><img src="img/fit-and-life.png" alt="Fit &amp; Life" /></td><td><b>Creatin-Kategorie</b></td><td>„creatin kaufen" (~500/Monat)</td><td class="r"><span class="ft"><s>kein</s><em>Top 10</em></span></td></tr>
+            <tr><td class="n">8</td><td class="lg"><img src="img/fit-and-life.png" alt="Fit &amp; Life" /></td><td><b>Creatin Monohydrat</b></td><td>„creatin monohydrat kaufen"</td><td class="r"><span class="ft"><s>kein</s><em>Top 10</em></span></td></tr>
+            <tr><td class="n">9</td><td class="lg"><img src="img/fit-and-life.png" alt="Fit &amp; Life" /></td><td><b>Markenseite Creatin</b></td><td>Marke + „creatin"</td><td class="r"><span class="ft"><s>kein</s><em>Top 5</em></span></td></tr>
+          </tbody>
+        </table>
+        <div class="side">
+          <div class="price"><div class="k">Preis</div><div class="v">100 € <small>pro Seite</small></div><p>Alle neun Seiten: 900 €. Jede Seite ist einzeln beauftragbar.</p></div>
+          <div class="result"><div class="k">Im Preis enthalten</div><p>Text, Design, Umsetzung in Shopify und Veröffentlichung.</p></div>
+          <p class="small-note">Zielbegriffe bestätigen wir nach der Search-Console-Auswertung. Zielpositionen sind Ziele, keine Garantie.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 2 process -->
+  <section class="slide" id="umsetzung">
+    <div class="s-head">
+      <div>
+        <h2>Wir setzen jede Seite komplett um: vom Text über das Design bis live im Shop</h2>
+        <p class="s-sub">Ihr bekommt keine Textdatei, sondern fertige Seiten in euren Shopify-Shops.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="flow">
+        <div><span class="n">1</span><b>Recherche und Text</b><ul><li>Zielbegriffe und Suchabsicht</li><li>Seiten der Wettbewerber auswerten</li><li>Texte für Google und KI-Antworten</li></ul></div>
+        <div><span class="n">2</span><b>Design</b><ul><li>Layout im Look des jeweiligen Shops</li><li>Produkte, Bilder, Vertrauenselemente</li><li>Anfrageformular, wo es passt</li></ul></div>
+        <div><span class="n">3</span><b>Entwicklung</b><ul><li>Umsetzung direkt in Shopify</li><li>Strukturdaten und interne Links</li><li>Optimiert für das Handy</li></ul></div>
+        <div><span class="n">4</span><b>Live und indexiert</b><ul><li>Freigabe durch euch</li><li>Bei Google einreichen</li><li>Rankings im Cockpit verfolgen</li></ul></div>
+      </div>
+      <div class="take" style="margin-top:4px"><b class="k">Was ihr bekommt</b>Fertige Seiten, live in euren Shops. Ihr seht jede Seite vor der Veröffentlichung und gebt sie frei, um alles andere kümmern wir uns.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 2 · Tasty Pott pages -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Tasty Pott: vier Seiten für Private Label, Mischungen, Abfüllung und Firmengeschenke</h2>
+      </div>
+      <img class="s-logo" src="img/tasty-pott.png" alt="Tasty Pott" />
+    </div>
+    <div class="s-body">
+      <div class="pg-grid c4">
+        <div class="pgc">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>tasty-pott.de/pages/private-label</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/tasty-pott.png" alt="" /></div><div class="mock-h">Private Label Gewürze und Feinkost, schon ab kleinen Mengen</div><div class="mock-line" style="width:92%"></div><div class="mock-line" style="width:70%"></div>
+            <div class="mock-sec"><span>Ablauf</span><span>Mindestmengen</span><span>Referenzen</span></div><span class="mock-cta" style="background:var(--tp)">Anfrage stellen</span></div></div>
+          <h3>1 · Private Label</h3><div class="kind">Ausbau der bestehenden Seite</div>
+          <div class="targets">
+            <div class="tg"><span>„private label"</span><span class="ft"><s>58</s><em>Top 10</em></span></div>
+            <div class="tg"><span>„private label gewürze"</span><span class="ft"><s>4</s><em>Top 3</em></span></div>
+            <div class="tg"><span>„private label feinkost"</span><span class="ft"><s>5</s><em>Top 3</em></span></div>
+          </div>
+          <p class="why"><b>Warum:</b> Die Seite rankt schon. Mit Ablauf, Mindestmengen und Referenzen wird sie zur Anfrageseite.</p>
+        </div>
+        <div class="pgc">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>tasty-pott.de/pages/individuelle-mischungen</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/tasty-pott.png" alt="" /></div><div class="mock-h">Eure eigene Gewürzmischung, nach eurem Rezept</div><div class="mock-line" style="width:88%"></div><div class="mock-line" style="width:64%"></div>
+            <div class="mock-sec"><span>So läuft's</span><span>Beispiele</span><span>FAQ</span></div><span class="mock-cta" style="background:var(--tp)">Mischung anfragen</span></div></div>
+          <h3>2 · Individuelle Mischungen</h3><div class="kind">Neue Landingpage</div>
+          <div class="targets">
+            <div class="tg"><span>„gewürzmischung herstellen lassen"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+            <div class="tg"><span>„individuelle gewürzmischung"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+          </div>
+          <p class="why"><b>Warum:</b> Solche Anfragen kommen regelmäßig, aber es gibt keine Seite, auf der sie landen.</p>
+        </div>
+        <div class="pgc">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>tasty-pott.de/pages/abfuellung</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/tasty-pott.png" alt="" /></div><div class="mock-h">Gewürze abfüllen lassen, auch in kleinen Mengen</div><div class="mock-line" style="width:90%"></div><div class="mock-line" style="width:58%"></div>
+            <div class="mock-sec"><span>Mindestmenge</span><span>Verpackungen</span><span>Preise</span></div><span class="mock-cta" style="background:var(--tp)">Angebot anfordern</span></div></div>
+          <h3>3 · Abfüllung kleiner Mengen</h3><div class="kind">Neue Landingpage</div>
+          <div class="targets">
+            <div class="tg"><span>„gewürze abfüllen lassen"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+            <div class="tg"><span>„lohnabfüllung kleine mengen"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+          </div>
+          <p class="why"><b>Warum:</b> Niedrige Mindestmengen sind eure Stärke. Mit konkreten Zahlen übernimmt auch die KI sie als Fakt.</p>
+        </div>
+        <div class="pgc">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>tasty-pott.de/pages/firmengeschenke</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/tasty-pott.png" alt="" /></div><div class="mock-h">Kulinarische Firmengeschenke mit eurem Logo</div><div class="mock-line" style="width:86%"></div><div class="mock-line" style="width:66%"></div>
+            <div class="mock-sec"><span>Sets</span><span>Individualisierung</span><span>Staffelpreise</span></div><span class="mock-cta" style="background:var(--tp)">Jetzt anfragen</span></div></div>
+          <h3>6 · Firmengeschenke</h3><div class="kind">Neue Landingpage</div>
+          <div class="targets">
+            <div class="tg"><span>„firmengeschenke" (~700)</span><span class="ft"><s>kein</s><em>Seite 1</em></span></div>
+            <div class="tg"><span>„kulinarische firmengeschenke"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+          </div>
+          <p class="why"><b>Warum:</b> Rund 700 Suchen im Monat, heute ohne Seite. Rechtzeitig vor dem Weihnachtsgeschäft.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 2 · MyNatura pages -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>MyNatura: ein eigener B2B-Bereich für Rohstoffe und Großgebinde</h2>
+        <p class="s-sub">Das B2C-Sortiment bleibt, Geschäftskunden bekommen einen eigenen Einstieg mit Anfrageformular.</p>
+      </div>
+      <img class="s-logo" src="img/mynatura.png" alt="MyNatura" />
+    </div>
+    <div class="s-body">
+      <div class="pg-grid c1">
+        <div class="pgc wide">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>mynatura.eu/pages/rohstoffe</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/mynatura.png" alt="" /></div><div class="mock-h">Superfood-Rohstoffe für Hersteller und Manufakturen</div><div class="mock-line" style="width:92%"></div><div class="mock-line" style="width:74%"></div><div class="mock-line" style="width:60%"></div>
+            <div class="mock-sec"><span>Sortiment</span><span>Spezifikationen</span><span>Zertifikate</span></div><span class="mock-cta" style="background:var(--mn)">B2B-Anfrage</span></div></div>
+          <div>
+            <h3>4 · B2B Rohstoffe</h3><div class="kind">Neue Landingpage</div>
+            <div class="targets">
+              <div class="tg"><span>„superfood rohstoffe"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+              <div class="tg"><span>„rohstoffhandel superfoods"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+              <div class="tg"><span>„superfoods großhandel"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+            </div>
+          </div>
+          <p class="why"><b>Warum:</b> Heute rankt MyNatura für keinen einzigen Rohstoff- oder Großhandelsbegriff. Die Nachfrage ist da, nur die Seite fehlt.</p>
+        </div>
+        <div class="pgc wide">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>mynatura.eu/pages/grossgebinde</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/mynatura.png" alt="" /></div><div class="mock-h">Superfoods im Großgebinde, auch als Private Label</div><div class="mock-line" style="width:88%"></div><div class="mock-line" style="width:70%"></div><div class="mock-line" style="width:52%"></div>
+            <div class="mock-sec"><span>Gebindegrößen</span><span>Private Label</span><span>Formular</span></div><span class="mock-cta" style="background:var(--mn)">Preis anfragen</span></div></div>
+          <div>
+            <h3>5 · Großgebinde mit Anfrage</h3><div class="kind">Neue Landingpage</div>
+            <div class="targets">
+              <div class="tg"><span>„superfood private label"</span><span class="ft"><s>7</s><em>Top 3</em></span></div>
+              <div class="tg"><span>„superfoods großgebinde"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+            </div>
+          </div>
+          <p class="why"><b>Warum:</b> „superfood private label" ist euer einziges B2B-Signal. Eine eigene Seite mit Formular macht daraus Anfragen.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 2 · Fit & Life pages -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Fit &amp; Life: eine Creatin-Kategorie, die Kaufanfragen abholt</h2>
+        <p class="s-sub">Bei einzelnen Marken und Produkten rankt Fit &amp; Life schon gut. Darauf bauen wir auf.</p>
+      </div>
+      <img class="s-logo" src="img/fit-and-life.png" alt="Fit &amp; Life" />
+    </div>
+    <div class="s-body">
+      <div class="pg-grid c3">
+        <div class="pgc">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>fit-and-life.de/collections/creatin</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/fit-and-life.png" alt="" /></div><div class="mock-h">Creatin kaufen: Pulver, Kapseln und Monohydrat</div><div class="mock-line" style="width:90%"></div><div class="mock-line" style="width:62%"></div>
+            <div class="mock-sec"><span>Produkte</span><span>Ratgeber</span><span>FAQ</span></div><span class="mock-cta" style="background:var(--fl)">Zu den Produkten</span></div></div>
+          <h3>7 · Creatin-Kategorie</h3><div class="kind">Neue Kategorieseite</div>
+          <div class="targets">
+            <div class="tg"><span>„creatin kaufen" (~500)</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+            <div class="tg"><span>„creatin"</span><span class="ft"><s>kein</s><em>Seite 1</em></span></div>
+          </div>
+          <p class="why"><b>Warum:</b> Rund 500 Kaufanfragen im Monat, heute ohne Ranking. Die Kategorie ist der fehlende Einstieg.</p>
+        </div>
+        <div class="pgc">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>fit-and-life.de/collections/creatin-monohydrat</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/fit-and-life.png" alt="" /></div><div class="mock-h">Creatin Monohydrat: Wirkung, Dosierung, Produkte</div><div class="mock-line" style="width:84%"></div><div class="mock-line" style="width:68%"></div>
+            <div class="mock-sec"><span>Vergleich</span><span>Dosierung</span><span>Produkte</span></div><span class="mock-cta" style="background:var(--fl)">Jetzt kaufen</span></div></div>
+          <h3>8 · Creatin Monohydrat</h3><div class="kind">Unterseite der Kategorie</div>
+          <div class="targets">
+            <div class="tg"><span>„creatin monohydrat kaufen"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+            <div class="tg"><span>„creatin pulver"</span><span class="ft"><s>kein</s><em>Top 10</em></span></div>
+          </div>
+          <p class="why"><b>Warum:</b> Fängt die genaueren Suchen ab und stärkt über interne Links die Kategorie.</p>
+        </div>
+        <div class="pgc">
+          <div class="mock"><div class="mock-bar"><i></i><i></i><i></i><span>fit-and-life.de/collections/marke-creatin</span></div>
+            <div class="mock-in"><div class="ml"><img src="img/fit-and-life.png" alt="" /></div><div class="mock-h">[Marke] Creatin: alle Produkte im Überblick</div><div class="mock-line" style="width:80%"></div><div class="mock-line" style="width:56%"></div>
+            <div class="mock-sec"><span>Sortiment</span><span>Bewertungen</span></div><span class="mock-cta" style="background:var(--fl)">Zur Marke</span></div></div>
+          <h3>9 · Markenseite Creatin</h3><div class="kind">Markenseite, weitere einzeln à 100 €</div>
+          <div class="targets">
+            <div class="tg"><span>Marke + „creatin"</span><span class="ft"><s>kein</s><em>Top 5</em></span></div>
+          </div>
+          <p class="why"><b>Warum:</b> Bei Marken rankt ihr schon. Eine Markenseite verbindet diese Stärke mit der neuen Kategorie.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Betreuung: what happens -->
+  <section class="slide" id="betreuung">
+    <div class="s-head">
+      <div>
+        <h2>Laufende Betreuung: ein Kreislauf, der jeden Monat neu startet</h2>
+        <p class="s-sub">Ab Monat 2 für jede betreute Marke, sichtbar in eurem Cockpit.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="cyc-wrap">
+        <div class="ring">
+          <svg viewBox="0 0 600 460" aria-hidden="true">
+            <circle cx="300" cy="230" r="170" fill="none" stroke="#E6E6E1" stroke-width="3" />
+            <circle class="ring-arc" id="ringArc" cx="300" cy="230" r="170" fill="none" stroke="#52B788" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" />
+            <circle id="ringDot" cx="300" cy="60" r="9" fill="#1B4332" stroke="#fff" stroke-width="3" />
+          </svg>
+          <div class="ring-center"><b>Jeden Monat</b><span>je Marke</span></div>
+          <div class="node n1 on"><em>1</em><b>Analysieren</b><p>Rankings, Traffic und KI-Nennungen auswerten</p></div>
+          <div class="node n2"><em>2</em><b>Produzieren</b><p>Laufend SEO- und GEO-Content für alle Marken</p></div>
+          <div class="node n3"><em>3</em><b>Veröffentlichen</b><p>Live, intern verlinkt, zitierfähig für die KI</p></div>
+          <div class="node n4"><em>4</em><b>Nachsetzen</b><p>Was knapp unter den Top 10 steht, ausbauen</p></div>
+        </div>
+        <div class="cyc-side">
+          <div class="fast"><div class="k">Warum die Ziele schneller erreicht werden</div><p>Einen großen Teil der Produktion haben wir mit unserem eigenen System automatisiert. So entsteht pro Monat deutlich mehr Content, als es bei rein manueller Arbeit möglich wäre, und die Rankings wachsen schneller. Jeder Text wird vor der Veröffentlichung von uns geprüft.</p></div>
+          <div class="card" style="padding:20px 22px">
+            <div class="col-h" style="margin-bottom:10px">Jeden Monat enthalten</div>
+            <ul class="check sm">
+              <li>Neue SEO- und GEO-Inhalte je Marke</li>
+              <li>Social-Posts für alle Marken, von euch freigegeben</li>
+              <li>Ranking- und KI-Monitoring im Cockpit</li>
+              <li>Monatsbericht je Marke mit nächsten Schritten</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Case studies -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>So hat dieser Ansatz bei anderen Unternehmen gewirkt</h2>
+        <p class="s-sub">Ergebnisse aus meinen bisherigen Projekten in der DACH-Region.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="cases">
+        <div class="case hl"><div class="ind">E-Commerce · KI-Content-Automatisierung</div><div class="big">383K<small> / Monat</small></div><b>Ohne Werbebudget</b><p>Content-Automatisierung aufgebaut, 54.376 Keywords ranken.</p></div>
+        <div class="case"><div class="ind">B2B-Industrie · Nischen-SEO</div><div class="big">+96 %</div><b>Sichtbarkeitsindex</b><p>Hauptkeyword auf Platz 1, Traffic-Wert 1.486 € pro Monat. Sondermaschinenbau.</p></div>
+        <div class="case"><div class="ind">Industrie &amp; Maschinenbau</div><div class="big">34.000</div><b>Besucher, gestartet bei null</b><p>SEO und LinkedIn von Grund auf aufgebaut. Anfragen kommen jetzt automatisch.</p></div>
+        <div class="case"><div class="ind">B2B-Software · SEO</div><div class="big">360K</div><b>Impressionen</b><p>Mehrere Zielbegriffe auf Platz 1, 4.590 Klicks in einer technischen Nische.</p></div>
+      </div>
+      <div class="proof">
+        <div><b>6 Mio.+</b><span>organische Besucher für Kunden</span></div>
+        <div><b>50+</b><span>Projekte in der DACH-Region</span></div>
+        <div><b>8 Jahre</b><span>Erfahrung in SEO und Growth</span></div>
+      </div>
+      <p class="quote-line">„Wir bekommen ständig Anfragen über die Website und müssen uns um nichts kümmern." <span>Geschäftsführer, B2B-Industrieausrüstung</span></p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH · Quelle: dkablash.com</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Betreuung: prices -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Die Betreuung wächst mit dem Rollout: Start mit Tasty Pott, dann alle drei</h2>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="tiers">
+        <div class="tier">
+          <div class="k">Zum Start</div>
+          <div class="v">~690 € <small>/ Monat</small></div>
+          <div class="sub">Tasty Pott voll, die anderen im Monitoring</div>
+          <ul>
+            <li><span>Tasty Pott</span><span class="on">volle Betreuung</span></li>
+            <li><span>MyNatura</span><span class="off">Monitoring</span></li>
+            <li><span>Fit &amp; Life</span><span class="off">Monitoring</span></li>
+          </ul>
+          <p class="incl">Laufender SEO- und GEO-Content, Analyse und Nachsetzen für Tasty Pott. MyNatura und Fit &amp; Life beobachten wir im Cockpit mit.</p>
+        </div>
+        <div class="tier full">
+          <div class="k">Vollausbau</div>
+          <div class="v">~1.190 € <small>/ Monat</small></div>
+          <div class="sub">alle drei Marken, inklusive Bündelrabatt</div>
+          <ul>
+            <li><span>Tasty Pott</span><span class="on">volle Betreuung</span></li>
+            <li><span>MyNatura</span><span class="on">volle Betreuung</span></li>
+            <li><span>Fit &amp; Life</span><span class="on">volle Betreuung</span></li>
+          </ul>
+          <p class="incl">SEO, GEO-Content, KI-Sichtbarkeit, Steuerung eures Social-Contents und ein Monatsbericht je Marke.</p>
+        </div>
+        <div class="tier agency">
+          <div class="k">Zum Vergleich: klassische Agentur</div>
+          <div class="v">~4.500 € <small>/ Monat</small></div>
+          <div class="sub">ab diesem Betrag für drei Marken, ohne Bündelung</div>
+          <ul>
+            <li><span>Tasty Pott</span><span>ab ~1.500 €</span></li>
+            <li><span>MyNatura</span><span>ab ~1.500 €</span></li>
+            <li><span>Fit &amp; Life</span><span>ab ~1.500 €</span></li>
+          </ul>
+          <p class="incl">Übliche Spanne für manuelle SEO-Betreuung je Domain. Social Media und ein gemeinsames Cockpit kommen meist extra dazu.</p>
+        </div>
+      </div>
+      <p class="small-note">Agenturpreise: übliche Spanne aus unserer Erfahrung, keine Marktstudie.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Optional -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Wenn die Grundlagen stehen, können wir gezielt nachlegen</h2>
+        <p class="s-sub">Drei Bausteine, die wir bei Bedarf separat anbieten. Umfang und Preis stimmen wir dann mit euch ab.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="grid3 opt">
+        <div class="card">
+          <h3>Linkaufbau</h3>
+          <ul class="check sm">
+            <li>Links von euren Herstellerpartnern und Lieferanten</li>
+            <li>Beiträge und Einträge in Fachportalen für Food, Fitness und Private Label</li>
+            <li>B2B-Plattformen und Branchenverzeichnisse</li>
+          </ul>
+          <p class="why2"><b>Warum:</b> Mehr Autorität für die neuen Seiten, damit sie schneller in die Top 10 kommen.</p>
+          <p class="why2"><b>Wann:</b> sobald die Seiten aus Phase 2 live sind.</p>
+        </div>
+        <div class="card">
+          <h3>B2B-Ansprache</h3>
+          <ul class="check sm">
+            <li>Listen mit Zielkunden: Manufakturen, Start-ups, Händler, Gastronomie</li>
+            <li>Ansprache über LinkedIn und E-Mail</li>
+            <li>Anfragen landen auf den neuen Private-Label- und Rohstoffseiten</li>
+          </ul>
+          <p class="why2"><b>Warum:</b> B2B-Begriffe haben wenig Suchvolumen, aber hohe Auftragswerte. So erreicht ihr auch Kunden, die nicht aktiv suchen.</p>
+          <p class="why2"><b>Wann:</b> parallel zu Phase 2.</p>
+        </div>
+        <div class="card">
+          <h3>Kampagne Firmengeschenke</h3>
+          <ul class="check sm">
+            <li>Kampagne auf der neuen Firmengeschenke-Seite</li>
+            <li>Google Ads und LinkedIn für das Weihnachtsgeschäft</li>
+            <li>Mailing an eure bestehenden Geschäftskunden</li>
+          </ul>
+          <p class="why2"><b>Warum:</b> „firmengeschenke weihnachten" wird im November rund 590-mal gesucht, im Mai nur 10-mal.</p>
+          <p class="why2"><b>Wann:</b> Oktober bis Dezember.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Close -->
+  <section class="slide dark close" id="loslegen">
+    <div class="s-body">
+      <div class="close-grid">
+        <div>
+          <h2>Nächster Schritt: Search-Console-Zugang, dann starten wir im Oktober</h2>
+          <p class="lead">Gebt mir Viewer-Zugang zur Search Console der drei Shops. Dann starten wir mit Phase 0 und legen direkt danach mit dem Fundament und eurem Cockpit los.</p>
+          <div class="who">
+            <img src="/darya.jpg" alt="Darya Kablash" />
+            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
+          </div>
+          <div style="margin-top:30px">
+            <a class="btn btn-light" href="mailto:darya@getmarketing.team?subject=Tasty%20Pott%20%E2%80%93%20Start%20Oktober">Jetzt starten</a>
+          </div>
+        </div>
+        <div class="invest">
+          <div class="k">Investition im Überblick</div>
+          <div class="row"><span>Phase 0 · Analyse und Datenbasis</span><b>kostenfrei</b></div>
+          <div class="row"><span>Phase 1 · Fundament, Cockpit und Social</span><b>1.500 € einmalig</b></div>
+          <div class="row"><span>Phase 2 · Neue Seiten, komplett umgesetzt</span><b>100 € pro Seite</b></div>
+          <div class="row sub"><span>alle neun Seiten</span><b>900 €</b></div>
+          <div class="row"><span>Laufende Betreuung ab Monat 2</span><b>ab ~690 € / Monat</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Tasty Pott GmbH</span><span class="pg"></span></div>
+  </section>
+
+</main>
+
+<div class="ctrl" id="ctrl">
+  <button id="prev" aria-label="Vorherige Folie">←</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="next" aria-label="Nächste Folie">→</button>
+  <button id="fs" aria-label="Vollbild" title="Vollbild (F)">⤢</button>
+</div>
+
+<script>
+/* ---- Deck: 16:9 stage, one slide at a time; stacked on phones ---- */
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count'), bar = document.getElementById('progress');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var cur = 0;
+  slides.forEach(function (s, i) { s.querySelectorAll('.pg').forEach(function (pg) { pg.textContent = i + 1; }); });
+
+  function stacked() { return document.body.classList.contains('stack'); }
+  function fit() {
+    var stack = innerWidth < 800 || (innerWidth < 1000 && innerHeight > innerWidth);
+    document.body.classList.toggle('stack', stack);
+    if (!stack) {
+      var s = Math.min(innerWidth / 1280, innerHeight / 720);
+      if (!document.fullscreenElement) s *= 0.96;
+      document.documentElement.style.setProperty('--s', s);
+    }
+  }
+  function show(n, initial) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    count.textContent = (cur + 1) + ' / ' + slides.length;
+    bar.style.width = ((cur + 1) / slides.length * 100) + '%';
+    prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+    if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
+    if (!initial) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (!h) return 0;
+    if (/^\d+$/.test(h)) return +h - 1;
+    var el = document.getElementById(h);
+    return el ? slides.indexOf(el.closest('.slide')) : 0;
+  }
+  function toggleFs() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+
+  prev.addEventListener('click', function () { show(cur - 1); });
+  next.addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('fs').addEventListener('click', toggleFs);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    show(slides.indexOf(el.closest('.slide')));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || stacked()) return;
+    if (e.target.closest && e.target.closest('#hub, input, textarea, select')) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    else if (k === 'f' || k === 'F') { toggleFs(); }
+  });
+
+  // swipe on touch screens in deck mode
+  var tx = null, ty = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null || stacked() || e.target.closest('#hub')) { tx = null; return; }
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    if (!stacked()) return;
+    var line = innerHeight * 0.4, best = 0;
+    for (var i = 0; i < slides.length; i++) if (slides[i].getBoundingClientRect().top <= line) best = i;
+    cur = best;
+  }, { passive: true });
+
+  window.addEventListener('resize', fit);
+  document.addEventListener('fullscreenchange', fit);
+  fit();
+  show(fromHash(), true);
+})();
+</script>
+
+<script>
+/* ---- Cockpit demo, styled after the client's Social Media Hub ---- */
+(function () {
+  var B = {
+    all: { name: 'Alle Marken' },
+    tp:  { name: 'Tasty Pott', domain: 'tasty-pott.de', color: '#C8321F', logo: 'img/tasty-pott.png' },
+    mn:  { name: 'MyNatura', domain: 'mynatura.eu', color: '#8A5530', logo: 'img/mynatura.png' },
+    fl:  { name: 'Fit & Life', domain: 'fit-and-life.de', color: '#2F9E74', logo: 'img/fit-and-life.png' }
+  };
+  var IC = {
+    overview: '<path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/>',
+    rankings: '<path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/>',
+    pages:    '<path d="M6 3h9l5 5v13H6z"/><path d="M14 3v6h6"/>',
+    ai:       '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>',
+    posts:    '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>'
+  };
+  var VIEWS = [
+    { id: 'overview', name: 'Übersicht' },
+    { id: 'rankings', name: 'Rankings' },
+    { id: 'pages', name: 'Seitenplan' },
+    { id: 'ai', name: 'KI-Sichtbarkeit' },
+    { id: 'posts', name: 'Beiträge' }
+  ];
+
+  // Figures from the analysis; null = only available after Search Console / GA4 are connected
+  var FACTS = {
+    tp: { visits: null, top10: null, ai: '77' },
+    mn: { visits: '~188', top10: null, ai: null },
+    fl: { visits: '~43', top10: '84', ai: null }
+  };
+  var RANK = {
+    tp: [['private label gewürze', 4], ['private label feinkost', 5], ['hühnereiweißpulver', 7], ['private label', 58], ['firmengeschenke', null, '~700'], ['individuelle mischungen', null], ['abfüllung kleine mengen', null]],
+    mn: [['superfood private label', 7], ['hühnereiweißpulver', 8], ['rohstoffhandel', null], ['großgebinde', null], ['großhandel', null]],
+    fl: [['hühnereiweißpulver', 9], ['creatin kaufen', null, '~500']]
+  };
+  var DUPS = [
+    { p: 'Hühnereiweißpulver', pos: { tp: 7, mn: 8, fl: 9 }, lead: null },
+    { p: 'Baobab-Pulver', pos: null, lead: null },
+    { p: 'Hanfherzen', pos: null, lead: null }
+  ];
+  var PAGES = [
+    { b: 'tp', t: 'Private Label (Ausbau)', s: 0 },
+    { b: 'tp', t: 'Individuelle Mischungen', s: 0 },
+    { b: 'tp', t: 'Abfüllung kleiner Mengen', s: 0 },
+    { b: 'mn', t: 'B2B Rohstoffe', s: 0 },
+    { b: 'mn', t: 'Großgebinde mit Anfrage', s: 0 },
+    { b: 'tp', t: 'Firmengeschenke', s: 0 },
+    { b: 'fl', t: 'Creatin-Kategorie', s: 0 },
+    { b: 'fl', t: 'Creatin Monohydrat', s: 0 },
+    { b: 'fl', t: 'Markenseite Creatin', s: 0 }
+  ];
+  var STAGES = ['Geplant', 'In Arbeit', 'Live'];
+  var AI = {
+    tp: [{ q: 'Private Label', st: 'none' }, { q: 'B2B-Abfüllung', st: 'none' }],
+    mn: [{ q: 'Rohstoffe', st: 'none' }],
+    fl: [{ q: 'Sportbedarf Jeske Hünxe', st: 'old' }, { q: 'Creatin', st: 'none' }]
+  };
+  var POSTS = [
+    { b: 'tp', ch: 'LinkedIn', fmt: '1:1', title: 'Private Label ab kleinen Mengen', text: 'Eure eigene Gewürzmarke, ohne riesige Mindestmengen. So läuft die Abfüllung bei uns ab, vom Rezept bis zum fertigen Glas.', tags: '#PrivateLabel #Gewürze #Manufaktur', ok: false },
+    { b: 'mn', ch: 'Instagram', fmt: '4:5', title: 'Baobab-Pulver: drei Rezeptideen', text: 'Fruchtig, leicht säuerlich und voller Ballaststoffe. Drei schnelle Ideen für Frühstück, Smoothie und Dessert.', tags: '#Baobab #Superfood #Rezepte', ok: false },
+    { b: 'fl', ch: 'Instagram', fmt: '4:5', title: 'Creatin richtig dosieren', text: 'Wie viel Creatin am Tag sinnvoll ist, wann du es nimmst und worauf du beim Kauf achten solltest.', tags: '#Creatin #Fitness #Supplements', ok: false },
+    { b: 'tp', ch: 'Instagram', fmt: '4:5', title: 'Gewürzmischung der Woche', text: 'Unsere Herbstmischung für Ofengemüse. Einfach mit Öl vermengen, über das Gemüse geben, fertig.', tags: '#Gewürze #Herbstküche', ok: false }
+  ];
+  var SLOTS = ['Di 10:00', 'Mi 12:30', 'Do 09:00', 'Fr 11:00'];
+
+  var st = { brand: 'all', view: 'overview', post: 0, checked: false };
+  var swBtn = document.getElementById('swBtn'), swMenu = document.getElementById('swMenu');
+  var nav = document.getElementById('hubNav'), main = document.getElementById('hubMain');
+  var toastEl = document.getElementById('hubToast'), tt;
+
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function inB(x) { return st.brand === 'all' || x.b === st.brand; }
+  function dot(b) { return '<span class="bdot" style="background:' + B[b].color + '"></span>'; }
+  function v(x) { return x == null ? '<span class="dash" title="folgt nach Anbindung von Search Console und GA4">–</span>' : esc(x); }
+  function chip(k) { return k === 'all' ? '<span class="chip all">3</span>' : '<span class="chip"><img src="' + B[k].logo + '" alt="" /></span>'; }
+  function waiting(b) { return POSTS.filter(function (p) { return !p.ok && (b === 'all' || p.b === b); }).length; }
+  function toast(m) { toastEl.textContent = m; toastEl.classList.add('show'); clearTimeout(tt); tt = setTimeout(function () { toastEl.classList.remove('show'); }, 2200); }
+
+  function renderSide() {
+    swBtn.innerHTML = chip(st.brand) + '<span>' + esc(B[st.brand].name) + '</span><span class="car">▼</span>';
+    swMenu.innerHTML = Object.keys(B).map(function (k) {
+      return '<button role="option" data-brand="' + k + '" aria-selected="' + (st.brand === k) + '">' + chip(k) + esc(B[k].name) + '</button>';
+    }).join('');
+    nav.innerHTML = VIEWS.map(function (x) {
+      var c = x.id === 'posts' && waiting(st.brand) ? '<span class="cnt">' + waiting(st.brand) + '</span>' : '';
+      return '<button data-view="' + x.id + '" aria-current="' + (st.view === x.id) + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + IC[x.id] + '</svg>' + x.name + c + '</button>';
+    }).join('');
+  }
+  function top(title, crumb, pill) {
+    return '<div class="hub-top"><div><h4>' + title + '</h4><div class="crumb">' + crumb + '</div></div>' + (pill || '') + '</div>';
+  }
+  function crumb() { return st.brand === 'all' ? 'Alle drei Marken' : esc(B[st.brand].domain); }
+
+  function dupCard() {
+    var open = DUPS.filter(function (d) { return !d.lead; }).length;
+    return '<div class="h-card"><div class="h-card-t">Dubletten zwischen euren Shops' + (open ? '<span class="h-pill warn">' + open + ' offen</span>' : '<span class="h-pill">Erledigt</span>') + '</div>' +
+      DUPS.map(function (d, i) {
+        var ps = d.pos ? ['tp', 'mn', 'fl'].map(function (b) { return '<span class="' + (d.lead === b ? 'win' : '') + '">' + esc(B[b].name) + ' #' + d.pos[b] + '</span>'; }).join('') : '<span>mehrere Shops</span>';
+        var act = d.lead ? '<span class="h-pill">Rankt über ' + esc(B[d.lead].name) + '</span>'
+          : '<div class="h-choose">' + ['tp', 'mn', 'fl'].map(function (b) { return '<button class="h-btn" data-dup="' + i + '" data-lead="' + b + '">' + esc(B[b].name) + '</button>'; }).join('') + '</div>';
+        return '<div class="dup-row"><div><b>' + esc(d.p) + '</b><div class="ps">' + ps + '</div></div>' + act + '</div>';
+      }).join('') + '</div>';
+  }
+
+  function overview() {
+    if (st.brand === 'all') {
+      return top('Übersicht', crumb(), '<span class="h-pill">3 Marken verbunden</span>') +
+        '<div class="h-brands">' + ['tp', 'mn', 'fl'].map(function (b) {
+          var f = FACTS[b];
+          return '<button class="h-brand" data-brand="' + b + '"><div class="lg"><img src="' + B[b].logo + '" alt="' + esc(B[b].name) + '" /></div>' +
+            '<dl><dt>Besuche / Monat</dt><dd>' + v(f.visits) + '</dd><dt>Top-10-Keywords</dt><dd>' + v(f.top10) + '</dd><dt>KI-Keywords</dt><dd>' + v(f.ai) + '</dd><dt>Freigaben offen</dt><dd>' + waiting(b) + '</dd></dl></button>';
+        }).join('') + '</div>' + dupCard();
+    }
+    var b = st.brand, planned = String(PAGES.filter(inB).length);
+    var k = b === 'fl' ? [['~43', 'Besuche / Monat'], ['255', 'Keywords'], ['84', 'davon Top 10'], ['~3 %', 'Sichtbarkeit vs. früher']]
+      : b === 'mn' ? [['~188', 'Besuche / Monat'], ['0', 'B2B-Rankings'], ['#7', 'superfood private label'], [planned, 'Seiten geplant']]
+      : [[null, 'Besuche / Monat'], ['77', 'KI-Keywords'], ['#4', 'private label gewürze'], [planned, 'Seiten geplant']];
+    var kp = '<div class="h-kpis">' + k.map(function (x) { return '<div class="h-kpi">' + (x[0] == null ? '<b class="pend">nach GSC-Anbindung</b>' : '<b>' + esc(x[0]) + '</b>') + '<span>' + esc(x[1]) + '</span></div>'; }).join('') + '</div>';
+    var extra;
+    if (b === 'fl') {
+      extra = '<div class="h-card"><div class="h-card-t">Sichtbarkeit nach dem Domain-Umzug<span class="h-pill warn">Phase 1</span></div>' +
+        '<div class="h-bar-l">special-fitness.de, früher<span>0,15 bis 0,18</span></div><div class="h-bar-t"><div class="h-bar-f" style="width:100%;background:#C9C3B4"></div></div>' +
+        '<div class="h-bar-l">fit-and-life.de, heute<span>rund 3 %</span></div><div class="h-bar-t"><div class="h-bar-f" style="width:3%;background:' + B.fl.color + '"></div></div></div>';
+    } else {
+      var gaps = RANK[b].filter(function (r) { return r[1] == null; });
+      extra = '<div class="h-card"><div class="h-card-t">Themen ohne passende Seite<span class="h-pill warn">' + gaps.length + ' Lücken</span></div>' +
+        gaps.map(function (r) { return '<div class="ai-row"><div><b>' + esc(r[0]) + '</b>' + (r[2] ? '<div class="src">' + r[2] + ' Suchen pro Monat</div>' : '') + '</div><button class="h-btn" data-view="pages">Zum Seitenplan</button></div>'; }).join('') + '</div>';
+    }
+    return top(esc(B[b].name), crumb(), '<span class="h-pill gray">Daten getrennt</span>') + kp + extra + dupCard();
+  }
+
+  function rankings() {
+    var list = [];
+    ['tp', 'mn', 'fl'].forEach(function (b) { if (st.brand === 'all' || st.brand === b) RANK[b].forEach(function (r) { list.push([b].concat(r)); }); });
+    return top('Rankings', crumb(), '<span class="h-pill gray">Stand Sep 2026</span>') +
+      '<div class="h-card"><table class="h-table"><thead><tr><th>Keyword</th><th class="r">Suchen / Monat</th><th class="r">Position</th></tr></thead><tbody>' +
+      list.map(function (r) {
+        var p = r[2] == null ? '<span class="h-pill gray">kein Ranking</span>' : '<span class="h-pill' + (r[2] > 10 ? ' warn' : '') + '">#' + r[2] + '</span>';
+        return '<tr><td>' + dot(r[0]) + esc(r[1]) + '</td><td class="r">' + (r[3] || '<span class="dash">–</span>') + '</td><td class="r">' + p + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+
+  function pages() {
+    return top('Seitenplan', crumb() + ' · Phase 2', '<span class="h-pill">100 € pro Seite</span>') +
+      '<div class="kan">' + STAGES.map(function (name, si) {
+        var items = PAGES.map(function (p, i) { return [p, i]; }).filter(function (x) { return x[0].s === si && inB(x[0]); });
+        return '<div class="kan-col"><div class="kan-h"><span>' + name + '</span><span>' + items.length + '</span></div>' +
+          items.map(function (x) { return '<button class="kcard" data-page="' + x[1] + '">' + dot(x[0].b) + esc(x[0].t) + '<small><span>' + esc(B[x[0].b].name) + '</span><span>' + (si < 2 ? 'weiter →' : '✓') + '</span></small></button>'; }).join('') + '</div>';
+      }).join('') + '</div>';
+  }
+
+  function ai() {
+    var rows = [];
+    (st.brand === 'all' ? ['tp', 'mn', 'fl'] : [st.brand]).forEach(function (b) { AI[b].forEach(function (a, i) { rows.push([b, a, i]); }); });
+    return top('KI-Sichtbarkeit', crumb(), '<span class="h-pill">Google-KI-Antworten</span>') +
+      '<div class="h-kpis"><div class="h-kpi"><b>7</b><span>Anfragen mit Quellennennung</span></div><div class="h-kpi"><b>77</b><span>KI-Keywords Tasty Pott</span></div><div class="h-kpi"><b>auto</b><span>Messung Google-KI</span></div><div class="h-kpi"><b class="pend">optional</b><span>ChatGPT, externes Tool</span></div></div>' +
+      '<div class="h-card">' + rows.map(function (r) {
+        var b = r[0], a = r[1], act, src;
+        if (a.st === 'old') { act = '<button class="h-btn y" data-fix="' + b + ':' + r[2] + '">Zuordnung korrigieren</button>'; src = 'Die KI nennt special-fitness.de und die alte E-Mail-Adresse'; }
+        else if (a.st === 'fixed') { act = '<span class="h-pill">In Phase 1 geplant</span>'; src = 'Ziel: fit-and-life.de als Quelle, Unternehmensdaten aktualisiert'; }
+        else { act = '<span class="h-pill gray">nicht genannt</span>'; src = 'Noch keine Quellennennung für ' + esc(B[b].name); }
+        return '<div class="ai-row"><div>' + dot(b) + '<b>„' + esc(a.q) + '"</b><div class="src">' + src + '</div></div>' + act + '</div>';
+      }).join('') + '</div>';
+  }
+
+  function posts() {
+    var list = POSTS.map(function (p, i) { return [p, i]; }).filter(function (x) { return inB(x[0]); });
+    if (!list.some(function (x) { return x[1] === st.post; })) st.post = list[0][1];
+    var p = POSTS[st.post], w = waiting(st.brand);
+    var approve = p.ok
+      ? '<div class="approve"><span class="done">✓ Freigegeben · wird am ' + p.slot + ' veröffentlicht</span></div>'
+      : '<div class="approve"><label><input type="checkbox" id="hubCheck"' + (st.checked ? ' checked' : '') + ' /><span><b>Finale Sichtprüfung</b>Produkt, Logo und Text sind korrekt und gut lesbar.</span></label>' +
+        '<button class="h-btn" data-edit="1">Änderungen anfordern</button><button class="h-btn y" data-ok="' + st.post + '"' + (st.checked ? '' : ' disabled') + '>Freigeben</button></div>';
+    return top('Beiträge', crumb(), w ? '<span class="h-pill warn">' + w + ' warten auf Freigabe</span>' : '<span class="h-pill">Alles freigegeben</span>') +
+      '<div class="posts"><div class="post-list">' + list.map(function (x) {
+        return '<button class="post-it" data-post="' + x[1] + '" aria-current="' + (x[1] === st.post) + '">' + esc(x[0].title) + '<small><span>' + esc(B[x[0].b].name) + ' · ' + x[0].ch + '</span>' + (x[0].ok ? '<span class="ok">✓</span>' : '<span>offen</span>') + '</small></button>';
+      }).join('') + '</div>' +
+      '<div class="post-d"><div class="post-d-in">' +
+        '<div class="post-img" style="background:linear-gradient(160deg,' + B[p.b].color + ',#1F4B3A)"><span class="lgw"><img src="' + B[p.b].logo + '" alt="" /></span><b>' + esc(p.title) + '</b></div>' +
+        '<div><div class="h-lab">' + p.ch + ' · ' + p.fmt + ' · Beispiel</div><div style="display:flex;gap:6px;margin:8px 0 4px"><span class="h-pill">' + (p.ok ? 'Freigegeben' : 'Bereit') + '</span><span class="h-pill gray">' + esc(B[p.b].name) + '</span></div>' +
+        '<div class="post-txt">' + esc(p.text) + '<br><span class="ht">' + esc(p.tags) + '</span></div></div>' +
+      '</div>' + approve + '</div></div>';
+  }
+
+  var R = { overview: overview, rankings: rankings, pages: pages, ai: ai, posts: posts };
+  function render() { renderSide(); main.innerHTML = '<div class="fade">' + R[st.view]() + '</div>'; main.scrollTop = 0; }
+  function closeMenu() { swMenu.classList.remove('open'); swBtn.setAttribute('aria-expanded', 'false'); }
+
+  var hub = document.getElementById('hub');
+  hub.addEventListener('change', function (e) {
+    if (e.target.id === 'hubCheck') { st.checked = e.target.checked; var b = main.querySelector('[data-ok]'); if (b) b.disabled = !st.checked; }
+  });
+  hub.addEventListener('click', function (e) {
+    if (e.target.closest('#swBtn')) { var o = !swMenu.classList.contains('open'); swMenu.classList.toggle('open', o); swBtn.setAttribute('aria-expanded', String(o)); return; }
+    if (!e.target.closest('#swMenu')) closeMenu();
+    var t = e.target.closest('button');
+    if (!t) return;
+    var d = t.dataset;
+    if (d.brand) { st.brand = d.brand; closeMenu(); }
+    else if (d.view) { st.view = d.view; }
+    else if (d.dup) { DUPS[+d.dup].lead = d.lead; toast(DUPS[+d.dup].p + ' rankt künftig über ' + B[d.lead].name); }
+    else if (d.page) { var p = PAGES[+d.page]; if (p.s < 2) { p.s++; toast(p.t + ': ' + STAGES[p.s]); } else return; }
+    else if (d.fix) { var f = d.fix.split(':'); AI[f[0]][+f[1]].st = 'fixed'; toast('Zuordnung zu fit-and-life.de in Phase 1 eingeplant'); }
+    else if (d.post) { st.post = +d.post; st.checked = false; }
+    else if (d.ok) { var q = POSTS[+d.ok]; q.ok = true; q.slot = SLOTS[+d.ok % SLOTS.length]; st.checked = false; toast('Freigegeben, geht am ' + q.slot + ' raus'); }
+    else if (d.edit) { toast('Änderungswunsch geht an die Redaktion'); return; }
+    else return;
+    render();
+  });
+
+  render();
+})();
+</script>
+<script>
+/* ---- Retainer cycle: dot, trailing arc and active step share one clock ---- */
+(function () {
+  var dot = document.getElementById('ringDot'), arc = document.getElementById('ringArc');
+  if (!dot || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var nodes = document.querySelectorAll('.ring .node'), T = 8000, last = -1;
+  function frame(now) {
+    var a = (now % T) / T * 360, rad = (a - 90) * Math.PI / 180;
+    dot.setAttribute('cx', 300 + 170 * Math.cos(rad));
+    dot.setAttribute('cy', 230 + 170 * Math.sin(rad));
+    arc.style.transform = 'rotate(' + (a - 155) + 'deg)';
+    var k = Math.floor(a / 90);
+    if (k !== last) { nodes.forEach(function (n, i) { n.classList.toggle('on', i === k); }); last = k; }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
