@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angebot Klickmeister — GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Angebot: Webshop, Google Shopping und SEO für Klickmeister." />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --ink:        #1F2A24;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F2;
+    --line:       #E6E6E1;
+    --tint:       #E7F3EC;
+    --warn:       #B4532A;
+    --warn-bg:    #F7EBE2;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --s: 1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font); color: var(--ink); background: #E4E1D9;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow: hidden;
+  }
+  h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; text-wrap: balance; color: var(--black); }
+
+  /* ================= Deck / stage ================= */
+  .deck { position: fixed; inset: 0; }
+  .slide {
+    position: absolute; left: 50%; top: 50%;
+    width: 1280px; height: 720px;
+    transform: translate(-50%, -50%) scale(var(--s));
+    background: #fff; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 72px 0;
+    opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+  .slide.dark { background: var(--forest); color: #fff; }
+  .slide.dark h1, .slide.dark h2 { color: #fff; }
+
+  .s-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 28px; }
+  .s-head h2 { font-size: 38px; max-width: 920px; }
+  .s-head .s-sub { font-size: 17px; color: var(--gray); margin-top: 10px; font-weight: 400; max-width: 860px; line-height: 1.5; }
+  .s-logo { height: 58px; width: auto; flex-shrink: 0; object-fit: contain; }
+  .s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .s-foot {
+    height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: var(--gray2); border-top: 1px solid var(--line); margin-top: 18px;
+  }
+  .s-foot b { color: var(--gray); font-weight: 700; }
+  .dark .s-foot { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
+  .dark .s-foot b { color: rgba(255,255,255,.7); }
+
+  .take {
+    margin-top: auto; display: flex; gap: 18px; align-items: center;
+    background: var(--forest); color: #fff; border-radius: 14px; padding: 18px 24px;
+    font-size: 16.5px; line-height: 1.5;
+  }
+  .take b.k { flex-shrink: 0; font-size: 14px; font-weight: 800; color: var(--accent); }
+
+  /* ================= Shared blocks ================= */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card { background: var(--card); border-radius: 16px; padding: 26px; }
+  .num { font-size: 58px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
+  .num.warn { color: var(--warn); }
+  .lbl { font-size: 15px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .logo-box { height: 56px; display: flex; align-items: center; margin-bottom: 22px; }
+  .logo-box img { max-height: 56px; max-width: 170px; object-fit: contain; }
+  .col-h { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .stat { background: var(--card); border-radius: 14px; padding: 18px 20px; }
+  .stat b { display: block; font-size: 34px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; color: var(--forest); }
+  .stat span { display: block; font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.4; }
+  .stat.warn b { color: var(--warn); }
+
+  table.kw { width: 100%; border-collapse: collapse; font-size: 16px; }
+  table.kw th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 12px 10px; border-bottom: 2px solid var(--ink); }
+  table.kw td { padding: 12px; border-bottom: 1px solid var(--line); }
+  table.kw .r { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pos { display: inline-block; min-width: 64px; text-align: center; font-size: 13.5px; font-weight: 800; padding: 4px 10px; border-radius: 6px; background: var(--tint); color: var(--forest); }
+  .pos.bad { background: var(--warn-bg); color: var(--warn); }
+  .pos.none { background: var(--card); color: var(--gray); font-weight: 600; }
+
+  .bars { display: flex; flex-direction: column; gap: 22px; }
+  .bar-l { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .bar-l span { color: var(--gray); font-weight: 500; }
+  .bar-t { height: 44px; background: var(--card); border-radius: 8px; overflow: hidden; }
+  .bar-f { height: 100%; border-radius: 8px; }
+
+  .check { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .check li { position: relative; padding-left: 30px; font-size: 16px; line-height: 1.45; }
+  .check li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 19px; height: 19px; border-radius: 5px;
+    background: var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;
+  }
+  .check.sm li { font-size: 14.5px; }
+
+  .price { background: var(--forest); color: #fff; border-radius: 16px; padding: 26px; }
+  .price .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .price .v { font-size: 50px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; }
+  .price .v small { font-size: 18px; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,.7); }
+  .price p { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 10px; line-height: 1.5; }
+  .result { background: var(--tint); border-radius: 16px; padding: 22px 24px; }
+  .result .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
+  .result p { font-size: 16px; color: var(--forest); line-height: 1.5; font-weight: 500; }
+  .note { background: var(--warn-bg); border-radius: 14px; padding: 16px 20px; font-size: 14px; line-height: 1.5; color: #5b3a28; }
+  .note b { color: var(--warn); }
+  .small-note { font-size: 12.5px; color: var(--gray); margin-top: 12px; line-height: 1.5; }
+  .small-note b { color: var(--ink); }
+
+  /* ================= Individual slides ================= */
+  .cover { padding-top: 70px; }
+  .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
+  .cover .gm img { width: 38px; height: 38px; border-radius: 8px; }
+  .cover h1 { font-size: 60px; max-width: 980px; margin-top: 70px; letter-spacing: -0.035em; line-height: 1.05; }
+  .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; }
+  .cover .logos { display: flex; gap: 16px; margin-top: 48px; }
+  .cover .logos div { background: #fff; border-radius: 14px; width: 200px; height: 92px; display: grid; place-items: center; }
+  .cover .logos img { max-width: 150px; max-height: 58px; object-fit: contain; }
+  .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
+  .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
+
+  .brand-card { background: var(--card); border-radius: 18px; padding: 28px 28px 30px; display: flex; flex-direction: column; }
+  .brand-card .logo-box { background: #fff; border-radius: 12px; height: 84px; justify-content: center; margin: -8px -8px 26px; }
+  .brand-card h3 { font-size: 20px; margin-top: 16px; line-height: 1.25; }
+  .brand-card p { font-size: 14.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+
+  .canni { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .canni > div { border: 1px solid var(--line); border-radius: 18px; padding: 24px; text-align: center; }
+  .canni .logo-box { justify-content: center; margin-bottom: 10px; }
+  .canni .p { font-size: 96px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: var(--forest); }
+  .canni .p small { font-size: 34px; color: var(--gray2); }
+  .canni .c { font-size: 14px; color: var(--gray); margin-top: 6px; }
+  .product { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+  .product span { font-weight: 400; color: var(--gray); }
+
+  .quote { border-left: 4px solid var(--warn); background: var(--card); border-radius: 0 14px 14px 0; padding: 22px 26px; }
+  .quote .q { font-size: 22px; font-weight: 700; }
+  .quote .a { font-size: 15.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .quote .a b { color: var(--warn); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tags span { font-size: 14.5px; font-weight: 600; padding: 8px 14px; border-radius: 8px; background: var(--card); }
+
+  .goals { list-style: none; display: flex; flex-direction: column; gap: 12px; counter-reset: g; }
+  .goals li {
+    counter-increment: g; display: grid; grid-template-columns: 46px 1fr auto; gap: 18px; align-items: center;
+    background: var(--card); border-radius: 14px; padding: 15px 22px 15px 18px; font-size: 16.5px; line-height: 1.4;
+  }
+  .goals li::before { content: counter(g); width: 38px; height: 38px; border-radius: 10px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 17px; }
+  .goals li b { font-weight: 700; }
+  .goals .mini { display: flex; gap: 8px; }
+  .goals .mini img { height: 30px; max-width: 70px; object-fit: contain; background: #fff; border-radius: 6px; padding: 3px 6px; }
+
+  .road { display: flex; flex-direction: column; gap: 10px; }
+  .road a {
+    display: grid; grid-template-columns: 56px 270px 1fr 200px; gap: 22px; align-items: center;
+    background: var(--card); border-radius: 14px; padding: 16px 22px; text-decoration: none; color: inherit;
+    transition: background .15s ease;
+  }
+  .road a:hover { background: var(--tint); }
+  .road .n { width: 44px; height: 44px; border-radius: 11px; background: #fff; color: var(--forest); display: grid; place-items: center; font-weight: 900; font-size: 19px; border: 1.5px solid var(--line); }
+  .road .t { font-weight: 800; font-size: 17.5px; letter-spacing: -0.015em; }
+  .road .t small { display: block; font-weight: 500; font-size: 13px; color: var(--accent-ink); letter-spacing: 0; margin-top: 2px; }
+  .road .d { font-size: 15px; color: var(--gray); line-height: 1.45; }
+  .road .pr { font-weight: 800; font-size: 17px; text-align: right; }
+  .road .pr small { display: block; font-weight: 500; font-size: 12.5px; color: var(--gray); }
+  .road a.hl { background: var(--forest); color: #fff; }
+  .road a.hl .n { background: var(--accent); color: var(--forest); border: 0; }
+  .road a.hl .d { color: rgba(255,255,255,.7); }
+  .road a.hl .t small { color: var(--accent); }
+  .road a.run { background: #fff; border: 1.5px dashed var(--gray2); }
+
+  .phase { display: grid; grid-template-columns: 1fr 340px; gap: 36px; flex: 1; min-height: 0; }
+  .phase .side { display: flex; flex-direction: column; gap: 14px; }
+
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .track { background: var(--card); border-radius: 16px; padding: 22px 24px; }
+  .track-h { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .track-h i { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-style: normal; font-weight: 900; font-size: 13px; background: var(--forest); color: #fff; flex-shrink: 0; }
+  .track-h b { display: block; font-size: 17px; }
+  .track-h span { display: block; font-size: 13px; color: var(--gray); }
+  .weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 14px; }
+  .weeks div { font-size: 12px; font-weight: 700; color: var(--forest); background: var(--tint); border-radius: 6px; padding: 6px 0; text-align: center; }
+
+  /* Phase 2 page list */
+  table.plan { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.plan th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 10px 8px; border-bottom: 2px solid var(--ink); }
+  table.plan td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  table.plan td.n { width: 34px; font-weight: 800; color: var(--gray2); }
+  table.plan td.lg { width: 92px; }
+  table.plan td.lg img { height: 26px; max-width: 76px; object-fit: contain; display: block; }
+  table.plan td b { font-weight: 700; }
+  table.plan .r { text-align: right; white-space: nowrap; }
+  .ft { font-size: 12.5px; font-weight: 800; white-space: nowrap; }
+  .ft s { color: var(--gray); text-decoration: none; font-weight: 600; }
+  .ft s::after { content: " → "; color: var(--gray2); }
+  .ft em { font-style: normal; color: var(--accent-ink); }
+
+  /* Page preview cards */
+  .pg-grid { display: grid; gap: 16px; }
+  .pg-grid.c4 { grid-template-columns: repeat(4, 1fr); }
+  .pg-grid.c3 { grid-template-columns: repeat(3, 1fr); }
+  .pg-grid.c1 { grid-template-columns: 1fr; }
+  .pgc { background: var(--card); border-radius: 16px; padding: 14px 14px 16px; display: flex; flex-direction: column; }
+  .pgc.wide { display: grid; grid-template-columns: 330px 1fr 1fr; gap: 28px; padding: 18px 22px; align-items: start; }
+  .pgc.wide .why { margin-top: 0; padding-top: 0; border-top: 0; }
+  .mock { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,.04); }
+  .mock-bar { height: 22px; background: #F1F0EC; display: flex; align-items: center; gap: 4px; padding: 0 8px; font-size: 9.5px; color: var(--gray); }
+  .mock-bar i { width: 6px; height: 6px; border-radius: 50%; background: #D5D3CC; flex-shrink: 0; }
+  .mock-bar span { margin-left: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mock-in { padding: 10px 12px 12px; }
+  .mock-in .ml { height: 14px; margin-bottom: 8px; }
+  .mock-in .ml img { height: 14px; display: block; }
+  .mock-h { font-size: 13px; font-weight: 800; line-height: 1.22; color: var(--black); letter-spacing: -0.01em; }
+  .mock-line { height: 5px; background: #ECEBE6; border-radius: 3px; margin-top: 6px; }
+  .mock-sec { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .mock-sec span { font-size: 9.5px; font-weight: 700; background: var(--card); color: var(--ink); padding: 2px 6px; border-radius: 4px; }
+  .mock-cta { display: inline-block; margin-top: 9px; font-size: 9.5px; font-weight: 800; color: #fff; padding: 4px 10px; border-radius: 50px; }
+  .pgc h3 { font-size: 16px; margin-top: 12px; letter-spacing: -0.015em; }
+  .pgc.wide h3 { margin-top: 0; font-size: 19px; }
+  .pgc .kind { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-top: 2px; }
+  .targets { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .tg { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; align-items: baseline; }
+  .tg > span:first-child { font-weight: 600; }
+  .why { font-size: 12.5px; color: var(--gray); margin-top: 10px; line-height: 1.45; padding-top: 10px; border-top: 1px solid #E2E1DB; }
+  .why b { color: var(--ink); }
+  .pgc.wide .targets .tg { font-size: 14px; }
+  .pgc.wide .why { font-size: 14px; }
+
+  /* Retainer content */
+  .cycle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .cyc { background: var(--card); border-radius: 16px; padding: 20px 20px 22px; position: relative; }
+  .cyc:not(:last-child)::after { content: "→"; position: absolute; right: -15px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 12px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+  .cyc .n { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); }
+  .cyc b { display: block; font-size: 19px; margin-top: 6px; letter-spacing: -0.015em; }
+  .cyc p { font-size: 14px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .fast { background: var(--forest); color: #fff; border-radius: 16px; padding: 22px 26px; }
+  .fast .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .fast p { font-size: 16px; line-height: 1.55; margin-top: 8px; color: rgba(255,255,255,.88); }
+
+  /* Case studies */
+  .cases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .case { border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; }
+  .case .ind { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); min-height: 30px; }
+  .case .big { font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); margin-top: 10px; }
+  .case .big small { font-size: 18px; letter-spacing: -0.01em; color: var(--gray); font-weight: 600; }
+  .case b { font-size: 15px; margin-top: 12px; line-height: 1.35; }
+  .case p { font-size: 13.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .case.hl { background: var(--tint); border-color: var(--tint); }
+  .proof { display: flex; gap: 14px; margin-top: 18px; }
+  .proof div { flex: 1; background: var(--card); border-radius: 14px; padding: 16px 20px; display: flex; align-items: baseline; gap: 12px; }
+  .proof b { font-size: 28px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); }
+  .proof span { font-size: 14px; color: var(--gray); }
+  .quote-line { margin-top: 16px; font-size: 15px; color: var(--ink); font-style: italic; }
+  .quote-line span { font-style: normal; color: var(--gray); font-size: 13px; }
+
+  .tiers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .tiers .tier .v { font-size: 42px; white-space: nowrap; }
+  .tier.agency { background: var(--card); border-color: var(--card); }
+  .tier.agency .k { color: var(--gray); }
+  .tier.agency .v { color: var(--gray); }
+  .tier.agency li span:last-child { color: var(--gray); }
+  .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 26px 28px; }
+  .tier.full { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .tier .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .tier.full .k { color: var(--accent); }
+  .tier .v { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 12px 0 4px; }
+  .tier .v small { font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .tier.full .v small, .tier.full .sub { color: rgba(255,255,255,.65); }
+  .tier .sub { font-size: 13.5px; color: var(--gray); }
+  .tier ul { list-style: none; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; }
+  .tier.full ul { border-color: rgba(255,255,255,.15); }
+  .tier li { display: flex; justify-content: space-between; font-size: 15px; }
+  .tier li span:last-child { font-weight: 700; }
+  .tier .on { color: var(--accent-ink); }
+  .tier.full .on { color: var(--accent); }
+  .tier .off { color: var(--gray); }
+  .tier .incl { font-size: 14px; margin-top: 14px; color: var(--gray); line-height: 1.5; }
+  .tier.full .incl { color: rgba(255,255,255,.75); }
+
+  .close h2 { font-size: 50px; max-width: 900px; margin-top: 40px; line-height: 1.08; }
+  .close .lead { font-size: 19px; color: rgba(255,255,255,.7); margin-top: 22px; max-width: 760px; line-height: 1.55; }
+  .who { display: flex; align-items: center; gap: 18px; margin-top: 40px; }
+  .who img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+  .who b { display: block; font-size: 17px; }
+  .who span { font-size: 14.5px; color: rgba(255,255,255,.65); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 16px var(--font); padding: 15px 28px; border-radius: 50px; text-decoration: none; transition: transform .18s ease, opacity .18s ease; }
+  .btn:hover { transform: translateY(-2px); opacity: .92; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
+
+  /* Cannibalisation comparison */
+  .vs { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 16px; align-items: stretch; margin-bottom: 18px; }
+  .vs-card { border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; }
+  .vs-card.good { background: var(--tint); border-color: var(--tint); }
+  .vs-k { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+  .vs-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .vs-logos.one { grid-template-columns: 1fr; }
+  .vs-logos > div { background: #fff; border-radius: 12px; height: 88px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; gap: 8px; }
+  .vs-card:not(.good) .vs-logos > div { background: var(--card); }
+  .vs-logos img { max-height: 40px; max-width: 70px; object-fit: contain; }
+  .vs-logos b { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--gray); }
+  .vs-card.good .vs-logos b { font-size: 44px; color: var(--forest); }
+  .vs-one { font-size: 16px; font-weight: 700; color: var(--forest); }
+  .vs-res { margin-top: 16px; display: flex; gap: 14px; align-items: baseline; }
+  .vs-res b { font-size: 36px; font-weight: 900; letter-spacing: -0.04em; color: var(--warn); white-space: nowrap; }
+  .vs-card.good .vs-res b { color: var(--forest); }
+  .vs-res span { font-size: 14.5px; color: var(--gray); line-height: 1.45; }
+  .vs-arrow { display: grid; place-items: center; font-size: 26px; font-weight: 800; color: var(--accent-ink); }
+
+  /* Goals KPI strip */
+  .kpi3 { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 12px; margin-bottom: 16px; align-items: stretch; }
+  .kpi3 > div { background: var(--forest); color: #fff; border-radius: 14px; padding: 16px 20px; }
+  .kpi3 b { display: block; font-size: 28px; font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; }
+  .kpi3 span { font-size: 13.5px; color: rgba(255,255,255,.7); }
+  .kpi3 a span { display: block; color: var(--gray); font-weight: 500; font-size: 13px; margin-bottom: 4px; }
+  .kpi3 a { align-self: center; font-size: 14px; font-weight: 700; color: var(--accent-ink); text-decoration: none; padding: 0 6px; white-space: nowrap; }
+  .goals.tight { gap: 9px; }
+  .goals.tight li { padding: 11px 20px 11px 16px; font-size: 15.5px; }
+  .goals.tight li::before { width: 34px; height: 34px; }
+
+  /* Forecast table */
+  table.prog td { padding: 14px 10px; font-size: 14px; line-height: 1.45; }
+  table.prog td.lg { width: 130px; }
+  table.prog td.lg img { height: 34px; max-width: 110px; object-fit: contain; display: block; }
+  table.prog .lg-t { font-size: 13px; font-weight: 700; color: var(--forest); }
+  table.prog td.r { font-size: 16px; font-weight: 700; }
+  table.prog tr.sum td { border-bottom: 0; border-top: 2px solid var(--ink); font-size: 16px; }
+  table.prog tr.sum td span { color: var(--gray); font-size: 13px; margin-left: 6px; }
+  table.prog tr.sum td.r b { font-size: 19px; color: var(--forest); }
+  .calc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  /* Phase 0 steps */
+  .steps5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .steps5 > div { background: var(--card); border-radius: 16px; padding: 18px 18px 20px; position: relative; }
+  .steps5 .n, .flow .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .steps5 b, .flow b { display: block; font-size: 16.5px; letter-spacing: -0.015em; }
+  .steps5 p, .flow p { font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+
+  /* Phase 2 process */
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  .flow > div { background: var(--tint); border-radius: 16px; padding: 18px 20px; }
+
+  /* Optional */
+  .opt .card { display: flex; flex-direction: column; padding: 22px 24px; }
+  .opt h3 { font-size: 21px; margin-bottom: 14px; }
+  .why2 { font-size: 13.5px; color: var(--gray); line-height: 1.5; margin-top: 10px; }
+  .why2 b { color: var(--ink); }
+  .opt .why2:first-of-type { margin-top: auto; padding-top: 14px; border-top: 1px solid #E2E1DB; }
+  .opt .check { margin-bottom: 14px; }
+
+  /* Close */
+  .close-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; flex: 1; }
+  .close .close-grid h2 { font-size: 42px; margin-top: 0; }
+  .close .close-grid .lead { font-size: 17px; }
+  .invest { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 24px 26px; }
+  .invest .k { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+  .invest .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 15px; }
+  .invest .row span { color: rgba(255,255,255,.8); }
+  .invest .row b { white-space: nowrap; }
+  .invest .row.sub { border-top: 0; padding-top: 0; font-size: 13.5px; }
+  .invest .row.sub span, .invest .row.sub b { color: rgba(255,255,255,.55); font-weight: 500; padding-left: 0; }
+  .invest p { font-size: 12.5px; color: rgba(255,255,255,.5); margin-top: 12px; }
+
+  /* Traffic value explainer */
+  .price.tw { padding: 22px 24px; }
+  .price.tw .tw-lead { font-size: 15.5px; color: #fff; margin-top: 8px; line-height: 1.5; }
+  .tw-ex { background: rgba(255,255,255,.08); border-radius: 10px; padding: 10px 12px; margin-top: 12px; }
+  .tw-ex span { display: block; font-size: 12px; color: rgba(255,255,255,.6); }
+  .tw-ex b { display: block; font-size: 14px; margin-top: 2px; }
+
+  /* Process steps as lists */
+  .flow ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+  .flow li { font-size: 14px; color: var(--ink); line-height: 1.4; padding-left: 16px; position: relative; }
+  .flow li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-ink); }
+  .flow > div { padding: 20px 22px 22px; }
+  .flow > div:not(:last-child) { position: relative; }
+  .flow > div:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 26px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+
+  /* Retainer cycle */
+  .cyc-wrap { display: grid; grid-template-columns: 600px 1fr; gap: 36px; align-items: center; flex: 1; min-height: 0; }
+  .ring { position: relative; width: 600px; height: 460px; }
+  .ring svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ring-arc { transform-origin: 300px 230px; transform: rotate(-155deg); }
+  .ring-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .ring-center b { display: block; font-size: 22px; font-weight: 900; letter-spacing: -0.03em; color: var(--forest); }
+  .ring-center span { font-size: 13.5px; color: var(--gray); }
+  .node {
+    position: absolute; width: 176px; transform: translate(-50%, -50%);
+    background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px 13px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.05);
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .node em { font-style: normal; font-size: 11.5px; font-weight: 800; color: var(--accent-ink); }
+  .node b { display: block; font-size: 16px; letter-spacing: -0.015em; margin-top: 1px; }
+  .node p { font-size: 12.5px; color: var(--gray); line-height: 1.4; margin-top: 4px; }
+  .node.n1 { left: 300px; top: 60px; }
+  .node.n2 { left: 470px; top: 230px; }
+  .node.n3 { left: 300px; top: 400px; }
+  .node.n4 { left: 130px; top: 230px; }
+  .node.on { border-color: var(--accent); box-shadow: 0 8px 24px rgba(47,138,94,.22); }
+  .cyc-side { display: flex; flex-direction: column; gap: 16px; }
+  .cyc-side .fast p { font-size: 15px; }
+
+  /* ================= Controls ================= */
+  .ctrl {
+    position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 50px; padding: 5px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .ctrl button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; font: 700 16px var(--font); color: var(--ink); display: grid; place-items: center; }
+  .ctrl button:hover { background: var(--card); }
+  .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
+  .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
+  body:not(.stack) .s-foot .pg { visibility: hidden; }
+  .progress { position: fixed; left: 0; top: 0; height: 3px; background: var(--accent); z-index: 50; transition: width .3s ease; }
+
+  /* ================= Stacked mode (phones / portrait) ================= */
+  body.stack { overflow: auto; background: #fff; }
+  .stack .deck { position: static; }
+  .stack .slide {
+    position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto;
+    opacity: 1; visibility: visible; box-shadow: none; padding: 48px 16px 0;
+    border-bottom: 8px solid #EEEDE8;
+  }
+  .stack .ctrl, .stack .progress { display: none; }
+  .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
+  .stack .s-head h2, .stack .cockpit-intro h2 { font-size: 26px; }
+  .stack .s-head .s-sub { font-size: 15px; }
+  .stack .s-logo { height: 40px; }
+  .stack .grid3, .stack .grid2, .stack .canni, .stack .tracks, .stack .tiers, .stack .phase, .stack .cockpit,
+  .stack .pg-grid.c4, .stack .pg-grid.c3, .stack .pg-grid.c1, .stack .pgc.wide, .stack .cycle, .stack .cases { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .slide * { min-width: 0; }
+  .stack .hub-nav button, .stack .h-btn, .stack .chip { min-width: auto; }
+  .stack .cyc::after { display: none; }
+  .stack .proof { flex-direction: column; }
+  .stack .stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .stack .stat { padding: 14px; }
+  .stack .stat b { font-size: 24px; }
+  .stack .take { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 15px; margin-top: 22px; }
+  .stack .cover { padding-top: 40px; }
+  .stack .cover h1 { font-size: 34px; margin-top: 40px; }
+  .stack .cover .for { font-size: 17px; }
+  .stack .cover .logos { flex-wrap: wrap; gap: 10px; }
+  .stack .cover .logos div { width: calc(50% - 5px); height: 72px; }
+  .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
+  .stack .road a { grid-template-columns: 44px 1fr auto; gap: 6px 14px; padding: 14px; }
+  .stack .road .d { grid-column: 2 / 4; }
+  .stack .road .n { grid-row: span 2; width: 38px; height: 38px; }
+  .stack .road .pr { font-size: 14.5px; }
+  .stack .goals li { grid-template-columns: 40px 1fr; font-size: 15px; }
+  .stack .goals .mini { grid-column: 2; }
+  .stack .num { font-size: 44px; }
+  .stack .canni .p { font-size: 64px; }
+  .stack .close h2 { font-size: 32px; }
+  .stack .price .v { font-size: 40px; }
+  .stack table.plan td.lg, .stack table.plan th.lg, .stack table.plan td.n, .stack table.plan th.n { display: none; }
+  .stack table.plan { font-size: 13.5px; }
+  .stack .vs { grid-template-columns: 1fr; }
+  .stack .vs-arrow { transform: rotate(90deg); }
+  .stack .kpi3, .stack .steps5, .stack .flow, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .vs-res { flex-direction: column; gap: 4px; }
+  .stack .close .close-grid h2 { font-size: 30px; }
+  .stack table.prog td.lg { width: 80px; }
+  .stack table.prog td.lg img { height: 24px; max-width: 70px; }
+  .stack table.prog td { font-size: 13px; padding: 10px 6px; }
+  .stack table.prog th:nth-child(2), .stack table.prog td:nth-child(2) { display: none; }
+  .stack .cyc-wrap { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .ring { width: auto; height: auto; display: flex; flex-direction: column; gap: 8px; }
+  .stack .ring svg, .stack .ring-center { display: none; }
+  .stack .node { position: static; transform: none; width: auto; }
+  .stack .flow > div::after { display: none; }
+  .stack table.kw { font-size: 14px; }
+  .stack table.kw .r, .stack table.plan .r { white-space: normal; }
+  .stack .pos { min-width: 0; }
+  .stack .ft { white-space: normal; }
+  .stack table.kw td, .stack table.kw th { padding-left: 6px; padding-right: 6px; }
+
+  /* ================= Print / PDF ================= */
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: #fff; }
+    .deck { position: static; }
+    .slide { position: relative; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; box-shadow: none; break-after: page; page-break-after: always; }
+    .ctrl, .progress { display: none !important; }
+    body:not(.stack) .s-foot .pg { visibility: visible; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ================= Klickmeister additions ================= */
+  .mark { font-weight: 900; letter-spacing: -0.03em; color: var(--black); white-space: nowrap; }
+  .mark i { font-style: normal; color: var(--accent-ink); }
+  .s-mark { font-size: 22px; flex-shrink: 0; padding-top: 8px; }
+  .cover .client { display: inline-flex; align-self: flex-start; margin-top: 44px; background: #fff; border-radius: 14px; padding: 20px 34px; }
+  .cover .client .mark { font-size: 34px; }
+
+  table.kw.dense td { padding: 9px 12px; font-size: 15px; }
+  table.kw td small { display: block; font-size: 12.5px; color: var(--gray); margin-top: 2px; }
+  table.kw tr.me td { background: var(--tint); }
+
+  table.pot { width: 100%; border-collapse: collapse; font-size: 16px; }
+  table.pot th { text-align: right; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 14px 10px; border-bottom: 2px solid var(--ink); }
+  table.pot th:first-child { text-align: left; }
+  table.pot td { padding: 14px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+  table.pot td:first-child { text-align: left; font-weight: 600; white-space: normal; }
+  table.pot td:first-child small { display: block; font-size: 13px; color: var(--gray); font-weight: 500; margin-top: 2px; }
+  table.pot td.big { font-size: 22px; font-weight: 900; color: var(--forest); letter-spacing: -0.02em; }
+  table.pot tr.hl td { background: var(--tint); }
+
+  .rev { display: flex; flex-direction: column; gap: 12px; }
+  .rev .bar-t { height: 30px; }
+
+  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .steps4 > div { background: var(--card); border-radius: 16px; padding: 18px 18px 20px; }
+  .steps4 .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .steps4 b { display: block; font-size: 16.5px; letter-spacing: -0.015em; }
+  .steps4 p { font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+  .steps4.run > div { background: var(--tint); }
+  .steps4.run .n { background: var(--accent-ink); }
+  .ph { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+  .ph b { font-size: 17px; font-weight: 800; }
+  .ph span { font-size: 13.5px; color: var(--gray); font-weight: 600; }
+
+  .cats { display: flex; flex-direction: column; gap: 8px; }
+  .cats > div { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; background: var(--card); border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 700; }
+  .cats > div span { font-size: 12.5px; color: var(--gray); font-weight: 600; }
+  .cats > div.later { background: #fff; border: 1.5px dashed var(--gray2); font-weight: 600; color: var(--gray); }
+  .cats > div.later span { color: var(--gray2); }
+
+  .tech { list-style: none; display: flex; flex-direction: column; gap: 10px; counter-reset: t; }
+  .tech li { counter-increment: t; display: grid; grid-template-columns: 34px 1fr; gap: 14px; background: var(--card); border-radius: 12px; padding: 14px 16px; font-size: 14.5px; line-height: 1.45; color: var(--gray); }
+  .tech li::before { content: counter(t); width: 30px; height: 30px; border-radius: 8px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 14px; }
+  .tech li b { display: block; color: var(--ink); font-size: 15.5px; margin-bottom: 2px; }
+
+  .domains { display: flex; flex-direction: column; gap: 10px; }
+  .domains > div { display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 20px; }
+  .domains > div b { font-size: 20px; letter-spacing: -0.02em; }
+  .domains > div span { font-size: 13px; font-weight: 700; color: var(--gray); }
+  .domains > div.main { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .domains > div.main b { font-size: 30px; }
+  .domains > div.main span { color: var(--accent); }
+
+  .tiers .tier .v { font-size: 46px; }
+  .cost-rows { list-style: none; display: flex; flex-direction: column; }
+  .cost-rows li { display: grid; grid-template-columns: 1fr 120px 120px; gap: 12px; padding: 14px 4px; border-bottom: 1px solid var(--line); font-size: 16px; align-items: baseline; }
+  .cost-rows li.h { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); border-bottom: 2px solid var(--ink); padding-top: 0; padding-bottom: 10px; }
+  .cost-rows li span:not(:first-child) { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cost-rows li.h span { font-weight: 700; }
+  .cost-rows li small { display: block; font-size: 13px; color: var(--gray); margin-top: 2px; }
+  .cost-rows li .dash { color: var(--gray2); font-weight: 600; }
+  .cost-rows li.m span:last-child { color: var(--forest); }
+
+  .qs { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .qs li { display: flex; gap: 12px; align-items: flex-start; padding: 11px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 15px; color: rgba(255,255,255,.85); line-height: 1.45; }
+  .qs li::before { content: ""; flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid rgba(255,255,255,.45); margin-top: 1px; }
+
+  #rankings .s-head { margin-bottom: 18px; }
+  #rankings .steps4 > div { padding: 14px 16px 16px; }
+  #rankings .steps4 .n { margin-bottom: 8px; }
+  .stack .s-mark { font-size: 17px; padding-top: 0; }
+  .stack .cover .client { padding: 14px 22px; }
+  .stack .cover .client .mark { font-size: 24px; }
+  .stack .steps4 { grid-template-columns: minmax(0, 1fr); }
+  .stack table.pot { font-size: 13.5px; }
+  .stack table.pot td, .stack table.pot th { padding-left: 6px; padding-right: 6px; white-space: normal; }
+  .stack table.pot td.big { font-size: 16px; }
+  .stack table.pot th:nth-child(2), .stack table.pot td:nth-child(2), .stack table.pot th:nth-child(3), .stack table.pot td:nth-child(3) { display: none; }
+  .stack table.kw.comp th:nth-child(2), .stack table.kw.comp td:nth-child(2), .stack table.kw.comp th:nth-child(4), .stack table.kw.comp td:nth-child(4) { display: none; }
+  .stack .cost-rows li { grid-template-columns: 1fr 76px 76px; font-size: 14px; }
+  .stack .domains > div.main b { font-size: 22px; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- Cover -->
+  <section class="slide dark cover">
+    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
+    <h1>Eigener Webshop für Klickmeister: SEO-Konzept und Angebot</h1>
+    <p class="for">Klettband über Google verkaufen, neben Amazon</p>
+    <div class="client"><span class="mark">Klick<i>meister</i></span></div>
+    <div class="meta">
+      <div>Von<b>Darya Kablash, GetMarketing</b></div>
+      <div>Stand<b>12. Oktober 2026</b></div>
+      <div>Datenbasis<b style="font-weight:400;color:rgba(255,255,255,.7)">Semrush und SISTRIX, Deutschland, Oktober 2026</b></div>
+    </div>
+    <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
+  </section>
+
+  <!-- Kurz vorweg -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Kurz vorweg: Viele suchen nach Klettband, und bei Google ist die Konkurrenz schwach</h2>
+        <p class="s-sub">Ich hab mir deinen Amazon-Shop und den Markt bei Google genauer angeschaut. Hier die wichtigsten Zahlen.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="grid3">
+        <div class="card"><div class="num">34.000</div><div class="lbl">Suchanfragen pro Monat in Deutschland, die zu deinem Produkt passen</div></div>
+        <div class="card"><div class="num">2–5 Tsd.</div><div class="lbl">Besucher pro Monat über Google halte ich nach 12 bis 18 Monaten für realistisch</div></div>
+        <div class="card"><div class="num">250 €</div><div class="lbl">im Monat für laufendes SEO, dazu einmalig Shop und Google Shopping</div></div>
+      </div>
+      <div class="note" style="margin-top:22px"><b>Ehrlich gesagt:</b> Ein Shop mit nur einem Produkt um die 10 € wirft über SEO allein kaum Geld ab. Richtig spannend wird es, wenn du ein paar größere Sachen dazunimmst (Sets, Großrollen, Mengenrabatte) und Google Shopping mitläuft.</div>
+      <div class="take"><b class="k">Mein Vorschlag</b>Klein und günstig starten: einfacher WordPress-Shop, Google Shopping einmal sauber einrichten und SEO laufend für 250 € im Monat. So bleibt dein Risiko überschaubar und wir sehen schnell, ob es sich lohnt.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Wo du stehst -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Wo du gerade stehst: eine Produktlinie auf Amazon mit solider Basis</h2>
+        <p class="s-sub">Alle Varianten des Klickmeister-Klettbands hängen an einem Listing und teilen sich die Bewertungen.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.35fr 1fr;gap:36px">
+        <div>
+          <table class="kw">
+            <thead><tr><th>Gruppe im Brand Store</th><th>Breite</th><th>Längen</th><th class="r">Preis</th></tr></thead>
+            <tbody>
+              <tr><td><b>Extra stark</b></td><td>50 mm</td><td>1 m, 3 m</td><td class="r">7,95 bis 11,95 €</td></tr>
+              <tr><td><b>Schmal</b></td><td>16 bis 30 mm</td><td>3 m bis 20 m</td><td class="r">8,95 bis 19,95 €</td></tr>
+              <tr><td><b>Extra slim</b></td><td>10 mm</td><td>8 m</td><td class="r">9,95 €</td></tr>
+            </tbody>
+          </table>
+          <div class="stats" style="grid-template-columns:1fr 1fr;margin-top:20px">
+            <div class="stat"><b>506</b><span>Bewertungen auf dem gemeinsamen Listing</span></div>
+            <div class="stat"><b>4,4 ★</b><span>Durchschnitt, eine solide Basis</span></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="card" style="padding:22px 24px">
+            <div class="col-h" style="margin-bottom:10px">Auf Amazon ist es eng</div>
+            <p style="font-size:15px;line-height:1.5"><b>Blooven</b> hat über 36.000 Bewertungen und verkauft für 8,99 €, dahinter kommen Fesoar, STARKL, ToolTopia und 3M.</p>
+            <p class="lbl" style="font-size:14px">Über den Preis mitzuhalten wird schwer. Ein eigener Shop gibt dir einen zweiten Kanal, auf dem du nicht direkt neben denen stehst.</p>
+          </div>
+          <div class="note"><b>Vorher fixen:</b> Eine aktuelle 1-Stern-Bewertung zur 10-mm-Variante beschwert sich über Kleber an der Verpackung und eine Schutzfolie, die reißt. Das schadet dir im Shop genauso wie auf Amazon.</div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Suchvolumen -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Rund 34.000 Suchen im Monat, zwei Drittel davon für genau dein Produkt</h2>
+        <p class="s-sub">Gut zwei Drittel der Suchen drehen sich direkt um selbstklebendes Klettband, also genau das, was du schon verkaufst.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.2fr 1fr;gap:40px">
+        <div>
+          <div class="col-h">Die größten Begriffe</div>
+          <table class="kw">
+            <thead><tr><th>Suchbegriff</th><th class="r">Suchen / Monat</th><th class="r">Keyword Difficulty</th></tr></thead>
+            <tbody>
+              <tr><td>klettband</td><td class="r">5.400</td><td class="r" rowspan="2"><span class="pos">21 bis 29</span></td></tr>
+              <tr><td>klettband selbstklebend</td><td class="r">5.400</td></tr>
+              <tr><td>fast alle kleineren Begriffe<small>z. B. „klettband fliegengitter“, „klettband extra stark“</small></td><td class="r"></td><td class="r"><span class="pos">unter 15</span></td></tr>
+            </tbody>
+          </table>
+          <p class="small-note">Für einen Shop-Markt ist das echt niedrig. Marken-Suchen (3M, tesa, Velcro) holen wir nur, wenn du die Marken auch führst.</p>
+        </div>
+        <div>
+          <div class="col-h">So verteilen sich die 34.000 Suchen</div>
+          <div class="bars">
+            <div><div class="bar-l">Selbstklebendes Klettband<span>gut zwei Drittel</span></div><div class="bar-t"><div class="bar-f" style="width:68%;background:var(--forest)"></div></div></div>
+            <div><div class="bar-l">Übrige Klettband-Suchen<span>knapp ein Drittel</span></div><div class="bar-t"><div class="bar-f" style="width:32%;background:var(--gray2)"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Die Nachfrage ist da, und die Hürde, bei Google nach oben zu kommen, ist niedrig. Vor allem die kleineren Begriffe sind schnell erreichbar.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister · Quelle: Semrush und SISTRIX, Deutschland, Stand Oktober 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Wettbewerb -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Die Spezialshops bei Google sind schwach aufgestellt</h2>
+        <p class="s-sub">Keiner kommt über Authority Score 26. Mit einem sauber gebauten Shop kommen wir bei den wichtigen Begriffen realistisch in die Top 5.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <table class="kw dense comp">
+        <thead><tr><th>Wettbewerber</th><th>Typ</th><th class="r">Authority Score</th><th class="r">Verweisende Domains</th><th class="r">Besuche / Monat</th><th>Wofür sie ranken</th></tr></thead>
+        <tbody>
+          <tr class="me"><td><b>klettshop24.de</b></td><td>Klett-Spezialist</td><td class="r">12</td><td class="r">ca. 1.900</td><td class="r">ca. 5.000</td><td>Platz 1 „klettband selbstklebend“, Platz 5 „klettband“</td></tr>
+          <tr><td><b>klebeshop24.de</b></td><td>Klebe-Sortiment</td><td class="r">26</td><td class="r">439</td><td class="r">ca. 14.000</td><td>2.400 Keywords, breites Sortiment</td></tr>
+          <tr><td><b>baender24.de</b></td><td>Bänder-Shop</td><td class="r">24</td><td class="r">393</td><td class="r">k. A.</td><td>Platz 3 „klettband“</td></tr>
+          <tr><td><b>schneidereibedarf-werner.de</b></td><td>Nähbedarf</td><td class="r">k. A.</td><td class="r">k. A.</td><td class="r">ca. 19.000</td><td>zeitweise Platz 1 „klettband“</td></tr>
+          <tr><td><b>molton-markt.de</b></td><td>Veranstaltungstechnik</td><td class="r">17</td><td class="r">k. A.</td><td class="r">k. A.</td><td>eigene Klettband-Kategorie</td></tr>
+        </tbody>
+      </table>
+      <div class="take"><b class="k">Der spannendste Vergleich</b>klettshop24.de hat viele, aber schwache Links und nur 285 Keywords. Mit 50 bis 100 guten Links im ersten Jahr kann man die einholen.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister · Quelle: Semrush und SISTRIX, Deutschland, Stand Oktober 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Große + SERP -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Neben den Großen ist Platz, und Google zeigt mehr als nur Links</h2>
+        <p class="s-sub">Beim Begriff „klettband“ verdrängen wir die großen Händler nicht, die Plätze dazwischen sind aber drin.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="gap:36px">
+        <div>
+          <div class="col-h">Die Großen auf Seite 1</div>
+          <div class="tags" style="margin-top:0">
+            <span>Amazon</span><span>eBay</span><span>OBI</span><span>Hornbach</span><span>Bauhaus</span><span>Kaufland</span><span>Würth</span>
+          </div>
+          <div class="card" style="margin-top:20px;padding:20px 22px">
+            <div class="col-h" style="margin-bottom:8px">Schneller Gewinn</div>
+            <p style="font-size:15px;line-height:1.5">Vergleichsportale wie <b>vergleich.org</b> ranken auch mit. Dort gelistet zu werden geht oft schnell.</p>
+          </div>
+        </div>
+        <div>
+          <div class="col-h">Was Google bei „klettband“ zusätzlich zeigt</div>
+          <ul class="check">
+            <li>Bilder</li>
+            <li>„Ähnliche Fragen“</li>
+            <li>Shopping-Anzeigen</li>
+            <li>YouTube-Videos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Gute Produktfotos, kurze Anwendungsvideos und ein Shopping-Feed bringen dir direkt Sichtbarkeit, noch bevor die organischen Rankings greifen.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Szenarien -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Was dabei rumkommen kann: Der Warenkorb entscheidet mehr als die Rankings</h2>
+        <p class="s-sub">Drei Szenarien, grob durchgerechnet, jeweils für die Zeit 12 bis 18 Monate nach Start.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <table class="pot">
+        <thead><tr><th>Szenario</th><th>Besuche / Monat</th><th>Conversion</th><th>Bestellungen</th><th>Warenkorb</th><th>Umsatz / Monat</th></tr></thead>
+        <tbody>
+          <tr><td>A: aktuelles Sortiment, nur SEO</td><td>3.000</td><td>2,5 %</td><td>75</td><td>15 €</td><td class="big">ca. 1.100 €</td></tr>
+          <tr><td>B: plus Sets, Staffeln, Großrollen</td><td>3.000</td><td>2,5 %</td><td>75</td><td>35 €</td><td class="big">ca. 2.600 €</td></tr>
+          <tr class="hl"><td>B plus Google Shopping<small>1.500 Klicks à 0,35 €</small></td><td>4.500</td><td>2,3 %</td><td>105</td><td>35 €</td><td class="big">ca. 3.700 €</td></tr>
+        </tbody>
+      </table>
+      <div class="grid3" style="margin-top:20px;gap:14px">
+        <div class="card" style="padding:18px 20px"><div class="col-h" style="margin-bottom:6px">Shopping-Budget</div><p class="lbl" style="margin:0">Das zahlst du direkt an Google, im Beispiel rund <b style="color:var(--ink)">525 € im Monat</b>. Du entscheidest selbst und kannst es jederzeit runterfahren.</p></div>
+        <div class="card" style="padding:18px 20px"><div class="col-h" style="margin-bottom:6px">Noch gegenrechnen</div><p class="lbl" style="margin:0">Marge, Versand und Retouren kennst du besser als ich, die fehlen in der Rechnung noch.</p></div>
+        <div class="card" style="padding:18px 20px"><div class="col-h" style="margin-bottom:6px">Tipp</div><p class="lbl" style="margin:0">Eine Versandkostenfrei-Grenze ab etwa <b style="color:var(--ink)">29 €</b> hilft, den Warenkorb hochzuziehen.</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister · grobe Schätzung</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Domain -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Domain und Name: Der Shop läuft unter „Klickmeister“</h2>
+        <p class="s-sub">Der Name steht schon auf deinen Verpackungen und im Brand Store, und er passt auch, falls du später mehr als Klettband verkaufst.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="gap:40px;align-items:start">
+        <div class="domains">
+          <div class="main"><b>klickmeister.de</b><span>Favorit, Verfügbarkeit prüfen</span></div>
+          <div><b>klickmeister-shop.de</b><span>Alternative 1</span></div>
+          <div><b>klick-berlin.de</b><span>Alternative 2</span></div>
+        </div>
+        <div class="card">
+          <div class="col-h">Warum nicht „klettband“ in der Domain?</div>
+          <p style="font-size:16px;line-height:1.55">Eine Domain mit dem Suchbegriff im Namen bringt heute kaum noch Ranking-Vorteile und wirkt eher austauschbar. Eine Marke bleibt hängen, und Bewertungen, Links und Bekanntheit zahlen auf denselben Namen ein wie auf Amazon.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Shopaufbau -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Wie wir den Shop bauen: schlank, günstig und ohne monatliche Shop-Gebühren</h2>
+        <p class="s-sub">WordPress mit WooCommerce auf einem fertigen Shop-Template, angepasst an deine Marke. Wo das Template nicht reicht, bauen wir einzelne Seiten selbst. Du zahlst nur Hosting und Domain, nicht wie bei Shopify jeden Monat.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="gap:36px">
+        <div>
+          <div class="col-h">Kategorien, die genau den Suchen entsprechen</div>
+          <div class="cats">
+            <div>Klettband selbstklebend<span>Hauptseite, alle Breiten und Längen</span></div>
+            <div>Extra stark<span>50 mm</span></div>
+            <div>Schmal und extra slim<span>10 bis 30 mm</span></div>
+            <div>Fliegengitter und Pollenschutz<span>Anwendung mit Anleitung</span></div>
+            <div class="later">Großrollen und Mengenrabatte<span>sobald im Sortiment</span></div>
+            <div class="later">Zum Nähen · beidseitig · Klettpunkte<span>später, mit passenden Produkten</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="col-h">Drei technische Sachen machen wir von Anfang an richtig</div>
+          <ol class="tech">
+            <li><span><b>Eine Seite pro Produkt, mit Varianten</b>Breite, Länge und Farbe als Auswahl. Elf einzelne Seiten für dieselbe Ware würden sich bei Google gegenseitig Konkurrenz machen.</span></li>
+            <li><span><b>Filter bleiben aus dem Index</b>Google sieht nur die Seiten, die ranken sollen.</span></li>
+            <li><span><b>Strukturierte Daten</b>Produktdaten, Preise und Bewertungen so ausgezeichnet, dass Google sie direkt anzeigen kann.</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Rankings -->
+  <section class="slide" id="rankings">
+    <div class="s-head">
+      <div>
+        <h2>Was wir für die Rankings tun</h2>
+        <p class="s-sub">Kleinere Begriffe wie „klettband fliegengitter“ ranken meist nach 3 bis 6 Monaten, die großen eher nach 12 bis 18. Bis dahin bringt Google Shopping den ersten Traffic.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="ph"><b>Start</b><span>Monat 1 bis 2</span></div>
+      <div class="steps4">
+        <div><div class="n">1</div><b>Shop aufsetzen</b><p>Domain sichern, WordPress-Shop aufsetzen, Produkte mit Varianten anlegen.</p></div>
+        <div><div class="n">2</div><b>Produktfotos</b><p>Saubere Bildbeschreibungen, dazu ein paar Fotos aus der Anwendung.</p></div>
+        <div><div class="n">3</div><b>Google Shopping</b><p>Merchant Center und Shopping einmal komplett einrichten.</p></div>
+        <div><div class="n">4</div><b>Bewertungen sammeln</b><p>Über Google-Kundenbewertungen mit Mail nach jedem Kauf. Amazon-Bewertungen lassen sich leider nicht mitnehmen.</p></div>
+      </div>
+      <div class="ph" style="margin-top:16px"><b>Laufend</b><span>ab Monat 2</span></div>
+      <div class="steps4 run">
+        <div><div class="n">1</div><b>Kategorietexte, die beraten</b><p>Welche Breite wofür, auf welchen Untergründen das Band hält, wie lange der Kleber braucht, wie man es wieder abbekommt.</p></div>
+        <div><div class="n">2</div><b>Ratgeber</b><p>Etwa zwei im Monat, z. B. „Fliegengitter mit Klettband befestigen“, mit FAQ für die „Ähnliche Fragen“-Box.</p></div>
+        <div><div class="n">3</div><b>Linkaufbau</b><p>Über DIY- und Nähblogs, Testportale und Berliner Lokalpresse.</p></div>
+        <div><div class="n">4</div><b>Auswerten und nachsteuern</b><p>Jeden Monat Search Console und Analytics: was funktioniert, was nicht.</p></div>
+      </div>
+      <p class="small-note" style="font-size:14px"><b>Was du beitragen kannst:</b> kurze Handyvideos zur Anwendung für YouTube, und wenn du Lust hast, das Sortiment um Sets oder Großrollen erweitern.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Cases -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Was ich in ähnlichen Projekten erreicht hab</h2>
+        <p class="s-sub">Damit du siehst, dass das kein Bauchgefühl ist: drei Projekte, die deinem am nächsten kommen. Die Namen lasse ich aus Rücksicht auf die Kunden weg.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="cases" style="grid-template-columns:repeat(3,1fr)">
+        <div class="case"><div class="ind">Schmuck-Onlineshop</div><div class="big">383K<small> / Monat</small></div><b>Organische Besucher</b><p>SEO mit automatisierter Content-Produktion für Kategorie- und Ratgeberseiten. Zeigt, wie weit ein Shop mit Content wachsen kann.</p></div>
+        <div class="case hl"><div class="ind">Nischen-Anbieter mit Spezialprodukt</div><div class="big">+96 %</div><b>Sichtbarkeit (SISTRIX), Platz 1 fürs wichtigste Produkt-Keyword</b><p>Technische SEO und Optimierung der Produktseiten. Am ehesten mit deiner Lage vergleichbar: ein klar umrissenes Produkt, bei dem man mit sauberen Produktseiten die Konkurrenz überholt.</p></div>
+        <div class="case"><div class="ind">Erste-Hilfe-Schule in Berlin</div><div class="big">~200<small> / Monat</small></div><b>Verkaufte Kurse über Google</b><p>Lokale SEO für die Kursseiten.</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Kosten -->
+  <section class="slide" id="kosten">
+    <div class="s-head">
+      <div>
+        <h2>Was es kostet: eine laufende Position, alles andere einmalig</h2>
+        <p class="s-sub">Ich hab versucht, den Einstieg für dich so klein wie möglich zu halten.</p>
+      </div>
+      <span class="mark s-mark">Klick<i>meister</i></span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.2fr 1fr;gap:36px">
+        <div>
+          <ul class="cost-rows">
+            <li class="h"><span>Was</span><span>Einmalig</span><span>Monatlich</span></li>
+            <li><span>Webshop<small>WordPress und WooCommerce, Template angepasst</small></span><span>990 €</span><span class="dash">–</span></li>
+            <li><span>Google Shopping einrichten<small>Merchant Center, Produktfeed, Kampagne</small></span><span>150 €</span><span class="dash">–</span></li>
+            <li class="m"><span>SEO<small>Texte, Ratgeber, Links, monatliche Auswertung</small></span><span class="dash">–</span><span>250 €</span></li>
+          </ul>
+          <p class="small-note"><b>Bei dir dazu:</b> Hosting und Domain (grob 10 bis 20 € im Monat) und das Werbebudget für Shopping, falls du Anzeigen schalten willst. Die Kampagne steht dann, und du drehst das Budget selbst hoch oder runter.</p>
+          <p class="small-note"><b>Später extra:</b> weitere Kategorien, ein Bereich für Firmenkunden oder Mengenstaffeln, z. B. 150 € pro zusätzlicher Seite.</p>
+        </div>
+        <div class="card">
+          <div class="col-h">Im Webshop für 990 € ist drin</div>
+          <ul class="check sm">
+            <li>WordPress mit WooCommerce auf einem Template, angepasst an deine Marke</li>
+            <li>Deine Produkte mit allen Varianten für Breite, Länge und Farbe</li>
+            <li>4 bis 5 Kategorie- und Anwendungsseiten</li>
+            <li>Zahlung über PayPal und Stripe, Versand eingerichtet</li>
+            <li>Einbindung der Rechtstexte</li>
+            <li>Saubere technische SEO-Basis mit strukturierten Daten</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Close -->
+  <section class="slide dark close" id="loslegen">
+    <div class="s-body">
+      <div class="close-grid">
+        <div>
+          <h2>Nächster Schritt: ein paar Fragen klären, dann legen wir los</h2>
+          <p class="lead">Start mit 1.140 € einmalig und 250 € im Monat. Dein Risiko bleibt überschaubar, und wir sehen schnell, ob es sich lohnt.</p>
+          <div class="who">
+            <img src="/darya.jpg" alt="Darya Kablash" />
+            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
+          </div>
+          <div style="margin-top:30px">
+            <a class="btn btn-light" href="mailto:darya@getmarketing.team?subject=Klickmeister%20Webshop%20%E2%80%93%20Start">Jetzt starten</a>
+          </div>
+        </div>
+        <div class="invest">
+          <div class="k">Was ich noch von dir bräuchte</div>
+          <ul class="qs">
+            <li>Passt dir „Klickmeister“ als Shop-Name?</li>
+            <li>Hast du Lust, das Sortiment zu erweitern (Sets, Großrollen, beidseitiges Band, Klettpunkte)?</li>
+            <li>Wie sehen deine Marge und Versandkosten pro Bestellung ungefähr aus?</li>
+            <li>Fragen bei dir schon Firmen nach größeren Mengen?</li>
+            <li>Würdest du anfangs Shopping-Anzeigen schalten wollen?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klickmeister</span><span class="pg"></span></div>
+  </section>
+
+</main>
+<div class="ctrl" id="ctrl">
+  <button id="prev" aria-label="Vorherige Folie">←</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="next" aria-label="Nächste Folie">→</button>
+  <button id="fs" aria-label="Vollbild" title="Vollbild (F)">⤢</button>
+</div>
+
+<script>
+/* ---- Deck: 16:9 stage, one slide at a time; stacked on phones ---- */
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count'), bar = document.getElementById('progress');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var cur = 0;
+  slides.forEach(function (s, i) { s.querySelectorAll('.pg').forEach(function (pg) { pg.textContent = i + 1; }); });
+
+  function stacked() { return document.body.classList.contains('stack'); }
+  function fit() {
+    var stack = innerWidth < 800 || (innerWidth < 1000 && innerHeight > innerWidth);
+    document.body.classList.toggle('stack', stack);
+    if (!stack) {
+      var s = Math.min(innerWidth / 1280, innerHeight / 720);
+      if (!document.fullscreenElement) s *= 0.96;
+      document.documentElement.style.setProperty('--s', s);
+    }
+  }
+  function show(n, initial) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    count.textContent = (cur + 1) + ' / ' + slides.length;
+    bar.style.width = ((cur + 1) / slides.length * 100) + '%';
+    prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+    if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
+    if (!initial) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (!h) return 0;
+    if (/^\d+$/.test(h)) return +h - 1;
+    var el = document.getElementById(h);
+    return el ? slides.indexOf(el.closest('.slide')) : 0;
+  }
+  function toggleFs() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+
+  prev.addEventListener('click', function () { show(cur - 1); });
+  next.addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('fs').addEventListener('click', toggleFs);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    show(slides.indexOf(el.closest('.slide')));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || stacked()) return;
+    if (e.target.closest && e.target.closest('#hub, input, textarea, select')) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    else if (k === 'f' || k === 'F') { toggleFs(); }
+  });
+
+  // swipe on touch screens in deck mode
+  var tx = null, ty = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null || stacked() || e.target.closest('#hub')) { tx = null; return; }
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    if (!stacked()) return;
+    var line = innerHeight * 0.4, best = 0;
+    for (var i = 0; i < slides.length; i++) if (slides[i].getBoundingClientRect().top <= line) best = i;
+    cur = best;
+  }, { passive: true });
+
+  window.addEventListener('resize', fit);
+  document.addEventListener('fullscreenchange', fit);
+  fit();
+  show(fromHash(), true);
+})();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
