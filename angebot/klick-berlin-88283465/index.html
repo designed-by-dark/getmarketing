@@ -621,49 +621,7 @@
   table.fun tr.sum td:last-child { color: var(--forest); font-size: 18px; }
   table.fun tr.add td { color: var(--accent-ink); }
 
-  .verdict { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .vd { border-radius: 16px; padding: 20px 22px; border: 1.5px solid var(--line); display: flex; flex-direction: column; }
-  .vd .k { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); }
-  .vd .v { font-size: 38px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; color: var(--ink); }
-  .vd .v small { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--gray); }
-  .vd .t { font-size: 15px; font-weight: 800; margin-top: 10px; }
-  .vd p { font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
-  .vd.meh .v, .vd.meh .t { color: var(--warn); }
-  .vd.yes { background: var(--tint); border-color: var(--tint); }
-  .vd.yes .v, .vd.yes .t { color: var(--forest); }
-  .vd.mid .v, .vd.mid .t { color: var(--accent-ink); }
-
-  table.be { width: 100%; border-collapse: collapse; font-size: 15px; }
-  table.be th { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 10px 8px; border-bottom: 2px solid var(--ink); text-align: right; }
-  table.be th:first-child { text-align: left; }
-  table.be td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
-  table.be td:first-child { text-align: left; font-weight: 600; }
-  table.be td.ok { color: var(--forest); }
-  table.be td.no { color: var(--warn); }
-
-  .calc-box { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; flex: 1; min-height: 0; }
-  .ctl { display: flex; flex-direction: column; gap: 14px; }
-  .ctl label { display: block; }
-  .ctl .lr { display: flex; justify-content: space-between; font-size: 14.5px; font-weight: 600; margin-bottom: 6px; }
-  .ctl .lr output { font-weight: 800; color: var(--forest); font-variant-numeric: tabular-nums; }
-  .ctl .lr small { display: block; font-size: 12px; color: var(--gray); font-weight: 500; }
-  .ctl input[type=range] { width: 100%; accent-color: var(--accent-ink); height: 22px; }
-  .presets { display: flex; gap: 8px; flex-wrap: wrap; }
-  .presets button { font: 700 13px var(--font); padding: 7px 12px; border-radius: 8px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
-  .presets button:hover, .presets button.on { border-color: var(--accent-ink); background: var(--tint); color: var(--forest); }
-  .res { background: var(--forest); color: #fff; border-radius: 18px; padding: 24px 26px; display: flex; flex-direction: column; }
-  .res .row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 15px; font-variant-numeric: tabular-nums; }
-  .res .row:first-of-type { border-top: 0; }
-  .res .row span { color: rgba(255,255,255,.75); }
-  .res .row b { white-space: nowrap; }
-  .res .row.neg b { color: #F3B49A; }
-  .res .total { margin-top: 10px; padding-top: 14px; border-top: 2px solid rgba(255,255,255,.35); display: flex; justify-content: space-between; align-items: baseline; }
-  .res .total span { font-size: 15px; font-weight: 700; }
-  .res .total b { font-size: 40px; font-weight: 900; letter-spacing: -0.04em; color: var(--accent); }
-  .res .total b.neg { color: #F3B49A; }
-  .res .pay { font-size: 13.5px; color: rgba(255,255,255,.7); margin-top: 10px; line-height: 1.5; }
-
-  .stack .season, .stack .verdict, .stack .calc-box { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .season { grid-template-columns: minmax(0, 1fr) !important; }
   .stack table.kw.comp, .stack table.pot { table-layout: fixed; }
   .stack table.pot th:nth-child(4), .stack table.pot td:nth-child(4) { display: none; }
   .stack table.kw.comp td { overflow-wrap: anywhere; }
@@ -674,9 +632,6 @@
   .stack table.fun { font-size: 13px; }
   .stack table.fun td, .stack table.fun th { padding: 7px 5px; }
   .stack table.fun th:nth-child(2), .stack table.fun td:nth-child(2), .stack table.fun th:nth-child(4), .stack table.fun td:nth-child(4) { display: none; }
-  .stack table.be { font-size: 13px; }
-  .stack table.be td, .stack table.be th { padding: 7px 5px; }
-  .stack .vd .v { font-size: 30px; }
 </style>
 </head>
 <body>
@@ -715,7 +670,7 @@
         <div class="card"><div class="num">250 €</div><div class="lbl">im Monat für laufendes SEO, dazu einmalig Shop und Google Shopping</div></div>
       </div>
       <div class="note" style="margin-top:22px"><b>Ehrlich gesagt:</b> Ein Shop mit nur einem Produkt um die 10 € wirft über SEO allein kaum Geld ab. Richtig spannend wird es, wenn du ein paar größere Sachen dazunimmst (Sets, Großrollen, Mengenrabatte) und Google Shopping mitläuft.</div>
-      <div class="take"><b class="k">Lohnt sich das?</b>Mit dem heutigen Sortiment knapp: nach 12 bis 18 Monaten bleiben grob 200 € im Monat übrig. Mit Sets und Großrollen klar: eher 800 €. Deshalb mein Vorschlag, klein zu starten und das Sortiment mitwachsen zu lassen. Die Rechnung dazu kommt weiter hinten.</div>
+      <div class="take"><b class="k">Mein Vorschlag</b>Klein und günstig starten: einfacher WordPress-Shop, Google Shopping einmal sauber einrichten und SEO laufend für 250 € im Monat. So bleibt dein Risiko überschaubar und wir sehen schnell, ob es sich lohnt.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin</span><span class="pg"></span></div>
   </section>
@@ -967,114 +922,6 @@
       </div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · grobe Schätzung</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Lohnt sich das? -->
-  <section class="slide" id="lohnt">
-    <div class="s-head">
-      <div>
-        <h2>Lohnt sich das? Es hängt am Warenkorb, nicht an den Besuchern</h2>
-        <p class="s-sub">Laufende Kosten: 250 € SEO plus rund 15 € Hosting, also 265 € im Monat. So viele Bestellungen brauchst du, damit der Shop das trägt, je nachdem was dir pro Bestellung nach Ware, Versand und Gebühren bleibt.</p>
-      </div>
-      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
-    </div>
-    <div class="s-body">
-      <div class="grid2" style="grid-template-columns:1fr 1fr;gap:36px">
-        <div>
-          <div class="col-h">Bestellungen pro Monat bis zur Kostendeckung</div>
-          <table class="be">
-            <thead><tr><th>Dir bleiben vom Warenkorb</th><th>Warenkorb 15 €</th><th>Warenkorb 35 €</th></tr></thead>
-            <tbody>
-              <tr><td>30 %</td><td>59</td><td>26</td></tr>
-              <tr><td>40 %</td><td>45</td><td>19</td></tr>
-              <tr><td>50 %</td><td>36</td><td>16</td></tr>
-              <tr><td>Prognose nach 12–18 Monaten</td><td class="ok">75</td><td class="ok">75</td></tr>
-            </tbody>
-          </table>
-          <p class="small-note">Bei 15 € Warenkorb ist der Puffer klein: Wenn statt 3.000 nur 2.000 Besucher kommen (50 Bestellungen), bleibt bei 40 % kaum etwas übrig. Bei 35 € trägt sich der Shop schon ab rund 800 Besuchern.</p>
-        </div>
-        <div>
-          <div class="col-h">Ergebnis pro Monat nach 12–18 Monaten, bei 40 %</div>
-          <div class="verdict" style="grid-template-columns:1fr;gap:10px">
-            <div class="vd meh" style="flex-direction:row;align-items:center;justify-content:space-between;padding:14px 20px"><div><div class="k">A · heutiges Sortiment</div><div class="t" style="margin-top:4px">knapp</div></div><div class="v" style="margin:0">+185 €</div></div>
-            <div class="vd yes" style="flex-direction:row;align-items:center;justify-content:space-between;padding:14px 20px"><div><div class="k">B · plus Sets und Großrollen</div><div class="t" style="margin-top:4px">lohnt sich</div></div><div class="v" style="margin:0">+785 €</div></div>
-            <div class="vd mid" style="flex-direction:row;align-items:center;justify-content:space-between;padding:14px 20px"><div><div class="k">B plus Shopping (525 € Budget)</div><div class="t" style="margin-top:4px">mehr Umsatz, ähnlicher Gewinn</div></div><div class="v" style="margin:0">+660 €</div></div>
-          </div>
-          <p class="small-note">Rechnung: Bestellungen × Warenkorb × 40 % − 265 € (− Werbebudget). Die 40 % sind ein Platzhalter, mit deinen echten Zahlen rechne ich das gern neu.</p>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Rechenbeispiel, keine Garantie</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Shopping & Amortisation -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <h2>Zwei Dinge, die man vorher wissen sollte</h2>
-        <p class="s-sub">Das erste Jahr ist eine Investition, und Google Shopping lohnt sich nur mit größerem Warenkorb.</p>
-      </div>
-      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
-    </div>
-    <div class="s-body">
-      <div class="grid2" style="gap:28px">
-        <div class="card">
-          <div class="col-h">1 · Das erste Jahr</div>
-          <div class="num" style="font-size:50px">ca. 4.300 €</div>
-          <div class="lbl">Kosten im ersten Jahr: 1.140 € einmalig plus 12 × 265 € laufend, ohne Werbebudget.</div>
-          <ul class="check sm" style="margin-top:16px">
-            <li>Die Rankings wachsen über Monate, in den ersten 6 bis 9 Monaten zahlst du drauf.</li>
-            <li>Ab dem Niveau der Szenarien sind die 1.140 € Einmalkosten bei Szenario B in rund 1,5 Monaten wieder drin, bei A erst nach rund 6 Monaten.</li>
-            <li>Nach 6 Monaten sehen wir an den kleinen Begriffen klar, ob es funktioniert.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="col-h">2 · Was eine Shopping-Bestellung kostet</div>
-          <div class="num warn" style="font-size:50px">ca. 15 €</div>
-          <div class="lbl">Werbekosten pro Bestellung: 0,35 € pro Klick, und nur 2,3 von 100 Klicks kaufen.</div>
-          <ul class="check sm" style="margin-top:16px">
-            <li>Bei 15 € Warenkorb frisst die Anzeige den ganzen Umsatz, das lohnt sich nicht.</li>
-            <li>Bei 35 € Warenkorb lohnt es sich ab rund 45 % Marge, vorher nur als Starthilfe für Sichtbarkeit und Bewertungen.</li>
-            <li>Deshalb erst Sets und Großrollen, dann das Budget hochdrehen. Die Kampagne richten wir trotzdem gleich ein.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="take"><b class="k">Unterm Strich</b>Der Shop lohnt sich, wenn der Warenkorb wächst. Mit 10-€-Rollen allein bleibt es ein Nebenkanal, der sich gerade so trägt. Mit Sets, Großrollen und Mengenrabatten wird ein echtes zweites Standbein neben Amazon daraus, ohne Amazon-Gebühren auf jede Bestellung.</div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Rechenbeispiel auf Basis der Szenarien</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Rechner -->
-  <section class="slide" id="rechner">
-    <div class="s-head">
-      <div>
-        <h2>Rechne selbst: Was bleibt dir pro Monat?</h2>
-        <p class="s-sub">Schieb die Regler auf deine Zahlen. Alle Werte gelten für die Zeit 12 bis 18 Monate nach Start.</p>
-      </div>
-      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
-    </div>
-    <div class="s-body">
-      <div class="calc-box" id="calc">
-        <div class="ctl">
-          <div class="presets"><button type="button" data-p="A">Szenario A</button><button type="button" data-p="B" class="on">Szenario B</button><button type="button" data-p="C">B plus Shopping</button></div>
-          <label><div class="lr"><span>Besuche über Google (organisch)</span><output id="o-v"></output></div><input type="range" id="i-v" min="500" max="6000" step="100" value="3000" /></label>
-          <label><div class="lr"><span>Shopping-Klicks pro Monat <small>à 0,35 €</small></span><output id="o-s"></output></div><input type="range" id="i-s" min="0" max="3000" step="100" value="0" /></label>
-          <label><div class="lr"><span>Conversion-Rate</span><output id="o-c"></output></div><input type="range" id="i-c" min="1" max="4" step="0.1" value="2.5" /></label>
-          <label><div class="lr"><span>Durchschnittlicher Warenkorb</span><output id="o-w"></output></div><input type="range" id="i-w" min="10" max="60" step="1" value="35" /></label>
-          <label><div class="lr"><span>Dir bleiben vom Warenkorb <small>nach Ware, Versand, Gebühren</small></span><output id="o-m"></output></div><input type="range" id="i-m" min="15" max="70" step="1" value="40" /></label>
-        </div>
-        <div class="res">
-          <div class="row"><span>Bestellungen pro Monat</span><b id="r-o"></b></div>
-          <div class="row"><span>Umsatz</span><b id="r-u"></b></div>
-          <div class="row"><span>Davon bleibt dir</span><b id="r-d"></b></div>
-          <div class="row neg"><span>SEO und Hosting</span><b>− 265 €</b></div>
-          <div class="row neg"><span>Shopping-Budget</span><b id="r-a"></b></div>
-          <div class="total"><span>Ergebnis pro Monat</span><b id="r-t"></b></div>
-          <p class="pay" id="r-p"></p>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Rechner, Werte sind Annahmen</span><span class="pg"></span></div>
   </section>
 
   <!-- Domain -->
@@ -1330,7 +1177,7 @@
   var tx = null, ty = null;
   document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
   document.addEventListener('touchend', function (e) {
-    if (tx === null || stacked() || e.target.closest('#hub, #calc')) { tx = null; return; }
+    if (tx === null || stacked() || e.target.closest('#hub')) { tx = null; return; }
     var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
     tx = null;
@@ -1347,34 +1194,6 @@
   document.addEventListener('fullscreenchange', fit);
   fit();
   show(fromHash(), true);
-})();
-</script>
-<script>
-/* ---- Worth-it calculator ---- */
-(function () {
-  var box = document.getElementById('calc'); if (!box) return;
-  var $ = function (id) { return document.getElementById(id); };
-  var eur = function (n) { return Math.round(n).toLocaleString('de-DE') + ' €'; };
-  var P = { A: [3000, 0, 2.5, 15], B: [3000, 0, 2.5, 35], C: [3000, 1500, 2.3, 35] };
-  function calc() {
-    var v = +$('i-v').value, sc = +$('i-s').value, c = +$('i-c').value, w = +$('i-w').value, m = +$('i-m').value;
-    $('o-v').textContent = v.toLocaleString('de-DE'); $('o-s').textContent = sc.toLocaleString('de-DE');
-    $('o-c').textContent = c.toLocaleString('de-DE', { minimumFractionDigits: 1 }) + ' %';
-    $('o-w').textContent = w + ' €'; $('o-m').textContent = m + ' %';
-    var orders = (v + sc) * c / 100, rev = orders * w, db = rev * m / 100, ads = sc * 0.35, t = db - 265 - ads;
-    $('r-o').textContent = Math.round(orders); $('r-u').textContent = eur(rev); $('r-d').textContent = eur(db);
-    $('r-a').textContent = ads ? '− ' + eur(ads) : '0 €';
-    var tt = $('r-t'); tt.textContent = (t >= 0 ? '+' : '−') + ' ' + eur(Math.abs(t)); tt.classList.toggle('neg', t < 0);
-    $('r-p').textContent = t > 0 ? 'Die 1.140 € Einmalkosten sind auf diesem Niveau nach rund ' + Math.max(1, Math.ceil(1140 / t)) + ' Monaten wieder drin.' : 'Auf diesem Niveau trägt sich der Shop noch nicht. Hebel: größerer Warenkorb oder mehr Marge.';
-  }
-  box.addEventListener('input', function () { box.querySelectorAll('.presets button').forEach(function (b) { b.classList.remove('on'); }); calc(); });
-  box.querySelectorAll('.presets button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var p = P[b.dataset.p]; $('i-v').value = p[0]; $('i-s').value = p[1]; $('i-c').value = p[2]; $('i-w').value = p[3];
-      calc(); box.querySelectorAll('.presets button').forEach(function (x) { x.classList.toggle('on', x === b); });
-    });
-  });
-  calc();
 })();
 </script>
 <script defer src="/analytics.js"></script>
