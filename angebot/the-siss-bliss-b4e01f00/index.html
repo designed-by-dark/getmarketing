@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angebot The SISS BLISS — GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Angebot: SEO und KI-Sichtbarkeit für thesissbliss.com." />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --ink:        #1F2A24;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F2;
+    --line:       #E6E6E1;
+    --tint:       #E7F3EC;
+    --warn:       #B4532A;
+    --warn-bg:    #F7EBE2;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --s: 1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font); color: var(--ink); background: #E4E1D9;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow: hidden;
+  }
+  h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; text-wrap: balance; color: var(--black); }
+
+  /* ================= Deck / stage ================= */
+  .deck { position: fixed; inset: 0; }
+  .slide {
+    position: absolute; left: 50%; top: 50%;
+    width: 1280px; height: 720px;
+    transform: translate(-50%, -50%) scale(var(--s));
+    background: #fff; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 72px 0;
+    opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+  .slide.dark { background: var(--forest); color: #fff; }
+  .slide.dark h1, .slide.dark h2 { color: #fff; }
+
+  .s-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 28px; }
+  .s-head h2 { font-size: 38px; max-width: 920px; }
+  .s-head .s-sub { font-size: 17px; color: var(--gray); margin-top: 10px; font-weight: 400; max-width: 860px; line-height: 1.5; }
+  .s-logo { height: 58px; width: auto; flex-shrink: 0; object-fit: contain; }
+  .s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .s-foot {
+    height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: var(--gray2); border-top: 1px solid var(--line); margin-top: 18px;
+  }
+  .s-foot b { color: var(--gray); font-weight: 700; }
+  .dark .s-foot { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
+  .dark .s-foot b { color: rgba(255,255,255,.7); }
+
+  .take {
+    margin-top: auto; display: flex; gap: 18px; align-items: center;
+    background: var(--forest); color: #fff; border-radius: 14px; padding: 18px 24px;
+    font-size: 16.5px; line-height: 1.5;
+  }
+  .take b.k { flex-shrink: 0; font-size: 14px; font-weight: 800; color: var(--accent); }
+
+  /* ================= Shared blocks ================= */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card { background: var(--card); border-radius: 16px; padding: 26px; }
+  .num { font-size: 58px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
+  .num.warn { color: var(--warn); }
+  .lbl { font-size: 15px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .logo-box { height: 56px; display: flex; align-items: center; margin-bottom: 22px; }
+  .logo-box img { max-height: 56px; max-width: 170px; object-fit: contain; }
+  .col-h { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .stat { background: var(--card); border-radius: 14px; padding: 18px 20px; }
+  .stat b { display: block; font-size: 34px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; color: var(--forest); }
+  .stat span { display: block; font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.4; }
+  .stat.warn b { color: var(--warn); }
+
+  table.kw { width: 100%; border-collapse: collapse; font-size: 16px; }
+  table.kw th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 12px 10px; border-bottom: 2px solid var(--ink); }
+  table.kw td { padding: 12px; border-bottom: 1px solid var(--line); }
+  table.kw .r { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pos { display: inline-block; min-width: 64px; text-align: center; font-size: 13.5px; font-weight: 800; padding: 4px 10px; border-radius: 6px; background: var(--tint); color: var(--forest); }
+  .pos.bad { background: var(--warn-bg); color: var(--warn); }
+  .pos.none { background: var(--card); color: var(--gray); font-weight: 600; }
+
+  .bars { display: flex; flex-direction: column; gap: 22px; }
+  .bar-l { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .bar-l span { color: var(--gray); font-weight: 500; }
+  .bar-t { height: 44px; background: var(--card); border-radius: 8px; overflow: hidden; }
+  .bar-f { height: 100%; border-radius: 8px; }
+
+  .check { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .check li { position: relative; padding-left: 30px; font-size: 16px; line-height: 1.45; }
+  .check li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 19px; height: 19px; border-radius: 5px;
+    background: var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;
+  }
+  .check.sm li { font-size: 14.5px; }
+
+  .price { background: var(--forest); color: #fff; border-radius: 16px; padding: 26px; }
+  .price .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .price .v { font-size: 50px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; }
+  .price .v small { font-size: 18px; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,.7); }
+  .price p { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 10px; line-height: 1.5; }
+  .result { background: var(--tint); border-radius: 16px; padding: 22px 24px; }
+  .result .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
+  .result p { font-size: 16px; color: var(--forest); line-height: 1.5; font-weight: 500; }
+  .note { background: var(--warn-bg); border-radius: 14px; padding: 16px 20px; font-size: 14px; line-height: 1.5; color: #5b3a28; }
+  .note b { color: var(--warn); }
+  .small-note { font-size: 12.5px; color: var(--gray); margin-top: 12px; line-height: 1.5; }
+  .small-note b { color: var(--ink); }
+
+  /* ================= Individual slides ================= */
+  .cover { padding-top: 70px; }
+  .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
+  .cover .gm img { width: 38px; height: 38px; border-radius: 8px; }
+  .cover h1 { font-size: 60px; max-width: 980px; margin-top: 70px; letter-spacing: -0.035em; line-height: 1.05; }
+  .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; }
+  .cover .logos { display: flex; gap: 16px; margin-top: 48px; }
+  .cover .logos div { background: #fff; border-radius: 14px; width: 200px; height: 92px; display: grid; place-items: center; }
+  .cover .logos img { max-width: 150px; max-height: 58px; object-fit: contain; }
+  .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
+  .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
+
+  .brand-card { background: var(--card); border-radius: 18px; padding: 28px 28px 30px; display: flex; flex-direction: column; }
+  .brand-card .logo-box { background: #fff; border-radius: 12px; height: 84px; justify-content: center; margin: -8px -8px 26px; }
+  .brand-card h3 { font-size: 20px; margin-top: 16px; line-height: 1.25; }
+  .brand-card p { font-size: 14.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+
+  .canni { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .canni > div { border: 1px solid var(--line); border-radius: 18px; padding: 24px; text-align: center; }
+  .canni .logo-box { justify-content: center; margin-bottom: 10px; }
+  .canni .p { font-size: 96px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: var(--forest); }
+  .canni .p small { font-size: 34px; color: var(--gray2); }
+  .canni .c { font-size: 14px; color: var(--gray); margin-top: 6px; }
+  .product { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+  .product span { font-weight: 400; color: var(--gray); }
+
+  .quote { border-left: 4px solid var(--warn); background: var(--card); border-radius: 0 14px 14px 0; padding: 22px 26px; }
+  .quote .q { font-size: 22px; font-weight: 700; }
+  .quote .a { font-size: 15.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .quote .a b { color: var(--warn); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tags span { font-size: 14.5px; font-weight: 600; padding: 8px 14px; border-radius: 8px; background: var(--card); }
+
+  .goals { list-style: none; display: flex; flex-direction: column; gap: 12px; counter-reset: g; }
+  .goals li {
+    counter-increment: g; display: grid; grid-template-columns: 46px 1fr auto; gap: 18px; align-items: center;
+    background: var(--card); border-radius: 14px; padding: 15px 22px 15px 18px; font-size: 16.5px; line-height: 1.4;
+  }
+  .goals li::before { content: counter(g); width: 38px; height: 38px; border-radius: 10px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 17px; }
+  .goals li b { font-weight: 700; }
+  .goals .mini { display: flex; gap: 8px; }
+  .goals .mini img { height: 30px; max-width: 70px; object-fit: contain; background: #fff; border-radius: 6px; padding: 3px 6px; }
+
+  .road { display: flex; flex-direction: column; gap: 10px; }
+  .road a {
+    display: grid; grid-template-columns: 56px 270px 1fr 200px; gap: 22px; align-items: center;
+    background: var(--card); border-radius: 14px; padding: 16px 22px; text-decoration: none; color: inherit;
+    transition: background .15s ease;
+  }
+  .road a:hover { background: var(--tint); }
+  .road .n { width: 44px; height: 44px; border-radius: 11px; background: #fff; color: var(--forest); display: grid; place-items: center; font-weight: 900; font-size: 19px; border: 1.5px solid var(--line); }
+  .road .t { font-weight: 800; font-size: 17.5px; letter-spacing: -0.015em; }
+  .road .t small { display: block; font-weight: 500; font-size: 13px; color: var(--accent-ink); letter-spacing: 0; margin-top: 2px; }
+  .road .d { font-size: 15px; color: var(--gray); line-height: 1.45; }
+  .road .pr { font-weight: 800; font-size: 17px; text-align: right; }
+  .road .pr small { display: block; font-weight: 500; font-size: 12.5px; color: var(--gray); }
+  .road a.hl { background: var(--forest); color: #fff; }
+  .road a.hl .n { background: var(--accent); color: var(--forest); border: 0; }
+  .road a.hl .d { color: rgba(255,255,255,.7); }
+  .road a.hl .t small { color: var(--accent); }
+  .road a.run { background: #fff; border: 1.5px dashed var(--gray2); }
+
+  .phase { display: grid; grid-template-columns: 1fr 340px; gap: 36px; flex: 1; min-height: 0; }
+  .phase .side { display: flex; flex-direction: column; gap: 14px; }
+
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .track { background: var(--card); border-radius: 16px; padding: 22px 24px; }
+  .track-h { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .track-h i { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-style: normal; font-weight: 900; font-size: 13px; background: var(--forest); color: #fff; flex-shrink: 0; }
+  .track-h b { display: block; font-size: 17px; }
+  .track-h span { display: block; font-size: 13px; color: var(--gray); }
+  .weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 14px; }
+  .weeks div { font-size: 12px; font-weight: 700; color: var(--forest); background: var(--tint); border-radius: 6px; padding: 6px 0; text-align: center; }
+
+  /* Phase 2 page list */
+  table.plan { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.plan th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 10px 8px; border-bottom: 2px solid var(--ink); }
+  table.plan td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  table.plan td.n { width: 34px; font-weight: 800; color: var(--gray2); }
+  table.plan td.lg { width: 92px; }
+  table.plan td.lg img { height: 26px; max-width: 76px; object-fit: contain; display: block; }
+  table.plan td b { font-weight: 700; }
+  table.plan .r { text-align: right; white-space: nowrap; }
+  .ft { font-size: 12.5px; font-weight: 800; white-space: nowrap; }
+  .ft s { color: var(--gray); text-decoration: none; font-weight: 600; }
+  .ft s::after { content: " → "; color: var(--gray2); }
+  .ft em { font-style: normal; color: var(--accent-ink); }
+
+  /* Page preview cards */
+  .pg-grid { display: grid; gap: 16px; }
+  .pg-grid.c4 { grid-template-columns: repeat(4, 1fr); }
+  .pg-grid.c3 { grid-template-columns: repeat(3, 1fr); }
+  .pg-grid.c1 { grid-template-columns: 1fr; }
+  .pgc { background: var(--card); border-radius: 16px; padding: 14px 14px 16px; display: flex; flex-direction: column; }
+  .pgc.wide { display: grid; grid-template-columns: 330px 1fr 1fr; gap: 28px; padding: 18px 22px; align-items: start; }
+  .pgc.wide .why { margin-top: 0; padding-top: 0; border-top: 0; }
+  .mock { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,.04); }
+  .mock-bar { height: 22px; background: #F1F0EC; display: flex; align-items: center; gap: 4px; padding: 0 8px; font-size: 9.5px; color: var(--gray); }
+  .mock-bar i { width: 6px; height: 6px; border-radius: 50%; background: #D5D3CC; flex-shrink: 0; }
+  .mock-bar span { margin-left: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mock-in { padding: 10px 12px 12px; }
+  .mock-in .ml { height: 14px; margin-bottom: 8px; }
+  .mock-in .ml img { height: 14px; display: block; }
+  .mock-h { font-size: 13px; font-weight: 800; line-height: 1.22; color: var(--black); letter-spacing: -0.01em; }
+  .mock-line { height: 5px; background: #ECEBE6; border-radius: 3px; margin-top: 6px; }
+  .mock-sec { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .mock-sec span { font-size: 9.5px; font-weight: 700; background: var(--card); color: var(--ink); padding: 2px 6px; border-radius: 4px; }
+  .mock-cta { display: inline-block; margin-top: 9px; font-size: 9.5px; font-weight: 800; color: #fff; padding: 4px 10px; border-radius: 50px; }
+  .pgc h3 { font-size: 16px; margin-top: 12px; letter-spacing: -0.015em; }
+  .pgc.wide h3 { margin-top: 0; font-size: 19px; }
+  .pgc .kind { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-top: 2px; }
+  .targets { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .tg { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; align-items: baseline; }
+  .tg > span:first-child { font-weight: 600; }
+  .why { font-size: 12.5px; color: var(--gray); margin-top: 10px; line-height: 1.45; padding-top: 10px; border-top: 1px solid #E2E1DB; }
+  .why b { color: var(--ink); }
+  .pgc.wide .targets .tg { font-size: 14px; }
+  .pgc.wide .why { font-size: 14px; }
+
+  /* Retainer content */
+  .cycle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .cyc { background: var(--card); border-radius: 16px; padding: 20px 20px 22px; position: relative; }
+  .cyc:not(:last-child)::after { content: "→"; position: absolute; right: -15px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 12px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+  .cyc .n { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); }
+  .cyc b { display: block; font-size: 19px; margin-top: 6px; letter-spacing: -0.015em; }
+  .cyc p { font-size: 14px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .fast { background: var(--forest); color: #fff; border-radius: 16px; padding: 22px 26px; }
+  .fast .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .fast p { font-size: 16px; line-height: 1.55; margin-top: 8px; color: rgba(255,255,255,.88); }
+
+  /* Case studies */
+  .cases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .case { border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; }
+  .case .ind { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); min-height: 30px; }
+  .case .big { font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); margin-top: 10px; }
+  .case .big small { font-size: 18px; letter-spacing: -0.01em; color: var(--gray); font-weight: 600; }
+  .case b { font-size: 15px; margin-top: 12px; line-height: 1.35; }
+  .case p { font-size: 13.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .case.hl { background: var(--tint); border-color: var(--tint); }
+  .proof { display: flex; gap: 14px; margin-top: 18px; }
+  .proof div { flex: 1; background: var(--card); border-radius: 14px; padding: 16px 20px; display: flex; align-items: baseline; gap: 12px; }
+  .proof b { font-size: 28px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); }
+  .proof span { font-size: 14px; color: var(--gray); }
+  .quote-line { margin-top: 16px; font-size: 15px; color: var(--ink); font-style: italic; }
+  .quote-line span { font-style: normal; color: var(--gray); font-size: 13px; }
+
+  .tiers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .tiers .tier .v { font-size: 42px; white-space: nowrap; }
+  .tier.agency { background: var(--card); border-color: var(--card); }
+  .tier.agency .k { color: var(--gray); }
+  .tier.agency .v { color: var(--gray); }
+  .tier.agency li span:last-child { color: var(--gray); }
+  .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 26px 28px; }
+  .tier.full { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .tier .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .tier.full .k { color: var(--accent); }
+  .tier .v { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 12px 0 4px; }
+  .tier .v small { font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .tier.full .v small, .tier.full .sub { color: rgba(255,255,255,.65); }
+  .tier .sub { font-size: 13.5px; color: var(--gray); }
+  .tier ul { list-style: none; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; }
+  .tier.full ul { border-color: rgba(255,255,255,.15); }
+  .tier li { display: flex; justify-content: space-between; font-size: 15px; }
+  .tier li span:last-child { font-weight: 700; }
+  .tier .on { color: var(--accent-ink); }
+  .tier.full .on { color: var(--accent); }
+  .tier .off { color: var(--gray); }
+  .tier .incl { font-size: 14px; margin-top: 14px; color: var(--gray); line-height: 1.5; }
+  .tier.full .incl { color: rgba(255,255,255,.75); }
+
+  .close h2 { font-size: 50px; max-width: 900px; margin-top: 40px; line-height: 1.08; }
+  .close .lead { font-size: 19px; color: rgba(255,255,255,.7); margin-top: 22px; max-width: 760px; line-height: 1.55; }
+  .who { display: flex; align-items: center; gap: 18px; margin-top: 40px; }
+  .who img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+  .who b { display: block; font-size: 17px; }
+  .who span { font-size: 14.5px; color: rgba(255,255,255,.65); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 16px var(--font); padding: 15px 28px; border-radius: 50px; text-decoration: none; transition: transform .18s ease, opacity .18s ease; }
+  .btn:hover { transform: translateY(-2px); opacity: .92; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
+
+  /* Cannibalisation comparison */
+  .vs { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 16px; align-items: stretch; margin-bottom: 18px; }
+  .vs-card { border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; }
+  .vs-card.good { background: var(--tint); border-color: var(--tint); }
+  .vs-k { font-size: 15px; font-weight: 800; margin-bottom: 14px; }
+  .vs-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .vs-logos.one { grid-template-columns: 1fr; }
+  .vs-logos > div { background: #fff; border-radius: 12px; height: 88px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; gap: 8px; }
+  .vs-card:not(.good) .vs-logos > div { background: var(--card); }
+  .vs-logos img { max-height: 40px; max-width: 70px; object-fit: contain; }
+  .vs-logos b { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--gray); }
+  .vs-card.good .vs-logos b { font-size: 44px; color: var(--forest); }
+  .vs-one { font-size: 16px; font-weight: 700; color: var(--forest); }
+  .vs-res { margin-top: 16px; display: flex; gap: 14px; align-items: baseline; }
+  .vs-res b { font-size: 36px; font-weight: 900; letter-spacing: -0.04em; color: var(--warn); white-space: nowrap; }
+  .vs-card.good .vs-res b { color: var(--forest); }
+  .vs-res span { font-size: 14.5px; color: var(--gray); line-height: 1.45; }
+  .vs-arrow { display: grid; place-items: center; font-size: 26px; font-weight: 800; color: var(--accent-ink); }
+
+  /* Goals KPI strip */
+  .kpi3 { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 12px; margin-bottom: 16px; align-items: stretch; }
+  .kpi3 > div { background: var(--forest); color: #fff; border-radius: 14px; padding: 16px 20px; }
+  .kpi3 b { display: block; font-size: 28px; font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; }
+  .kpi3 span { font-size: 13.5px; color: rgba(255,255,255,.7); }
+  .kpi3 a span { display: block; color: var(--gray); font-weight: 500; font-size: 13px; margin-bottom: 4px; }
+  .kpi3 a { align-self: center; font-size: 14px; font-weight: 700; color: var(--accent-ink); text-decoration: none; padding: 0 6px; white-space: nowrap; }
+  .goals.tight { gap: 9px; }
+  .goals.tight li { padding: 11px 20px 11px 16px; font-size: 15.5px; }
+  .goals.tight li::before { width: 34px; height: 34px; }
+
+  /* Forecast table */
+  table.prog td { padding: 14px 10px; font-size: 14px; line-height: 1.45; }
+  table.prog td.lg { width: 130px; }
+  table.prog td.lg img { height: 34px; max-width: 110px; object-fit: contain; display: block; }
+  table.prog .lg-t { font-size: 13px; font-weight: 700; color: var(--forest); }
+  table.prog td.r { font-size: 16px; font-weight: 700; }
+  table.prog tr.sum td { border-bottom: 0; border-top: 2px solid var(--ink); font-size: 16px; }
+  table.prog tr.sum td span { color: var(--gray); font-size: 13px; margin-left: 6px; }
+  table.prog tr.sum td.r b { font-size: 19px; color: var(--forest); }
+  .calc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  /* Phase 0 steps */
+  .steps5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .steps5 > div { background: var(--card); border-radius: 16px; padding: 18px 18px 20px; position: relative; }
+  .steps5 .n, .flow .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .steps5 b, .flow b { display: block; font-size: 16.5px; letter-spacing: -0.015em; }
+  .steps5 p, .flow p { font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+
+  /* Phase 2 process */
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  .flow > div { background: var(--tint); border-radius: 16px; padding: 18px 20px; }
+
+  /* Optional */
+  .opt .card { display: flex; flex-direction: column; padding: 22px 24px; }
+  .opt h3 { font-size: 21px; margin-bottom: 14px; }
+  .why2 { font-size: 13.5px; color: var(--gray); line-height: 1.5; margin-top: 10px; }
+  .why2 b { color: var(--ink); }
+  .opt .why2:first-of-type { margin-top: auto; padding-top: 14px; border-top: 1px solid #E2E1DB; }
+  .opt .check { margin-bottom: 14px; }
+
+  /* Close */
+  .close-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; flex: 1; }
+  .close .close-grid h2 { font-size: 42px; margin-top: 0; }
+  .close .close-grid .lead { font-size: 17px; }
+  .invest { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 24px 26px; }
+  .invest .k { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+  .invest .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 15px; }
+  .invest .row span { color: rgba(255,255,255,.8); }
+  .invest .row b { white-space: nowrap; }
+  .invest .row.sub { border-top: 0; padding-top: 0; font-size: 13.5px; }
+  .invest .row.sub span, .invest .row.sub b { color: rgba(255,255,255,.55); font-weight: 500; padding-left: 0; }
+  .invest p { font-size: 12.5px; color: rgba(255,255,255,.5); margin-top: 12px; }
+
+  /* Traffic value explainer */
+  .price.tw { padding: 22px 24px; }
+  .price.tw .tw-lead { font-size: 15.5px; color: #fff; margin-top: 8px; line-height: 1.5; }
+  .tw-ex { background: rgba(255,255,255,.08); border-radius: 10px; padding: 10px 12px; margin-top: 12px; }
+  .tw-ex span { display: block; font-size: 12px; color: rgba(255,255,255,.6); }
+  .tw-ex b { display: block; font-size: 14px; margin-top: 2px; }
+
+  /* Process steps as lists */
+  .flow ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+  .flow li { font-size: 14px; color: var(--ink); line-height: 1.4; padding-left: 16px; position: relative; }
+  .flow li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-ink); }
+  .flow > div { padding: 20px 22px 22px; }
+  .flow > div:not(:last-child) { position: relative; }
+  .flow > div:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 26px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+
+  /* Retainer cycle */
+  .cyc-wrap { display: grid; grid-template-columns: 600px 1fr; gap: 36px; align-items: center; flex: 1; min-height: 0; }
+  .ring { position: relative; width: 600px; height: 460px; }
+  .ring svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ring-arc { transform-origin: 300px 230px; transform: rotate(-155deg); }
+  .ring-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .ring-center b { display: block; font-size: 22px; font-weight: 900; letter-spacing: -0.03em; color: var(--forest); }
+  .ring-center span { font-size: 13.5px; color: var(--gray); }
+  .node {
+    position: absolute; width: 176px; transform: translate(-50%, -50%);
+    background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px 13px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.05);
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .node em { font-style: normal; font-size: 11.5px; font-weight: 800; color: var(--accent-ink); }
+  .node b { display: block; font-size: 16px; letter-spacing: -0.015em; margin-top: 1px; }
+  .node p { font-size: 12.5px; color: var(--gray); line-height: 1.4; margin-top: 4px; }
+  .node.n1 { left: 300px; top: 60px; }
+  .node.n2 { left: 470px; top: 230px; }
+  .node.n3 { left: 300px; top: 400px; }
+  .node.n4 { left: 130px; top: 230px; }
+  .node.on { border-color: var(--accent); box-shadow: 0 8px 24px rgba(47,138,94,.22); }
+  .cyc-side { display: flex; flex-direction: column; gap: 16px; }
+  .cyc-side .fast p { font-size: 15px; }
+
+  /* ================= Controls ================= */
+  .ctrl {
+    position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 50px; padding: 5px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .ctrl button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; font: 700 16px var(--font); color: var(--ink); display: grid; place-items: center; }
+  .ctrl button:hover { background: var(--card); }
+  .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
+  .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
+  body:not(.stack) .s-foot .pg { visibility: hidden; }
+  .progress { position: fixed; left: 0; top: 0; height: 3px; background: var(--accent); z-index: 50; transition: width .3s ease; }
+
+  /* ================= Stacked mode (phones / portrait) ================= */
+  body.stack { overflow: auto; background: #fff; }
+  .stack .deck { position: static; }
+  .stack .slide {
+    position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto;
+    opacity: 1; visibility: visible; box-shadow: none; padding: 48px 16px 0;
+    border-bottom: 8px solid #EEEDE8;
+  }
+  .stack .ctrl, .stack .progress { display: none; }
+  .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
+  .stack .s-head h2, .stack .cockpit-intro h2 { font-size: 26px; }
+  .stack .s-head .s-sub { font-size: 15px; }
+  .stack .s-logo { height: 40px; }
+  .stack .grid3, .stack .grid2, .stack .canni, .stack .tracks, .stack .tiers, .stack .phase, .stack .cockpit,
+  .stack .pg-grid.c4, .stack .pg-grid.c3, .stack .pg-grid.c1, .stack .pgc.wide, .stack .cycle, .stack .cases { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .slide * { min-width: 0; }
+  .stack .hub-nav button, .stack .h-btn, .stack .chip { min-width: auto; }
+  .stack .cyc::after { display: none; }
+  .stack .proof { flex-direction: column; }
+  .stack .stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .stack .stat { padding: 14px; }
+  .stack .stat b { font-size: 24px; }
+  .stack .take { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 15px; margin-top: 22px; }
+  .stack .cover { padding-top: 40px; }
+  .stack .cover h1 { font-size: 34px; margin-top: 40px; }
+  .stack .cover .for { font-size: 17px; }
+  .stack .cover .logos { flex-wrap: wrap; gap: 10px; }
+  .stack .cover .logos div { width: calc(50% - 5px); height: 72px; }
+  .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
+  .stack .road a { grid-template-columns: 44px 1fr auto; gap: 6px 14px; padding: 14px; }
+  .stack .road .d { grid-column: 2 / 4; }
+  .stack .road .n { grid-row: span 2; width: 38px; height: 38px; }
+  .stack .road .pr { font-size: 14.5px; }
+  .stack .goals li { grid-template-columns: 40px 1fr; font-size: 15px; }
+  .stack .goals .mini { grid-column: 2; }
+  .stack .num { font-size: 44px; }
+  .stack .canni .p { font-size: 64px; }
+  .stack .close h2 { font-size: 32px; }
+  .stack .price .v { font-size: 40px; }
+  .stack table.plan td.lg, .stack table.plan th.lg, .stack table.plan td.n, .stack table.plan th.n { display: none; }
+  .stack table.plan { font-size: 13.5px; }
+  .stack .vs { grid-template-columns: 1fr; }
+  .stack .vs-arrow { transform: rotate(90deg); }
+  .stack .kpi3, .stack .steps5, .stack .flow, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .vs-res { flex-direction: column; gap: 4px; }
+  .stack .close .close-grid h2 { font-size: 30px; }
+  .stack table.prog td.lg { width: 80px; }
+  .stack table.prog td.lg img { height: 24px; max-width: 70px; }
+  .stack table.prog td { font-size: 13px; padding: 10px 6px; }
+  .stack table.prog th:nth-child(2), .stack table.prog td:nth-child(2) { display: none; }
+  .stack .cyc-wrap { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .ring { width: auto; height: auto; display: flex; flex-direction: column; gap: 8px; }
+  .stack .ring svg, .stack .ring-center { display: none; }
+  .stack .node { position: static; transform: none; width: auto; }
+  .stack .flow > div::after { display: none; }
+  .stack table.kw { font-size: 14px; }
+  .stack table.kw .r, .stack table.plan .r { white-space: normal; }
+  .stack .pos { min-width: 0; }
+  .stack .ft { white-space: normal; }
+  .stack table.kw td, .stack table.kw th { padding-left: 6px; padding-right: 6px; }
+
+  /* ================= Print / PDF ================= */
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: #fff; }
+    .deck { position: static; }
+    .slide { position: relative; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; box-shadow: none; break-after: page; page-break-after: always; }
+    .ctrl, .progress { display: none !important; }
+    body:not(.stack) .s-foot .pg { visibility: visible; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ================= The SISS BLISS additions ================= */
+  .mark { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--black); white-space: nowrap; }
+  .s-mark { font-size: 19px; flex-shrink: 0; padding-top: 10px; }
+  .cover .client { display: inline-flex; align-self: flex-start; margin-top: 44px; background: #fff; border-radius: 14px; padding: 22px 34px; }
+  .cover .client .mark { font-size: 30px; }
+
+  .spec { display: grid; grid-template-columns: 110px 1fr; gap: 8px 14px; font-size: 14.5px; }
+  .spec dt { color: var(--gray); font-weight: 600; }
+  .spec dd { font-weight: 700; }
+  .spec dd.bad { color: var(--warn); }
+  .spec dd.good { color: var(--forest); }
+
+  .page2 { display: flex; flex-direction: column; gap: 10px; }
+  .page2 > div { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; background: var(--card); border-radius: 12px; padding: 12px 16px; font-size: 15px; }
+  .page2 > div span { color: var(--gray); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+
+  table.kw.dense td { padding: 7px 12px; font-size: 14.5px; }
+  table.kw tr.sum td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 800; }
+
+  .goals .when { font-size: 13px; font-weight: 800; color: var(--accent-ink); white-space: nowrap; background: var(--tint); padding: 5px 10px; border-radius: 6px; }
+
+  table.pot { width: 100%; border-collapse: collapse; font-size: 16px; }
+  table.pot th { text-align: right; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 14px 10px; border-bottom: 2px solid var(--ink); }
+  table.pot th:first-child { text-align: left; }
+  table.pot td { padding: 9px 14px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+  table.pot td:first-child { text-align: left; font-weight: 500; white-space: normal; }
+  table.pot tr.big td { font-size: 21px; font-weight: 900; color: var(--forest); letter-spacing: -0.02em; }
+  table.pot tr.big td:first-child { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: 0; }
+  table.pot td.hl, table.pot th.hl { background: var(--tint); }
+
+  .land { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .land span { background: var(--card); border-radius: 10px; padding: 11px 13px; font-size: 14.5px; font-weight: 700; line-height: 1.3; }
+  .land span small { display: block; font-size: 12px; font-weight: 600; color: var(--gray); margin-top: 3px; }
+
+  table.raci { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  table.raci th { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 14px 10px; border-bottom: 2px solid var(--ink); text-align: center; }
+  table.raci th:first-child { text-align: left; }
+  table.raci td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: center; }
+  table.raci td:first-child { text-align: left; font-weight: 600; }
+  table.raci td.gm { background: var(--tint); }
+  table.raci .y { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; background: var(--forest); color: #fff; font-weight: 900; font-size: 14px; }
+  table.raci .f { font-size: 13px; font-weight: 700; color: var(--gray); }
+
+  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .steps4 > div { background: var(--card); border-radius: 16px; padding: 18px 18px 20px; }
+  .steps4 .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .steps4 b { display: block; font-size: 16.5px; letter-spacing: -0.015em; }
+  .steps4 p { font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+
+  .kpi3 b { font-size: 25px; white-space: nowrap; }
+  #betreuung .cyc-wrap { margin-top: -18px; }
+  .stack .kpi3 b { white-space: normal; }
+  .stack #betreuung .cyc-wrap { margin-top: 0; }
+  .stack .s-mark { font-size: 15px; padding-top: 0; }
+  .stack .cover .client { padding: 16px 22px; }
+  .stack .cover .client .mark { font-size: 20px; }
+  .stack .land { grid-template-columns: 1fr 1fr; }
+  .stack .steps4 { grid-template-columns: minmax(0, 1fr); }
+  .stack table.pot { font-size: 14px; }
+  .stack table.pot td, .stack table.pot th { padding-left: 8px; padding-right: 8px; }
+  .stack table.pot tr.big td { font-size: 16px; }
+  .stack table.raci { font-size: 13.5px; }
+  .stack table.raci td, .stack table.raci th { padding-left: 4px; padding-right: 4px; }
+  .stack table.raci th { font-size: 10px; letter-spacing: .02em; }
+  .stack .page2 > div { grid-template-columns: 1fr auto; }
+  .stack .page2 > div span:nth-child(2) { display: none; }
+  .stack .goals .when { grid-column: 2; justify-self: start; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- Cover -->
+  <section class="slide dark cover">
+    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
+    <h1>SEO und KI-Sichtbarkeit für The SISS BLISS</h1>
+    <p class="for">Angebot für Christian Kieb, The SISS BLISS GmbH</p>
+    <div class="client"><span class="mark">The Siss Bliss</span></div>
+    <div class="meta">
+      <div>Von<b>Darya Kablash, GetMarketing</b></div>
+      <div>Stand<b>12. Oktober 2026</b></div>
+      <div>Start<b>Oktober 2026</b></div>
+      <div>Hinweis<b style="font-weight:400;color:rgba(255,255,255,.7)">Tool-Schätzungen (Sistrix, Semrush) bis zur Auswertung der Search Console</b></div>
+    </div>
+    <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ausgangslage -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>thesissbliss.com wird fast nur über die Marke gefunden</h2>
+        <p class="s-sub">Wer „the siss bliss“ sucht, landet bei euch. Wer einen Verlobungsring aus Gold, eine Namenskette oder einen Siegelring sucht, findet euch kaum, obwohl euer Sortiment genau das abdeckt.</p>
+      </div>
+      <span class="mark s-mark">The Siss Bliss</span>
+    </div>
+    <div class="s-body">
+      <div class="grid2">
+        <div>
+          <div class="col-h">Sistrix-Sichtbarkeitsindex</div>
+          <div class="bars">
+            <div><div class="bar-l">Höchstwert, 30. Dezember 2024<span>0,2318</span></div><div class="bar-t"><div class="bar-f" style="width:100%;background:var(--gray2)"></div></div></div>
+            <div><div class="bar-l">Heute<span>0,0317</span></div><div class="bar-t"><div class="bar-f" style="width:13.7%;background:var(--warn)"></div></div></div>
+          </div>
+          <p class="lbl" style="margin-top:18px">Die Spitzen 2024 lagen in der Geschenksaison von Sommer bis Weihnachten. Seit Januar 2025 fehlt dieser Effekt weitgehend, Weihnachten 2025 brachte nur eine einzelne Woche mit mehr Sichtbarkeit.</p>
+        </div>
+        <div>
+          <div class="col-h">Organische Besuche (Semrush)</div>
+          <div class="stats">
+            <div class="stat warn"><b>−86 %</b><span>Sichtbarkeit seit dem Höchstwert</span></div>
+            <div class="stat"><b>~3.700</b><span>Besuche pro Monat heute</span></div>
+            <div class="stat warn"><b>~100</b><span>davon aus Kaufsuchen ohne Markenbezug</span></div>
+          </div>
+          <div class="card" style="margin-top:14px;padding:18px 20px;display:flex;align-items:baseline;gap:14px">
+            <b style="font-size:34px;font-weight:900;letter-spacing:-0.04em;color:var(--forest)">8.958</b><span class="lbl" style="margin:0">organische Besuche im Dezember 2024</span>
+          </div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Die gute Nachricht</b>Die Shopify-Basis ist sauber, die Produktseiten sind gepflegt (4,91 Sterne aus 631 Bewertungen) und das Linkprofil ist mit 793 verweisenden Domains solide. Das Problem liegt in Seitenstruktur und Inhalten, und beides lässt sich beheben.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH · Quelle: Sistrix und Semrush, Markt DE, abgerufen am 9. Oktober 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Problem 1 -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Problem 1: Rankings ohne Kaufabsicht und ein Markenrisiko</h2>
+        <p class="s-sub">Viele Produkte tragen Vornamen wie SERENA, PEGGY, LORI oder BLAKE. Weil im Title und in der H1 der Schmuckbezug fehlt, rankt der Shop für Prominente.</p>
+      </div>
+      <span class="mark s-mark">The Siss Bliss</span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.2fr 1fr">
+        <table class="kw">
+          <thead><tr><th>Suchbegriff, für den ihr rankt</th><th class="r">Suchen / Monat</th><th class="r">Kaufabsicht</th></tr></thead>
+          <tbody>
+            <tr><td>„serena williams serena“</td><td class="r">9.900</td><td class="r"><span class="pos bad">keine</span></td></tr>
+            <tr><td>„peggy knobloch“</td><td class="r">4.400</td><td class="r"><span class="pos bad">keine</span></td></tr>
+            <tr><td>Pornografische Suchbegriffe auf der Seite der <b>HAIR WEAR Mom Club Edition</b></td><td class="r">~62.000</td><td class="r"><span class="pos bad">Markenrisiko</span></td></tr>
+          </tbody>
+        </table>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="card"><div class="num warn">62.000</div><div class="lbl">Suchen pro Monat für pornografische Begriffe, die auf eine eurer Produktseiten führen. Diese Besucher kaufen nichts, und die Verbindung schadet der Marke.</div></div>
+          <div class="note"><b>Dazu kommt:</b> Diese Rankings verfälschen jedes Reporting. Semrush zählt 1.824 Keywords, ein großer Teil davon ist wertlos.</div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Ein Gattungsbegriff in Title und H1 („Tennisarmband SERENA aus Gold“) löst das Problem und bringt die Seiten zu den Suchen, bei denen tatsächlich gekauft wird.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Problem 2 -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Problem 2: Die Navigation verlinkt Filter statt Kategorien</h2>
+        <p class="s-sub">Siegelringe, Familienketten, Verlobungsringe, Eternity Ringe und weitere Unterkategorien sind im Menü als Filter-URLs angelegt.</p>
+      </div>
+      <span class="mark s-mark">The Siss Bliss</span>
+    </div>
+    <div class="s-body">
+      <div class="product">Geprüft am Beispiel Siegelringe <span>· „siegelring damen“, 1.900 Suchen pro Monat</span></div>
+      <div class="vs">
+        <div class="vs-card">
+          <div class="vs-k">Heute: Siegelringe als Filter</div>
+          <dl class="spec">
+            <dt>Title</dt><dd class="bad">derselbe wie bei „Ringe“</dd>
+            <dt>H1</dt><dd class="bad">dieselbe wie bei „Ringe“</dd>
+            <dt>Text</dt><dd class="bad">derselbe wie bei „Ringe“</dd>
+            <dt>Canonical</dt><dd class="bad">verweist auf die Oberkategorie</dd>
+          </dl>
+          <div class="vs-res"><b>keine Seite</b><span>Google wertet den Filter nicht als eigene Seite</span></div>
+        </div>
+        <div class="vs-arrow">→</div>
+        <div class="vs-card good">
+          <div class="vs-k">Künftig: eigene Kategorieseite</div>
+          <dl class="spec">
+            <dt>Title</dt><dd class="good">„Siegelringe für Damen aus Gold“</dd>
+            <dt>H1</dt><dd class="good">eigene H1 mit Suchbegriff</dd>
+            <dt>Text</dt><dd class="good">Kaufinfos oben, FAQ unten</dd>
+            <dt>Navigation</dt><dd class="good">direkt aus dem Menü verlinkt</dd>
+          </dl>
+          <div class="vs-res"><b>eigene Seite</b><span>rankt eigenständig für die Kategorie</span></div>
+        </div>
+      </div>
+      <div class="col-h" style="margin-bottom:8px">Dazu kommen</div>
+      <div class="tags" style="margin-top:0">
+        <span>/verlobungsringe, /trauringe, /memoire-ringe nur ganz unten im Kategorietext verlinkt</span>
+        <span>Fehlerhafte Menülinks: ASTRONOMIC SAPPHIRES, SISSI &amp; BLISSI, Kundenservice (mobil)</span>
+        <span>Überlange Collection-Slugs</span>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Problem 3 -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Problem 3: Rund 49.000 Suchen pro Monat im Kernsortiment bleiben ungenutzt</h2>
+        <p class="s-sub">Für diese Begriffe steht der Shop laut Sistrix nicht in den Top 100. Die Keyword Difficulty liegt meist zwischen 5 und 24, also im gut machbaren Bereich.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.25fr 1fr;gap:36px">
+        <table class="kw dense">
+          <thead><tr><th>Suchbegriff</th><th class="r">Suchen / Monat</th><th class="r">Position</th></tr></thead>
+          <tbody>
+            <tr><td>verlobungsring gold</td><td class="r">18.100</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr><td>goldkette damen</td><td class="r">12.100</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr><td>goldring damen</td><td class="r">3.600</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr><td>personalisierter schmuck</td><td class="r">2.400</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr><td>namenskette gold · siegelring damen · memoire ring · kette mit gravur</td><td class="r">je 1.900</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr><td>buchstabenkette gold · nachhaltiger schmuck</td><td class="r">je 1.300</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr><td>echtgold schmuck</td><td class="r">1.000</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr><td>ring mit gravur · familienkette</td><td class="r">je 720</td><td class="r"><span class="pos none">–</span></td></tr>
+            <tr class="sum"><td>13 Kernbegriffe zusammen</td><td class="r">48.840</td><td class="r"></td></tr>
+          </tbody>
+        </table>
+        <div>
+          <div class="col-h">Schon auf Seite 2, braucht nur einen Schub</div>
+          <div class="page2">
+            <div>armband mit gravur<span>4.400</span><span class="pos bad">Platz 17</span></div>
+            <div>kette mit namen<span>2.400</span><span class="pos bad">Platz 13</span></div>
+            <div>gold buchstaben kette<span>1.900</span><span class="pos bad">Platz 19</span></div>
+            <div>goldene namenskette<span>1.000</span><span class="pos bad">Platz 20</span></div>
+          </div>
+          <div class="result" style="margin-top:16px"><div class="k">Was das heißt</div><p>Euer Sortiment passt genau zu dieser Nachfrage. Es fehlen nur die Seiten, die sie abholen.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Problem 4 -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Problem 4: In KI-Antworten zu Kauffragen seid ihr unsichtbar</h2>
+        <p class="s-sub">Immer mehr Kaufentscheidungen beginnen mit einer Frage an ChatGPT oder an die KI-Antwort in Google.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="grid2">
+        <div>
+          <div class="stats">
+            <div class="stat"><b>7</b><span>KI-Antworten, in denen Sistrix The SISS BLISS findet</span></div>
+            <div class="stat"><b>3</b><span>davon zu Franzi als Person</span></div>
+            <div class="stat warn"><b>4</b><span>Ratgeberfragen, die Marke fehlt im Antworttext</span></div>
+          </div>
+          <div class="card" style="margin-top:14px;display:flex;align-items:center;gap:20px">
+            <div class="num warn">0</div>
+            <div class="lbl" style="margin:0">Nennungen durch ChatGPT und Google AI Mode bei Kauffragen zu personalisiertem Echtgoldschmuck</div>
+          </div>
+        </div>
+        <div>
+          <div class="quote">
+            <div class="q">„BLISS BANG CAPITAL“</div>
+            <div class="a">Eine KI-Antwort beschreibt es als <b>Beteiligungsgesellschaft</b>, eine andere als <b>Altgold-Recycling</b>.</div>
+          </div>
+          <div class="col-h" style="margin-top:24px">Eure Markenfakten, heute verstreut auf Produkt- und Startseite</div>
+          <div class="tags"><span>Gründung 2020</span><span>Fertigung in Pforzheim</span><span>Steine aus Idar-Oberstein</span><span>100 % recyceltes Gold</span><span>Red Dot Award</span></div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Es fehlt eine zentrale, zitierfähige Quelle. Mit einer Faktenseite und klaren Strukturdaten können KI-Systeme euch korrekt beschreiben und empfehlen.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Vergleich -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Ein Vergleich zeigt: Es liegt an der Struktur, nicht an den Backlinks</h2>
+        <p class="s-sub">munich-jewels.com hat ein deutlich schwächeres Linkprofil als ihr, erreicht aber die doppelte Sichtbarkeit.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="vs">
+        <div class="vs-card good">
+          <div class="vs-k">thesissbliss.com</div>
+          <div class="vs-logos one"><div><span class="vs-one">Authority Score</span><b>22</b></div></div>
+          <div class="vs-res"><b>1×</b><span>Sichtbarkeit</span></div>
+        </div>
+        <div class="vs-arrow">vs</div>
+        <div class="vs-card">
+          <div class="vs-k">munich-jewels.com</div>
+          <div class="vs-logos one"><div><span class="vs-one" style="color:var(--gray)">Authority Score</span><b>11</b></div></div>
+          <div class="vs-res"><b>2×</b><span>Sichtbarkeit, mit halb so starkem Linkprofil</span></div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Der Abstand entsteht über Seitenstruktur und Inhalte. Mehr Backlinks allein würden ihn nicht schließen. Genau dort setzen wir an.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ziele -->
+  <section class="slide">
+    <div class="s-head"><div><h2>Das wollen wir gemeinsam erreichen</h2></div></div>
+    <div class="s-body">
+      <div class="kpi3">
+        <div><b>+2.000 bis +3.900</b><span>Prognose: zusätzliche Besuche aus Kaufsuchen pro Monat</span></div>
+        <div><b>6.100 bis 18.700 €</b><span>Prognose: zusätzlicher Umsatz pro Monat</span></div>
+        <div><b>74.000 bis 225.000 €</b><span>Prognose: zusätzlicher Umsatz pro Jahr</span></div>
+        <a href="#prognose"><span>Prognose nach<br>9 bis 12 Monaten</span>So haben wir gerechnet →</a>
+      </div>
+      <ol class="goals tight">
+        <li><span><b>Fundament steht:</b> Fehlrankings bereinigt, die Navigation führt auf echte Kategorieseiten, die Geschenkseiten sind für Weihnachten optimiert.</span><span class="when">Dezember 2026</span></li>
+        <li><span><b>Erste Top-20-Rankings</b> für Kernbegriffe wie „siegelring damen“, „namenskette gold“ und „familienkette“.</span><span class="when">März 2027</span></li>
+        <li><span><b>Sichtbarkeit wieder auf dem Durchschnitt von 2025</b> (0,066) und messbare Nennungen in KI-Antworten zu Kauffragen.</span><span class="when">Mitte 2027</span></li>
+        <li><span><b>Rund 9.000 organische Besuche pro Monat</b> wie im Dezember 2024, diesmal mit deutlich höherem Anteil an Kaufsuchen.</span><span class="when">Ende 2027</span></li>
+      </ol>
+      <p class="small-note"><b>Hinweis:</b> Besucher- und Umsatzzahlen sind Prognosen auf Basis von Sistrix- und Semrush-Schätzungen sowie angenommener Conversion-Rate und Warenkorbgröße. Sie sind keine Garantie. Mit euren echten Shop-Daten rechnen wir sie neu.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Prognose -->
+  <section class="slide" id="prognose">
+    <div class="s-head">
+      <div>
+        <h2>Prognose: bis zu 18.700 € zusätzlicher Umsatz im Monat</h2>
+        <p class="s-sub">Gerechnet nur mit Suchbegriffen, für die ihr heute nicht oder erst auf Seite 2 rankt. Markensuchen, gut laufende Anlass-Kategorien und Fehlrankings sind nicht eingerechnet.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="phase" style="grid-template-columns:1fr 300px;align-items:start;flex:none">
+        <table class="pot">
+          <thead><tr><th>Nach 9 bis 12 Monaten</th><th>Konservativ</th><th class="hl">Realistisch</th></tr></thead>
+          <tbody>
+            <tr><td>Zusätzliche Besuche aus Kaufsuchen pro Monat</td><td>ca. 2.000</td><td class="hl">ca. 3.900</td></tr>
+            <tr><td>Zusätzliche Besuche über den Ringgrößen-Guide</td><td>ca. 2.000</td><td class="hl">ca. 3.300</td></tr>
+            <tr><td>Zusätzliche Bestellungen pro Monat</td><td>ca. 10</td><td class="hl">ca. 31</td></tr>
+            <tr class="big"><td>Zusätzlicher Umsatz pro Monat</td><td>ca. 6.100 €</td><td class="hl">ca. 18.700 €</td></tr>
+            <tr class="big"><td>Zusätzlicher Umsatz pro Jahr</td><td>ca. 74.000 €</td><td class="hl">ca. 225.000 €</td></tr>
+          </tbody>
+        </table>
+        <div class="side">
+          <div class="price tw">
+            <div class="k">Zur Einordnung</div>
+            <p class="tw-lead">Schon ein einziger zusätzlicher Ring pro Monat finanziert die Zusammenarbeit mehrfach.</p>
+            <div class="tw-ex"><span>Durchschnittlicher Warenkorb (angenommen)</span><b>600 € gegenüber 250 € Betreuung pro Monat</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:16px"><b>Nur eine Prognose.</b> Alle Besucher-, Bestell- und Umsatzzahlen beruhen auf Tool-Schätzungen und Annahmen. Sie sind keine Zusage und keine Garantie für bestimmte Ergebnisse.</div>
+      <p class="small-note"><b>So haben wir gerechnet:</b> Für die 13 Kernbegriffe (48.840 Suchen) eine Klickrate von 3 % bzw. 6 %, was Positionen im unteren bis mittleren Bereich der ersten Seite entspricht. Für die vier Begriffe auf Seite 2 (9.700 Suchen) 6 bzw. 10 %. Den Ringgrößen-Guide („ringgröße“ und „ringgröße messen“, zusammen 32.900 Suchen) haben wir beim Umsatz nicht berücksichtigt, weil er vor allem Reichweite und Vertrauen aufbaut. Conversion-Rate 0,5 bzw. 0,8 %, Warenkorb 600 €. Mit euren echten Shop-Werten rechnen wir gern noch einmal genau nach. Prognose, keine Garantie.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Fahrplan -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>So gehen wir vor: vier Phasen, Start im Oktober</h2>
+        <p class="s-sub">Klickt auf eine Phase, um direkt zu den Details zu springen.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="road">
+        <a href="#phase-0"><span class="n">0</span><span class="t">Datengrundlage<small>sofort</small></span><span class="d">Search Console anbinden, Schätzungen mit echten Daten abgleichen, finaler Maßnahmenplan</span><span class="pr">kostenlos</span></a>
+        <a href="#phase-1" class="hl"><span class="n">1</span><span class="t">Fundament reparieren<small>Oktober 2026</small></span><span class="d">Umsetzungs-Briefing für euren Freelancer, parallel Geschenkseiten für Q4 und Ringgrößen-Guide</span><span class="pr">enthalten<small>in der Monatsgebühr</small></span></a>
+        <a href="#phase-2"><span class="n">2</span><span class="t">Kategorie-Architektur<small>November 2026 bis Januar 2027</small></span><span class="d">Elf eigene Landingpages für die Unterkategorien mit der größten Nachfrage</span><span class="pr">enthalten<small>in der Monatsgebühr</small></span></a>
+        <a href="#phase-3"><span class="n">3</span><span class="t">Content, KI und Autorität<small>ab Januar 2027</small></span><span class="d">Faktenseite für KI-Systeme, Ratgeberbereich und monatliches Monitoring</span><span class="pr">enthalten<small>in der Monatsgebühr</small></span></a>
+        <a href="#betreuung" class="run"><span class="n">∞</span><span class="t">Laufende Betreuung<small>jede Woche</small></span><span class="d">Wochenplan aus der Search Console, Inhalte mit eurer Freigabe, Monatsbericht</span><span class="pr">250 €<small>pro Monat</small></span></a>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 0 -->
+  <section class="slide" id="phase-0">
+    <div class="s-head">
+      <div>
+        <h2>Phase 0: Bevor wir bauen, schaffen wir eine saubere Datenbasis</h2>
+        <p class="s-sub">Die Erstanalyse ist fertig. Mit eurem Search-Console-Zugang gehen wir diese vier Schritte durch.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="steps4">
+        <div><span class="n">1</span><b>Zugang anbinden</b><p>Ihr ladet uns mit Leserechten in die Google Search Console ein.</p></div>
+        <div><span class="n">2</span><b>Zahlen abgleichen</b><p>Wir ersetzen die Tool-Schätzungen durch eure echten Klick- und Impressionsdaten.</p></div>
+        <div><span class="n">3</span><b>Shopify-App prüfen</b><p>Die App mit den Frage-Antwort-Feldern aus dem Call: Können wir sie für strukturierte Daten nutzen?</p></div>
+        <div><span class="n">4</span><b>Plan übergeben</b><p>Ihr bekommt den finalen Maßnahmenplan mit Prioritäten.</p></div>
+      </div>
+      <div class="grid2" style="margin-top:22px;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div class="card" style="padding:20px 22px"><div class="col-h" style="margin-bottom:10px">Schon erledigt</div>
+          <ul class="check sm"><li>Sichtbarkeit und Verlauf seit 2024</li><li>Fehlrankings und Kategorie-Struktur</li><li>Keyword-Potenzial und KI-Nennungen</li></ul></div>
+        <div class="result"><div class="k">Ergebnis</div><p>Ein finaler Maßnahmenplan mit Prioritäten, auf Basis eurer echten Daten. Innerhalb von drei Werktagen.</p></div>
+        <div class="price"><div class="k">Preis</div><div class="v">0 €</div><p>Die Datengrundlage berechne ich euch nicht.</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 1 -->
+  <section class="slide" id="phase-1">
+    <div class="s-head">
+      <div>
+        <h2>Phase 1: Im Oktober reparieren wir das Fundament</h2>
+        <p class="s-sub">Zwei Stränge laufen parallel: Euer Freelancer arbeitet unser fertiges Briefing ab, wir starten selbst mit den Seiten, die vor Weihnachten am meisten bringen.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="phase">
+        <div class="tracks">
+          <div class="track">
+            <div class="track-h"><i>DEV</i><div><b>Umsetzungs-Briefing</b><span>für euren Freelancer, direkt abarbeitbar</span></div></div>
+            <ul class="check sm">
+              <li><b>Fehlrankings bereinigen:</b> Titles und H1 aller Produkte mit Personennamen um den Gattungsbegriff ergänzen</li>
+              <li>Mom Club Edition umbenennen und per 301 weiterleiten</li>
+              <li>BLISS-BANG-CAPITAL-Seiten auf „Altgold eintauschen“ ausrichten</li>
+              <li><b>Navigation:</b> Menülinks korrigieren, PayPal-Link fixen, Menü auf vorhandene Collections umstellen</li>
+              <li><b>Produktseiten-Template:</b> H1 mit Gattungsbegriff, Alt-Texte nach Stein und Legierung, weniger Bilder, strukturierte Daten mit euren 631 Bewertungen</li>
+            </ul>
+          </div>
+          <div class="track">
+            <div class="track-h"><i style="background:var(--accent);color:var(--forest)">SEO</i><div><b>Seiten für Q4</b><span>GetMarketing, ab sofort</span></div></div>
+            <ul class="check sm">
+              <li><b>Geschenkseiten:</b> Weihnachten, Geschenke für Frauen und Freundschaft</li>
+              <li>Einleitungstexte mit Preisspanne, Anfertigungszeit und Bestellschluss</li>
+              <li><b>Ringgrößen-Guide</b> als vollständige Anleitung</li>
+              <li>Messmethoden, Umrechnungstabelle, Druckvorlage und FAQ</li>
+              <li>Zielt auf „ringgröße“ und „ringgröße messen“ mit zusammen 32.900 Suchen pro Monat</li>
+            </ul>
+          </div>
+        </div>
+        <div class="side">
+          <div class="price"><div class="k">Briefing</div><div class="v">enthalten</div><p>in der monatlichen Gebühr. So nutzt ihr den Monat, den ihr bei eurem Freelancer ohnehin bezahlt, gezielt.</p></div>
+          <div class="result"><div class="k">Ende Oktober</div>
+            <ul class="check sm" style="margin-top:4px">
+              <li>Fehlrankings für Prominente und pornografische Begriffe bereinigt</li>
+              <li>Menü führt auf echte Kategorien</li>
+              <li>Geschenkseiten bereit fürs Weihnachtsgeschäft</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 2 -->
+  <section class="slide" id="phase-2">
+    <div class="s-head">
+      <div>
+        <h2>Phase 2: Elf eigene Kategorieseiten für die größte Nachfrage</h2>
+        <p class="s-sub">November 2026 bis Januar 2027. Die Filter bleiben als Filter erhalten, die Navigation verlinkt künftig die neuen Kategorien.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="land">
+        <span>Verlobungsringe Gold<small>18.100 Suchen</small></span>
+        <span>Goldketten Damen<small>12.100 Suchen</small></span>
+        <span>Goldringe Damen<small>3.600 Suchen</small></span>
+        <span>Namensketten Gold<small>1.900 Suchen + Seite 2</small></span>
+        <span>Siegelringe Damen<small>1.900 Suchen</small></span>
+        <span>Memoire Ringe<small>1.900 Suchen</small></span>
+        <span>Ketten mit Gravur<small>1.900 Suchen</small></span>
+        <span>Buchstabenketten<small>1.300 Suchen + Seite 2</small></span>
+        <span>Nachhaltiger Echtgoldschmuck<small>1.300 + 1.000 Suchen</small></span>
+        <span>Ringe mit Gravur<small>720 Suchen</small></span>
+        <span>Familienketten<small>720 Suchen</small></span>
+      </div>
+      <div class="grid3" style="margin-top:22px;gap:16px">
+        <div class="card" style="padding:20px 22px"><div class="col-h" style="margin-bottom:10px">Jede Seite bekommt</div>
+          <ul class="check sm"><li>Eigenen Title und eigene H1</li><li>Kurzen Text oben mit Karat, Preisspanne, Lieferzeit und Gravur</li><li>FAQ unten mit echten Kauffragen</li></ul></div>
+        <div class="card" style="padding:20px 22px"><div class="col-h" style="margin-bottom:10px">Oberkategorien</div>
+          <p class="lbl" style="margin-top:0">Die langen Texte auf Ringe, Ketten, Ohrringe und Armbänder ersetzen wir durch Inhalte, die echte Kauffragen beantworten.</p></div>
+        <div class="result"><div class="k">Ergebnis</div><p>Jede Unterkategorie ist für Google eine eigene Seite und kann für ihren Suchbegriff ranken.</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Phase 3 -->
+  <section class="slide" id="phase-3">
+    <div class="s-head">
+      <div>
+        <h2>Phase 3: Content, KI-Sichtbarkeit und Autorität</h2>
+        <p class="s-sub">Ab Januar 2027 bauen wir die Inhalte auf, die KI-Systeme zitieren und die eure Kategorien stärken.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="grid3 opt">
+        <div class="card">
+          <h3>Faktenseite für KI-Systeme</h3>
+          <ul class="check sm">
+            <li>Zitierfähige Seite „The SISS BLISS in Fakten“ mit allen Markenfakten</li>
+            <li>Klare Erklärung von BLISS BANG CAPITAL</li>
+            <li>HOLY GOLDY als Vorgängermarke eingeordnet</li>
+            <li>Organization-Schema mit Verweisen auf eure Social-Media-Profile</li>
+          </ul>
+          <p class="why2"><b>Warum:</b> Damit ChatGPT und Google euch korrekt beschreiben und bei Kauffragen nennen.</p>
+        </div>
+        <div class="card">
+          <h3>Ratgeberbereich</h3>
+          <ul class="check sm">
+            <li>Ringgröße, Karat und Legierungen, Gravur</li>
+            <li>Edelsteine, Schmuck zur Geburt, Schmuckpflege</li>
+            <li>Recyceltes Gold</li>
+            <li>Jeder Artikel verlinkt auf die passende Kategorie</li>
+          </ul>
+          <p class="why2"><b>Warum:</b> Ratgeber holen Suchende früh ab und geben den Kategorieseiten interne Linkkraft.</p>
+        </div>
+        <div class="card">
+          <h3>Monitoring</h3>
+          <ul class="check sm">
+            <li>Sichtbarkeit und Rankings jeden Monat</li>
+            <li>Rund 30 feste Kaufprompts in KI-Systemen</li>
+            <li>Klicks und Impressionen aus der Search Console</li>
+          </ul>
+          <p class="why2"><b>Warum:</b> So seht ihr schwarz auf weiß, was die Arbeit bringt, auch in der KI-Suche.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Wer macht was -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Wer macht was</h2>
+        <p class="s-sub">Den größten Teil übernehmen wir. Euer Freelancer setzt die technischen Fixes um, ihr gebt frei.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <table class="raci">
+        <thead><tr><th>Aufgabe</th><th>GetMarketing</th><th>Euer Freelancer</th><th>Ihr</th></tr></thead>
+        <tbody>
+          <tr><td>Analyse, Maßnahmenplan, Prioritäten</td><td class="gm"><span class="y">✓</span></td><td></td><td></td></tr>
+          <tr><td>Technisches Umsetzungs-Briefing</td><td class="gm"><span class="y">✓</span></td><td></td><td></td></tr>
+          <tr><td>Technische Fixes in Shopify</td><td class="gm"></td><td><span class="y">✓</span></td><td></td></tr>
+          <tr><td>Texte für Kategorie- und Geschenkseiten</td><td class="gm"><span class="y">✓</span></td><td></td><td><span class="f">Freigabe</span></td></tr>
+          <tr><td>Ratgeberartikel und Faktenseite</td><td class="gm"><span class="y">✓</span></td><td></td><td><span class="f">Freigabe</span></td></tr>
+          <tr><td>Monitoring und monatlicher Bericht</td><td class="gm"><span class="y">✓</span></td><td></td><td></td></tr>
+          <tr><td>Search-Console-Zugang</td><td class="gm"></td><td></td><td><span class="y">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Betreuung -->
+  <section class="slide" id="betreuung">
+    <div class="s-head">
+      <div>
+        <h2>Laufende Betreuung: jede Woche ein neuer Plan aus euren echten Daten</h2>
+        <p class="s-sub">Unser System liest eure Search Console und zeigt, wo es sich gerade lohnt.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="cyc-wrap">
+        <div class="ring">
+          <svg viewBox="0 0 600 460" aria-hidden="true">
+            <circle cx="300" cy="230" r="170" fill="none" stroke="#E6E6E1" stroke-width="3" />
+            <circle class="ring-arc" id="ringArc" cx="300" cy="230" r="170" fill="none" stroke="#52B788" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" />
+            <circle id="ringDot" cx="300" cy="60" r="9" fill="#1B4332" stroke="#fff" stroke-width="3" />
+          </svg>
+          <div class="ring-center"><b>Jede Woche</b><span>neu</span></div>
+          <div class="node n1 on"><em>1</em><b>Planen</b><p>Welche Seiten neu, welche überarbeiten, wo Potenzial ist</p></div>
+          <div class="node n2"><em>2</em><b>Erstellen</b><p>Inhalte auf Basis der Top-10-Wettbewerber und echter Keyword-Daten</p></div>
+          <div class="node n3"><em>3</em><b>Prüfen</b><p>Ich prüfe jeden Schritt persönlich, ihr gebt frei</p></div>
+          <div class="node n4"><em>4</em><b>Messen</b><p>Rankings, Klicks und KI-Nennungen auswerten</p></div>
+        </div>
+        <div class="cyc-side">
+          <div class="fast"><div class="k">Warum das schneller wirkt</div><p>Die Inhalte entstehen automatisiert mit unserem eigenen System. So entsteht deutlich mehr, als bei rein manueller Arbeit möglich wäre. Ich prüfe jeden Schritt persönlich, und nichts geht ohne eure Freigabe online.</p></div>
+          <div class="card" style="padding:20px 22px">
+            <div class="col-h" style="margin-bottom:10px">Jeden Monat bekommt ihr</div>
+            <ul class="check sm">
+              <li>Einen kurzen Bericht zu Sichtbarkeit, Rankings, Klicks und KI-Nennungen</li>
+              <li>Die wichtigsten Veränderungen auf einen Blick</li>
+              <li>Den Plan für den nächsten Monat</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Case studies -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Ergebnisse aus vergleichbaren Projekten</h2>
+        <p class="s-sub">Für The SISS BLISS setzen wir bewusst realistische Ziele für das erste Jahr an und bauen von dort aus weiter.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="cases">
+        <div class="case hl"><div class="ind">D2C-Schmuckmarke · E-Commerce</div><div class="big">383K<small> / Monat</small></div><b>Organische Besuche</b><p>Aufgebaut durch automatisierte Inhalte und breite Keyword-Abdeckung: viele gezielte Kategorie- und Ratgeberseiten für konkrete Kaufabsichten.</p></div>
+        <div class="case"><div class="ind">B2B-Industrieunternehmen</div><div class="big">+96 %</div><b>Sichtbarkeit</b><p>Nischen-SEO mit Hauptkeyword auf Platz 1.</p></div>
+        <div class="case"><div class="ind">Industrieunternehmen</div><div class="big">34.000</div><b>Besucher</b><p>SEO von Grund auf aufgebaut. Anfragen kommen jetzt über die Website.</p></div>
+        <div class="case"><div class="ind">B2B-Software</div><div class="big">360K</div><b>Impressionen</b><p>Mehrere Zielbegriffe auf Platz 1 in einer technischen Nische.</p></div>
+      </div>
+      <div class="proof">
+        <div><b>6 Mio.+</b><span>organische Besucher</span></div>
+        <div><b>55</b><span>abgeschlossene Projekte</span></div>
+        <div><b>8+ Jahre</b><span>Erfahrung</span></div>
+      </div>
+      <p class="quote-line">„Wir bekommen ständig Anfragen über die Website und müssen uns um nichts kümmern.“ <span>Geschäftsführer, B2B-Industrieausrüstung</span></p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Investition -->
+  <section class="slide" id="investition">
+    <div class="s-head">
+      <div>
+        <h2>Investition: alles in einer monatlichen Gebühr</h2>
+        <p class="s-sub">Mindestlaufzeit 3 Monate, danach mit einer Frist von 1 Monat kündbar.</p>
+      </div>
+    </div>
+    <div class="s-body">
+      <div class="tiers">
+        <div class="tier">
+          <div class="k">Zum Start</div>
+          <div class="v">0 €</div>
+          <div class="sub">Phase 0: Datengrundlage und Maßnahmenplan</div>
+          <ul>
+            <li><span>Search-Console-Abgleich</span><span class="on">kostenlos</span></li>
+            <li><span>Finaler Maßnahmenplan</span><span class="on">kostenlos</span></li>
+            <li><span>Briefing für den Freelancer</span><span class="on">enthalten</span></li>
+          </ul>
+          <p class="incl">Innerhalb von drei Werktagen nach dem Search-Console-Zugang.</p>
+        </div>
+        <div class="tier full">
+          <div class="k">GetMarketing SEO und GEO</div>
+          <div class="v">250 € <small>/ Monat</small></div>
+          <div class="sub">inklusive persönlicher Betreuung</div>
+          <ul>
+            <li><span>Analyse und Briefing</span><span class="on">✓</span></li>
+            <li><span>Kategorie- und Geschenkseiten</span><span class="on">✓</span></li>
+            <li><span>Ratgeber und Faktenseite für KI</span><span class="on">✓</span></li>
+            <li><span>Monitoring und Monatsbericht</span><span class="on">✓</span></li>
+          </ul>
+        </div>
+        <div class="tier agency">
+          <div class="k">Zum Vergleich</div>
+          <div class="v">2.000 €+ <small>/ Monat</small></div>
+          <div class="sub">klassische SEO-Agentur oder deutscher Freelancer</div>
+          <ul>
+            <li><span>Vergleichbarer Umfang</span><span>ab ~2.000 €</span></li>
+          </ul>
+          <p class="incl">Übliche Spanne für manuelle SEO-Betreuung. KI-Sichtbarkeit kommt meist extra dazu.</p>
+        </div>
+      </div>
+      <div class="note" style="margin-top:18px"><b>Optional: Digital PR und Backlinks.</b> Backlinks lassen sich nicht sinnvoll automatisieren. Auf Wunsch nutzen wir unseren Partner-Pool und eure bestehenden Pressekontakte (ELLE, Brigitte, Gala, BUNTE) für Nennungen in Geschenke-Guides und Vergleichsartikeln, die direkt auf eure Kategorien verlinken. Nach Aufwand.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Close -->
+  <section class="slide dark close" id="loslegen">
+    <div class="s-body">
+      <div class="close-grid">
+        <div>
+          <h2>Nächster Schritt: Search-Console-Zugang, dann starten wir im Oktober</h2>
+          <p class="lead">Damit die Geschenkseiten vor dem Weihnachtsgeschäft wirken, sollten wir jetzt loslegen.</p>
+          <div class="who">
+            <img src="/darya.jpg" alt="Darya Kablash" />
+            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
+          </div>
+          <div style="margin-top:30px">
+            <a class="btn btn-light" href="mailto:darya@getmarketing.team?subject=The%20SISS%20BLISS%20%E2%80%93%20Start%20Oktober">Jetzt starten</a>
+          </div>
+        </div>
+        <div class="invest">
+          <div class="k">In drei Schritten zum Start</div>
+          <div class="row"><span>1 · Search Console: Ladet <b style="color:#fff">darya@getmarketing.team</b> mit eingeschränkter Berechtigung ein</span></div>
+          <div class="row"><span>2 · Schickt mir den Link zur Shopify-App mit den Frage-Antwort-Feldern</span></div>
+          <div class="row"><span>3 · Innerhalb von drei Werktagen: finaler Maßnahmenplan für euch, Umsetzungs-Briefing für euren Freelancer</span></div>
+          <div class="row" style="margin-top:6px"><span>Laufende Betreuung</span><b>250 € / Monat</b></div>
+          <p>Mindestlaufzeit 3 Monate, danach monatlich kündbar.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot The SISS BLISS GmbH</span><span class="pg"></span></div>
+  </section>
+
+</main>
+
+<div class="ctrl" id="ctrl">
+  <button id="prev" aria-label="Vorherige Folie">←</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="next" aria-label="Nächste Folie">→</button>
+  <button id="fs" aria-label="Vollbild" title="Vollbild (F)">⤢</button>
+</div>
+
+<script>
+/* ---- Deck: 16:9 stage, one slide at a time; stacked on phones ---- */
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count'), bar = document.getElementById('progress');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var cur = 0;
+  slides.forEach(function (s, i) { s.querySelectorAll('.pg').forEach(function (pg) { pg.textContent = i + 1; }); });
+
+  function stacked() { return document.body.classList.contains('stack'); }
+  function fit() {
+    var stack = innerWidth < 800 || (innerWidth < 1000 && innerHeight > innerWidth);
+    document.body.classList.toggle('stack', stack);
+    if (!stack) {
+      var s = Math.min(innerWidth / 1280, innerHeight / 720);
+      if (!document.fullscreenElement) s *= 0.96;
+      document.documentElement.style.setProperty('--s', s);
+    }
+  }
+  function show(n, initial) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    count.textContent = (cur + 1) + ' / ' + slides.length;
+    bar.style.width = ((cur + 1) / slides.length * 100) + '%';
+    prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+    if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
+    if (!initial) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (!h) return 0;
+    if (/^\d+$/.test(h)) return +h - 1;
+    var el = document.getElementById(h);
+    return el ? slides.indexOf(el.closest('.slide')) : 0;
+  }
+  function toggleFs() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+
+  prev.addEventListener('click', function () { show(cur - 1); });
+  next.addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('fs').addEventListener('click', toggleFs);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    show(slides.indexOf(el.closest('.slide')));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || stacked()) return;
+    if (e.target.closest && e.target.closest('#hub, input, textarea, select')) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    else if (k === 'f' || k === 'F') { toggleFs(); }
+  });
+
+  // swipe on touch screens in deck mode
+  var tx = null, ty = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null || stacked() || e.target.closest('#hub')) { tx = null; return; }
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    if (!stacked()) return;
+    var line = innerHeight * 0.4, best = 0;
+    for (var i = 0; i < slides.length; i++) if (slides[i].getBoundingClientRect().top <= line) best = i;
+    cur = best;
+  }, { passive: true });
+
+  window.addEventListener('resize', fit);
+  document.addEventListener('fullscreenchange', fit);
+  fit();
+  show(fromHash(), true);
+})();
+</script>
+
+
+<script>
+/* ---- Retainer cycle: dot, trailing arc and active step share one clock ---- */
+(function () {
+  var dot = document.getElementById('ringDot'), arc = document.getElementById('ringArc');
+  if (!dot || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var nodes = document.querySelectorAll('.ring .node'), T = 8000, last = -1;
+  function frame(now) {
+    var a = (now % T) / T * 360, rad = (a - 90) * Math.PI / 180;
+    dot.setAttribute('cx', 300 + 170 * Math.cos(rad));
+    dot.setAttribute('cy', 230 + 170 * Math.sin(rad));
+    arc.style.transform = 'rotate(' + (a - 155) + 'deg)';
+    var k = Math.floor(a / 90);
+    if (k !== last) { nodes.forEach(function (n, i) { n.classList.toggle('on', i === k); }); last = k; }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
