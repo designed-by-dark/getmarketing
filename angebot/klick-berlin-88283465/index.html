@@ -586,6 +586,97 @@
   .stack table.kw.comp th:nth-child(2), .stack table.kw.comp td:nth-child(2), .stack table.kw.comp th:nth-child(4), .stack table.kw.comp td:nth-child(4) { display: none; }
   .stack .cost-rows li { grid-template-columns: 1fr 76px 76px; font-size: 14px; }
   .stack .domains > div.main b { font-size: 22px; }
+
+  /* ===== Expansion: demand, seasonality, worth-it ===== */
+  table.kw tr.grp td { background: none; padding: 16px 12px 6px; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); border-bottom: 1px solid var(--line); }
+  table.kw tr.grp td span { float: right; color: var(--forest); font-size: 14px; letter-spacing: 0; text-transform: none; }
+  table.kw tr.grp.off td { color: var(--gray); }
+  table.kw tr.grp.off td span { color: var(--gray); }
+  table.kw tr.off td { color: var(--gray); }
+  table.kw.xs td { padding: 6px 12px; font-size: 14px; }
+  table.kw.xs tr.grp td:first-child { padding-top: 12px; }
+  #nachfrage .s-head { margin-bottom: 14px; }
+  #nachfrage table.kw.xs td { padding: 5px 12px; }
+  #nachfrage table.kw tr.grp td { padding: 11px 12px 4px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 800; padding: 2px 7px; border-radius: 5px; background: var(--warn-bg); color: var(--warn); margin-left: 6px; vertical-align: 1px; }
+  .badge.g { background: var(--tint); color: var(--accent-ink); }
+
+  .season { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .sbars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; height: 230px; align-items: end; margin-top: 10px; }
+  .sbars > div { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; }
+  .sbars i { display: block; width: 100%; border-radius: 6px 6px 2px 2px; min-height: 3px; }
+  .sbars em { font-style: normal; font-size: 12px; font-weight: 700; color: var(--gray); }
+  .sbars .sv { font-size: 10px; font-weight: 700; color: var(--gray); white-space: nowrap; }
+  .s-cap { display: flex; justify-content: space-between; align-items: baseline; }
+  .s-cap b { font-size: 17px; }
+  .s-cap span { font-size: 13px; color: var(--gray); font-weight: 600; }
+
+  table.fun { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.fun th { text-align: right; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 12px 8px; border-bottom: 2px solid var(--ink); }
+  table.fun th:first-child { text-align: left; }
+  table.fun td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.fun td:first-child { text-align: left; white-space: normal; font-weight: 600; }
+  table.fun td:last-child { font-weight: 800; }
+  table.fun tr.sum td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 800; }
+  table.fun tr.sum td:last-child { color: var(--forest); font-size: 18px; }
+  table.fun tr.add td { color: var(--accent-ink); }
+
+  .verdict { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .vd { border-radius: 16px; padding: 20px 22px; border: 1.5px solid var(--line); display: flex; flex-direction: column; }
+  .vd .k { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); }
+  .vd .v { font-size: 38px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; color: var(--ink); }
+  .vd .v small { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--gray); }
+  .vd .t { font-size: 15px; font-weight: 800; margin-top: 10px; }
+  .vd p { font-size: 13.5px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+  .vd.meh .v, .vd.meh .t { color: var(--warn); }
+  .vd.yes { background: var(--tint); border-color: var(--tint); }
+  .vd.yes .v, .vd.yes .t { color: var(--forest); }
+  .vd.mid .v, .vd.mid .t { color: var(--accent-ink); }
+
+  table.be { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.be th { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 10px 8px; border-bottom: 2px solid var(--ink); text-align: right; }
+  table.be th:first-child { text-align: left; }
+  table.be td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+  table.be td:first-child { text-align: left; font-weight: 600; }
+  table.be td.ok { color: var(--forest); }
+  table.be td.no { color: var(--warn); }
+
+  .calc-box { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; flex: 1; min-height: 0; }
+  .ctl { display: flex; flex-direction: column; gap: 14px; }
+  .ctl label { display: block; }
+  .ctl .lr { display: flex; justify-content: space-between; font-size: 14.5px; font-weight: 600; margin-bottom: 6px; }
+  .ctl .lr output { font-weight: 800; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .ctl .lr small { display: block; font-size: 12px; color: var(--gray); font-weight: 500; }
+  .ctl input[type=range] { width: 100%; accent-color: var(--accent-ink); height: 22px; }
+  .presets { display: flex; gap: 8px; flex-wrap: wrap; }
+  .presets button { font: 700 13px var(--font); padding: 7px 12px; border-radius: 8px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
+  .presets button:hover, .presets button.on { border-color: var(--accent-ink); background: var(--tint); color: var(--forest); }
+  .res { background: var(--forest); color: #fff; border-radius: 18px; padding: 24px 26px; display: flex; flex-direction: column; }
+  .res .row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 15px; font-variant-numeric: tabular-nums; }
+  .res .row:first-of-type { border-top: 0; }
+  .res .row span { color: rgba(255,255,255,.75); }
+  .res .row b { white-space: nowrap; }
+  .res .row.neg b { color: #F3B49A; }
+  .res .total { margin-top: 10px; padding-top: 14px; border-top: 2px solid rgba(255,255,255,.35); display: flex; justify-content: space-between; align-items: baseline; }
+  .res .total span { font-size: 15px; font-weight: 700; }
+  .res .total b { font-size: 40px; font-weight: 900; letter-spacing: -0.04em; color: var(--accent); }
+  .res .total b.neg { color: #F3B49A; }
+  .res .pay { font-size: 13.5px; color: rgba(255,255,255,.7); margin-top: 10px; line-height: 1.5; }
+
+  .stack .season, .stack .verdict, .stack .calc-box { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack table.kw.comp, .stack table.pot { table-layout: fixed; }
+  .stack table.pot th:nth-child(4), .stack table.pot td:nth-child(4) { display: none; }
+  .stack table.kw.comp td { overflow-wrap: anywhere; }
+  .stack .sbars { height: 160px; gap: 3px; }
+  .stack .sbars .sv { display: none; }
+  .stack table.kw.xs td { font-size: 13px; padding: 6px; }
+  .stack table.kw.xs th:nth-child(3), .stack table.kw.xs td:nth-child(3) { display: none; }
+  .stack table.fun { font-size: 13px; }
+  .stack table.fun td, .stack table.fun th { padding: 7px 5px; }
+  .stack table.fun th:nth-child(2), .stack table.fun td:nth-child(2), .stack table.fun th:nth-child(4), .stack table.fun td:nth-child(4) { display: none; }
+  .stack table.be { font-size: 13px; }
+  .stack table.be td, .stack table.be th { padding: 7px 5px; }
+  .stack .vd .v { font-size: 30px; }
 </style>
 </head>
 <body>
@@ -603,7 +694,7 @@
     <div class="meta">
       <div>Von<b>Darya Kablash, GetMarketing</b></div>
       <div>Stand<b>12. Oktober 2026</b></div>
-      <div>Datenbasis<b style="font-weight:400;color:rgba(255,255,255,.7)">Semrush und SISTRIX, Deutschland, Oktober 2026</b></div>
+      <div>Datenbasis<b style="font-weight:400;color:rgba(255,255,255,.7)">Semrush, SISTRIX und DataForSEO, Deutschland, Oktober 2026</b></div>
     </div>
     <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
   </section>
@@ -624,7 +715,7 @@
         <div class="card"><div class="num">250 €</div><div class="lbl">im Monat für laufendes SEO, dazu einmalig Shop und Google Shopping</div></div>
       </div>
       <div class="note" style="margin-top:22px"><b>Ehrlich gesagt:</b> Ein Shop mit nur einem Produkt um die 10 € wirft über SEO allein kaum Geld ab. Richtig spannend wird es, wenn du ein paar größere Sachen dazunimmst (Sets, Großrollen, Mengenrabatte) und Google Shopping mitläuft.</div>
-      <div class="take"><b class="k">Mein Vorschlag</b>Klein und günstig starten: einfacher WordPress-Shop, Google Shopping einmal sauber einrichten und SEO laufend für 250 € im Monat. So bleibt dein Risiko überschaubar und wir sehen schnell, ob es sich lohnt.</div>
+      <div class="take"><b class="k">Lohnt sich das?</b>Mit dem heutigen Sortiment knapp: nach 12 bis 18 Monaten bleiben grob 200 € im Monat übrig. Mit Sets und Großrollen klar: eher 800 €. Deshalb mein Vorschlag, klein zu starten und das Sortiment mitwachsen zu lassen. Die Rechnung dazu kommt weiter hinten.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin</span><span class="pg"></span></div>
   </section>
@@ -701,6 +792,93 @@
       <div class="take"><b class="k">Was das heißt</b>Die Nachfrage ist da, und die Hürde, bei Google nach oben zu kommen, ist niedrig. Vor allem die kleineren Begriffe sind schnell erreichbar.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Quelle: Semrush und SISTRIX, Deutschland, Stand Oktober 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Nachfrage nach Thema -->
+  <section class="slide" id="nachfrage">
+    <div class="s-head">
+      <div>
+        <h2>Die Nachfrage im Detail: rund 20.000 Suchen passen schon zu deinem heutigen Sortiment</h2>
+        <p class="s-sub">Alle Suchbegriffe rund um Klettband, nach Thema gebündelt und ohne doppelte Schreibvarianten. Mit erweitertem Sortiment kommen rund 7.000 dazu.</p>
+      </div>
+      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
+    </div>
+    <div class="s-body">
+      <table class="kw xs">
+        <thead><tr><th>Thema und typische Suchbegriffe</th><th class="r">Suchen / Monat</th><th class="r">Klickpreis Ads</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="3">Passt zu deinem Sortiment heute<span>ca. 20.200</span></td></tr>
+          <tr><td><b>klettband selbstklebend</b> und Schreibvarianten <span class="badge g">KD 8</span></td><td class="r">6.600</td><td class="r">0,40 €</td></tr>
+          <tr><td><b>klettband</b></td><td class="r">5.400</td><td class="r">0,49 €</td></tr>
+          <tr><td>Händler-Suchen: „klettband rossmann“, „obi“, „tedi“, „action“, „hornbach“, „dm“ …</td><td class="r">2.700</td><td class="r">0,05–0,20 €</td></tr>
+          <tr><td>Fliegengitter mit Klettband, 4 Varianten <span class="badge">stark saisonal</span></td><td class="r">1.940</td><td class="r">0,22–0,35 €</td></tr>
+          <tr><td>klettverschluss selbstklebend</td><td class="r">1.000</td><td class="r">0,39 €</td></tr>
+          <tr><td>extra stark, stark</td><td class="r">970</td><td class="r">0,46–0,55 €</td></tr>
+          <tr><td>schwarz, weiß, Rolle, Meterware, breit</td><td class="r">950</td><td class="r">0,31–0,88 €</td></tr>
+          <tr><td>klettband kaufen, wo kaufen</td><td class="r">640</td><td class="r">0,49 €</td></tr>
+          <tr class="grp"><td colspan="3">Mit Sortimentserweiterung<span>ca. 6.900</span></td></tr>
+          <tr><td>zum Nähen, Aufbügeln, für Stoff · beidseitig / doppelseitig · Klettpunkte</td><td class="r">4.640</td><td class="r">0,19–1,08 €</td></tr>
+          <tr><td>Kabel und Kabelbinder · Marken 3M, tesa, Velcro (nur wenn du sie führst)</td><td class="r">2.270</td><td class="r">0,31–0,92 €</td></tr>
+          <tr class="grp off"><td colspan="3">Nicht dein Markt<span>ca. 13.000+</span></td></tr>
+          <tr class="off"><td>Gardinen, Raffrollos, Schiebevorhänge „mit Klettband“ (gesucht wird der Vorhang) · „klettverschluss“ allgemein (Schuhe, Kleidung)</td><td class="r">13.000+</td><td class="r">–</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Quelle: DataForSEO (Google-Ads-Suchvolumen), Deutschland, Ø der letzten 12 Monate, Stand September 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Saison -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Klettband ist ein Sommerprodukt: im Juni doppelt so viele Suchen wie im Dezember</h2>
+        <p class="s-sub">Fliegengitter treibt die Saison. Der Shop sollte deshalb bis März stehen und bei den kleinen Begriffen schon ranken, wenn die Nachfrage anzieht.</p>
+      </div>
+      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
+    </div>
+    <div class="s-body">
+      <div class="season">
+        <div>
+          <div class="s-cap"><b>„klettband selbstklebend“</b><span>4.400 bis 9.900 Suchen</span></div>
+          <div class="sbars"><div><span class="sv">5.400</span><i style="height:54.5%;background:var(--forest)"></i><em>J</em></div><div><span class="sv">5.400</span><i style="height:54.5%;background:var(--forest)"></i><em>F</em></div><div><span class="sv">6.600</span><i style="height:66.7%;background:var(--forest)"></i><em>M</em></div><div><span class="sv">6.600</span><i style="height:66.7%;background:var(--forest)"></i><em>A</em></div><div><span class="sv">8.100</span><i style="height:81.8%;background:var(--forest)"></i><em>M</em></div><div><span class="sv">9.900</span><i style="height:100.0%;background:var(--forest)"></i><em>J</em></div><div><span class="sv">9.900</span><i style="height:100.0%;background:var(--forest)"></i><em>J</em></div><div><span class="sv">8.100</span><i style="height:81.8%;background:var(--forest)"></i><em>A</em></div><div><span class="sv">5.400</span><i style="height:54.5%;background:var(--forest)"></i><em>S</em></div><div><span class="sv">5.400</span><i style="height:54.5%;background:var(--forest)"></i><em>O</em></div><div><span class="sv">5.400</span><i style="height:54.5%;background:var(--forest)"></i><em>N</em></div><div><span class="sv">4.400</span><i style="height:44.4%;background:var(--forest)"></i><em>D</em></div></div>
+        </div>
+        <div>
+          <div class="s-cap"><b>„fliegengitter klettband“</b><span>70 bis 2.400 Suchen</span></div>
+          <div class="sbars"><div><span class="sv">110</span><i style="height:4.6%;background:var(--accent)"></i><em>J</em></div><div><span class="sv">210</span><i style="height:8.8%;background:var(--accent)"></i><em>F</em></div><div><span class="sv">720</span><i style="height:30.0%;background:var(--accent)"></i><em>M</em></div><div><span class="sv">880</span><i style="height:36.7%;background:var(--accent)"></i><em>A</em></div><div><span class="sv">1.600</span><i style="height:66.7%;background:var(--accent)"></i><em>M</em></div><div><span class="sv">2.400</span><i style="height:100.0%;background:var(--accent)"></i><em>J</em></div><div><span class="sv">1.900</span><i style="height:79.2%;background:var(--accent)"></i><em>J</em></div><div><span class="sv">1.300</span><i style="height:54.2%;background:var(--accent)"></i><em>A</em></div><div><span class="sv">480</span><i style="height:20.0%;background:var(--accent)"></i><em>S</em></div><div><span class="sv">210</span><i style="height:8.8%;background:var(--accent)"></i><em>O</em></div><div><span class="sv">170</span><i style="height:7.1%;background:var(--accent)"></i><em>N</em></div><div><span class="sv">70</span><i style="height:2.9%;background:var(--accent)"></i><em>D</em></div></div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das für den Start heißt</b>Wenn wir jetzt im Oktober starten, hat der Shop fünf Monate Anlauf bis zur Saison. Kleinere Begriffe brauchen 3 bis 6 Monate, das geht genau auf. Ein Start im Frühjahr würde die erste Saison weitgehend verschenken.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Quelle: DataForSEO, Suchvolumen pro Monat, September 2025 bis August 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Von Suchen zu Besuchern -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Von Suchen zu Besuchern: Was davon realistisch bei dir ankommt</h2>
+        <p class="s-sub">Nicht jede Suche wird zum Besuch. Hier der Rechenweg mit den Positionen, die ich für erreichbar halte, und typischen Klickraten für diese Positionen.</p>
+      </div>
+      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
+    </div>
+    <div class="s-body">
+      <table class="fun">
+        <thead><tr><th>Begriffsgruppe</th><th>Suchen / Monat</th><th>Ziel-Position</th><th>Klickrate (Annahme)</th><th>Besuche / Monat</th></tr></thead>
+        <tbody>
+          <tr><td>klettband selbstklebend</td><td>6.600</td><td>Top 3</td><td>10 %</td><td>660</td></tr>
+          <tr><td>klettband</td><td>5.400</td><td>Platz 4 bis 6</td><td>5 %</td><td>270</td></tr>
+          <tr><td>Fliegengitter, extra stark, Farben, Formate, kaufen</td><td>4.500</td><td>Top 3</td><td>8 bis 12 %</td><td>490</td></tr>
+          <tr><td>klettverschluss selbstklebend</td><td>1.000</td><td>Top 3</td><td>10 %</td><td>100</td></tr>
+          <tr><td>Händler-Suchen (Rossmann, OBI …)</td><td>2.700</td><td>dazwischen</td><td>2 %</td><td>55</td></tr>
+          <tr><td>Ratgeber und Long Tail (viele Begriffe unter 90 Suchen)</td><td>–</td><td>–</td><td>–</td><td>300–800</td></tr>
+          <tr class="sum"><td>Heutiges Sortiment</td><td>20.200</td><td></td><td></td><td>ca. 1.900–2.400</td></tr>
+          <tr class="add"><td>plus Erweiterung (Nähen, beidseitig, Klettpunkte, Kabel)</td><td>6.900</td><td>Top 3</td><td>10 %</td><td>+ ca. 700</td></tr>
+          <tr class="sum"><td>Mit Erweiterung</td><td>27.100</td><td></td><td></td><td>ca. 2.600–3.100</td></tr>
+        </tbody>
+      </table>
+      <div class="take"><b class="k">Was das heißt</b>Mit dem heutigen Sortiment sind rund 2.000 Besuche im Monat realistisch. Die 3.000 aus den Szenarien erreichst du eher mit Erweiterung. 5.000 ist das obere Ende, mit Bildersuche, Videos und mehr Ratgebern.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Suchvolumen: DataForSEO · Klickraten: Annahme nach typischen Werten für Shop-Suchen mit Shopping-Anzeigen darüber</span><span class="pg"></span></div>
   </section>
 
   <!-- Wettbewerb -->
@@ -789,6 +967,114 @@
       </div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · grobe Schätzung</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Lohnt sich das? -->
+  <section class="slide" id="lohnt">
+    <div class="s-head">
+      <div>
+        <h2>Lohnt sich das? Es hängt am Warenkorb, nicht an den Besuchern</h2>
+        <p class="s-sub">Laufende Kosten: 250 € SEO plus rund 15 € Hosting, also 265 € im Monat. So viele Bestellungen brauchst du, damit der Shop das trägt, je nachdem was dir pro Bestellung nach Ware, Versand und Gebühren bleibt.</p>
+      </div>
+      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1fr 1fr;gap:36px">
+        <div>
+          <div class="col-h">Bestellungen pro Monat bis zur Kostendeckung</div>
+          <table class="be">
+            <thead><tr><th>Dir bleiben vom Warenkorb</th><th>Warenkorb 15 €</th><th>Warenkorb 35 €</th></tr></thead>
+            <tbody>
+              <tr><td>30 %</td><td>59</td><td>26</td></tr>
+              <tr><td>40 %</td><td>45</td><td>19</td></tr>
+              <tr><td>50 %</td><td>36</td><td>16</td></tr>
+              <tr><td>Prognose nach 12–18 Monaten</td><td class="ok">75</td><td class="ok">75</td></tr>
+            </tbody>
+          </table>
+          <p class="small-note">Bei 15 € Warenkorb ist der Puffer klein: Wenn statt 3.000 nur 2.000 Besucher kommen (50 Bestellungen), bleibt bei 40 % kaum etwas übrig. Bei 35 € trägt sich der Shop schon ab rund 800 Besuchern.</p>
+        </div>
+        <div>
+          <div class="col-h">Ergebnis pro Monat nach 12–18 Monaten, bei 40 %</div>
+          <div class="verdict" style="grid-template-columns:1fr;gap:10px">
+            <div class="vd meh" style="flex-direction:row;align-items:center;justify-content:space-between;padding:14px 20px"><div><div class="k">A · heutiges Sortiment</div><div class="t" style="margin-top:4px">knapp</div></div><div class="v" style="margin:0">+185 €</div></div>
+            <div class="vd yes" style="flex-direction:row;align-items:center;justify-content:space-between;padding:14px 20px"><div><div class="k">B · plus Sets und Großrollen</div><div class="t" style="margin-top:4px">lohnt sich</div></div><div class="v" style="margin:0">+785 €</div></div>
+            <div class="vd mid" style="flex-direction:row;align-items:center;justify-content:space-between;padding:14px 20px"><div><div class="k">B plus Shopping (525 € Budget)</div><div class="t" style="margin-top:4px">mehr Umsatz, ähnlicher Gewinn</div></div><div class="v" style="margin:0">+660 €</div></div>
+          </div>
+          <p class="small-note">Rechnung: Bestellungen × Warenkorb × 40 % − 265 € (− Werbebudget). Die 40 % sind ein Platzhalter, mit deinen echten Zahlen rechne ich das gern neu.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Rechenbeispiel, keine Garantie</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Shopping & Amortisation -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Zwei Dinge, die man vorher wissen sollte</h2>
+        <p class="s-sub">Das erste Jahr ist eine Investition, und Google Shopping lohnt sich nur mit größerem Warenkorb.</p>
+      </div>
+      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="gap:28px">
+        <div class="card">
+          <div class="col-h">1 · Das erste Jahr</div>
+          <div class="num" style="font-size:50px">ca. 4.300 €</div>
+          <div class="lbl">Kosten im ersten Jahr: 1.140 € einmalig plus 12 × 265 € laufend, ohne Werbebudget.</div>
+          <ul class="check sm" style="margin-top:16px">
+            <li>Die Rankings wachsen über Monate, in den ersten 6 bis 9 Monaten zahlst du drauf.</li>
+            <li>Ab dem Niveau der Szenarien sind die 1.140 € Einmalkosten bei Szenario B in rund 1,5 Monaten wieder drin, bei A erst nach rund 6 Monaten.</li>
+            <li>Nach 6 Monaten sehen wir an den kleinen Begriffen klar, ob es funktioniert.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="col-h">2 · Was eine Shopping-Bestellung kostet</div>
+          <div class="num warn" style="font-size:50px">ca. 15 €</div>
+          <div class="lbl">Werbekosten pro Bestellung: 0,35 € pro Klick, und nur 2,3 von 100 Klicks kaufen.</div>
+          <ul class="check sm" style="margin-top:16px">
+            <li>Bei 15 € Warenkorb frisst die Anzeige den ganzen Umsatz, das lohnt sich nicht.</li>
+            <li>Bei 35 € Warenkorb lohnt es sich ab rund 45 % Marge, vorher nur als Starthilfe für Sichtbarkeit und Bewertungen.</li>
+            <li>Deshalb erst Sets und Großrollen, dann das Budget hochdrehen. Die Kampagne richten wir trotzdem gleich ein.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="take"><b class="k">Unterm Strich</b>Der Shop lohnt sich, wenn der Warenkorb wächst. Mit 10-€-Rollen allein bleibt es ein Nebenkanal, der sich gerade so trägt. Mit Sets, Großrollen und Mengenrabatten wird ein echtes zweites Standbein neben Amazon daraus, ohne Amazon-Gebühren auf jede Bestellung.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Rechenbeispiel auf Basis der Szenarien</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Rechner -->
+  <section class="slide" id="rechner">
+    <div class="s-head">
+      <div>
+        <h2>Rechne selbst: Was bleibt dir pro Monat?</h2>
+        <p class="s-sub">Schieb die Regler auf deine Zahlen. Alle Werte gelten für die Zeit 12 bis 18 Monate nach Start.</p>
+      </div>
+      <img class="s-logo kb" src="img/klick-berlin.png" alt="Klick Berlin" />
+    </div>
+    <div class="s-body">
+      <div class="calc-box" id="calc">
+        <div class="ctl">
+          <div class="presets"><button type="button" data-p="A">Szenario A</button><button type="button" data-p="B" class="on">Szenario B</button><button type="button" data-p="C">B plus Shopping</button></div>
+          <label><div class="lr"><span>Besuche über Google (organisch)</span><output id="o-v"></output></div><input type="range" id="i-v" min="500" max="6000" step="100" value="3000" /></label>
+          <label><div class="lr"><span>Shopping-Klicks pro Monat <small>à 0,35 €</small></span><output id="o-s"></output></div><input type="range" id="i-s" min="0" max="3000" step="100" value="0" /></label>
+          <label><div class="lr"><span>Conversion-Rate</span><output id="o-c"></output></div><input type="range" id="i-c" min="1" max="4" step="0.1" value="2.5" /></label>
+          <label><div class="lr"><span>Durchschnittlicher Warenkorb</span><output id="o-w"></output></div><input type="range" id="i-w" min="10" max="60" step="1" value="35" /></label>
+          <label><div class="lr"><span>Dir bleiben vom Warenkorb <small>nach Ware, Versand, Gebühren</small></span><output id="o-m"></output></div><input type="range" id="i-m" min="15" max="70" step="1" value="40" /></label>
+        </div>
+        <div class="res">
+          <div class="row"><span>Bestellungen pro Monat</span><b id="r-o"></b></div>
+          <div class="row"><span>Umsatz</span><b id="r-u"></b></div>
+          <div class="row"><span>Davon bleibt dir</span><b id="r-d"></b></div>
+          <div class="row neg"><span>SEO und Hosting</span><b>− 265 €</b></div>
+          <div class="row neg"><span>Shopping-Budget</span><b id="r-a"></b></div>
+          <div class="total"><span>Ergebnis pro Monat</span><b id="r-t"></b></div>
+          <p class="pay" id="r-p"></p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot Klick Berlin · Rechner, Werte sind Annahmen</span><span class="pg"></span></div>
   </section>
 
   <!-- Domain -->
@@ -1044,7 +1330,7 @@
   var tx = null, ty = null;
   document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
   document.addEventListener('touchend', function (e) {
-    if (tx === null || stacked() || e.target.closest('#hub')) { tx = null; return; }
+    if (tx === null || stacked() || e.target.closest('#hub, #calc')) { tx = null; return; }
     var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
     tx = null;
@@ -1061,6 +1347,34 @@
   document.addEventListener('fullscreenchange', fit);
   fit();
   show(fromHash(), true);
+})();
+</script>
+<script>
+/* ---- Worth-it calculator ---- */
+(function () {
+  var box = document.getElementById('calc'); if (!box) return;
+  var $ = function (id) { return document.getElementById(id); };
+  var eur = function (n) { return Math.round(n).toLocaleString('de-DE') + ' €'; };
+  var P = { A: [3000, 0, 2.5, 15], B: [3000, 0, 2.5, 35], C: [3000, 1500, 2.3, 35] };
+  function calc() {
+    var v = +$('i-v').value, sc = +$('i-s').value, c = +$('i-c').value, w = +$('i-w').value, m = +$('i-m').value;
+    $('o-v').textContent = v.toLocaleString('de-DE'); $('o-s').textContent = sc.toLocaleString('de-DE');
+    $('o-c').textContent = c.toLocaleString('de-DE', { minimumFractionDigits: 1 }) + ' %';
+    $('o-w').textContent = w + ' €'; $('o-m').textContent = m + ' %';
+    var orders = (v + sc) * c / 100, rev = orders * w, db = rev * m / 100, ads = sc * 0.35, t = db - 265 - ads;
+    $('r-o').textContent = Math.round(orders); $('r-u').textContent = eur(rev); $('r-d').textContent = eur(db);
+    $('r-a').textContent = ads ? '− ' + eur(ads) : '0 €';
+    var tt = $('r-t'); tt.textContent = (t >= 0 ? '+' : '−') + ' ' + eur(Math.abs(t)); tt.classList.toggle('neg', t < 0);
+    $('r-p').textContent = t > 0 ? 'Die 1.140 € Einmalkosten sind auf diesem Niveau nach rund ' + Math.max(1, Math.ceil(1140 / t)) + ' Monaten wieder drin.' : 'Auf diesem Niveau trägt sich der Shop noch nicht. Hebel: größerer Warenkorb oder mehr Marge.';
+  }
+  box.addEventListener('input', function () { box.querySelectorAll('.presets button').forEach(function (b) { b.classList.remove('on'); }); calc(); });
+  box.querySelectorAll('.presets button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var p = P[b.dataset.p]; $('i-v').value = p[0]; $('i-s').value = p[1]; $('i-c').value = p[2]; $('i-w').value = p[3];
+      calc(); box.querySelectorAll('.presets button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    });
+  });
+  calc();
 })();
 </script>
 <script defer src="/analytics.js"></script>
