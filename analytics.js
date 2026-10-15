@@ -119,11 +119,22 @@
     }
   }
 
+  function wireAskAiLinks() {
+    var links = document.querySelectorAll('a[href*="chatgpt.com"]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function () {
+        if (!window.amplitude) return;
+        window.amplitude.track('Ask AI Clicked', { ai: 'chatgpt', page_path: location.pathname });
+      });
+    }
+  }
+
   function enableAnalytics() {
     loadGA();
     loadAmplitude();   // trackLandingPageView() runs after Amplitude finishes init
     loadLeadfeeder();
     wireSignupLinks();
+    wireAskAiLinks();
   }
 
   // ---- Consent banner ------------------------------------------------------
