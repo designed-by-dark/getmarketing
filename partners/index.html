@@ -49,6 +49,12 @@
       "name": "Young Founders Network",
       "url": "https://youngfounders.network/",
       "description": "Young Founders Network is a non-profit community for everyone under 25 in Germany who wants to build something. Members receive 3 months of GetMarketing free."
+    },
+    {
+      "@type": "Organization",
+      "name": "Lovelaice",
+      "url": "https://www.lovelaice.com/",
+      "description": "Lovelaice is an AI quality evaluation platform. GetMarketing uses it to test and validate the AI behind its product."
     }
   ]
 }
@@ -388,6 +394,30 @@
     .reveal { transition: none; opacity: 1; transform: none; }
     html { scroll-behavior: auto; }
   }
+
+  /* ---- Lovelaice quality badge ---- */
+  .lv-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    border-radius: 999px; border: 1px solid var(--line); background: #fff;
+    padding: 6px 18px 6px 6px; text-decoration: none;
+    box-shadow: 0 1px 2px rgba(20,23,31,.04);
+    transition: box-shadow .18s ease, transform .18s ease;
+  }
+  .lv-badge:hover { box-shadow: 0 2px 6px rgba(20,23,31,.06); transform: translateY(-1px); }
+  .lv-check { width: 32px; height: 32px; border-radius: 50%; background: var(--tint); color: var(--accent-ink); display: grid; place-items: center; flex-shrink: 0; }
+  .lv-check svg { width: 16px; height: 16px; }
+  .lv-text { display: flex; flex-direction: column; line-height: 1; text-align: left; }
+  .lv-kicker { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); }
+  .lv-name { margin-top: 3px; font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 400; letter-spacing: 0; color: var(--black); }
+  .lv-name span { color: var(--accent); }
+  .lv-badge.on-dark { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); box-shadow: none; }
+  .lv-badge.on-dark:hover { background: rgba(255,255,255,.1); }
+  .lv-badge.on-dark .lv-check { background: rgba(82,183,136,.18); color: var(--accent); }
+  .lv-badge.on-dark .lv-kicker { color: rgba(255,255,255,.55); }
+  .lv-badge.on-dark .lv-name { color: #fff; }
+  .pc-mark.mark-lv, .ph-mark.mark-lv { background: #0E1330; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: 0; }
+  .mark-lv i { color: #799BF0; font-style: normal; }
+  .why-badge { margin-top: 18px; }
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -446,6 +476,15 @@
           <div class="pc-name">Young Founders Network</div>
           <div class="pc-tag">The community for founders under 25</div>
           <span class="pc-badge">★ Community partner · 3 months free</span>
+        </div>
+        <span class="pc-arrow">→</span>
+      </a>
+      <a href="#lovelaice" class="partner-card">
+        <span class="pc-mark mark-lv"><span>L<i>.</i></span></span>
+        <div class="pc-body">
+          <div class="pc-name">Lovelaice</div>
+          <div class="pc-tag">AI quality evaluation for product teams</div>
+          <span class="pc-badge">★ Quality partner · AI evaluation</span>
         </div>
         <span class="pc-arrow">→</span>
       </a>
@@ -676,6 +715,109 @@
         <div class="profile-foot">
           <span class="pf-q">A YFN member? Activate your 3 months.</span>
           <a href="https://app.getmarketing.team/?ref=yfn" target="_blank" rel="noopener" class="btn btn-dark">Activate in the app →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUALITY PARTNER: LOVELAICE ===== -->
+<section id="lovelaice" class="profile-section">
+  <div class="wrap">
+    <p class="sec-eyebrow reveal">Quality partner</p>
+    <div class="profile-card reveal">
+
+      <!-- header -->
+      <div class="profile-header">
+        <span class="ph-mark mark-lv"><span>L<i>.</i></span></span>
+        <div class="ph-meta">
+          <div class="ph-name">Lovelaice</div>
+          <div class="ph-sub">
+            <span class="ph-badge">★ Quality partner · AI evaluation</span>
+            <span class="ph-loc">AI quality platform · Product teams</span>
+          </div>
+        </div>
+        <div class="ph-cta">
+          <a href="https://www.lovelaice.com/?source=getmarketing" target="_blank" rel="noopener" class="ph-btn ph-btn-primary">Visit website ↗</a>
+        </div>
+      </div>
+
+      <!-- body -->
+      <div class="profile-body">
+        <p class="profile-lede em-ink">How we make sure our AI is <em>actually good</em>.</p>
+        <p class="profile-desc">Lovelaice is an AI quality evaluation platform that turns AI quality from a gut feeling into a measurable, repeatable process. We use it to test the AI behind GetMarketing against real marketing cases, compare prompts and models on the numbers, and catch problems before they ever reach your content.</p>
+
+        <div class="attr-grid">
+          <div class="attr-block">
+            <h4>Best for</h4>
+            <ul class="attr-list">
+              <li>Product teams shipping AI features to real customers</li>
+              <li>Product managers who want to own AI quality without engineering tickets</li>
+              <li>Teams comparing models or prompts before they switch</li>
+              <li>Anyone who'd rather not learn about AI failures from customer complaints</li>
+            </ul>
+          </div>
+          <div class="attr-block">
+            <h4>What it does</h4>
+            <ul class="attr-list">
+              <li>Runs evaluations across your full dataset and clusters the failures</li>
+              <li>Scores every prompt tweak or model swap before and after</li>
+              <li>Flags regressions the moment they land</li>
+              <li>Quality dashboards and an exportable, timestamped trail</li>
+            </ul>
+          </div>
+          <div class="attr-block">
+            <h4>Expertise</h4>
+            <div class="attr-tags">
+              <span class="attr-tag">AI evaluation</span>
+              <span class="attr-tag">LLM testing</span>
+              <span class="attr-tag">Prompt optimization</span>
+              <span class="attr-tag">Model comparison</span>
+              <span class="attr-tag">Regression monitoring</span>
+              <span class="attr-tag">Quality dashboards</span>
+            </div>
+          </div>
+          <div class="attr-block">
+            <h4>What we test with it</h4>
+            <div class="attr-tags">
+              <span class="attr-tag">Marketing strategies</span>
+              <span class="attr-tag">Social posts</span>
+              <span class="attr-tag">Blog &amp; SEO articles</span>
+              <span class="attr-tag">Brand voice</span>
+              <span class="attr-tag">Model &amp; prompt changes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cap-grid">
+          <div class="cap-card">
+            <h5>Catch it before it ships</h5>
+            <p>Evaluations run across the full set of test cases, so we see what breaks before you ever would.</p>
+          </div>
+          <div class="cap-card">
+            <h5>Prove every change</h5>
+            <p>Each prompt or model update gets a before/after score on the same cases. Better, or it doesn't ship.</p>
+          </div>
+          <div class="cap-card">
+            <h5>Regressions caught early</h5>
+            <p>If quality dips after a change, it's flagged immediately instead of surfacing weeks later.</p>
+          </div>
+          <div class="cap-card">
+            <h5>Continuous improvement</h5>
+            <p>Failures are grouped into clear patterns, so every iteration fixes the things that matter most.</p>
+          </div>
+        </div>
+
+        <div class="why-note">
+          <h4>Why we partner</h4>
+          <p>GetMarketing creates marketing that your customers actually see, so quality can't be a guess. Lovelaice lets us test every improvement to our AI on real cases, measure the result, and keep raising the bar week after week. That's why GetMarketing carries the "AI validated with Lovelaice" badge.</p>
+          <div class="why-badge"><a href="https://www.lovelaice.com/?source=getmarketing" target="_blank" rel="noopener noreferrer" class="lv-badge" aria-label="AI validated with Lovelaice"><span class="lv-check"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span><span class="lv-text"><span class="lv-kicker">AI validated with</span><span class="lv-name">Lovelaice<span>.</span></span></span></a></div>
+        </div>
+
+        <div class="profile-foot">
+          <span class="pf-q">Shipping AI in your own product?</span>
+          <a href="https://www.lovelaice.com/?source=getmarketing" target="_blank" rel="noopener" class="btn btn-dark">Visit lovelaice.com ↗</a>
         </div>
       </div>
 

@@ -560,6 +560,43 @@
     .reveal { transition: none; opacity: 1; transform: none; }
     .btm-live { animation: none; }
   }
+
+  /* ---- Lovelaice quality badge ---- */
+  .lv-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    border-radius: 999px; border: 1px solid var(--line); background: #fff;
+    padding: 6px 18px 6px 6px; text-decoration: none;
+    box-shadow: 0 1px 2px rgba(20,23,31,.04);
+    transition: box-shadow .18s ease, transform .18s ease;
+  }
+  .lv-badge:hover { box-shadow: 0 2px 6px rgba(20,23,31,.06); transform: translateY(-1px); }
+  .lv-check { width: 32px; height: 32px; border-radius: 50%; background: var(--tint); color: var(--accent-ink); display: grid; place-items: center; flex-shrink: 0; }
+  .lv-check svg { width: 16px; height: 16px; }
+  .lv-text { display: flex; flex-direction: column; line-height: 1; text-align: left; }
+  .lv-kicker { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); }
+  .lv-name { margin-top: 3px; font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 400; letter-spacing: 0; color: var(--black); }
+  .lv-name span { color: var(--accent); }
+  .lv-badge.on-dark { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); box-shadow: none; }
+  .lv-badge.on-dark:hover { background: rgba(255,255,255,.1); }
+  .lv-badge.on-dark .lv-check { background: rgba(82,183,136,.18); color: var(--accent); }
+  .lv-badge.on-dark .lv-kicker { color: rgba(255,255,255,.55); }
+  .lv-badge.on-dark .lv-name { color: #fff; }
+  .hero-badge { margin-top: 28px; display: flex; justify-content: center; }
+
+  /* ---- Quality section ---- */
+  .quality-section { background: var(--tint); }
+  .quality-head { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+  .quality-head .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 14px; }
+  .quality-head .body { margin-top: 20px; color: var(--gray); font-size: 17px; font-weight: 300; line-height: 1.7; }
+  .quality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .quality-card { background: #fff; border-radius: 18px; padding: 26px 24px; }
+  .quality-card .q-num { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--tint); color: var(--forest); font-size: 13px; font-weight: 900; margin-bottom: 16px; }
+  .quality-card h3 { font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .quality-card p { font-size: 15px; color: var(--gray); font-weight: 300; line-height: 1.65; }
+  .quality-foot { margin-top: 36px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .quality-foot .q-link { font-size: 14px; font-weight: 700; color: var(--accent-ink); text-decoration: none; }
+  .quality-foot .q-link:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .quality-grid { grid-template-columns: 1fr; } }
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -598,6 +635,7 @@
         <a href="https://app.getmarketing.team" class="btn btn-dark">Jetzt testen</a>
         <a href="/marketingplan-erstellen/" class="btn btn-ghost-light">Erst meinen Plan erstellen →</a>
       </div>
+      <div class="hero-badge"><a href="https://www.lovelaice.com/?source=getmarketing" target="_blank" rel="noopener noreferrer" class="lv-badge on-dark" aria-label="KI validiert mit Lovelaice"><span class="lv-check"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span><span class="lv-text"><span class="lv-kicker">KI validiert mit</span><span class="lv-name">Lovelaice<span>.</span></span></span></a></div>
     </div>
   </div>
 
@@ -955,6 +993,38 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ===== QUALITÄT / LOVELAICE ===== -->
+<section id="quality" class="quality-section">
+  <div class="wrap">
+    <div class="quality-head reveal em-ink">
+      <span class="eyebrow">Qualität</span>
+      <h2>Marketing-KI, der du vertrauen kannst, weil wir sie <em>ständig testen</em>.</h2>
+      <p class="body">Die meisten KI-Tools veröffentlichen einen Prompt und hoffen das Beste. Wir arbeiten mit Lovelaice, einer Plattform für KI-Qualitätsbewertung, und testen die KI hinter GetMarketing an echten Marketing-Fällen. Jede Änderung wird gemessen, bevor sie bei dir ankommt, damit die Qualität stetig steigt.</p>
+    </div>
+    <div class="quality-grid reveal">
+      <div class="quality-card">
+        <span class="q-num">1</span>
+        <h3>An echten Fällen getestet</h3>
+        <p>Strategien, Posts und Artikel werden an einem vollständigen Set realer Szenarien bewertet, nicht an drei Wunschbeispielen.</p>
+      </div>
+      <div class="quality-card">
+        <span class="q-num">2</span>
+        <h3>Jede Änderung gemessen</h3>
+        <p>Neue Prompts und Modell-Updates bekommen einen Vorher-Nachher-Score. Was nicht besser ist, geht nicht live.</p>
+      </div>
+      <div class="quality-card">
+        <span class="q-num">3</span>
+        <h3>Ständig besser</h3>
+        <p>Fehler werden gebündelt und behoben, Rückschritte früh erkannt. So wird das, was du bekommst, immer besser.</p>
+      </div>
+    </div>
+    <div class="quality-foot reveal">
+      <a href="https://www.lovelaice.com/?source=getmarketing" target="_blank" rel="noopener noreferrer" class="lv-badge" aria-label="KI validiert mit Lovelaice"><span class="lv-check"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span><span class="lv-text"><span class="lv-kicker">KI validiert mit</span><span class="lv-name">Lovelaice<span>.</span></span></span></a>
+      <a href="/de/partners/#lovelaice" class="q-link">Mehr über unseren Qualitätspartner →</a>
+    </div>
   </div>
 </section>
 
