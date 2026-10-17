@@ -674,6 +674,12 @@ svg.lucide{width:18px;height:18px;stroke-width:1.75;flex-shrink:0}
   html.devon .drawer{right:380px}
   html.devon .dragover{right:380px}
 }
+
+.fab{position:fixed;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:45;display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--lime);border:0;border-radius:999px;padding:13px 20px;font-weight:700;font-size:14.5px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);transition:transform .2s var(--ease)}
+.fab:hover{transform:translateY(-2px)}
+.fab svg{width:17px;height:17px}
+.drawer .bubble .btn{margin-top:8px}
+@media (min-width:1180px){ html.devon .fab{right:404px} }
 </style>
 </head>
 <body>
@@ -982,11 +988,12 @@ svg.lucide{width:18px;height:18px;stroke-width:1.75;flex-shrink:0}
 </section>
 
 <aside class="drawer" id="drawer" hidden aria-label="PM agent">
-  <div class="dh"><span class="av"><i data-lucide="clipboard-list" style="width:15px;height:15px;color:var(--lime)"></i></span><div><b>PM agent</b><span>Edits your plan directly</span></div><span class="sp"></span><button class="icon-btn" type="button" id="drawer-close" aria-label="Close"><i data-lucide="x"></i></button></div>
+  <div class="dh"><span class="av"><i data-lucide="sparkles" style="width:15px;height:15px;color:var(--lime)"></i></span><div><b>Ask GetMarketing</b><span>Plan changes, new content, questions</span></div><span class="sp"></span><button class="icon-btn" type="button" id="drawer-close" aria-label="Close"><i data-lucide="x"></i></button></div>
   <div class="msgs" id="dmsgs"></div>
-  <div class="composer-wrap"><form class="composer" id="dcomposer"><div class="box"><label class="sr" for="danswer">Message the PM agent</label><textarea id="danswer" rows="1" placeholder="What should change?"></textarea></div><button class="send" type="submit" aria-label="Send"><i data-lucide="arrow-right"></i></button></form></div>
+  <div class="composer-wrap"><form class="composer" id="dcomposer"><div class="box"><label class="sr" for="danswer">Message the PM agent</label><textarea id="danswer" rows="1" placeholder="Ask anything or request a change…"></textarea></div><button class="send" type="submit" aria-label="Send"><i data-lucide="arrow-right"></i></button></form></div>
 </aside>
 
+<button class="fab" id="fab" type="button" hidden><i data-lucide="sparkles"></i>Ask GetMarketing</button>
 <div class="overlay" id="modal" hidden>
   <form class="modal" id="report-form">
     <h3>Report a problem</h3>
@@ -1049,7 +1056,7 @@ function go(id){
   const el = APP.includes(id) ? $('.view[data-view="'+id+'"]') : $('#s-'+id);
   el.classList.remove('fade'); void el.offsetWidth; el.classList.add('fade');
   $$('#steps button').forEach(b => b.classList.toggle('on', b.dataset.go === id));
-  window.scrollTo(0,0); icons(); renderDev(id);
+  window.scrollTo(0,0); showFab(); icons(); renderDev(id);
 }
 $('#steps').innerHTML = STEPS.map(([id,l]) => `<button type="button" data-go="${id}" class="${id==='gate'?'pay':''}">${l}</button>`).join('');
 document.addEventListener('click', e => {
@@ -1304,19 +1311,65 @@ document.addEventListener('click', e => {
 });
 $('#plan-approve').addEventListener('click', () => { if (S.proposed) { toast('Accept or discard the proposed change first'); return; } go('month'); });
 
-/* drawer */
-function openDrawer(){ $('#drawer').hidden = false;
-  if (!$('#dmsgs').children.length) { dBubble('<p>Tell me what to change and I’ll edit the plan directly. You’ll see the change before it goes live.</p>');
-    const c = document.createElement('div'); c.className='chips'; c.id='dchips'; c.innerHTML = `<span class="h">Try</span><button class="chip" type="button" data-d="No trade fair, please. More LinkedIn instead.">No trade fair, more LinkedIn</button>`; $('#dmsgs').appendChild(c); }
+/* ask GetMarketing chat (also used for plan changes) */
+const SUGGEST = [
+  ['No trade fair, please. More LinkedIn instead.','No trade fair, more LinkedIn'],
+  ['Write a LinkedIn post about our 4.9 rating on Google','Write a post about our Google rating'],
+  ['How are we doing this week?','How are we doing this week?'],
+  ['Which keywords should we focus on?','Which keywords matter most?']
+];
+function showFab(){ $('#fab').hidden = $('#s-app').hidden || !$('#drawer').hidden; }
+function openDrawer(){ $('#drawer').hidden = false; showFab();
+  if (!$('#dmsgs').children.length) { dBubble('<p>Hi! I’m your GetMarketing team. Ask me to change the plan, write something new, or anything about your marketing. Plan changes are shown to you before they go live.</p>'); addSuggest(); }
   icons(); $('#danswer').focus(); }
-function dBubble(html, me){ const m=document.createElement('div'); m.className='msg fade'+(me?' me':''); m.innerHTML=`<span class="av ${me?'u':''}">${me?'U':'PM'}</span><div class="bubble">${html}</div>`; $('#dmsgs').appendChild(m); $('#dmsgs').scrollTop=1e6; icons(); }
-function planRequest(text){ const c=$('#dchips'); if(c) c.remove(); dBubble(`<p>${esc(text)}</p>`, true);
-  if (S.planV===2 || S.proposed) { later(()=>dBubble('<p>Noted. In the full product I’d edit the plan the same way and show you the change first.</p>'), 700); return; }
-  later(() => { S.proposed = true; S.tab='tasks'; dBubble('<p>Done. I removed the trade fair (that was 3 hours of your time) and added a LinkedIn carousel we do for you. Check the highlighted change in week 3.</p><div class="change"><b>Proposed change</b><span>− Prepare trade fair stand (A+A) · you, 3 h</span><span>+ LinkedIn carousel · GetMarketing</span></div>'); rerenderWS(); }, 1200); }
-$('#drawer-close').addEventListener('click', () => $('#drawer').hidden = true);
-$('#dmsgs').addEventListener('click', e => { const c=e.target.closest('[data-d]'); if(c) planRequest(c.dataset.d); });
+function addSuggest(){ const old=$('#dchips'); if(old) old.remove(); const c = document.createElement('div'); c.className='chips'; c.id='dchips';
+  c.innerHTML = `<span class="h">Try</span>` + SUGGEST.map(x=>`<button class="chip" type="button" data-d="${esc(x[0])}">${esc(x[1])}</button>`).join(''); $('#dmsgs').appendChild(c); $('#dmsgs').scrollTop=1e6; }
+function dBubble(html, me){ const m=document.createElement('div'); m.className='msg fade'+(me?' me':''); m.innerHTML=`<span class="av ${me?'u':''}">${me?'U':'G'}</span><div class="bubble">${html}</div>`; $('#dmsgs').appendChild(m); $('#dmsgs').scrollTop=1e6; icons(); return m; }
+function dTyping(){ const t=document.createElement('div'); t.className='msg'; t.innerHTML='<span class="av">G</span><div class="bubble" style="padding:0"><span class="typing"><i></i><i></i><i></i></span></div>'; $('#dmsgs').appendChild(t); $('#dmsgs').scrollTop=1e6; return t; }
+function onPlanView(){ return !$('#s-plan').hidden || (!$('#s-app').hidden && !$('.view[data-view="strategy"]').hidden); }
+function reply(html, ms){ const t = dTyping(); later(() => { t.remove(); dBubble(html); }, ms || 1100); }
+function chatRequest(text){
+  const c=$('#dchips'); if(c) c.remove();
+  dBubble(`<p>${esc(text)}</p>`, true);
+  const q = text.toLowerCase();
+  if (/trade fair|messe|\bplan\b|week \d|task|priorit|remove|replace|instead|less |more linkedin|change the/.test(q)) {
+    if (S.planV===2 || S.proposed) { reply(`<p>Noted. I’ll prepare that as the next change to your plan and show it to you before anything changes.</p>${onPlanView()?'':'<button class="btn sm" type="button" data-nav="strategy">Open plan</button>'}`); return; }
+    const t = dTyping();
+    later(() => { t.remove(); S.proposed = true; S.tab='tasks'; S.appTab='tasks';
+      dBubble(`<p>Done. I removed the trade fair (that was 3 hours of your time) and added a LinkedIn carousel we do for you. Nothing changes until you accept.</p><div class="change"><b>Proposed change</b><span>− Prepare trade fair stand (A+A) · you, 3 h</span><span>+ LinkedIn carousel · GetMarketing</span></div>${onPlanView() ? '<p>The change is highlighted in week 3.</p>' : '<button class="btn sm dark" type="button" data-nav="strategy" style="margin-top:8px">Review the change</button>'}`);
+      rerenderWS(); }, 1300);
+    return;
+  }
+  if (/write|post|blog|article|draft|carousel|newsletter|content about/.test(q)) {
+    if (!S.items) initItems();
+    const title = /rating|review|google/.test(q) ? '4.9 on Google: what 180 companies say about working with us' : text.replace(/^(please\s+)?(write|draft|create)\s+(a|an|me a)?\s*/i,'').replace(/^\w/, ch => ch.toUpperCase()).slice(0,70);
+    const type = /blog|article/.test(q) ? 'Blog article' : 'LinkedIn post';
+    const idx = S.items.length;
+    reply(`<p>On it. I’ve drafted <b>“${esc(title)}”</b> as a ${type.toLowerCase()} and put it in Content review for Thu 20 Nov. It uses your style and your proof points.</p><button class="btn sm dark" type="button" data-open="${idx}">Open the draft</button>`, 1500);
+    later(() => { S.items.push({ date:'Thu 20 Nov', type, title, status:'review', i: idx }); BODIES[idx] = { based:'Your request in the chat', body:['Draft written from your request. Shortened in this prototype.'] }; if (!$('.view[data-view="dash"]').hidden && !$('#s-app').hidden) renderDash(); }, 1500);
+    return;
+  }
+  if (/how are we|progress|this week|status|done|behind/.test(q)) {
+    const flat = weeks().flatMap(w => w.tasks.map((t,i)=>({t,key:w.n+i}))).filter(x=>!x.t.removed);
+    const n = st => flat.filter(x=>taskSt(x.t,x.key)===st).length;
+    reply(`<p>Week 1 of 4. ${n('done')} of ${flat.length} tasks are done, ${n('progress')} in progress and ${n('review')} ready for your review.</p><p>${n('you') ? `${n('you')} task is waiting for you: updating your Google Business Profile (about 30 minutes).` : 'Nothing is waiting for you right now.'}</p><button class="btn sm" type="button" data-nav="strategy">Open plan</button>`);
+    return;
+  }
+  if (/keyword|seo|rank|google|competitor|market/.test(q)) {
+    reply(`<p>Two to focus on first:</p><p><b>external safety officer</b> · 1,300 searches/month · you’re at position 14, so page one is within reach with the landing page in week 2.</p><p><b>risk assessment template</b> · 6,600 searches/month · weak competition, covered by the week 3 guide.</p><button class="btn sm" type="button" data-nav="research">See all research</button>`, 1300);
+    return;
+  }
+  if (/price|cost|cancel|trial|pay|invoice|subscription/.test(q)) {
+    reply(`<p>You’re on day 1 of your 7-day trial. After that it’s €49 a month, and you can cancel anytime before 24 Oct. Content you approve is yours to keep.</p>`);
+    return;
+  }
+  reply(`<p>Got it. I’ve passed this to your team: <b>“${esc(text)}”</b>.</p><p>If it changes your plan, you’ll see the change to approve. If it’s new content, it lands in Content review. I’ll let you know here when it’s done.</p>`);
+}
+$('#drawer-close').addEventListener('click', () => { $('#drawer').hidden = true; showFab(); });
+$('#fab').addEventListener('click', openDrawer);
+$('#dmsgs').addEventListener('click', e => { const c=e.target.closest('[data-d]'); if(c) chatRequest(c.dataset.d); });
 $('#danswer').addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); $('#dcomposer').requestSubmit(); } });
-$('#dcomposer').addEventListener('submit', e => { e.preventDefault(); const v=$('#danswer').value.trim(); if(!v) return; $('#danswer').value=''; planRequest(v); });
+$('#dcomposer').addEventListener('submit', e => { e.preventDefault(); const v=$('#danswer').value.trim(); if(!v) return; $('#danswer').value=''; chatRequest(v); });
 
 /* ---------- 6 your month ---------- */
 const CAL = [
