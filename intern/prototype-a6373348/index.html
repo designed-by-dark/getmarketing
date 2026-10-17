@@ -1,0 +1,1508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="referrer" content="no-referrer" />
+<title>Onboarding prototype — GetMarketing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<style>
+/* Layout (v3): website → live scan → account → session → plan workspace → your month → gate. Prototype bar on top; onboarding screens are single centred columns (like the live app); after the trial starts, the app shell from Dashboard v4 (sidebar + main). One light theme, matching the live product. */
+:root{
+  color-scheme:light;
+  --forest:#1B4332; --forest-2:#143527; --accent-ink:#2F8A5E; --tint:#E7F3EC;
+  --lime:#86EFAC; --lime-dark:#4ade80;
+  --black:#0a0a0a; --offwhite:#f5f4f0; --white:#ffffff;
+  --n100:#f5f4f0; --n200:#e8e6e0; --n300:#d1cfc8; --n400:#a8a49a; --n500:#6f6b62; --n600:#57534a;
+  --line:rgba(0,0,0,.10); --line-2:rgba(0,0,0,.16); --field:#E8E8E8;
+  --warn:#9A5B05; --warn-bg:#FEF3C7; --err:#B91C1C; --err-bg:#FEE2E2; --ok:#15803D; --ok-bg:#DCFCE7; --blue:#1D4ED8; --blue-bg:#DBEAFE;
+  --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--white);color:var(--black);font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+button,input,textarea{font-family:inherit;font-size:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--n500)}
+svg.lucide{width:18px;height:18px;stroke-width:1.75;flex-shrink:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* prototype bar (not product UI) */
+.proto{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:#1a1a18;color:#e8e6e0;font-size:12px;height:42px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;align-items:center;gap:14px}
+.proto b{font-family:var(--mono);font-weight:500;letter-spacing:.1em;color:var(--lime);font-size:11px;flex-shrink:0}
+.proto .steps{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.proto .steps button{background:transparent;border:1px solid rgba(255,255,255,.14);color:#cfcdc6;border-radius:999px;padding:3px 10px;font-size:11.5px;white-space:nowrap;flex-shrink:0}
+.proto .steps button:hover{border-color:rgba(255,255,255,.4)}
+.proto .steps button.on{background:var(--lime);color:var(--black);border-color:var(--lime);font-weight:600}
+.proto .steps .pay{border-color:rgba(245,158,11,.6);color:#f8cf7c}
+.proto .restart{background:transparent;border:0;color:#cfcdc6;display:inline-flex;gap:6px;align-items:center;font-size:12px;flex-shrink:0}
+.proto .restart svg{width:14px;height:14px}
+
+/* buttons, chips, pills */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;letter-spacing:-.01em;border-radius:999px;border:1.5px solid var(--line-2);background:transparent;padding:10px 18px;font-size:14px;white-space:nowrap;transition:transform .2s var(--ease),background .2s,border-color .2s,opacity .2s}
+.btn:hover{transform:translateY(-1px);border-color:var(--black)}
+.btn:active{transform:scale(.98)}
+.btn svg{width:16px;height:16px;stroke-width:2}
+.btn.dark{background:var(--black);color:#fff;border-color:var(--black)}
+.btn.dark:hover{opacity:.9}
+.btn.dark.limey{color:var(--lime)}
+.btn.forest{background:var(--forest);color:#fff;border-color:var(--forest)}
+.btn.ghost{border-color:transparent}
+.btn.ghost:hover{background:rgba(0,0,0,.05);transform:none}
+.btn.lg{padding:15px 26px;font-size:16px}
+.btn.sm{padding:6px 12px;font-size:12.5px}
+.btn.full{width:100%}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.linkbtn{background:none;border:0;padding:0;color:var(--forest);font-weight:600;font-size:14px;border-bottom:2px solid var(--lime-dark)}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:var(--white);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:500;transition:border-color .15s,background .15s}
+.chip:hover{border-color:var(--forest)}
+.chip.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+.chip svg{width:14px;height:14px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap;font-weight:500}
+.pill svg{width:11px;height:11px}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.err{background:var(--err-bg);color:var(--err)}
+.pill.mute{background:var(--n100);color:var(--n500)}
+.pill.tint{background:var(--tint);color:var(--forest)}
+.pill.blue{background:var(--blue-bg);color:var(--blue)}
+.pill.forest{background:var(--forest);color:var(--lime)}
+.bar{height:5px;background:var(--n200);border-radius:99px;overflow:hidden}
+.bar > i{display:block;height:100%;background:var(--forest);border-radius:99px;transition:width .5s var(--ease)}
+.fade{animation:fade .4s var(--ease) both}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* onboarding chrome (matches live header) */
+.screen{min-height:calc(100vh - 42px)}
+.ob-head{display:flex;align-items:center;gap:16px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:18px;border-bottom:1px solid transparent}
+.ob-head.lined{border-bottom-color:var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .mark{width:34px;height:34px;border-radius:8px;background:var(--forest);display:grid;place-items:center;flex-shrink:0}
+.brand .mark svg{width:15px;height:21px}
+.brand .name{font-weight:900;letter-spacing:-.04em;font-size:19px}
+.ob-head .sp{flex:1}
+.lang{border:1.5px solid var(--field);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700;background:var(--white)}
+.progress{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--n500)}
+.progress .s{display:flex;align-items:center;gap:6px}
+.progress .d{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--n300);display:grid;place-items:center;font-family:var(--mono);font-size:10px}
+.progress .s.done .d{background:var(--forest);border-color:var(--forest);color:var(--lime)}
+.progress .s.done .d svg{width:11px;height:11px;stroke-width:3}
+.progress .s.now{color:var(--forest);font-weight:600}
+.progress .s.now .d{border-color:var(--forest);color:var(--forest)}
+.progress .ln{width:18px;height:1.5px;background:var(--n300)}
+
+/* 1 start */
+.center{display:flex;justify-content:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 72px}
+.auth-card{width:100%;max-width:500px;border:1px solid var(--field);border-radius:24px;padding:44px 44px 36px;box-shadow:0 1px 2px rgba(10,10,10,.04),0 30px 70px -28px rgba(20,53,39,.28);display:grid;gap:18px;background:var(--white)}
+.auth-card h1{margin:0;font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.08;text-align:center;text-wrap:balance}
+.auth-card h1 em{color:var(--accent-ink)}
+.auth-card .sub{margin:0;text-align:center;color:var(--n500);font-weight:300;font-size:16px;text-wrap:pretty}
+.field{display:grid;gap:8px}
+.field > label,.flabel{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--n500)}
+.input{width:100%;background:var(--white);border:1.5px solid var(--field);border-radius:12px;padding:13px 15px;font-size:15px;outline:none;transition:border-color .16s,box-shadow .16s}
+.input::placeholder{color:#B0B8C1;font-weight:300}
+.input:focus{border-color:var(--accent-ink);box-shadow:0 0 0 3px rgba(47,138,94,.14)}
+.input[readonly]{background:var(--n100);color:var(--n600)}
+.hint{font-size:12.5px;color:var(--n500);margin-top:-2px}
+.divider{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B0B8C1}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--field)}
+.found{border:1.5px solid #BFE3CC;background:#EEF8F1;border-radius:14px;padding:16px 18px;display:grid;gap:10px;animation:fade .4s var(--ease) both}
+.found .label{color:var(--accent-ink)}
+.found p{margin:0;font-size:14.5px}
+.found .tags{display:flex;flex-wrap:wrap;gap:6px}
+.found .tags span{font-size:12.5px;background:var(--white);border:1px solid #BFE3CC;color:var(--forest);border-radius:999px;padding:3px 10px}
+.found textarea{width:100%;min-height:90px;border:1.5px solid #BFE3CC;border-radius:10px;padding:10px 12px;font-size:14px;resize:vertical;outline:none;background:var(--white)}
+.found .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--n500)}
+.scanning{display:grid;gap:8px;font-size:13px;color:var(--n500)}
+.goals{display:flex;flex-wrap:wrap;gap:8px}
+.foot-c{text-align:center;color:var(--n500);font-size:14px}
+.foot-c button{background:none;border:0;color:var(--forest);font-weight:700}
+.legal{text-align:center;color:#B0B8C1;font-size:12.5px;font-weight:300;max-width:420px;margin:22px auto 0}
+
+/* 2 session */
+#s-session{display:flex;flex-direction:column;height:calc(100vh - 42px)}
+.sess{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 300px}
+.chat{display:flex;flex-direction:column;min-width:0;min-height:0}
+.chat-hd{padding:20px 32px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.chat-hd h2{margin:0;font-size:24px;font-weight:900;letter-spacing:-.03em}
+.chat-hd p{margin:2px 0 0;color:var(--n500);font-size:14px}
+.qprog{display:grid;gap:6px;min-width:180px;font-size:12.5px;color:var(--n500)}
+.msgs{flex:1;overflow-y:auto;padding:24px 32px 12px}
+.msgs .inner{max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:12px;align-items:flex-start;max-width:88%}
+.av{width:30px;height:30px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0}
+.av.u{background:var(--n200);color:var(--n500)}
+.bubble{background:#F3F3F1;border-radius:14px;padding:12px 16px;font-size:15px;line-height:1.6;min-width:0}
+.bubble p{margin:0}
+.bubble p + p{margin-top:8px}
+.msg.me{align-self:flex-end;flex-direction:row-reverse}
+.msg.me .bubble{background:var(--forest);color:#fff}
+.bubble .file{display:flex;align-items:center;gap:8px;font-size:13.5px}
+.typing{display:inline-flex;gap:4px;padding:16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--n400);animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-left:42px}
+.chips .h{width:100%;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--n400)}
+.building{display:grid;gap:8px;font-size:14px}
+.building div{display:flex;gap:10px;align-items:center}
+.building .d{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--n300);display:grid;place-items:center;flex-shrink:0}
+.building .d.on{background:var(--forest);border-color:var(--forest);color:var(--lime)}
+.building .d.on svg{width:11px;height:11px;stroke-width:3}
+.building .d.run{border-color:var(--warn);animation:blink 1.2s infinite}
+.composer-wrap{padding:12px 32px 20px;border-top:1px solid var(--line)}
+.composer{max-width:740px;margin:0 auto;display:flex;align-items:flex-end;gap:8px}
+.composer .box{flex:1;display:flex;align-items:flex-end;gap:4px;border:1.5px solid var(--field);border-radius:24px;padding:4px 6px 4px 6px;transition:border-color .16s,box-shadow .16s;background:var(--white)}
+.composer .box:focus-within{border-color:var(--accent-ink);box-shadow:0 0 0 3px rgba(47,138,94,.14)}
+.composer textarea{flex:1;border:0;outline:none;resize:none;background:transparent;padding:9px 6px;min-height:40px;max-height:150px;line-height:1.45;font-size:15px}
+.icon-btn{width:36px;height:36px;border-radius:50%;border:0;background:transparent;color:var(--n500);display:grid;place-items:center;flex-shrink:0}
+.icon-btn:hover{background:var(--n100);color:var(--black)}
+.send{width:46px;height:46px;border-radius:50%;border:0;background:var(--forest);color:#fff;display:grid;place-items:center;flex-shrink:0;transition:opacity .2s}
+.send[disabled]{opacity:.35}
+.composer-hint{max-width:740px;margin:8px auto 0;font-size:12px;color:var(--n500)}
+.attach-btn{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--n100);color:var(--n600);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600;margin:3px 0;white-space:nowrap;flex-shrink:0}
+.attach-btn:hover{background:var(--tint);color:var(--forest)}
+.attach-btn svg{width:15px;height:15px}
+.dropzone{border:1.5px dashed #9FD3B4;background:var(--white);border-radius:14px;padding:18px 16px;display:grid;gap:6px;justify-items:center;text-align:center;font-size:13px;color:var(--n500);transition:background .2s,border-color .2s}
+.dropzone b{font-size:14.5px;color:var(--black)}
+.dropzone .dz-ic{width:40px;height:40px;border-radius:50%;background:var(--tint);color:var(--forest);display:grid;place-items:center;margin-bottom:2px}
+.dropzone.has{border-style:solid;border-color:#BFE3CC;background:#F3FAF5}
+.dragover{position:fixed;inset:42px 0 0 0;z-index:70;background:rgba(231,243,236,.92);border:3px dashed var(--accent-ink);display:grid;place-items:center;pointer-events:none}
+.dragover div{display:grid;gap:6px;justify-items:center;color:var(--forest);font-size:15px}
+.dragover b{font-size:22px}
+.dragover svg{width:40px;height:40px}
+.invite{display:flex;gap:14px;align-items:center;border:1.5px dashed #9FD3B4;background:#F3FAF5;border-radius:14px;padding:14px 16px;margin-left:42px;font-size:14px;flex-wrap:wrap;animation:fade .4s var(--ease) both}
+.invite .t{flex:1;min-width:200px;display:grid;gap:2px}
+.invite b{font-size:14.5px}
+.invite span{color:var(--n600)}
+.reading{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--n500)}
+@media (max-width:860px){.invite{margin-left:0}}
+.known{border-left:1px solid var(--line);background:var(--offwhite);padding:22px;overflow-y:auto;display:grid;gap:14px;align-content:start}
+.known h3{margin:0;font-size:15px}
+.kf{display:grid;gap:3px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:13.5px}
+.kf .v.wait{color:var(--n400);font-style:italic}
+.kf.fresh .v{animation:hl 1.4s var(--ease)}
+@keyframes hl{0%{background:var(--lime)}100%{background:transparent}}
+
+/* 3 google */
+.narrow{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:64px 64px;display:grid;gap:18px;text-align:center}
+.narrow h1{margin:0;font-size:36px;font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.narrow > p{margin:0;color:var(--n500);font-weight:300;font-size:16.5px}
+.gets{display:grid;gap:8px;text-align:left;background:var(--offwhite);border-radius:14px;padding:16px 18px;font-size:14px}
+.gets div{display:flex;gap:10px;align-items:flex-start}
+.gets svg{width:16px;height:16px;margin-top:3px;color:var(--accent-ink)}
+
+/* 4 plan / strategy doc */
+.doc-wrap{max-width:880px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:28px 120px;display:grid;gap:4px}
+.doc-wrap h1{margin:6px 0 14px;font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.dsec{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.dsec .label{font-size:10.5px}
+.dsec p{margin:0;font-size:15.5px}
+.proofs{display:flex;flex-wrap:wrap;gap:8px}
+.proofs span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px;margin-top:6px}
+.week{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:8px;align-content:start;background:var(--white)}
+.week .wk{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--forest);text-transform:uppercase}
+.week ul{margin:0;padding-left:16px;display:grid;gap:6px;font-size:13.5px}
+.del{text-decoration:line-through;color:var(--err);background:var(--err-bg);border-radius:4px;padding:0 3px}
+.add{color:var(--ok);background:var(--ok-bg);border-radius:4px;padding:0 3px}
+.vbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--warn-bg);border:1px solid #F5D58A;border-radius:12px;padding:10px 14px;font-size:13.5px;margin-bottom:6px}
+.vbar .sp{flex:1}
+.actionbar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:30;
+  padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-top:14px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+.actionbar .in{max-width:880px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.actionbar .in .sp{flex:1}
+.actionbar .in span{font-size:13.5px;color:var(--n500)}
+.drawer{position:fixed;top:42px;right:0;bottom:0;width:min(400px,100%);background:var(--white);border-left:1px solid var(--line);box-shadow:-20px 0 60px -30px rgba(0,0,0,.3);z-index:40;display:flex;flex-direction:column;animation:slidein .35s var(--ease) both}
+@keyframes slidein{from{transform:translateX(30px);opacity:0}to{transform:none;opacity:1}}
+.drawer .dh{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center}
+.drawer .dh b{display:block;font-size:14.5px;line-height:1.2}
+.drawer .dh span{font-size:12px;color:var(--n500)}
+.drawer .dh .sp{flex:1}
+.drawer .msgs{padding:18px;background:var(--offwhite)}
+.drawer .msg{max-width:100%}
+.drawer .chips{padding-left:0}
+.drawer .composer-wrap{padding:12px}
+.change{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;display:grid;gap:3px;margin-top:8px}
+
+/* 5 sample content */
+.sample{max-width:1180px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:24px 120px;display:grid;gap:18px}
+.sample-hd{display:grid;gap:6px}
+.sample-hd h1{margin:0;font-size:32px;font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.sample-hd p{margin:0;color:var(--n500);font-size:16px;max-width:66ch}
+.sgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:10px 14px;font-size:14px;font-weight:600;color:var(--n500);white-space:nowrap;display:inline-flex;gap:8px;align-items:center}
+.tabs button.on{color:var(--forest);border-color:var(--forest)}
+.article{border:1px solid var(--line);border-radius:16px;padding:28px 32px;display:grid;gap:4px;background:var(--white)}
+.article .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.article h2{margin:0 0 10px;font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.2}
+.para{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:8px 10px;margin:0 -10px;border-radius:10px;transition:background .2s}
+.para:hover{background:var(--n100)}
+.para p{margin:0;font-size:16px;line-height:1.7}
+.para h3{margin:6px 0 0;font-size:18px}
+.para .rate{display:flex;gap:4px;opacity:.35;transition:opacity .15s}
+.para:hover .rate,.para.liked .rate,.para.disliked .rate{opacity:1}
+.rate button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:var(--white);display:grid;place-items:center;color:var(--n500)}
+.rate button svg{width:15px;height:15px}
+.rate button.on.up{background:var(--ok-bg);color:var(--ok);border-color:#9AE6B4}
+.rate button.on.down{background:var(--err-bg);color:var(--err);border-color:#FCA5A5}
+.para.liked{background:#F0FBF4}
+.para.disliked{background:#FEF4F4}
+.para.disliked p{text-decoration:line-through;text-decoration-color:rgba(185,28,28,.4)}
+.li-post{border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:grid;gap:12px;background:var(--white);max-width:600px}
+.li-head{display:flex;gap:12px;align-items:center}
+.li-head .lav{width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-weight:800}
+.li-head b{display:block;font-size:14.5px;line-height:1.2}
+.li-head span{font-size:12.5px;color:var(--n500)}
+.li-visual{border-radius:12px;background:var(--forest);color:#fff;padding:26px 24px;display:grid;gap:8px}
+.li-visual .label{color:var(--lime)}
+.li-visual b{font-size:22px;letter-spacing:-.02em;line-height:1.2}
+.panel{position:sticky;top:60px;border:1px solid var(--line);border-radius:16px;background:var(--white);display:grid}
+.panel .ph{padding:16px 18px;border-bottom:1px solid var(--line)}
+.panel .ph h3{margin:0;font-size:15.5px}
+.panel .ph p{margin:4px 0 0;font-size:13px;color:var(--n500)}
+.panel .pb{padding:16px 18px;display:grid;gap:16px}
+.verdict{display:grid;gap:6px}
+.verdict button{display:flex;align-items:center;gap:10px;text-align:left;border:1.5px solid var(--field);border-radius:12px;padding:10px 12px;background:var(--white);font-size:14px;font-weight:500}
+.verdict button:hover{border-color:var(--forest)}
+.verdict button.on{border-color:var(--forest);background:var(--tint);color:var(--forest);font-weight:600}
+.seg{display:inline-flex;border:1.5px solid var(--field);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600;color:var(--n500)}
+.seg button.on{background:var(--forest);color:#fff}
+.slider{display:grid;gap:4px}
+.slider .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--n500)}
+.slider input{width:100%;accent-color:var(--forest)}
+.learned{background:var(--offwhite);border-radius:12px;padding:12px 14px;display:grid;gap:6px;font-size:13px}
+.learned div{display:flex;justify-content:space-between;gap:12px}
+.learned div span:first-child{color:var(--n500)}
+.learned div span:last-child{text-align:right;font-weight:500}
+.panel textarea{width:100%;min-height:72px;border:1.5px solid var(--field);border-radius:10px;padding:9px 11px;font-size:14px;resize:vertical;outline:none}
+.panel textarea:focus{border-color:var(--accent-ink)}
+
+/* 6 paywall */
+.paygrid{max-width:1040px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:36px 72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:32px;align-items:start}
+.offer{display:grid;gap:16px}
+.offer h1{margin:0;font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.offer .price{display:flex;align-items:baseline;gap:8px}
+.offer .price b{font-size:40px;font-weight:900;letter-spacing:-.03em}
+.offer .price span{color:var(--n500)}
+.offer ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.offer li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.offer li svg{width:18px;height:18px;color:var(--accent-ink);margin-top:2px}
+.trial{background:var(--tint);border-radius:14px;padding:16px 18px;color:var(--forest);font-size:14.5px;display:grid;gap:10px}
+.timeline-h{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:12.5px}
+.timeline-h div{border-top:3px solid var(--forest);padding-top:6px}
+.timeline-h div:last-child{border-top-color:var(--n300)}
+.carry{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px;font-size:14px}
+.checkout{border:1px solid var(--field);border-radius:20px;padding:24px;display:grid;gap:12px;box-shadow:0 30px 70px -36px rgba(20,53,39,.3)}
+.fake{border:1.5px solid var(--field);border-radius:10px;padding:12px 14px;color:#B0B8C1;font-size:14.5px;display:flex;justify-content:space-between;align-items:center}
+.fake-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.demo-note{font-size:12px;color:var(--warn);background:var(--warn-bg);border-radius:8px;padding:8px 10px}
+
+/* 7 setup */
+.setup{max-width:880px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:48px 72px;display:grid;gap:22px}
+.setup h1{margin:0;font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.setup > p{margin:0;color:var(--n500);font-size:16px}
+.agents{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.agent{display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.agent:last-child{border-bottom:0}
+.agent .ic{width:40px;height:40px;border-radius:10px;background:var(--tint);color:var(--forest);display:grid;place-items:center}
+.agent b{display:block;font-size:14.5px}
+.agent .small{font-size:13px;color:var(--n500)}
+.agent .bar{margin-top:6px;max-width:320px}
+.mini-cal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.mini-cal .mc{border:1px dashed var(--n300);border-radius:10px;padding:10px 12px;font-size:12.5px;color:var(--n400);min-height:76px;display:grid;gap:4px;align-content:start}
+.mini-cal .mc.ready{border-style:solid;border-color:var(--line);color:var(--black);background:var(--white);animation:fade .4s var(--ease) both}
+
+/* app shell (Dashboard v4) */
+.app{display:flex;height:calc(100vh - 42px);background:var(--offwhite)}
+.side{width:236px;min-width:236px;background:var(--white);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:20px 0 14px}
+.side > .brand{padding:0 20px 18px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.side > .brand .mark{width:30px;height:30px}
+.side > .brand .name{font-size:17px}
+.side small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--n400);text-transform:uppercase}
+.client{margin:0 12px 16px;padding:10px 11px;background:var(--n100);border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;gap:10px}
+.avatar{width:32px;height:32px;border-radius:4px;background:var(--forest);display:grid;place-items:center;font-weight:700;font-size:12px;color:var(--lime);flex-shrink:0}
+.client b{display:block;font-size:13px;line-height:1.2}
+.client span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--n500);text-transform:uppercase}
+.nav{padding:0 12px;display:grid;gap:2px}
+.nav .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--n400);text-transform:uppercase;padding:12px 10px 6px}
+.nav button{display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--n600);background:transparent;border:0;text-align:left;position:relative;width:100%}
+.nav button:hover{background:var(--n100);color:var(--black)}
+.nav button.active{background:rgba(27,67,50,.08);color:var(--forest);font-weight:600}
+.nav button.active::before{content:"";position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:3px;height:20px;background:var(--lime-dark);border-radius:0 3px 3px 0}
+.nav button .lbl{flex:1}
+.nav .count{font-size:10px;font-weight:600;padding:2px 7px;border-radius:999px;background:var(--forest);color:var(--lime);min-width:20px;text-align:center}
+.nav .soon{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;padding:2px 6px;border-radius:999px;background:var(--n100);color:var(--n400);text-transform:uppercase}
+.side .foot{margin-top:auto}
+.trialbox{margin:0 12px 10px;background:var(--tint);border-radius:10px;padding:10px 12px;font-size:12.5px;color:var(--forest);display:grid;gap:6px}
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.top{height:64px;flex-shrink:0;border-bottom:1px solid var(--line);background:rgba(255,255,255,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.top .t .label{display:block;font-size:10.5px}
+.top .t h2{margin:0;font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.top .acts{display:flex;gap:8px;align-items:center}
+.body{flex:1;overflow-y:auto;padding:28px}
+.body .wrapc{max-width:1120px;margin:0 auto;display:grid;gap:22px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;min-width:0}
+.card .hd{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card .hd h3{margin:0;font-size:15px;font-weight:700;display:flex;gap:8px;align-items:center}
+.card .bd{padding:18px 20px}
+.agent-chips{display:flex;gap:8px;flex-wrap:wrap}
+.agent-chips span{display:inline-flex;gap:6px;align-items:center;font-size:12.5px;border:1px solid var(--line);background:var(--white);border-radius:999px;padding:4px 10px}
+.agent-chips span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime-dark)}
+.hello h1{margin:0;font-size:30px;font-weight:900;letter-spacing:-.03em;line-height:1.15}
+.hello p{margin:4px 0 10px;color:var(--n500)}
+.learnt{display:flex;gap:12px;align-items:center;background:var(--forest);color:#fff;border-radius:14px;padding:14px 18px;font-size:14px;flex-wrap:wrap}
+.learnt svg{color:var(--lime)}
+.learnt .sp{flex:1}
+.learnt .btn{border-color:rgba(255,255,255,.3);color:#fff}
+.cal{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;padding:18px 20px}
+.citem{border:1px solid var(--line);border-radius:12px;background:var(--white);padding:12px;display:grid;gap:8px;text-align:left;align-content:start;transition:transform .2s var(--ease),box-shadow .2s}
+.citem:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.citem .date{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--n500);text-transform:uppercase}
+.citem b{font-size:13.5px;line-height:1.35}
+.citem .vis{border-radius:8px;background:var(--forest);color:#fff;font-size:12px;font-weight:700;padding:12px;line-height:1.3;min-height:70px}
+.filters{display:flex;gap:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.stat{background:var(--offwhite);border-radius:10px;padding:12px 14px;display:grid;gap:2px}
+.stat b{font-size:22px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--n500)}
+.stat .d{font-size:12px;color:var(--ok);font-weight:600}
+.empty-g{display:grid;gap:12px;justify-items:center;text-align:center;padding:26px 20px;color:var(--n500);font-size:14px}
+.ai-para{font-size:15px;line-height:1.7;margin:0;max-width:78ch}
+.todo{display:grid}
+.todo div{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:12px 20px;border-top:1px solid var(--line);font-size:14px}
+.rv{display:grid;grid-template-columns:300px minmax(0,1fr);gap:22px;align-items:start}
+.qlist{display:grid;max-height:calc(100vh - 220px);overflow-y:auto}
+.qitem{display:grid;gap:5px;padding:12px 16px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;width:100%}
+.qitem.on{background:rgba(27,67,50,.06)}
+.qitem b{font-size:13.5px;line-height:1.35}
+.qitem .t{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--n500)}
+.draft{display:grid;gap:14px}
+.based{display:flex;gap:10px;align-items:flex-start;background:var(--tint);color:var(--forest);border-radius:10px;padding:10px 14px;font-size:13.5px}
+.based svg{width:16px;height:16px;margin-top:3px}
+.postbody{font-size:15.5px;line-height:1.7;display:grid;gap:12px;max-width:66ch}
+.postbody p{margin:0}
+.postbody mark{background:var(--ok-bg);color:inherit;border-radius:3px;padding:0 2px}
+.decide{display:flex;gap:10px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--line)}
+.reasons{display:grid;gap:12px;background:var(--n100);border-radius:12px;padding:16px}
+.reasons textarea{width:100%;border:1.5px solid var(--field);border-radius:10px;padding:10px 12px;min-height:80px;resize:vertical;outline:none;background:var(--white)}
+.tl{display:grid;gap:10px;font-size:13.5px}
+.tl div{display:flex;gap:10px;align-items:center}
+.tl .d{width:10px;height:10px;border-radius:50%;background:var(--n300);flex-shrink:0}
+.tl .d.on{background:var(--forest)}
+.tl .d.now{background:var(--warn);animation:blink 1.2s infinite}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+.tbl th{text-align:left;font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--n500);padding:10px 20px;border-bottom:1px solid var(--line)}
+.tbl td{padding:12px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.num{font-variant-numeric:tabular-nums;text-align:right}
+.tbl th.num{text-align:right}
+.xs{overflow-x:auto}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;padding:18px 20px}
+.cols3 .col{display:grid;gap:8px;align-content:start}
+.cols3 q{display:block;border-radius:10px;padding:10px 12px;font-size:14px;quotes:"“" "”"}
+.c-red q{background:var(--err-bg)}.c-green q{background:var(--ok-bg)}.c-amber q{background:var(--warn-bg)}
+.pain{display:grid;gap:4px;padding:14px 20px;border-top:1px solid var(--line)}
+.pain b{font-size:14.5px}
+.pain span{font-size:13.5px;color:var(--n600)}
+.pain .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.addrow{display:flex;gap:8px;padding:14px 20px;border-top:1px solid var(--line);flex-wrap:wrap}
+.addrow .input{padding:9px 12px;font-size:14px;flex:1;min-width:180px;border-radius:10px}
+.sdoc{max-width:880px;margin:0 auto}
+.vok{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px}
+.log{display:grid;gap:8px;font-size:13.5px}
+.log div{display:grid;grid-template-columns:90px 1fr;gap:10px}
+.log .v{font-family:var(--mono);font-size:11.5px;color:var(--forest)}
+
+/* modal + toast */
+.overlay{position:fixed;inset:0;background:rgba(10,10,10,.45);display:grid;place-items:center;z-index:80;padding:16px}
+.modal{background:var(--white);border-radius:16px;max-width:520px;width:100%;padding:24px;display:grid;gap:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.4)}
+.modal h3{margin:0;font-size:19px}
+.shot{border:1px dashed var(--n300);border-radius:10px;background:var(--n100);padding:16px;font-size:13px;color:var(--n500);display:flex;gap:10px;align-items:center}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--black);color:var(--offwhite);padding:12px 18px;border-radius:999px;font-size:14px;display:flex;gap:10px;align-items:center;z-index:90;box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:calc(100% - 32px)}
+.toast svg{color:var(--lime)}
+
+@media (max-width:1100px){
+  .sess{grid-template-columns:minmax(0,1fr)}
+  .known{display:none}
+  .sgrid{grid-template-columns:minmax(0,1fr)}
+  .panel{position:static}
+  .progress .s span{display:none}
+}
+@media (max-width:860px){
+  .progress{display:none}
+  .app{flex-direction:column;height:auto;min-height:calc(100vh - 42px)}
+  .side{width:auto;min-width:0;border-right:0;border-bottom:1px solid var(--line);padding:12px 0}
+  .side > .brand,.client,.nav .lab,.side .foot,.trialbox{display:none}
+  .nav{display:flex;overflow-x:auto;gap:4px}
+  .nav button{width:auto;white-space:nowrap}
+  .nav button.active::before{display:none}
+  .top{padding:10px 16px;height:auto;min-height:64px;flex-wrap:wrap}
+  .body{padding:18px 16px;overflow:visible}
+  .rv,.paygrid{grid-template-columns:minmax(0,1fr)}
+  .auth-card{padding:32px 22px 28px}
+  .article{padding:20px 18px}
+  .msgs,.chat-hd,.composer-wrap{padding-left:16px;padding-right:16px}
+  .chips{padding-left:0}
+  .msg{max-width:100%}
+}
+
+/* ===== v3 additions ===== */
+/* live scan */
+.scanwrap{max-width:820px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:36px 120px;display:grid;gap:20px}
+.scanwrap h1{margin:0;font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.scanwrap > p{margin:0;color:var(--n500);font-size:16px}
+.stream{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.srow{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line);animation:fade .35s var(--ease) both}
+.srow:last-child{border-bottom:0}
+.srow .d{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.srow .d.run{border:2px solid var(--warn);animation:blink 1.1s infinite}
+.srow .d.on{background:var(--forest);color:var(--lime)}
+.srow .d.on svg{width:12px;height:12px;stroke-width:3}
+.srow b{font-size:14.5px;font-weight:600;display:block}
+.srow .r{font-size:14px;color:var(--n600)}
+.srcs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.src{display:inline-flex;gap:5px;align-items:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;border:1px solid var(--line);background:var(--n100);border-radius:999px;padding:2px 8px;color:var(--n600)}
+.src svg{width:11px;height:11px}
+.headline{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:10px}
+.hl{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:2px;animation:fade .4s var(--ease) both}
+.hl b{font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hl span{font-size:12.5px;color:var(--n500)}
+/* account */
+.acc-sum{display:grid;gap:8px;background:var(--tint);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--forest)}
+.acc-sum div{display:flex;gap:8px;align-items:flex-start}
+.acc-sum svg{width:16px;height:16px;margin-top:3px}
+/* plan workspace */
+.ws{max-width:1080px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:24px 130px;display:grid;gap:22px}
+.ws-hd{display:grid;gap:6px}
+.ws-hd h1{margin:0;font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1}
+.ws-hd p{margin:0;color:var(--n500);font-size:16px;max-width:70ch}
+.fc{background:var(--forest);color:#fff;border-radius:20px;padding:26px 28px;display:grid;gap:18px}
+.fc .label{color:var(--lime)}
+.fc-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:end}
+.fc h2{margin:4px 0 6px;font-size:clamp(30px,4vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.05}
+.fc p{margin:0;color:rgba(255,255,255,.75);font-size:14.5px}
+.fc-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:10px}
+.fc-tile{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);border-radius:12px;padding:12px 14px;display:grid;gap:2px}
+.fc-tile .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.fc-tile b{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+.fc-tile span{font-size:12px;color:var(--lime)}
+.fc svg text{font-family:var(--mono);font-size:10px;fill:rgba(255,255,255,.6)}
+.fc .assume{font-size:12.5px;color:rgba(255,255,255,.6);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.fc .assume .src{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+.fc .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.fc .btn{border-color:rgba(255,255,255,.3);color:#fff}
+.gap{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:14px 18px;background:var(--white)}
+.gap .meter{width:140px;display:grid;gap:4px;font-size:11.5px;color:var(--n500)}
+.gap .meter .bar{height:8px}
+.gap .meter .bar i.b{background:var(--n300)}
+.prio-h{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}
+.prio-h h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.02em}
+.prios{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.prio{border:1.5px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:10px;align-content:start;background:var(--white);transition:border-color .2s}
+.prio.ok{border-color:var(--accent-ink)}
+.prio .n{font-family:var(--mono);font-size:11px;color:var(--forest);letter-spacing:.1em}
+.prio h3{margin:0;font-size:17px;line-height:1.3}
+.prio p{margin:0;font-size:14px;color:var(--n600)}
+.prio .impact{font-size:13px;font-weight:600;color:var(--accent-ink)}
+.prio .who{display:flex;gap:6px;flex-wrap:wrap}
+.prio .q{font-size:13px;font-weight:600;padding-top:8px;border-top:1px solid var(--line)}
+.prio .acts{display:flex;gap:6px;flex-wrap:wrap}
+.prio textarea{width:100%;min-height:60px;border:1.5px solid var(--field);border-radius:10px;padding:8px 10px;font-size:13.5px;resize:vertical;outline:none}
+.own-gm{background:var(--forest);color:var(--lime)}
+.own-you{background:var(--warn-bg);color:var(--warn)}
+.own-both{background:var(--blue-bg);color:var(--blue)}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sw{border-radius:14px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.sw h4{margin:0;font-size:14px;display:flex;gap:8px;align-items:center}
+.sw ul{margin:0;padding-left:18px;display:grid;gap:5px;font-size:13.5px}
+.sw.s{background:#EEF8F1}.sw.w{background:#FEF4F4}.sw.o{background:#EEF3FE}.sw.t{background:#FEF8EC}
+.mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.mcard{border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.mcard .hd{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.mcard .hd h4{margin:0;font-size:14px}
+.mlist{display:grid}
+.mlist div{padding:10px 16px;border-bottom:1px solid var(--line);font-size:13.5px;display:grid;gap:2px}
+.mlist div:last-child{border-bottom:0}
+.mlist .s2{font-size:12px;color:var(--n500)}
+.tsum{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:14px}
+.tweek{border:1px solid var(--line);border-radius:14px;background:var(--white);overflow:hidden}
+.tweek .wh{padding:12px 18px;background:var(--offwhite);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.tweek .wh b{font-size:14px}
+.task{border-bottom:1px solid var(--line)}
+.task:last-child{border-bottom:0}
+.task > button{width:100%;display:grid;grid-template-columns:22px 1fr auto 18px;gap:12px;align-items:center;padding:12px 18px;background:none;border:0;text-align:left;font-size:14px}
+.task > button:hover{background:var(--n100)}
+.task .tic{width:20px;height:20px;border-radius:6px;display:grid;place-items:center}
+.task .tic svg{width:13px;height:13px}
+.task .tic.gm{background:var(--forest);color:var(--lime)}
+.task .tic.you{background:var(--warn-bg);color:var(--warn)}
+.task .tic.both{background:var(--blue-bg);color:var(--blue)}
+.task .chev{color:var(--n400);transition:transform .2s}
+.task.open .chev{transform:rotate(180deg)}
+.task .how{padding:0 18px 14px 52px;font-size:13.5px;color:var(--n600);display:grid;gap:6px}
+.task .how ol{margin:0;padding-left:18px;display:grid;gap:3px}
+.task.removed > button{text-decoration:line-through;color:var(--err);background:var(--err-bg)}
+.task.added > button{background:var(--ok-bg)}
+.subtabs{display:flex;gap:6px;flex-wrap:wrap}
+/* your month */
+.month{max-width:1180px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:24px 130px;display:grid;gap:18px}
+.month-grid{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:22px;align-items:start}
+.mcal{display:grid;gap:6px}
+.mci{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12.5px;background:var(--white);animation:fade .35s var(--ease) both}
+.mci .dt{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--n500);text-transform:uppercase}
+.mci b{font-size:12.5px;line-height:1.3;font-weight:600}
+.mci.sel{border-color:var(--forest);box-shadow:0 0 0 2px var(--tint)}
+.mci .st{font-size:11px;color:var(--n500)}
+.feedwrap{background:#F3F2EF;border-radius:18px;padding:22px;display:grid;justify-items:center}
+.lif{width:100%;max-width:555px;background:var(--white);border-radius:10px;border:1px solid #E0DFDC;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:rgba(0,0,0,.9)}
+.lif .h{display:flex;gap:10px;padding:12px 16px 4px;align-items:flex-start}
+.lif .lav{width:48px;height:48px;border-radius:4px;background:var(--forest);display:grid;place-items:center;flex-shrink:0}
+.lif .lav svg{width:18px;height:24px}
+.lif .h b{font-size:14px;display:block;line-height:1.3}
+.lif .h span{font-size:12px;color:rgba(0,0,0,.6);display:block;line-height:1.35}
+.lif .follow{margin-left:auto;color:#0a66c2;font-weight:600;font-size:14px;white-space:nowrap}
+.lif .txt{padding:6px 16px 10px;font-size:14px;line-height:1.45;white-space:pre-line}
+.lif .txt .more{color:rgba(0,0,0,.6);background:none;border:0;padding:0;font-size:14px;cursor:pointer}
+.lif .txt mark{background:#DCFCE7;border-radius:2px}
+.lif .img{background:var(--forest);color:#fff;padding:34px 28px;display:grid;gap:10px;aspect-ratio:1.91/1;align-content:center}
+.lif .img .label{color:var(--lime)}
+.lif .img b{font-size:26px;letter-spacing:-.02em;line-height:1.15;font-family:var(--font)}
+.lif .img ol{margin:0;padding-left:20px;font-size:14px;color:rgba(255,255,255,.85);display:grid;gap:2px;font-family:var(--font)}
+.lif .stats{display:flex;justify-content:space-between;padding:8px 16px;font-size:12px;color:rgba(0,0,0,.6);border-bottom:1px solid #E8E8E8}
+.lif .acts{display:flex;justify-content:space-around;padding:4px 8px}
+.lif .acts span{display:flex;gap:6px;align-items:center;font-size:13px;font-weight:600;color:rgba(0,0,0,.6);padding:10px 8px}
+.lif .acts svg{width:18px;height:18px}
+.prov{display:flex;gap:10px;align-items:flex-start;background:var(--tint);color:var(--forest);border-radius:12px;padding:12px 14px;font-size:13px;width:100%;max-width:555px}
+.prov svg{width:16px;height:16px;margin-top:2px}
+.side-fb{border:1px solid var(--line);border-radius:16px;background:var(--white);display:grid;position:sticky;top:60px}
+.side-fb .ph{padding:16px 18px;border-bottom:1px solid var(--line)}
+.side-fb .ph h3{margin:0;font-size:16px}
+.side-fb .pb{padding:16px 18px;display:grid;gap:12px}
+.bigq{display:grid;gap:8px}
+.bigq button{display:flex;gap:10px;align-items:center;justify-content:center;border:1.5px solid var(--field);border-radius:12px;padding:12px;background:var(--white);font-weight:700;font-size:14.5px}
+.bigq button:hover{border-color:var(--forest)}
+.bigq button.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+.tagset{display:flex;flex-wrap:wrap;gap:6px}
+.edit-ta{width:100%;min-height:180px;border:1.5px solid var(--field);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.5;resize:vertical;outline:none}
+/* gate */
+.gate{max-width:1080px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:32px 72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:32px;align-items:start}
+.cmp{width:100%;border-collapse:collapse;font-size:14px}
+.cmp th,.cmp td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+.cmp th{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--n500)}
+.cmp td.num{text-align:right;font-variant-numeric:tabular-nums}
+.cmp tr.tot td{font-weight:800;border-bottom:0}
+.cmp .gm{color:var(--accent-ink);font-weight:700}
+.unlock{display:grid;gap:8px}
+.unlock div{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
+.unlock svg{width:18px;height:18px;color:var(--accent-ink);margin-top:2px}
+.ready-post{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--white)}
+.ready-post .th{width:56px;height:56px;border-radius:8px;background:var(--forest);display:grid;place-items:center;flex-shrink:0}
+.ready-post .th svg{width:16px;height:22px}
+.ready-post b{font-size:14px;display:block}
+.ready-post span{font-size:12.5px;color:var(--n500)}
+/* checklist */
+.check{display:grid}
+.check div{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:11px 20px;border-top:1px solid var(--line);font-size:14px}
+.check .ci{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--n300);display:grid;place-items:center}
+.check .ci.on{background:var(--forest);border-color:var(--forest);color:var(--lime)}
+.check .ci.on svg{width:12px;height:12px;stroke-width:3}
+.check .dn{color:var(--n500);text-decoration:line-through}
+@media (max-width:1100px){ .month-grid{grid-template-columns:minmax(0,1fr)} .side-fb{position:static} .mcal{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))} .fc-top{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:860px){ .gate{grid-template-columns:minmax(0,1fr)} .swot{grid-template-columns:minmax(0,1fr)} .gap{grid-template-columns:minmax(0,1fr)} .feedwrap{padding:12px} .task .how{padding-left:18px} }
+
+.dash-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:1000px){.dash-grid{grid-template-columns:minmax(0,1fr)}}
+
+.pot{border:1px solid var(--line);border-radius:14px;background:var(--white);padding:16px 18px;display:grid;gap:12px}
+.pot-h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.pot-h b{display:block;font-size:15px}
+.pot-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:10px}
+.pot-row div{background:var(--offwhite);border-radius:10px;padding:10px 12px;display:grid;gap:1px}
+.pot-row span{font-size:12px;color:var(--n500)}
+.pot-row b{font-size:17px;font-variant-numeric:tabular-nums}
+.pot-row em{font-style:normal;font-size:11.5px;color:var(--n500)}
+.pot-f{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pprog{border:1px solid var(--line);border-radius:14px;background:var(--white);padding:16px 18px;display:grid;grid-template-columns:minmax(0,280px) 1fr;gap:18px;align-items:center}
+.pchips{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.wbar{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--n500)}
+.wbar .bar{width:90px}
+.task .tt{display:grid;gap:1px}
+.task .tt .own{font-size:11.5px;color:var(--n500)}
+.task.is-done .tt{color:var(--n500)}
+@media (max-width:860px){.pprog{grid-template-columns:minmax(0,1fr)}.pchips{justify-content:flex-start}}
+
+/* developer notes panel */
+.devbtn{border:1px solid rgba(134,239,172,.5)!important;border-radius:999px;padding:3px 10px!important;color:var(--lime)!important}
+.devbtn.on{background:var(--lime);color:var(--black)!important}
+.dev{position:fixed;top:calc(42px + env(safe-area-inset-top,0px));right:0;bottom:0;width:min(380px,100%);background:#FBFAF7;border-left:1px solid var(--line-2);z-index:55;display:flex;flex-direction:column;box-shadow:-16px 0 40px -28px rgba(0,0,0,.35)}
+.dev-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding:14px 16px 10px}
+.dev-h b{display:block;font-size:15px}
+.dev-tabs{padding:0 16px 10px;border-bottom:1px solid var(--line)}
+.dev-body{flex:1;overflow-y:auto;padding:14px 16px calc(24px + env(safe-area-inset-bottom,0px));display:grid;gap:18px;align-content:start}
+.dn-sec{display:grid;gap:10px}
+.dn-sec h4{margin:0;font-size:14.5px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.dn-sec ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.dn-sec li{display:grid;grid-template-columns:44px 1fr;gap:8px;font-size:13px;line-height:1.5;align-items:start}
+.dn-sec li .pill{justify-content:center;margin-top:1px}
+.dn-ev{display:grid;gap:6px}
+.dn-ev div{display:flex;flex-wrap:wrap;gap:5px}
+.dn-ev code{font-family:var(--mono);font-size:11px;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:2px 6px}
+.dn-q{display:grid;gap:4px;background:var(--warn-bg);border-radius:10px;padding:10px 12px}
+.dn-q p{margin:0;font-size:13px}
+.dn-global{display:grid;gap:8px;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px}
+.dn-global p{margin:0}
+.dn-global ul{margin:0;padding-left:18px;display:grid;gap:4px}
+@media (min-width:1180px){
+  html.devon body{padding-right:380px}
+  html.devon .actionbar{right:380px}
+  html.devon .drawer{right:380px}
+  html.devon .dragover{right:380px}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ============ PROTOTYPE BAR ============ -->
+<div class="proto" role="navigation" aria-label="Prototype steps">
+  <b>PROTOTYPE</b>
+  <div class="steps" id="steps"></div>
+  <button class="restart" id="restart" type="button"><i data-lucide="rotate-ccw"></i>Restart</button>
+</div>
+
+<!-- ============ 1 WEBSITE ============ -->
+<section class="screen" id="s-start">
+  <div class="ob-head">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><span class="lang">DE</span><button class="btn sm forest" type="button" data-go="dash" data-toast="Returning customers go straight to their dashboard">Sign in</button>
+  </div>
+  <div class="center">
+    <div>
+      <form class="auth-card" id="start-form" novalidate>
+        <h1>See what your marketing <em>could make</em></h1>
+        <p class="sub">Enter your website. We scan it, your market and your competitors, and show you the numbers. No account needed yet.</p>
+        <div class="field"><label for="f-site">Your website</label><input class="input" id="f-site" type="text" inputmode="url" value="https://kessler-safety.example"></div>
+        <button class="btn dark full lg" type="submit">Analyse my website <i data-lucide="arrow-right"></i></button>
+        <div class="foot-c"><button type="button" id="nosite" class="linkbtn" style="font-size:14px">I don’t have a website yet</button></div>
+        <div class="foot-c">Already have an account? <button type="button" data-go="dash" data-toast="Sign in goes straight to the dashboard">Sign in</button></div>
+      </form>
+      <p class="legal">Free. Takes about a minute. We only read public pages.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 LIVE SCAN ============ -->
+<section class="screen" id="s-scan" hidden>
+  <div class="ob-head lined">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><div class="progress" data-prog="1"></div>
+  </div>
+  <div class="scanwrap">
+    <span class="label" id="scan-eyebrow">Live scan · kessler-safety.example</span>
+    <h1 id="scan-title">Your AI team is looking at your market</h1>
+    <p>Real data, with sources. Click any source to see where a number comes from.</p>
+    <div class="stream" id="stream"></div>
+    <div class="headline" id="headline" hidden></div>
+    <div id="scan-after" hidden style="display:grid;gap:16px">
+      <div class="found">
+        <span class="label">What we found</span>
+        <p id="found-text">Kessler Safety provides external occupational safety officers and fire safety officers for small and mid-sized companies in southern Germany.</p>
+        <div class="row"><span>Read from 14 pages of your website</span><button type="button" class="linkbtn" id="found-edit-btn">Not quite right? Edit</button></div>
+      </div>
+      <div style="display:grid;gap:10px">
+        <span class="flabel">What is your main goal?</span>
+        <div class="goals" id="goals">
+          <button class="chip" type="button" data-goal="More enquiries from Google (SEO)">More enquiries from Google</button>
+          <button class="chip" type="button" data-goal="More visibility on LinkedIn">More visibility on LinkedIn</button>
+          <button class="chip" type="button" data-goal="Build brand awareness">Build brand awareness</button>
+        </div>
+        <label class="sr" for="f-goal">Your main goal</label>
+        <input class="input" id="f-goal" type="text" placeholder="Or describe your own goal">
+      </div>
+    </div>
+  </div>
+  <div class="actionbar" id="scan-bar" hidden><div class="in"><span>Next: a 2-minute strategy session to sharpen the plan.</span><span class="sp"></span><button class="btn dark" type="button" id="scan-next" disabled>Save my results <i data-lucide="arrow-right"></i></button></div></div>
+</section>
+
+<!-- ============ 3 ACCOUNT ============ -->
+<section class="screen" id="s-account" hidden>
+  <div class="ob-head lined">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><div class="progress" data-prog="2"></div>
+  </div>
+  <div class="center">
+    <div class="auth-card" style="margin-top:12px">
+      <h1>Save your results</h1>
+      <p class="sub">Create a free account so we can keep your scan and build your plan.</p>
+      <div class="acc-sum">
+        <div><i data-lucide="check"></i><span>140 keywords in your niche, 24,800 searches a month</span></div>
+        <div><i data-lucide="check"></i><span>3 competitors analysed, 1 gap you can own</span></div>
+        <div><i data-lucide="check"></i><span id="acc-goal">Goal: More enquiries from Google (SEO)</span></div>
+      </div>
+      <button class="btn full lg" type="button" data-go="session" style="font-weight:600">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+        Continue with Google</button>
+      <div class="divider"><span>or</span></div>
+      <div class="field"><label for="f-email">Email address</label><input class="input" id="f-email" type="text" value="demo@kessler-safety.example" readonly></div>
+      <div class="field"><label for="f-pw">Password</label><input class="input" id="f-pw" type="text" value="•••••••••• (demo)" readonly></div>
+      <button class="btn dark full lg" type="button" data-go="session">Create account &amp; continue <i data-lucide="arrow-right"></i></button>
+      <p class="legal" style="margin:0 auto">By creating an account you agree to our terms and privacy policy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 STRATEGY SESSION ============ -->
+<section class="screen" id="s-session" hidden>
+  <div class="ob-head lined">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><div class="progress" data-prog="3"></div>
+  </div>
+  <div class="sess">
+    <div class="chat">
+      <div class="chat-hd">
+        <div><h2>Strategy session</h2><p>A few short questions about what your website can’t tell us.</p></div>
+        <div class="qprog"><span id="qprog-txt">Question 1 of 3</span><div class="bar"><i id="qprog-bar" style="width:0%"></i></div></div>
+      </div>
+      <div class="msgs" id="msgs"><div class="inner" id="msgs-inner"></div></div>
+      <div class="composer-wrap">
+        <form class="composer" id="composer">
+          <input type="file" id="file" hidden multiple accept=".pdf,.doc,.docx,.txt,.ppt,.pptx,.xls,.xlsx">
+          <div class="box">
+            <button class="attach-btn" type="button" data-pick><i data-lucide="paperclip"></i>Add documents</button>
+            <label class="sr" for="answer">Your reply</label>
+            <textarea id="answer" rows="1" placeholder="Answer in your own words…"></textarea>
+          </div>
+          <button class="send" type="submit" id="sendbtn" aria-label="Send" disabled><i data-lucide="arrow-right"></i></button>
+        </form>
+        <div class="composer-hint">No right or wrong answers. Write it the way you’d explain it to a new colleague. You can also drop files anywhere in this window.</div>
+      </div>
+    </div>
+    <aside class="known" aria-label="What we know so far">
+      <div class="dropzone" id="dropzone">
+        <span class="dz-ic"><i data-lucide="file-up"></i></span>
+        <b>Drop your documents</b>
+        <span>Sales deck, brochure, price list, case studies. I read them and skip questions they already answer.</span>
+        <button class="btn sm" type="button" data-pick>Choose files</button>
+      </div>
+      <div><span class="label">Building as you answer</span><h3>What we know so far</h3></div>
+      <div class="kf" data-k="what"><span class="label">What you do · from your website</span><span class="v">External safety officers and fire safety officers for small and mid-sized companies in southern Germany.</span></div>
+      <div class="kf" data-k="goal"><span class="label">Main goal</span><span class="v" id="k-goal">More enquiries from Google (SEO)</span></div>
+      <div class="kf" data-k="usp"><span class="label">What makes you different</span><span class="v wait">Waiting for your answer</span></div>
+      <div class="kf" data-k="icp"><span class="label">Target customers</span><span class="v wait">Waiting for your answer</span></div>
+      <div class="kf" data-k="past"><span class="label">Marketing so far</span><span class="v wait">Waiting for your answer</span></div>
+      <div class="kf" data-k="docs"><span class="label">Documents</span><span class="v wait">None yet</span></div>
+    </aside>
+  </div>
+  <div class="dragover" id="dragover" hidden><div><i data-lucide="file-up"></i><b>Drop to add your documents</b><span>I’ll read them and ask fewer questions</span></div></div>
+</section>
+
+<!-- ============ 5 PLAN WORKSPACE ============ -->
+<section class="screen" id="s-plan" hidden>
+  <div class="ob-head lined">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><div class="progress" data-prog="4"></div>
+  </div>
+  <div class="ws" id="plan-ws"></div>
+  <div class="actionbar"><div class="in">
+    <span id="plan-hint">Confirm the 3 priorities, then approve. You can change anything later.</span><span class="sp"></span>
+    <button class="btn" type="button" data-open-drawer><i data-lucide="message-square"></i>Request changes</button>
+    <button class="btn dark" type="button" id="plan-approve">Approve &amp; plan my month <i data-lucide="arrow-right"></i></button>
+  </div></div>
+</section>
+
+<!-- ============ 6 YOUR MONTH ============ -->
+<section class="screen" id="s-month" hidden>
+  <div class="ob-head lined">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><div class="progress" data-prog="5"></div>
+  </div>
+  <div class="month">
+    <div class="sample-hd">
+      <span class="label">Built from your 3 priorities</span>
+      <h1>Your October is planned</h1>
+      <p>12 pieces for LinkedIn and your blog. Here is the first one, already written. Tell us if it sounds like you.</p>
+    </div>
+    <div class="month-grid">
+      <div style="display:grid;gap:8px"><span class="flabel">October · <span id="mc-count">0</span> of 12 planned</span><div class="mcal" id="mcal"></div></div>
+      <div style="display:grid;gap:12px;justify-items:center;min-width:0">
+        <div class="feedwrap" style="width:100%"><div class="lif" id="lif"></div></div>
+        <div class="prov"><i data-lucide="sparkles"></i><span>Written by the Content agent from the pain point <b>“Our risk assessment is from 2019 and nobody looks at it”</b> (forum, 9 mentions) and your strength <b>one fixed contact person</b>.</span></div>
+      </div>
+      <aside class="side-fb" aria-label="Your feedback">
+        <div class="ph"><h3>Does this sound like you?</h3></div>
+        <div class="pb" id="fb"></div>
+      </aside>
+    </div>
+  </div>
+  <div class="actionbar"><div class="in">
+    <span id="month-hint">Planned for Tue 21 Oct, 09:00 on your LinkedIn company page.</span><span class="sp"></span>
+    <button class="btn" type="button" data-toast="In the product this downloads the post as a PNG">Download as image</button>
+    <button class="btn dark" type="button" id="schedule">Schedule this post <i data-lucide="calendar-check"></i></button>
+  </div></div>
+</section>
+
+<!-- ============ 7 GATE ============ -->
+<section class="screen" id="s-gate" hidden>
+  <div class="ob-head lined">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><div class="progress" data-prog="6"></div>
+  </div>
+  <div class="gate">
+    <div style="display:grid;gap:18px">
+      <span class="label">One step left</span>
+      <h1 style="margin:0;font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1">Start your team to schedule this post</h1>
+      <div class="ready-post"><span class="th"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><div><b>Most risk assessments end up in a drawer</b><span>LinkedIn · Tue 21 Oct, 09:00 · ready to go</span></div></div>
+      <div class="unlock">
+        <span class="flabel">Starting the trial unlocks</span>
+        <div><i data-lucide="calendar-check"></i><span>Scheduling and publishing to LinkedIn and WordPress</span></div>
+        <div><i data-lucide="layers"></i><span>The other 11 pieces of your October, written this week</span></div>
+        <div><i data-lucide="bar-chart-3"></i><span>Your Google data, explained, and a plan that adjusts to it</span></div>
+        <div><i data-lucide="search"></i><span>The full market research, updated every month</span></div>
+      </div>
+      <div class="card"><div class="hd"><h3>What this would cost otherwise</h3><span class="label">Typical DACH rates · example</span></div>
+        <div class="xs"><table class="cmp"><thead><tr><th>What needs doing</th><th class="num">Freelancers / agency</th><th class="num">GetMarketing</th></tr></thead><tbody>
+          <tr><td>SEO strategy and on-page work</td><td class="num">€1,200</td><td class="num gm">included</td></tr>
+          <tr><td>4 blog articles a month</td><td class="num">€1,400</td><td class="num gm">included</td></tr>
+          <tr><td>8 LinkedIn posts a month</td><td class="num">€800</td><td class="num gm">included</td></tr>
+          <tr><td>Monthly reporting</td><td class="num">€300</td><td class="num gm">included</td></tr>
+          <tr class="tot"><td>Per month</td><td class="num">€3,700</td><td class="num gm">€49</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+    <div class="checkout">
+      <b style="font-size:16px">7 days free, then €49 / month</b>
+      <div class="timeline-h"><div><b>Today</b><br>Post scheduled, month being written</div><div><b>Day 1–7</b><br>Review, approve, publish</div><div><b>Day 8</b><br>€49/month. Cancel anytime before.</div></div>
+      <div class="fake"><span>Business name</span></div>
+      <div class="fake"><span>Card number</span><i data-lucide="credit-card"></i></div>
+      <div class="fake-row"><div class="fake"><span>MM / YY</span></div><div class="fake"><span>CVC</span></div></div>
+      <div class="demo-note">Prototype: placeholders only. The live app uses Stripe here.</div>
+      <button class="btn dark full lg" type="button" id="start-trial">Start 7 free days · €0 today</button>
+      <span style="font-size:12.5px;color:var(--n500);text-align:center">We’ll remind you 2 days before the first charge. Content you approve is yours to keep.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 SETUP ============ -->
+<section class="screen" id="s-setup" hidden>
+  <div class="ob-head lined">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg></span><span class="name">GetMarketing</span></span>
+    <span class="sp"></span><div class="progress" data-prog="7"></div>
+  </div>
+  <div class="setup">
+    <span class="pill ok" style="justify-self:start"><i data-lucide="check"></i>Post scheduled for Tue 21 Oct, 09:00</span>
+    <h1>Your team is writing the rest of October</h1>
+    <p>Pieces appear in your calendar as soon as they’re written. Open the dashboard now, or close this tab. We’ll email you when everything is ready.</p>
+    <div class="agents" id="agents"></div>
+    <div style="display:grid;gap:10px"><span class="flabel">Your content calendar · October</span><div class="mini-cal" id="minical"></div></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn dark lg" type="button" data-go="dash">Open my dashboard <i data-lucide="arrow-right"></i></button><button class="btn lg" type="button" data-toast="We’ll email you when everything is ready">Email me when it’s ready</button></div>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<section class="screen" id="s-app" hidden>
+  <div class="app">
+    <aside class="side">
+      <span class="brand"><span class="mark"><svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#4ade80"/></svg></span><span><span class="name">GetMarketing</span><small>AI marketing team</small></span></span>
+      <div class="client"><span class="avatar">KS</span><div style="min-width:0"><b>Kessler Safety</b><span>Trial · day 1 of 7</span></div></div>
+      <nav class="nav" aria-label="App">
+        <span class="lab">Overview</span>
+        <button type="button" data-nav="dash"><i data-lucide="home"></i><span class="lbl">Home</span></button>
+        <button type="button" data-nav="content"><i data-lucide="pen-line"></i><span class="lbl">Content review</span><span class="count" id="nav-count">11</span></button>
+        <button type="button" data-nav="research"><i data-lucide="search"></i><span class="lbl">Market research</span></button>
+        <button type="button" data-nav="strategy"><i data-lucide="file-text"></i><span class="lbl">Marketing plan</span></button>
+        <button type="button" data-toast="Results arrive after your first month"><i data-lucide="bar-chart-3"></i><span class="lbl">Results</span><span class="soon">Month 2</span></button>
+      </nav>
+      <div class="foot">
+        <div class="trialbox"><b>Trial: 6 days left</b><span>Approve content to keep it. €49/month from 24 Oct.</span></div>
+        <nav class="nav">
+          <button type="button" data-toast="Settings: connections, agents on/off, documents, writing style"><i data-lucide="settings"></i><span class="lbl">Settings</span></button>
+          <button type="button" id="report-btn"><i data-lucide="message-square-warning"></i><span class="lbl">Report a problem</span></button>
+        </nav>
+      </div>
+    </aside>
+    <div class="main">
+      <!-- DASH -->
+      <div class="view" data-view="dash" hidden>
+        <div class="body"><div class="wrapc">
+          <div class="hello">
+            <h1>Hello, your tasks are ready</h1>
+            <p>Your AI marketing team has prepared content for you to review.</p>
+            <div class="agent-chips"><span>PM agent</span><span>SEO agent</span><span>Content agent</span><span>Market research</span></div>
+          </div>
+          <div class="dash-grid">
+            <div class="card">
+              <div class="hd"><h3>Content for review <span class="pill warn" id="await-pill">11 awaiting review</span></h3>
+                <div class="filters" id="cfilter"><button class="chip on" type="button" data-f="all">All</button><button class="chip" type="button" data-f="Blog article">Blog</button><button class="chip" type="button" data-f="LinkedIn post">LinkedIn</button></div></div>
+              <div class="cal" id="cal"></div>
+            </div>
+            <div style="display:grid;gap:22px">
+              <div class="card"><div class="hd"><h3>Get set up</h3><span class="label" id="chk-count">2 of 5 done</span></div><div style="padding:0 20px 12px"><div class="bar"><i id="chk-bar" style="width:40%"></i></div></div><div class="check" id="check"></div></div>
+              <div class="card" id="plan-prog"></div>
+            </div>
+          </div>
+          <div class="card" id="analytics-card"></div>
+        </div></div>
+      </div>
+      <!-- CONTENT REVIEW -->
+      <div class="view" data-view="content" hidden>
+        <div class="top"><div class="t"><span class="label">Content agent</span><h2>Content review</h2></div><div class="acts"><span class="pill mute">Approve to keep it after the trial</span></div></div>
+        <div class="body"><div class="wrapc"><div class="rv">
+          <div class="card"><div class="hd"><h3>Queue</h3></div><div class="qlist" id="qlist"></div></div>
+          <div class="card"><div class="bd draft" id="draft"></div></div>
+        </div></div></div>
+      </div>
+      <!-- RESEARCH -->
+      <div class="view" data-view="research" hidden>
+        <div class="top"><div class="t"><span class="label">Market research · SEO agent · example data</span><h2>Market research</h2></div><div class="acts"><span class="pill ok"><i data-lucide="check"></i>Updated today</span></div></div>
+        <div class="body"><div class="wrapc" id="research-box"></div></div>
+      </div>
+      <!-- STRATEGY -->
+      <div class="view" data-view="strategy" hidden>
+        <div class="top"><div class="t"><span class="label">Living document · every agent uses it</span><h2>Marketing plan</h2></div><div class="acts"><span class="pill forest" id="ver-pill">v1 · current</span><button class="btn sm dark" type="button" data-open-drawer><i data-lucide="message-square"></i>Ask for a change</button></div></div>
+        <div class="body" style="padding-top:0"><div class="ws" id="strat-ws" style="padding-bottom:40px"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aside class="drawer" id="drawer" hidden aria-label="PM agent">
+  <div class="dh"><span class="av"><i data-lucide="clipboard-list" style="width:15px;height:15px;color:var(--lime)"></i></span><div><b>PM agent</b><span>Edits your plan directly</span></div><span class="sp"></span><button class="icon-btn" type="button" id="drawer-close" aria-label="Close"><i data-lucide="x"></i></button></div>
+  <div class="msgs" id="dmsgs"></div>
+  <div class="composer-wrap"><form class="composer" id="dcomposer"><div class="box"><label class="sr" for="danswer">Message the PM agent</label><textarea id="danswer" rows="1" placeholder="What should change?"></textarea></div><button class="send" type="submit" aria-label="Send"><i data-lucide="arrow-right"></i></button></form></div>
+</aside>
+
+<div class="overlay" id="modal" hidden>
+  <form class="modal" id="report-form">
+    <h3>Report a problem</h3>
+    <div class="shot"><i data-lucide="image"></i><span>A screenshot of this page is attached automatically, with the page address and recent errors.</span></div>
+    <label for="report-note" class="flabel">What happened?</label>
+    <textarea id="report-note" class="input" rows="3" placeholder="e.g. Content review says my session has expired"></textarea>
+    <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap"><button class="btn ghost" type="button" id="report-cancel">Cancel</button><button class="btn dark" type="submit">Send report</button></div>
+  </form>
+</div>
+<div class="toast" id="toast" hidden><i data-lucide="check-circle-2"></i><span id="toast-txt"></span></div>
+
+<script>
+(function(){
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const icons = () => { try { window.lucide && window.lucide.createIcons(); } catch(e){} };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let timers = [];
+const later = (fn, ms) => { const t = setTimeout(fn, ms); timers.push(t); return t; };
+const BOLT = '<svg viewBox="0 0 56 80" aria-hidden="true"><polygon points="28,4 7,52 24,52 16,76 49,28 31,28 42,4" fill="#86EFAC"/></svg>';
+
+const STEPS = [['start','1 · Website'],['scan','2 · Live scan'],['account','3 · Account'],['session','4 · Strategy session'],['plan','5 · Plan'],['month','6 · Your month + post'],['gate','7 · Paywall'],['setup','8 · Team starts'],['dash','9 · Dashboard'],['content','10 · Content review'],['research','11 · Research'],['strategy','12 · Plan progress (in app)']];
+const APP = ['dash','content','research','strategy'];
+const PROG = ['Scan','Account','Strategy session','Plan','Your month','Start','Team'];
+
+let S;
+function freshState(){ return { noSite:false, goal:'', scanned:false, done:new Set(), byDoc:new Set(), cur:null, docs:[], invited:false, finished:false, waiting:false, sessionStarted:false,
+  google:false, planV:1, proposed:false, prios:{}, tab:'tasks', appTab:'tasks', marked:{}, openTask:null, monthBuilt:false, post:{verdict:'', tags:[], revised:false, edited:null, expanded:false}, scheduled:false,
+  setupStarted:false, items:null, current:0, filter:'all', researchTab:'kw', checklist:{google:false, wp:false, review:false} }; }
+S = freshState();
+
+let tt;
+function toast(m){ $('#toast-txt').textContent = m; $('#toast').hidden = false; clearTimeout(tt); tt = setTimeout(()=> $('#toast').hidden = true, 2600); }
+function renderProgress(){
+  $$('.progress').forEach(p => { const now = +p.dataset.prog;
+    p.innerHTML = PROG.map((l,i) => { const n=i+1; const cls = n<now?'done':n===now?'now':''; return `${i?'<span class="ln"></span>':''}<span class="s ${cls}"><span class="d">${n<now?'<i data-lucide="check"></i>':n}</span><span>${l}</span></span>`; }).join(''); });
+}
+
+/* ---------- routing ---------- */
+function go(id){
+  $$('.screen').forEach(s => s.hidden = true);
+  $('#drawer').hidden = true;
+  if (APP.includes(id)) {
+    $('#s-app').hidden = false;
+    $$('.view').forEach(v => v.hidden = v.dataset.view !== id);
+    $$('.nav button[data-nav]').forEach(b => b.classList.toggle('active', b.dataset.nav === id));
+    if (id==='dash') renderDash();
+    if (id==='content') renderReview();
+    if (id==='research') renderResearch();
+    if (id==='strategy') renderWS($('#strat-ws'), true);
+  } else {
+    $('#s-'+id).hidden = false;
+    if (id==='scan') startScan();
+    if (id==='account') $('#acc-goal').textContent = 'Goal: ' + (S.goal || 'More enquiries from Google (SEO)');
+    if (id==='session') startSession();
+    if (id==='plan') renderWS($('#plan-ws'), false);
+    if (id==='month') buildMonth();
+    if (id==='setup') startSetup();
+  }
+  const el = APP.includes(id) ? $('.view[data-view="'+id+'"]') : $('#s-'+id);
+  el.classList.remove('fade'); void el.offsetWidth; el.classList.add('fade');
+  $$('#steps button').forEach(b => b.classList.toggle('on', b.dataset.go === id));
+  window.scrollTo(0,0); icons(); renderDev(id);
+}
+$('#steps').innerHTML = STEPS.map(([id,l]) => `<button type="button" data-go="${id}" class="${id==='gate'?'pay':''}">${l}</button>`).join('');
+document.addEventListener('click', e => {
+  const g = e.target.closest('[data-go]');
+  if (g) { e.preventDefault(); go(g.dataset.go); if (g.dataset.toast) toast(g.dataset.toast); return; }
+  const n = e.target.closest('[data-nav]');
+  if (n) { go(n.dataset.nav); return; }
+  if (e.target.closest('[data-open-drawer]')) { openDrawer(); return; }
+  const t = e.target.closest('[data-toast]');
+  if (t) toast(t.dataset.toast);
+});
+$('#restart').addEventListener('click', () => { timers.forEach(clearTimeout); timers=[]; S = freshState(); resetDom(); go('start'); });
+
+/* ---------- 1 website ---------- */
+$('#start-form').addEventListener('submit', e => { e.preventDefault(); S.noSite = false; go('scan'); });
+$('#nosite').addEventListener('click', () => { S.noSite = true; go('scan'); });
+
+/* ---------- 2 live scan ---------- */
+const SCAN = [
+  { t:'Reading your website', r:'14 pages · 5 services · 180+ customers mentioned · Google rating 4.9', src:['kessler-safety.example'] },
+  { t:'Pulling keyword data for your niche', r:'140 keywords · 24,800 searches a month in Germany · 9 with clear buying intent', src:['DataForSEO · DE'] },
+  { t:'Checking where you rank today', r:'You rank for 38 keywords. “external safety officer” (1,300/mo): position 14, almost on page one.', src:['DataForSEO SERP'] },
+  { t:'Looking at competitors', r:'SafeWork Partners and ArbeitsPro dominate. Nobody covers “risk assessment template” well.', src:['safework-partners.example','arbeitspro.example'] },
+  { t:'Estimating your conversion', r:'Your site turns about 0.9% of visitors into enquiries. Median for B2B service sites: about 2.1%.', src:['Contact form audit','Benchmark: B2B services'] }
+];
+const SCAN_NOSITE = [
+  { t:'Mapping your industry', r:'Occupational safety services · southern Germany', src:['Your answers'] },
+  { t:'Pulling keyword data for your niche', r:'140 keywords · 24,800 searches a month in Germany', src:['DataForSEO · DE'] },
+  { t:'Looking at competitors', r:'3 providers dominate search. Small companies are underserved.', src:['DataForSEO SERP'] }
+];
+function startScan(){
+  if (S.scanned) return; S.scanned = true;
+  const steps = S.noSite ? SCAN_NOSITE : SCAN;
+  $('#scan-eyebrow').textContent = S.noSite ? 'Live scan · your industry' : 'Live scan · kessler-safety.example';
+  $('#stream').innerHTML = '';
+  steps.forEach((s,i) => {
+    later(() => {
+      const row = document.createElement('div'); row.className='srow'; row.dataset.i=i;
+      row.innerHTML = `<span class="d run"></span><div><b>${s.t}…</b><span class="r" hidden>${esc(s.r)}</span><div class="srcs" hidden>${s.src.map(x=>`<button type="button" class="src" data-toast="Source: ${esc(x)} (in the product this opens the raw data)"><i data-lucide="link"></i>${esc(x)}</button>`).join('')}</div></div>`;
+      $('#stream').appendChild(row); icons();
+    }, i*1500);
+    later(() => { const row = $(`.srow[data-i="${i}"]`); $('.d',row).className='d on'; $('.d',row).innerHTML='<i data-lucide="check"></i>'; $('b',row).textContent = s.t; $('.r',row).hidden=false; $('.srcs',row).hidden=false; icons(); }, i*1500+1200);
+  });
+  later(() => {
+    $('#scan-title').textContent = 'Here’s what your market looks like';
+    const h = $('#headline'); h.hidden = false;
+    h.innerHTML = [['24,800','searches a month in your niche'],['1.7%','of them reach you today'],['9','keywords with clear buying intent'],['0.9% → 2.1%','your conversion vs. the median']].map(x=>`<div class="hl"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
+    $('#scan-after').hidden = false; $('#scan-bar').hidden = false;
+    if (S.noSite) { $('#found-text').textContent = 'No website yet. Your strategy session will ask what you sell, and the plan starts from your market data.'; $('#found-edit-btn').hidden = true; }
+  }, steps.length*1500 + 400);
+}
+$('#s-scan').addEventListener('click', e => {
+  const gb = e.target.closest('[data-goal]');
+  if (gb) { $$('#goals .chip').forEach(c => c.classList.toggle('on', c===gb)); S.goal = gb.dataset.goal; $('#f-goal').value = S.goal; $('#scan-next').disabled = false; }
+  if (e.target.closest('#found-edit-btn')) { const p = $('#found-text'); const v = p.textContent; p.outerHTML = `<textarea id="found-ta" style="width:100%;min-height:80px;border:1.5px solid #BFE3CC;border-radius:10px;padding:10px 12px;font-size:14px;outline:none">${esc(v)}</textarea>`; e.target.closest('#found-edit-btn').outerHTML = '<button type="button" class="linkbtn" id="found-save">Save</button>'; }
+  if (e.target.closest('#found-save')) { const v = $('#found-ta').value.trim(); $('#found-ta').outerHTML = `<p id="found-text">${esc(v)}</p>`; $('#found-save').outerHTML = '<span class="pill ok">Edited by you</span>'; $('.kf[data-k="what"] .v').textContent = v; $('.kf[data-k="what"] .label').textContent = 'What you do · edited by you'; }
+});
+$('#s-scan').addEventListener('input', e => { if (e.target.id !== 'f-goal') return; S.goal = e.target.value.trim(); $$('#goals .chip').forEach(c => c.classList.toggle('on', c.dataset.goal === S.goal)); $('#scan-next').disabled = !S.goal; });
+$('#scan-next').addEventListener('click', () => go('account'));
+
+/* ---------- 4 strategy session ---------- */
+const Q = [
+  { k:'what', onlyNoSite:true, ask:()=>[`Hi! Since there’s no website yet, let’s start with the basics.`, `What do you sell, and who buys it?`] },
+  { k:'usp', ask:()=> S.noSite ? [`Thanks. What sets you apart from other providers that customers might consider instead?`]
+      : [`I’ve looked at your site and your market. You’re almost on page one for “external safety officer”, which is a good start.`, `What would you say sets Kessler Safety apart from providers like SafeWork Partners or ArbeitsPro?`] },
+  { k:'icp', ask:()=>[`Who exactly do you want to reach, and what finally makes them buy from you rather than elsewhere?`] },
+  { k:'past', ask:()=>[`${nextQ(true) ? '' : 'Last question: '}What marketing have you tried so far, paid ads or anything else, and how did it go?`] }
+];
+const DOC_FINDS = {
+  icp: { label:'Target customers · from your document', text:'Managing directors and HR managers at companies with 20–250 employees in manufacturing and logistics. They usually buy when an audit is coming up.',
+    say:'It already tells me who you sell to: managing directors and HR managers at companies with 20–250 employees in manufacturing and logistics, usually when an audit is coming up. I’ll skip that question.' },
+  usp: { label:'What makes you different · from your document', text:'One fixed contact person, digital risk assessment within 2 weeks, fixed price per employee.',
+    say:'It also explains what sets you apart: one fixed contact person, a digital risk assessment within 2 weeks and a fixed price per employee. No need to type that out.' }
+};
+function activeQs(){ return Q.filter(q => !q.onlyNoSite || S.noSite); }
+function nextQ(afterCurrent){ return activeQs().find(q => !S.done.has(q.k) && !(afterCurrent && q.k === S.cur)); }
+function bubble(html, me){ const m = document.createElement('div'); m.className = 'msg fade' + (me?' me':''); m.innerHTML = `<span class="av ${me?'u':''}">${me?'U':'G'}</span><div class="bubble">${html}</div>`; $('#msgs-inner').appendChild(m); $('#msgs').scrollTop = 1e6; icons(); return m; }
+function typing(){ const t=document.createElement('div'); t.className='msg'; t.id='typing'; t.innerHTML='<span class="av">G</span><div class="bubble" style="padding:0"><span class="typing"><i></i><i></i><i></i></span></div>'; $('#msgs-inner').appendChild(t); $('#msgs').scrollTop = 1e6; }
+function untype(){ const t=$('#typing'); if(t) t.remove(); }
+function setK(k, v){ const f=$('.kf[data-k="'+k+'"]'); if(!f) return; const el=$('.v',f); el.textContent=v; el.classList.remove('wait'); f.classList.remove('fresh'); void f.offsetWidth; f.classList.add('fresh'); }
+function updQProg(){ const qs = activeQs(), done = qs.filter(q => S.done.has(q.k)).length, byDoc = S.byDoc.size;
+  $('#qprog-txt').textContent = done >= qs.length ? 'All questions answered' : `Question ${done+1} of ${qs.length}${byDoc ? ` · ${byDoc} answered by your documents` : ''}`;
+  $('#qprog-bar').style.width = (done/qs.length*100)+'%'; }
+function ask(){
+  const q = nextQ(); if (!q) return buildPlan();
+  S.cur = q.k; S.waiting = true; updQProg(); typing();
+  later(() => { untype(); const lines = q.ask(); lines.forEach((p,i) => later(() => { bubble(`<p>${p}</p>`);
+    if (i===lines.length-1) { S.waiting=false; $('#answer').focus(); if (!S.invited && !S.docs.length) { S.invited = true; later(showInvite, 900); } } }, i*700)); }, 900);
+}
+function showInvite(){ if (S.docs.length || S.finished) return; const c = document.createElement('div'); c.className='invite'; c.id='invite';
+  c.innerHTML = `<span class="dz-ic" style="width:40px;height:40px;border-radius:50%;background:var(--tint);color:var(--forest);display:grid;place-items:center"><i data-lucide="file-up"></i></span><div class="t"><b>Have a sales deck or brochure?</b><span>Drop it here. I read it and skip the questions it already answers.</span></div><button class="btn sm dark" type="button" data-pick><i data-lucide="paperclip"></i>Add documents</button>`;
+  $('#msgs-inner').appendChild(c); $('#msgs').scrollTop=1e6; icons(); }
+function answer(text){ if (S.waiting || !S.cur || S.finished) return; bubble(`<p>${esc(text)}</p>`, true); setK(S.cur, text); S.done.add(S.cur); S.cur = null; ask(); }
+function addDocs(files){ if (S.finished || !files.length) return; const names = files.map(f => f.name); S.docs.push(...names);
+  const inv = $('#invite'); if (inv) inv.remove();
+  bubble(names.map(n => `<div class="file"><i data-lucide="file-text"></i>${esc(n)}</div>`).join(''), true);
+  setK('docs', S.docs.join(', ')); $('#dropzone').classList.add('has'); $('#dropzone b').textContent = S.docs.length + (S.docs.length === 1 ? ' document added' : ' documents added');
+  readDocs(names); }
+function readDocs(names){
+  if (S.waiting) { later(() => readDocs(names), 400); return; }
+  S.waiting = true;
+  const r = bubble(`<span class="reading"><span class="typing" style="padding:0"><i></i><i></i><i></i></span>Reading ${esc(names.join(', '))}…</span>`);
+  later(() => { r.remove();
+    const skip = ['icp','usp'].filter(k => !S.done.has(k) && activeQs().some(q => q.k === k)); const curSkipped = skip.includes(S.cur);
+    let msg = `<p>Thanks, I’ve read ${esc(names[0])}${names.length > 1 ? ` and ${names.length-1} more` : ''}.</p>`;
+    if (skip.length) skip.forEach(k => { msg += `<p>${DOC_FINDS[k].say}</p>`; S.done.add(k); S.byDoc.add(k); setK(k, DOC_FINDS[k].text); $(`.kf[data-k="${k}"] .label`).textContent = DOC_FINDS[k].label; });
+    else msg += `<p>I’ll use it for your plan and your content.</p>`;
+    bubble(msg); updQProg(); S.waiting = false;
+    if (curSkipped) { S.cur = null; ask(); } else if (S.cur) bubble(`<p>Back to my question above whenever you’re ready.</p>`);
+  }, 1800);
+}
+function buildPlan(){
+  S.finished = true; S.waiting = true; updQProg(); typing();
+  later(() => { untype();
+    bubble(`<p>Thank you, I have everything I need. Building your plan:</p><div class="building" id="building"></div>`);
+    const steps = ['Scan, answers and documents combined','Market data from 140 keywords added','3 priorities picked for your goal','4-week plan split into our tasks and yours'];
+    const b = $('#building'); b.innerHTML = steps.map((s,i)=>`<div data-b="${i}"><span class="d"></span>${s}</div>`).join('');
+    steps.forEach((s,i) => { later(()=>{ $(`[data-b="${i}"] .d`, b).className='d run'; }, i*800); later(()=>{ const d=$(`[data-b="${i}"] .d`, b); d.className='d on'; d.innerHTML='<i data-lucide="check"></i>'; icons(); }, i*800+700); });
+    later(() => go('plan'), steps.length*800 + 600);
+  }, 900);
+}
+function startSession(){ if (S.sessionStarted) return; S.sessionStarted = true; $('#k-goal').textContent = S.goal || 'More enquiries from Google (SEO)'; ask(); }
+document.addEventListener('click', e => { if (e.target.closest('[data-pick]')) $('#file').click(); });
+const sess = $('#s-session'); let dragDepth = 0;
+sess.addEventListener('dragenter', e => { if (![...(e.dataTransfer?.types||[])].includes('Files')) return; e.preventDefault(); dragDepth++; $('#dragover').hidden = false; });
+sess.addEventListener('dragover', e => { if ([...(e.dataTransfer?.types||[])].includes('Files')) e.preventDefault(); });
+sess.addEventListener('dragleave', () => { dragDepth = Math.max(0, dragDepth-1); if (!dragDepth) $('#dragover').hidden = true; });
+sess.addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('#dragover').hidden = true; addDocs([...(e.dataTransfer?.files||[])]); });
+const ta = $('#answer');
+ta.addEventListener('input', () => { ta.style.height='auto'; ta.style.height=Math.min(ta.scrollHeight,150)+'px'; $('#sendbtn').disabled = !ta.value.trim(); });
+ta.addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); $('#composer').requestSubmit(); } });
+$('#composer').addEventListener('submit', e => { e.preventDefault(); const v=ta.value.trim(); if(!v || S.waiting) return; ta.value=''; ta.style.height='auto'; $('#sendbtn').disabled=true; answer(v); });
+$('#file').addEventListener('change', e => { addDocs([...(e.target.files||[])]); e.target.value=''; });
+
+/* ---------- 5 plan workspace ---------- */
+const MONTHLY = [4,5,6,7,9,10,12,14,15,17,18,20];
+function chart(){
+  const W=420,H=150,pad=22,max=25,bw=(W-pad)/12;
+  const bars = MONTHLY.map((v,i)=>{ const h=(v/max)*(H-34); const x=pad+i*bw+3; const y=H-18-h; return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${(bw-6).toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${i===0?'rgba(255,255,255,.35)':'#86EFAC'}"/>`; }).join('');
+  const labels = [0,2,5,8,11].map(i=>`<text x="${(pad+i*bw+bw/2).toFixed(1)}" y="${H-4}" text-anchor="middle">M${i+1}</text>`).join('');
+  const ticks = [0,10,20].map(v=>{ const y=H-18-(v/max)*(H-34); return `<line x1="${pad}" x2="${W}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="rgba(255,255,255,.12)"/><text x="0" y="${(y+3).toFixed(1)}">${v}</text>`; }).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Expected enquiries per month, from 4 in month 1 to 20 in month 12" style="width:100%;height:auto">${ticks}${bars}${labels}</svg>`;
+}
+const PRIOS = [
+  { id:1, t:'Own “external safety officer” on Google', p:'A landing page plus 3 guides around the searches where you’re almost on page one.', impact:'Biggest part of the forecast: +10–14 enquiries/month by month 12', who:[['gm','GetMarketing writes & publishes'],['you','You: connect WordPress (5 min)']] },
+  { id:2, t:'Turn more visitors into enquiries', p:'Shorter contact form (9 → 4 fields), phone number in the header, a clear call to action above the fold.', impact:'+2–3 enquiries/month from the traffic you already have', who:[['gm','We write the copy & checklist'],['you','You or your web person: ~1 hour']] },
+  { id:3, t:'Build trust with managing directors on LinkedIn', p:'2 posts a week from real buyer pain points, plus one carousel a month.', impact:'Warmer leads and referrals; supports the SEO pages', who:[['gm','GetMarketing writes & schedules'],['you','You: approve (5 min/week)']] }
+];
+const SWOT = {
+  s:['180+ companies supported since 2011','4.9 rating on Google','Fixed price per employee, one fixed contact'],
+  w:['Contact form has 9 fields','No prices or examples on the site','Mobile pages load in 4.8 seconds','No blog or guides yet'],
+  o:['“risk assessment template”: 6,600 searches/month, weak competition','AI assistants mention no small provider yet','Competitors are quiet on LinkedIn'],
+  t:['Online-only providers undercut on price','Large firms dominate trade fairs','Rule changes can make content outdated']
+};
+const PAIN = [['“Our risk assessment is from 2019 and nobody looks at it.”','Forum, 9 similar mentions'],['“Every visit we get someone new who doesn’t know our site.”','Competitor reviews'],['“Nobody tells you the price before the first meeting.”','Search + forums'],['“The insurer gave us four weeks to fix it.”','LinkedIn comments']];
+const DESIRE = [['One person who knows our site','Reviews, 14 mentions'],['Done once, properly, and kept up to date','Forum threads'],['A price I can plan with','Search queries'],['Something that holds up in an inspection','LinkedIn comments']];
+const KWS = [['risk assessment template','6,600','Medium','—'],['external safety officer','1,300','Low','14'],['safety training for employees','1,000','Medium','—'],['fire safety officer duties','880','Low','31'],['safety officer cost','590','Low','—']];
+function weeks(){
+  const w3 = [
+    { o:'gm', t:'Blog: risk assessment, step by step', how:['Content agent writes 1,200 words from the keyword brief','SEO agent adds internal links and meta','Published to WordPress after your approval'] },
+    { o:'both', t:'FAQ page: duties and costs', time:'15 min', how:['We write 12 answers from buyer questions','You check the facts and prices (15 min)','We publish it'] }
+  ];
+  if (!S.proposed && S.planV===1) w3.push({ o:'you', t:'Prepare trade fair stand (A+A)', time:'3 h', how:['Book the stand and print materials','We can write the flyer text'] });
+  if (S.proposed) { w3.push({ o:'you', t:'Prepare trade fair stand (A+A)', time:'3 h', removed:true, how:['Removed in the proposed change'] }); w3.push({ o:'gm', t:'LinkedIn carousel: “Safety training in 15 minutes”', added:true, how:['Content agent writes 8 slides','Designed in your brand colours','Scheduled after your approval'] }); }
+  if (!S.proposed && S.planV===2) w3.push({ o:'gm', t:'LinkedIn carousel: “Safety training in 15 minutes”', how:['Content agent writes 8 slides','Designed in your brand colours','Scheduled after your approval'] });
+  return [
+    { n:'Week 1', f:'Foundations', tasks:[
+      { o:'gm', st:'done', t:'Technical SEO audit', how:['Crawl all 14 pages','Fix list sorted by impact','Meta titles rewritten automatically if WordPress is connected'] },
+      { o:'gm', st:'done', t:'Keyword map: 40 keywords to pages', how:['Each keyword gets one page','Gaps become blog briefs'] },
+      { o:'you', st:'you', t:'Update your Google Business Profile', time:'30 min', how:['Log in to Google Business Profile','Paste the description we wrote','Add 5 photos of your team on site'] },
+      { o:'gm', st:'review', note:'1 scheduled for Tue, 1 waiting for your review', t:'LinkedIn: 2 posts', how:['Written from buyer pain points','You approve, we schedule'] } ] },
+    { n:'Week 2', f:'Landing page', tasks:[
+      { o:'gm', st:'progress', t:'Landing page: external safety officer', how:['Structure and copy written for the keyword','Includes prices from / FAQ / proof','Published via WordPress'] },
+      { o:'you', t:'Shorten the contact form (9 → 4 fields)', time:'1 h', how:['We send the exact fields and text','You or your web person change the form'] },
+      { o:'gm', t:'LinkedIn: 2 posts', how:['You approve, we schedule'] } ] },
+    { n:'Week 3', f:'Guides', tasks: w3 },
+    { n:'Week 4', f:'Authority', tasks:[
+      { o:'gm', t:'Blog: fire safety officer duties', how:['Written and published like week 3'] },
+      { o:'both', t:'Backlinks: ask 3 partners for a link', time:'30 min', how:['We find the partners and draft the emails','You send them from your address'] },
+      { o:'gm', t:'Ranking tracking set up', how:['Weekly positions for your 40 keywords','Shown in Results'] } ] }
+  ];
+}
+const OWN = { gm:['GetMarketing','own-gm','bot'], you:['You','own-you','user'], both:['Together','own-both','users'] };
+const ST = { done:['Done','ok','check'], progress:['In progress','warn','loader'], review:['Ready for your review','blue','eye'], you:['Waiting for you','own-you','hand'], planned:['Planned','mute','circle'] };
+function taskSt(t, key){ if (S.marked[key]) return 'done'; return t.st || 'planned'; }
+function potentialCard(){
+  return `<div class="pot">
+    <div class="pot-h"><div><span class="label">What’s possible in your niche</span><b>Rough estimate</b></div><span style="font-size:12.5px;color:var(--n500)">Based on keyword data only. ${S.google ? 'Now refined with your Google data.' : 'It gets precise once Google is connected.'}</span></div>
+    <div class="pot-row">
+      <div><span>Searches in your niche</span><b>24,800 / mo</b></div>
+      <div><span>Reaching you today</span><b>~1.7%</b></div>
+      <div><span>Enquiries per month</span><b>4 → 15–25</b><em>if the plan runs 12 months</em></div>
+    </div>
+    <div class="pot-f"><span class="src">DataForSEO · DE</span><span class="src">CTR 8–12% at positions 3–5</span><span class="src">Conversion 0.9% → 1.5%</span>${S.google ? '' : '<button class="btn sm" type="button" data-connect>Connect Google</button>'}</div>
+  </div>`;
+}
+function renderWS(box, inApp){
+  const W = weeks(); const ctx = inApp ? 'app' : 'ob'; const tab = inApp ? S.appTab : S.tab;
+  const flat = W.flatMap(w => w.tasks.map((t,i) => ({ t, key: w.n+i }))).filter(x => !x.t.removed);
+  const nGM = flat.filter(x=>x.t.o==='gm').length, nYou = flat.length - nGM;
+  const cnt = s => flat.filter(x => taskSt(x.t, x.key) === s).length;
+  const confirmed = Object.values(S.prios).filter(v=>v==='ok').length;
+  const prios = `<div class="prio-h"><h2>${inApp ? 'Your 3 priorities' : 'Your 3 priorities'}</h2><span style="font-size:13.5px;color:var(--n500)">${inApp ? 'Everything in your plan serves one of these' : `${confirmed} of 3 confirmed`}</span></div>
+    <div class="prios">${PRIOS.map(p => { const st = inApp ? 'ok' : S.prios[p.id]; return `<div class="prio ${st==='ok'?'ok':''}" data-prio="${p.id}"><span class="n">PRIORITY ${p.id}</span><h3>${esc(p.t)}</h3><p>${esc(p.p)}</p><div class="who">${p.who.map(w=>`<span class="pill ${OWN[w[0]][1]}">${esc(w[1])}</span>`).join('')}</div>
+      ${inApp ? '' : st==='ok' ? `<div class="q" style="color:var(--accent-ink)"><i data-lucide="check" style="width:14px;height:14px;vertical-align:-2px"></i> Confirmed</div>` : st==='edit' ? `<label class="sr" for="pe-${p.id}">What should change</label><textarea id="pe-${p.id}" placeholder="What should be different for your business?"></textarea><div class="acts"><button class="btn sm dark" type="button" data-pr="save">Save</button></div>` : `<div class="q">Is this right for your business?</div><div class="acts"><button class="btn sm dark" type="button" data-pr="ok"><i data-lucide="check"></i>Yes</button><button class="btn sm" type="button" data-pr="edit">Change it</button></div>`}</div>`; }).join('')}</div>`;
+  const progress = inApp ? `<div class="pprog"><div><b>${cnt('done')} of ${flat.length} tasks done</b><div class="bar" style="height:8px;margin-top:6px"><i style="width:${Math.round(cnt('done')/flat.length*100)}%"></i></div></div>
+      <div class="pchips"><span class="pill ok"><i data-lucide="check"></i>${cnt('done')} done</span><span class="pill warn">${cnt('progress')} in progress</span><span class="pill blue">${cnt('review')} ready for review</span><span class="pill own-you">${cnt('you')} waiting for you</span><span class="pill mute">${cnt('planned')} planned</span></div></div>` : '';
+  const tasks = `<div class="tsum">${inApp ? '' : `<span class="pill own-gm"><i data-lucide="bot"></i>${nGM} done by GetMarketing</span><span class="pill own-you"><i data-lucide="user"></i>${nYou} need you · about 5 hours in total</span>`}<span style="color:var(--n500);font-size:13px">Click a task to see how it’s done.</span></div>
+      ${W.map(w => { const wt = w.tasks.map((t,i)=>({t,key:w.n+i})).filter(x=>!x.t.removed); const wd = wt.filter(x=>taskSt(x.t,x.key)==='done').length;
+        return `<div class="tweek"><div class="wh"><b>${w.n} · ${w.f}${inApp && w.n==='Week 1' ? ' <span class="pill forest" style="margin-left:6px">This week</span>' : ''}</b>${inApp ? `<span class="wbar"><span>${wd} of ${wt.length} done</span><span class="bar"><i style="width:${Math.round(wd/wt.length*100)}%"></i></span></span>` : `<span style="font-size:12.5px;color:var(--n500)">${wt.filter(x=>x.t.o==='gm').length} by us · ${wt.filter(x=>x.t.o!=='gm').length} by you</span>`}</div>
+        ${w.tasks.map((t,i) => { const key = w.n+i; const open = S.openTask===ctx+key; const st = taskSt(t,key);
+          return `<div class="task ${open?'open':''} ${t.removed?'removed':''} ${t.added?'added':''} ${inApp && st==='done'?'is-done':''}"><button type="button" data-task="${ctx+key}"><span class="tic ${inApp && st==='done' ? 'gm' : t.o}"><i data-lucide="${inApp && st==='done' ? 'check' : OWN[t.o][2]}"></i></span><span class="tt">${esc(t.t)}<span class="own">${OWN[t.o][0]}${t.time?` · ${t.time}`:''}</span></span>${inApp ? `<span class="pill ${ST[st][1]}">${ST[st][0]}</span>` : `<span class="pill ${OWN[t.o][1]}">${OWN[t.o][0]}${t.time?` · ${t.time}`:''}</span>`}<i class="chev" data-lucide="chevron-down"></i></button>
+          ${open ? `<div class="how"><b style="color:var(--black)">${t.o==='gm'?'How we do it':'How to do it'}</b><ol>${t.how.map(h=>`<li>${esc(h)}</li>`).join('')}</ol>${t.note && inApp ? `<span style="color:var(--n500)">${esc(t.note)}</span>` : ''}
+            ${inApp && st==='review' ? `<button class="btn sm dark" type="button" data-nav="content" style="justify-self:start">Review now</button>` : ''}
+            ${inApp && t.o!=='gm' && st!=='done' ? `<button class="btn sm dark" type="button" data-markdone="${key}" style="justify-self:start"><i data-lucide="check"></i>Mark as done</button>` : ''}</div>` : ''}</div>`; }).join('')}</div>`; }).join('')}`;
+  const market = `<div class="swot">
+        <div class="sw s"><h4><i data-lucide="shield-check"></i>Strengths</h4><ul>${SWOT.s.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+        <div class="sw w"><h4><i data-lucide="alert-triangle"></i>Weaknesses of your website</h4><ul>${SWOT.w.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+        <div class="sw o"><h4><i data-lucide="trending-up"></i>Opportunities</h4><ul>${SWOT.o.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+        <div class="sw t"><h4><i data-lucide="swords"></i>Threats</h4><ul>${SWOT.t.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+      <div class="mkt">
+        <div class="mcard"><div class="hd"><h4>Pain points</h4><span class="label">What buyers complain about</span></div><div class="mlist">${PAIN.map(p=>`<div><span>${esc(p[0])}</span><span class="s2">${esc(p[1])}</span></div>`).join('')}</div></div>
+        <div class="mcard"><div class="hd"><h4>Desires</h4><span class="label">What buyers want</span></div><div class="mlist">${DESIRE.map(p=>`<div><span>${esc(p[0])}</span><span class="s2">${esc(p[1])}</span></div>`).join('')}</div></div></div>
+      <div class="mcard"><div class="hd"><h4>Top keywords</h4><span class="label">DataForSEO · Germany</span></div><div class="xs"><table class="tbl"><thead><tr><th>Keyword</th><th class="num">Searches / mo</th><th>Competition</th><th class="num">Your position</th></tr></thead><tbody>${KWS.map(k=>`<tr><td><b>${k[0]}</b></td><td class="num">${k[1]}</td><td>${k[2]}</td><td class="num">${k[3]}</td></tr>`).join('')}</tbody></table></div></div>
+      ${potentialCard()}`;
+  box.innerHTML = `
+    ${inApp ? '' : `<div class="ws-hd"><span class="pill tint" style="justify-self:start"><i data-lucide="check"></i>Strategy brief ready</span><h1>Your marketing plan</h1><p>Three priorities, a 4-week plan split into what we do and what you do, and the market research behind it.</p></div>`}
+    ${S.proposed ? `<div class="vbar"><i data-lucide="git-compare"></i><span><b>Change proposed.</b> Highlighted in the 4-week plan. Nothing changes until you accept.</span><span class="sp"></span><button class="btn sm ghost" type="button" data-plan="discard">Discard</button><button class="btn sm dark" type="button" data-plan="accept"><i data-lucide="check"></i>Accept</button></div>` : ''}
+    ${progress}
+    ${prios}
+    ${inApp ? '' : `<div class="gap"><div class="meter"><span>Your conversion</span><div class="bar"><i style="width:43%"></i></div><span>Median B2B services</span><div class="bar"><i class="b" style="width:100%"></i></div></div><div><b style="font-size:15px">Quick win: you convert about 0.9% of visitors, the median is about 2.1%.</b><div style="font-size:14px;color:var(--n600)">That’s why priority 2 is about your contact form, not more traffic.</div></div></div>`}
+    <div class="tabs" role="tablist"><button type="button" class="${tab==='tasks'?'on':''}" data-wstab="tasks" data-ctx="${ctx}"><i data-lucide="list-checks"></i>4-week plan · ${flat.length} tasks</button><button type="button" class="${tab==='market'?'on':''}" data-wstab="market" data-ctx="${ctx}"><i data-lucide="radar"></i>Your market</button></div>
+    <div ${tab==='tasks'?'':'hidden'} style="display:grid;gap:14px">${tasks}</div>
+    <div ${tab==='market'?'':'hidden'} style="display:grid;gap:16px">${market}</div>`;
+  if (!inApp) $('#plan-hint').textContent = confirmed===3 ? 'All priorities confirmed. You can change anything later.' : `Confirm the 3 priorities (${confirmed} of 3), then approve.`;
+  $('#ver-pill').textContent = S.proposed ? 'v2 · proposed' : `v${S.planV} · current`; $('#ver-pill').className = S.proposed ? 'pill warn' : 'pill forest';
+  icons();
+}
+function rerenderWS(){ if (!$('#s-plan').hidden) renderWS($('#plan-ws'), false); if (!$('#s-app').hidden && !$('.view[data-view="strategy"]').hidden) renderWS($('#strat-ws'), true); }
+document.addEventListener('click', e => {
+  const tb = e.target.closest('[data-wstab]'); if (tb) { if (tb.dataset.ctx==='app') S.appTab = tb.dataset.wstab; else S.tab = tb.dataset.wstab; rerenderWS(); return; }
+  const md = e.target.closest('[data-markdone]'); if (md) { S.marked[md.dataset.markdone] = true; S.openTask = null; toast('Marked as done. Your plan is updated.'); rerenderWS(); return; }
+  const tk = e.target.closest('[data-task]'); if (tk) { S.openTask = S.openTask===tk.dataset.task ? null : tk.dataset.task; rerenderWS(); return; }
+  const pr = e.target.closest('[data-pr]'); if (pr) { const id = pr.closest('[data-prio]').dataset.prio;
+    if (pr.dataset.pr==='save') { const v = $('#pe-'+id).value.trim(); S.prios[id]='ok'; toast(v ? 'Saved. The PM agent adjusts this priority.' : 'Kept as it is'); }
+    else S.prios[id] = pr.dataset.pr; rerenderWS(); return; }
+  if (e.target.closest('[data-connect]')) { S.google = true; S.checklist.google = true; toast('Google connected (example)'); rerenderWS(); return; }
+  const p = e.target.closest('[data-plan]'); if (p) {
+    if (p.dataset.plan==='accept') { S.proposed=false; S.planV=2; dBubble('<p>Accepted. Version 2 is live and the content agent uses it now.</p>'); toast('Plan updated to version 2'); }
+    else { S.proposed=false; dBubble('<p>Discarded. Nothing changed.</p>'); }
+    S.tab='tasks'; rerenderWS(); }
+});
+$('#plan-approve').addEventListener('click', () => { if (S.proposed) { toast('Accept or discard the proposed change first'); return; } go('month'); });
+
+/* drawer */
+function openDrawer(){ $('#drawer').hidden = false;
+  if (!$('#dmsgs').children.length) { dBubble('<p>Tell me what to change and I’ll edit the plan directly. You’ll see the change before it goes live.</p>');
+    const c = document.createElement('div'); c.className='chips'; c.id='dchips'; c.innerHTML = `<span class="h">Try</span><button class="chip" type="button" data-d="No trade fair, please. More LinkedIn instead.">No trade fair, more LinkedIn</button>`; $('#dmsgs').appendChild(c); }
+  icons(); $('#danswer').focus(); }
+function dBubble(html, me){ const m=document.createElement('div'); m.className='msg fade'+(me?' me':''); m.innerHTML=`<span class="av ${me?'u':''}">${me?'U':'PM'}</span><div class="bubble">${html}</div>`; $('#dmsgs').appendChild(m); $('#dmsgs').scrollTop=1e6; icons(); }
+function planRequest(text){ const c=$('#dchips'); if(c) c.remove(); dBubble(`<p>${esc(text)}</p>`, true);
+  if (S.planV===2 || S.proposed) { later(()=>dBubble('<p>Noted. In the full product I’d edit the plan the same way and show you the change first.</p>'), 700); return; }
+  later(() => { S.proposed = true; S.tab='tasks'; dBubble('<p>Done. I removed the trade fair (that was 3 hours of your time) and added a LinkedIn carousel we do for you. Check the highlighted change in week 3.</p><div class="change"><b>Proposed change</b><span>− Prepare trade fair stand (A+A) · you, 3 h</span><span>+ LinkedIn carousel · GetMarketing</span></div>'); rerenderWS(); }, 1200); }
+$('#drawer-close').addEventListener('click', () => $('#drawer').hidden = true);
+$('#dmsgs').addEventListener('click', e => { const c=e.target.closest('[data-d]'); if(c) planRequest(c.dataset.d); });
+$('#danswer').addEventListener('keydown', e => { if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); $('#dcomposer').requestSubmit(); } });
+$('#dcomposer').addEventListener('submit', e => { e.preventDefault(); const v=$('#danswer').value.trim(); if(!v) return; $('#danswer').value=''; planRequest(v); });
+
+/* ---------- 6 your month ---------- */
+const CAL = [
+  ['Tue 21 Oct','LinkedIn post','Most risk assessments end up in a drawer'],
+  ['Wed 22 Oct','Blog article','How to create a risk assessment: step by step'],
+  ['Fri 24 Oct','LinkedIn post','3 questions every inspection asks'],
+  ['Tue 28 Oct','Landing page','External safety officer: prices, process, FAQ'],
+  ['Thu 30 Oct','LinkedIn post','Why we give every customer one fixed contact'],
+  ['Mon 3 Nov','Blog article','Fire safety officer: duties, costs and process'],
+  ['Tue 4 Nov','LinkedIn post','Safety training in 15 minutes instead of 2 hours'],
+  ['Thu 6 Nov','LinkedIn post','The inspection question nobody prepares for'],
+  ['Mon 10 Nov','Blog article','Inspecting ladders and steps: what companies must know'],
+  ['Wed 12 Nov','LinkedIn post','What your insurer actually checks'],
+  ['Fri 14 Nov','FAQ page','Occupational safety: duties and costs'],
+  ['Tue 18 Nov','LinkedIn post','Safety audit in 4 weeks: a checklist']
+];
+const POST = 'Most risk assessments end up in a drawer.\n\nWe see it every week: the document exists, but nobody has opened it since it was written. Then an audit comes up, or worse, an accident.\n\nThree questions every employers’ liability insurer asks in an inspection:\n1. When was the risk assessment last updated?\n2. Were employees trained on it?\n3. Are the measures documented?\n\nIf you can’t answer all three today, that’s fine. It takes less time than most people think. One fixed contact at your site makes it easier.';
+const POST_REVISED = 'Most risk assessments end up in a drawer.\n\n<mark>Last month alone, three of our new customers had one that was more than four years old.</mark> Nobody had opened it since. Then an audit came up.\n\nThree questions every employers’ liability insurer asks in an inspection:\n1. When was the risk assessment last updated?\n2. Were employees trained on it?\n3. Are the measures documented?\n\n<mark>If you can’t answer all three, start with question 1. It usually takes one site visit.</mark>';
+function postText(){ if (S.post.edited !== null) return esc(S.post.edited); return S.post.revised ? POST_REVISED : esc(POST); }
+function renderPost(){
+  const full = postText(); const plain = full.replace(/<[^>]+>/g,'');
+  const show = S.post.expanded || plain.length <= 210 ? full : esc(plain.slice(0, 200).replace(/\s+\S*$/,'')) + '… <button class="more" type="button" id="seemore">see more</button>';
+  $('#lif').innerHTML = `<div class="h"><span class="lav">${BOLT}</span><div><b>Kessler Safety</b><span>1,284 followers</span><span>Tue 09:00 · scheduled</span></div><span class="follow">+ Follow</span></div>
+    <div class="txt">${show}</div>
+    <div class="img"><span class="label">Kessler Safety</span><b>3 questions every inspection asks</b><ol><li>When was it last updated?</li><li>Were employees trained?</li><li>Are measures documented?</li></ol></div>
+    <div class="stats"><span>Preview</span><span>Expected reach: 600–900</span></div>
+    <div class="acts"><span><i data-lucide="thumbs-up"></i>Like</span><span><i data-lucide="message-square"></i>Comment</span><span><i data-lucide="repeat-2"></i>Repost</span><span><i data-lucide="send"></i>Send</span></div>`;
+  icons();
+}
+function renderFb(){
+  const p = S.post; const f = $('#fb');
+  if (p.mode === 'tags') {
+    f.innerHTML = `<span style="font-size:14px">What’s off? Pick any.</span><div class="tagset">${['Too formal','Too casual','Too salesy','Too generic','Wrong facts','Too long'].map(t=>`<button class="chip ${p.tags.includes(t)?'on':''}" type="button" data-tag="${t}">${t}</button>`).join('')}</div>
+      <label class="flabel" for="fb-note">Anything else? (optional)</label><textarea id="fb-note" class="edit-ta" style="min-height:70px" placeholder="e.g. Add a real example from our customers"></textarea>
+      <button class="btn dark" type="button" id="rewrite"><i data-lucide="wand-2"></i>Rewrite it</button><button class="btn ghost sm" type="button" data-mode="">Cancel</button>`;
+  } else if (p.mode === 'edit') {
+    f.innerHTML = `<label class="flabel" for="post-ta">Edit the text</label><textarea id="post-ta" class="edit-ta">${esc(p.edited !== null ? p.edited : (p.revised ? POST_REVISED.replace(/<[^>]+>/g,'') : POST))}</textarea><span style="font-size:12.5px;color:var(--n500)">The preview updates as you type. We learn from your edits.</span><button class="btn dark" type="button" data-mode="">Done</button>`;
+  } else if (p.mode === 'writing') {
+    f.innerHTML = `<span class="reading"><span class="typing" style="padding:0"><i></i><i></i><i></i></span>Rewriting with your feedback…</span>`;
+  } else {
+    f.innerHTML = `${p.revised ? '<span class="pill ok" style="justify-self:start">Rewritten · changes highlighted</span>' : ''}${p.verdict==='yes' ? '<span class="pill ok" style="justify-self:start"><i data-lucide="check"></i>Noted: this is your style</span>' : ''}
+      <div class="bigq"><button type="button" class="${p.verdict==='yes'?'on':''}" data-verdict="yes"><i data-lucide="thumbs-up"></i>Sounds like us</button><button type="button" data-mode="tags"><i data-lucide="thumbs-down"></i>Change something</button></div>
+      <button class="btn ghost sm" type="button" data-mode="edit"><i data-lucide="pencil"></i>Edit the text myself</button>
+      <span style="font-size:12.5px;color:var(--n500)">Every approve, edit and rewrite teaches your team your voice. No forms needed.</span>`;
+  }
+  icons();
+}
+function buildMonth(){
+  renderPost(); renderFb();
+  if (S.monthBuilt) return; S.monthBuilt = true;
+  $('#mcal').innerHTML = ''; $('#mc-count').textContent = '0';
+  CAL.forEach((c,i) => later(() => { const d = document.createElement('div'); d.className = 'mci' + (i===0?' sel':'');
+    d.innerHTML = `<span class="dt">${c[0]}</span><div><b>${esc(c[2])}</b><div class="st">${c[1]} · ${i===0?'<span style="color:var(--accent-ink);font-weight:600">written</span>':'planned'}</div></div>`;
+    $('#mcal').appendChild(d); $('#mc-count').textContent = i+1; }, 120 + i*160));
+}
+$('#s-month').addEventListener('click', e => {
+  if (e.target.closest('#seemore')) { S.post.expanded = true; renderPost(); return; }
+  const v = e.target.closest('[data-verdict]'); if (v) { S.post.verdict = 'yes'; S.post.mode=''; renderFb(); toast('Noted. Your team writes like this.'); return; }
+  const m = e.target.closest('[data-mode]'); if (m) { S.post.mode = m.dataset.mode; renderFb(); if (S.post.mode==='edit') { S.post.expanded = true; renderPost(); } return; }
+  const t = e.target.closest('[data-tag]'); if (t) { const i = S.post.tags.indexOf(t.dataset.tag); if (i>-1) S.post.tags.splice(i,1); else S.post.tags.push(t.dataset.tag); t.classList.toggle('on'); return; }
+  if (e.target.closest('#rewrite')) { S.post.mode='writing'; renderFb(); later(() => { S.post.revised = true; S.post.edited = null; S.post.expanded = true; S.post.verdict=''; S.post.mode=''; renderPost(); renderFb(); }, 1800); }
+});
+$('#s-month').addEventListener('input', e => { if (e.target.id==='post-ta') { S.post.edited = e.target.value; renderPost(); } });
+$('#schedule').addEventListener('click', () => go('gate'));
+$('#start-trial').addEventListener('click', () => { S.scheduled = true; go('setup'); });
+
+/* ---------- 8 setup ---------- */
+function startSetup(){
+  if (S.setupStarted) return; S.setupStarted = true;
+  const AG = [{ n:'PM agent', d:'Plan approved, tasks assigned', ic:'clipboard-list', p:1 },{ n:'Market research', d:'Watching competitors and new complaints', ic:'search', p:.3, dur:6 },{ n:'SEO agent', d:'Technical audit and keyword map', ic:'key-round', p:.1, dur:5 },{ n:'Content agent', d:'', ic:'pen-line', p:.08, dur:11 }];
+  let ready = 1;
+  const draw = () => {
+    $('#agents').innerHTML = AG.map(a => `<div class="agent"><span class="ic"><i data-lucide="${a.ic}"></i></span><div><b>${a.n}</b><span class="small">${a.n==='Content agent' ? `${ready} of 12 pieces written` : a.d}</span>${a.p<1?`<div class="bar"><i style="width:${Math.round(a.p*100)}%"></i></div>`:''}</div>${a.p>=1?'<span class="pill ok"><i data-lucide="check"></i>Done</span>':'<span class="pill warn">Working</span>'}</div>`).join('');
+    $('#minical').innerHTML = CAL.map((c,i) => i < ready ? `<div class="mc ready"><span class="label" style="font-size:9.5px">${c[0]} · ${c[1]}</span><b style="font-size:12.5px;line-height:1.3">${esc(c[2])}</b>${i===0?'<span class="pill ok" style="justify-self:start">Scheduled</span>':''}</div>` : `<div class="mc">${c[0]}<br>Being written…</div>`).join('');
+    icons(); };
+  const loop = () => { AG.forEach(a => { if (a.p < 1) a.p = Math.min(1, a.p + 1/(a.dur||1)); }); if (ready < 12) ready++; draw(); if (ready < 12 || AG.some(a=>a.p<1)) later(loop, 800); };
+  draw(); later(loop, 700);
+}
+
+/* ---------- 9 dashboard ---------- */
+function initItems(){ S.items = CAL.map((c,i) => ({ date:c[0], type:c[1], title:c[2], status: i===0 ? 'scheduled' : 'review', i })); }
+function statusPill(s){ return { review:'<span class="pill warn">Awaiting review</span>', revision:'<span class="pill err">Revision requested</span>', revised:'<span class="pill warn">Revised · review</span>', approved:'<span class="pill ok"><i data-lucide="check"></i>Approved</span>', scheduled:'<span class="pill ok"><i data-lucide="calendar-check"></i>Scheduled</span>' }[s]; }
+function renderChecklist(){
+  const c = S.checklist; const items = [
+    ['Plan approved', true, ''], ['First post scheduled', true, ''],
+    ['Connect Google to get your baseline', c.google, '<button class="btn sm dark" type="button" data-chk="google">Connect</button>'],
+    ['Connect WordPress to publish blogs', c.wp, '<button class="btn sm" type="button" data-chk="wp">Connect</button>'],
+    ['Review this week’s 3 drafts', c.review, '<button class="btn sm" type="button" data-nav="content">Review</button>'] ];
+  const n = items.filter(i=>i[1]).length;
+  $('#chk-count').textContent = `${n} of 5 done`; $('#chk-bar').style.width = (n/5*100)+'%';
+  $('#check').innerHTML = items.map(i => `<div><span class="ci ${i[1]?'on':''}">${i[1]?'<i data-lucide="check"></i>':''}</span><span class="${i[1]?'dn':''}">${i[0]}</span>${i[1]?'':i[2]}</div>`).join('');
+}
+function renderDash(){
+  if (!S.items) initItems();
+  const items = S.items.filter(it => S.filter==='all' || it.type===S.filter);
+  $('#cal').innerHTML = items.map(it => `<button class="citem" type="button" data-open="${it.i}"><span class="date">${it.date}</span><span class="pill ${it.type==='LinkedIn post'?'tint':'blue'}" style="justify-self:start">${it.type}</span>${it.type==='LinkedIn post'?`<span class="vis">${esc(it.title)}</span>`:''}<b>${esc(it.title)}</b>${statusPill(it.status)}</button>`).join('');
+  const waiting = S.items.filter(i=>i.status==='review'||i.status==='revised').length;
+  $('#await-pill').textContent = waiting + ' awaiting review'; $('#nav-count').textContent = waiting; $('#nav-count').hidden = !waiting;
+  renderChecklist(); renderPlanProg(); renderAnalytics(); icons();
+}
+function renderPlanProg(){
+  const w = weeks()[0]; const rows = w.tasks.map((t,i)=>({t,key:w.n+i,st:taskSt(t,w.n+i)}));
+  const d = rows.filter(r=>r.st==='done').length;
+  $('#plan-prog').innerHTML = `<div class="hd"><h3>Your plan · week 1 of 4</h3><button class="btn sm ghost" type="button" data-nav="strategy">Open plan</button></div>
+    <div style="padding:12px 20px 4px;display:grid;gap:6px"><span style="font-size:13px;color:var(--n500)">${d} of ${rows.length} done this week</span><div class="bar"><i style="width:${Math.round(d/rows.length*100)}%"></i></div></div>
+    <div class="check">${rows.map(r=>`<div><span class="ci ${r.st==='done'?'on':''}">${r.st==='done'?'<i data-lucide="check"></i>':''}</span><span class="${r.st==='done'?'dn':''}">${esc(r.t.t)}</span><span class="pill ${ST[r.st][1]}">${ST[r.st][0]}</span></div>`).join('')}</div>
+    <div style="padding:10px 20px 14px;font-size:13px;color:var(--n500);border-top:1px solid var(--line)">Next week: landing page for “external safety officer”</div>`;
+}
+function renderAnalytics(){
+  const c = $('#analytics-card');
+  if (!S.google) c.innerHTML = `<div class="hd"><h3>Insights &amp; action items</h3><span class="label">Analytics agent</span></div><div class="empty-g"><span>Connect Google Analytics and Search Console. Your plan then adapts to your real numbers, explained in plain words.</span><button class="btn dark" type="button" data-chk="google">Connect Google</button></div>`;
+  else c.innerHTML = `<div class="hd"><h3>Insights &amp; action items</h3><span class="label">Analytics agent · last 28 days · example data</span></div>
+    <div class="bd" style="display:grid;gap:16px"><div class="stats"><div class="stat"><span>Visits</span><b>2,140</b><span class="d">+9% vs. last month</span></div><div class="stat"><span>From Google</span><b>61%</b><span class="d">+4 points</span></div><div class="stat"><span>Enquiries</span><b>23</b><span class="d">+3</span></div><div class="stat"><span>Avg. position</span><b>18.4</b><span class="d">+2.1</span></div></div>
+    <p class="ai-para">In the last 28 days kessler-safety.example had 2,140 visits, 9% more than the month before. Most come from Google. The fire safety page brings the most enquiries (14 of 23). For “external safety officer” you rank at position 14; the landing page in week 2 targets page one.</p></div>
+    <div class="todo"><div><i data-lucide="alert-triangle" style="color:var(--warn)"></i><span>The homepage has no meta description</span><span class="pill own-gm">We fix it</span></div><div><i data-lucide="gauge" style="color:var(--warn)"></i><span>3 pages take more than 4 seconds to load on mobile</span><span class="pill own-you">Your web person</span></div></div>`;
+  icons();
+}
+document.addEventListener('click', e => {
+  const ck = e.target.closest('[data-chk]'); if (ck) { S.checklist[ck.dataset.chk] = true; if (ck.dataset.chk==='google') S.google = true; toast(ck.dataset.chk==='google' ? 'Google connected (example)' : 'WordPress connected (example)'); renderDash(); }
+  const o = e.target.closest('[data-open]'); if (o) { S.current = +o.dataset.open; go('content'); }
+  const f = e.target.closest('[data-f]'); if (f) { S.filter = f.dataset.f; $$('#cfilter .chip').forEach(x=>x.classList.toggle('on',x===f)); renderDash(); }
+});
+
+/* ---------- 10 content review ---------- */
+const BODIES = { 0:{ based:'Pain point: “Our risk assessment is from 2019 and nobody looks at it”', body: POST.split('\n\n') },
+  1:{ based:'Keyword: “risk assessment template” (6,600/mo, weak competition)', body:['Every employer in Germany needs a risk assessment, whether the company has 5 or 500 employees. Yet many small companies don’t have one, or it has been sitting unchanged in a folder for years.','After a workplace accident, the employers’ liability insurer asks for this document first. If it is missing, it can get expensive for management.','In seven steps you get from an empty template to a finished document that holds up in an inspection.'] },
+  3:{ based:'Priority 1: “external safety officer” (position 14 → page one)', body:['When does an external safety officer pay off, and when is your own employee the better choice? The answer depends less on company size than on how often your work changes.','For most companies with 20 to 250 employees, the external option costs a fraction of a full-time hire, and you get one person who knows your site.'] } };
+function renderReview(){
+  if (!S.items) initItems();
+  $('#qlist').innerHTML = S.items.map(it => `<button type="button" class="qitem ${it.i===S.current?'on':''}" data-q="${it.i}"><span class="t">${it.date} · ${it.type}</span><b>${esc(it.title)}</b>${statusPill(it.status)}</button>`).join('');
+  const it = S.items[S.current]; const B = BODIES[it.i] || { based:'Your 4-week plan', body:['Draft text appears here. Shortened in this prototype.'] };
+  let decide = '';
+  if (it.status==='review' || it.status==='revised') decide = `<div class="decide" id="decide"><button class="btn dark" type="button" id="approve"><i data-lucide="check"></i>Approve</button><button class="btn" type="button" id="reqchg"><i data-lucide="message-square"></i>Request changes</button></div>`;
+  if (it.status==='revision') decide = `<div class="reasons"><b style="font-size:14px">We’re revising it</b><div class="tl"><div><span class="d on"></span>Your note received</div><div><span class="d now"></span>Content agent is revising · ready in about 10 minutes</div><div><span class="d"></span>We’ll email you when it’s ready</div></div></div>`;
+  if (it.status==='approved' || it.status==='scheduled') decide = `<div class="reasons"><b style="font-size:14px">${it.status==='scheduled'?'Scheduled':'Approved'} for ${it.date}.</b><span style="font-size:13.5px;color:var(--n500)">Yours to keep, even after the trial.</span></div>`;
+  $('#draft').innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="label">${it.date} · ${it.type}</span>${statusPill(it.status)}</div><h2 style="margin:0;font-size:22px;letter-spacing:-.02em;line-height:1.25">${esc(it.title)}</h2>
+    <div class="based"><i data-lucide="sparkles"></i><span>Based on: ${esc(B.based)}</span></div><div class="postbody">${B.body.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${decide}`;
+  icons();
+}
+$('#qlist').addEventListener('click', e => { const q=e.target.closest('[data-q]'); if(!q) return; S.current=+q.dataset.q; renderReview(); });
+$('#draft').addEventListener('click', e => { const it = S.items[S.current];
+  if (e.target.closest('#approve')) { it.status='approved'; S.checklist.review = S.items.filter(x=>x.status==='approved').length >= 3; renderReview(); toast('Approved and scheduled'); }
+  if (e.target.closest('#reqchg')) $('#decide').outerHTML = `<form class="reasons" id="reasons"><b style="font-size:14px">What should change?</b><div style="display:flex;gap:8px;flex-wrap:wrap">${['Tone','Facts wrong','Off-topic','Too generic','Other'].map(r=>`<button class="chip" type="button" data-rr>${r}</button>`).join('')}</div><label for="rnote" class="flabel">Note for the content agent</label><textarea id="rnote" placeholder="e.g. Add a real example so it feels less generic"></textarea><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn dark" type="submit">Send to revision</button><button class="btn ghost" type="button" id="cancelr">Cancel</button></div></form>`;
+  const r = e.target.closest('[data-rr]'); if (r) r.classList.toggle('on');
+  if (e.target.closest('#cancelr')) renderReview(); });
+$('#draft').addEventListener('submit', e => { e.preventDefault(); const it=S.items[S.current]; it.status='revision'; renderReview(); toast('Got it. Revision requested.');
+  later(() => { if (it.status!=='revision') return; it.status='revised'; if (!$('.view[data-view="content"]').hidden) renderReview(); toast('Revised draft ready (we’d also email you)'); }, 4500); });
+
+/* ---------- 11 research ---------- */
+function renderResearch(){
+  $('#research-box').innerHTML = `<div class="swot">
+    <div class="sw s"><h4><i data-lucide="shield-check"></i>Strengths</h4><ul>${SWOT.s.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="sw w"><h4><i data-lucide="alert-triangle"></i>Weaknesses of your website</h4><ul>${SWOT.w.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="sw o"><h4><i data-lucide="trending-up"></i>Opportunities</h4><ul>${SWOT.o.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="sw t"><h4><i data-lucide="swords"></i>Threats</h4><ul>${SWOT.t.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+    <div class="mkt"><div class="mcard"><div class="hd"><h4>Pain points</h4></div><div class="mlist">${PAIN.map(p=>`<div><span>${esc(p[0])}</span><span class="s2">${esc(p[1])}</span></div>`).join('')}</div></div>
+    <div class="mcard"><div class="hd"><h4>Desires</h4></div><div class="mlist">${DESIRE.map(p=>`<div><span>${esc(p[0])}</span><span class="s2">${esc(p[1])}</span></div>`).join('')}</div></div></div>
+    <div class="mcard"><div class="hd"><h4>Keywords</h4><span class="label">DataForSEO · Germany</span></div><div class="xs"><table class="tbl"><thead><tr><th>Keyword</th><th class="num">Searches / mo</th><th>Competition</th><th class="num">Your position</th></tr></thead><tbody>${KWS.map(k=>`<tr><td><b>${k[0]}</b></td><td class="num">${k[1]}</td><td>${k[2]}</td><td class="num">${k[3]}</td></tr>`).join('')}</tbody></table></div></div>`;
+  icons();
+}
+document.addEventListener('click', e => { const m = e.target.closest('[data-make]'); if (m) { m.disabled = true; m.innerHTML='<i data-lucide="check"></i>Draft requested'; icons(); toast('Draft requested. It will appear in Content review.'); } });
+
+/* ---------- report a problem ---------- */
+$('#report-btn').addEventListener('click', () => { $('#modal').hidden=false; $('#report-note').focus(); });
+$('#report-cancel').addEventListener('click', () => $('#modal').hidden=true);
+$('#report-form').addEventListener('submit', e => { e.preventDefault(); $('#modal').hidden=true; $('#report-note').value=''; toast('Sent. We’ll reply by email.'); });
+
+/* ---------- restart ---------- */
+const pristine = {}; ['#msgs-inner','#dmsgs','#agents','#minical','#stream','#scan-after','#headline'].forEach(s => pristine[s] = $(s).innerHTML);
+function resetDom(){
+  Object.entries(pristine).forEach(([s,h]) => $(s).innerHTML = h);
+  $('#headline').hidden = true; $('#scan-after').hidden = true; $('#scan-bar').hidden = true; $('#scan-next').disabled = true; $('#scan-title').textContent = 'Your AI team is looking at your market';
+  $$('.kf').forEach(f => { const v=$('.v',f); if (['usp','icp','past','docs'].includes(f.dataset.k)) { v.textContent = f.dataset.k==='docs' ? 'None yet' : 'Waiting for your answer'; v.classList.add('wait'); } });
+  $('.kf[data-k="usp"] .label').textContent = 'What makes you different'; $('.kf[data-k="icp"] .label').textContent = 'Target customers';
+  $('.kf[data-k="what"] .label').textContent = 'What you do · from your website';
+  $('#dropzone').classList.remove('has'); $('#dropzone b').textContent = 'Drop your documents';
+  $('#f-goal') && ($('#f-goal').value = '');
+}
+
+
+function renderDev(){}
+
+renderProgress();
+go('start');
+})();
+</script>
+
+</body>
+</html>
