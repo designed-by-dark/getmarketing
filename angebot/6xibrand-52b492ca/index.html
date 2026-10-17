@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Partnerangebot 6xiBrand · GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Partnerangebot: White-Label-Umsetzung für die Kunden von 6xiBrand." />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --ink:        #1F2A24;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F2;
+    --line:       #E6E6E1;
+    --tint:       #E7F3EC;
+    --warn:       #B4532A;
+    --warn-bg:    #F7EBE2;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --s: 1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font); color: var(--ink); background: #E4E1D9;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow: hidden;
+  }
+  h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; text-wrap: balance; color: var(--black); }
+
+  /* ================= Deck / stage ================= */
+  .deck { position: fixed; inset: 0; }
+  .slide {
+    position: absolute; left: 50%; top: 50%;
+    width: 1280px; height: 720px;
+    transform: translate(-50%, -50%) scale(var(--s));
+    background: #fff; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 72px 0;
+    opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+  .slide.dark { background: var(--forest); color: #fff; }
+  .slide.dark h1, .slide.dark h2 { color: #fff; }
+
+  .s-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 28px; }
+  .s-head h2 { font-size: 38px; max-width: 920px; }
+  .s-head .s-sub { font-size: 17px; color: var(--gray); margin-top: 10px; font-weight: 400; max-width: 860px; line-height: 1.5; }
+  .s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .s-foot {
+    height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: var(--gray2); border-top: 1px solid var(--line); margin-top: 18px;
+  }
+  .s-foot b { color: var(--gray); font-weight: 700; }
+  .dark .s-foot { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
+  .dark .s-foot b { color: rgba(255,255,255,.7); }
+
+  .take {
+    margin-top: auto; display: flex; gap: 18px; align-items: center;
+    background: var(--forest); color: #fff; border-radius: 14px; padding: 18px 24px;
+    font-size: 16.5px; line-height: 1.5;
+  }
+  .take b.k { flex-shrink: 0; font-size: 14px; font-weight: 800; color: var(--accent); }
+
+  /* ================= Shared blocks ================= */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card { background: var(--card); border-radius: 16px; padding: 26px; }
+  .col-h { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+  .lbl { font-size: 15px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+
+  .check { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .check li { position: relative; padding-left: 30px; font-size: 16px; line-height: 1.45; }
+  .check li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 19px; height: 19px; border-radius: 5px;
+    background: var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;
+  }
+  .check.sm li { font-size: 14.5px; }
+  .check.lt li::before { background-color: rgba(255,255,255,.12); }
+
+  .price { background: var(--forest); color: #fff; border-radius: 16px; padding: 26px; }
+  .price .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .price .v { font-size: 50px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; }
+  .price .v small { font-size: 18px; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,.7); }
+  .price p { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 10px; line-height: 1.5; }
+  .result { background: var(--tint); border-radius: 16px; padding: 22px 24px; }
+  .result .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
+  .result p { font-size: 16px; color: var(--forest); line-height: 1.5; font-weight: 500; }
+  .small-note { font-size: 12.5px; color: var(--gray); margin-top: 12px; line-height: 1.5; }
+  .small-note b { color: var(--ink); }
+
+  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .steps4 > div { background: var(--card); border-radius: 16px; padding: 20px 20px 22px; position: relative; }
+  .steps4 > div:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 26px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+  .steps4 .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .steps4 b { display: block; font-size: 17px; letter-spacing: -0.015em; }
+  .steps4 p { font-size: 14px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+  .steps4.tint > div { background: var(--tint); }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 16px var(--font); padding: 15px 28px; border-radius: 50px; text-decoration: none; transition: transform .18s ease, opacity .18s ease; }
+  .btn:hover { transform: translateY(-2px); opacity: .92; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
+
+  /* ================= Partner wordmark ================= */
+  .mark { font-weight: 900; letter-spacing: -0.04em; color: var(--black); white-space: nowrap; }
+  .mark i { font-style: normal; color: var(--accent-ink); }
+  .s-mark { font-size: 22px; flex-shrink: 0; padding-top: 8px; }
+
+  /* ================= Cover ================= */
+  .cover { padding-top: 70px; }
+  .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
+  .cover .gm img { width: 38px; height: 38px; border-radius: 8px; }
+  .cover .gm span { color: rgba(255,255,255,.45); font-weight: 500; }
+  .cover h1 { font-size: 60px; max-width: 980px; margin-top: 70px; letter-spacing: -0.035em; line-height: 1.05; }
+  .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; }
+  .cover .client { display: inline-flex; align-self: flex-start; margin-top: 44px; background: #fff; border-radius: 14px; padding: 20px 34px; }
+  .cover .client .mark { font-size: 34px; }
+  .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
+  .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
+
+  /* ================= Drei Stufen ================= */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .stage { border-radius: 18px; padding: 24px 26px 26px; background: var(--card); display: flex; flex-direction: column; }
+  .stage.gm { background: var(--tint); }
+  .stage .who-tag { align-self: flex-start; font-size: 12.5px; font-weight: 800; padding: 6px 12px; border-radius: 50px; background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+  .stage.gm .who-tag { background: var(--forest); color: #fff; border-color: var(--forest); }
+  .stage .st { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-top: 20px; }
+  .stage h3 { font-size: 26px; margin-top: 4px; }
+  .stage p { font-size: 15px; color: var(--gray); margin-top: 10px; line-height: 1.5; }
+  .stage ul { list-style: none; margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .stage li { font-size: 13px; font-weight: 600; background: #fff; border-radius: 6px; padding: 5px 9px; }
+  /* ================= Agenten ================= */
+  .agents { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 36px; border-top: 2px solid var(--ink); }
+  .agents > div { padding: 12px 0 13px; border-bottom: 1px solid var(--line); }
+  .agents b { display: block; font-size: 15px; }
+  .agents span { display: block; font-size: 13.5px; color: var(--gray); line-height: 1.45; margin-top: 2px; }
+
+  /* ================= Portal-Mock ================= */
+  .wl { display: grid; grid-template-columns: 1.08fr 1fr; gap: 40px; align-items: start; }
+  .mock { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.07); }
+  .mock-bar { height: 30px; background: #F1F0EC; display: flex; align-items: center; gap: 5px; padding: 0 12px; font-size: 11.5px; color: var(--gray); }
+  .mock-bar i { width: 8px; height: 8px; border-radius: 50%; background: #D5D3CC; flex-shrink: 0; }
+  .mock-bar span { margin-left: 10px; background: #fff; border-radius: 5px; padding: 2px 10px; }
+  .mock-nav { display: flex; align-items: center; gap: 18px; padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--gray); }
+  .mock-nav .mark { font-size: 18px; margin-right: auto; }
+  .mock-nav .on { color: var(--ink); font-weight: 700; }
+  .mock-in { padding: 18px 20px 20px; }
+  .mock-h { display: flex; justify-content: space-between; align-items: baseline; }
+  .mock-h b { font-size: 17px; letter-spacing: -0.015em; }
+  .mock-h span { font-size: 12px; color: var(--gray); }
+  .mrow { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; align-items: center; background: var(--card); border-radius: 10px; padding: 10px 12px; margin-top: 8px; font-size: 13.5px; }
+  .mrow em { width: 30px; height: 30px; border-radius: 8px; background: #fff; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 800; color: var(--forest); }
+  .mrow small { display: block; font-size: 11.5px; color: var(--gray); }
+  .st-b { font-size: 11px; font-weight: 800; padding: 4px 9px; border-radius: 50px; white-space: nowrap; }
+  .st-b.a { background: var(--warn-bg); color: var(--warn); }
+  .st-b.p { background: #fff; color: var(--gray); border: 1px solid var(--line); }
+  .st-b.l { background: var(--tint); color: var(--accent-ink); }
+  .mock-chart { margin-top: 14px; display: flex; align-items: flex-end; gap: 6px; height: 54px; padding: 0 2px; }
+  .mock-chart div { flex: 1; background: var(--tint); border-radius: 4px 4px 0 0; }
+  .mock-chart div:last-child { background: var(--accent); }
+  .mock-cap { font-size: 12px; color: var(--gray); margin-top: 10px; text-align: center; }
+
+  /* ================= Nutzen ================= */
+  .gains { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; row-gap: 8px; }
+  .gain { border-top: 2px solid var(--ink); padding: 18px 0 22px; }
+  .gain b { display: block; font-size: 22px; letter-spacing: -0.02em; line-height: 1.25; }
+  .gain p { font-size: 16px; color: var(--gray); margin-top: 8px; line-height: 1.55; max-width: 500px; }
+
+  .points { list-style: none; border-top: 2px solid var(--ink); }
+  .points li { font-size: 15.5px; line-height: 1.5; color: var(--gray); padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .points b { color: var(--ink); }
+
+  /* ================= Konditionen ================= */
+  .tiers { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 18px; }
+  .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 24px 26px; }
+  .tier.full { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .tier.agency { background: var(--card); border-color: var(--card); }
+  .tier .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .tier.full .k { color: var(--accent); }
+  .tier.agency .k, .tier.agency .v { color: var(--gray); }
+  .tier .v { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 12px 0 4px; white-space: nowrap; }
+  .tier .v small { font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .tier.full .v small, .tier.full .sub { color: rgba(255,255,255,.65); }
+  .tier .sub { font-size: 13.5px; color: var(--gray); }
+  .tier ul { list-style: none; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+  .tier.full ul { border-color: rgba(255,255,255,.15); }
+  .tier li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; }
+  .tier li span:last-child { font-weight: 700; white-space: nowrap; }
+  .tier .on { color: var(--accent-ink); }
+  .tier.full .on { color: var(--accent); }
+  .tier .incl { font-size: 13.5px; margin-top: 14px; color: var(--gray); line-height: 1.5; }
+  .tier.full .incl { color: rgba(255,255,255,.7); }
+  .scale li { font-variant-numeric: tabular-nums; }
+  .scale li span:first-child { color: var(--gray); }
+
+  /* ================= Proof ================= */
+  .about { display: grid; grid-template-columns: 340px 1fr; gap: 40px; align-items: start; }
+  .person { background: var(--card); border-radius: 18px; padding: 26px; }
+  .person img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; display: block; }
+  .person b { display: block; font-size: 20px; margin-top: 16px; letter-spacing: -0.015em; }
+  .person .role { font-size: 14px; color: var(--accent-ink); font-weight: 700; margin-top: 2px; }
+  .person p { font-size: 14.5px; color: var(--gray); margin-top: 12px; line-height: 1.55; }
+  .person a { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--forest); text-decoration: none; }
+  .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .nums > div { border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
+  .nums b { display: block; font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
+  .nums span { display: block; font-size: 14.5px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+  .tech em { font-style: normal; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-right: 4px; }
+  .tech span { font-size: 13.5px; font-weight: 600; padding: 7px 12px; border-radius: 8px; background: var(--card); }
+
+  /* ================= Pilot ================= */
+  .pilot { display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: stretch; }
+  .pilot .steps4 { grid-template-columns: 1fr 1fr; }
+  .pilot .steps4 > div::after { display: none; }
+
+  /* ================= Close ================= */
+  .close-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; flex: 1; }
+  .close h2 { font-size: 46px; line-height: 1.08; }
+  .close .lead { font-size: 17.5px; color: rgba(255,255,255,.72); margin-top: 20px; max-width: 520px; line-height: 1.55; }
+  .who { display: flex; align-items: center; gap: 16px; margin-top: 34px; }
+  .who img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+  .who b { display: block; font-size: 17px; }
+  .who span { font-size: 14px; color: rgba(255,255,255,.65); }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .opts { display: flex; flex-direction: column; gap: 12px; }
+  .opt { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: center; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 18px 22px; }
+  .opt .d { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,.1); display: grid; place-items: center; font-size: 28px; font-weight: 900; }
+  .opt.hl { background: #fff; border-color: #fff; color: var(--forest); }
+  .opt.hl .d { background: var(--accent); color: var(--forest); }
+  .opt b { display: block; font-size: 18px; letter-spacing: -0.015em; }
+  .opt span { display: block; font-size: 14px; color: rgba(255,255,255,.6); margin-top: 3px; }
+  .opt.hl span { color: var(--gray); }
+
+  /* ================= Cover note ================= */
+  .cover .note-in { margin-top: 30px; max-width: 640px; font-size: 16px; line-height: 1.55; color: rgba(255,255,255,.72); }
+  .cover .note-in a { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
+
+  /* ================= Intro mit Live-Feed ================= */
+  .intro { padding-top: 56px; }
+  .intro-grid { display: grid; grid-template-columns: 1fr 560px; gap: 56px; align-items: center; flex: 1; min-height: 0; }
+  .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .intro h2 { font-size: 54px; line-height: 1.04; letter-spacing: -0.04em; margin-top: 14px; }
+  .intro .lead { font-size: 17.5px; color: rgba(255,255,255,.75); margin-top: 22px; line-height: 1.55; max-width: 520px; }
+  .facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 34px; margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15); }
+  .facts dt { font-size: 40px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--accent); }
+  .facts dd { font-size: 13.5px; color: rgba(255,255,255,.65); margin-top: 6px; max-width: 130px; line-height: 1.4; }
+  .feed-wrap { background: #0F2A1F; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 18px 20px 14px; font-variant-numeric: tabular-nums; }
+  .feed-h { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,.55); padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .live { display: inline-flex; align-items: center; gap: 7px; font-weight: 800; color: #fff; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .live i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(82,183,136,.6); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(82,183,136,.55); } 70% { box-shadow: 0 0 0 9px rgba(82,183,136,0); } 100% { box-shadow: 0 0 0 0 rgba(82,183,136,0); } }
+  .feed { list-style: none; height: 384px; overflow: hidden; position: relative; }
+  .feed::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: linear-gradient(rgba(15,42,31,0), #0F2A1F); pointer-events: none; }
+  .feed li { display: grid; grid-template-columns: 74px 1fr; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 14px; line-height: 1.4; }
+  .feed li.in { animation: feedin .5s ease; }
+  @keyframes feedin { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+  .feed .c { font-size: 11.5px; font-weight: 800; padding: 3px 8px; border-radius: 5px; justify-self: start; white-space: nowrap; }
+  .feed .c.a { background: rgba(82,183,136,.18); color: #8FDDB5; }
+  .feed .c.b { background: rgba(232,190,120,.16); color: #EBC98E; }
+  .feed .c.c { background: rgba(150,180,240,.16); color: #AFC6F2; }
+  .feed .t { color: rgba(255,255,255,.88); }
+  .feed .t b { color: #fff; font-weight: 700; }
+  .feed-cap { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 10px; }
+
+  /* ================= Ergebnisse ================= */
+  .res { display: grid; grid-template-columns: 1fr 340px; gap: 52px; align-items: start; }
+  .ledger { border-top: 2px solid var(--ink); }
+  .ledger .row { display: grid; grid-template-columns: 210px 1fr; gap: 24px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .ledger .row > b { font-size: 44px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .ledger strong { display: block; font-size: 17px; letter-spacing: -0.01em; }
+  .ledger span { display: block; font-size: 14px; color: var(--gray); margin-top: 4px; line-height: 1.45; }
+  .side-case { border-top: 2px solid var(--ink); padding-top: 14px; }
+  .side-case b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
+  .side-case strong { display: block; font-size: 17px; margin-top: 10px; letter-spacing: -0.01em; }
+  .side-case span { display: block; font-size: 14px; color: var(--gray); margin-top: 4px; line-height: 1.45; }
+  .total { margin-top: 28px; background: var(--forest); color: #fff; border-radius: 16px; padding: 22px 24px; }
+  .total b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+  .total span { display: block; font-size: 14px; color: rgba(255,255,255,.7); margin-top: 8px; line-height: 1.45; }
+
+  /* ================= Controls ================= */
+  .ctrl {
+    position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 50px; padding: 5px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .ctrl button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; font: 700 16px var(--font); color: var(--ink); display: grid; place-items: center; }
+  .ctrl button:hover { background: var(--card); }
+  .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
+  .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
+  body:not(.stack) .s-foot .pg { visibility: hidden; }
+  .progress { position: fixed; left: 0; top: 0; height: 3px; background: var(--accent); z-index: 50; transition: width .3s ease; }
+
+  /* ================= Stacked mode (phones / portrait) ================= */
+  body.stack { overflow: auto; background: #fff; }
+  .stack .deck { position: static; }
+  .stack .slide {
+    position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto;
+    opacity: 1; visibility: visible; box-shadow: none; padding: 48px 16px 0;
+    border-bottom: 8px solid #EEEDE8;
+  }
+  .stack .ctrl, .stack .progress { display: none; }
+  .stack .slide * { min-width: 0; }
+  .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
+  .stack .s-head h2 { font-size: 26px; }
+  .stack .s-head .s-sub { font-size: 15px; }
+  .stack .s-mark { font-size: 17px; padding-top: 0; }
+  .stack .grid3, .stack .grid2, .stack .intro-grid, .stack .res, .stack .stages, .stack .agents, .stack .wl, .stack .gains,
+  .stack .tiers, .stack .about, .stack .nums, .stack .pilot, .stack .pilot .steps4, .stack .steps4, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .steps4 > div::after { display: none; }
+  .stack .take { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 15px; margin-top: 22px; }
+  .stack .cover { padding-top: 40px; }
+  .stack .cover h1 { font-size: 34px; margin-top: 40px; }
+  .stack .cover .for { font-size: 17px; }
+  .stack .cover .client { padding: 14px 22px; }
+  .stack .cover .client .mark { font-size: 24px; }
+  .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
+  .stack .intro h2 { font-size: 34px; }
+  .stack .facts { gap: 18px; }
+  .stack .facts dt { font-size: 30px; }
+  .stack .ledger .row { grid-template-columns: 1fr; gap: 6px; }
+  .stack .ledger .row > b { font-size: 38px; }
+  .stack .side-case b { font-size: 38px; }
+  .stack .gains { row-gap: 0; }
+  .stack .cover .note-in { font-size: 15px; }
+  .stack .mock-nav { gap: 10px; font-size: 12px; flex-wrap: wrap; }
+  .stack .tier .v { font-size: 40px; }
+  .stack .nums b { font-size: 36px; }
+  .stack .close h2 { font-size: 30px; }
+  .stack .close-grid { gap: 32px; padding-bottom: 24px; }
+  .stack .opt { grid-template-columns: 48px 1fr; gap: 14px; padding: 14px 16px; }
+  .stack .opt .d { width: 44px; height: 44px; font-size: 22px; }
+
+  /* ================= Print / PDF ================= */
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: #fff; }
+    .deck { position: static; }
+    .slide { position: relative; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; box-shadow: none; break-after: page; page-break-after: always; }
+    .ctrl, .progress { display: none !important; }
+    body:not(.stack) .s-foot .pg { visibility: visible; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- Cover -->
+  <section class="slide dark cover">
+    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing <span>× 6xiBrand</span></div>
+    <h1>Laufende Umsetzung für deine Kunden, unter deiner Marke</h1>
+    <p class="for">Partnerangebot für Luca Marcello Meissner, 6xiBrand</p>
+    <div class="client"><span class="mark">6xi<i>Brand</i></span></div>
+    <p class="note-in">Unsere Termine haben bisher zeitlich nicht gepasst. Deshalb steht hier alles zum Nachlesen, und am Ende reicht eine Zahl als Antwort. <a href="#antwort">Direkt zur Antwort →</a></p>
+    <div class="meta">
+      <div>Von<b>Darya Kablash, GetMarketing</b></div>
+      <div>Stand<b>18. Oktober 2026</b></div>
+      <div>Lesezeit<b>rund 3 Minuten</b></div>
+    </div>
+    <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
+  </section>
+
+  <!-- Was ist GetMarketing -->
+  <section class="slide dark intro" id="was">
+    <div class="s-body">
+      <div class="intro-grid">
+        <div>
+          <div class="eyebrow">Was ist GetMarketing</div>
+          <h2>Wir automatisieren das Marketing deiner Kunden</h2>
+          <p class="lead">GetMarketing ist eine KI-Plattform, auf der Agenten das laufende Marketing übernehmen. Sie planen, schreiben, gestalten, veröffentlichen und messen. Für Agenturen läuft das komplett unter eigener Marke.</p>
+          <dl class="facts">
+            <div><dt>6</dt><dd>Agenten im Einsatz, alle live</dd></div>
+            <div><dt>1</dt><dd>System pro Kunde, parallel für alle</dd></div>
+            <div><dt>0</dt><dd>Inhalte ohne Freigabe online</dd></div>
+          </dl>
+        </div>
+        <div class="feed-wrap">
+          <div class="feed-h"><span class="live"><i></i>Live</span><span>So arbeitet das System, drei Kunden parallel</span></div>
+          <ol class="feed" id="feed" aria-label="Ablauf im System"></ol>
+          <p class="feed-cap">Schematische Darstellung des Ablaufs.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ergebnisse -->
+  <section class="slide" id="ergebnisse">
+    <div class="s-head">
+      <div>
+        <h2>Ergebnisse aus Projekten</h2>
+        <p class="s-sub">Eine Auswahl aus 55 abgeschlossenen Projekten. Kundennamen nennen wir nicht. Alle Zahlen stammen aus abgeschlossenen Kundenprojekten.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="res">
+        <div class="ledger">
+          <div class="row"><b>383.000</b><div><strong>organische Besucher pro Monat</strong><span>E-Commerce · Content-Automatisierung mit KI, 54.376 rankende Keywords, ohne Werbebudget</span></div></div>
+          <div class="row"><b>34.000</b><div><strong>Besucher, gestartet bei null</strong><span>Industrie und Maschinenbau · SEO und LinkedIn von Grund auf aufgebaut, Anfragen kommen jetzt über die Website</span></div></div>
+          <div class="row"><b>+96 %</b><div><strong>Sichtbarkeitsindex</strong><span>B2B-Industrie, Sondermaschinenbau · Hauptkeyword auf Platz 1, Traffic-Wert 1.486 € pro Monat</span></div></div>
+          <div class="row"><b>360.000</b><div><strong>Impressionen in Google</strong><span>B2B-Software · mehrere Zielbegriffe auf Platz 1, 4.590 Klicks in einer technischen Nische</span></div></div>
+        </div>
+        <div class="res-side">
+          <div class="side-case"><b>~200</b><strong>verkaufte Kurse pro Monat über Google</strong><span>Erste-Hilfe-Schule in Berlin · lokale SEO für die Kursseiten</span></div>
+          <div class="total"><b>6 Mio.+</b><span>organische Besucher für Kunden, über alle Projekte</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Drei Stufen -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Dein System hat drei Stufen. GetMarketing dockt bei Stufe 2 und 3 an.</h2>
+        <p class="s-sub">Die Positionierung bleibt bei dir. Die laufende Umsetzung danach übernehmen die Agenten im Hintergrund.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="stages">
+        <div class="stage">
+          <span class="who-tag">bleibt bei 6xiBrand</span>
+          <div class="st">Stufe 1</div>
+          <h3>Positionierung</h3>
+          <p>Du übersetzt unternehmerische Qualität in eine klare Positionierung. Das ist dein Kern und die Grundlage für alles Weitere.</p>
+        </div>
+        <div class="stage gm">
+          <span class="who-tag">setzt GetMarketing um</span>
+          <div class="st">Stufe 2</div>
+          <h3>Nachfrage</h3>
+          <p>Aus deiner Positionierung entstehen laufend Inhalte und Seiten, die gefunden werden.</p>
+          <ul><li>SEO-Artikel</li><li>LinkedIn, Instagram, Facebook</li><li>Landingpages</li></ul>
+        </div>
+        <div class="stage gm">
+          <span class="who-tag">setzt GetMarketing um</span>
+          <div class="st">Stufe 3</div>
+          <h3>Bindung</h3>
+          <p>Inhalte entlang der Customer Journey und ein Reporting, das zeigt, was wirkt.</p>
+          <ul><li>Content für Bestandskunden</li><li>Reporting</li><li>laufende Optimierung</li></ul>
+        </div>
+      </div>
+      <div class="take"><b class="k">Passt zu deinem Versprechen</b>„Wir beenden den Agenturen-Flickenteppich“: SEO, Social und Reporting laufen bei deinen Kunden in einem System. Ansprechpartner bleibst du.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ablauf pro Kunde -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>So läuft es bei jedem deiner Kunden</h2>
+        <p class="s-sub">Du lieferst die Positionierung. Das System liefert die laufende Umsetzung, und vor jedem Livegang wird freigegeben.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="steps4">
+        <div><span class="n">1</span><b>Briefing</b><p>Du übergibst Positionierung, Zielgruppe und Tonalität.</p></div>
+        <div><span class="n">2</span><b>Setup</b><p>Wir konfigurieren das System auf den Kunden: Wettbewerber, Keywords, Kanäle und Tonalität.</p></div>
+        <div><span class="n">3</span><b>Umsetzung</b><p>Die Agenten produzieren laufend. Ein Mensch prüft die Qualität, der Kunde gibt frei.</p></div>
+        <div><span class="n">4</span><b>Messen</b><p>GA4 und Search Console fließen zurück in den Plan. Was funktioniert, wird ausgebaut.</p></div>
+      </div>
+      <div class="col-h" style="margin-top:26px;margin-bottom:10px">Diese Agenten arbeiten im System</div>
+      <div class="agents">
+        <div><b>Strategy Agent</b><span>kennt Business und Kennzahlen und gibt den nächsten Schritt vor</span></div>
+        <div><b>PM Agent</b><span>plant die Aufgaben und hält den Ablauf zusammen</span></div>
+        <div><b>SEO Agent</b><span>analysiert die Top-10-Wettbewerber und arbeitet mit validierten Keywords</span></div>
+        <div><b>Content Agent</b><span>schreibt Artikel und Posts in der Tonalität des Kunden</span></div>
+        <div><b>Design Agent</b><span>gestaltet Seiten, die fertig auf WordPress live gehen</span></div>
+        <div><b>Analytics Agent</b><span>liest GA4 und Search Console mit reinen Leserechten</span></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand · Keyword- und Suchdaten über DataForSEO</span><span class="pg"></span></div>
+  </section>
+
+  <!-- White Label -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Deine Kunden sehen nur 6xiBrand</h2>
+        <p class="s-sub">Jeder Kunde bekommt ein eigenes Portal mit deinem Branding. GetMarketing taucht für ihn nicht auf.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="wl">
+        <div>
+          <div class="mock" aria-label="Schematische Darstellung des Kundenportals">
+            <div class="mock-bar"><i></i><i></i><i></i><span>Kundenportal von 6xiBrand</span></div>
+            <div class="mock-nav"><span class="mark">6xi<i>Brand</i></span><span class="on">Plan</span><span>Inhalte</span><span>Freigaben</span><span>Report</span></div>
+            <div class="mock-in">
+              <div class="mock-h"><b>Diese Woche</b><span>Nächster Schritt vom Strategy Agent</span></div>
+              <div class="mrow"><em>SEO</em><div>Ratgeberartikel zum Hauptkeyword<small>Top-10-Analyse abgeschlossen</small></div><span class="st-b a">Zur Freigabe</span></div>
+              <div class="mrow"><em>IN</em><div>LinkedIn-Post zur neuen Leistung<small>Tonalität aus dem Briefing</small></div><span class="st-b p">Geplant</span></div>
+              <div class="mrow"><em>LP</em><div>Landingpage für die Kampagne<small>auf WordPress veröffentlicht</small></div><span class="st-b l">Live</span></div>
+            </div>
+          </div>
+          <p class="mock-cap">Schematische Darstellung des Portals</p>
+        </div>
+        <div>
+          <ul class="points">
+            <li><b>Dein Branding vorne.</b> Für den Kunden wirkt das System wie ein eigenes Premium-System seiner Agentur.</li>
+            <li><b>Das Setup ist ein Asset.</b> Grounding, Wettbewerber, Keywords, Kanäle und Tonalität stecken im System und gewinnen mit der Zeit an Wert.</li>
+            <li><b>Transparenz für den Kunden.</b> Er sieht, was gerade entsteht und was es bringt. Das ist der Gegenentwurf zur Agentur-Blackbox.</li>
+            <li><b>Freigabe vor dem Livegang.</b> Ein Mensch prüft die Qualität, und nichts geht ohne Freigabe online.</li>
+          </ul>
+          <div class="result" style="margin-top:22px"><div class="k">Daten</div><p>Hosting bei Hetzner in Deutschland. Eine DSGVO-Datenschutzerklärung liegt vor.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Nutzen -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Was 6xiBrand davon hat</h2>
+        <p class="s-sub">GetMarketing verstärkt, was du schon machst. Strategie und Kundenbeziehung bleiben bei dir.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="gains">
+        <div class="gain"><div><b>Umsetzung verkaufen ohne Neueinstellung</b><p>Du bietest zusätzlich zur Strategie die laufende Umsetzung an. Dafür musst du niemanden einstellen.</p></div></div>
+        <div class="gain"><div><b>Deine Marke steht vorne</b><p>Portal, Inhalte und Reports laufen unter 6xiBrand. Die Kundenbeziehung bleibt komplett bei dir.</p></div></div>
+        <div class="gain"><div><b>Fester Einkaufspreis, eigener Verkaufspreis</b><p>Du zahlst 250 € pro Projekt im Monat. Was du deinem Kunden berechnest, entscheidest du.</p></div></div>
+        <div class="gain"><div><b>Ein System statt Flickenteppich</b><p>SEO, Social und Reporting laufen in einem System. Das ist genau das, was du deinen Kunden versprichst.</p></div></div>
+      </div>
+      <div class="take"><b class="k">Mit jedem Kunden</b>Jeder weitere Kunde ist ein weiteres Projekt zum selben Preis. So wächst dein Umsetzungsgeschäft, ohne dass dein Team mitwachsen muss.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Konditionen -->
+  <section class="slide" id="konditionen">
+    <div class="s-head">
+      <div>
+        <h2>Konditionen: 250 € im Monat pro Kundenprojekt</h2>
+        <p class="s-sub">Ein Preis pro Kunde. Du entscheidest, wie viele Kunden du an Bord holst und was du ihnen berechnest.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="tiers">
+        <div class="tier full">
+          <div class="k">Pro Kundenprojekt</div>
+          <div class="v">250 € <small>/ Monat</small></div>
+          <div class="sub">dein Einkaufspreis bei GetMarketing</div>
+          <ul>
+            <li><span>White-Label-Portal mit deinem Branding</span><span class="on">✓</span></li>
+            <li><span>Strategy Agent und laufender Plan</span><span class="on">✓</span></li>
+            <li><span>SEO-Content mit WordPress-Publishing</span><span class="on">✓</span></li>
+            <li><span>Social-Posts</span><span class="on">✓</span></li>
+            <li><span>Reporting aus GA4 und Search Console</span><span class="on">✓</span></li>
+            <li><span>Menschliche Qualitätskontrolle</span><span class="on">✓</span></li>
+          </ul>
+        </div>
+        <div class="tier scale">
+          <div class="k">Bei mehreren Kunden</div>
+          <div class="v" style="font-size:40px">250 € <small>× Projekte</small></div>
+          <div class="sub">Einkauf pro Monat</div>
+          <ul>
+            <li><span>1 Kunde</span><span>250 €</span></li>
+            <li><span>3 Kunden</span><span>750 €</span></li>
+            <li><span>5 Kunden</span><span>1.250 €</span></li>
+            <li><span>10 Kunden</span><span>2.500 €</span></li>
+          </ul>
+          <p class="incl">Deinen Verkaufspreis pro Kunde legst du selbst fest.</p>
+        </div>
+        <div class="tier agency">
+          <div class="k">Zum Vergleich</div>
+          <div class="v" style="font-size:40px">2.000 bis 4.500 €</div>
+          <div class="sub">üblicher Agentur-Retainer pro Monat</div>
+          <ul>
+            <li><span>Inhouse-Marketingstelle</span><span>rund 60.000 € / Jahr</span></li>
+          </ul>
+          <p class="incl">Übliche Spanne im Markt für laufende Umsetzung.</p>
+        </div>
+      </div>
+      <p class="small-note" style="margin-top:auto">Weitere Kanäle wie Google Business Profile, Paid Ads, Short-Form-Video oder Outbound sind auf Anfrage möglich. Je nach Umfang kann pro Kunde ein einmaliges Setup anfallen. Das klären wir vorher mit dir.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Wer dahintersteht -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <h2>Wer hinter GetMarketing steht</h2>
+        <p class="s-sub">Eine KI-Plattform für B2B-Marketing im DACH-Raum, gebaut auf über acht Jahren Praxis.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="about">
+        <div class="person">
+          <img src="/darya.jpg" alt="Darya Kablash" />
+          <b>Darya Kablash</b>
+          <div class="role">Gründerin von GetMarketing</div>
+          <p>Growth Consultant und Fractional CMO für DACH-B2B-Gründer. Head of Growth bei Invictus Lead Generation. Sitzt in Berlin.</p>
+          <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn-Profil →</a>
+        </div>
+        <div>
+          <div class="nums">
+            <div><b>55</b><span>abgeschlossene Projekte in SEO, Google Ads, LinkedIn-Leadgen und KI-Automatisierung</span></div>
+            <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
+            <div><b>3</b><span>Enterprise-Kunden mit individuell gebautem System im Einsatz</span></div>
+            <div><b>62</b><span>aktive Nutzer seit dem Launch, rund 20 neue pro Woche</span></div>
+          </div>
+          <div class="tech"><em>Technik</em><span>Claude API von Anthropic</span><span>n8n</span><span>Postgres</span><span>Hosting bei Hetzner in Deutschland</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Pilot -->
+  <section class="slide" id="pilot">
+    <div class="s-head">
+      <div>
+        <h2>Vorschlag: ein Pilot mit einem deiner Kunden</h2>
+        <p class="s-sub">Du siehst an einem echten Projekt, wie das System arbeitet. Erst danach entscheidest du, ob du es weiteren Kunden anbietest.</p>
+      </div>
+      <span class="mark s-mark">6xi<i>Brand</i></span>
+    </div>
+    <div class="s-body">
+      <div class="pilot">
+        <div class="steps4 tint">
+          <div><span class="n">1</span><b>Du nennst einen Kunden</b><p>Am besten einen, bei dem die Umsetzung gerade fehlt.</p></div>
+          <div><span class="n">2</span><b>Wir richten das System ein</b><p>Auf Basis deiner Positionierung und mit deinem Branding.</p></div>
+          <div><span class="n">3</span><b>Du siehst Ergebnisse</b><p>Erste Inhalte zur Freigabe und das Reporting im Portal.</p></div>
+          <div><span class="n">4</span><b>Du entscheidest</b><p>Ob und mit welchen weiteren Kunden es weitergeht.</p></div>
+        </div>
+        <div class="price" style="display:flex;flex-direction:column">
+          <div class="k">Pilot</div>
+          <div class="v">250 € <small>/ Monat</small></div>
+          <p>Derselbe Preis wie für jedes Kundenprojekt.</p>
+          <ul class="check sm lt" style="margin-top:auto;padding-top:18px">
+            <li style="color:#fff">Ein Kunde, ein Projekt</li>
+            <li style="color:#fff">Dein Branding von Anfang an</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Antwort -->
+  <section class="slide dark close" id="antwort">
+    <div class="s-body">
+      <div class="close-grid">
+        <div>
+          <h2>Eine Zahl genügt als Antwort</h2>
+          <p class="lead">Schreib mir einfach die passende Zahl per LinkedIn. Dann weiß ich, wie es weitergeht, und du brauchst keinen weiteren Termin.</p>
+          <div class="who">
+            <img src="/darya.jpg" alt="Darya Kablash" />
+            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
+          </div>
+          <div class="btns">
+            <a class="btn btn-light" href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">Auf LinkedIn antworten</a>
+            <a class="btn btn-ghost" href="mailto:darya@getmarketing.team?subject=6xiBrand%20%C2%B7%20Partnerangebot">Per E-Mail</a>
+          </div>
+        </div>
+        <div class="opts">
+          <div class="opt hl"><span class="d">1</span><div><b>Pilot starten, ich nenne dir den Kunden</b><span>Wir richten das System für diesen Kunden ein.</span></div></div>
+          <div class="opt"><span class="d">2</span><div><b>Interessant, meld dich später wieder</b><span>Schreib gern den Monat dazu.</span></div></div>
+          <div class="opt"><span class="d">3</span><div><b>Passt gerade nicht zu 6xiBrand</b><span>Völlig in Ordnung, dann melde ich mich nicht mehr.</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+  </section>
+
+</main>
+
+<div class="ctrl" id="ctrl">
+  <button id="prev" aria-label="Vorherige Folie">←</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="next" aria-label="Nächste Folie">→</button>
+  <button id="fs" aria-label="Vollbild" title="Vollbild (F)">⤢</button>
+</div>
+
+<script>
+/* ---- Deck: 16:9 stage, one slide at a time; stacked on phones ---- */
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count'), bar = document.getElementById('progress');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var cur = 0;
+  slides.forEach(function (s, i) { s.querySelectorAll('.pg').forEach(function (pg) { pg.textContent = i + 1; }); });
+
+  function stacked() { return document.body.classList.contains('stack'); }
+  function fit() {
+    var stack = innerWidth < 800 || (innerWidth < 1000 && innerHeight > innerWidth);
+    document.body.classList.toggle('stack', stack);
+    if (!stack) {
+      var s = Math.min(innerWidth / 1280, innerHeight / 720);
+      if (!document.fullscreenElement) s *= 0.96;
+      document.documentElement.style.setProperty('--s', s);
+    }
+  }
+  function show(n, initial) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    count.textContent = (cur + 1) + ' / ' + slides.length;
+    bar.style.width = ((cur + 1) / slides.length * 100) + '%';
+    prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+    if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
+    if (!initial) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (!h) return 0;
+    if (/^\d+$/.test(h)) return +h - 1;
+    var el = document.getElementById(h);
+    return el ? slides.indexOf(el.closest('.slide')) : 0;
+  }
+  function toggleFs() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+
+  prev.addEventListener('click', function () { show(cur - 1); });
+  next.addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('fs').addEventListener('click', toggleFs);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    show(slides.indexOf(el.closest('.slide')));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || stacked()) return;
+    if (e.target.closest && e.target.closest('input, textarea, select')) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    else if (k === 'f' || k === 'F') { toggleFs(); }
+  });
+
+  // swipe on touch screens in deck mode
+  var tx = null, ty = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null || stacked()) { tx = null; return; }
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    if (!stacked()) return;
+    var line = innerHeight * 0.4, best = 0;
+    for (var i = 0; i < slides.length; i++) if (slides[i].getBoundingClientRect().top <= line) best = i;
+    cur = best;
+  }, { passive: true });
+
+  window.addEventListener('resize', fit);
+  document.addEventListener('fullscreenchange', fit);
+  fit();
+  show(fromHash(), true);
+})();
+</script>
+<script>
+/* ---- Intro: agent activity feed, three clients in parallel ---- */
+(function () {
+  var feed = document.getElementById('feed'), slide = document.getElementById('was');
+  if (!feed) return;
+  var C = { a: 'Kunde 1', b: 'Kunde 2', c: 'Kunde 3' };
+  var items = [
+    ['a', '<b>Strategy Agent</b> leitet aus den Kennzahlen den Wochenplan ab'],
+    ['b', '<b>SEO Agent</b> analysiert die Top-10-Wettbewerber zum Zielkeyword'],
+    ['a', '<b>SEO Agent</b> validiert Keywords über DataForSEO'],
+    ['c', '<b>Content Agent</b> schreibt LinkedIn-Posts in der Tonalität der Marke'],
+    ['b', '<b>Content Agent</b> schreibt den Artikel und prüft ihn gegen die Kriterien'],
+    ['a', '<b>Design Agent</b> gestaltet die Seite mit Title-Tag und Meta-Description'],
+    ['b', '<b>Qualitätskontrolle</b> durch einen Menschen'],
+    ['b', '<b>Freigabe</b> durch den Kunden angefragt'],
+    ['c', '<b>Analytics Agent</b> liest GA4 und Search Console'],
+    ['b', '<b>Freigegeben.</b> Artikel geht auf WordPress live'],
+    ['a', '<b>PM Agent</b> plant die nächsten Aufgaben ein'],
+    ['c', '<b>Strategy Agent</b> passt den Plan an das an, was funktioniert']
+  ];
+  function li(it, anim) {
+    var el = document.createElement('li');
+    if (anim) el.className = 'in';
+    el.innerHTML = '<span class="c ' + it[0] + '">' + C[it[0]] + '</span><span class="t">' + it[1] + '</span>';
+    return el;
+  }
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0, timer = null;
+  function step() {
+    feed.insertBefore(li(items[i % items.length], true), feed.firstChild);
+    while (feed.children.length > 9) feed.removeChild(feed.lastChild);
+    i++;
+  }
+  function start() {
+    if (timer || still) return;
+    feed.innerHTML = ''; i = 0;
+    step();
+    timer = setInterval(step, 1500);
+  }
+  function stop() { clearInterval(timer); timer = null; }
+  if (still || document.body.classList.contains('stack') || matchMedia('print').matches) {
+    items.slice().reverse().slice(0, 8).forEach(function (it) { feed.appendChild(li(it, false)); });
+    return;
+  }
+  new MutationObserver(function () { slide.classList.contains('active') ? start() : stop(); })
+    .observe(slide, { attributes: true, attributeFilter: ['class'] });
+  if (slide.classList.contains('active')) start();
+  else items.slice(0, 6).reverse().forEach(function (it) { feed.appendChild(li(it, false)); });
+})();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
