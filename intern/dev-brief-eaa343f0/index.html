@@ -1632,7 +1632,8 @@ const NOTES = {
     ['new','“Get set up” checklist is derived from real state: plan approved, first post scheduled, Google connected, WordPress connected, 3 drafts reviewed.'],
     ['new','Insights: GA4 + Search Console via read-only OAuth. The analytics agent writes the plain-language paragraph and the action items (each with an owner: we fix it / your web person).'],
     ['new','After sign-in, always land here (or on the page that asked for sign-in). Never on the old plan page.'],
-  ], events:['dashboard_viewed','checklist_item_completed {item}','ga4_connected','gsc_connected','wordpress_connected'], q:[] },
+    ['new','“Ask GetMarketing” chat (button bottom right, also opened by “Request changes”). In this prototype the answers are scripted. For real: one agent with tools: read_plan, propose_plan_change (returns a diff the user accepts), create_content_draft (adds to Content review), get_progress, get_research, plus a fallback that creates a task for the team. It must read and write the same stored data as the pages, never answer from memory.'],
+  ], events:['dashboard_viewed','checklist_item_completed {item}','ga4_connected','gsc_connected','wordpress_connected','chat_opened','chat_message_sent {intent}'], q:[] },
 
   content: { title:'10 · Content review', items:[
     ['new','Approve → status approved → scheduled/published via WordPress or LinkedIn. Updates the linked plan task.'],
