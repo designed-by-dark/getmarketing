@@ -300,7 +300,7 @@
   .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
   .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
   body:not(.stack) .s-foot .pg { visibility: hidden; }
-  .progress { position: fixed; left: 0; top: 0; height: 3px; background: var(--accent); z-index: 50; transition: width .3s ease; }
+  .progress { position: fixed; left: 0; top: 0; width: 100%; height: 3px; background: var(--accent); z-index: 50; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
 
   /* ================= Stacked mode (phones / portrait) ================= */
   body.stack { overflow: auto; background: #fff; }
@@ -724,7 +724,7 @@
     cur = n;
     slides[cur].classList.add('active');
     count.textContent = (cur + 1) + ' / ' + slides.length;
-    bar.style.width = ((cur + 1) / slides.length * 100) + '%';
+    bar.style.transform = 'scaleX(' + ((cur + 1) / slides.length) + ')';
     prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
     if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
     if (!initial) history.replaceState(null, '', '#' + (cur + 1));
