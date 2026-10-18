@@ -57,7 +57,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet" />
 <style>
   :root {
     --forest:     #1B4332;
@@ -302,6 +302,8 @@
   }
 </style>
 <script defer src="/analytics.js"></script>
+<link rel="stylesheet" href="/site.css?v=2" />
+<script defer src="/nav-menu.js?v=1"></script>
 </head>
 <body>
 
@@ -313,14 +315,14 @@
       <span class="nav-logo-text">GetMarketing</span>
     </a>
     <ul class="nav-links">
-      <li><a href="/#solution">Features</a></li>
-      <li><a href="/#solution">How it works</a></li>
+      <li><a href="/#how-it-works">How it works</a></li>
+      <li><a href="/#results">Results</a></li>
       <li><a href="/#diff">Compare</a></li>
       <li><a href="/partners/">Partners</a></li>
       <li><a href="/marketing-plan-generator/">Marketing plan</a></li>
     </ul>
-    <a href="/de/presse/" class="nav-lang">DE</a>
-    <a href="/#cta" class="nav-cta">Get early access</a>
+    <a href="/de/presse/" class="nav-lang" id="switch-de">DE</a>
+    <a href="https://app.getmarketing.team" class="nav-cta">Get early access</a>
   </div>
 </nav>
 
@@ -421,13 +423,25 @@
   </div>
 </section>
 
-<footer>
-  <div class="wrap foot-inner">
-    <a href="/" class="foot-logo">
-      <img src="/logo.jpg" alt="" class="foot-logo-mark" />
-      <span class="foot-logo-text">GetMarketing</span>
-    </a>
-    <span>© 2026 GetMarketing · Your last marketing hire · <a href="/partners/">Partners</a> · <a href="/press/">Press</a> · <a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a> · <a href="/impressum-en.html">Legal Notice</a> · <a href="/datenschutz-en.html">Privacy Policy</a></span>
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="/" class="ft-logo"><img src="/logo.jpg" alt="" /><span>GetMarketing</span></a>
+        <p class="ft-tag">Your last marketing hire</p>
+        <p class="ft-desc">A team of AI agents that plans, runs and measures your marketing. Built for B2B companies in the DACH region.</p>
+      </div>
+      <div class="ft-col"><h4>Product</h4><ul><li><a href="/#how-it-works">How it works</a></li><li><a href="/#results">Results</a></li><li><a href="/#diff">Compare</a></li><li><a href="/marketing-plan-generator/">Create a marketing plan</a></li><li><a href="https://app.getmarketing.team" target="_blank" rel="noopener">Get early access</a></li></ul></div><div class="ft-col"><h4>Company</h4><ul><li><a href="/partners/">Partners</a></li><li><a href="/press/">Press</a></li><li><a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+      <div class="ft-col"><h4>Contact</h4><ul>
+        <li><a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a></li>
+        <li><a href="mailto:darya@getmarketing.team?subject=Book%20a%20demo&body=Hi%20Darya%2C%0A%0AI%27d%20like%20to%20book%20a%20demo%20of%20GetMarketing.%0A%0ABest%20regards">Book a demo</a></li>
+        <li class="ft-plain">Berlin, Germany</li>
+      </ul></div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 GetMarketing</span>
+      <div class="ft-legal"><a href="/impressum-en.html">Legal Notice</a><a href="/datenschutz-en.html">Privacy Policy</a><a href="/de/presse/">Deutsch</a></div>
+    </div>
   </div>
 </footer>
 
