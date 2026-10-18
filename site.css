@@ -61,6 +61,7 @@ nav .nav-cta:hover { background: var(--action-hover); border-color: var(--action
 .kit-card, .partner-card, .obj-card, .bento-card, .asset { border: 0; box-shadow: var(--ring); border-radius: 12px; }
 .cap-card { background: #fff; box-shadow: var(--ring); border-radius: 12px; }
 .profile-card { border: 0; box-shadow: var(--pop); border-radius: 14px; }
+.kit-grid > * { min-width: 0; overflow-wrap: anywhere; }
 
 /* final CTA: dark card, split layout (as on the homepage) */
 .cta-final { background: #fff; color: var(--ink); text-align: left; padding: 40px 0 96px; overflow: visible; }
