@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marketing plan ShorShield · GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Marketing plan and offer: LinkedIn, SEO and a paid first step for ShorShield." />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --ink:        #1F2A24;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F2;
+    --line:       #E6E6E1;
+    --tint:       #E7F3EC;
+    --warn:       #B4532A;
+    --warn-bg:    #F7EBE2;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --s: 1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font); color: var(--ink); background: #E4E1D9;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow: hidden;
+  }
+  h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; text-wrap: balance; color: var(--black); }
+  a { color: var(--accent-ink); }
+
+  /* ================= Deck / stage ================= */
+  .deck { position: fixed; inset: 0; }
+  .slide {
+    position: absolute; left: 50%; top: 50%;
+    width: 1280px; height: 720px;
+    transform: translate(-50%, -50%) scale(var(--s));
+    background: #fff; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 72px 0;
+    opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+  .slide.dark { background: var(--forest); color: #fff; }
+  .slide.dark h1, .slide.dark h2 { color: #fff; }
+
+  .s-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 26px; }
+  .s-head h2 { font-size: 38px; max-width: 920px; }
+  .s-head .s-sub { font-size: 17px; color: var(--gray); margin-top: 10px; font-weight: 400; max-width: 900px; line-height: 1.5; }
+  .s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .s-foot {
+    height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: var(--gray2); border-top: 1px solid var(--line); margin-top: 18px;
+  }
+  .s-foot b { color: var(--gray); font-weight: 700; }
+  .dark .s-foot { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
+  .dark .s-foot b { color: rgba(255,255,255,.7); }
+
+  .mark { font-family: var(--mono); font-weight: 700; letter-spacing: -0.02em; color: var(--forest); white-space: nowrap; display: inline-flex; align-items: center; gap: 9px; }
+  .mark svg { width: 1.05em; height: 1.2em; }
+  .s-mark { font-size: 19px; flex-shrink: 0; padding-top: 10px; }
+
+  .take {
+    margin-top: auto; display: flex; gap: 18px; align-items: center;
+    background: var(--forest); color: #fff; border-radius: 14px; padding: 18px 24px;
+    font-size: 16.5px; line-height: 1.5;
+  }
+  .take b.k { flex-shrink: 0; font-size: 14px; font-weight: 800; color: var(--accent); }
+
+  /* ================= Shared blocks ================= */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--card); border-radius: 16px; padding: 24px; }
+  .col-h { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+  .lbl { font-size: 15px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .note { background: var(--warn-bg); border-radius: 14px; padding: 16px 20px; font-size: 14px; line-height: 1.5; color: #5b3a28; }
+  .note b { color: var(--warn); }
+
+  .spec { display: grid; grid-template-columns: 150px 1fr; gap: 0; font-size: 15.5px; }
+  .spec dt, .spec dd { padding: 12px 0; border-bottom: 1px solid var(--line); line-height: 1.45; }
+  .spec dt { color: var(--gray); font-weight: 600; padding-right: 14px; }
+  .spec dd { font-weight: 500; }
+  .spec dd.bad { color: var(--warn); font-weight: 700; }
+
+  table.t { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.t th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 12px 9px; border-bottom: 2px solid var(--ink); }
+  table.t td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.4; }
+  table.t td b { font-weight: 700; }
+  table.t td a { font-weight: 700; text-decoration: none; white-space: nowrap; }
+  table.t td.q { font-style: italic; color: var(--forest); }
+  .pill { display: inline-block; font-size: 12.5px; font-weight: 800; padding: 3px 9px; border-radius: 6px; background: var(--tint); color: var(--forest); white-space: nowrap; }
+  .pill.g { background: var(--card); color: var(--gray); }
+
+  .check { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .check li { position: relative; padding-left: 30px; font-size: 15.5px; line-height: 1.45; }
+  .check li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 19px; height: 19px; border-radius: 5px;
+    background: var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;
+  }
+
+  /* ================= Cover ================= */
+  .cover { padding-top: 70px; }
+  .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
+  .cover .gm img { width: 38px; height: 38px; border-radius: 8px; }
+  .cover h1 { font-size: 58px; max-width: 1020px; margin-top: 64px; letter-spacing: -0.035em; line-height: 1.05; }
+  .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; max-width: 900px; line-height: 1.45; }
+  .cover .client { display: inline-flex; align-self: flex-start; margin-top: 40px; background: #fff; border-radius: 14px; padding: 20px 30px; }
+  .cover .client .mark { font-size: 28px; }
+  .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
+  .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
+
+  /* ================= Messaging correction ================= */
+  .vs { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 16px; align-items: stretch; }
+  .vs-card { border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; display: flex; flex-direction: column; }
+  .vs-card.good { background: var(--tint); border-color: var(--tint); }
+  .vs-k { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+  .vs-card.good .vs-k { color: var(--accent-ink); }
+  .vs-q { font-size: 21px; font-weight: 700; line-height: 1.35; letter-spacing: -0.01em; }
+  .vs-card:not(.good) .vs-q { color: var(--warn); }
+  .vs-card.good .vs-q { color: var(--forest); }
+  .vs-a { font-size: 14.5px; color: var(--gray); margin-top: auto; padding-top: 18px; line-height: 1.5; }
+  .vs-arrow { display: grid; place-items: center; font-size: 26px; font-weight: 800; color: var(--accent-ink); }
+
+  /* ================= LinkedIn pillars ================= */
+  .pillars { display: flex; flex-direction: column; gap: 14px; }
+  .pl { display: grid; grid-template-columns: 1fr 64px; gap: 6px 14px; align-items: center; }
+  .pl-h { font-size: 15.5px; font-weight: 700; }
+  .pl-h span { font-weight: 500; color: var(--gray); font-size: 13.5px; margin-left: 6px; }
+  .pl-p { grid-row: span 2; font-size: 26px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); text-align: right; }
+  .pl-t { height: 12px; background: var(--card); border-radius: 6px; overflow: hidden; }
+  .pl-f { height: 100%; border-radius: 6px; background: var(--accent-ink); }
+  .pl-ex { grid-column: 1 / -1; font-size: 13px; color: var(--gray); line-height: 1.45; margin-top: -2px; }
+  .week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 12px; }
+  .week div { border-radius: 8px; padding: 9px 4px; text-align: center; font-size: 12px; font-weight: 700; background: var(--card); color: var(--gray); }
+  .week div.on { background: var(--forest); color: #fff; }
+  .week div small { display: block; font-weight: 500; font-size: 10.5px; margin-top: 2px; opacity: .8; }
+
+  /* ================= LinkedIn posts ================= */
+  .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex: 1; min-height: 0; }
+  .post { border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; background: #fff; box-shadow: 0 3px 12px rgba(0,0,0,.04); }
+  .post-h { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .post-h i { width: 36px; height: 36px; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-style: normal; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+  .post-h b { display: block; font-size: 14px; }
+  .post-h span { display: block; font-size: 11.5px; color: var(--gray); }
+  .post-tag { margin-left: auto; align-self: flex-start; }
+  .post p { font-size: 13.2px; line-height: 1.5; margin-top: 10px; color: var(--ink); }
+  .post p:first-of-type { margin-top: 12px; }
+  .post-cta { margin-top: auto; padding-top: 12px; font-size: 12px; font-weight: 700; color: var(--accent-ink); }
+
+  /* ================= Articles ================= */
+  .arts { display: flex; flex-direction: column; gap: 10px; }
+  .art { display: grid; grid-template-columns: 44px 1fr 92px; gap: 18px; align-items: center; background: var(--card); border-radius: 14px; padding: 13px 20px 13px 16px; }
+  .art .n { width: 38px; height: 38px; border-radius: 10px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 17px; }
+  .art b { display: block; font-size: 16px; letter-spacing: -0.01em; line-height: 1.3; }
+  .art p { font-size: 13.5px; color: var(--gray); margin-top: 3px; line-height: 1.45; }
+  .art .lang { justify-self: end; }
+  .art.pillar { background: var(--tint); }
+
+  /* ================= Funnel ================= */
+  .funnel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .fstep { border-radius: 16px; padding: 18px 18px 20px; background: var(--card); position: relative; display: flex; flex-direction: column; }
+  .fstep:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 24px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+  .fstep .n { width: 32px; height: 32px; border-radius: 9px; background: #fff; border: 1.5px solid var(--line); color: var(--forest); display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .fstep .k { font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); }
+  .fstep b { display: block; font-size: 16.5px; letter-spacing: -0.015em; margin-top: 3px; line-height: 1.25; }
+  .fstep p { font-size: 13px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .fstep.paid { background: var(--forest); color: #fff; }
+  .fstep.paid .n { background: var(--accent); border: 0; }
+  .fstep.paid .k { color: var(--accent); }
+  .fstep.paid p { color: rgba(255,255,255,.72); }
+  .fstep.paid b { color: #fff; }
+  .rule { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .rule .card { padding: 18px 22px; }
+  .rule .q { font-size: 18px; font-weight: 700; color: var(--forest); line-height: 1.4; margin-top: 4px; }
+
+  /* ================= 30 days ================= */
+  .kpi4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .kpi4 > div { background: var(--forest); color: #fff; border-radius: 14px; padding: 16px 20px; }
+  .kpi4 b { display: block; font-size: 30px; font-weight: 900; letter-spacing: -0.035em; line-height: 1.1; }
+  .kpi4 span { font-size: 13.5px; color: rgba(255,255,255,.72); }
+  .weeks4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .wk { background: var(--card); border-radius: 16px; padding: 18px 20px 20px; }
+  .wk .k { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 10px; }
+  .wk ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .wk li { font-size: 14px; line-height: 1.4; padding-left: 16px; position: relative; }
+  .wk li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-ink); }
+
+  /* ================= Who does what ================= */
+  table.raci { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  table.raci th { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 0 14px 10px; border-bottom: 2px solid var(--ink); text-align: center; }
+  table.raci th:first-child { text-align: left; }
+  table.raci td { padding: 11px 14px; border-bottom: 1px solid var(--line); text-align: center; }
+  table.raci td:first-child { text-align: left; font-weight: 600; }
+  table.raci td.gm { background: var(--tint); }
+  table.raci .y { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; background: var(--forest); color: #fff; font-weight: 900; font-size: 14px; }
+  table.raci .f { font-size: 13px; font-weight: 700; color: var(--gray); }
+
+  /* ================= Close ================= */
+  .close-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; flex: 1; }
+  .close h2 { font-size: 42px; line-height: 1.08; }
+  .close .lead { font-size: 17px; color: rgba(255,255,255,.7); margin-top: 20px; max-width: 620px; line-height: 1.55; }
+  .who { display: flex; align-items: center; gap: 18px; margin-top: 34px; }
+  .who img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+  .who b { display: block; font-size: 17px; }
+  .who span { font-size: 14.5px; color: rgba(255,255,255,.65); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 16px var(--font); padding: 15px 28px; border-radius: 50px; text-decoration: none; transition: transform .18s ease, opacity .18s ease; }
+  .btn:hover { transform: translateY(-2px); opacity: .92; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .invest { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 24px 26px; }
+  .invest .k { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+  .invest .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 15px; }
+  .invest .row span { color: rgba(255,255,255,.82); line-height: 1.45; }
+  .invest .src { margin-top: 18px; font-size: 12.5px; color: rgba(255,255,255,.5); line-height: 1.7; }
+  .invest .src a { color: rgba(255,255,255,.75); }
+
+  /* ================= Controls ================= */
+  .ctrl {
+    position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 50px; padding: 5px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .ctrl button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; font: 700 16px var(--font); color: var(--ink); display: grid; place-items: center; }
+  .ctrl button:hover { background: var(--card); }
+  .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
+  .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
+  body:not(.stack) .s-foot .pg { visibility: hidden; }
+  .progress { position: fixed; left: 0; top: 0; width: 100%; height: 3px; background: var(--accent); z-index: 50; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+
+  /* ================= Stacked mode (phones / portrait) ================= */
+  body.stack { overflow: auto; background: #fff; }
+  .stack .deck { position: static; }
+  .stack .slide {
+    position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto;
+    opacity: 1; visibility: visible; box-shadow: none; padding: 48px 16px 0;
+    border-bottom: 8px solid #EEEDE8;
+  }
+  .stack .slide * { min-width: 0; }
+  .stack .ctrl, .stack .progress { display: none; }
+  .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
+  .stack .s-head h2 { font-size: 26px; }
+  .stack .s-head .s-sub { font-size: 15px; }
+  .stack .s-mark { font-size: 15px; padding-top: 0; }
+  .stack .grid2, .stack .grid3, .stack .posts, .stack .funnel, .stack .rule, .stack .weeks4, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .kpi4 { grid-template-columns: 1fr 1fr; }
+  .stack .kpi4 b { font-size: 24px; }
+  .stack .vs { grid-template-columns: 1fr; }
+  .stack .vs-arrow { transform: rotate(90deg); }
+  .stack .fstep::after { display: none; }
+  .stack .take { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 15px; margin-top: 22px; }
+  .stack .cover { padding-top: 40px; }
+  .stack .cover h1 { font-size: 32px; margin-top: 40px; }
+  .stack .cover .for { font-size: 17px; }
+  .stack .cover .client { padding: 14px 20px; }
+  .stack .cover .client .mark { font-size: 20px; }
+  .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
+  .stack .close h2 { font-size: 30px; }
+  .stack .spec { grid-template-columns: 1fr; }
+  .stack .spec dt { border-bottom: 0; padding-bottom: 0; }
+  .stack .art { grid-template-columns: 38px 1fr; gap: 6px 12px; }
+  .stack .art .lang { grid-column: 2; justify-self: start; }
+  .stack table.t { font-size: 13px; display: block; overflow-x: auto; }
+  .stack table.t td, .stack table.t th { padding-left: 6px; padding-right: 6px; }
+  .stack table.t td a { white-space: normal; }
+  .stack table.raci { font-size: 13.5px; }
+  .stack table.raci td, .stack table.raci th { padding-left: 4px; padding-right: 4px; }
+  .stack table.raci th { font-size: 10px; letter-spacing: .02em; }
+
+  /* ================= Print / PDF ================= */
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: #fff; }
+    .deck { position: static; }
+    .slide { position: relative; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; box-shadow: none; break-after: page; page-break-after: always; }
+    .ctrl, .progress { display: none !important; }
+    body:not(.stack) .s-foot .pg { visibility: visible; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="shield" viewBox="0 0 20 24"><path d="M10 1.5 2 4.5v6.2c0 5.4 3.4 9.6 8 11.8 4.6-2.2 8-6.4 8-11.8V4.5z" fill="currentColor"/><path d="m6.2 12.2 2.6 2.6 5-5.2" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- Cover -->
+  <section class="slide dark cover">
+    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
+    <h1>Marketing plan for ShorShield: from “great idea” to a paid first step</h1>
+    <p class="for">LinkedIn, SEO and a conversion path for passwordless authentication at DACH regulated enterprises</p>
+    <div class="client"><span class="mark"><svg><use href="#shield"/></svg>ShorShield</span></div>
+    <div class="meta">
+      <div>From<b>Darya Kablash, GetMarketing</b></div>
+      <div>Date<b>18 October 2026</b></div>
+      <div>Focus<b>DORA, RTS 2024/1774</b></div>
+      <div>Note<b style="font-weight:400;color:rgba(255,255,255,.7)">Keyword list is a hypothesis until checked against real search data</b></div>
+    </div>
+    <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
+  </section>
+
+  <!-- Starting point -->
+  <section class="slide" id="start">
+    <div class="s-head">
+      <div>
+        <h2>Sell a finding the buyer can take into an audit</h2>
+        <p class="s-sub">A security idea alone gets praise and no budget. Every channel in this plan points at one moment: the CISO or compliance lead who has to show the supervisor that authentication meets DORA.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.35fr 1fr;gap:36px">
+        <dl class="spec">
+          <dt>Product</dt><dd>Passwordless authentication with a post-quantum cryptographic core, no US-jurisdiction cloud dependency, no server access to credential data</dd>
+          <dt>Buyer</dt><dd>CISO, IT Risk Manager, Compliance Lead at banks, Sparkassen, Volksbanken, insurers, payment and e-money institutions</dd>
+          <dt>Trigger</dt><dd>Supervisory review, internal audit finding, or the yearly ICT risk assessment</dd>
+          <dt>Channel today</dt><dd>Personal outreach and network conversations</dd>
+          <dt>Core problem</dt><dd class="bad">Prospects call the idea great and go quiet when a paid next step comes up</dd>
+        </dl>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="col-h" style="margin-bottom:0">Costs the buyer already carries</div>
+          <div class="card" style="padding:18px 20px"><b style="font-size:17px">An open audit point</b><p class="lbl" style="margin-top:4px">Authentication flagged in the last review and still waiting for a fix.</p></div>
+          <div class="card" style="padding:18px 20px"><b style="font-size:17px">A manual evidence process</b><p class="lbl" style="margin-top:4px">Log exports and screenshots collected by hand before every audit.</p></div>
+          <div class="card" style="padding:18px 20px"><b style="font-size:17px">A reported phishing incident</b><p class="lbl" style="margin-top:4px">One phished login that ended up in an incident report.</p></div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Why interest stalls</b>The prospect can't yet connect ShorShield to one of these costs. The plan builds content around them and gives prospects a small paid step that is easy to approve.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Why now -->
+  <section class="slide" id="dora">
+    <div class="s-head">
+      <div>
+        <h2>Why now: what DORA actually asks for</h2>
+        <p class="s-sub">DORA has applied since 17 January 2025. The ICT risk RTS requires strong authentication “in accordance with leading practices”, which leaves each institution to prove what leading practice means today. That wording is the hook for all content.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <table class="t">
+        <thead><tr><th style="width:30%">Requirement</th><th style="width:12%">Where</th><th style="width:24%">What ShorShield can claim</th><th>Content angle</th></tr></thead>
+        <tbody>
+          <tr><td><b>Strong authentication</b> for remote access, privileged access, critical or important functions, and publicly accessible ICT assets</td><td><a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-21/" target="_blank" rel="noopener">Art. 21(f)</a></td><td>Passwordless and phishing-resistant by design</td><td class="q">Which of your systems fall into these four buckets, and does your MFA still accept a phished OTP?</td></tr>
+          <tr><td>Authentication <b>commensurate with asset classification</b> and risk profile</td><td><a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-21/" target="_blank" rel="noopener">Art. 21(f)</a></td><td>Policy maps to the institution's own classification</td><td class="q">How to justify your authentication choice to the supervisor</td></tr>
+          <tr><td><b>Logging</b> of access control and identity management, protected against tampering and deletion</td><td><a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-12/" target="_blank" rel="noopener">Art. 12</a></td><td>Audit logging structured for this from day one</td><td class="q">What an auditor asks to see from your authentication logs</td></tr>
+          <tr><td><b>Unique identity per person</b>, including staff of ICT third-party providers</td><td><a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-20/" target="_blank" rel="noopener">Art. 20</a></td><td>Credential management per user, no shared accounts</td><td class="q">Shared admin accounts as the most common open finding</td></tr>
+          <tr><td><b>Smaller entities</b> under the simplified framework still need strong authentication for the same access types</td><td><a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-33/" target="_blank" rel="noopener">Art. 33</a></td><td>Fits small banks and payment institutions too</td><td class="q">DORA for small institutions: what still applies</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield · Source: Commission Delegated Regulation (EU) 2024/1774</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Messaging correction -->
+  <section class="slide" id="messaging">
+    <div class="s-head">
+      <div>
+        <h2>One correction in the public messaging</h2>
+        <p class="s-sub">The legal text says strong authentication based on leading practices and never uses the word phishing-resistant. A compliance reader will notice.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="vs">
+        <div class="vs-card">
+          <div class="vs-k">LinkedIn About today</div>
+          <div class="vs-q">“DORA has phishing-resistant authentication requirements.”</div>
+          <div class="vs-a">A compliance lead checks the RTS, doesn't find the phrase and starts reading everything else with doubt.</div>
+        </div>
+        <div class="vs-arrow">→</div>
+        <div class="vs-card good">
+          <div class="vs-k">Accurate and stronger</div>
+          <div class="vs-q">“DORA requires strong authentication based on leading practices. In 2026, leading practice means phishing-resistant methods, and OTP and push MFA are getting harder to defend.”</div>
+          <div class="vs-a">The buyer is invited to agree with you instead of checking you.</div>
+        </div>
+      </div>
+      <div class="col-h" style="margin:26px 0 12px">Profile changes before posting starts</div>
+      <div class="grid3">
+        <div class="card" style="padding:18px 20px"><span class="pill">Headline</span><p style="font-size:15.5px;margin-top:10px;line-height:1.45">Put <b>“DORA-ready passwordless authentication for DACH banks”</b> first.</p></div>
+        <div class="card" style="padding:18px 20px"><span class="pill">Featured</span><p style="font-size:15.5px;margin-top:10px;line-height:1.45">Add a link to the <b>DORA Art. 21 audit checklist</b>.</p></div>
+        <div class="card" style="padding:18px 20px"><span class="pill">About</span><p style="font-size:15.5px;margin-top:10px;line-height:1.45">Replace the phishing-resistant sentence with the <b>leading-practice</b> framing above.</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- LinkedIn plan -->
+  <section class="slide" id="linkedin">
+    <div class="s-head">
+      <div>
+        <h2>LinkedIn: your personal profile carries the first eight weeks</h2>
+        <p class="s-sub">Two posts a week, one in three in German. CISOs at German institutions read English on LinkedIn, but German posts reach the compliance and internal audit people who often start the purchase.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="grid2" style="grid-template-columns:1.4fr 1fr;gap:40px">
+        <div class="pillars">
+          <div class="pl"><div class="pl-h">DORA in plain language<span>makes you the person who explains the rule precisely</span></div><div class="pl-p">40%</div><div class="pl-t"><div class="pl-f" style="width:100%"></div></div><div class="pl-ex">The four access types in Art. 21(f) · what “leading practice” means in an audit · Art. 12 log evidence</div></div>
+          <div class="pl"><div class="pl-h">Attack mechanics<span>your Wiz and AWS attack-chain work as proof of depth</span></div><div class="pl-p">30%</div><div class="pl-t"><div class="pl-f" style="width:75%"></div></div><div class="pl-ex">How an OTP gets phished in real time · why push fatigue works · a privileged-access escalation walk-through</div></div>
+          <div class="pl"><div class="pl-h">Building ShorShield in public<span>a reason to follow the product</span></div><div class="pl-p">20%</div><div class="pl-t"><div class="pl-f" style="width:50%"></div></div><div class="pl-ex">Why no US-jurisdiction dependency · the post-quantum core from your MSc research · design partner updates</div></div>
+          <div class="pl"><div class="pl-h">Buyer questions<span>turns comments into conversations</span></div><div class="pl-p">10%</div><div class="pl-t"><div class="pl-f" style="width:25%"></div></div><div class="pl-ex">Polls and open questions to CISOs and IT risk managers</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="card" style="padding:20px 22px">
+            <div class="col-h" style="margin-bottom:4px">Weekly rhythm</div>
+            <div class="week">
+              <div>Mon</div>
+              <div class="on">Tue<small>post</small></div>
+              <div>Wed</div>
+              <div class="on">Thu<small>post</small></div>
+              <div>Fri</div>
+            </div>
+            <p class="lbl" style="font-size:14px">Post in the morning, then spend 20 minutes commenting on posts by CISOs and DORA consultants from the target list.</p>
+          </div>
+          <div class="card" style="padding:20px 22px;background:var(--tint)">
+            <div class="col-h" style="margin-bottom:6px;color:var(--accent-ink)">First month</div>
+            <p style="font-size:15px;line-height:1.5;color:var(--forest);font-weight:500">Comments on other people's posts will bring more profile visits than your own posts. Plan the commenting time as seriously as the posts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Sample posts -->
+  <section class="slide" id="posts">
+    <div class="s-head">
+      <div>
+        <h2>Three sample posts, one per main pillar</h2>
+        <p class="s-sub">Each one ends with something the reader can ask for, so the checklist and the conversations start from the post.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="posts">
+        <div class="post">
+          <div class="post-h"><i>SS</i><div><b>ShorShield founder</b><span>Tuesday · English</span></div><span class="pill post-tag">DORA</span></div>
+          <p>Most DORA conversations about authentication stop at “we have MFA”. The RTS on ICT risk management asks for more than that. Article 21 requires strong authentication based on leading practices for four kinds of access: remote access to the network, privileged access, systems that support critical or important functions, and anything publicly accessible.</p>
+          <p>The word that will matter in your next audit is “leading”. An SMS code was leading practice ten years ago. Today a real-time phishing kit can relay it in seconds.</p>
+          <p>I put together a one-page map of the four access types with the questions an auditor tends to ask for each. Happy to send it to anyone working on DORA in a bank or payment institution.</p>
+          <div class="post-cta">→ Leads to the audit checklist</div>
+        </div>
+        <div class="post">
+          <div class="post-h"><i>SS</i><div><b>ShorShield founder</b><span>Thursday · English</span></div><span class="pill post-tag">Attack</span></div>
+          <p>Last year I built an end-to-end AWS attack chain for a security vendor demo. The step that worked most reliably was the boring one at the start: a credential that could be reused.</p>
+          <p>Everything after it, privilege escalation through a Lambda role, persistence through a new IAM user, ransomware via an attacker-held KMS key, depended on that first login working. Phishing-resistant authentication removes that step for the human side of the chain.</p>
+          <p>That is the reason I started ShorShield. Below is the attack path as a diagram, with the point where a passkey would have stopped it.</p>
+          <div class="post-cta">→ Diagram attached to the post</div>
+        </div>
+        <div class="post">
+          <div class="post-h"><i>SS</i><div><b>ShorShield founder</b><span>Tuesday · Deutsch</span></div><span class="pill post-tag">Build in public</span></div>
+          <p>Warum wir bei ShorShield auf jede Abhängigkeit von US-Cloud-Anbietern verzichten: Für Banken im DACH-Raum ist der Authentifizierungsdienst ein IKT-Drittanbieter im Sinne von DORA. Er landet im Informationsregister und in der Drittanbieter-Risikobewertung. Jede zusätzliche Rechtsordnung in der Lieferkette ist eine Frage mehr, die die Compliance beantworten muss.</p>
+          <p>Unser Ansatz ist deshalb, dass Zugangsdaten nie auf unseren Servern liegen und die Infrastruktur vollständig in der EU läuft. Mich interessiert, wie IT-Risk-Teams das heute bewerten. Spielt die Rechtsordnung des Anbieters bei euch eine Rolle in der Auswahl?</p>
+          <div class="post-cta">→ Opens a conversation in the comments</div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- SEO clusters -->
+  <section class="slide" id="seo">
+    <div class="s-head">
+      <div>
+        <h2>SEO: own the queries a compliance team types before an audit</h2>
+        <p class="s-sub">Search volume in this niche is small. The goal is the handful of queries typed while preparing an audit, in German and English, each article linking to the checklist.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <table class="t">
+        <thead><tr><th style="width:19%">Cluster</th><th style="width:34%">German queries</th><th style="width:30%">English queries</th><th>Intent</th></tr></thead>
+        <tbody>
+          <tr><td><b>DORA authentication</b></td><td>DORA starke Authentifizierung · DORA MFA Anforderungen · DORA Zugangskontrolle</td><td>DORA strong authentication · DORA MFA requirements</td><td><span class="pill g">Compliance research</span></td></tr>
+          <tr><td><b>RTS details</b></td><td>RTS IKT-Risikomanagement Artikel 21 · DORA Protokollierung Anforderungen</td><td>DORA RTS article 21 · DORA logging requirements</td><td><span class="pill">Audit preparation</span></td></tr>
+          <tr><td><b>Phishing resistance</b></td><td>phishing-resistente MFA · Passkeys Unternehmen · FIDO2 Bank</td><td>phishing-resistant MFA · passkeys for banks</td><td><span class="pill">Solution research</span></td></tr>
+          <tr><td><b>Third party and jurisdiction</b></td><td>DORA IKT-Drittanbieter Authentifizierung · Authentifizierung ohne US-Cloud</td><td>DORA ICT third-party authentication provider</td><td><span class="pill">Vendor selection</span></td></tr>
+          <tr><td><b>Smaller institutions</b></td><td>DORA vereinfachter Rahmen · DORA kleine Institute</td><td>DORA simplified ICT risk framework</td><td><span class="pill g">Compliance research</span></td></tr>
+        </tbody>
+      </table>
+      <div class="note" style="margin-top:auto"><b>Starting hypothesis.</b> Volumes and difficulty still need to be checked with real search data before writing. That check is the first step of the setup in week 1.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Articles -->
+  <section class="slide" id="articles">
+    <div class="s-head">
+      <div>
+        <h2>The first five articles, in publishing order</h2>
+        <p class="s-sub">Each one carries a named author with your security background, the date of the legal text it refers to and links to the official sources. Google and AI assistants use exactly these signals to decide whether to trust and cite security content.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="arts">
+        <div class="art pillar"><div class="n">1</div><div><b>DORA und starke Authentifizierung: Was Artikel 21 des RTS wirklich verlangt</b><p>Pillar page. The four access types, the “leading practices” wording and how institutions document their choice.</p></div><span class="pill lang">DE · pillar</span></div>
+        <div class="art"><div class="n">2</div><div><b>Phishing-resistant MFA under DORA: why OTP and push are getting hard to defend</b><p>Built on your attack-chain experience, ends with an evaluation table of methods.</p></div><span class="pill lang">EN</span></div>
+        <div class="art"><div class="n">3</div><div><b>DORA Protokollierung: Welche Authentifizierungs-Logs der Prüfer sehen will</b><p>Art. 12 of the RTS with a checklist of log events and tamper protection.</p></div><span class="pill lang">DE</span></div>
+        <div class="art"><div class="n">4</div><div><b>Authentication as an ICT third-party service: what goes into your DORA register</b><p>Connects jurisdiction and data location to the third-party risk assessment.</p></div><span class="pill lang">EN</span></div>
+        <div class="art"><div class="n">5</div><div><b>DORA für kleinere Institute: Authentifizierung im vereinfachten Rahmen</b><p>Targets small banks and payment institutions under Art. 33, a segment large vendors serve poorly.</p></div><span class="pill lang">DE</span></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Conversion path -->
+  <section class="slide" id="conversion">
+    <div class="s-head">
+      <div>
+        <h2>Conversion: a small paid step that solves an audit problem</h2>
+        <p class="s-sub">A fixed-scope assessment is easy to approve before anyone has to buy a platform, and its findings make the case for the full product.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="funnel">
+        <div class="fstep"><div class="n">1</div><span class="k">Free</span><b>DORA Art. 21 checklist</b><p>One page: the four access types, the questions an auditor asks for each, and the Art. 12 log evidence. Gated by work email only.</p></div>
+        <div class="fstep"><div class="n">2</div><span class="k">Free</span><b>Anonymous benchmark</b><p>10 questions for CISOs and IT risk managers on methods per access type. People share internal gaps anonymously that they would never post publicly.</p></div>
+        <div class="fstep"><div class="n">3</div><span class="k">Free</span><b>Closed roundtable</b><p>60 minutes online, 6 to 8 IT risk leads, Chatham House rule, presenting the benchmark results.</p></div>
+        <div class="fstep paid"><div class="n">4</div><span class="k">Paid</span><b>Gap assessment</b><p>Fixed-price review against Art. 21(f) and Art. 12, delivered as a short report for internal audit. Priced so a department head can sign without procurement.</p></div>
+        <div class="fstep paid"><div class="n">5</div><span class="k">Paid</span><b>Design partner pilot</b><p>Passwordless rollout for one access type, usually privileged access, at a discount in exchange for an approved case study.</p></div>
+      </div>
+      <div class="rule">
+        <div class="card"><div class="col-h" style="margin-bottom:2px">One rule for every conversation</div><p class="lbl" style="margin-top:4px">Ask for the next step while the prospect is still describing the problem. The paid step then feels like a continuation of the help they just received.</p></div>
+        <div class="card" style="background:var(--tint)"><div class="col-h" style="margin-bottom:2px;color:var(--accent-ink)">The question to ask</div><p class="q">“Would it help to have this written up for your next audit?”</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- First 30 days -->
+  <section class="slide" id="30-days">
+    <div class="s-head">
+      <div>
+        <h2>The first 30 days</h2>
+        <p class="s-sub">By day 30 the checklist is live, the posts and articles are out and the benchmark is collecting answers.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="kpi4">
+        <div><b>1</b><span>audit checklist live and gated</span></div>
+        <div><b>8</b><span>LinkedIn posts published</span></div>
+        <div><b>2</b><span>articles indexed</span></div>
+        <div><b>150</b><span>CISOs and IT risk leads on the target list</span></div>
+      </div>
+      <div class="weeks4">
+        <div class="wk"><div class="k">Week 1</div><ul><li>Keyword validation with real search data</li><li>Profile update</li><li>Checklist written and gated</li><li>Target list of 150 at DACH institutions</li></ul></div>
+        <div class="wk"><div class="k">Week 2</div><ul><li>Pillar article 1 published</li><li>First four LinkedIn posts</li><li>Benchmark survey sent to the target list</li></ul></div>
+        <div class="wk"><div class="k">Week 3</div><ul><li>Article 2 published</li><li>Next two posts</li><li>Daily commenting on target accounts</li><li>First roundtable invitations</li></ul></div>
+        <div class="wk"><div class="k">Week 4</div><ul><li>Last two posts of the month</li><li>Review of profile visits, downloads and survey answers</li><li>Plan adjusted for month two</li></ul></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Who does what -->
+  <section class="slide" id="roles">
+    <div class="s-head">
+      <div>
+        <h2>Who does what</h2>
+        <p class="s-sub">GetMarketing runs the research, the drafts and the monthly review. You approve everything before it goes out, and the technical claims stay yours to check, since security buyers punish one wrong detail.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <table class="raci">
+        <thead><tr><th>Task</th><th>GetMarketing</th><th>ShorShield</th></tr></thead>
+        <tbody>
+          <tr><td>Keyword research and validation</td><td class="gm"><span class="y">✓</span></td><td><span class="f">review</span></td></tr>
+          <tr><td>Article drafts, German and English</td><td class="gm"><span class="y">✓</span></td><td><span class="f">approve</span></td></tr>
+          <tr><td>LinkedIn post drafts</td><td class="gm"><span class="y">✓</span></td><td><span class="f">approve and post</span></td></tr>
+          <tr><td>Audit checklist and benchmark survey</td><td class="gm"><span class="y">✓</span></td><td><span class="f">approve</span></td></tr>
+          <tr><td>Technical and legal accuracy</td><td class="gm"><span class="f">sources linked</span></td><td><span class="y">✓</span></td></tr>
+          <tr><td>Commenting and conversations with prospects</td><td class="gm"><span class="f">target list</span></td><td><span class="y">✓</span></td></tr>
+          <tr><td>Monthly review against your analytics</td><td class="gm"><span class="y">✓</span></td><td><span class="f">read</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Close -->
+  <section class="slide dark close" id="next">
+    <div class="s-body">
+      <div class="close-grid">
+        <div>
+          <h2>Next step: test the setup for 7 days</h2>
+          <p class="lead">Start with keyword validation and the profile update in week 1. The checklist and the first posts follow as soon as you have approved them.</p>
+          <div class="who">
+            <img src="/darya.jpg" alt="Darya Kablash" />
+            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
+          </div>
+          <div class="btns">
+            <a class="btn btn-light" href="https://app.getmarketing.team" target="_blank" rel="noopener">Start the 7-day test</a>
+            <a class="btn btn-ghost" href="mailto:darya@getmarketing.team?subject=ShorShield%20marketing%20plan">Reply by email</a>
+          </div>
+        </div>
+        <div class="invest">
+          <div class="k">Week 1 at a glance</div>
+          <div class="row"><span>1 · Keyword validation with real search data</span></div>
+          <div class="row"><span>2 · Headline, Featured link and About sentence updated</span></div>
+          <div class="row"><span>3 · DORA Art. 21 checklist written and gated</span></div>
+          <div class="row"><span>4 · Target list of 150 CISOs and IT risk leads</span></div>
+          <div class="src">
+            Sources: RTS 2024/1774
+            <a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-21/" target="_blank" rel="noopener">Art. 21</a> ·
+            <a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-12/" target="_blank" rel="noopener">Art. 12</a> ·
+            <a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-20/" target="_blank" rel="noopener">Art. 20</a> ·
+            <a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-33/" target="_blank" rel="noopener">Art. 33</a> ·
+            <a href="http://data.europa.eu/eli/reg_del/2024/1774/oj" target="_blank" rel="noopener">official text</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
+</main>
+
+<div class="ctrl" id="ctrl">
+  <button id="prev" aria-label="Previous slide">←</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="next" aria-label="Next slide">→</button>
+  <button id="fs" aria-label="Fullscreen" title="Fullscreen (F)">⤢</button>
+</div>
+
+<script>
+/* ---- Deck: 16:9 stage, one slide at a time; stacked on phones ---- */
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count'), bar = document.getElementById('progress');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var cur = 0;
+  slides.forEach(function (s, i) { s.querySelectorAll('.pg').forEach(function (pg) { pg.textContent = i + 1; }); });
+
+  function stacked() { return document.body.classList.contains('stack'); }
+  function fit() {
+    var stack = innerWidth < 800 || (innerWidth < 1000 && innerHeight > innerWidth);
+    document.body.classList.toggle('stack', stack);
+    if (!stack) {
+      var s = Math.min(innerWidth / 1280, innerHeight / 720);
+      if (!document.fullscreenElement) s *= 0.96;
+      document.documentElement.style.setProperty('--s', s);
+    }
+  }
+  function show(n, initial) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    count.textContent = (cur + 1) + ' / ' + slides.length;
+    bar.style.transform = 'scaleX(' + ((cur + 1) / slides.length) + ')';
+    prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+    if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
+    if (!initial) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (!h) return 0;
+    if (/^\d+$/.test(h)) return +h - 1;
+    var el = document.getElementById(h);
+    return el ? slides.indexOf(el.closest('.slide')) : 0;
+  }
+  function toggleFs() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+
+  prev.addEventListener('click', function () { show(cur - 1); });
+  next.addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('fs').addEventListener('click', toggleFs);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    show(slides.indexOf(el.closest('.slide')));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || stacked()) return;
+    if (e.target.closest && e.target.closest('input, textarea, select')) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    else if (k === 'f' || k === 'F') { toggleFs(); }
+  });
+
+  // swipe on touch screens in deck mode
+  var tx = null, ty = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null || stacked()) { tx = null; return; }
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    if (!stacked()) return;
+    var line = innerHeight * 0.4, best = 0;
+    for (var i = 0; i < slides.length; i++) if (slides[i].getBoundingClientRect().top <= line) best = i;
+    cur = best;
+  }, { passive: true });
+
+  window.addEventListener('resize', fit);
+  document.addEventListener('fullscreenchange', fit);
+  fit();
+  show(fromHash(), true);
+})();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
