@@ -26,24 +26,9 @@
       'nav.menu-open .nav-links li:last-child{border-bottom:0}' +
       'nav.menu-open .nav-links a{display:block;padding:14px 0;font-size:17px;font-weight:500;color:#111312}' +
     '}' +
-    '.nav-links .nav-menu-cta{display:none}' +
-    '@media (max-width:600px){nav.menu-open .nav-links{padding:4px 16px 16px}}' +
-    '@media (max-width:480px){' +
-      '.nav-inner>.nav-cta{display:none!important}' +
-      '.nav-inner>.nav-lang{margin-left:auto}' +
-      'nav.menu-open .nav-links .nav-menu-cta{display:block;border-bottom:0;padding-top:14px}' +
-      'nav.menu-open .nav-links .nav-menu-cta a{text-align:center;background:#1B4332;color:#fff;border-radius:12px;padding:13px 20px;font-size:15px;font-weight:600}' +
-    '}';
+    '@media (max-width:900px){.nav-inner>.nav-lang{margin-left:auto}}' +
+    '@media (max-width:600px){nav.menu-open .nav-links{padding:4px 16px 16px}}';
   document.head.appendChild(css);
-
-  // on small phones the header CTA moves into the menu
-  var cta = inner.querySelector('.nav-cta');
-  if (cta) {
-    var li = document.createElement('li');
-    li.className = 'nav-menu-cta';
-    li.appendChild(cta.cloneNode(true)).className = '';
-    links.appendChild(li);
-  }
 
   if (!links.id) links.id = 'nav-links';
   var btn = document.createElement('button');
