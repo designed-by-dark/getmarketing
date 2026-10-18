@@ -206,6 +206,28 @@
   table.raci .y { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; background: var(--forest); color: #fff; font-weight: 900; font-size: 14px; }
   table.raci .f { font-size: 13px; font-weight: 700; color: var(--gray); }
 
+  /* ================= Investment ================= */
+  .tiers { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 18px; align-items: stretch; }
+  .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 26px 28px; display: flex; flex-direction: column; }
+  .tier.full { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .tier.agency { background: var(--card); border-color: var(--card); }
+  .tier .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .tier.full .k { color: var(--accent); }
+  .tier.agency .k, .tier.agency .v { color: var(--gray); }
+  .tier .v { font-size: 46px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 12px 0 4px; white-space: nowrap; }
+  .tier .v small { font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .tier.full .v small, .tier.full .sub { color: rgba(255,255,255,.65); }
+  .tier .sub { font-size: 13.5px; color: var(--gray); }
+  .tier ul { list-style: none; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; }
+  .tier.full ul { border-color: rgba(255,255,255,.15); }
+  .tier li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; line-height: 1.35; }
+  .tier li span:last-child { font-weight: 700; white-space: nowrap; }
+  .tier .on { color: var(--accent-ink); }
+  .tier.full .on { color: var(--accent); }
+  .tier.agency li span:last-child { color: var(--gray); }
+  .tier .incl { font-size: 13.5px; margin-top: auto; padding-top: 14px; color: var(--gray); line-height: 1.5; }
+  .tier.full .incl { color: rgba(255,255,255,.75); }
+
   /* ================= Close ================= */
   .close-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; flex: 1; }
   .close h2 { font-size: 42px; line-height: 1.08; }
@@ -254,6 +276,8 @@
   .stack .s-head .s-sub { font-size: 15px; }
   .stack .s-mark { font-size: 15px; padding-top: 0; }
   .stack .grid2, .stack .grid3, .stack .posts, .stack .funnel, .stack .rule, .stack .weeks4, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .tiers { grid-template-columns: minmax(0, 1fr); }
+  .stack .tier .v { font-size: 38px; }
   .stack .kpi4 { grid-template-columns: 1fr 1fr; }
   .stack .kpi4 b { font-size: 24px; }
   .stack .vs { grid-template-columns: 1fr; }
@@ -600,6 +624,55 @@
     <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
   </section>
 
+  <!-- Investment -->
+  <section class="slide" id="investment">
+    <div class="s-head">
+      <div>
+        <h2>Investment: the whole system for one monthly fee</h2>
+        <p class="s-sub">Research, LinkedIn, SEO articles, the conversion assets and the monthly review are all included. You can test the setup for 7 days before the first month starts.</p>
+      </div>
+      <span class="mark s-mark"><svg><use href="#shield"/></svg>ShorShield</span>
+    </div>
+    <div class="s-body">
+      <div class="tiers">
+        <div class="tier">
+          <div class="k">To start</div>
+          <div class="v">0 €</div>
+          <div class="sub">7-day test at app.getmarketing.team</div>
+          <ul>
+            <li><span>Keyword validation</span><span class="on">included</span></li>
+            <li><span>Profile update drafts</span><span class="on">included</span></li>
+            <li><span>Target list setup</span><span class="on">included</span></li>
+          </ul>
+          <p class="incl">You see the research and the first drafts before you pay anything.</p>
+        </div>
+        <div class="tier full">
+          <div class="k">GetMarketing, whole system</div>
+          <div class="v">250 € <small>/ month</small></div>
+          <div class="sub">everything in this plan</div>
+          <ul>
+            <li><span>Keyword research and validation</span><span class="on">✓</span></li>
+            <li><span>LinkedIn drafts, 8 posts a month</span><span class="on">✓</span></li>
+            <li><span>SEO articles, German and English</span><span class="on">✓</span></li>
+            <li><span>Audit checklist and benchmark survey</span><span class="on">✓</span></li>
+            <li><span>Monthly review against your analytics</span><span class="on">✓</span></li>
+          </ul>
+        </div>
+        <div class="tier agency">
+          <div class="k">For comparison</div>
+          <div class="v">2,000 €+ <small>/ month</small></div>
+          <div class="sub">classic agency or freelancer</div>
+          <ul>
+            <li><span>Comparable scope</span><span>from ~2,000 €</span></li>
+          </ul>
+          <p class="incl">Typical range for manual content and SEO work. LinkedIn ghostwriting is usually billed on top.</p>
+        </div>
+      </div>
+      <div class="take" style="margin-top:22px"><b class="k">Your part</b>Approving drafts, checking the technical claims and talking to the prospects the content brings in. Everything else runs through the system.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Marketing plan ShorShield</span><span class="pg"></span></div>
+  </section>
+
   <!-- Close -->
   <section class="slide dark close" id="next">
     <div class="s-body">
@@ -622,6 +695,7 @@
           <div class="row"><span>2 · Headline, Featured link and About sentence updated</span></div>
           <div class="row"><span>3 · DORA Art. 21 checklist written and gated</span></div>
           <div class="row"><span>4 · Target list of 150 CISOs and IT risk leads</span></div>
+          <div class="row" style="margin-top:6px"><span>After the test, the whole system</span><b>250 € / month</b></div>
           <div class="src">
             Sources: RTS 2024/1774
             <a href="https://www.springlex.eu/en/packages/dora/rts-rmf-regulation/article-21/" target="_blank" rel="noopener">Art. 21</a> ·
