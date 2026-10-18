@@ -112,11 +112,6 @@
   .btn-light { background: #fff; color: var(--forest); }
   .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
 
-  /* ================= Partner wordmark ================= */
-  .mark { font-weight: 900; letter-spacing: -0.04em; color: var(--black); white-space: nowrap; }
-  .mark i { font-style: normal; color: var(--accent-ink); }
-  .s-mark { font-size: 22px; flex-shrink: 0; padding-top: 8px; }
-
   /* ================= Cover ================= */
   .cover { padding-top: 70px; }
   .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
@@ -124,8 +119,6 @@
   .cover .gm span { color: rgba(255,255,255,.45); font-weight: 500; }
   .cover h1 { font-size: 60px; max-width: 980px; margin-top: 70px; letter-spacing: -0.035em; line-height: 1.05; }
   .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; }
-  .cover .client { display: inline-flex; align-self: flex-start; margin-top: 44px; background: #fff; border-radius: 14px; padding: 20px 34px; }
-  .cover .client .mark { font-size: 34px; }
   .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
   .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
 
@@ -153,7 +146,6 @@
   .mock-bar i { width: 8px; height: 8px; border-radius: 50%; background: #D5D3CC; flex-shrink: 0; }
   .mock-bar span { margin-left: 10px; background: #fff; border-radius: 5px; padding: 2px 10px; }
   .mock-nav { display: flex; align-items: center; gap: 18px; padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--gray); }
-  .mock-nav .mark { font-size: 18px; margin-right: auto; }
   .mock-nav .on { color: var(--ink); font-weight: 700; }
   .mock-in { padding: 18px 20px 20px; }
   .mock-h { display: flex; justify-content: space-between; align-items: baseline; }
@@ -247,32 +239,47 @@
   .cover .note-in { margin-top: 30px; max-width: 640px; font-size: 16px; line-height: 1.55; color: rgba(255,255,255,.72); }
   .cover .note-in a { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
 
-  /* ================= Intro mit Live-Feed ================= */
-  .intro { padding-top: 56px; }
-  .intro-grid { display: grid; grid-template-columns: 1fr 560px; gap: 56px; align-items: center; flex: 1; min-height: 0; }
-  .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-  .intro h2 { font-size: 54px; line-height: 1.04; letter-spacing: -0.04em; margin-top: 14px; }
-  .intro .lead { font-size: 17.5px; color: rgba(255,255,255,.75); margin-top: 22px; line-height: 1.55; max-width: 520px; }
-  .facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 34px; margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15); }
-  .facts dt { font-size: 40px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--accent); }
-  .facts dd { font-size: 13.5px; color: rgba(255,255,255,.65); margin-top: 6px; max-width: 130px; line-height: 1.4; }
-  .feed-wrap { background: #0F2A1F; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 18px 20px 14px; font-variant-numeric: tabular-nums; }
-  .feed-h { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255,255,255,.55); padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
-  .live { display: inline-flex; align-items: center; gap: 7px; font-weight: 800; color: #fff; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-  .live i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(82,183,136,.6); animation: pulse 1.8s infinite; }
-  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(82,183,136,.55); } 70% { box-shadow: 0 0 0 9px rgba(82,183,136,0); } 100% { box-shadow: 0 0 0 0 rgba(82,183,136,0); } }
-  .feed { list-style: none; height: 384px; overflow: hidden; position: relative; }
-  .feed::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: linear-gradient(rgba(15,42,31,0), #0F2A1F); pointer-events: none; }
-  .feed li { display: grid; grid-template-columns: 74px 1fr; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 14px; line-height: 1.4; }
-  .feed li.in { animation: feedin .5s ease; }
-  @keyframes feedin { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
-  .feed .c { font-size: 11.5px; font-weight: 800; padding: 3px 8px; border-radius: 5px; justify-self: start; white-space: nowrap; }
-  .feed .c.a { background: rgba(82,183,136,.18); color: #8FDDB5; }
-  .feed .c.b { background: rgba(232,190,120,.16); color: #EBC98E; }
-  .feed .c.c { background: rgba(150,180,240,.16); color: #AFC6F2; }
-  .feed .t { color: rgba(255,255,255,.88); }
-  .feed .t b { color: #fff; font-weight: 700; }
-  .feed-cap { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 10px; }
+  /* ================= Intro mit Redaktionskalender ================= */
+  .intro { padding-top: 44px; }
+  .intro-grid { display: grid; grid-template-columns: 360px 1fr; gap: 44px; align-items: center; flex: 1; min-height: 0; }
+  .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .intro h2 { font-size: 40px; line-height: 1.1; letter-spacing: -0.035em; margin-top: 12px; }
+  .intro .lead { font-size: 16px; color: var(--gray); margin-top: 16px; line-height: 1.55; }
+  .sum { margin-top: 26px; padding-top: 18px; border-top: 2px solid var(--ink); }
+  .sum b { display: block; font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .sum span { display: block; font-size: 14px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .cal { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 8px 28px rgba(0,0,0,.06); }
+  .cal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .cal-top b { font-size: 14px; }
+  .legend { display: flex; gap: 12px; }
+  .lg { font-size: 11.5px; color: var(--gray); display: inline-flex; align-items: center; gap: 6px; }
+  .lg::before { content: ""; width: 9px; height: 9px; border-radius: 2px; }
+  .lg.blog::before { background: var(--forest); }
+  .lg.li::before { background: #2D6CB5; }
+  .lg.rep::before { background: var(--gray2); }
+  .cal-days { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--card); border-bottom: 1px solid var(--line); }
+  .cal-days span { font-size: 11.5px; font-weight: 700; color: var(--gray); padding: 6px 8px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .cell { height: 104px; padding: 5px 6px 6px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .cell:nth-child(5n) { border-right: 0; }
+  .cell:nth-last-child(-n+5) { border-bottom: 0; }
+  .cell .dt { font-size: 11px; color: var(--gray2); font-weight: 600; }
+  .cell .dt i { font-style: normal; display: none; }
+  .ev { border-left: 3px solid var(--forest); background: var(--tint); border-radius: 4px; padding: 4px 6px 5px; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
+  .ev.on { opacity: 1; transform: none; }
+  .ev.li { border-color: #2D6CB5; background: #EAF1FA; }
+  .ev.rep { border-color: var(--gray2); background: var(--card); }
+  .ev .ti { font-size: 11.5px; font-weight: 700; line-height: 1.28; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .ev .kw { font-size: 10.5px; color: var(--gray); margin-top: 3px; display: flex; gap: 4px; }
+  .ev .kw span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .ev .kw b { flex-shrink: 0; }
+  .ev .kw b { color: var(--forest); font-variant-numeric: tabular-nums; }
+  .ev.li .kw b { color: #2D6CB5; }
+
+  /* ================= Logos ================= */
+  .s-logo { height: 26px; width: auto; flex-shrink: 0; margin-top: 10px; }
+  .cover-logo { display: block; height: 52px; width: auto; margin-top: 40px; align-self: flex-start; }
+  .mock-nav img { height: 18px; width: auto; margin-right: auto; }
 
   /* ================= Ergebnisse ================= */
   .res { display: grid; grid-template-columns: 1fr 340px; gap: 52px; align-items: start; }
@@ -315,7 +322,6 @@
   .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
   .stack .s-head h2 { font-size: 26px; }
   .stack .s-head .s-sub { font-size: 15px; }
-  .stack .s-mark { font-size: 17px; padding-top: 0; }
   .stack .grid3, .stack .grid2, .stack .intro-grid, .stack .res, .stack .stages, .stack .agents, .stack .wl, .stack .gains,
   .stack .tiers, .stack .about, .stack .nums, .stack .pilot, .stack .pilot .steps4, .stack .steps4, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
   .stack .steps4 > div::after { display: none; }
@@ -323,12 +329,17 @@
   .stack .cover { padding-top: 40px; }
   .stack .cover h1 { font-size: 34px; margin-top: 40px; }
   .stack .cover .for { font-size: 17px; }
-  .stack .cover .client { padding: 14px 22px; }
-  .stack .cover .client .mark { font-size: 24px; }
   .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
-  .stack .intro h2 { font-size: 34px; }
-  .stack .facts { gap: 18px; }
-  .stack .facts dt { font-size: 30px; }
+  .stack .intro h2 { font-size: 28px; }
+  .stack .s-logo { height: 20px; margin-top: 0; }
+  .stack .cover-logo { height: 38px; }
+  .stack .cal-days { display: none; }
+  .stack .cal-grid { grid-template-columns: minmax(0, 1fr); }
+  .stack .cell { height: auto; border-right: 0; border-bottom: 1px solid var(--line) !important; display: grid; grid-template-columns: 54px 1fr; align-items: start; gap: 8px; padding: 8px 12px; }
+  .stack .cell:empty { display: none; }
+  .stack .cell .dt i { display: inline; }
+  .stack .ev .kw { white-space: normal; }
+  .stack .legend { display: none; }
   .stack .ledger .row { grid-template-columns: 1fr; gap: 6px; }
   .stack .ledger .row > b { font-size: 38px; }
   .stack .side-case b { font-size: 38px; }
@@ -362,51 +373,49 @@
 
   <!-- Cover -->
   <section class="slide dark cover">
-    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing <span>× 6xiBrand</span></div>
-    <h1>Laufende Umsetzung für deine Kunden, unter deiner Marke</h1>
-    <p class="for">Partnerangebot für Luca Marcello Meissner, 6xiBrand</p>
-    <div class="client"><span class="mark">6xi<i>Brand</i></span></div>
-    <p class="note-in">Unsere Termine haben bisher zeitlich nicht gepasst. Deshalb steht hier alles zum Nachlesen, und am Ende reicht eine Zahl als Antwort. <a href="#antwort">Direkt zur Antwort →</a></p>
+    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
+    <h1>Partnerschaft für die laufende Umsetzung bei deinen Kunden</h1>
+    <p class="for">Ein Angebot von GetMarketing für Luca Marcello Meissner und 6xiBrand</p>
+    <img class="cover-logo" src="img/6xibrand-white.webp" alt="6xiBrand" />
+    <p class="note-in">Wir haben zweimal versucht, einen Termin zu finden, und es hat zeitlich nicht gepasst. Deshalb habe ich alles hier zusammengefasst, damit du in Ruhe lesen und entscheiden kannst. <a href="#antwort">Direkt zum Ende →</a></p>
     <div class="meta">
-      <div>Von<b>Darya Kablash, GetMarketing</b></div>
-      <div>Stand<b>18. Oktober 2026</b></div>
-      <div>Lesezeit<b>rund 3 Minuten</b></div>
+      <div>Von<b>Darya Kablash, Gründerin von GetMarketing</b></div>
     </div>
     <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
   </section>
 
   <!-- Was ist GetMarketing -->
-  <section class="slide dark intro" id="was">
+  <section class="slide intro" id="was">
     <div class="s-body">
       <div class="intro-grid">
         <div>
-          <div class="eyebrow">Was ist GetMarketing</div>
-          <h2>Wir automatisieren das Marketing deiner Kunden</h2>
-          <p class="lead">GetMarketing ist eine KI-Plattform, auf der Agenten das laufende Marketing übernehmen. Sie planen, schreiben, gestalten, veröffentlichen und messen. Für Agenturen läuft das komplett unter eigener Marke.</p>
-          <dl class="facts">
-            <div><dt>6</dt><dd>Agenten im Einsatz, alle live</dd></div>
-            <div><dt>1</dt><dd>System pro Kunde, parallel für alle</dd></div>
-            <div><dt>0</dt><dd>Inhalte ohne Freigabe online</dd></div>
-          </dl>
+          <div class="eyebrow">Was GetMarketing macht</div>
+          <h2>GetMarketing automatisiert das Marketing für deine Kunden</h2>
+          <p class="lead">Die Plattform sucht Themen, nach denen die Zielgruppe tatsächlich sucht, und plant daraus Blogartikel und LinkedIn-Posts. Geschrieben wird in der Tonalität des Kunden, veröffentlicht wird erst nach Freigabe.</p>
+          <p class="lead">Rechts siehst du, wie ein November für 6xiBrand selbst aussehen könnte. Die Suchvolumen sind echte Werte für Deutschland.</p>
+          <div class="sum"><b id="calSum">32.020</b><span>Suchanfragen pro Monat zu den acht Artikelthemen in diesem Plan</span></div>
         </div>
-        <div class="feed-wrap">
-          <div class="feed-h"><span class="live"><i></i>Live</span><span>So arbeitet das System, drei Kunden parallel</span></div>
-          <ol class="feed" id="feed" aria-label="Ablauf im System"></ol>
-          <p class="feed-cap">Schematische Darstellung des Ablaufs.</p>
+        <div class="cal" aria-label="Redaktionsplan November 2026 für 6xiBrand">
+          <div class="cal-top">
+            <b>Redaktionsplan 6xiBrand · November 2026</b>
+            <div class="legend"><span class="lg blog">Blogartikel</span><span class="lg li">LinkedIn-Post</span><span class="lg rep">Report</span></div>
+          </div>
+          <div class="cal-days"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span></div>
+          <div class="cal-grid" id="calGrid"></div>
         </div>
       </div>
     </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand · Suchvolumen pro Monat: Google Ads über DataForSEO, Deutschland, abgerufen am 18. Oktober 2026</span><span class="pg"></span></div>
   </section>
 
   <!-- Ergebnisse -->
   <section class="slide" id="ergebnisse">
     <div class="s-head">
       <div>
-        <h2>Ergebnisse aus Projekten</h2>
-        <p class="s-sub">Eine Auswahl aus 55 abgeschlossenen Projekten. Kundennamen nennen wir nicht. Alle Zahlen stammen aus abgeschlossenen Kundenprojekten.</p>
+        <h2>Ergebnisse aus bisherigen Projekten</h2>
+        <p class="s-sub">Kundennamen nennen wir nicht. Die Zahlen stammen aus abgeschlossenen Projekten, die wir umgesetzt haben.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="res">
@@ -418,7 +427,7 @@
         </div>
         <div class="res-side">
           <div class="side-case"><b>~200</b><strong>verkaufte Kurse pro Monat über Google</strong><span>Erste-Hilfe-Schule in Berlin · lokale SEO für die Kursseiten</span></div>
-          <div class="total"><b>6 Mio.+</b><span>organische Besucher für Kunden, über alle Projekte</span></div>
+          <div class="total"><b>6 Mio.+</b><span>organische Besucher für Kunden über alle Projekte</span></div>
         </div>
       </div>
     </div>
@@ -429,10 +438,10 @@
   <section class="slide">
     <div class="s-head">
       <div>
-        <h2>Dein System hat drei Stufen. GetMarketing dockt bei Stufe 2 und 3 an.</h2>
-        <p class="s-sub">Die Positionierung bleibt bei dir. Die laufende Umsetzung danach übernehmen die Agenten im Hintergrund.</p>
+        <h2>Welche Stufen deines Systems GetMarketing übernimmt</h2>
+        <p class="s-sub">Die Positionierung bleibt bei dir. Für Nachfrage und Bindung übernimmt GetMarketing die laufende Arbeit im Hintergrund.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="stages">
@@ -440,24 +449,24 @@
           <span class="who-tag">bleibt bei 6xiBrand</span>
           <div class="st">Stufe 1</div>
           <h3>Positionierung</h3>
-          <p>Du übersetzt unternehmerische Qualität in eine klare Positionierung. Das ist dein Kern und die Grundlage für alles Weitere.</p>
+          <p>Du übersetzt die Qualität eines Unternehmens in eine klare Positionierung. Darauf baut alles Weitere auf.</p>
         </div>
         <div class="stage gm">
-          <span class="who-tag">setzt GetMarketing um</span>
+          <span class="who-tag">übernimmt GetMarketing</span>
           <div class="st">Stufe 2</div>
           <h3>Nachfrage</h3>
-          <p>Aus deiner Positionierung entstehen laufend Inhalte und Seiten, die gefunden werden.</p>
+          <p>Aus der Positionierung entstehen Artikel, Posts und Landingpages, die bei Google und auf LinkedIn gefunden werden.</p>
           <ul><li>SEO-Artikel</li><li>LinkedIn, Instagram, Facebook</li><li>Landingpages</li></ul>
         </div>
         <div class="stage gm">
-          <span class="who-tag">setzt GetMarketing um</span>
+          <span class="who-tag">übernimmt GetMarketing</span>
           <div class="st">Stufe 3</div>
           <h3>Bindung</h3>
-          <p>Inhalte entlang der Customer Journey und ein Reporting, das zeigt, was wirkt.</p>
-          <ul><li>Content für Bestandskunden</li><li>Reporting</li><li>laufende Optimierung</li></ul>
+          <p>Bestehende Kunden bekommen passende Inhalte entlang der Customer Journey, und das Reporting zeigt, welche Inhalte wirken.</p>
+          <ul><li>Inhalte für Bestandskunden</li><li>Reporting</li><li>laufende Anpassung</li></ul>
         </div>
       </div>
-      <div class="take"><b class="k">Passt zu deinem Versprechen</b>„Wir beenden den Agenturen-Flickenteppich“: SEO, Social und Reporting laufen bei deinen Kunden in einem System. Ansprechpartner bleibst du.</div>
+      <div class="take"><b class="k">Zu deinem Versprechen</b>Du willst den „Agenturen-Flickenteppich“ beenden. Wenn SEO, Social und Reporting bei deinen Kunden in einem System laufen, passt das genau dazu, und Ansprechpartner bleibst du.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
   </section>
@@ -466,25 +475,25 @@
   <section class="slide">
     <div class="s-head">
       <div>
-        <h2>So läuft es bei jedem deiner Kunden</h2>
-        <p class="s-sub">Du lieferst die Positionierung. Das System liefert die laufende Umsetzung, und vor jedem Livegang wird freigegeben.</p>
+        <h2>Wie die Zusammenarbeit pro Kunde abläuft</h2>
+        <p class="s-sub">Du gibst die Positionierung vor, und wir sorgen dafür, dass daraus regelmäßig Inhalte entstehen. Vor jeder Veröffentlichung prüft ein Mensch, danach gibt der Kunde frei.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="steps4">
-        <div><span class="n">1</span><b>Briefing</b><p>Du übergibst Positionierung, Zielgruppe und Tonalität.</p></div>
-        <div><span class="n">2</span><b>Setup</b><p>Wir konfigurieren das System auf den Kunden: Wettbewerber, Keywords, Kanäle und Tonalität.</p></div>
-        <div><span class="n">3</span><b>Umsetzung</b><p>Die Agenten produzieren laufend. Ein Mensch prüft die Qualität, der Kunde gibt frei.</p></div>
-        <div><span class="n">4</span><b>Messen</b><p>GA4 und Search Console fließen zurück in den Plan. Was funktioniert, wird ausgebaut.</p></div>
+        <div><span class="n">1</span><b>Briefing</b><p>Du gibst uns Positionierung, Zielgruppe und Tonalität des Kunden.</p></div>
+        <div><span class="n">2</span><b>Einrichtung</b><p>Wir richten das System für den Kunden ein und hinterlegen Wettbewerber, Keywords, Kanäle und Tonalität.</p></div>
+        <div><span class="n">3</span><b>Umsetzung</b><p>Die Agenten schreiben und gestalten laufend neue Inhalte. Wir prüfen die Qualität, danach gibt der Kunde frei.</p></div>
+        <div><span class="n">4</span><b>Auswertung</b><p>Daten aus GA4 und der Search Console fließen zurück in den Plan, damit mehr von dem entsteht, was funktioniert.</p></div>
       </div>
-      <div class="col-h" style="margin-top:26px;margin-bottom:10px">Diese Agenten arbeiten im System</div>
+      <div class="col-h" style="margin-top:26px;margin-bottom:10px">Die Agenten im System</div>
       <div class="agents">
-        <div><b>Strategy Agent</b><span>kennt Business und Kennzahlen und gibt den nächsten Schritt vor</span></div>
+        <div><b>Strategy Agent</b><span>kennt Geschäft und Kennzahlen des Kunden und legt den nächsten Schritt fest</span></div>
         <div><b>PM Agent</b><span>plant die Aufgaben und hält den Ablauf zusammen</span></div>
-        <div><b>SEO Agent</b><span>analysiert die Top-10-Wettbewerber und arbeitet mit validierten Keywords</span></div>
+        <div><b>SEO Agent</b><span>analysiert die zehn bestplatzierten Wettbewerber und arbeitet mit geprüften Keywords</span></div>
         <div><b>Content Agent</b><span>schreibt Artikel und Posts in der Tonalität des Kunden</span></div>
-        <div><b>Design Agent</b><span>gestaltet Seiten, die fertig auf WordPress live gehen</span></div>
+        <div><b>Design Agent</b><span>gestaltet Seiten, die fertig auf WordPress veröffentlicht werden</span></div>
         <div><b>Analytics Agent</b><span>liest GA4 und Search Console mit reinen Leserechten</span></div>
       </div>
     </div>
@@ -495,20 +504,20 @@
   <section class="slide">
     <div class="s-head">
       <div>
-        <h2>Deine Kunden sehen nur 6xiBrand</h2>
-        <p class="s-sub">Jeder Kunde bekommt ein eigenes Portal mit deinem Branding. GetMarketing taucht für ihn nicht auf.</p>
+        <h2>Deine Kunden arbeiten mit einem Portal von 6xiBrand</h2>
+        <p class="s-sub">Jeder Kunde bekommt ein eigenes Portal mit deinem Logo und deinen Farben. GetMarketing wird dort nicht genannt.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="wl">
         <div>
           <div class="mock" aria-label="Schematische Darstellung des Kundenportals">
             <div class="mock-bar"><i></i><i></i><i></i><span>Kundenportal von 6xiBrand</span></div>
-            <div class="mock-nav"><span class="mark">6xi<i>Brand</i></span><span class="on">Plan</span><span>Inhalte</span><span>Freigaben</span><span>Report</span></div>
+            <div class="mock-nav"><img src="img/6xibrand.webp" alt="6xiBrand" /><span class="on">Plan</span><span>Inhalte</span><span>Freigaben</span><span>Report</span></div>
             <div class="mock-in">
               <div class="mock-h"><b>Diese Woche</b><span>Nächster Schritt vom Strategy Agent</span></div>
-              <div class="mrow"><em>SEO</em><div>Ratgeberartikel zum Hauptkeyword<small>Top-10-Analyse abgeschlossen</small></div><span class="st-b a">Zur Freigabe</span></div>
+              <div class="mrow"><em>SEO</em><div>Ratgeberartikel zum Hauptkeyword<small>Wettbewerbsanalyse abgeschlossen</small></div><span class="st-b a">Zur Freigabe</span></div>
               <div class="mrow"><em>IN</em><div>LinkedIn-Post zur neuen Leistung<small>Tonalität aus dem Briefing</small></div><span class="st-b p">Geplant</span></div>
               <div class="mrow"><em>LP</em><div>Landingpage für die Kampagne<small>auf WordPress veröffentlicht</small></div><span class="st-b l">Live</span></div>
             </div>
@@ -517,10 +526,10 @@
         </div>
         <div>
           <ul class="points">
-            <li><b>Dein Branding vorne.</b> Für den Kunden wirkt das System wie ein eigenes Premium-System seiner Agentur.</li>
-            <li><b>Das Setup ist ein Asset.</b> Grounding, Wettbewerber, Keywords, Kanäle und Tonalität stecken im System und gewinnen mit der Zeit an Wert.</li>
-            <li><b>Transparenz für den Kunden.</b> Er sieht, was gerade entsteht und was es bringt. Das ist der Gegenentwurf zur Agentur-Blackbox.</li>
-            <li><b>Freigabe vor dem Livegang.</b> Ein Mensch prüft die Qualität, und nichts geht ohne Freigabe online.</li>
+            <li>Für deine Kunden ist es das System ihrer Agentur, also deins.</li>
+            <li>Was bei der Einrichtung hinterlegt wird, also Wettbewerber, Keywords, Kanäle und Tonalität, bleibt im System und wird mit jedem Monat genauer.</li>
+            <li>Der Kunde sieht jederzeit, woran gerade gearbeitet wird und welche Ergebnisse es gibt.</li>
+            <li>Nichts wird ohne Prüfung und Freigabe veröffentlicht.</li>
           </ul>
           <div class="result" style="margin-top:22px"><div class="k">Daten</div><p>Hosting bei Hetzner in Deutschland. Eine DSGVO-Datenschutzerklärung liegt vor.</p></div>
         </div>
@@ -533,19 +542,19 @@
   <section class="slide">
     <div class="s-head">
       <div>
-        <h2>Was 6xiBrand davon hat</h2>
-        <p class="s-sub">GetMarketing verstärkt, was du schon machst. Strategie und Kundenbeziehung bleiben bei dir.</p>
+        <h2>Was du als Agentur davon hast</h2>
+        <p class="s-sub">Strategie und Kundenbeziehung bleiben bei dir. GetMarketing übernimmt die Arbeit, für die du sonst zusätzliches Personal bräuchtest.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="gains">
-        <div class="gain"><div><b>Umsetzung verkaufen ohne Neueinstellung</b><p>Du bietest zusätzlich zur Strategie die laufende Umsetzung an. Dafür musst du niemanden einstellen.</p></div></div>
-        <div class="gain"><div><b>Deine Marke steht vorne</b><p>Portal, Inhalte und Reports laufen unter 6xiBrand. Die Kundenbeziehung bleibt komplett bei dir.</p></div></div>
-        <div class="gain"><div><b>Fester Einkaufspreis, eigener Verkaufspreis</b><p>Du zahlst 250 € pro Projekt im Monat. Was du deinem Kunden berechnest, entscheidest du.</p></div></div>
-        <div class="gain"><div><b>Ein System statt Flickenteppich</b><p>SEO, Social und Reporting laufen in einem System. Das ist genau das, was du deinen Kunden versprichst.</p></div></div>
+        <div class="gain"><div><b>Umsetzung als zusätzliche Leistung</b><p>Du kannst deinen Kunden nach der Positionierung auch die laufende Umsetzung anbieten, ohne dafür jemanden einzustellen.</p></div></div>
+        <div class="gain"><div><b>Deine Marke bleibt sichtbar</b><p>Portal, Inhalte und Reports laufen unter 6xiBrand, und die Kundenbeziehung bleibt vollständig bei dir.</p></div></div>
+        <div class="gain"><div><b>Planbare Kosten</b><p>Pro Kundenprojekt zahlst du 250 € im Monat. Welchen Preis du deinem Kunden berechnest, entscheidest du selbst.</p></div></div>
+        <div class="gain"><div><b>Alles in einem System</b><p>SEO, Social und Reporting laufen zusammen und sind nicht auf mehrere Dienstleister verteilt.</p></div></div>
       </div>
-      <div class="take"><b class="k">Mit jedem Kunden</b>Jeder weitere Kunde ist ein weiteres Projekt zum selben Preis. So wächst dein Umsetzungsgeschäft, ohne dass dein Team mitwachsen muss.</div>
+      <div class="take"><b class="k">Mit jedem weiteren Kunden</b>Jeder neue Kunde ist ein weiteres Projekt zum gleichen Preis. Dein Umsetzungsgeschäft kann so wachsen, ohne dass dein Team größer werden muss.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Partnerangebot 6xiBrand</span><span class="pg"></span></div>
   </section>
@@ -554,10 +563,10 @@
   <section class="slide" id="konditionen">
     <div class="s-head">
       <div>
-        <h2>Konditionen: 250 € im Monat pro Kundenprojekt</h2>
-        <p class="s-sub">Ein Preis pro Kunde. Du entscheidest, wie viele Kunden du an Bord holst und was du ihnen berechnest.</p>
+        <h2>Konditionen</h2>
+        <p class="s-sub">Der Preis gilt pro Kundenprojekt. Wie viele Kunden du einbringst und was du ihnen berechnest, entscheidest du.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="tiers">
@@ -566,12 +575,12 @@
           <div class="v">250 € <small>/ Monat</small></div>
           <div class="sub">dein Einkaufspreis bei GetMarketing</div>
           <ul>
-            <li><span>White-Label-Portal mit deinem Branding</span><span class="on">✓</span></li>
+            <li><span>Portal mit deinem Branding</span><span class="on">✓</span></li>
             <li><span>Strategy Agent und laufender Plan</span><span class="on">✓</span></li>
-            <li><span>SEO-Content mit WordPress-Publishing</span><span class="on">✓</span></li>
+            <li><span>SEO-Artikel mit Veröffentlichung auf WordPress</span><span class="on">✓</span></li>
             <li><span>Social-Posts</span><span class="on">✓</span></li>
             <li><span>Reporting aus GA4 und Search Console</span><span class="on">✓</span></li>
-            <li><span>Menschliche Qualitätskontrolle</span><span class="on">✓</span></li>
+            <li><span>Prüfung durch einen Menschen</span><span class="on">✓</span></li>
           </ul>
         </div>
         <div class="tier scale">
@@ -606,9 +615,9 @@
     <div class="s-head">
       <div>
         <h2>Wer hinter GetMarketing steht</h2>
-        <p class="s-sub">Eine KI-Plattform für B2B-Marketing im DACH-Raum, gebaut auf über acht Jahren Praxis.</p>
+        <p class="s-sub">Ich habe GetMarketing gegründet, nachdem ich über acht Jahre im B2B-Marketing im DACH-Raum gearbeitet habe.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="about">
@@ -616,15 +625,15 @@
           <img src="/darya.jpg" alt="Darya Kablash" />
           <b>Darya Kablash</b>
           <div class="role">Gründerin von GetMarketing</div>
-          <p>Growth Consultant und Fractional CMO für DACH-B2B-Gründer. Head of Growth bei Invictus Lead Generation. Sitzt in Berlin.</p>
+          <p>Growth Consultant und Fractional CMO für B2B-Gründer im DACH-Raum, außerdem Head of Growth bei Invictus Lead Generation. Ich arbeite von Berlin aus.</p>
           <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn-Profil →</a>
         </div>
         <div>
           <div class="nums">
             <div><b>55</b><span>abgeschlossene Projekte in SEO, Google Ads, LinkedIn-Leadgen und KI-Automatisierung</span></div>
             <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
-            <div><b>3</b><span>Enterprise-Kunden mit individuell gebautem System im Einsatz</span></div>
-            <div><b>62</b><span>aktive Nutzer seit dem Launch, rund 20 neue pro Woche</span></div>
+            <div><b>3</b><span>Enterprise-Kunden, bei denen ein individuell gebautes System im Einsatz ist</span></div>
+            <div><b>62</b><span>aktive Nutzer seit dem Launch, derzeit rund 20 neue pro Woche</span></div>
           </div>
           <div class="tech"><em>Technik</em><span>Claude API von Anthropic</span><span>n8n</span><span>Postgres</span><span>Hosting bei Hetzner in Deutschland</span></div>
         </div>
@@ -637,27 +646,23 @@
   <section class="slide" id="pilot">
     <div class="s-head">
       <div>
-        <h2>Vorschlag: ein Pilot mit einem deiner Kunden</h2>
-        <p class="s-sub">Du siehst an einem echten Projekt, wie das System arbeitet. Erst danach entscheidest du, ob du es weiteren Kunden anbietest.</p>
+        <h2>Mein Vorschlag: ein Pilot mit einem deiner Kunden</h2>
+        <p class="s-sub">So siehst du an einem echten Projekt, wie das System arbeitet, und kannst danach entscheiden, ob du es weiteren Kunden anbietest.</p>
       </div>
-      <span class="mark s-mark">6xi<i>Brand</i></span>
+      <img class="s-logo" src="img/6xibrand.webp" alt="6xiBrand" />
     </div>
     <div class="s-body">
       <div class="pilot">
         <div class="steps4 tint">
-          <div><span class="n">1</span><b>Du nennst einen Kunden</b><p>Am besten einen, bei dem die Umsetzung gerade fehlt.</p></div>
-          <div><span class="n">2</span><b>Wir richten das System ein</b><p>Auf Basis deiner Positionierung und mit deinem Branding.</p></div>
-          <div><span class="n">3</span><b>Du siehst Ergebnisse</b><p>Erste Inhalte zur Freigabe und das Reporting im Portal.</p></div>
-          <div><span class="n">4</span><b>Du entscheidest</b><p>Ob und mit welchen weiteren Kunden es weitergeht.</p></div>
+          <div><span class="n">1</span><b>Du nennst einen Kunden</b><p>Am besten einen, bei dem die Umsetzung gerade liegen bleibt.</p></div>
+          <div><span class="n">2</span><b>Wir richten das System ein</b><p>Auf Grundlage deiner Positionierung und mit deinem Branding.</p></div>
+          <div><span class="n">3</span><b>Du siehst die Ergebnisse</b><p>Die ersten Inhalte kommen zur Freigabe, das Reporting läuft im Portal.</p></div>
+          <div><span class="n">4</span><b>Du entscheidest</b><p>ob es weitergeht und mit welchen weiteren Kunden.</p></div>
         </div>
         <div class="price" style="display:flex;flex-direction:column">
           <div class="k">Pilot</div>
           <div class="v">250 € <small>/ Monat</small></div>
-          <p>Derselbe Preis wie für jedes Kundenprojekt.</p>
-          <ul class="check sm lt" style="margin-top:auto;padding-top:18px">
-            <li style="color:#fff">Ein Kunde, ein Projekt</li>
-            <li style="color:#fff">Dein Branding von Anfang an</li>
-          </ul>
+          <p>Für den Pilot gilt derselbe Preis wie für jedes andere Kundenprojekt.</p>
         </div>
       </div>
     </div>
@@ -669,8 +674,8 @@
     <div class="s-body">
       <div class="close-grid">
         <div>
-          <h2>Eine Zahl genügt als Antwort</h2>
-          <p class="lead">Schreib mir einfach die passende Zahl per LinkedIn. Dann weiß ich, wie es weitergeht, und du brauchst keinen weiteren Termin.</p>
+          <h2>Wie möchtest du weitermachen?</h2>
+          <p class="lead">Am einfachsten ist eine kurze Antwort auf LinkedIn mit 1, 2 oder 3. Dann weiß ich, woran ich bin, und du musst keinen Termin einplanen.</p>
           <div class="who">
             <img src="/darya.jpg" alt="Darya Kablash" />
             <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
@@ -681,9 +686,9 @@
           </div>
         </div>
         <div class="opts">
-          <div class="opt hl"><span class="d">1</span><div><b>Pilot starten, ich nenne dir den Kunden</b><span>Wir richten das System für diesen Kunden ein.</span></div></div>
-          <div class="opt"><span class="d">2</span><div><b>Interessant, meld dich später wieder</b><span>Schreib gern den Monat dazu.</span></div></div>
-          <div class="opt"><span class="d">3</span><div><b>Passt gerade nicht zu 6xiBrand</b><span>Völlig in Ordnung, dann melde ich mich nicht mehr.</span></div></div>
+          <div class="opt hl"><span class="d">1</span><div><b>Wir starten einen Pilot</b><span>Du nennst mir einen Kunden, und ich richte das System ein.</span></div></div>
+          <div class="opt"><span class="d">2</span><div><b>Grundsätzlich interessant, aber später</b><span>Schreib mir gern, in welchem Monat ich mich wieder melden soll.</span></div></div>
+          <div class="opt"><span class="d">3</span><div><b>Passt gerade nicht zu 6xiBrand</b><span>Auch das hilft mir weiter. Dann melde ich mich nicht erneut.</span></div></div>
         </div>
       </div>
     </div>
@@ -789,53 +794,69 @@
 })();
 </script>
 <script>
-/* ---- Intro: agent activity feed, three clients in parallel ---- */
+/* ---- Intro: editorial calendar fills up; search volumes from DataForSEO (DE, Oct 2026) ---- */
 (function () {
-  var feed = document.getElementById('feed'), slide = document.getElementById('was');
-  if (!feed) return;
-  var C = { a: 'Kunde 1', b: 'Kunde 2', c: 'Kunde 3' };
-  var items = [
-    ['a', '<b>Strategy Agent</b> leitet aus den Kennzahlen den Wochenplan ab'],
-    ['b', '<b>SEO Agent</b> analysiert die Top-10-Wettbewerber zum Zielkeyword'],
-    ['a', '<b>SEO Agent</b> validiert Keywords über DataForSEO'],
-    ['c', '<b>Content Agent</b> schreibt LinkedIn-Posts in der Tonalität der Marke'],
-    ['b', '<b>Content Agent</b> schreibt den Artikel und prüft ihn gegen die Kriterien'],
-    ['a', '<b>Design Agent</b> gestaltet die Seite mit Title-Tag und Meta-Description'],
-    ['b', '<b>Qualitätskontrolle</b> durch einen Menschen'],
-    ['b', '<b>Freigabe</b> durch den Kunden angefragt'],
-    ['c', '<b>Analytics Agent</b> liest GA4 und Search Console'],
-    ['b', '<b>Freigegeben.</b> Artikel geht auf WordPress live'],
-    ['a', '<b>PM Agent</b> plant die nächsten Aufgaben ein'],
-    ['c', '<b>Strategy Agent</b> passt den Plan an das an, was funktioniert']
+  var grid = document.getElementById('calGrid'), slide = document.getElementById('was'), sumEl = document.getElementById('calSum');
+  if (!grid) return;
+  var days = ['Mo', 'Di', 'Mi', 'Do', 'Fr'], first = [2, 9, 16, 23];
+  var plan = [
+    ['li', 'Positionierung vor Kampagnen', 'markenpositionierung', 260],
+    ['blog', 'Corporate Identity im Mittelstand', 'corporate identity', 9900],
+    ['li', 'Was einen Markenkern ausmacht', 'markenkern', 210],
+    ['blog', 'Rebranding ohne Kundenverlust', 'rebranding', 2400],
+    ['rep', 'Wochenreport'],
+    ['li', 'Markenstrategie in drei Fragen', 'markenstrategie', 480],
+    ['blog', 'Employer Branding im Mittelstand', 'employer branding', 6600],
+    ['li', 'Wie Marken sich entwickeln', 'markenentwicklung', 320],
+    ['blog', 'Zielgruppenanalyse im B2B', 'zielgruppenanalyse', 1000],
+    ['rep', 'Wochenreport'],
+    ['li', 'Brand Identity ist mehr als ein Logo', 'brand identity', 720],
+    ['blog', 'Marketing Funnel im B2B erklärt', 'marketing funnel', 2400],
+    ['li', 'Was im B2B-Marketing funktioniert', 'b2b marketing', 720],
+    ['blog', 'Customer Journey: Phasen und Lücken', 'customer journey', 6600],
+    ['rep', 'Wochenreport'],
+    ['li', 'Markenführung im Alltag', 'markenführung', 210],
+    ['blog', 'Customer Journey Mapping mit Vorlage', 'customer journey mapping', 2400],
+    ['li', 'Markenaufbau mit Zahlen begleiten', 'markenaufbau', 90],
+    ['blog', 'Kundenbindung im B2B messbar machen', 'kundenbindung', 720],
+    ['rep', 'Monatsreport und Dezemberplan']
   ];
-  function li(it, anim) {
-    var el = document.createElement('li');
-    if (anim) el.className = 'in';
-    el.innerHTML = '<span class="c ' + it[0] + '">' + C[it[0]] + '</span><span class="t">' + it[1] + '</span>';
-    return el;
-  }
+  var fmt = function (n) { return n.toLocaleString('de-DE'); };
+  var evs = plan.map(function (p, i) {
+    var w = Math.floor(i / 5), d = i % 5;
+    var cell = document.createElement('div');
+    cell.className = 'cell';
+    cell.innerHTML = '<span class="dt"><i>' + days[d] + '</i> ' + (first[w] + d) + '.11.</span>';
+    var ev = document.createElement('div');
+    ev.className = 'ev ' + p[0];
+    ev.innerHTML = '<div class="ti">' + p[1] + '</div>' + (p[2] ? '<div class="kw"><span>' + p[2] + '</span><b>' + fmt(p[3]) + '</b></div>' : '<div class="kw"><span>GA4 und Search Console</span></div>');
+    cell.appendChild(ev);
+    grid.appendChild(cell);
+    return ev;
+  });
+  var total = plan.reduce(function (a, p) { return a + (p[0] === 'blog' ? p[3] : 0); }, 0);
+  function showAll() { evs.forEach(function (e) { e.classList.add('on'); }); sumEl.textContent = fmt(total); }
   var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var i = 0, timer = null;
-  function step() {
-    feed.insertBefore(li(items[i % items.length], true), feed.firstChild);
-    while (feed.children.length > 9) feed.removeChild(feed.lastChild);
-    i++;
-  }
-  function start() {
-    if (timer || still) return;
-    feed.innerHTML = ''; i = 0;
-    step();
-    timer = setInterval(step, 1500);
+  if (still || document.body.classList.contains('stack')) { showAll(); return; }
+  var timer = null;
+  function run() {
+    stop();
+    evs.forEach(function (e) { e.classList.remove('on'); });
+    var i = 0, sum = 0;
+    sumEl.textContent = '0';
+    timer = setInterval(function () {
+      if (i < evs.length) {
+        evs[i].classList.add('on');
+        if (plan[i][0] === 'blog') { sum += plan[i][3]; sumEl.textContent = fmt(sum); }
+        i++;
+      } else if (i++ > evs.length + 24) { run(); }
+    }, 260);
   }
   function stop() { clearInterval(timer); timer = null; }
-  if (still || document.body.classList.contains('stack') || matchMedia('print').matches) {
-    items.slice().reverse().slice(0, 8).forEach(function (it) { feed.appendChild(li(it, false)); });
-    return;
-  }
-  new MutationObserver(function () { slide.classList.contains('active') ? start() : stop(); })
+  new MutationObserver(function () { slide.classList.contains('active') ? run() : stop(); })
     .observe(slide, { attributes: true, attributeFilter: ['class'] });
-  if (slide.classList.contains('active')) start();
-  else items.slice(0, 6).reverse().forEach(function (it) { feed.appendChild(li(it, false)); });
+  if (slide.classList.contains('active')) run(); else showAll();
+  window.addEventListener('beforeprint', function () { stop(); showAll(); });
 })();
 </script>
 <script defer src="/analytics.js"></script>
