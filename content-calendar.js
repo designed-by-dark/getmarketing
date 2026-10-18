@@ -1,6 +1,7 @@
 /* Content calendar demo under the homepage hero.
    Keywords and monthly search volumes are real: Google Ads via DataForSEO, Germany, fetched 18 Oct 2026.
-   Titles are example topics. Language comes from <section data-lang="de|en">. */
+   Titles are example topics. The estimate strip uses stated assumptions (CTR, inquiry rate, close rate, editable deal value).
+   Language comes from data-lang="de|en" on #ccal. */
 (function () {
   var root = document.getElementById('ccal');
   if (!root) return;
@@ -68,7 +69,9 @@
     ]
   };
 
-  var grid = root.querySelector('.ccal-grid'), sumEl = root.querySelector('[data-ccal-sum]');
+  var grid = root.querySelector('.ccal-grid');
+  var est = { sum: root.querySelector('[data-est-sum]'), clicks: root.querySelector('[data-est-clicks]'), leads: root.querySelector('[data-est-leads]'), rev: root.querySelector('[data-est-rev]'), aov: root.querySelector('[data-est-aov]') };
+  var CTR = 0.03, LEAD = 0.015, CLOSE = 0.2, shown = 0;
   var tabs = Array.prototype.slice.call(root.querySelectorAll('.ccal-tabs button'));
   var fmt = function (n) { return n.toLocaleString(lang === 'en' ? 'en-US' : 'de-DE'); };
   var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -98,7 +101,18 @@
     });
   }
   function total() { return plan.reduce(function (a, p) { return a + (p[0] === 'blog' ? p[4] : 0); }, 0); }
-  function showAll() { evs.forEach(function (e) { e.classList.add('on'); }); sumEl.textContent = fmt(total()); }
+  function money(n) { return lang === 'en' ? '€' + fmt(n) : fmt(n) + ' €'; }
+  function round(n, step) { return Math.round(n / step) * step; }
+  function setSum(n) {
+    shown = n;
+    var clicks = n * CTR, leads = clicks * LEAD, aov = Math.max(0, parseFloat(est.aov && est.aov.value) || 0);
+    est.sum.textContent = fmt(n);
+    est.clicks.textContent = '≈ ' + fmt(round(clicks, 10));
+    est.leads.textContent = '≈ ' + fmt(Math.round(leads));
+    est.rev.textContent = '≈ ' + money(round(leads * CLOSE * aov, 500));
+  }
+  if (est.aov) est.aov.addEventListener('input', function () { setSum(shown); });
+  function showAll() { evs.forEach(function (e) { e.classList.add('on'); }); setSum(total()); }
   function select(i) {
     cur = i;
     tabs.forEach(function (t, j) {
@@ -112,11 +126,11 @@
     stop();
     if (still) { showAll(); return; }
     var i = 0, sum = 0, hold = 18;
-    sumEl.textContent = '0';
+    setSum(0);
     timer = setInterval(function () {
       if (i < evs.length) {
         evs[i].classList.add('on');
-        if (plan[i][0] === 'blog') { sum += plan[i][4]; sumEl.textContent = fmt(sum); }
+        if (plan[i][0] === 'blog') { sum += plan[i][4]; setSum(sum); }
         if (i === evs.length - 1 && !userPicked) {
           var bar = tabs[cur].querySelector('i');
           bar.style.transition = 'transform ' + (hold * 0.24) + 's linear'; bar.style.transform = 'scaleX(1)';
@@ -132,6 +146,7 @@
   });
 
   select(0);
+  setSum(total());
   if (still || !('IntersectionObserver' in window)) { showAll(); return; }
   new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {

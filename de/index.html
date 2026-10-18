@@ -598,7 +598,7 @@
   .quality-foot .q-link:hover { text-decoration: underline; }
   @media (max-width: 900px) { .quality-grid { grid-template-columns: 1fr; } }
 </style>
-<link rel="stylesheet" href="/content-calendar.css" />
+<link rel="stylesheet" href="/home-hero.css" />
 <script defer src="/content-calendar.js"></script>
 <script defer src="/analytics.js"></script>
 </head>
@@ -628,129 +628,46 @@
 </nav>
 
 <!-- ===== HERO ===== -->
-<header class="hero">
+<header class="hero hero-light">
   <div class="wrap">
-    <div class="hero-text">
-      <h1>Das KI-Marketingteam, das <em>dein Marketing übernimmt</em>, während du dein Unternehmen führst.</h1>
-      <p class="sub">Strategie, Content und Veröffentlichung laufen automatisch, jede Woche. Du prüfst, was rausgeht, bevor es passiert.</p>
-      <div class="hero-cta" style="display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap">
-        <a href="https://app.getmarketing.team" class="btn btn-dark">Jetzt testen</a>
-        <a href="/marketingplan-erstellen/" class="btn btn-ghost-light">Erst meinen Plan erstellen →</a>
-      </div>
-      <div class="hero-badge"><a href="https://www.lovelaice.com/?source=getmarketing" target="_blank" rel="noopener noreferrer" class="lv-badge on-dark" aria-label="KI validiert mit Lovelaice"><span class="lv-check"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span><span class="lv-text"><span class="lv-kicker">KI validiert mit</span><span class="lv-name">Lovelaice<span>.</span></span></span></a></div>
+    <h1>Automatisiere dein gesamtes Marketing <span class="hl">mit 1 Klick.</span></h1>
+    <p class="sub">Ein Team spezialisierter KI-Agenten plant, erstellt und veröffentlicht jede Woche auf allen Kanälen. Alles baut auf deiner bestehenden Marke und deinen Unterlagen auf, damit es nach dir klingt.</p>
+    <div class="hero-row">
+      <a href="/marketingplan-erstellen/" class="btn-hero">Einfach hier klicken</a>
+      <p class="hero-dare">Glaubst du nicht, dass dich das beeindruckt?<br>Lass uns eine Marketingstrategie für dich erstellen und dich vom Gegenteil überzeugen.</p>
     </div>
-  </div>
+    <ul class="hero-chips"><li>Strategie</li><li>SEO</li><li>Content</li><li>Keywords</li><li>LinkedIn</li><li>Instagram</li><li>E-Mail</li><li>Paid Ads</li><li>Analytics</li><li>Reporting</li><li>Veröffentlichung</li><li>Lead-Scoring</li><li class="lv"><a href="https://www.lovelaice.com/?source=getmarketing" target="_blank" rel="noopener noreferrer" class="lv-badge" aria-label="KI validiert mit Lovelaice"><span class="lv-check"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg></span><span class="lv-text"><span class="lv-kicker">KI validiert mit</span><span class="lv-name">Lovelaice<span>.</span></span></span></a></li></ul>
 
-  <!-- Badge grid -->
-  <div class="badge-grid">
-
-    <!-- Reihe 1: drifts left -->
-    <div class="badge-row-wrap">
-      <div class="badge-row-inner">
-        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Content fertig</div>
-        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
-        <div class="badge badge-notif"><span class="badge-icon">↗</span> 14 Keywords gefunden</div>
-        <div class="badge badge-agent"><span class="badge-icon">So</span> Social Manager</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> 3 Posts geplant</div>
-        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Wochenplan bereit</div>
-        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
-        <div class="badge badge-notif"><span class="badge-icon">↑</span> Reichweite: +2,4K</div>
-        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Content fertig</div>
-        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
-        <div class="badge badge-notif"><span class="badge-icon">↗</span> 14 Keywords gefunden</div>
-        <div class="badge badge-agent"><span class="badge-icon">So</span> Social Manager</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> 3 Posts geplant</div>
-        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Wochenplan bereit</div>
-        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
-        <div class="badge badge-notif"><span class="badge-icon">↑</span> Reichweite: +2,4K</div>
+    <div class="dash" id="ccal" data-lang="de" aria-label="Beispielansicht des GetMarketing-Dashboards">
+      <aside class="dash-side"><h6>Übersicht</h6><ul><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 9.5 10 4l7 5.5V16a1 1 0 0 1-1 1h-4v-5H8v5H4a1 1 0 0 1-1-1z"/></svg>Start</li><li class="on"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>Kalender</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M6 9h8M6 12h8M6 15h5"/></svg>4-Wochen-Plan</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="3.5" width="13" height="13" rx="2"/><path d="m7 10 2 2 4-4"/></svg>Content-Prüfung<em>3</em></li></ul><h6>Einblicke</h6><ul><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16.5V4M8 16.5v-5M12 16.5V8M16 16.5v-8"/></svg>Analytics</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4h14l-5 6.5V16l-4-2v-3.5z"/></svg>Funnel</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5"/><path d="m13 13 4 4"/></svg>SEO-Insights</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3a5 5 0 0 0-3 9v2h6v-2a5 5 0 0 0-3-9zM8 17h4"/></svg>Recherche</li></ul><h6>Wachstum</h6><ul><li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="m3 13 4-4 4 4 2-2 4 4"/></svg>Visual Content</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M17 3 3 9l6 2 2 6z"/></svg>Social Agent</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><circle cx="10" cy="10" r="3"/></svg>CRO Agent</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4h3l6 4V4L6 8z"/><path d="M15 8a3 3 0 0 1 0 4"/></svg>Google Ads</li></ul></aside>
+      <div class="dash-main">
+        <div class="dash-banner">
+          <div>
+            <div class="k">3 Beiträge bereit zum Lesen</div>
+            <h3>Dein Team hat die Beiträge und Artikel dieser Woche geschrieben.</h3>
+            <p>Lies jeden Beitrag vollständig und gib ihn frei oder schick ihn mit einer Notiz zurück. Der Content Agent überarbeitet ihn ohne Aufpreis.</p>
+          </div>
+          <div class="act"><span>Lesen und prüfen</span><small>Etwa 6 Minuten</small></div>
+        </div>
+        <div class="dash-h">
+          <b>Dein Content-Plan · November 2026</b>
+          <div class="ccal-tabs" role="tablist" aria-label="Branche wählen"><button type="button" role="tab" data-plan="industrie" aria-selected="true">Industrie und Fertigung<i></i></button><button type="button" role="tab" data-plan="kanzlei" aria-selected="false">Steuerberatung<i></i></button><button type="button" role="tab" data-plan="it" aria-selected="false">IT-Dienstleister<i></i></button></div>
+        </div>
+        <div class="ccal">
+          <div class="ccal-days"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span></div>
+          <div class="ccal-grid"></div>
+        </div>
+        <div class="est">
+          <div><div class="k">Suchanfragen pro Monat</div><b data-est-sum>60.500</b><small>zu den 8 Artikelthemen</small></div>
+          <div><div class="k">Geschätzte Klicks</div><b data-est-clicks>–</b><small>bei 3 % Klickrate</small></div>
+          <div><div class="k">Geschätzte Anfragen</div><b data-est-leads>–</b><small>bei 1,5 % Anfragerate</small></div>
+          <div class="last"><div class="k">Umsatzpotenzial pro Monat</div><b data-est-rev>–</b><label>Ø Auftragswert <input type="number" min="0" step="500" value="5000" data-est-aov aria-label="Durchschnittlicher Auftragswert in Euro" /> €</label><small>bei 20 % Abschlussquote</small></div>
+        </div>
+        <p class="est-note">Schätzung, keine Garantie. Sie gilt, wenn alle Artikel auf Seite 1 bei Google ranken, was in der Regel mehrere Monate dauert. Klickrate, Anfragerate und Abschlussquote sind Annahmen. Suchvolumen sind echte Werte für Deutschland (Google Ads über DataForSEO, Oktober 2026), die Branchenpläne sind Beispiele.</p>
       </div>
     </div>
-
-    <!-- Reihe 2: drifts right -->
-    <div class="badge-row-wrap">
-      <div class="badge-row-inner">
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> E-Mail-Sequenz live</div>
-        <div class="badge badge-agent"><span class="badge-icon">Em</span> E-Mail Marketing</div>
-        <div class="badge badge-notif"><span class="badge-icon">↑</span> Rankings verbessert</div>
-        <div class="badge badge-agent"><span class="badge-icon">Bd</span> Brand Designer</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Blog-Entwurf geprüft</div>
-        <div class="badge badge-agent"><span class="badge-icon">Cp</span> Kampagnenplanung</div>
-        <div class="badge badge-notif"><span class="badge-icon">★</span> Leads +34%</div>
-        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Strategie geprüft</div>
-        <div class="badge badge-agent"><span class="badge-icon">Ad</span> Ads Manager</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> E-Mail-Sequenz live</div>
-        <div class="badge badge-agent"><span class="badge-icon">Em</span> E-Mail Marketing</div>
-        <div class="badge badge-notif"><span class="badge-icon">↑</span> Rankings verbessert</div>
-        <div class="badge badge-agent"><span class="badge-icon">Bd</span> Brand Designer</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Blog-Entwurf geprüft</div>
-        <div class="badge badge-agent"><span class="badge-icon">Cp</span> Kampagnenplanung</div>
-        <div class="badge badge-notif"><span class="badge-icon">★</span> Leads +34%</div>
-        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Strategie geprüft</div>
-        <div class="badge badge-agent"><span class="badge-icon">Ad</span> Ads Manager</div>
-      </div>
-    </div>
-
-    <!-- Reihe 3: drifts left (offset) -->
-    <div class="badge-row-wrap">
-      <div class="badge-row-inner">
-        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">↑</span> Traffic +18%</div>
-        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Kampagne live</div>
-        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> 2 Artikel veröffentlicht</div>
-        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
-        <div class="badge badge-notif"><span class="badge-icon">↗</span> 8 Lücken beim Wettbewerb</div>
-        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Bericht fertig</div>
-        <div class="badge badge-agent"><span class="badge-icon">St</span> Strategie-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">↑</span> Traffic +18%</div>
-        <div class="badge badge-agent"><span class="badge-icon">Wr</span> Content Writer</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Kampagne live</div>
-        <div class="badge badge-agent"><span class="badge-icon">Se</span> SEO-Spezialist</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> 2 Artikel veröffentlicht</div>
-        <div class="badge badge-agent"><span class="badge-icon">Li</span> LinkedIn Manager</div>
-        <div class="badge badge-notif"><span class="badge-icon">↗</span> 8 Lücken beim Wettbewerb</div>
-        <div class="badge badge-agent"><span class="badge-icon">An</span> Analytics-Lead</div>
-        <div class="badge badge-notif"><span class="badge-icon">✓</span> Bericht fertig</div>
-      </div>
-    </div>
-
   </div>
 </header>
-
-<!-- ===== CONTENT-KALENDER ===== -->
-<section class="ccal-section" id="ccal" data-lang="de">
-  <div class="wrap">
-    <div class="ccal-head">
-      <div>
-        <h2>So sieht ein Monat mit <em>GetMarketing</em> aus</h2>
-        <p>Die Plattform sucht Themen, nach denen deine Zielgruppe tatsächlich sucht, und plant daraus Blogartikel und LinkedIn-Posts für den ganzen Monat. Jeder Beitrag zielt auf ein Keyword mit echtem Suchvolumen.</p>
-      </div>
-      <div class="ccal-sum"><b data-ccal-sum>60.500</b><span>Suchanfragen pro Monat zu den Blogthemen in diesem Plan</span></div>
-    </div>
-    <div class="ccal-tabs" role="tablist" aria-label="Branche wählen">
-      <button type="button" role="tab" data-plan="industrie" aria-selected="true">Industrie und Fertigung<i></i></button>
-      <button type="button" role="tab" data-plan="kanzlei" aria-selected="false">Steuerberatung<i></i></button>
-      <button type="button" role="tab" data-plan="it" aria-selected="false">IT-Dienstleister<i></i></button>
-    </div>
-    <div class="ccal">
-      <div class="ccal-top">
-        <b>Redaktionsplan November 2026</b>
-        <div class="ccal-legend"><span class="blog">Blogartikel</span><span class="li">LinkedIn-Post</span><span class="rep">Report</span></div>
-      </div>
-      <div class="ccal-days"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span></div>
-      <div class="ccal-grid"></div>
-    </div>
-    <p class="ccal-src">Beispielpläne für drei Branchen. Keywords und Suchvolumen pro Monat sind echte Werte für Deutschland (Google Ads über DataForSEO, Oktober 2026).</p>
-  </div>
-</section>
 
 <!-- ===== HERO PULL-QUOTE ===== -->
 <section class="hero-quote">
