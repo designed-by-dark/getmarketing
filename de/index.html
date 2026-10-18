@@ -598,6 +598,8 @@
   .quality-foot .q-link:hover { text-decoration: underline; }
   @media (max-width: 900px) { .quality-grid { grid-template-columns: 1fr; } }
 </style>
+<link rel="stylesheet" href="/content-calendar.css" />
+<script defer src="/content-calendar.js"></script>
 <script defer src="/analytics.js"></script>
 </head>
 <body>
@@ -722,6 +724,33 @@
 
   </div>
 </header>
+
+<!-- ===== CONTENT-KALENDER ===== -->
+<section class="ccal-section" id="ccal" data-lang="de">
+  <div class="wrap">
+    <div class="ccal-head">
+      <div>
+        <h2>So sieht ein Monat mit <em>GetMarketing</em> aus</h2>
+        <p>Die Plattform sucht Themen, nach denen deine Zielgruppe tatsächlich sucht, und plant daraus Blogartikel und LinkedIn-Posts für den ganzen Monat. Jeder Beitrag zielt auf ein Keyword mit echtem Suchvolumen.</p>
+      </div>
+      <div class="ccal-sum"><b data-ccal-sum>60.500</b><span>Suchanfragen pro Monat zu den Blogthemen in diesem Plan</span></div>
+    </div>
+    <div class="ccal-tabs" role="tablist" aria-label="Branche wählen">
+      <button type="button" role="tab" data-plan="industrie" aria-selected="true">Industrie und Fertigung<i></i></button>
+      <button type="button" role="tab" data-plan="kanzlei" aria-selected="false">Steuerberatung<i></i></button>
+      <button type="button" role="tab" data-plan="it" aria-selected="false">IT-Dienstleister<i></i></button>
+    </div>
+    <div class="ccal">
+      <div class="ccal-top">
+        <b>Redaktionsplan November 2026</b>
+        <div class="ccal-legend"><span class="blog">Blogartikel</span><span class="li">LinkedIn-Post</span><span class="rep">Report</span></div>
+      </div>
+      <div class="ccal-days"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span></div>
+      <div class="ccal-grid"></div>
+    </div>
+    <p class="ccal-src">Beispielpläne für drei Branchen. Keywords und Suchvolumen pro Monat sind echte Werte für Deutschland (Google Ads über DataForSEO, Oktober 2026).</p>
+  </div>
+</section>
 
 <!-- ===== HERO PULL-QUOTE ===== -->
 <section class="hero-quote">

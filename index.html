@@ -691,6 +691,8 @@
   .quality-foot .q-link:hover { text-decoration: underline; }
   @media (max-width: 900px) { .quality-grid { grid-template-columns: 1fr; } }
 </style>
+<link rel="stylesheet" href="/content-calendar.css" />
+<script defer src="/content-calendar.js"></script>
 <script defer src="/analytics.js"></script>
 </head>
 <body>
@@ -815,6 +817,34 @@
 
   </div>
 </header>
+
+<!-- ===== CONTENT CALENDAR ===== -->
+<section class="ccal-section" id="ccal" data-lang="en">
+  <div class="wrap">
+    <div class="ccal-head">
+      <div>
+        <h2>What a month with <em>GetMarketing</em> looks like</h2>
+        <p>The platform finds topics your audience actually searches for and turns them into a month of blog articles and LinkedIn posts. Every piece targets a keyword with real search demand.</p>
+      </div>
+      <div class="ccal-sum"><b data-ccal-sum>60,500</b><span>searches per month across the blog topics in this plan</span></div>
+    </div>
+    <div class="ccal-tabs" role="tablist" aria-label="Choose an industry">
+      <button type="button" role="tab" data-plan="industrie" aria-selected="true">Manufacturing<i></i></button>
+      <button type="button" role="tab" data-plan="kanzlei" aria-selected="false">Tax advisory<i></i></button>
+      <button type="button" role="tab" data-plan="it" aria-selected="false">IT services<i></i></button>
+    </div>
+    <div class="ccal">
+      <div class="ccal-top">
+        <b>Content plan · November 2026</b>
+        <div class="ccal-legend"><span class="blog">Blog article</span><span class="li">LinkedIn post</span><span class="rep">Report</span></div>
+      </div>
+      <div class="ccal-days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div>
+      <div class="ccal-grid"></div>
+    </div>
+    <p class="ccal-src">Example plans for three industries in Germany. Keywords and monthly search volumes are real values for Germany (Google Ads via DataForSEO, October 2026).</p>
+  </div>
+</section>
+
 
 <!-- ===== HERO PULL-QUOTE ===== -->
 <section class="hero-quote">

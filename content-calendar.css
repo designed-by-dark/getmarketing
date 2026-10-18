@@ -1,0 +1,61 @@
+/* Content calendar demo under the homepage hero. Markup lives in index.html / de/index.html, data in content-calendar.js. */
+.ccal-section { background: #fff; padding: 96px 0 88px; }
+.ccal-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 28px; }
+.ccal-head h2 { max-width: 18ch; }
+.ccal-head p { color: var(--gray); font-size: 17px; line-height: 1.6; max-width: 52ch; margin-top: 14px; }
+.ccal-sum { flex-shrink: 0; text-align: right; }
+.ccal-sum b { display: block; font-size: clamp(36px, 4.4vw, 56px); font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
+.ccal-sum span { display: block; font-size: 13.5px; color: var(--gray); margin-top: 8px; max-width: 24ch; margin-left: auto; line-height: 1.45; }
+
+.ccal-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.ccal-tabs button {
+  font: 600 14px var(--font); letter-spacing: -0.01em; color: var(--black);
+  background: #fff; border: 1.5px solid #DADADA; border-radius: 50px; padding: 9px 18px; cursor: pointer;
+  position: relative; overflow: hidden; transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+.ccal-tabs button:hover { border-color: var(--black); }
+.ccal-tabs button[aria-selected="true"] { background: var(--forest); border-color: var(--forest); color: #fff; }
+.ccal-tabs button i { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+
+.ccal { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 12px 40px rgba(0,0,0,.06); }
+.ccal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.ccal-top b { font-size: 15px; letter-spacing: -0.01em; }
+.ccal-legend { display: flex; gap: 14px; }
+.ccal-legend span { font-size: 12.5px; color: var(--gray); display: inline-flex; align-items: center; gap: 6px; }
+.ccal-legend span::before { content: ""; width: 10px; height: 10px; border-radius: 3px; }
+.ccal-legend .blog::before { background: var(--forest); }
+.ccal-legend .li::before { background: #2D6CB5; }
+.ccal-legend .rep::before { background: var(--gray2); }
+.ccal-days, .ccal-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ccal-days { background: var(--card); border-bottom: 1px solid var(--line); }
+.ccal-days span { font-size: 12.5px; font-weight: 700; color: var(--gray); padding: 8px 12px; }
+.ccal-cell { height: 118px; padding: 8px 10px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.ccal-cell:nth-child(5n) { border-right: 0; }
+.ccal-cell:nth-last-child(-n+5) { border-bottom: 0; }
+.ccal-dt { font-size: 12px; color: var(--gray2); font-weight: 600; }
+.ccal-dt i { font-style: normal; display: none; }
+.ccal-ev { border-left: 3px solid var(--forest); background: var(--tint); border-radius: 5px; padding: 6px 8px 7px; opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; }
+.ccal-ev.on { opacity: 1; transform: none; }
+.ccal-ev.li { border-color: #2D6CB5; background: #EAF1FA; }
+.ccal-ev.rep { border-color: var(--gray2); background: var(--card); }
+.ccal-ti { font-size: 13px; font-weight: 700; line-height: 1.3; color: var(--black); letter-spacing: -0.01em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ccal-kw { font-size: 11.5px; color: var(--gray); margin-top: 4px; display: flex; gap: 6px; line-height: 1.3; }
+.ccal-kw span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.ccal-kw b { flex-shrink: 0; color: var(--forest); font-variant-numeric: tabular-nums; }
+.ccal-ev.li .ccal-kw b { color: #2D6CB5; }
+.ccal-src { font-size: 12.5px; color: var(--gray); margin-top: 14px; }
+
+@media (max-width: 900px) {
+  .ccal-section { padding: 72px 0 64px; }
+  .ccal-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .ccal-sum { text-align: left; }
+  .ccal-sum span { margin-left: 0; }
+  .ccal-legend, .ccal-days { display: none; }
+  .ccal-grid { grid-template-columns: minmax(0, 1fr); max-height: 560px; overflow-y: auto; }
+  .ccal-cell { height: auto; border-right: 0; border-bottom: 1px solid var(--line) !important; display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 10px; padding: 9px 14px; }
+  .ccal-dt i { display: inline; }
+  .ccal-kw span { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ccal-ev { transition: none; }
+}
