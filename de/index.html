@@ -1001,16 +1001,6 @@
             <span class="stat-label">Generierter Geschäftswert</span>
           </div>
         </div>
-        <div class="about-tags">
-          <span class="about-tag">SEO &amp; Content</span>
-          <span class="about-tag">LinkedIn Organic</span>
-          <span class="about-tag">Google Ads</span>
-          <span class="about-tag">KI-Outreach</span>
-          <span class="about-tag">Leadinfo</span>
-          <span class="about-tag">GA4 &amp; Tracking</span>
-          <span class="about-tag">Webdesign</span>
-          <span class="about-tag">LinkedIn Ads</span>
-        </div>
         <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener" class="about-li-btn">LinkedIn-Profil ansehen ↗</a>
         <p class="about-footnote">* Schätzung auf Basis von Traffic-Werten, Anfragewachstum und durchschnittlichen Deal-Größen der Kundenprojekte.</p>
       </div>
@@ -1051,9 +1041,8 @@
     <p class="sub">24 Unternehmen testen es bereits. Schreib uns kurz und wir richten alles für dich ein.</p>
     <div class="btn-row">
       <a href="https://app.getmarketing.team" class="btn btn-light">Jetzt testen</a>
-      <a href="/marketingplan-erstellen/" class="btn btn-ghost-light">Erst meinen Plan erstellen →</a>
-      <a href="mailto:darya@getmarketing.team?subject=Demo%20buchen&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20eine%20Demo%20von%20GetMarketing%20buchen.%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn-ghost-light">Demo buchen</a>
     </div>
+    <p class="cta-alt">Lieber erst sprechen? <a href="mailto:darya@getmarketing.team?subject=Demo%20buchen&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20eine%20Demo%20von%20GetMarketing%20buchen.%0A%0AViele%20Gr%C3%BC%C3%9Fe">Demo buchen →</a></p>
     <p class="trust">Keine Kreditkarte. Keine Bindung.</p>
 
     <div class="team-online">
@@ -1067,13 +1056,25 @@
   </div>
 </section>
 
-<footer>
-  <div class="wrap foot-inner">
-    <a href="#" class="foot-logo">
-      <img src="/logo.jpg" alt="" class="foot-logo-mark" />
-      <span class="foot-logo-text">GetMarketing</span>
-    </a>
-    <span>© 2026 GetMarketing · Dein letzter Marketing-Hire · <a href="/partners/">Partner</a> · <a href="/de/presse/">Presse</a> · <a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a> · <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></span>
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="#" class="ft-logo"><img src="/logo.jpg" alt="" /><span>GetMarketing</span></a>
+        <p class="ft-tag">Dein letzter Marketing-Hire</p>
+        <p class="ft-desc">Ein Team aus KI-Agenten, das dein Marketing plant, umsetzt und misst. Für B2B-Unternehmen im DACH-Raum.</p>
+      </div>
+      <div class="ft-col"><h4>Produkt</h4><ul><li><a href="#solution">Funktionen</a></li><li><a href="#solution">So funktioniert's</a></li><li><a href="#diff">Vergleich</a></li><li><a href="/marketingplan-erstellen/">Marketingplan erstellen</a></li><li><a href="https://app.getmarketing.team" target="_blank" rel="noopener">Jetzt testen</a></li></ul></div><div class="ft-col"><h4>Unternehmen</h4><ul><li><a href="/partners/">Partner</a></li><li><a href="/de/presse/">Presse</a></li><li><a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+      <div class="ft-col"><h4>Kontakt</h4><ul>
+        <li><a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a></li>
+        <li><a href="mailto:darya@getmarketing.team?subject=Demo%20buchen&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20eine%20Demo%20von%20GetMarketing%20buchen.%0A%0AViele%20Gr%C3%BC%C3%9Fe">Demo buchen</a></li>
+        <li class="ft-plain">Berlin, Deutschland</li>
+      </ul></div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 GetMarketing</span>
+      <div class="ft-legal"><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/" id="switch-en-foot">English</a></div>
+    </div>
   </div>
 </footer>
 
@@ -1084,12 +1085,11 @@
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
   /* Wenn jemand manuell auf EN klickt, merken wir uns das */
-  var enBtn = document.getElementById('switch-en');
-  if (enBtn) {
+  document.querySelectorAll('#switch-en, #switch-en-foot').forEach(function (enBtn) {
     enBtn.addEventListener('click', function () {
       localStorage.setItem('gm-lang', 'en');
     });
-  }
+  });
 
   document.querySelectorAll('.approve-btn').forEach((b) => {
     b.addEventListener('click', () => {

@@ -123,3 +123,28 @@ nav .nav-cta:hover { background: #222; border-color: #222; color: #fff; }
   .hero-chips li { font-size: 13px; padding: 7px 11px; }
 }
 @media (prefers-reduced-motion: reduce) { .ccal-ev { transition: none; } }
+
+/* ---- Final CTA: one button, demo as text link ---- */
+.cta-alt { margin-top: 18px; font-size: 15px; color: rgba(255,255,255,.65); }
+.cta-alt a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,.35); }
+.cta-alt a:hover { text-decoration-color: #fff; }
+
+/* ---- Footer ---- */
+.ft { background: #FAFAF8; border-top: 1px solid #ECECE8; padding: 64px 0 28px; font-size: 14px; color: var(--gray); }
+.ft-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
+.ft-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.ft-logo img { width: 36px; height: 36px; border-radius: 8px; display: block; }
+.ft-logo span { font-size: 19px; font-weight: 900; letter-spacing: -0.04em; color: var(--black); }
+.ft-tag { margin-top: 14px; font-weight: 700; color: var(--black); }
+.ft-desc { margin-top: 6px; color: var(--gray); line-height: 1.6; max-width: 34ch; }
+.ft-col h4 { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--black); margin-bottom: 14px; }
+.ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.ft-col a { color: var(--gray); text-decoration: none; transition: color .14s; }
+.ft-col a:hover { color: var(--black); }
+.ft-plain { color: var(--gray); }
+.ft-bottom { margin-top: 48px; padding-top: 20px; border-top: 1px solid #ECECE8; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px; }
+.ft-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+.ft-legal a { color: var(--gray); text-decoration: none; }
+.ft-legal a:hover { color: var(--black); }
+@media (max-width: 900px) { .ft-grid { grid-template-columns: 1fr 1fr; } .ft-brand { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .ft { padding-top: 48px; } .ft-grid { grid-template-columns: 1fr; gap: 28px; } }
