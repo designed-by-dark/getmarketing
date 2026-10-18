@@ -36,7 +36,7 @@
         if (b[1] === 'm') { bCol[b[0]] = Math.min(2, bCol[b[0]] + 1); place(el, bCol[b[0]]); tag(el, 'moved', moved); }
         else { el.classList.add('dropped'); tag(el, 'dropped', dropped); }
       }
-      if (a) tag(aItems[a[0]], 's' + a[1], st[a[1]]);
+      if (a) tag(aItems[a[0]], 's' + a[1], a[1] === 3 && aItems[a[0]].getAttribute('data-res') ? aItems[a[0]].getAttribute('data-res') : st[a[1]]);
       tick++;
       if (tick > afterSteps.length + 4) reset();
     }

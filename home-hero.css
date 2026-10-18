@@ -355,9 +355,6 @@ nav .nav-cta:hover { background: var(--action-hover); border-color: var(--action
 .hero-row { gap: 10px; margin-top: 32px; }
 .btn-hero { min-width: 0; background: var(--action); border-radius: 12px; padding: 13px 28px; font-size: 15px; font-weight: 600; box-shadow: none; }
 .btn-hero:hover { background: var(--action-hover); box-shadow: none; transform: none; }
-.btn-ghost-hero { display: inline-flex; align-items: center; background: #fff; color: var(--body); border-radius: 12px; padding: 13px 28px; font: 500 15px var(--font); text-decoration: none; box-shadow: var(--ring); transition: color .15s ease, box-shadow .15s ease; }
-.btn-ghost-hero:hover { color: var(--ink); box-shadow: rgba(0,0,0,.14) 0 0 0 1px, rgba(0,0,0,.06) 0 3px 3px -1.5px; }
-.btn-ghost-hero:active { transform: translateY(1px); }
 .hero-dare { font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--muted); margin-top: 14px; max-width: 60ch; }
 .hero-chips-mask { margin-top: 56px; }
 .hero-chips li { border: 0; box-shadow: var(--ring); border-radius: 9999px; padding: 7px 14px 7px 12px; font-size: 13px; font-weight: 500; color: var(--ink); }
@@ -454,3 +451,89 @@ nav .nav-cta:hover { background: var(--action-hover); border-color: var(--action
   .hero-row > a { width: 100%; justify-content: center; }
   .cta-final .wrap { margin: 0 16px; }
 }
+
+/* =====================================================================
+   Colour moments: green stage under the dashboard, coloured chip dots,
+   accent words, dark cycle band, dark featured case and final CTA
+   ===================================================================== */
+.hero-dare a { color: var(--action); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(27,67,50,.3); }
+.hero-dare a:hover { border-color: var(--action); }
+h2 em, .hero-light h1 em { color: var(--accent-ink); }
+
+/* hero: dashboard floats over a green band */
+.hero.hero-light { background: linear-gradient(to bottom, #fff 0, #fff calc(100% - 380px), var(--forest) calc(100% - 380px)); padding-bottom: 72px; }
+.hero.hero-light::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 380px; background: radial-gradient(700px 260px at 80% 100%, rgba(82,183,136,.28), transparent 70%); pointer-events: none; }
+.hero.hero-light > .wrap { position: relative; z-index: 1; }
+.dash { box-shadow: rgba(0,0,0,.08) 0 0 0 1px, rgba(10,30,20,.35) 0 30px 60px -20px; }
+
+/* coloured category dots on the chips */
+.hero-chips li:nth-child(5n+1)::before { background: #2F8A5E; opacity: 1; }
+.hero-chips li:nth-child(5n+2)::before { background: #2D6CB5; opacity: 1; }
+.hero-chips li:nth-child(5n+3)::before { background: #E0A526; opacity: 1; }
+.hero-chips li:nth-child(5n+4)::before { background: #E46B6B; opacity: 1; }
+.hero-chips li:nth-child(5n+5)::before { background: #1FA2A6; opacity: 1; }
+
+/* quote sits right after the green band */
+.hero-quote { border-top: 0; }
+
+/* before / after tinted again */
+.ba-before { background: #FCF8F3; }
+.ba-after { background: #F2F8F4; }
+.ba-after .ba-tag.s3 { background: var(--accent); color: var(--forest); }
+.ba-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
+
+/* cycle on a dark band */
+.cy-section { background: var(--forest); color: #fff; position: relative; overflow: hidden; }
+.cy-section::after { content: ""; position: absolute; inset: 0; background: radial-gradient(800px 400px at 15% 0%, rgba(82,183,136,.18), transparent 70%); pointer-events: none; }
+.cy-section .wrap { position: relative; z-index: 1; }
+.cy-section h2 { color: #fff; }
+.cy-section h2 em { color: var(--accent); }
+.cy-section .sec-sub { color: rgba(255,255,255,.7); }
+.cy-ring svg circle:first-child { stroke: rgba(255,255,255,.15); }
+.cy-center b { color: #fff; }
+.cy-center span { color: rgba(255,255,255,.6); }
+.cy-node { box-shadow: none; }
+.cy-node.on { box-shadow: 0 0 0 2px var(--accent), 0 14px 30px -10px rgba(0,0,0,.4); }
+.cy-you { background: rgba(255,255,255,.07); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+.cy-you .k { color: var(--accent); }
+.cy-you p:last-child { color: #fff; }
+.cy-link { color: #fff; border-color: rgba(255,255,255,.35); }
+.cy-link:hover { border-color: #fff; }
+
+/* featured case dark again, accent number */
+.cs-feat { background: var(--forest); color: #fff; box-shadow: none; }
+.cs-feat .cs-ind, .cs-steps dt { color: var(--accent); }
+.cs-feat-num b { color: #fff; }
+.cs-feat .cs-unit { color: rgba(255,255,255,.75); }
+.cs-steps dd { color: rgba(255,255,255,.9); }
+.cs-num { color: var(--forest); }
+.cs-card { border-top: 2px solid var(--forest); }
+
+/* comparison column strong again */
+.compare .gm-col { background: var(--forest); color: #fff; box-shadow: none; }
+.compare thead .gm-col { color: #fff; }
+.gm-col .yes { color: var(--accent); }
+
+/* quality on a soft green band */
+.quality-section { background: var(--tint); }
+.quality-grid { border-top-color: var(--forest); }
+.quality-card { border-color: rgba(27,67,50,.15); }
+
+/* final CTA: dark card, one light button */
+.cta-final .wrap { background: var(--forest); box-shadow: none; position: relative; overflow: hidden; }
+.cta-final .wrap::after { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 300px at 90% 120%, rgba(82,183,136,.3), transparent 70%); pointer-events: none; }
+.cta-final .wrap > * { position: relative; z-index: 1; }
+.cta-final h2 { color: #fff; }
+.cta-final .sub { color: rgba(255,255,255,.72); }
+.cta-final .btn-light { background: #fff; color: var(--forest); }
+.cta-final .btn-light:hover { background: #F2F8F4; }
+.cta-alt { color: rgba(255,255,255,.7); }
+.cta-alt a { color: #fff; text-decoration-color: rgba(255,255,255,.4); }
+.cta-final .trust { color: rgba(255,255,255,.5); }
+
+@media (max-width: 900px) {
+  .hero.hero-light { background: linear-gradient(to bottom, #fff 0, #fff calc(100% - 300px), var(--forest) calc(100% - 300px)); }
+  .hero.hero-light::after { height: 300px; }
+}
+.ba-tag { white-space: nowrap; }
+@media (max-width: 600px) { .ba-tag { font-size: 9.5px; padding: 2px 6px; margin-left: 6px; } }

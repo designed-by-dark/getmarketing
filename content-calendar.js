@@ -49,23 +49,41 @@
       ['li', 'Belege digital statt im Ordner', 'Receipts in the cloud, not in folders', 'digitale buchhaltung', 320],
       ['blog', 'Holding gründen: wann es sich lohnt', 'When a holding company pays off', 'holding gründen', 1600]
     ],
-    it: [
-      ['li', 'Copilot im Arbeitsalltag', 'Copilot in everyday work', 'microsoft copilot', 90500],
-      ['blog', 'Cyberangriff: die ersten 24 Stunden', 'Cyberattack: the first 24 hours', 'cyberangriff', 22200],
-      ['li', 'Passwortmanager im Team einführen', 'Rolling out a team password manager', 'passwortmanager', 201000],
-      ['blog', 'Datenschutz im Mittelstand umsetzen', 'Data protection for mid-sized firms', 'datenschutz', 18100],
-      ['li', 'KI im Unternehmen sinnvoll einsetzen', 'Using AI sensibly in your company', 'ki im unternehmen', 260],
-      ['blog', 'NIS2: wer betroffen ist', 'NIS2: who is affected', 'nis2', 14800],
-      ['li', 'Phishing-Mails erkennen', 'Spotting phishing emails', 'phishing erkennen', 210],
-      ['blog', 'IT-Sicherheit für kleine Unternehmen', 'IT security for small businesses', 'it sicherheit', 3600],
-      ['li', 'Cloud-Migration ohne Ausfall', 'Cloud migration without downtime', 'cloud migration', 260],
-      ['blog', 'Zero Trust einfach erklärt', 'Zero trust explained', 'zero trust', 1900],
-      ['li', 'Wie wir IT-Fachkräfte halten', 'How we keep IT talent', 'it fachkräftemangel', 210],
-      ['blog', 'Managed Services: was ein MSP übernimmt', 'Managed services: what an MSP covers', 'managed services', 1300],
-      ['li', 'Digitalisierung im Mittelstand', 'Digitalisation for mid-sized firms', 'digitalisierung mittelstand', 140],
-      ['blog', 'IT-Outsourcing: Kosten und Ablauf', 'IT outsourcing: costs and process', 'it outsourcing', 480],
-      ['li', 'Umzug auf Microsoft 365', 'Moving to Microsoft 365', 'microsoft 365 migration', 40],
-      ['blog', 'Backup-Strategie nach der 3-2-1-Regel', 'A 3-2-1 backup strategy', 'backup strategie', 320]
+    shop: [
+      ['li', 'Ein Tag in unserer Rösterei', 'A day in our roastery', 'kaffeerösterei', 27100],
+      ['blog', 'Kaffeebohnen kaufen: so erkennst du Qualität', 'Buying coffee beans: how to spot quality', 'kaffeebohnen', 33100],
+      ['li', 'Latte Art für Anfänger', 'Latte art for beginners', 'latte art', 6600],
+      ['blog', 'Kaffeemühle: Kegel oder Scheibe?', 'Coffee grinders: conical or flat burr?', 'kaffeemühle', 33100],
+      ['li', 'Was Fair Trade beim Kaffee bedeutet', 'What fair trade means for coffee', 'fair trade kaffee', 390],
+      ['blog', 'French Press: Anleitung und Mahlgrad', 'French press: guide and grind size', 'french press', 33100],
+      ['li', 'Espresso richtig zubereiten', 'Brewing espresso properly', 'espresso zubereiten', 720],
+      ['blog', 'Cold Brew selber machen', 'Making cold brew at home', 'cold brew', 12100],
+      ['li', 'Filterkaffee ist zurück', 'Filter coffee is back', 'filterkaffee', 6600],
+      ['blog', 'Die richtigen Espressobohnen finden', 'Finding the right espresso beans', 'espresso bohnen', 2900],
+      ['li', 'Kaffee richtig lagern', 'Storing coffee properly', 'kaffee lagern', 140],
+      ['blog', 'Kaffeevollautomat entkalken', 'Descaling a bean-to-cup machine', 'kaffeevollautomat entkalken', 3600],
+      ['li', 'Unsere Lieferkette erklärt', 'Our supply chain explained', 'nachhaltiger kaffee', 90],
+      ['blog', 'Milchschaum wie im Café', 'Café-style milk foam', 'milchschaum', 1600],
+      ['li', 'So funktioniert unser Kaffee-Abo', 'How our coffee subscription works', 'kaffee abo', 590],
+      ['blog', 'Siebträgermaschine kaufen: Ratgeber', 'Buying an espresso machine: a guide', 'siebträgermaschine', 110000]
+    ],
+    saas: [
+      ['li', 'Hybrides Arbeiten, das funktioniert', 'Hybrid work that actually works', 'hybrides arbeiten', 3600],
+      ['blog', 'Gantt-Diagramm erstellen mit Vorlage', 'Building a Gantt chart, with template', 'gantt diagramm', 22200],
+      ['li', 'Was New Work im Alltag heißt', 'What new work means day to day', 'new work', 4400],
+      ['blog', 'Kanban Board: Spalten, Regeln, Beispiele', 'Kanban boards: columns, rules, examples', 'kanban board', 18100],
+      ['li', 'Change Management in kleinen Teams', 'Change management in small teams', 'change management', 8100],
+      ['blog', 'Scrum einfach erklärt', 'Scrum explained simply', 'scrum', 22200],
+      ['li', 'Remote Work ohne Meeting-Chaos', 'Remote work without meeting chaos', 'remote work', 2900],
+      ['blog', 'OKR einführen: Schritt für Schritt', 'Introducing OKRs step by step', 'okr', 9900],
+      ['li', 'Agile Methoden im Vergleich', 'Agile methods compared', 'agile methoden', 1000],
+      ['blog', 'Zeiterfassung im Team einführen', 'Rolling out time tracking in a team', 'zeiterfassung', 8100],
+      ['li', 'Teams auf Distanz führen', 'Leading teams remotely', 'teamführung', 260],
+      ['blog', 'Ressourcenplanung für Projekte', 'Resource planning for projects', 'ressourcenplanung', 1000],
+      ['li', 'Produktiver ohne Überstunden', 'More productive without overtime', 'produktivität steigern', 210],
+      ['blog', 'Projektplan-Vorlage zum Download', 'Project plan template to download', 'projektplan vorlage', 1000],
+      ['li', 'Eine bessere Meeting-Kultur', 'A better meeting culture', 'meeting kultur', 40],
+      ['blog', 'Projektmanagement-Software vergleichen', 'Comparing project management software', 'projektmanagement software', 1300]
     ]
   };
 
