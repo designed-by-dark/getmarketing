@@ -562,3 +562,14 @@ h2 em, .hero-light h1 em { color: var(--accent-ink); }
 
 /* quality list uses the same number badges as the cycle */
 .quality-card .q-num { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--forest); font-family: var(--font); font-size: 14px; font-weight: 700; top: 20px; }
+
+/* header: short CTA, ChatGPT button sits right next to the menu button */
+nav .nav-ai { margin-left: -8px; }
+@media (max-width: 420px) { nav .nav-ai { display: flex; } }
+@media (max-width: 600px) { nav .nav-cta { padding: 8px 16px; font-size: 13px; } }
+@media (max-width: 400px) { nav .nav-inner { gap: 8px; } nav .nav-ai { margin-left: -4px; } nav .nav-logo { gap: 8px; } nav .nav-logo-text { font-size: 16px; } nav .nav-cta { padding: 7px 12px; } }
+
+/* hero dare link wraps on phones: underline every line */
+.hero-dare a { display: inline; border-bottom: 0; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; text-decoration-color: rgba(27,67,50,.3); }
+.hero-dare a:hover { text-decoration-color: var(--action); }
+@media (max-width: 350px) { nav .nav-lang { display: none; } nav .nav-cta { margin-left: auto; } }
