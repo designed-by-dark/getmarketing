@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angebot VHI · GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Angebot für den VHI: Sichtbarkeit bei Google, in KI-Antworten und auf LinkedIn." />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest:     #1B4332;
+    --forest-2:   #143527;
+    --accent:     #52B788;
+    --accent-ink: #2F8A5E;
+    --black:      #0A0A0A;
+    --ink:        #1F2A24;
+    --gray:       #6B7280;
+    --gray2:      #B0B8C1;
+    --card:       #F4F4F2;
+    --line:       #E6E6E1;
+    --tint:       #E7F3EC;
+    --warn:       #B4532A;
+    --warn-bg:    #F7EBE2;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --s: 1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font); color: var(--ink); background: #E4E1D9;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow: hidden;
+  }
+  h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; text-wrap: balance; color: var(--black); }
+
+  /* ================= Deck / stage ================= */
+  .deck { position: fixed; inset: 0; }
+  .slide {
+    position: absolute; left: 50%; top: 50%;
+    width: 1280px; height: 720px;
+    transform: translate(-50%, -50%) scale(var(--s));
+    background: #fff; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 72px 0;
+    opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
+  .slide.dark { background: var(--forest); color: #fff; }
+  .slide.dark h1, .slide.dark h2 { color: #fff; }
+
+  .s-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 28px; }
+  .s-head h2 { font-size: 38px; max-width: 920px; }
+  .s-head .s-sub { font-size: 17px; color: var(--gray); margin-top: 10px; font-weight: 400; max-width: 860px; line-height: 1.5; }
+  .s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .s-foot {
+    height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: var(--gray2); border-top: 1px solid var(--line); margin-top: 18px;
+  }
+  .s-foot b { color: var(--gray); font-weight: 700; }
+  .dark .s-foot { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
+  .dark .s-foot b { color: rgba(255,255,255,.7); }
+
+  .take {
+    margin-top: auto; display: flex; gap: 18px; align-items: center;
+    background: var(--forest); color: #fff; border-radius: 14px; padding: 18px 24px;
+    font-size: 16.5px; line-height: 1.5;
+  }
+  .take b.k { flex-shrink: 0; font-size: 14px; font-weight: 800; color: var(--accent); }
+
+  /* ================= Shared blocks ================= */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card { background: var(--card); border-radius: 16px; padding: 26px; }
+  .col-h { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+  .lbl { font-size: 15px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+
+  .check { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .check li { position: relative; padding-left: 30px; font-size: 16px; line-height: 1.45; }
+  .check li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 19px; height: 19px; border-radius: 5px;
+    background: var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;
+  }
+  .check.sm li { font-size: 14.5px; }
+  .check.lt li::before { background-color: rgba(255,255,255,.12); }
+
+  .price { background: var(--forest); color: #fff; border-radius: 16px; padding: 26px; }
+  .price .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .price .v { font-size: 50px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; }
+  .price .v small { font-size: 18px; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,.7); }
+  .price p { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 10px; line-height: 1.5; }
+  .result { background: var(--tint); border-radius: 16px; padding: 22px 24px; }
+  .result .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
+  .result p { font-size: 16px; color: var(--forest); line-height: 1.5; font-weight: 500; }
+  .small-note { font-size: 12.5px; color: var(--gray); margin-top: 12px; line-height: 1.5; }
+  .small-note b { color: var(--ink); }
+
+  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .steps4 > div { background: var(--card); border-radius: 16px; padding: 20px 20px 22px; position: relative; }
+  .steps4 > div:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 26px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+  .steps4 .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
+  .steps4 b { display: block; font-size: 17px; letter-spacing: -0.015em; }
+  .steps4 p { font-size: 14px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
+  .steps4.tint > div { background: var(--tint); }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 16px var(--font); padding: 15px 28px; border-radius: 50px; text-decoration: none; transition: transform .18s ease, opacity .18s ease; }
+  .btn:hover { transform: translateY(-2px); opacity: .92; }
+  .btn-light { background: #fff; color: var(--forest); }
+  .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
+
+  /* ================= Cover ================= */
+  .cover { padding-top: 70px; }
+  .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
+  .cover .gm img { width: 38px; height: 38px; border-radius: 8px; }
+  .cover .gm span { color: rgba(255,255,255,.45); font-weight: 500; }
+  .cover h1 { font-size: 60px; max-width: 980px; margin-top: 70px; letter-spacing: -0.035em; line-height: 1.05; }
+  .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; }
+  .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
+  .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
+
+  /* ================= Drei Stufen ================= */
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .stage { border-radius: 18px; padding: 24px 26px 26px; background: var(--card); display: flex; flex-direction: column; }
+  .stage.gm { background: var(--tint); }
+  .stage .who-tag { align-self: flex-start; font-size: 12.5px; font-weight: 800; padding: 6px 12px; border-radius: 50px; background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+  .stage.gm .who-tag { background: var(--forest); color: #fff; border-color: var(--forest); }
+  .stage .st { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-top: 20px; }
+  .stage h3 { font-size: 26px; margin-top: 4px; }
+  .stage p { font-size: 15px; color: var(--gray); margin-top: 10px; line-height: 1.5; }
+  .stage ul { list-style: none; margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .stage li { font-size: 13px; font-weight: 600; background: #fff; border-radius: 6px; padding: 5px 9px; }
+  /* ================= Agenten ================= */
+  .agents { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 36px; border-top: 2px solid var(--ink); }
+  .agents > div { padding: 12px 0 13px; border-bottom: 1px solid var(--line); }
+  .agents b { display: block; font-size: 15px; }
+  .agents span { display: block; font-size: 13.5px; color: var(--gray); line-height: 1.45; margin-top: 2px; }
+
+  /* ================= Portal-Mock ================= */
+  .wl { display: grid; grid-template-columns: 1.08fr 1fr; gap: 40px; align-items: start; }
+  .mock { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.07); }
+  .mock-bar { height: 30px; background: #F1F0EC; display: flex; align-items: center; gap: 5px; padding: 0 12px; font-size: 11.5px; color: var(--gray); }
+  .mock-bar i { width: 8px; height: 8px; border-radius: 50%; background: #D5D3CC; flex-shrink: 0; }
+  .mock-bar span { margin-left: 10px; background: #fff; border-radius: 5px; padding: 2px 10px; }
+  .mock-nav { display: flex; align-items: center; gap: 18px; padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--gray); }
+  .mock-nav .on { color: var(--ink); font-weight: 700; }
+  .mock-in { padding: 18px 20px 20px; }
+  .mock-h { display: flex; justify-content: space-between; align-items: baseline; }
+  .mock-h b { font-size: 17px; letter-spacing: -0.015em; }
+  .mock-h span { font-size: 12px; color: var(--gray); }
+  .mrow { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; align-items: center; background: var(--card); border-radius: 10px; padding: 10px 12px; margin-top: 8px; font-size: 13.5px; }
+  .mrow em { width: 30px; height: 30px; border-radius: 8px; background: #fff; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 800; color: var(--forest); }
+  .mrow small { display: block; font-size: 11.5px; color: var(--gray); }
+  .st-b { font-size: 11px; font-weight: 800; padding: 4px 9px; border-radius: 50px; white-space: nowrap; }
+  .st-b.a { background: var(--warn-bg); color: var(--warn); }
+  .st-b.p { background: #fff; color: var(--gray); border: 1px solid var(--line); }
+  .st-b.l { background: var(--tint); color: var(--accent-ink); }
+  .mock-chart { margin-top: 14px; display: flex; align-items: flex-end; gap: 6px; height: 54px; padding: 0 2px; }
+  .mock-chart div { flex: 1; background: var(--tint); border-radius: 4px 4px 0 0; }
+  .mock-chart div:last-child { background: var(--accent); }
+  .mock-cap { font-size: 12px; color: var(--gray); margin-top: 10px; text-align: center; }
+
+  /* ================= Nutzen ================= */
+  .gains { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; row-gap: 8px; }
+  .gain { border-top: 2px solid var(--ink); padding: 18px 0 22px; }
+  .gain b { display: block; font-size: 22px; letter-spacing: -0.02em; line-height: 1.25; }
+  .gain p { font-size: 16px; color: var(--gray); margin-top: 8px; line-height: 1.55; max-width: 500px; }
+
+  .points { list-style: none; border-top: 2px solid var(--ink); }
+  .points li { font-size: 15.5px; line-height: 1.5; color: var(--gray); padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .points b { color: var(--ink); }
+
+  /* ================= Konditionen ================= */
+  .tiers { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 18px; }
+  .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 24px 26px; }
+  .tier.full { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .tier.agency { background: var(--card); border-color: var(--card); }
+  .tier .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .tier.full .k { color: var(--accent); }
+  .tier.agency .k, .tier.agency .v { color: var(--gray); }
+  .tier .v { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 12px 0 4px; white-space: nowrap; }
+  .tier .v small { font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .tier.full .v small, .tier.full .sub { color: rgba(255,255,255,.65); }
+  .tier .sub { font-size: 13.5px; color: var(--gray); }
+  .tier ul { list-style: none; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+  .tier.full ul { border-color: rgba(255,255,255,.15); }
+  .tier li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; }
+  .tier li span:last-child { font-weight: 700; white-space: nowrap; }
+  .tier .on { color: var(--accent-ink); }
+  .tier.full .on { color: var(--accent); }
+  .tier .incl { font-size: 13.5px; margin-top: 14px; color: var(--gray); line-height: 1.5; }
+  .tier.full .incl { color: rgba(255,255,255,.7); }
+  .scale li { font-variant-numeric: tabular-nums; }
+  .scale li span:first-child { color: var(--gray); }
+
+  /* ================= Proof ================= */
+  .about { display: grid; grid-template-columns: 340px 1fr; gap: 40px; align-items: start; }
+  .person { background: var(--card); border-radius: 18px; padding: 26px; }
+  .person img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; display: block; }
+  .person b { display: block; font-size: 20px; margin-top: 16px; letter-spacing: -0.015em; }
+  .person .role { font-size: 14px; color: var(--accent-ink); font-weight: 700; margin-top: 2px; }
+  .person p { font-size: 14.5px; color: var(--gray); margin-top: 12px; line-height: 1.55; }
+  .person a { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--forest); text-decoration: none; }
+  .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .nums > div { border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
+  .nums b { display: block; font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
+  .nums span { display: block; font-size: 14.5px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+  .tech em { font-style: normal; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-right: 4px; }
+  .tech span { font-size: 13.5px; font-weight: 600; padding: 7px 12px; border-radius: 8px; background: var(--card); }
+
+  /* ================= Pilot ================= */
+  .pilot { display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: stretch; }
+  .pilot .steps4 { grid-template-columns: 1fr 1fr; }
+  .pilot .steps4 > div::after { display: none; }
+
+  /* ================= Close ================= */
+  .close-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; flex: 1; }
+  .close h2 { font-size: 46px; line-height: 1.08; }
+  .close .lead { font-size: 17.5px; color: rgba(255,255,255,.72); margin-top: 20px; max-width: 520px; line-height: 1.55; }
+  .who { display: flex; align-items: center; gap: 16px; margin-top: 34px; }
+  .who img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+  .who b { display: block; font-size: 17px; }
+  .who span { font-size: 14px; color: rgba(255,255,255,.65); }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .opts { display: flex; flex-direction: column; gap: 12px; }
+  .opt { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: center; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 18px 22px; }
+  .opt .d { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,.1); display: grid; place-items: center; font-size: 28px; font-weight: 900; }
+  .opt.hl { background: #fff; border-color: #fff; color: var(--forest); }
+  .opt.hl .d { background: var(--accent); color: var(--forest); }
+  .opt b { display: block; font-size: 18px; letter-spacing: -0.015em; }
+  .opt span { display: block; font-size: 14px; color: rgba(255,255,255,.6); margin-top: 3px; }
+  .opt.hl span { color: var(--gray); }
+
+  /* ================= Cover note ================= */
+  .cover .note-in { margin-top: 30px; max-width: 640px; font-size: 16px; line-height: 1.55; color: rgba(255,255,255,.72); }
+  .cover .note-in a { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
+
+  /* ================= Intro mit Redaktionskalender ================= */
+  .intro { padding-top: 44px; }
+  .intro-grid { display: grid; grid-template-columns: 360px 1fr; gap: 44px; align-items: center; flex: 1; min-height: 0; }
+  .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+  .intro h2 { font-size: 40px; line-height: 1.1; letter-spacing: -0.035em; margin-top: 12px; }
+  .intro .lead { font-size: 16px; color: var(--gray); margin-top: 16px; line-height: 1.55; }
+  .sum { margin-top: 26px; padding-top: 18px; border-top: 2px solid var(--ink); }
+  .sum b { display: block; font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .sum span { display: block; font-size: 14px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
+  .cal { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 8px 28px rgba(0,0,0,.06); }
+  .cal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .cal-top b { font-size: 14px; }
+  .legend { display: flex; gap: 12px; }
+  .lg { font-size: 11.5px; color: var(--gray); display: inline-flex; align-items: center; gap: 6px; }
+  .lg::before { content: ""; width: 9px; height: 9px; border-radius: 2px; }
+  .lg.blog::before { background: var(--forest); }
+  .lg.li::before { background: #2D6CB5; }
+  .lg.rep::before { background: var(--gray2); }
+  .cal-days { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--card); border-bottom: 1px solid var(--line); }
+  .cal-days span { font-size: 11.5px; font-weight: 700; color: var(--gray); padding: 6px 8px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .cell { height: 104px; padding: 5px 6px 6px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .cell:nth-child(5n) { border-right: 0; }
+  .cell:nth-last-child(-n+5) { border-bottom: 0; }
+  .cell .dt { font-size: 11px; color: var(--gray2); font-weight: 600; }
+  .cell .dt i { font-style: normal; display: none; }
+  .ev { border-left: 3px solid var(--forest); background: var(--tint); border-radius: 4px; padding: 4px 6px 5px; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
+  .ev.on { opacity: 1; transform: none; }
+  .ev.li { border-color: #2D6CB5; background: #EAF1FA; }
+  .ev.rep { border-color: var(--gray2); background: var(--card); }
+  .ev .ti { font-size: 11.5px; font-weight: 700; line-height: 1.28; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .ev .kw { font-size: 10.5px; color: var(--gray); margin-top: 3px; display: flex; gap: 4px; }
+  .ev .kw span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .ev .kw b { flex-shrink: 0; }
+  .ev .kw b { color: var(--forest); font-variant-numeric: tabular-nums; }
+  .ev.li .kw b { color: #2D6CB5; }
+
+  /* ================= Logos ================= */
+  .s-logo { height: 26px; width: auto; flex-shrink: 0; margin-top: 10px; }
+  .cover-logo { display: block; height: 52px; width: auto; margin-top: 40px; align-self: flex-start; }
+  .mock-nav img { height: 18px; width: auto; margin-right: auto; }
+
+  /* ================= Ergebnisse ================= */
+  .res { display: grid; grid-template-columns: 1fr 340px; gap: 52px; align-items: start; }
+  .ledger { border-top: 2px solid var(--ink); }
+  .ledger .row { display: grid; grid-template-columns: 210px 1fr; gap: 24px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .ledger .row > b { font-size: 44px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .ledger strong { display: block; font-size: 17px; letter-spacing: -0.01em; }
+  .ledger span { display: block; font-size: 14px; color: var(--gray); margin-top: 4px; line-height: 1.45; }
+  .side-case { border-top: 2px solid var(--ink); padding-top: 14px; }
+  .side-case b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
+  .side-case strong { display: block; font-size: 17px; margin-top: 10px; letter-spacing: -0.01em; }
+  .side-case span { display: block; font-size: 14px; color: var(--gray); margin-top: 4px; line-height: 1.45; }
+  .total { margin-top: 28px; background: var(--forest); color: #fff; border-radius: 16px; padding: 22px 24px; }
+  .total b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+  .total span { display: block; font-size: 14px; color: rgba(255,255,255,.7); margin-top: 8px; line-height: 1.45; }
+
+  /* ================= VHI ================= */
+  .cover .kicker { margin-top: 64px; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .cover .kicker + h1 { margin-top: 14px; }
+  .s-head .eyebrow { margin-bottom: 10px; }
+  .eyebrow.lt { color: var(--accent); margin-bottom: 14px; }
+  .s-mark { flex-shrink: 0; margin-top: 4px; font-size: 15px; font-weight: 900; letter-spacing: .04em; color: var(--forest); border: 2px solid var(--forest); border-radius: 8px; padding: 5px 10px; }
+  .sit { display: flex; flex-direction: column; }
+  .sit .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; }
+  .sit h3 { font-size: 22px; margin-top: 18px; }
+  .sit p { font-size: 15.5px; color: var(--gray); margin-top: 10px; line-height: 1.55; }
+  .topics { border-top: 2px solid var(--ink); }
+  .topic { display: grid; grid-template-columns: 56px 1fr auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .topic .tn { font-size: 26px; font-weight: 900; letter-spacing: -0.04em; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .topic b { font-size: 21px; letter-spacing: -0.02em; line-height: 1.3; }
+  .topic .tags { display: flex; gap: 6px; }
+  .topic .tags i { font-style: normal; font-size: 13px; font-weight: 600; background: var(--card); border-radius: 6px; padding: 6px 10px; white-space: nowrap; }
+  .topic .tags i:first-child { background: var(--tint); color: var(--accent-ink); }
+  .tiers.two { grid-template-columns: 1.3fr 1fr; }
+  .tier ul.extra { border-top: 0; margin-top: 10px; padding-top: 0; }
+  .tier ul.extra li { font-size: 18px; font-weight: 700; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .stack .sit h3 { font-size: 20px; }
+  .stack .topic { grid-template-columns: 40px 1fr; gap: 12px; }
+  .stack .topic .tags { grid-column: 2; flex-wrap: wrap; }
+  .stack .topic b { font-size: 17px; }
+  .stack .tiers.two { grid-template-columns: minmax(0, 1fr); }
+
+  /* ================= Controls ================= */
+  .ctrl {
+    position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 50px; padding: 5px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .ctrl button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; font: 700 16px var(--font); color: var(--ink); display: grid; place-items: center; }
+  .ctrl button:hover { background: var(--card); }
+  .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
+  .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
+  body:not(.stack) .s-foot .pg { visibility: hidden; }
+  .progress { position: fixed; left: 0; top: 0; width: 100%; height: 3px; background: var(--accent); z-index: 50; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+
+  /* ================= Stacked mode (phones / portrait) ================= */
+  body.stack { overflow: auto; background: #fff; }
+  .stack .deck { position: static; }
+  .stack .slide {
+    position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto;
+    opacity: 1; visibility: visible; box-shadow: none; padding: 48px 16px 0;
+    border-bottom: 8px solid #EEEDE8;
+  }
+  .stack .ctrl, .stack .progress { display: none; }
+  .stack .slide * { min-width: 0; }
+  .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
+  .stack .s-head h2 { font-size: 26px; }
+  .stack .s-head .s-sub { font-size: 15px; }
+  .stack .grid3, .stack .grid2, .stack .intro-grid, .stack .res, .stack .stages, .stack .agents, .stack .wl, .stack .gains,
+  .stack .tiers, .stack .about, .stack .nums, .stack .pilot, .stack .pilot .steps4, .stack .steps4, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .stack .steps4 > div::after { display: none; }
+  .stack .take { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 15px; margin-top: 22px; }
+  .stack .cover { padding-top: 40px; }
+  .stack .cover h1 { font-size: 34px; margin-top: 40px; }
+  .stack .cover .for { font-size: 17px; }
+  .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
+  .stack .intro h2 { font-size: 28px; }
+  .stack .s-logo { height: 20px; margin-top: 0; }
+  .stack .cover-logo { height: 38px; }
+  .stack .cal-days { display: none; }
+  .stack .cal-grid { grid-template-columns: minmax(0, 1fr); }
+  .stack .cell { height: auto; border-right: 0; border-bottom: 1px solid var(--line) !important; display: grid; grid-template-columns: 54px 1fr; align-items: start; gap: 8px; padding: 8px 12px; }
+  .stack .cell:empty { display: none; }
+  .stack .cell .dt i { display: inline; }
+  .stack .ev .kw { white-space: normal; }
+  .stack .legend { display: none; }
+  .stack .ledger .row { grid-template-columns: 1fr; gap: 6px; }
+  .stack .ledger .row > b { font-size: 38px; }
+  .stack .side-case b { font-size: 38px; }
+  .stack .gains { row-gap: 0; }
+  .stack .cover .note-in { font-size: 15px; }
+  .stack .mock-nav { gap: 10px; font-size: 12px; flex-wrap: wrap; }
+  .stack .tier .v { font-size: 40px; }
+  .stack .nums b { font-size: 36px; }
+  .stack .close h2 { font-size: 30px; }
+  .stack .close-grid { gap: 32px; padding-bottom: 24px; }
+  .stack .opt { grid-template-columns: 48px 1fr; gap: 14px; padding: 14px 16px; }
+  .stack .opt .d { width: 44px; height: 44px; font-size: 22px; }
+
+  /* ================= Print / PDF ================= */
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { height: auto; overflow: visible; background: #fff; }
+    .deck { position: static; }
+    .slide { position: relative; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; box-shadow: none; break-after: page; page-break-after: always; }
+    .ctrl, .progress { display: none !important; }
+    body:not(.stack) .s-foot .pg { visibility: visible; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- Cover -->
+  <section class="slide dark cover">
+    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
+    <div class="kicker">Für Anemon Strohmeyer</div>
+    <h1>GetMarketing × VHI</h1>
+    <p class="for">Wie der Verband bei Google, in KI-Antworten und auf LinkedIn sichtbarer wird. Zum Durchklicken brauchst du etwa zwei Minuten.</p>
+    <div class="meta">
+      <div>Von<b>Darya Kablash, Gründerin von GetMarketing</b></div>
+      <div>Stand<b>Oktober 2026</b></div>
+    </div>
+    <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ausgangslage -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Ausgangslage</div>
+        <h2>Viele Themen, viele Zielgruppen und wenig Zeit</h2>
+        <p class="s-sub">Der VHI hat genau das Fachwissen, nach dem online gesucht wird. Damit es ankommt, muss es regelmäßig und für jede Zielgruppe passend aufbereitet werden.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="grid3">
+        <div class="card sit"><span class="n">1</span><h3>Die Themen sind da</h3><p>Wohngesundheit, Klimaschutz, Bauen mit Holz sowie Energie- und Industriepolitik sind Fachthemen, zu denen online gezielt nach Informationen gesucht wird.</p></div>
+        <div class="card sit"><span class="n">2</span><h3>Viele Zielgruppen</h3><p>Mitgliedsunternehmen, Planer und Fachpublikum, Politik und Presse wollen jeweils anders angesprochen werden, oft zum selben Thema.</p></div>
+        <div class="card sit"><span class="n">3</span><h3>Die Zeit fehlt</h3><p>Die Geschäftsstelle ist mit der Verbandsarbeit ausgelastet, deshalb läuft die Kommunikation oft nebenher.</p></div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Das Wissen liegt in der Geschäftsstelle bereit. Es fehlt ein Ablauf, der daraus laufend Beiträge für Google, KI-Suche und LinkedIn macht.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Leistung -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Was GetMarketing übernimmt</div>
+        <h2>Ein System für Content, SEO und LinkedIn</h2>
+        <p class="s-sub">Die vier Bausteine laufen in einem gemeinsamen Plan, damit Website und LinkedIn dieselben Themen zur selben Zeit aufgreifen.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="gains">
+        <div class="gain"><b>Fachbeiträge für Google und KI-Suche</b><p>Artikel zu Holzwerkstoff-Themen, die bei Google gefunden werden und in Antworten von ChatGPT, Perplexity oder der KI-Übersicht von Google auftauchen.</p></div>
+        <div class="gain"><b>LinkedIn für Verband und Geschäftsführung</b><p>Regelmäßige Posts auf der Seite des VHI und im Profil der Geschäftsführung halten den Verband bei Mitgliedern und Fachpublikum präsent.</p></div>
+        <div class="gain"><b>Aus einer Meldung werden viele Formate</b><p>Eine Pressemitteilung oder Stellungnahme wird zum Fachartikel, zum LinkedIn-Post und zu einer Kurzfassung.</p></div>
+        <div class="gain"><b>Reporting</b><p>Daten aus Google Analytics 4 und der Search Console zeigen, welche Beiträge gefunden und gelesen werden. Der Plan wird laufend daran angepasst.</p></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ablauf -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Ablauf</div>
+        <h2>So läuft es für den VHI</h2>
+        <p class="s-sub">Die laufende Arbeit übernehmen wir. Von dir brauchen wir nur die Freigabe, bevor ein Beitrag veröffentlicht wird.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="steps4">
+        <div><span class="n">1</span><b>Analyse</b><p>Wir lesen vhi.de aus und prüfen Themen, Suchnachfrage und Wettbewerb anhand echter Suchdaten.</p></div>
+        <div><span class="n">2</span><b>Plan</b><p>Daraus entsteht ein Wochenplan, der festlegt, welches Thema auf welchem Kanal erscheint.</p></div>
+        <div><span class="n">3</span><b>Umsetzung</b><p>KI-Agenten schreiben Beiträge und Posts. Bevor etwas live geht, gibst du es per Klick frei.</p></div>
+        <div><span class="n">4</span><b>Messen</b><p>Die Ergebnisse fließen zurück in den Plan, damit mehr von dem entsteht, was gefunden und gelesen wird.</p></div>
+      </div>
+      <div class="take"><b class="k">Eigenes Portal</b>Plan, Beiträge zur Freigabe und Ergebnisse siehst du jederzeit an einem Ort, im Portal für den VHI.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Such- und Keyworddaten über DataForSEO</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Beispielthemen -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Beispiel</div>
+        <h2>Wie das für den VHI aussehen könnte</h2>
+        <p class="s-sub">Vier mögliche Fachbeiträge aus den Themenfeldern des Verbands. Aus jedem Artikel entstehen zusätzlich ein LinkedIn-Post und eine Kurzfassung.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="topics">
+        <div class="topic"><span class="tn">01</span><b>Spanplatte, MDF oder OSB: Unterschiede und Einsatzbereiche</b><span class="tags"><i>Bauen mit Holz</i><i>Planer und Handwerk</i></span></div>
+        <div class="topic"><span class="tn">02</span><b>Holzwerkstoffe als CO₂-Speicher im Gebäude</b><span class="tags"><i>Klimaschutz</i><i>Politik und Presse</i></span></div>
+        <div class="topic"><span class="tn">03</span><b>Formaldehyd und Emissionen: was die Grenzwerte heute regeln</b><span class="tags"><i>Wohngesundheit</i><i>Fachpublikum</i></span></div>
+        <div class="topic"><span class="tn">04</span><b>Innentüren richtig planen: Normen und Anforderungen</b><span class="tags"><i>Bauen mit Holz</i><i>Planer</i></span></div>
+      </div>
+      <p class="small-note" style="margin-top:auto">Das sind Beispielthemen. Im Setup prüfen wir jedes Thema mit echten Suchdaten, bevor es in den Plan kommt.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Beispielthemen, noch ohne Suchdatenprüfung</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Wer dahintersteht -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Wer dahintersteht</div>
+        <h2>Gebaut aus acht Jahren Agenturpraxis</h2>
+        <p class="s-sub">Ich habe GetMarketing gegründet, nachdem ich über acht Jahre im B2B-Marketing im DACH-Raum gearbeitet habe.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="about">
+        <div class="person">
+          <img src="/darya.jpg" alt="Darya Kablash" />
+          <b>Darya Kablash</b>
+          <div class="role">Gründerin von GetMarketing</div>
+          <p>Growth Consultant und Fractional CMO für B2B-Gründer im DACH-Raum, außerdem Head of Growth bei Invictus Lead Generation. Ich arbeite von Berlin aus.</p>
+          <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn-Profil →</a>
+        </div>
+        <div>
+          <div class="nums">
+            <div><b>55</b><span>abgeschlossene Projekte in SEO, Ads, LinkedIn und KI-Automatisierung</span></div>
+            <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
+            <div><b>3</b><span>Enterprise-Kunden, bei denen ein individuell gebautes System im Einsatz ist</span></div>
+            <div><b>62</b><span>aktive Nutzer auf der Plattform</span></div>
+          </div>
+          <div class="result" style="margin-top:14px"><div class="k">Erfahrung mit Verbänden</div><p>Unter anderem haben wir die SEO- und GEO-Strategie für einen Dachverband mit rund 130 Mitgliedsorganisationen entwickelt. GEO steht für Sichtbarkeit in KI-Antworten.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Konditionen -->
+  <section class="slide" id="konditionen">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Konditionen</div>
+        <h2>Alles für 250 € im Monat</h2>
+        <p class="s-sub">Der Preis gilt für das ganze System. Landingpages und Paid Ads kommen nur dazu, wenn der Verband sie braucht.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="tiers two">
+        <div class="tier full">
+          <div class="k">Enthalten</div>
+          <div class="v">250 € <small>/ Monat</small></div>
+          <div class="sub">für Website und LinkedIn zusammen</div>
+          <ul>
+            <li><span>SEO und Content, mit Einrichtung und laufender Betreuung</span><span class="on">✓</span></li>
+            <li><span>Organischer Content auf LinkedIn</span><span class="on">✓</span></li>
+            <li><span>Portal mit Freigabe per Klick</span><span class="on">✓</span></li>
+            <li><span>Reporting aus GA4 und Search Console</span><span class="on">✓</span></li>
+          </ul>
+        </div>
+        <div class="tier agency">
+          <div class="k">Bei Bedarf dazubuchbar</div>
+          <ul class="extra">
+            <li><span>Landingpages</span></li>
+            <li><span>Paid Ads, zuzüglich Werbebudget</span></li>
+          </ul>
+          <p class="incl">Umfang und Preis klären wir vorher mit dir. Das Werbebudget geht direkt an die Plattform.</p>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Nächster Schritt -->
+  <section class="slide dark close" id="termin">
+    <div class="s-body">
+      <div class="close-grid">
+        <div>
+          <div class="eyebrow lt">Nächster Schritt</div>
+          <h2>Jetzt doch reden?</h2>
+          <p class="lead">Ich zeige dir das System live, mit einem ersten Plan für vhi.de. Danach entscheidest du, ob es für den Verband passt.</p>
+          <div class="who">
+            <img src="/darya.jpg" alt="Darya Kablash" />
+            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
+          </div>
+          <div class="btns">
+            <a class="btn btn-light" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
+            <a class="btn btn-ghost" href="mailto:darya@getmarketing.team?subject=VHI%20%C2%B7%20GetMarketing">Per E-Mail</a>
+          </div>
+        </div>
+        <div class="opts">
+          <div class="opt hl"><span class="d">1</span><div><b>Das System live sehen</b><span>Ich zeige dir Plan, Beiträge und Portal am Bildschirm.</span></div></div>
+          <div class="opt"><span class="d">2</span><div><b>Ein erster Plan für vhi.de</b><span>mit Themen, die wir vorher anhand echter Suchdaten geprüft haben</span></div></div>
+          <div class="opt"><span class="d">3</span><div><b>Du entscheidest danach</b><span>ob es für den Verband passt und wann es losgehen soll.</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
+  </section>
+
+</main>
+
+<div class="ctrl" id="ctrl">
+  <button id="prev" aria-label="Vorherige Folie">←</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="next" aria-label="Nächste Folie">→</button>
+  <button id="fs" aria-label="Vollbild" title="Vollbild (F)">⤢</button>
+</div>
+
+<script>
+/* ---- Deck: 16:9 stage, one slide at a time; stacked on phones ---- */
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var count = document.getElementById('count'), bar = document.getElementById('progress');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var cur = 0;
+  slides.forEach(function (s, i) { s.querySelectorAll('.pg').forEach(function (pg) { pg.textContent = i + 1; }); });
+
+  function stacked() { return document.body.classList.contains('stack'); }
+  function fit() {
+    var stack = innerWidth < 800 || (innerWidth < 1000 && innerHeight > innerWidth);
+    document.body.classList.toggle('stack', stack);
+    if (!stack) {
+      var s = Math.min(innerWidth / 1280, innerHeight / 720);
+      if (!document.fullscreenElement) s *= 0.96;
+      document.documentElement.style.setProperty('--s', s);
+    }
+  }
+  function show(n, initial) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    count.textContent = (cur + 1) + ' / ' + slides.length;
+    bar.style.transform = 'scaleX(' + ((cur + 1) / slides.length) + ')';
+    prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
+    if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
+    if (!initial) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function fromHash() {
+    var h = location.hash.slice(1);
+    if (!h) return 0;
+    if (/^\d+$/.test(h)) return +h - 1;
+    var el = document.getElementById(h);
+    return el ? slides.indexOf(el.closest('.slide')) : 0;
+  }
+  function toggleFs() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+
+  prev.addEventListener('click', function () { show(cur - 1); });
+  next.addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('fs').addEventListener('click', toggleFs);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    show(slides.indexOf(el.closest('.slide')));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || stacked()) return;
+    if (e.target.closest && e.target.closest('input, textarea, select')) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    else if (k === 'f' || k === 'F') { toggleFs(); }
+  });
+
+  // swipe on touch screens in deck mode
+  var tx = null, ty = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null || stacked()) { tx = null; return; }
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    tx = null;
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    if (!stacked()) return;
+    var line = innerHeight * 0.4, best = 0;
+    for (var i = 0; i < slides.length; i++) if (slides[i].getBoundingClientRect().top <= line) best = i;
+    cur = best;
+  }, { passive: true });
+
+  window.addEventListener('resize', fit);
+  document.addEventListener('fullscreenchange', fit);
+  fit();
+  show(fromHash(), true);
+})();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
