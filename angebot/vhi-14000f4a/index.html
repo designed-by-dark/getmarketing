@@ -364,6 +364,26 @@
   .phase.on .check li { font-size: 16px; }
   .stack .phases { grid-template-columns: minmax(0, 1fr); }
   .stack .fixlist div { grid-template-columns: 96px 1fr; }
+  .arts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .art { background: var(--card); border-radius: 14px; padding: 14px 16px 12px; display: flex; flex-direction: column; }
+  .art .tag { align-self: flex-start; font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--accent-ink); }
+  .art .at { font-size: 15.5px; letter-spacing: -0.015em; line-height: 1.3; margin-top: 5px; }
+  .kws { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 3px; }
+  .kws li { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; color: var(--gray); }
+  .kws b { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .vis { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
+  .art .kws + .vis { margin-top: 10px; }
+  .vis span { font-size: 12px; color: var(--gray); }
+  .vis b { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .art-note { margin-top: 12px; }
+  .nums.n3 { grid-template-columns: repeat(3, 1fr); }
+  .stack .arts, .stack .nums.n3 { grid-template-columns: minmax(0, 1fr); }
+  .stack .art { padding: 16px 18px 14px; }
+  .stack .art .at { font-size: 17px; }
+  .stack .kws li { font-size: 14px; }
+  .stack .slide { border-bottom: 0; padding-bottom: 28px; }
+  .stack .slide + .slide { border-top: 10px solid #E4E1D9; }
+  .stack .s-foot { margin-top: 24px; }
   .stack .pot, .stack .st2 { grid-template-columns: minmax(0, 1fr); }
   .stack .st2 .ledger .row { grid-template-columns: 1fr; gap: 4px; }
   .stack .pot .kwt { display: block; overflow-x: auto; }
@@ -451,7 +471,7 @@
     <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
     <div class="kicker">Für Anemon Strohmeyer</div>
     <h1>GetMarketing × VHI</h1>
-    <p class="for">Wie der Verband bei Google, in KI-Antworten und auf LinkedIn sichtbarer wird. Zum Durchklicken brauchst du etwa fünf Minuten.</p>
+    <p class="for">Wie der Verband bei Google, in KI-Antworten und auf LinkedIn sichtbarer wird. Zum Lesen brauchst du etwa fünf Minuten.</p>
     <div class="meta">
       <div>Von<b>Darya Kablash, Gründerin von GetMarketing</b></div>
       <div>Stand<b>Oktober 2026</b></div>
@@ -459,23 +479,50 @@
     <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
   </section>
 
-  <!-- Ausgangslage -->
+  <!-- Intro -->
   <section class="slide">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Ausgangslage</div>
-        <h2>Viele Themen, viele Zielgruppen und wenig Zeit</h2>
-        <p class="s-sub">Der VHI hat genau das Fachwissen, nach dem online gesucht wird. Damit es ankommt, muss es regelmäßig und für jede Zielgruppe passend aufbereitet werden.</p>
+        <div class="eyebrow">Was GetMarketing macht</div>
+        <h2>Wir machen Fachwissen bei Google, in KI-Antworten und auf LinkedIn sichtbar</h2>
+        <p class="s-sub">Ein System aus KI-Agenten und Menschen plant Themen, schreibt Beiträge und misst, was wirkt. Veröffentlicht wird erst nach deiner Freigabe.</p>
       </div>
       <span class="s-mark">VHI</span>
     </div>
     <div class="s-body">
+      <div class="col-h">Welche Probleme wir lösen</div>
       <div class="grid3">
-        <div class="card sit"><span class="n">1</span><h3>Die Themen sind da</h3><p>Wohngesundheit, Klimaschutz, Bauen mit Holz sowie Energie- und Industriepolitik sind Fachthemen, zu denen online gezielt nach Informationen gesucht wird.</p></div>
-        <div class="card sit"><span class="n">2</span><h3>Viele Zielgruppen</h3><p>Mitgliedsunternehmen, Planer und Fachpublikum, Politik und Presse wollen jeweils anders angesprochen werden, oft zum selben Thema.</p></div>
-        <div class="card sit"><span class="n">3</span><h3>Die Zeit fehlt</h3><p>Die Geschäftsstelle ist mit der Verbandsarbeit ausgelastet, deshalb läuft die Kommunikation oft nebenher.</p></div>
+        <div class="card sit"><span class="n">1</span><h3>Fachwissen wird online nicht gefunden</h3><p>Wir machen aus vorhandenem Wissen Beiträge, nach denen gesucht wird und die KI-Systeme als Quelle nutzen.</p></div>
+        <div class="card sit"><span class="n">2</span><h3>Für regelmäßigen Content fehlt die Zeit</h3><p>Planen, Schreiben und Veröffentlichen übernimmt das System. Das Team gibt die Beiträge nur noch frei.</p></div>
+        <div class="card sit"><span class="n">3</span><h3>Unklar, was die Arbeit bringt</h3><p>Daten aus Google Analytics und der Search Console zeigen, welche Beiträge wirken, und danach richtet sich der Plan.</p></div>
       </div>
-      <div class="take"><b class="k">Was das heißt</b>Das Wissen liegt in der Geschäftsstelle bereit. Es fehlt ein Ablauf, der daraus laufend Beiträge für Google, KI-Suche und LinkedIn macht.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ergebnisse -->
+  <section class="slide" id="ergebnisse">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Ergebnisse</div>
+        <h2>Was wir in bisherigen Projekten erreicht haben</h2>
+        <p class="s-sub">Kundennamen nennen wir nicht. Die Zahlen stammen aus abgeschlossenen Projekten, die wir umgesetzt haben.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="res">
+        <div class="ledger">
+          <div class="row"><b>383.000</b><div><strong>organische Besucher pro Monat</strong><span>E-Commerce · Content-Automatisierung mit KI, 54.376 rankende Keywords, ohne Werbebudget</span></div></div>
+          <div class="row"><b>34.000</b><div><strong>Besucher, gestartet bei null</strong><span>Industrie und Maschinenbau · SEO und LinkedIn von Grund auf aufgebaut, Anfragen kommen jetzt über die Website</span></div></div>
+          <div class="row"><b>+96 %</b><div><strong>Sichtbarkeitsindex</strong><span>B2B-Industrie, Sondermaschinenbau · Hauptkeyword auf Platz 1, Traffic-Wert 1.486 € pro Monat</span></div></div>
+          <div class="row"><b>360.000</b><div><strong>Impressionen in Google</strong><span>B2B-Software · mehrere Zielbegriffe auf Platz 1, 4.590 Klicks in einer technischen Nische</span></div></div>
+        </div>
+        <div class="res-side">
+          <div class="side-case"><b>~200</b><strong>verkaufte Kurse pro Monat über Google</strong><span>Erste-Hilfe-Schule in Berlin · lokale SEO für die Kursseiten</span></div>
+          <div class="total"><b>6 Mio.+</b><span>organische Besucher für Kunden über alle Projekte</span></div>
+        </div>
+      </div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
   </section>
@@ -484,9 +531,9 @@
   <section class="slide" id="seo">
     <div class="s-head">
       <div>
-        <div class="eyebrow">SEO-Analyse vhi.de</div>
-        <h2>vhi.de zeigt seit Mai nur noch eine Baustellenseite</h2>
-        <p class="s-sub">Seit dem 3. Mai 2026 steht auf vhi.de „Wir bauen ein wenig um“. Alles andere, auch die Dokumente, über die bisher die meisten Besucher kamen, leitet auf diese Seite um.</p>
+        <div class="eyebrow">Aufgefallen bei vhi.de</div>
+        <h2>vhi.de zeigt seit Mai eine Baustellenseite. Ist das so geplant?</h2>
+        <p class="s-sub">Vielleicht läuft der Umbau genau wie vorgesehen. Falls er sich noch hinzieht, lohnt sich ein Blick darauf, was das für die Sichtbarkeit des Verbands bedeutet.</p>
       </div>
       <span class="s-mark">VHI</span>
     </div>
@@ -501,13 +548,13 @@
               <div class="mrow"><em>PDF</em><div>Fachdokumente<small>darunter die meistbesuchten Normen-PDFs</small></div><span class="st-b a">→ Startseite</span></div>
             </div>
           </div>
-          <p class="mock-cap">Was Google und KI-Systeme heute beim Aufruf von vhi.de bekommen</p>
+          <p class="mock-cap">Was Google und KI-Systeme seit dem 3. Mai 2026 beim Aufruf von vhi.de bekommen</p>
         </div>
         <div>
           <ul class="points">
-            <li><b>Rankings gehen nach und nach verloren.</b> Seiten, die dauerhaft auf die Startseite umleiten, wertet Google auf Dauer wie gelöschte Seiten.</li>
-            <li><b>KI-Systeme verweisen ins Leere.</b> Wer einem Link aus ChatGPT oder einer Google-KI-Antwort folgt, landet auf der Baustellenseite.</li>
-            <li><b>Dazu kommen weitere technische Fehler</b> bei Startseite, Crawling und Technik. Die vollständige Liste gehen wir gemeinsam im Termin durch.</li>
+            <li><b>Bei Google</b> gehen Rankings nach und nach verloren, weil Google Seiten, die dauerhaft auf die Startseite umleiten, auf Dauer wie gelöschte Seiten behandelt.</li>
+            <li><b>In KI-Antworten</b> verweisen Links aus ChatGPT oder Googles KI-Übersicht auf die Baustellenseite.</li>
+            <li><b>Außerdem</b> haben wir weitere technische Punkte bei Startseite, Crawling und Technik gefunden. Die Liste gehen wir gern im Termin durch.</li>
           </ul>
         </div>
       </div>
@@ -549,36 +596,28 @@
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Quelle: SISTRIX und SISTRIX AI Check, Deutschland, Oktober 2026</span><span class="pg"></span></div>
   </section>
 
-  <!-- Potenzial -->
-  <section class="slide">
+  <!-- Beispielthemen -->
+  <section class="slide" id="potenzial">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Potenzial</div>
-        <h2>400 bis 900 zusätzliche Besuche im Monat</h2>
-        <p class="s-sub">Gerechnet nur mit Fachfragen und Themen, bei denen ein Fachverband realistisch nach vorne kommt. Die großen Produktbegriffe, bei denen Shops dominieren, sind nicht eingerechnet.</p>
+        <div class="eyebrow">Beispiel für den VHI</div>
+        <h2>Sechs Artikel mit rund 500 bis 1.000 Besuchen im Monat</h2>
+        <p class="s-sub">So könnte der Start aussehen. Zu jedem Artikel stehen die Suchanfragen, die er abholt, und wie viele Besuche wir nach 9 bis 12 Monaten erwarten.</p>
       </div>
       <span class="s-mark">VHI</span>
     </div>
     <div class="s-body">
-      <div class="pot">
-        <table class="kwt">
-          <thead><tr><th>Thema</th><th>Suchen / Monat</th><th>Ziel</th><th>Besuche konservativ</th><th>Besuche realistisch</th></tr></thead>
-          <tbody>
-            <tr><td>Fragen wie „MDF oder Spanplatte?“, „OSB oder Spanplatte?“</td><td>ab 10.000</td><td>Seite 1</td><td>300</td><td>600</td></tr>
-            <tr><td>holzwerkstoffe</td><td>550</td><td>Top 3</td><td>55</td><td>110</td></tr>
-            <tr><td>altholzverordnung</td><td>350</td><td>Top 3</td><td>35</td><td>70</td></tr>
-            <tr><td>Normen in HTML (EN 312, 636, 300, 13986 …)</td><td>100 bis 500</td><td>Top 3</td><td>15</td><td>125</td></tr>
-            <tr class="sum-row"><td>Zusätzliche Besuche pro Monat</td><td></td><td></td><td>ca. 400</td><td>ca. 900</td></tr>
-          </tbody>
-        </table>
-        <div>
-          <div class="side-case"><b>50.350</b><strong>Suchen für die Produktbegriffe</strong><span>„mdf platte“ 28.400, „spanplatte“ 14.500, „osb platte“ 7.450. Hier dominieren Shops, deshalb sind sie nicht eingerechnet.</span></div>
-          <div class="total"><b>13 → 36</b><span>Ziel für KI-Antworten: zu holzindustrie.de aufschließen. Neutrale Vergleiche vom Fachverband zitieren KI-Systeme gern.</span></div>
-        </div>
+      <div class="arts">
+        <div class="art"><span class="tag">Plattentypen</span><b class="at">MDF, Spanplatte oder OSB? Unterschiede und Einsatzbereiche</b><ul class="kws"><li><span>Fragen wie „mdf oder spanplatte“</span><b>ab 10.000</b></li></ul><div class="vis"><span>Besuche pro Monat</span><b>300–600</b></div></div>
+        <div class="art"><span class="tag">Grundlagen</span><b class="at">Holzwerkstoffe: Arten, Herstellung und Einsatz</b><ul class="kws"><li><span>holzwerkstoffe</span><b>550</b></li><li><span>holzverbundplatten</span><b>140</b></li></ul><div class="vis"><span>Besuche pro Monat</span><b>70–140</b></div></div>
+        <div class="art"><span class="tag">Plattentypen</span><b class="at">HDF-Platten: Eigenschaften und Einsatzbereiche</b><ul class="kws"><li><span>high density fiberboard</span><b>590</b></li></ul><div class="vis"><span>Besuche pro Monat</span><b>60–120</b></div></div>
+        <div class="art"><span class="tag">Kreislaufwirtschaft</span><b class="at">Altholzverordnung erklärt: Was sie für Holzwerkstoffe regelt</b><ul class="kws"><li><span>altholzverordnung</span><b>350</b></li></ul><div class="vis"><span>Besuche pro Monat</span><b>35–70</b></div></div>
+        <div class="art"><span class="tag">Normen</span><b class="at">Normen für Holzwerkstoffe: EN 312, EN 636, EN 300 und EN 13986</b><ul class="kws"><li><span>rund zehn Normen-Begriffe</span><b>je 10–50</b></li></ul><div class="vis"><span>Besuche pro Monat</span><b>15–125</b></div></div>
+        <div class="art"><span class="tag">Wohngesundheit</span><b class="at">Formaldehyd: Grenzwerte und Emissionsklassen E1 und E05</b><ul class="kws"><li><span>grenzwerte formaldehyd</span><b>90</b></li></ul><div class="vis"><span>Besuche pro Monat</span><b>10–20</b></div></div>
       </div>
-      <p class="small-note" style="margin-top:auto"><b>So haben wir gerechnet:</b> Klickrate 3 bzw. 6 % für das Fragen-Cluster, 10 bzw. 20 % für „holzwerkstoffe“ und „altholzverordnung“, 15 bzw. 25 % für die Normen. Für das Fragen-Cluster meldet SISTRIX einen fünfstelligen Wert, wir rechnen vorsichtig mit 10.000. Bei den Normen nehmen wir rund zehn Begriffe mit je 10 bis 50 Suchen an. Prognose nach 9 bis 12 Monaten, keine Garantie. Mit DataForSEO und den echten Search-Console-Daten rechnen wir im Setup genau nach.</p>
+      <p class="small-note art-note">Nicht eingerechnet sind die Produktbegriffe „mdf platte“ (28.400), „spanplatte“ (14.500) und „osb platte“ (7.450), weil dort Shops vorne liegen. Klickrate je nach Ziel-Position 3 bis 25 %. Prognose, keine Garantie. Im Setup prüfen wir alle Werte mit DataForSEO und der Search Console nach.</p>
     </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Suchvolumen: SISTRIX, Deutschland, Oktober 2026 · Klickraten: Annahmen</span><span class="pg"></span></div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Suchanfragen pro Monat: SISTRIX und Semrush, Deutschland, Oktober 2026</span><span class="pg"></span></div>
   </section>
 
   <!-- Vorgehen -->
@@ -623,7 +662,7 @@
   <section class="slide">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Was GetMarketing übernimmt</div>
+        <div class="eyebrow">Was GetMarketing für den VHI übernimmt</div>
         <h2>Ein System für Content, SEO und LinkedIn</h2>
         <p class="s-sub">Die vier Bausteine laufen in einem gemeinsamen Plan, damit Website und LinkedIn dieselben Themen zur selben Zeit aufgreifen.</p>
       </div>
@@ -659,29 +698,7 @@
       </div>
       <div class="take"><b class="k">Eigenes Portal</b>Plan, Beiträge zur Freigabe und Ergebnisse siehst du jederzeit an einem Ort, im Portal für den VHI.</div>
     </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Such- und Keyworddaten über DataForSEO</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Beispielthemen -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Beispiel</div>
-        <h2>Wie das für den VHI aussehen könnte</h2>
-        <p class="s-sub">Vier mögliche Fachbeiträge aus den Themenfeldern des Verbands. Aus jedem Artikel entstehen zusätzlich ein LinkedIn-Post und eine Kurzfassung.</p>
-      </div>
-      <span class="s-mark">VHI</span>
-    </div>
-    <div class="s-body">
-      <div class="topics">
-        <div class="topic"><span class="tn">01</span><b>Spanplatte, MDF oder OSB: Unterschiede und Einsatzbereiche</b><span class="tags"><i>Bauen mit Holz</i><i>Planer und Handwerk</i></span></div>
-        <div class="topic"><span class="tn">02</span><b>Holzwerkstoffe als CO₂-Speicher im Gebäude</b><span class="tags"><i>Klimaschutz</i><i>Politik und Presse</i></span></div>
-        <div class="topic"><span class="tn">03</span><b>Formaldehyd und Emissionen: was die Grenzwerte heute regeln</b><span class="tags"><i>Wohngesundheit</i><i>Fachpublikum</i></span></div>
-        <div class="topic"><span class="tn">04</span><b>Innentüren richtig planen: Normen und Anforderungen</b><span class="tags"><i>Bauen mit Holz</i><i>Planer</i></span></div>
-      </div>
-      <p class="small-note" style="margin-top:auto">Das sind Beispielthemen. Im Setup prüfen wir jedes Thema mit echten Suchdaten, bevor es in den Plan kommt.</p>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Beispielthemen, noch ohne Suchdatenprüfung</span><span class="pg"></span></div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
   </section>
 
   <!-- Wer dahintersteht -->
@@ -704,13 +721,12 @@
           <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn-Profil →</a>
         </div>
         <div>
-          <div class="nums">
+          <div class="nums n3">
             <div><b>55</b><span>abgeschlossene Projekte in SEO, Ads, LinkedIn und KI-Automatisierung</span></div>
             <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
             <div><b>3</b><span>Enterprise-Kunden, bei denen ein individuell gebautes System im Einsatz ist</span></div>
-            <div><b>62</b><span>aktive Nutzer auf der Plattform</span></div>
           </div>
-          <div class="result" style="margin-top:14px"><div class="k">Erfahrung mit Verbänden</div><p>Unter anderem haben wir die SEO- und GEO-Strategie für einen Dachverband mit rund 130 Mitgliedsorganisationen entwickelt. GEO steht für Sichtbarkeit in KI-Antworten.</p></div>
+          <div class="tech"><em>Technik</em><span>Claude API von Anthropic</span><span>n8n</span><span>Postgres</span><span>Hosting bei Hetzner in Deutschland</span></div>
         </div>
       </div>
     </div>
