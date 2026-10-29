@@ -322,6 +322,19 @@
   .stack .topic b { font-size: 17px; }
   .stack .tiers.two { grid-template-columns: minmax(0, 1fr); }
 
+  .seo { display: grid; grid-template-columns: 400px 1fr; gap: 48px; align-items: start; }
+  .seo .ledger .row { grid-template-columns: 110px 1fr; padding: 12px 0; }
+  .seo .ledger .row > b { font-size: 38px; }
+  .kwt { width: 100%; border-collapse: collapse; font-size: 14px; border-top: 2px solid var(--ink); }
+  .kwt th { text-align: left; font-size: 11.5px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); padding: 9px 8px 8px 0; border-bottom: 1px solid var(--line); }
+  .kwt td { padding: 9px 8px 9px 0; border-bottom: 1px solid var(--line); }
+  .kwt td:first-child { font-weight: 700; }
+  .kwt td:nth-child(2), .kwt td:nth-child(3), .kwt th:nth-child(2), .kwt th:nth-child(3) { text-align: right; padding-right: 20px; font-variant-numeric: tabular-nums; }
+  .kwt td:last-child { color: var(--gray); }
+  .stack .seo { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .stack .kwt { font-size: 12.5px; }
+  .stack .kwt td:nth-child(2), .stack .kwt td:nth-child(3), .stack .kwt th:nth-child(2), .stack .kwt th:nth-child(3) { padding-right: 8px; }
+
   /* ================= Controls ================= */
   .ctrl {
     position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
@@ -429,6 +442,44 @@
       <div class="take"><b class="k">Was das heißt</b>Das Wissen liegt in der Geschäftsstelle bereit. Es fehlt ein Ablauf, der daraus laufend Beiträge für Google, KI-Suche und LinkedIn macht.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
+  </section>
+
+  <!-- SEO-Analyse -->
+  <section class="slide" id="seo">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">SEO-Analyse vhi.de</div>
+        <h2>Google findet vhi.de fast nur über alte PDFs</h2>
+        <p class="s-sub">Laut Semrush steht vhi.de in Deutschland bei 21 Suchbegriffen in den Top 100, keiner davon auf Seite 1. Organische Besuche schätzt Semrush auf nahezu null.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="seo">
+        <div class="ledger">
+          <div class="row"><b>21</b><div><strong>Suchbegriffe in den Top 100</strong><span>Google Deutschland, davon keiner auf Seite 1 und einer auf Seite 2</span></div></div>
+          <div class="row"><b>~0</b><div><strong>organische Besuche pro Monat</strong><span>Schätzung von Semrush für die Rankings von heute</span></div></div>
+          <div class="row"><b>513</b><div><strong>verweisende Domains</strong><span>2.341 Backlinks, Authority Score 14. Auf diesem Linkprofil können neue Fachbeiträge aufbauen.</span></div></div>
+        </div>
+        <div>
+          <div class="col-h">Wofür vhi.de heute rankt</div>
+          <table class="kwt">
+            <thead><tr><th>Suchbegriff</th><th>Suchen / Monat</th><th>Position</th><th>Rankende Seite</th></tr></thead>
+            <tbody>
+              <tr><td>entsorgungsfachbetrieb</td><td>720</td><td>82</td><td>PDF von 2017</td></tr>
+              <tr><td>high density fiberboard</td><td>590</td><td>33</td><td>PDF von 2015</td></tr>
+              <tr><td>spanplattenwerk gotha gmbh</td><td>390</td><td>29</td><td>Startseite</td></tr>
+              <tr><td>hdf form</td><td>170</td><td>45</td><td>PDF von 2015</td></tr>
+              <tr><td>holzverbundplatten</td><td>140</td><td>78</td><td>Startseite</td></tr>
+              <tr><td>grenzwerte formaldehyd</td><td>90</td><td>48</td><td>Positionspapier, PDF von 2014</td></tr>
+            </tbody>
+          </table>
+          <p class="small-note">Die übrigen Begriffe sind überwiegend Namen von Mitgliedsunternehmen, für die die Startseite rankt.</p>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Zu den Themen des Verbands gibt es auf vhi.de keine Fachseiten, die Google als Antwort zeigen kann. Wo der VHI heute auftaucht, liegt das an PDFs, die zum Teil über zehn Jahre alt sind.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Quelle: Semrush, Datenbank Deutschland, abgerufen am 29. Oktober 2026</span><span class="pg"></span></div>
   </section>
 
   <!-- Leistung -->
