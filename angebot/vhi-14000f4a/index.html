@@ -345,10 +345,25 @@
   .pot .side-case b { font-size: 38px; }
   .pot .total { margin-top: 18px; }
   .pot .total b { font-size: 38px; }
-  .recs > div { padding: 18px 18px 20px; }
-  .recs ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
-  .recs li { font-size: 13.5px; color: var(--gray); line-height: 1.4; padding-left: 14px; position: relative; }
-  .recs li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .phases { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .phase { background: var(--card); border-radius: 18px; padding: 22px 24px 24px; }
+  .phase.on { background: var(--forest); color: #fff; }
+  .ph-top { display: grid; grid-template-columns: 34px 1fr auto; gap: 14px; align-items: center; margin-bottom: 18px; }
+  .ph-top .n { width: 34px; height: 34px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; }
+  .phase.on .ph-top .n { background: var(--accent); color: var(--forest); }
+  .ph-top b { display: block; font-size: 20px; letter-spacing: -0.02em; }
+  .ph-top span:not(.n):not(.cnt) { display: block; font-size: 13.5px; color: var(--gray); margin-top: 2px; }
+  .phase.on .ph-top span:not(.n) { color: rgba(255,255,255,.65); }
+  .cnt { font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 50px; background: var(--warn-bg); color: var(--warn); white-space: nowrap; }
+  .fixlist { display: flex; flex-direction: column; gap: 7px; user-select: none; }
+  .fixlist div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center; background: #fff; border-radius: 9px; padding: 9px 12px; font-size: 13.5px; }
+  .fixlist i { font-style: normal; font-size: 12px; font-weight: 700; color: var(--forest); }
+  .fixlist span { filter: blur(5px); color: var(--ink); }
+  .lock { font-size: 13.5px; color: var(--gray); margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+  .lock::before { content: ""; width: 14px; height: 14px; flex-shrink: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.4' stroke-linecap='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center/contain no-repeat; }
+  .phase.on .check li { font-size: 16px; }
+  .stack .phases { grid-template-columns: minmax(0, 1fr); }
+  .stack .fixlist div { grid-template-columns: 96px 1fr; }
   .stack .pot, .stack .st2 { grid-template-columns: minmax(0, 1fr); }
   .stack .st2 .ledger .row { grid-template-columns: 1fr; gap: 4px; }
   .stack .pot .kwt { display: block; overflow-x: auto; }
@@ -479,23 +494,20 @@
       <div class="wl">
         <div>
           <div class="mock" aria-label="Was Google beim Aufruf von vhi.de bekommt">
-            <div class="mock-bar"><i></i><i></i><i></i><span>underconstruction – VHI …</span></div>
+            <div class="mock-bar"><i></i><i></i><i></i><span>vhi.de</span></div>
             <div class="mock-in">
               <div class="uc">Wir bauen ein wenig um</div>
-              <div class="mrow"><em>URL</em><div>Alle Unterseiten<small>Themen, Presse, Beiträge</small></div><span class="st-b a">302 → Startseite</span></div>
-              <div class="mrow"><em>PDF</em><div>Normen-Dokumente<small>z. B. EN 312, EN 636, TA Luft</small></div><span class="st-b a">302 → Startseite</span></div>
-              <div class="mrow"><em>TXT</em><div>robots.txt<small>liefert HTML statt Text</small></div><span class="st-b a">302 → Startseite</span></div>
-              <div class="mrow"><em>XML</em><div>Sitemap<small>meldet alte URLs, zuletzt 2021 geändert</small></div><span class="st-b p">veraltet</span></div>
+              <div class="mrow"><em>URL</em><div>Alle Unterseiten<small>Themen, Presse, Beiträge</small></div><span class="st-b a">→ Startseite</span></div>
+              <div class="mrow"><em>PDF</em><div>Fachdokumente<small>darunter die meistbesuchten Normen-PDFs</small></div><span class="st-b a">→ Startseite</span></div>
             </div>
           </div>
-          <p class="mock-cap">Was Google und KI-Crawler heute beim Aufruf von vhi.de bekommen</p>
+          <p class="mock-cap">Was Google und KI-Systeme heute beim Aufruf von vhi.de bekommen</p>
         </div>
         <div>
           <ul class="points">
             <li><b>Rankings gehen nach und nach verloren.</b> Seiten, die dauerhaft auf die Startseite umleiten, wertet Google auf Dauer wie gelöschte Seiten.</li>
-            <li><b>Die Startseite hat keine Grundlagen.</b> Der Title lautet „underconstruction – VHI …“, es gibt keine H1 und keine Meta-Description. Im Schema steht „Eine weitere VHI Seite“.</li>
-            <li><b>Crawler finden keinen Einstieg.</b> Ohne gültige robots.txt fehlt auch der Verweis auf die Sitemap.</li>
-            <li><b>Die Technik ist veraltet.</b> WordPress 6.5.14 mit zwei Slider-Plugins sollte im Relaunch auch aus Sicherheitsgründen geprüft werden.</li>
+            <li><b>KI-Systeme verweisen ins Leere.</b> Wer einem Link aus ChatGPT oder einer Google-KI-Antwort folgt, landet auf der Baustellenseite.</li>
+            <li><b>Dazu kommen weitere technische Fehler</b> bei Startseite, Crawling und Technik. Die vollständige Liste gehen wir gemeinsam im Termin durch.</li>
           </ul>
         </div>
       </div>
@@ -526,9 +538,9 @@
         <div>
           <div class="col-h">KI-Antworten · SISTRIX AI Check</div>
           <div class="ledger">
-            <div class="row"><b>13</b><div><strong>Prompts, in denen vhi.de auftaucht</strong><span>6 in Google AI Overviews, 4 im AI Mode, 2 bei ChatGPT, 1 bei Perplexity. holzindustrie.de kommt auf 36.</span></div></div>
+            <div class="row"><b>13</b><div><strong>Prompts, in denen vhi.de auftaucht</strong><span>6 in Google AI Overviews, 4 im AI Mode, 2 bei ChatGPT, 1 bei Perplexity</span></div></div>
             <div class="row"><b>ChatGPT</b><div><strong>nennt vhi.de als Quelle</strong><span>zum Beispiel für „größte Sperrholzhersteller in Deutschland“. Wer dem Link folgt, landet auf der Baustellenseite.</span></div></div>
-            <div class="row"><b>0</b><div><strong>Signale für KI-Systeme</strong><span>Alle KI-Bots sind erlaubt, es gibt aber keine llms.txt und kein Organization-Schema.</span></div></div>
+            <div class="row"><b>36</b><div><strong>Prompts bei holzindustrie.de</strong><span>Der Abstand lässt sich mit Fachinhalten schließen, die KI-Systeme als Quelle nutzen können.</span></div></div>
           </div>
         </div>
       </div>
@@ -569,24 +581,40 @@
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Suchvolumen: SISTRIX, Deutschland, Oktober 2026 · Klickraten: Annahmen</span><span class="pg"></span></div>
   </section>
 
-  <!-- Empfehlungen -->
+  <!-- Vorgehen -->
   <section class="slide">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Empfehlungen</div>
-        <h2>Was jetzt passieren sollte, nach Priorität</h2>
-        <p class="s-sub">Der erste Schritt sichert die Rankings, die der VHI heute noch hat. Die übrigen bauen darauf auf und laufen mit dem Relaunch.</p>
+        <div class="eyebrow">Vorgehen</div>
+        <h2>Erst beheben wir die Fehler, danach läuft der Content</h2>
+        <p class="s-sub">Zuerst sichern wir die Rankings, die der VHI heute noch hat. Auf dieser Grundlage baut das laufende System Sichtbarkeit bei Google und in KI-Antworten auf.</p>
       </div>
       <span class="s-mark">VHI</span>
     </div>
     <div class="s-body">
-      <div class="steps4 recs">
-        <div><span class="n">1</span><b>Sofort, vor dem Relaunch</b><ul><li>PDFs und Normen-Dokumente aus der Umleitung nehmen</li><li>robots.txt als Textdatei ausliefern</li><li>Title der Startseite anpassen</li><li>Redirect-Map: jede alte URL per 301 auf ihr neues Ziel</li></ul></div>
-        <div><span class="n">2</span><b>Wissensbereich Holzwerkstoffe</b><ul><li>Glossar: Span, MDF, HDF, OSB, Sperrholz, MFB</li><li>Vergleichsseiten</li><li>Normen-Übersicht in HTML</li><li>Emissionsklassen und Formaldehyd</li><li>Altholz und Kreislaufwirtschaft</li></ul></div>
-        <div><span class="n">3</span><b>Sichtbar in KI-Antworten</b><ul><li>Branchenzahlen als Primärquelle mit Datum</li><li>Mitgliederverzeichnis für „Hersteller in Deutschland“</li><li>Organization- und FAQ-Schema, llms.txt</li><li>kurze Definitionen am Seitenanfang, Fachautoren mit Namen</li></ul></div>
-        <div><span class="n">4</span><b>Begleitend</b><ul><li>Wikipedia-Eintrag pflegen</li><li>Erwähnungen in der Fachpresse, etwa Holzkurier und Holz-Zentralblatt</li><li>Aus diesen Quellen setzen KI-Systeme ihre Antworten zusammen.</li></ul></div>
+      <div class="phases">
+        <div class="phase">
+          <div class="ph-top"><span class="n">1</span><div><b>Gefundene Fehler beheben</b><span>vor und während des Relaunchs</span></div><span class="cnt">12 Punkte</span></div>
+          <div class="fixlist" aria-hidden="true">
+            <div><i>Weiterleitungen</i><span>Lorem ipsum dolor sit amet consectetur</span></div>
+            <div><i>Dokumente</i><span>Sed do eiusmod tempor incididunt ut</span></div>
+            <div><i>Crawling</i><span>Ut enim ad minim veniam quis nostrud</span></div>
+            <div><i>Startseite</i><span>Duis aute irure dolor in reprehenderit</span></div>
+            <div><i>Technik</i><span>Excepteur sint occaecat cupidatat non</span></div>
+            <div><i>KI-Signale</i><span>Nemo enim ipsam voluptatem quia</span></div>
+          </div>
+          <p class="lock">Die vollständige Liste mit allen 12 Punkten gehen wir im Termin durch.</p>
+        </div>
+        <div class="phase on">
+          <div class="ph-top"><span class="n">2</span><div><b>Laufendes System mit Content</b><span>ab dem ersten Monat, jede Woche</span></div></div>
+          <ul class="check lt">
+            <li>Wissensbereich zu Holzwerkstoffen, Normen und Altholz</li>
+            <li>Fachbeiträge, die bei Google ranken und in KI-Antworten zitiert werden</li>
+            <li>LinkedIn für Verband und Geschäftsführung</li>
+            <li>Reporting, nach dem sich der Plan laufend richtet</li>
+          </ul>
+        </div>
       </div>
-      <div class="take"><b class="k">Mit GetMarketing</b>Die Punkte 2 bis 4 laufen im System. Für Punkt 1 bekommt die Webagentur des VHI ein fertiges Briefing.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
   </section>
