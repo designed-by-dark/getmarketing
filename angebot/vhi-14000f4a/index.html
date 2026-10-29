@@ -331,6 +331,27 @@
   .kwt td:first-child { font-weight: 700; }
   .kwt td:nth-child(2), .kwt td:nth-child(3), .kwt th:nth-child(2), .kwt th:nth-child(3) { text-align: right; padding-right: 20px; font-variant-numeric: tabular-nums; }
   .kwt td:last-child { color: var(--gray); }
+  .uc { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; text-align: center; padding: 14px 0 12px; color: var(--gray); }
+  .st2 { column-gap: 48px; }
+  .st2 .ledger .row { grid-template-columns: 150px 1fr; padding: 11px 0; gap: 18px; }
+  .st2 .ledger .row > b { font-size: 32px; }
+  .st2 .ledger strong { font-size: 15.5px; }
+  .st2 .ledger span { font-size: 13.5px; }
+  .pot { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+  .pot .kwt td:nth-child(4), .pot .kwt td:nth-child(5), .pot .kwt th:nth-child(4), .pot .kwt th:nth-child(5) { text-align: right; font-variant-numeric: tabular-nums; }
+  .pot .kwt td:nth-child(3) { color: var(--gray); white-space: nowrap; }
+  .pot .kwt td:first-child { max-width: 300px; }
+  .pot .kwt .sum-row td { font-weight: 800; color: var(--forest); border-bottom: 0; border-top: 2px solid var(--ink); font-size: 15px; }
+  .pot .side-case b { font-size: 38px; }
+  .pot .total { margin-top: 18px; }
+  .pot .total b { font-size: 38px; }
+  .recs > div { padding: 18px 18px 20px; }
+  .recs ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+  .recs li { font-size: 13.5px; color: var(--gray); line-height: 1.4; padding-left: 14px; position: relative; }
+  .recs li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .stack .pot, .stack .st2 { grid-template-columns: minmax(0, 1fr); }
+  .stack .st2 .ledger .row { grid-template-columns: 1fr; gap: 4px; }
+  .stack .pot .kwt { display: block; overflow-x: auto; }
   .stack .seo { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .stack .kwt { font-size: 12.5px; }
   .stack .kwt td:nth-child(2), .stack .kwt td:nth-child(3), .stack .kwt th:nth-child(2), .stack .kwt th:nth-child(3) { padding-right: 8px; }
@@ -415,7 +436,7 @@
     <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
     <div class="kicker">Für Anemon Strohmeyer</div>
     <h1>GetMarketing × VHI</h1>
-    <p class="for">Wie der Verband bei Google, in KI-Antworten und auf LinkedIn sichtbarer wird. Zum Durchklicken brauchst du etwa zwei Minuten.</p>
+    <p class="for">Wie der Verband bei Google, in KI-Antworten und auf LinkedIn sichtbarer wird. Zum Durchklicken brauchst du etwa fünf Minuten.</p>
     <div class="meta">
       <div>Von<b>Darya Kablash, Gründerin von GetMarketing</b></div>
       <div>Stand<b>Oktober 2026</b></div>
@@ -444,42 +465,130 @@
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
   </section>
 
-  <!-- SEO-Analyse -->
+  <!-- Website-Zustand -->
   <section class="slide" id="seo">
     <div class="s-head">
       <div>
         <div class="eyebrow">SEO-Analyse vhi.de</div>
-        <h2>Google findet vhi.de fast nur über alte PDFs</h2>
-        <p class="s-sub">Laut Semrush steht vhi.de in Deutschland bei 21 Suchbegriffen in den Top 100, keiner davon auf Seite 1. Organische Besuche schätzt Semrush auf nahezu null.</p>
+        <h2>vhi.de zeigt seit Mai nur noch eine Baustellenseite</h2>
+        <p class="s-sub">Seit dem 3. Mai 2026 steht auf vhi.de „Wir bauen ein wenig um“. Alles andere, auch die Dokumente, über die bisher die meisten Besucher kamen, leitet auf diese Seite um.</p>
       </div>
       <span class="s-mark">VHI</span>
     </div>
     <div class="s-body">
-      <div class="seo">
-        <div class="ledger">
-          <div class="row"><b>21</b><div><strong>Suchbegriffe in den Top 100</strong><span>Google Deutschland, davon keiner auf Seite 1 und einer auf Seite 2</span></div></div>
-          <div class="row"><b>~0</b><div><strong>organische Besuche pro Monat</strong><span>Schätzung von Semrush für die Rankings von heute</span></div></div>
-          <div class="row"><b>513</b><div><strong>verweisende Domains</strong><span>2.341 Backlinks, Authority Score 14. Auf diesem Linkprofil können neue Fachbeiträge aufbauen.</span></div></div>
+      <div class="wl">
+        <div>
+          <div class="mock" aria-label="Was Google beim Aufruf von vhi.de bekommt">
+            <div class="mock-bar"><i></i><i></i><i></i><span>underconstruction – VHI …</span></div>
+            <div class="mock-in">
+              <div class="uc">Wir bauen ein wenig um</div>
+              <div class="mrow"><em>URL</em><div>Alle Unterseiten<small>Themen, Presse, Beiträge</small></div><span class="st-b a">302 → Startseite</span></div>
+              <div class="mrow"><em>PDF</em><div>Normen-Dokumente<small>z. B. EN 312, EN 636, TA Luft</small></div><span class="st-b a">302 → Startseite</span></div>
+              <div class="mrow"><em>TXT</em><div>robots.txt<small>liefert HTML statt Text</small></div><span class="st-b a">302 → Startseite</span></div>
+              <div class="mrow"><em>XML</em><div>Sitemap<small>meldet alte URLs, zuletzt 2021 geändert</small></div><span class="st-b p">veraltet</span></div>
+            </div>
+          </div>
+          <p class="mock-cap">Was Google und KI-Crawler heute beim Aufruf von vhi.de bekommen</p>
         </div>
         <div>
-          <div class="col-h">Wofür vhi.de heute rankt</div>
-          <table class="kwt">
-            <thead><tr><th>Suchbegriff</th><th>Suchen / Monat</th><th>Position</th><th>Rankende Seite</th></tr></thead>
-            <tbody>
-              <tr><td>entsorgungsfachbetrieb</td><td>720</td><td>82</td><td>PDF von 2017</td></tr>
-              <tr><td>high density fiberboard</td><td>590</td><td>33</td><td>PDF von 2015</td></tr>
-              <tr><td>spanplattenwerk gotha gmbh</td><td>390</td><td>29</td><td>Startseite</td></tr>
-              <tr><td>hdf form</td><td>170</td><td>45</td><td>PDF von 2015</td></tr>
-              <tr><td>holzverbundplatten</td><td>140</td><td>78</td><td>Startseite</td></tr>
-              <tr><td>grenzwerte formaldehyd</td><td>90</td><td>48</td><td>Positionspapier, PDF von 2014</td></tr>
-            </tbody>
-          </table>
-          <p class="small-note">Die übrigen Begriffe sind überwiegend Namen von Mitgliedsunternehmen, für die die Startseite rankt.</p>
+          <ul class="points">
+            <li><b>Rankings gehen nach und nach verloren.</b> Seiten, die dauerhaft auf die Startseite umleiten, wertet Google auf Dauer wie gelöschte Seiten.</li>
+            <li><b>Die Startseite hat keine Grundlagen.</b> Der Title lautet „underconstruction – VHI …“, es gibt keine H1 und keine Meta-Description. Im Schema steht „Eine weitere VHI Seite“.</li>
+            <li><b>Crawler finden keinen Einstieg.</b> Ohne gültige robots.txt fehlt auch der Verweis auf die Sitemap.</li>
+            <li><b>Die Technik ist veraltet.</b> WordPress 6.5.14 mit zwei Slider-Plugins sollte im Relaunch auch aus Sicherheitsgründen geprüft werden.</li>
+          </ul>
         </div>
       </div>
-      <div class="take"><b class="k">Was das heißt</b>Zu den Themen des Verbands gibt es auf vhi.de keine Fachseiten, die Google als Antwort zeigen kann. Wo der VHI heute auftaucht, liegt das an PDFs, die zum Teil über zehn Jahre alt sind.</div>
     </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Quelle: Semrush, Datenbank Deutschland, abgerufen am 29. Oktober 2026</span><span class="pg"></span></div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Eigene Prüfung von vhi.de, Oktober 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- SEO- und GEO-Status -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">SEO- und GEO-Status</div>
+        <h2>Google und KI-Systeme kennen den VHI als Quelle</h2>
+        <p class="s-sub">Gefunden wird der Verband bisher über seinen Namen und über alte Normen-PDFs. Bei den Fachbegriffen der Branche stehen andere vorne.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="grid2 st2">
+        <div>
+          <div class="col-h">Google · SISTRIX</div>
+          <div class="ledger">
+            <div class="row"><b>0,0011</b><div><strong>Sichtbarkeitsindex</strong><span>holzindustrie.de liegt bei 0,0155, also etwa 14-mal so hoch</span></div></div>
+            <div class="row"><b>126</b><div><strong>Keywords</strong><span>vor allem Markenbegriffe wie „vhi“ und „Strohmeyer“ sowie Normen-PDFs auf Platz 1 bis 10</span></div></div>
+            <div class="row"><b>Platz 17</b><div><strong>für „holzwerkstoffe“</strong><span>Die Top 10 belegen Wikipedia, fnr.de, sanier.de und Shops. Ein Verband ist nicht darunter.</span></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="col-h">KI-Antworten · SISTRIX AI Check</div>
+          <div class="ledger">
+            <div class="row"><b>13</b><div><strong>Prompts, in denen vhi.de auftaucht</strong><span>6 in Google AI Overviews, 4 im AI Mode, 2 bei ChatGPT, 1 bei Perplexity. holzindustrie.de kommt auf 36.</span></div></div>
+            <div class="row"><b>ChatGPT</b><div><strong>nennt vhi.de als Quelle</strong><span>zum Beispiel für „größte Sperrholzhersteller in Deutschland“. Wer dem Link folgt, landet auf der Baustellenseite.</span></div></div>
+            <div class="row"><b>0</b><div><strong>Signale für KI-Systeme</strong><span>Alle KI-Bots sind erlaubt, es gibt aber keine llms.txt und kein Organization-Schema.</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="take"><b class="k">Was das heißt</b>Der VHI hat bei Google und in KI-Antworten eine Ausgangsposition. Solange die Website nur eine Baustelle zeigt, droht er sie an holzindustrie.de und Normen-Portale wie dinmedia.de zu verlieren.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Quelle: SISTRIX und SISTRIX AI Check, Deutschland, Oktober 2026</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Potenzial -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Potenzial</div>
+        <h2>400 bis 900 zusätzliche Besuche im Monat</h2>
+        <p class="s-sub">Gerechnet nur mit Fachfragen und Themen, bei denen ein Fachverband realistisch nach vorne kommt. Die großen Produktbegriffe, bei denen Shops dominieren, sind nicht eingerechnet.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="pot">
+        <table class="kwt">
+          <thead><tr><th>Thema</th><th>Suchen / Monat</th><th>Ziel</th><th>Besuche konservativ</th><th>Besuche realistisch</th></tr></thead>
+          <tbody>
+            <tr><td>Fragen wie „MDF oder Spanplatte?“, „OSB oder Spanplatte?“</td><td>ab 10.000</td><td>Seite 1</td><td>300</td><td>600</td></tr>
+            <tr><td>holzwerkstoffe</td><td>550</td><td>Top 3</td><td>55</td><td>110</td></tr>
+            <tr><td>altholzverordnung</td><td>350</td><td>Top 3</td><td>35</td><td>70</td></tr>
+            <tr><td>Normen in HTML (EN 312, 636, 300, 13986 …)</td><td>100 bis 500</td><td>Top 3</td><td>15</td><td>125</td></tr>
+            <tr class="sum-row"><td>Zusätzliche Besuche pro Monat</td><td></td><td></td><td>ca. 400</td><td>ca. 900</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <div class="side-case"><b>50.350</b><strong>Suchen für die Produktbegriffe</strong><span>„mdf platte“ 28.400, „spanplatte“ 14.500, „osb platte“ 7.450. Hier dominieren Shops, deshalb sind sie nicht eingerechnet.</span></div>
+          <div class="total"><b>13 → 36</b><span>Ziel für KI-Antworten: zu holzindustrie.de aufschließen. Neutrale Vergleiche vom Fachverband zitieren KI-Systeme gern.</span></div>
+        </div>
+      </div>
+      <p class="small-note" style="margin-top:auto"><b>So haben wir gerechnet:</b> Klickrate 3 bzw. 6 % für das Fragen-Cluster, 10 bzw. 20 % für „holzwerkstoffe“ und „altholzverordnung“, 15 bzw. 25 % für die Normen. Für das Fragen-Cluster meldet SISTRIX einen fünfstelligen Wert, wir rechnen vorsichtig mit 10.000. Bei den Normen nehmen wir rund zehn Begriffe mit je 10 bis 50 Suchen an. Prognose nach 9 bis 12 Monaten, keine Garantie. Mit DataForSEO und den echten Search-Console-Daten rechnen wir im Setup genau nach.</p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI · Suchvolumen: SISTRIX, Deutschland, Oktober 2026 · Klickraten: Annahmen</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Empfehlungen -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Empfehlungen</div>
+        <h2>Was jetzt passieren sollte, nach Priorität</h2>
+        <p class="s-sub">Der erste Schritt sichert die Rankings, die der VHI heute noch hat. Die übrigen bauen darauf auf und laufen mit dem Relaunch.</p>
+      </div>
+      <span class="s-mark">VHI</span>
+    </div>
+    <div class="s-body">
+      <div class="steps4 recs">
+        <div><span class="n">1</span><b>Sofort, vor dem Relaunch</b><ul><li>PDFs und Normen-Dokumente aus der Umleitung nehmen</li><li>robots.txt als Textdatei ausliefern</li><li>Title der Startseite anpassen</li><li>Redirect-Map: jede alte URL per 301 auf ihr neues Ziel</li></ul></div>
+        <div><span class="n">2</span><b>Wissensbereich Holzwerkstoffe</b><ul><li>Glossar: Span, MDF, HDF, OSB, Sperrholz, MFB</li><li>Vergleichsseiten</li><li>Normen-Übersicht in HTML</li><li>Emissionsklassen und Formaldehyd</li><li>Altholz und Kreislaufwirtschaft</li></ul></div>
+        <div><span class="n">3</span><b>Sichtbar in KI-Antworten</b><ul><li>Branchenzahlen als Primärquelle mit Datum</li><li>Mitgliederverzeichnis für „Hersteller in Deutschland“</li><li>Organization- und FAQ-Schema, llms.txt</li><li>kurze Definitionen am Seitenanfang, Fachautoren mit Namen</li></ul></div>
+        <div><span class="n">4</span><b>Begleitend</b><ul><li>Wikipedia-Eintrag pflegen</li><li>Erwähnungen in der Fachpresse, etwa Holzkurier und Holz-Zentralblatt</li><li>Aus diesen Quellen setzen KI-Systeme ihre Antworten zusammen.</li></ul></div>
+      </div>
+      <div class="take"><b class="k">Mit GetMarketing</b>Die Punkte 2 bis 4 laufen im System. Für Punkt 1 bekommt die Webagentur des VHI ein fertiges Briefing.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot VHI</span><span class="pg"></span></div>
   </section>
 
   <!-- Leistung -->
