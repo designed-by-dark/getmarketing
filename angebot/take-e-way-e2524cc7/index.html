@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angebot take-e-way · News-Automatisierung · GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Konzept und Angebot von GetMarketing für take-e-way: ein eigenes News-System für Gesetzesänderungen mit Freigabe und Direktanbindung an TYPO3." />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --forest: #1B4332;
+    --accent: #52B788;
+    --accent-ink: #2F8A5E;
+    --mint: #95D5B2;
+    --black: #0A0A0A;
+    --ink: #1F2A24;
+    --gray: #6B7280;
+    --gray2: #A3ABB5;
+    --bg: #F3F3F0;
+    --card: #FFFFFF;
+    --soft: #F4F4F2;
+    --line: #E6E6E1;
+    --tint: #E7F3EC;
+    --warn: #B4532A;
+    --warn-bg: #F7EBE2;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { font-family: var(--font); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; font-size: 15px; line-height: 1.5; }
+  h1, h2, h3 { color: var(--black); letter-spacing: -0.025em; line-height: 1.15; text-wrap: balance; }
+  a { color: var(--accent-ink); }
+  b { font-weight: 700; }
+
+  /* ---------- App chrome ---------- */
+  .topbar { position: sticky; top: 0; z-index: 30; height: 60px; background: #fff; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 16px; padding: 0 20px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: -0.04em; font-size: 17px; color: var(--black); text-decoration: none; }
+  .brand img { width: 30px; height: 30px; border-radius: 7px; }
+  .crumb { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--gray); }
+  .crumb .sep { color: var(--gray2); }
+  .project { display: inline-flex; align-items: center; gap: 8px; background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; font-weight: 600; color: var(--ink); }
+  .pico { width: 16px; height: 16px; color: var(--forest); flex-shrink: 0; }
+  .status { margin-left: auto; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--accent-ink); background: var(--tint); border-radius: 50px; padding: 5px 12px; white-space: nowrap; }
+  .status i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-ink); }
+  .top-cta { font: 700 14px var(--font); background: var(--forest); color: #fff; text-decoration: none; padding: 9px 16px; border-radius: 8px; white-space: nowrap; }
+
+  .app { display: grid; grid-template-columns: 232px minmax(0, 1fr); max-width: 1320px; margin: 0 auto; }
+  .side { position: sticky; top: 60px; height: calc(100vh - 60px); padding: 22px 14px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px; overflow-y: auto; }
+  .side .h { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gray2); padding: 6px 10px 8px; }
+  .side a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .side a .n { width: 22px; height: 22px; border-radius: 6px; background: var(--soft); border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--gray); flex-shrink: 0; }
+  .side a:hover { background: #fff; }
+  .side a.on { background: #fff; color: var(--forest); font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .side a.on .n { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .side .foot { margin-top: auto; font-size: 12px; color: var(--gray); padding: 10px; line-height: 1.5; }
+
+  main { padding: 28px 32px 80px; display: flex; flex-direction: column; gap: 40px; min-width: 0; }
+  .sec { scroll-margin-top: 76px; }
+  .sec-h { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .sec-h .n { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--accent-ink); }
+  .sec-h h2 { font-size: 24px; }
+  .sec-h p { color: var(--gray); font-size: 14.5px; margin-left: auto; text-align: right; max-width: 480px; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card h3 { font-size: 16px; margin-bottom: 4px; }
+  .sub { color: var(--gray); font-size: 13.5px; }
+  .label { font-size: 11.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--gray); }
+  .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 6px; background: var(--tint); color: var(--forest); white-space: nowrap; }
+  .pill.g { background: var(--soft); color: var(--gray); }
+  .src { font-size: 12.5px; color: var(--gray); margin-top: 10px; }
+  .table-scroll { overflow-x: auto; }
+  .grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+
+  /* ---------- Intro ---------- */
+  .intro { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 16px; align-items: stretch; }
+  .intro h1 { font-size: 32px; letter-spacing: -0.035em; }
+  .intro .lead { color: var(--gray); font-size: 16px; margin-top: 10px; max-width: 640px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 20px; font-size: 13.5px; color: var(--gray); }
+  .meta b { color: var(--ink); font-weight: 600; }
+  .gm { background: var(--forest); color: #fff; border-radius: 14px; padding: 20px 22px; display: flex; flex-direction: column; }
+  .gm .label { color: var(--accent); }
+  .gm p { font-size: 14px; color: rgba(255,255,255,.85); margin-top: 8px; }
+  .gm .loop { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .gm .loop span { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14); border-radius: 7px; padding: 4px 9px; font-size: 12.5px; font-weight: 600; }
+  .gm .proto { margin-top: auto; padding-top: 16px; }
+  .gm .proto a { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--forest); font-weight: 800; font-size: 14px; text-decoration: none; padding: 9px 14px; border-radius: 8px; }
+
+  /* ---------- Text blocks ---------- */
+  .brief { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 30px 36px; }
+  .brief h3 { font-size: 18px; margin: 24px 0 8px; }
+  .brief > h3:first-child { margin-top: 0; }
+  .brief p { font-size: 15px; max-width: 760px; }
+  .brief p + p { margin-top: 8px; }
+  ul.dots { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  ul.dots li { font-size: 15px; padding-left: 18px; position: relative; }
+  ul.dots li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  ul.dots.minus li::before { background: var(--warn); }
+  ul.dots li b { color: var(--black); }
+  .so { margin-top: 22px; background: var(--tint); border-radius: 12px; padding: 16px 20px; color: var(--forest); }
+  .so b { display: block; font-size: 15px; margin-bottom: 4px; }
+
+  .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .kpis div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .kpis div.d { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .kpis b { display: block; font-size: 36px; font-weight: 900; letter-spacing: -0.045em; line-height: 1.05; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .kpis .d b { color: #fff; }
+  .kpis span { font-size: 13px; color: var(--gray); display: block; margin-top: 4px; line-height: 1.4; }
+  .kpis .d span { color: rgba(255,255,255,.72); }
+
+  /* ---------- Bausteine ---------- */
+  .mods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .mod { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .mod .ic { width: 40px; height: 40px; border-radius: 10px; background: var(--tint); color: var(--forest); display: grid; place-items: center; margin-bottom: 12px; }
+  .mod .ic svg { width: 21px; height: 21px; }
+  .mod h3 { font-size: 16px; margin-bottom: 6px; }
+  .mod p { font-size: 14px; color: var(--ink); }
+  .mod.d { background: var(--forest); border-color: var(--forest); }
+  .mod.d h3 { color: #fff; }
+  .mod.d p { color: rgba(255,255,255,.85); }
+  .mod.d .ic { background: rgba(255,255,255,.12); color: var(--accent); }
+
+  /* ---------- Ablauf ---------- */
+  .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+  .fl { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; position: relative; }
+  .fl:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 22px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
+  .fl .k { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--accent-ink); }
+  .fl h3 { font-size: 15px; margin: 6px 0 4px; }
+  .fl p { font-size: 13.5px; color: var(--gray); }
+  .fl .who { margin-top: 10px; }
+  .effort { margin-top: 14px; display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
+  .effort b { font-size: 26px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); white-space: nowrap; }
+
+  /* ---------- Why ---------- */
+  .why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .why div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .why h3 { font-size: 15.5px; margin-bottom: 6px; }
+  .why p { font-size: 14px; }
+
+  /* ---------- Tables ---------- */
+  table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.t th { text-align: left; font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  table.t td { padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.t tr:last-child td { border-bottom: 0; }
+  table.t td.r, table.t th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.t tr.hl td { background: var(--tint); font-weight: 700; color: var(--forest); }
+  table.t tr.us td { background: var(--tint); }
+  table.t tr.us td:first-child { font-weight: 700; color: var(--forest); }
+
+  /* ---------- Calculator ---------- */
+  .calc { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 16px; }
+  .ctl { display: flex; flex-direction: column; gap: 18px; }
+  .ctl label { display: block; font-size: 13.5px; font-weight: 600; }
+  .ctl label span { float: right; font-family: var(--mono); font-weight: 700; color: var(--forest); }
+  .ctl input[type=range] { width: 100%; margin-top: 8px; accent-color: var(--forest); }
+  .ctl .hint { font-size: 12px; color: var(--gray); margin-top: 2px; }
+  .res { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .res div { background: var(--soft); border-radius: 12px; padding: 16px 18px; }
+  .res div.d { background: var(--forest); color: #fff; }
+  .res b { display: block; font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .res .d b { color: #fff; }
+  .res span { font-size: 13px; color: var(--gray); }
+  .res .d span { color: rgba(255,255,255,.72); }
+  .bars { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .bar { display: grid; grid-template-columns: 150px minmax(0, 1fr) 70px; gap: 10px; align-items: center; font-size: 13px; }
+  .bar .b { height: 14px; background: var(--soft); border-radius: 4px; overflow: hidden; }
+  .bar .b i { display: block; height: 100%; background: var(--gray2); border-radius: 4px; transform-origin: left; transition: transform .25s; }
+  .bar.us .b i { background: var(--accent); }
+  .bar .v { text-align: right; font-family: var(--mono); font-weight: 700; font-size: 12.5px; }
+
+  .scen { margin-top: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+  .chain { display: flex; align-items: stretch; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .chain div { flex: 1 1 120px; background: var(--soft); border-radius: 10px; padding: 12px 14px; }
+  .chain b { display: block; font-size: 22px; font-weight: 900; letter-spacing: -0.03em; color: var(--forest); }
+  .chain span { font-size: 12.5px; color: var(--gray); }
+  .chain i { align-self: center; font-style: normal; color: var(--accent-ink); font-weight: 800; }
+
+  /* ---------- Pakete ---------- */
+  .pk { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; }
+  .pbox { border-radius: 18px; padding: 26px 28px; border: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; }
+  .pbox.d { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .pbox .label { color: var(--accent-ink); }
+  .pbox.d .label { color: var(--accent); }
+  .pbox h3 { font-size: 20px; margin-top: 6px; }
+  .pbox.d h3 { color: #fff; }
+  .pbox .v { font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; margin-top: 14px; color: var(--forest); }
+  .pbox.d .v { color: #fff; }
+  .pbox .v small { font-size: 16px; font-weight: 500; color: var(--gray); letter-spacing: 0; }
+  .pbox.d .v small { color: rgba(255,255,255,.65); }
+  .pbox ul { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 7px; }
+  .pbox li { font-size: 14px; padding-left: 22px; position: relative; }
+  .pbox.d li { color: rgba(255,255,255,.88); }
+  .pbox li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+  .pbox .pt { margin-top: auto; padding-top: 16px; font-size: 13px; color: var(--gray); }
+  .pbox.d .pt { color: rgba(255,255,255,.65); }
+  details.eff { margin-top: 16px; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+  details.eff summary { cursor: pointer; padding: 16px 20px; font-weight: 700; font-size: 15px; list-style: none; display: flex; align-items: center; gap: 10px; }
+  details.eff summary::-webkit-details-marker { display: none; }
+  details.eff summary::before { content: "+"; width: 22px; height: 22px; border-radius: 6px; background: var(--tint); color: var(--forest); display: grid; place-items: center; font-weight: 800; }
+  details.eff[open] summary::before { content: "−"; }
+  details.eff .in { padding: 0 20px 20px; }
+  .note { font-size: 13.5px; color: var(--gray); margin-top: 12px; }
+
+  /* ---------- Zeitplan ---------- */
+  .tl { display: flex; flex-direction: column; }
+  .tl-r { display: grid; grid-template-columns: 150px 20px minmax(0, 1fr); gap: 12px; }
+  .tl-r .w { font-weight: 700; font-size: 14px; padding: 14px 0; color: var(--forest); }
+  .tl-r .d { position: relative; }
+  .tl-r .d::before { content: ""; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: var(--line); }
+  .tl-r .d::after { content: ""; position: absolute; left: 4px; top: 19px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 3px solid var(--accent); }
+  .tl-r:first-child .d::before { top: 20px; }
+  .tl-r:last-child .d::before { bottom: auto; height: 20px; }
+  .tl-r .c { padding: 14px 0; font-size: 14.5px; border-bottom: 1px solid var(--line); }
+  .tl-r:last-child .c { border-bottom: 0; }
+
+  /* ---------- Next ---------- */
+  .next { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; }
+  .steps { list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; font-size: 15px; }
+  .steps li::before { content: counter(s); width: 30px; height: 30px; border-radius: 8px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+  .contact .who { display: flex; align-items: center; gap: 12px; margin: 12px 0 16px; }
+  .contact .who img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+  .contact .who span { display: block; font-size: 13px; color: var(--gray); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 14px var(--font); background: var(--forest); color: #fff; text-decoration: none; padding: 11px 18px; border-radius: 9px; }
+  .btn.l { background: var(--tint); color: var(--forest); }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  /* ---------- Anhang ---------- */
+  .ax-k { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .ax-k div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .ax-k b { display: block; font-size: 26px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .ax-k span { font-size: 12.5px; color: var(--gray); }
+  .ai-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .ai-bars .bar { grid-template-columns: 150px minmax(0, 1fr) 40px; }
+  .ai-bars .bar .b i { background: var(--accent); }
+  .prio { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .prio-h { display: flex; align-items: center; gap: 10px; margin: 18px 0 4px; }
+  .prio-h:first-child { margin-top: 0; }
+  .prio li { font-size: 14.5px; }
+  ol.prio { padding-left: 20px; }
+  .pill.hi { background: var(--warn-bg); color: var(--warn); }
+
+  @media (max-width: 1100px) {
+    .intro, .calc, .pk, .next { grid-template-columns: minmax(0, 1fr); }
+    .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .fl::after { display: none; }
+    .mods, .why { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 860px) {
+    html { scroll-padding-top: 116px; }
+    .app { grid-template-columns: minmax(0, 1fr); }
+    .side { position: sticky; top: 60px; z-index: 20; height: auto; flex-direction: row; overflow-x: auto; padding: 8px 12px; background: var(--bg); border-right: 0; border-bottom: 1px solid var(--line); gap: 4px; }
+    .side .h, .side .foot { display: none; }
+    .side a { white-space: nowrap; padding: 6px 10px; }
+    .sec { scroll-margin-top: 116px; }
+    main { padding: 20px 16px 60px; gap: 30px; }
+    .crumb .hide-s, .status { display: none; }
+    .intro h1 { font-size: 26px; }
+    .brief { padding: 22px 18px; }
+    .sec-h { flex-wrap: wrap; }
+    .sec-h p { margin-left: 0; text-align: left; flex-basis: 100%; }
+    .grid2, .grid3, .mods, .why, .flow, .kpis, .res { grid-template-columns: minmax(0, 1fr); }
+    .ax-k { grid-template-columns: 1fr 1fr; }
+    .kpis b { font-size: 30px; }
+    .bar, .ai-bars .bar { grid-template-columns: 110px minmax(0, 1fr) 60px; }
+    .tl-r { grid-template-columns: 96px 20px minmax(0, 1fr); gap: 8px; }
+    .pbox .v { font-size: 38px; }
+    table.t td, table.t th { padding-left: 8px; padding-right: 8px; }
+  }
+  @media (max-width: 520px) { .top-cta { display: none; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cycle" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 1 8.2 5.3M21 12a9 9 0 0 1-5.3 8.2M12 21a9 9 0 0 1-8.2-5.3M3 12a9 9 0 0 1 5.3-8.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="m18 4 2.4 4.4L16 9.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="topbar">
+  <a class="brand" href="/"><img src="/logo.jpg" alt="" />GetMarketing</a>
+  <div class="crumb"><span class="sep hide-s">/</span><span class="hide-s">Angebote</span><span class="sep">/</span><span class="project"><svg class="pico"><use href="#cycle"/></svg>take-e-way</span></div>
+  <span class="status"><i></i>Angebot vom 03.11.2026</span>
+  <a class="top-cta" href="prototyp/">Prototyp ansehen</a>
+</header>
+
+<div class="app">
+  <nav class="side" id="side">
+    <div class="h">News-Automatisierung</div>
+    <a href="#ausgangslage"><span class="n">1</span>Ausgangslage</a>
+    <a href="#ziel"><span class="n">2</span>Ziel</a>
+    <a href="#bausteine"><span class="n">3</span>Was wir bauen</a>
+    <a href="#ablauf"><span class="n">4</span>So läuft es ab</a>
+    <a href="#warum"><span class="n">5</span>Warum es sich lohnt</a>
+    <a href="#rechnung"><span class="n">6</span>Wirtschaftlichkeit</a>
+    <a href="#pakete"><span class="n">7</span>Pakete und Preise</a>
+    <a href="#zeitplan"><span class="n">8</span>Zeitplan</a>
+    <a href="#naechste"><span class="n">9</span>Nächste Schritte</a>
+    <a href="#anhang"><span class="n">A</span>SEO und GEO</a>
+    <div class="foot">Daten im Anhang: SISTRIX, Land DE, Stand 03.11.2026. Alle Preise netto zzgl. MwSt.</div>
+  </nav>
+
+  <main>
+
+    <!-- Intro -->
+    <section class="intro">
+      <div class="card" style="padding:26px 28px">
+        <span class="pill">Konzept und Angebot</span>
+        <h1 style="margin-top:12px">News-Automatisierung für take-e-way</h1>
+        <p class="lead">Ein eigenes News-System, das Gesetzesänderungen erkennt, im take-e-way-Ton vorbereitet und nach eurer Freigabe direkt in TYPO3 veröffentlicht. Einmal bezahlt, danach gehört es euch.</p>
+        <div class="meta">
+          <div>Für <b>Christoph Brellinger und Team, take-e-way GmbH</b></div>
+          <div>Von <b>Darya Kablash, GetMarketing</b></div>
+          <div>Stand <b>03.11.2026</b></div>
+        </div>
+      </div>
+      <div class="gm">
+        <div class="label">Kurz gesagt</div>
+        <p>30 bis 90 Fachmeldungen im Monat, 5 bis 10 Minuten Prüfung pro Meldung, kein Abo. Paket 1 kostet einmalig 7.900 €.</p>
+        <div class="loop"><span>Erkennen</span><span>→</span><span>Entwerfen</span><span>→</span><span>Freigeben</span><span>→</span><span>Veröffentlichen</span></div>
+        <div class="proto"><a href="prototyp/">Prototyp des Dashboards ansehen →</a></div>
+      </div>
+    </section>
+
+    <!-- 1 Ausgangslage -->
+    <section class="sec" id="ausgangslage">
+      <div class="sec-h"><span class="n">01</span><h2>Ausgangslage</h2><p>Das Fachwissen ist da. Es fehlt die Zeit, jede Änderung schnell aufzubereiten.</p></div>
+      <div class="kpis">
+        <div><b>13 %</b><span>Google-Sichtbarkeit von take-e-way.de im Vergleich zum Höchstwert von 2018</span></div>
+        <div><b>42 : 2</b><span>Prompts mit take-e-way in Google AI Overviews gegenüber ChatGPT</span></div>
+        <div class="d"><b>35</b><span>Länder, deren Regeln euer Team kennt. Das ist euer wertvollster Content.</span></div>
+      </div>
+      <article class="brief">
+        <p>take-e-way veröffentlicht im Newsportal regelmäßig Fachmeldungen zu Gesetzesänderungen in einzelnen Ländern. Die letzten drei Beiträge erschienen gemeinsam am 13.10.2026: Bevollmächtigte im EU-Ausland, LUCID und VerpackDG, PPWR in Tschechien. Dazu kommen ein Newsletter, ein LinkedIn-Kanal, die Academy auf trade-e-bility.de und elf Sprachdomains.</p>
+        <p>Jede Gesetzesänderung erzeugt Suchanfragen bei Herstellern und Händlern. Genau diese Fragen landen heute zunehmend in Google AI Overviews und ChatGPT. Wer eine Änderung als Erstes sauber erklärt, wird dort als Quelle zitiert.</p>
+        <h3>Was unsere Analyse zeigt</h3>
+        <ul class="dots">
+          <li>Die Google-Sichtbarkeit von take-e-way.de liegt bei rund <b>13 % des Höchstwerts von 2018</b>.</li>
+          <li>In Google AI Overviews taucht take-e-way bei <b>42 Prompts</b> auf, in ChatGPT erst bei <b>2</b>.</li>
+          <li>Ein großer Teil der zitierten Autorität liegt auf <b>trade-e-bility.de</b> und fließt kaum auf die Hauptdomain zurück.</li>
+        </ul>
+        <div class="so"><b>Der Engpass</b>Euer Team kennt die Regeln in 35 Ländern. Es fehlt die Zeit, jede Änderung schnell, regelmäßig und in mehreren Sprachen aufzubereiten. Details stehen im <a href="#anhang">Anhang</a>.</div>
+      </article>
+    </section>
+
+    <!-- 2 Ziel -->
+    <section class="sec" id="ziel">
+      <div class="sec-h"><span class="n">02</span><h2>Ziel</h2></div>
+      <div class="grid2">
+        <div class="card">
+          <div class="label">Das System</div>
+          <h3 style="margin-top:8px;font-size:18px">Ein eigenes News-System für take-e-way</h3>
+          <p style="margin-top:8px">Es erkennt Gesetzesänderungen und Fristen automatisch, bereitet sie als Fachmeldung im take-e-way-Ton vor und veröffentlicht sie nach eurer Freigabe direkt in TYPO3. Ausgelegt auf mindestens 30 Meldungen im Monat, auf Wunsch mehrere Meldungen pro Tag.</p>
+        </div>
+        <div class="card">
+          <div class="label">Das Modell</div>
+          <h3 style="margin-top:8px;font-size:18px">Gemeinsam aufbauen, dann übergeben</h3>
+          <p style="margin-top:8px">Wir bauen das System mit euch auf, betreuen es drei Monate und übergeben es danach vollständig. Ihr zahlt einmal: kein Abo, keine Lizenzgebühr, keine Kündigungsfrist. Das System läuft auf eurer Infrastruktur und euer Team kann es selbst weiterführen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Bausteine -->
+    <section class="sec" id="bausteine">
+      <div class="sec-h"><span class="n">03</span><h2>Was wir bauen</h2><p>Sieben Bausteine, ein System. Im <a href="prototyp/">Prototyp</a> könnt ihr sie durchklicken.</p></div>
+      <div class="mods">
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/></svg></div>
+          <h3>Quellen-Monitoring</h3>
+          <p>Beobachtet laufend EUR-Lex und das EU-Amtsblatt, stiftung ear, die Zentrale Stelle Verpackungsregister, nationale Register und Behörden in euren Kernländern sowie ausgewählte Fachmedien. Die Liste legen wir gemeinsam fest, ihr könnt sie später selbst erweitern.</p>
+        </div>
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></div>
+          <h3>Relevanz-Filter</h3>
+          <p>Ordnet jede Information nach Rechtsgebiet (WEEE, Batterien, Verpackungen, Textilien, PV), Land und Zielgruppe (Hersteller, Händler, Marktplatz-Verkäufer) ein. Nur Meldungen mit echtem Handlungsbedarf kommen auf die Redaktionsliste.</p>
+        </div>
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg></div>
+          <h3>Entwurf im take-e-way-Ton</h3>
+          <p>Beantwortet die Kernfrage in den ersten zwei Sätzen, nennt Fristen sichtbar, enthält einen kurzen FAQ-Block und verlinkt auf die passende Lösungsseite. Das ist die Struktur, die KI-Systeme bevorzugt zitieren.</p>
+        </div>
+        <div class="mod d">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 20V9"/></svg></div>
+          <h3>Redaktions-Dashboard</h3>
+          <p>Redaktionskalender, Quellennachweis zu jedem Entwurf, Kommentare und Freigabe per Klick. Status, Land, Rechtsgebiet und Kanal auf einen Blick, Sammelfreigabe bei hohem Volumen. Ohne eure Freigabe geht nichts online.</p>
+        </div>
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg></div>
+          <h3>Direktanbindung an TYPO3</h3>
+          <p>Freigegebene Meldungen landen automatisch als fertiger News-Datensatz in eurem TYPO3: Titel, Teaser, Text, Kategorien, FAQ und Meta-Daten. Händisches Kopieren entfällt.</p>
+        </div>
+        <div class="mod">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <h3>Weitere Kanäle</h3>
+          <p>Zu jeder Meldung entstehen ein LinkedIn-Post und ein Baustein für den Newsletter, ebenfalls zur Freigabe.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px;display:flex;gap:14px;align-items:center">
+        <div class="mod" style="border:0;padding:0;background:none"><div class="ic" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div></div>
+        <div><h3>Messung</h3><p class="sub" style="font-size:14px">Über Search Console und GA4 (nur Lesezugriff) seht ihr im Dashboard, welche Themen Besucher und Anfragen bringen.</p></div>
+      </div>
+    </section>
+
+    <!-- 4 Ablauf -->
+    <section class="sec" id="ablauf">
+      <div class="sec-h"><span class="n">04</span><h2>So läuft es ab</h2><p>Beispiel: eine neue Registrierungspflicht für Verpackungen in Polen.</p></div>
+      <div class="flow">
+        <div class="fl"><div class="k">01</div><h3>Erkennen</h3><p>Das System erkennt die Änderung in einer beobachteten Quelle.</p><div class="who"><span class="pill g">System</span></div></div>
+        <div class="fl"><div class="k">02</div><h3>Entwerfen</h3><p>Es prüft die Relevanz und erstellt einen Entwurf mit Quellenangabe.</p><div class="who"><span class="pill g">System</span></div></div>
+        <div class="fl"><div class="k">03</div><h3>Prüfen</h3><p>Ein Fachkollege prüft im Dashboard, korrigiert bei Bedarf und gibt frei.</p><div class="who"><span class="pill">take-e-way</span></div></div>
+        <div class="fl"><div class="k">04</div><h3>Veröffentlichen</h3><p>Die Meldung erscheint in TYPO3, auf LinkedIn und im nächsten Newsletter.</p><div class="who"><span class="pill g">System</span></div></div>
+        <div class="fl"><div class="k">05</div><h3>Messen</h3><p>Nach einigen Wochen zeigt das Dashboard, wie die Meldung bei Google abschneidet.</p><div class="who"><span class="pill g">System</span></div></div>
+      </div>
+      <div class="effort"><b>5 bis 10 Min.</b><span>Realistischer Aufwand für euer Team pro Meldung. Der einzige Schritt, den ein Mensch macht, ist die fachliche Prüfung.</span></div>
+    </section>
+
+    <!-- 5 Warum -->
+    <section class="sec" id="warum">
+      <div class="sec-h"><span class="n">05</span><h2>Warum sich das lohnt</h2></div>
+      <div class="why">
+        <div><h3>Geschwindigkeit</h3><p>Bei Gesetzesänderungen gewinnt, wer die Frage zuerst gut beantwortet. Das System liefert einen Entwurf innerhalb weniger Stunden nach Veröffentlichung einer Quelle.</p></div>
+        <div><h3>Volumen</h3><p>30 und mehr Meldungen im Monat sind mit dem bestehenden Team händisch kaum machbar. Mit dem System wird diese Menge planbar.</p></div>
+        <div><h3>Entlastung der Fachleute</h3><p>Eure Experten prüfen und schreiben nicht mehr selbst. Ihre Zeit fließt in Beratung und Kundenprojekte.</p></div>
+        <div><h3>Mehr Präsenz in der KI-Suche</h3><p>Antwortfähige Struktur, FAQ-Blöcke und saubere Daten erhöhen die Chance, in ChatGPT und AI Overviews genannt zu werden. Dort steht heute oft Interzero vor euch.</p></div>
+        <div><h3>Eigentum statt Abhängigkeit</h3><p>Das System gehört euch. Keine laufende Agenturgebühr, ihr könnt es intern weiterentwickeln.</p></div>
+        <div><h3>Datenhoheit</h3><p>Das System läuft auf eurer eigenen Infrastruktur. Das passt zu eurem Informationssicherheitsmanagement nach ISO 27001.</p></div>
+      </div>
+    </section>
+
+    <!-- 6 Rechnung -->
+    <section class="sec" id="rechnung">
+      <div class="sec-h"><span class="n">06</span><h2>Potenzial und Wirtschaftlichkeit</h2><p>Vorsichtig gerechnet. Im Kick-off ersetzen wir die Annahmen durch eure echten Werte.</p></div>
+
+      <div class="card">
+        <div class="label">Hebel 1 · Zeitersparnis im Team</div>
+        <p style="margin:8px 0 18px;max-width:820px">Eine Fachmeldung von Hand heißt: Quelle finden und lesen, Auswirkung für Kunden einordnen, Text schreiben und gegenlesen, in TYPO3 einpflegen, LinkedIn-Post und Newsletter-Text formulieren. Mit dem System bleibt davon die fachliche Prüfung. Schiebt die Regler auf eure Werte.</p>
+        <div class="calc">
+          <div class="ctl">
+            <div><label>Meldungen pro Monat <span id="o-n">30</span></label><input type="range" id="i-n" min="10" max="90" step="5" value="30" /></div>
+            <div><label>Aufwand pro Meldung von Hand <span id="o-h">3,5 Std.</span></label><input type="range" id="i-h" min="1" max="5" step="0.5" value="3.5" /></div>
+            <div><label>Interne Vollkosten pro Stunde <span id="o-r">60 €</span></label><input type="range" id="i-r" min="40" max="120" step="5" value="60" /></div>
+            <div class="hint">Mit System: 10 Minuten Prüfung pro Meldung plus 3 Stunden im Monat für Stichproben und Pflege der Quellen. Laufende Kosten: ca. 100 € im Monat.</div>
+          </div>
+          <div>
+            <div class="res">
+              <div><b id="r-hrs">97 Std.</b><span>gesparte Zeit pro Monat</span></div>
+              <div><b id="r-mo">5.820 €</b><span>gesparte Kosten pro Monat</span></div>
+              <div><b id="r-yr">69.840 €</b><span>gesparte Kosten pro Jahr</span></div>
+              <div class="d"><b id="r-pb">1,4 Monate</b><span>bis sich Paket 1 bezahlt gemacht hat</span></div>
+            </div>
+            <div class="bars">
+              <div class="bar"><span>Von Hand</span><div class="b"><i id="b-hand"></i></div><span class="v" id="v-hand"></span></div>
+              <div class="bar us"><span>Mit System</span><div class="b"><i id="b-sys"></i></div><span class="v" id="v-sys"></span></div>
+            </div>
+            <p class="src" id="fte"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="label" style="margin-bottom:10px">Drei Szenarien aus dem Konzept</div>
+        <div class="table-scroll">
+          <table class="t">
+            <thead><tr><th></th><th class="r">Konservativ</th><th class="r">Realistisch</th><th class="r">Zielvolumen</th></tr></thead>
+            <tbody>
+              <tr><td>Meldungen pro Monat</td><td class="r">30</td><td class="r">30</td><td class="r">60</td></tr>
+              <tr><td>Aufwand pro Meldung von Hand</td><td class="r">2 Std.</td><td class="r">3,5 Std.</td><td class="r">3,5 Std.</td></tr>
+              <tr><td>Aufwand von Hand pro Monat</td><td class="r">60 Std.</td><td class="r">105 Std.</td><td class="r">210 Std.</td></tr>
+              <tr><td>Aufwand mit System pro Monat</td><td class="r">8 Std.</td><td class="r">8 Std.</td><td class="r">13 Std.</td></tr>
+              <tr class="hl"><td>Gesparte Zeit pro Monat</td><td class="r">52 Std.</td><td class="r">97 Std.</td><td class="r">197 Std.</td></tr>
+              <tr><td>Gesparte Kosten pro Monat</td><td class="r">3.120 €</td><td class="r">5.820 €</td><td class="r">11.820 €</td></tr>
+              <tr><td>Gesparte Kosten pro Jahr</td><td class="r">37.440 €</td><td class="r">69.840 €</td><td class="r">141.840 €</td></tr>
+              <tr><td>Paket 1 hat sich bezahlt gemacht nach</td><td class="r">ca. 2,6 Monaten</td><td class="r">ca. 1,4 Monaten</td><td class="r">unter 1 Monat</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Im Zielvolumen von 60 Meldungen entspricht der Aufwand von Hand mehr als einer Vollzeitstelle. In der Praxis heißt das: Ohne System entstehen diese Meldungen gar nicht.</p>
+      </div>
+
+      <div class="grid2" style="margin-top:16px">
+        <div class="card">
+          <div class="label">Hebel 2 · Übersetzungen für die Sprachdomains</div>
+          <p style="margin:8px 0 12px;font-size:14px">Eine Fachmeldung hat etwa 500 Wörter. Eine professionelle Fachübersetzung kostet rund 0,15 € pro Wort, also etwa 75 € pro Meldung und Sprache.</p>
+          <div class="table-scroll">
+            <table class="t">
+              <thead><tr><th>Bei 30 Meldungen</th><th class="r">1 Sprache</th><th class="r">3</th><th class="r">10</th></tr></thead>
+              <tbody>
+                <tr><td>Übersetzungen pro Monat</td><td class="r">30</td><td class="r">90</td><td class="r">300</td></tr>
+                <tr><td>Kosten extern pro Monat</td><td class="r">2.250 €</td><td class="r">6.750 €</td><td class="r">22.500 €</td></tr>
+                <tr class="hl"><td>Paket 2 bezahlt nach</td><td class="r">ca. 2 Mon.</td><td class="r">&lt; 1 Mon.</td><td class="r">&lt; 1 Mon.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Die Prüfung durch eure Kollegen in den Ländern bleibt und dauert pro Übersetzung wenige Minuten.</p>
+        </div>
+        <div class="card">
+          <div class="label">Hebel 3 · Vergleich mit den Alternativen</div>
+          <div class="table-scroll" style="margin-top:10px">
+            <table class="t">
+              <thead><tr><th>Option</th><th>Typische Kosten</th></tr></thead>
+              <tbody>
+                <tr><td>Zusätzliche Redaktionsstelle<div class="sub">schafft 30 bis 40 Meldungen, Einarbeitung nötig</div></td><td>5.500 bis 7.000 € / Monat</td></tr>
+                <tr><td>Agentur oder Fachautoren<div class="sub">250 bis 400 € pro Artikel, Wissen bleibt extern</div></td><td>7.500 bis 12.000 € / Monat</td></tr>
+                <tr class="us"><td>News-System von GetMarketing<div class="sub">System und Wissen bleiben bei euch</div></td><td>einmalig 7.900 €, danach ca. 50 bis 160 € / Monat</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="scen">
+        <div class="label">Hebel 4 · Neue Anfragen über Google und KI-Suche</div>
+        <p style="margin-top:8px;font-size:14px;max-width:820px">Jede Meldung ist eine zusätzliche Seite, die bei Google und in KI-Antworten gefunden werden kann. Ein vorsichtiges Rechenbeispiel nach sechs Monaten mit 30 Meldungen im Monat:</p>
+        <div class="chain">
+          <div><b>180</b><span>neue Fachseiten</span></div><i>→</i>
+          <div><b>9.000</b><span>Besuche pro Monat (je 50)</span></div><i>→</i>
+          <div><b>45</b><span>Anfragen (0,5 %)</span></div><i>→</i>
+          <div><b>9</b><span>Neukunden (jede fünfte)</span></div><i>→</i>
+          <div><b>9.000 €</b><span>neuer Jahresumsatz pro Monat bei 1.000 € je Kunde</span></div>
+        </div>
+        <p class="note">Das ist ein Szenario und keine Zusage. Es zeigt die Größenordnung, ab der sich das System allein über Neukunden trägt. Den Wert eines Neukunden kennt ihr besser als wir.</p>
+      </div>
+
+      <div class="grid2" style="margin-top:16px">
+        <div class="card">
+          <div class="label">Weitere Hebel ohne feste Zahl</div>
+          <ul class="dots" style="margin-top:10px">
+            <li><b>Bestandskunden:</b> Wer rechtzeitig von neuen Pflichten erfährt, bucht eher Zusatzleistungen wie Bevollmächtigung oder Registrierungen in weiteren Ländern.</li>
+            <li><b>Academy:</b> Jede Meldung kann auf passende Webinare und Online-Kurse verweisen.</li>
+            <li><b>Erster am Thema:</b> Wer eine Änderung zuerst erklärt, wird in KI-Antworten als Quelle gesetzt.</li>
+            <li><b>Fachliche Autorität:</b> Regelmäßige Meldungen zu allen 35 Ländern stärken take-e-way gegenüber Interzero und anderen.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="label">Hebel 5 · Einmal zahlen, dauerhaft nutzen</div>
+          <p style="margin:8px 0 10px;font-size:14px">Gesamtkosten im Vergleich, Paket 1, 30 Meldungen pro Monat:</p>
+          <div class="table-scroll">
+            <table class="t">
+              <thead><tr><th></th><th class="r">Jahr 1</th><th class="r">3 Jahre</th></tr></thead>
+              <tbody>
+                <tr class="us"><td>News-System<div class="sub">7.900 € plus ca. 100 € / Monat</div></td><td class="r">ca. 9.100 €</td><td class="r">ca. 11.500 €</td></tr>
+                <tr><td>Redaktionsstelle</td><td class="r">ca. 66.000 €</td><td class="r">ca. 198.000 €</td></tr>
+                <tr><td>Agentur / Fachautoren</td><td class="r">ca. 90.000 €</td><td class="r">ca. 270.000 €</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Eine Meldung kostet damit im ersten Jahr rund 25 €, ab dem zweiten Jahr nur noch wenige Euro. Code, Dashboard, Prompts und Dokumentation gehören euch.</p>
+        </div>
+      </div>
+      <div class="so"><b>Zusammengefasst</b>Nach diesen Schätzungen rechnet sich das System bereits im ersten Jahr. Ab dem zweiten Jahr fallen nur noch Server und KI-Schnittstelle an.</div>
+    </section>
+
+    <!-- 7 Pakete -->
+    <section class="sec" id="pakete">
+      <div class="sec-h"><span class="n">07</span><h2>Pakete und Preise</h2><p>Einmalige Projekte ohne Abo: gemeinsamer Aufbau, drei Monate Betreuung, vollständige Übergabe.</p></div>
+      <div class="pk">
+        <div class="pbox d">
+          <div class="label">Paket 1</div>
+          <h3>News-System Deutsch</h3>
+          <div class="v">7.900 € <small>einmalig</small></div>
+          <ul>
+            <li>Quellen-Monitoring für eure Kernländer und Rechtsgebiete</li>
+            <li>Relevanz-Filter und Entwürfe im take-e-way-Ton auf Deutsch</li>
+            <li>Ausgelegt auf 30 bis 90 Meldungen pro Monat</li>
+            <li>Redaktions-Dashboard mit Sammelfreigabe</li>
+            <li>Direktanbindung an TYPO3 für take-e-way.de</li>
+            <li>LinkedIn-Post und Newsletter-Baustein zu jeder Meldung</li>
+            <li>Anbindung von Search Console und GA4</li>
+            <li>Einrichtung auf eurem Server oder in eurem EU-Cloud-Konto</li>
+            <li>Dokumentation und Einweisung eures Teams</li>
+            <li>3 Monate Betreuung nach Livegang</li>
+          </ul>
+          <div class="pt">Rund 15 Personentage</div>
+        </div>
+        <div class="pbox">
+          <div class="label">Paket 2 · Erweiterung zu Paket 1</div>
+          <h3>Sprachdomains</h3>
+          <div class="v">4.500 € <small>einmalig</small></div>
+          <ul>
+            <li>Automatische Übertragung freigegebener Meldungen in eure Sprachversionen</li>
+            <li>Anpassung an Länderbezug und Fachbegriffe der jeweiligen Sprache</li>
+            <li>Direkte Veröffentlichung auf den passenden TYPO3-Sprachdomains</li>
+            <li>Freigabe pro Sprache im Dashboard, auf Wunsch durch eure Kollegen vor Ort</li>
+            <li>Bis zu 10 weitere Sprachdomains</li>
+          </ul>
+          <div class="pt">Rund 8 Personentage · nur zusammen mit Paket 1</div>
+        </div>
+      </div>
+
+      <details class="eff">
+        <summary>Was im Preis steckt: Aufwand nach Arbeitspaketen</summary>
+        <div class="in">
+          <p style="font-size:14px;max-width:820px">Viele Grundbausteine wie Schreib-Logik, Freigabe und Messung bringen wir aus unserer bestehenden Plattform mit. Deshalb liegt der Aufwand deutlich unter einer kompletten Neuentwicklung.</p>
+          <div class="grid2" style="margin-top:14px">
+            <div class="table-scroll">
+              <table class="t">
+                <thead><tr><th>Paket 1</th><th class="r">Tage</th></tr></thead>
+                <tbody>
+                  <tr><td>Kick-off, Auswahl von Quellen, Themen und Kernländern</td><td class="r">1,5</td></tr>
+                  <tr><td>Quellen-Monitoring: Anbindung, automatische Abfrage, Ablage</td><td class="r">2,5</td></tr>
+                  <tr><td>Relevanz-Filter und Schreib-Logik mit FAQ und Meta-Daten</td><td class="r">2</td></tr>
+                  <tr><td>Redaktions-Dashboard mit Kalender, Kommentaren, Sammelfreigabe</td><td class="r">2,5</td></tr>
+                  <tr><td>Direktanbindung an TYPO3 inklusive Tests</td><td class="r">2</td></tr>
+                  <tr><td>LinkedIn- und Newsletter-Bausteine, GA4 und Search Console</td><td class="r">1</td></tr>
+                  <tr><td>Einrichtung, Testbetrieb, Dokumentation, Einweisung</td><td class="r">1,5</td></tr>
+                  <tr><td>Betreuung in den ersten 3 Monaten</td><td class="r">2</td></tr>
+                  <tr class="hl"><td>Summe</td><td class="r">15</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-scroll">
+              <table class="t">
+                <thead><tr><th>Paket 2</th><th class="r">Tage</th></tr></thead>
+                <tbody>
+                  <tr><td>Übersetzungs-Logik mit Fachbegriffen pro Sprache</td><td class="r">2</td></tr>
+                  <tr><td>Anbindung der TYPO3-Sprachdomains inklusive Tests</td><td class="r">2,5</td></tr>
+                  <tr><td>Freigabe pro Sprache im Dashboard</td><td class="r">1</td></tr>
+                  <tr><td>Testbetrieb in allen Sprachen</td><td class="r">1,5</td></tr>
+                  <tr><td>Betreuung in den ersten 3 Monaten</td><td class="r">1</td></tr>
+                  <tr class="hl"><td>Summe</td><td class="r">8</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="note">Den genauen Umfang stimmen wir im Kick-off ab. Ändert sich der Bedarf deutlich, etwa durch Quellen mit Zugangsbeschränkung oder Sonderwünsche an TYPO3, sprechen wir das vorher mit euch ab.</p>
+        </div>
+      </details>
+
+      <div class="grid2" style="margin-top:16px">
+        <div class="card">
+          <div class="label">Betreuung in den ersten 3 Monaten</div>
+          <ul class="dots" style="margin-top:10px">
+            <li>Wir beheben Fehler und Störungen, etwa wenn eine Quelle ihr Format ändert oder ein Import in TYPO3 hakt.</li>
+            <li>Wir schärfen Tonalität und Relevanz-Filter anhand eurer Korrekturen nach.</li>
+            <li>Ein fester Ansprechpartner bei uns, Reaktion innerhalb eines Werktags.</li>
+          </ul>
+          <p class="note">Danach übernehmt ihr das System komplett. Weitere Unterstützung, etwa für neue Rechtsgebiete, gern nach Aufwand. Verpflichtend ist das nicht.</p>
+        </div>
+        <div class="card">
+          <div class="label">Laufende Kosten bei euch</div>
+          <p class="sub" style="margin-top:6px">Direkt an die Anbieter, ohne Aufschlag durch uns.</p>
+          <div class="table-scroll" style="margin-top:6px">
+            <table class="t">
+              <tbody>
+                <tr><td>Server bzw. EU-Cloud-Hosting</td><td class="r">20 bis 60 € / Monat</td></tr>
+                <tr><td>KI-Schnittstelle, nur Deutsch</td><td class="r">30 bis 100 € / Monat</td></tr>
+                <tr><td>KI-Schnittstelle mit Sprachdomains</td><td class="r">zusätzlich 50 bis 150 €</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Die tatsächlichen Kosten seht ihr jederzeit im Dashboard. Alle Preise netto zzgl. MwSt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 Zeitplan -->
+    <section class="sec" id="zeitplan">
+      <div class="sec-h"><span class="n">08</span><h2>Zeitplan</h2><p>Livegang nach rund sechs Wochen. Paket 2 kann direkt mitgebaut werden oder danach folgen.</p></div>
+      <div class="card">
+        <div class="tl">
+          <div class="tl-r"><div class="w">Woche 1</div><div class="d"></div><div class="c">Kick-off, Festlegung von Kernländern, Themen und Quellen, Analyse eurer bisherigen News für die Tonalität, Zugang zu TYPO3 und Server</div></div>
+          <div class="tl-r"><div class="w">Woche 2 bis 4</div><div class="d"></div><div class="c">Aufbau von Monitoring, Dashboard und TYPO3-Anbindung, erste Testentwürfe zur Abstimmung</div></div>
+          <div class="tl-r"><div class="w">Woche 5 bis 6</div><div class="d"></div><div class="c">Testbetrieb mit echten Meldungen, Einweisung eures Teams, <b>Livegang</b></div></div>
+          <div class="tl-r"><div class="w">Monat 2 bis 4</div><div class="d"></div><div class="c">Betreuung: Fehlerbehebung und Feinschliff im laufenden Betrieb</div></div>
+          <div class="tl-r"><div class="w">Ende Monat 4</div><div class="d"></div><div class="c">Übergabe mit Dokumentation und Abschlusstermin</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 Next -->
+    <section class="sec" id="naechste">
+      <div class="sec-h"><span class="n">09</span><h2>Nächste Schritte</h2></div>
+      <div class="next">
+        <div class="card">
+          <ol class="steps">
+            <li><div><b>Prototyp ansehen.</b> Unsere Plattform, befüllt mit Beispielmeldungen zu euren Themen. So seht ihr vorab, wie Entwürfe und Dashboard für take-e-way aussehen würden.</div></li>
+            <li><div><b>Gemeinsamer Termin</b> zur Vorstellung des Prototyps (30 Minuten).</div></li>
+            <li><div><b>Entscheidung</b> über das Paket und Start des Projekts.</div></li>
+          </ol>
+          <div class="btns" style="margin-top:20px"><a class="btn" href="prototyp/">Prototyp öffnen →</a></div>
+        </div>
+        <div class="card contact">
+          <div class="label">Fragen zum Angebot?</div>
+          <div class="who"><img src="/darya.jpg" alt="Darya Kablash" /><div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div></div>
+          <a class="btn" href="mailto:darya@getmarketing.team?subject=take-e-way%20News-Automatisierung">Termin vereinbaren</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Anhang -->
+    <section class="sec" id="anhang">
+      <div class="sec-h"><span class="n">A</span><h2>Anhang: SEO- und GEO-Kurzanalyse take-e-way.de</h2><p>Grundlage: Startseite, robots.txt, SISTRIX (Sichtbarkeit und AI Check, DE) und KI-Antworten. Core Web Vitals, hreflang und Schema.org noch nicht technisch geprüft.</p></div>
+      <div class="ax-k">
+        <div><b>0,0112</b><span>Sichtbarkeitsindex aktuell</span></div>
+        <div><b>0,0858</b><span>Historisches Maximum, April 2018</span></div>
+        <div><b>213</b><span>Keywords in den Top 10</span></div>
+        <div><b>56</b><span>KI-Prompts mit take-e-way.de</span></div>
+      </div>
+      <div class="grid2">
+        <article class="brief">
+          <h3>SEO (Google DE)</h3>
+          <ul class="dots">
+            <li><b>Sichtbarkeit:</b> rund 13 % des Höchstwerts von 2018. Im März 2022 lag der Index mit 0,0001 praktisch bei null.</li>
+            <li><b>Wettbewerber im Ranking:</b> stiftung-ear.de, ear-system.de, deutsche-recycling.de, elektrogesetz.de, ihk.de, gruener-punkt.de. Überwiegend Behörden, Verbände und Wissensseiten. Gegen sie gewinnt man mit Ratgeber-Tiefe.</li>
+            <li><b>Startseite:</b> Der H1 ist lang und allgemein. Title und Meta-Description sind vorhanden und können geschärft werden.</li>
+            <li><b>Struktur:</b> breite Navigation, gute interne Verlinkung, starke Vertrauenssignale (rund 20.587 Registrierungen, 8.500 Hersteller aus 55 Ländern, ISO 9001, 14001 und 27001).</li>
+            <li><b>FAQ:</b> keine auf der Startseite, eine FAQ-Unterseite zur OfH.</li>
+            <li><b>Sprachversionen</b> auf 11 eigenen Domains. Das verteilt Autorität, hreflang ist zu prüfen.</li>
+            <li><b>robots.txt</b> enthält zwei <code>User-agent: *</code>-Blöcke. Das kann je nach Crawler zu unterschiedlichem Verhalten führen.</li>
+          </ul>
+        </article>
+        <article class="brief">
+          <h3>GEO (KI-Sichtbarkeit)</h3>
+          <div class="ai-bars">
+            <div class="bar"><span>Google AI Overviews</span><div class="b"><i style="width:100%"></i></div><span class="v">42</span></div>
+            <div class="bar"><span>Google AI Mode</span><div class="b"><i style="width:28.6%"></i></div><span class="v">12</span></div>
+            <div class="bar"><span>ChatGPT</span><div class="b"><i style="width:4.8%"></i></div><span class="v">2</span></div>
+          </div>
+          <h3>Stärken</h3>
+          <ul class="dots">
+            <li>Als Quelle genannt zu „epr service“, „industriebatterien“, „EU-Verpackungsverordnung Konformitätserklärung“ und „e way“.</li>
+            <li>Bei „epr service“ und „Industriebatterien“ auch im Antworttext als Anbieter erwähnt.</li>
+          </ul>
+          <h3>Schwächen</h3>
+          <ul class="dots minus">
+            <li>In ChatGPT mit 2 Prompts kaum präsent.</li>
+            <li>Einige Treffer („Laserpointer“, „Grüner Punkt“) bringen keine passende Zielgruppe.</li>
+            <li>Interzero, ecosistant, RecycleMe, lizenzero und hpm erscheinen in Antworten, Interzero mehrfach vor take-e-way.</li>
+            <li>Als Quelle taucht oft trade-e-bility.de auf. Die Autorität liegt auf der Academy-Domain.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="label" style="margin-bottom:12px">Empfohlene Maßnahmen</div>
+        <div class="grid3">
+          <div>
+            <div class="prio-h"><span class="pill hi">Hoch</span><span class="sub">nächste 4 Wochen</span></div>
+            <ol class="prio">
+              <li>Antwortfähige Inhalte pro Gesetz (VerpackDG, PPWR, BattDG, ElektroG, Konformitätserklärung): Frage im H2, direkte Antwort, sichtbare Fristen.</li>
+              <li>FAQ-Blöcke mit FAQPage-Schema auf Startseite und Lösungsseiten.</li>
+              <li>Strukturierte Daten: Organization (mit <code>sameAs</code> zu e-systems und trade-e-bility), Service, BreadcrumbList, Article für News.</li>
+              <li>Title, Meta-Description und H1 der Startseite schärfen, etwa „EPR-Compliance für Hersteller und Händler in 55 Ländern“.</li>
+              <li>robots.txt bereinigen und KI-Crawler (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) bewusst erlauben.</li>
+            </ol>
+          </div>
+          <div>
+            <div class="prio-h"><span class="pill">Mittel</span><span class="sub">1 bis 3 Monate</span></div>
+            <ol class="prio" start="6">
+              <li>Academy und Hauptdomain stärker verzahnen.</li>
+              <li>Vergleichs- und Entscheiderseiten: „EPR-Dienstleister vergleichen“, „Bevollmächtigter für Verpackungen“, „Amazon EPR-Nummer“.</li>
+              <li>Markenbegriff schärfen: „take-e-way“ immer mit „EPR“ und „Hamburg“ verbinden, da „e way“ mit anderen Marken konkurriert.</li>
+              <li>hreflang und Domain-Strategie für die 11 Sprachdomains prüfen.</li>
+            </ol>
+          </div>
+          <div>
+            <div class="prio-h"><span class="pill g">Fortlaufend</span></div>
+            <ol class="prio" start="10">
+              <li>Monatliches Monitoring der KI-Sichtbarkeit zu Prompts wie „epr service“, „BattDG Pflichten“ und „Amazon EPR-Nummer“.</li>
+            </ol>
+            <div class="so" style="margin-top:16px"><b>Was das News-System davon abdeckt</b>Punkt 1, 2 und 3 für alle neuen Meldungen automatisch, Punkt 10 im Dashboard.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function () {
+  var fmt = function (n) { return Math.round(n).toLocaleString('de-DE'); };
+  var dec = function (n) { return n.toLocaleString('de-DE', { maximumFractionDigits: 1 }); };
+
+  /* ---------- Rechner: Zeitersparnis ---------- */
+  var iN = document.getElementById('i-n'), iH = document.getElementById('i-h'), iR = document.getElementById('i-r');
+  var PRICE = 7900, RUN = 100;
+  function calc() {
+    var n = +iN.value, h = +iH.value, r = +iR.value;
+    var hand = n * h, sys = n * 10 / 60 + 3, saved = Math.max(0, hand - sys);
+    var mo = saved * r, net = mo - RUN;
+    document.getElementById('o-n').textContent = n;
+    document.getElementById('o-h').textContent = dec(h) + ' Std.';
+    document.getElementById('o-r').textContent = r + ' €';
+    document.getElementById('r-hrs').textContent = fmt(saved) + ' Std.';
+    document.getElementById('r-mo').textContent = fmt(mo) + ' €';
+    document.getElementById('r-yr').textContent = fmt(mo * 12) + ' €';
+    var pb = net > 0 ? PRICE / net : Infinity;
+    document.getElementById('r-pb').textContent = pb < 1 ? 'unter 1 Monat' : pb === Infinity ? '–' : dec(Math.round(pb * 10) / 10) + ' Monate';
+    document.getElementById('b-hand').style.transform = 'scaleX(1)';
+    document.getElementById('b-sys').style.transform = 'scaleX(' + Math.max(0.02, sys / hand) + ')';
+    document.getElementById('v-hand').textContent = fmt(hand) + ' h';
+    document.getElementById('v-sys').textContent = fmt(sys) + ' h';
+    var fte = hand / 160;
+    document.getElementById('fte').textContent = 'Von Hand entspricht das rund ' + dec(Math.round(fte * 10) / 10) + ' Vollzeitstellen (160 Std. im Monat). Amortisation nach Abzug von ca. 100 € laufenden Kosten.';
+  }
+  [iN, iH, iR].forEach(function (el) { el.addEventListener('input', calc); });
+  calc();
+
+  /* ---------- Sidebar active state ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#side a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function spy() {
+    var line = innerHeight * 0.3, idx = 0;
+    secs.forEach(function (s, i) { if (s.getBoundingClientRect().top <= line) idx = i; });
+    if (innerHeight + scrollY >= document.body.scrollHeight - 4) idx = secs.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === idx); });
+    var on = links[idx]; if (innerWidth <= 860 && on) on.parentNode.scrollTo({ left: on.offsetLeft - 12, behavior: 'smooth' });
+  }
+  addEventListener('scroll', spy, { passive: true }); spy();
+})();
+</script>
+<script defer src="/analytics.js"></script>
+</body>
+</html>
