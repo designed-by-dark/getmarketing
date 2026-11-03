@@ -3,1291 +3,663 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Angebot take-e-way · News-Automatisierung · GetMarketing</title>
+<title>Angebot take-e-way · News-System · GetMarketing</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-<meta name="description" content="Konzept und Angebot für take-e-way: ein eigenes News-System für Gesetzesänderungen mit Freigabe und Direktanbindung an TYPO3." />
+<meta name="description" content="Angebot von GetMarketing für take-e-way: ein News-System, das Gesetzesänderungen erkennt, Fachtexte vorbereitet und nach Freigabe in TYPO3 veröffentlicht." />
 <link rel="icon" href="/logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --forest:     #1B4332;
-    --forest-2:   #143527;
-    --accent:     #52B788;
+    --forest: #1B4332;
+    --accent: #52B788;
     --accent-ink: #2F8A5E;
-    --black:      #0A0A0A;
-    --ink:        #1F2A24;
-    --gray:       #6B7280;
-    --gray2:      #B0B8C1;
-    --card:       #F4F4F2;
-    --line:       #E6E6E1;
-    --tint:       #E7F3EC;
-    --warn:       #B4532A;
-    --warn-bg:    #F7EBE2;
+    --black: #0A0A0A;
+    --ink: #1F2A24;
+    --gray: #6B7280;
+    --gray2: #A3ABB5;
+    --bg: #FAFAF8;
+    --card: #FFFFFF;
+    --soft: #F3F3F0;
+    --line: #E6E6E1;
+    --tint: #E7F3EC;
+    --warn: #B4532A;
+    --warn-bg: #F7EBE2;
     --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --s: 1;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; }
-  body {
-    font-family: var(--font); color: var(--ink); background: #E4E1D9;
-    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow: hidden;
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: var(--font); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; font-size: 16.5px; line-height: 1.65; }
+  h1, h2, h3, h4 { color: var(--black); letter-spacing: -0.022em; line-height: 1.2; text-wrap: balance; }
+  a { color: var(--accent-ink); text-underline-offset: 2px; }
+  b, strong { font-weight: 650; color: var(--black); }
+
+  /* ---------- Top bar ---------- */
+  .top { position: sticky; top: 0; z-index: 20; background: rgba(250,250,248,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top-in { max-width: 1180px; margin: 0 auto; height: 60px; padding: 0 24px; display: flex; align-items: center; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: -0.04em; font-size: 17px; color: var(--black); text-decoration: none; }
+  .brand img { width: 28px; height: 28px; border-radius: 7px; }
+  .top .doc { font-size: 14px; color: var(--gray); }
+  .top .cta { margin-left: auto; font: 700 14px var(--font); background: var(--forest); color: #fff; text-decoration: none; padding: 9px 16px; border-radius: 8px; white-space: nowrap; }
+
+  /* ---------- Layout ---------- */
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 56px; }
+  .toc { position: sticky; top: 92px; align-self: start; padding-top: 56px; font-size: 14px; }
+  .toc b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--gray2); margin-bottom: 10px; }
+  .toc a { display: flex; gap: 10px; padding: 5px 0; color: var(--gray); text-decoration: none; line-height: 1.35; }
+  .toc a span { font-variant-numeric: tabular-nums; color: var(--gray2); min-width: 18px; }
+  .toc a:hover, .toc a.on { color: var(--black); }
+  .toc a.on span { color: var(--accent-ink); }
+  main { padding: 56px 0 96px; max-width: 800px; min-width: 0; }
+
+  /* ---------- Title block ---------- */
+  .kicker { font-size: 14px; color: var(--gray); }
+  h1 { font-size: 42px; letter-spacing: -0.035em; margin-top: 10px; }
+  .lead { font-size: 19px; line-height: 1.55; color: var(--ink); margin-top: 18px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 26px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--gray); }
+  .meta b { display: block; color: var(--black); font-size: 15px; }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: 72px; }
+  .sh { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+  .sh .n { font-size: 14px; font-weight: 700; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  h2 { font-size: 30px; letter-spacing: -0.03em; }
+  h3 { font-size: 20px; margin: 34px 0 8px; }
+  p + p { margin-top: 12px; }
+  .small { font-size: 14px; color: var(--gray); line-height: 1.55; }
+  ul.list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  ul.list li { padding-left: 22px; position: relative; }
+  ul.list li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 24px 0; }
+  .facts div { background: #fff; padding: 18px 20px; font-size: 14.5px; line-height: 1.5; color: var(--gray); }
+  .facts b { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.035em; color: var(--forest); font-variant-numeric: tabular-nums; line-height: 1.15; margin-bottom: 4px; }
+
+  .callout { background: var(--forest); color: rgba(255,255,255,.9); border-radius: 14px; padding: 24px 28px; margin-top: 24px; font-size: 17.5px; line-height: 1.55; }
+  .callout b { color: #fff; }
+
+  /* ---------- Walkthrough ---------- */
+  .ex-intro { background: var(--tint); border-radius: 12px; padding: 18px 22px; margin: 22px 0 8px; font-size: 15.5px; color: var(--forest); }
+  .ex-intro b { color: var(--forest); }
+  .step { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 18px; margin-top: 40px; }
+  .step .num { width: 36px; height: 36px; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 15px; margin-top: 2px; }
+  .step h3 { margin: 4px 0 6px; }
+  .step .who { display: inline-block; font-size: 12.5px; font-weight: 700; padding: 2px 9px; border-radius: 6px; background: var(--soft); color: var(--gray); margin-left: 8px; vertical-align: 3px; letter-spacing: 0; }
+  .step .who.you { background: var(--warn-bg); color: var(--warn); }
+
+  .screen { grid-column: 1 / -1; margin-top: 18px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 24px -12px rgba(0,0,0,.08); overflow: hidden; font-size: 14px; line-height: 1.5; }
+  .screen-h { display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: var(--soft); border-bottom: 1px solid var(--line); font-size: 12.5px; font-weight: 600; color: var(--gray); flex-wrap: wrap; }
+  .screen-h .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .screen-h .r { margin-left: auto; font-weight: 500; }
+  .screen-b { padding: 16px; }
+  .cap { grid-column: 1 / -1; font-size: 13px; color: var(--gray); margin-top: 8px; }
+
+  .src-row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 110px; gap: 14px; padding: 12px 4px; border-top: 1px solid var(--line); align-items: start; }
+  .src-row:first-child { border-top: 0; }
+  .src-row .s { font-size: 12.5px; font-weight: 700; color: var(--gray); }
+  .src-row .t b { display: block; font-size: 14.5px; }
+  .src-row .t span { font-size: 13px; color: var(--gray); }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 6px; white-space: nowrap; }
+  .tag.ok { background: var(--tint); color: var(--forest); }
+  .tag.no { background: var(--soft); color: var(--gray); }
+  .src-row .why { font-size: 12.5px; color: var(--gray); margin-top: 5px; line-height: 1.4; }
+  .src-row.hit { background: #F7FBF8; margin: 0 -16px; padding-left: 20px; padding-right: 20px; }
+
+  .split { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+  .split > div { padding: 16px; }
+  .split > div + div { border-left: 1px solid var(--line); }
+  .lab { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray2); margin-bottom: 8px; }
+  .legal { font-size: 13.5px; color: var(--gray); font-style: italic; line-height: 1.55; }
+  .draft h4 { font-size: 17px; line-height: 1.3; }
+  .draft .teaser { margin-top: 8px; font-size: 14px; color: var(--ink); }
+  .kv { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 6px 12px; margin-top: 12px; font-size: 13.5px; }
+  .kv dt { color: var(--gray); }
+  .kv dd { color: var(--ink); }
+  .faq { margin-top: 12px; font-size: 13.5px; }
+  .faq li { list-style: none; padding: 6px 0; border-top: 1px dashed var(--line); }
+
+  mark.c { background: #FFF1C2; color: inherit; padding: 0 2px; border-radius: 3px; }
+  .comment { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; background: var(--soft); border-radius: 10px; padding: 12px; margin-top: 14px; font-size: 13.5px; }
+  .comment .av { width: 32px; height: 32px; border-radius: 50%; background: var(--warn-bg); color: var(--warn); display: grid; place-items: center; font-weight: 800; font-size: 12px; }
+  .comment b { font-size: 13px; }
+  .actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-s { font: 700 13px var(--font); padding: 7px 14px; border-radius: 7px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+  .btn-s.p { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .actions .t { margin-left: auto; font-size: 12.5px; color: var(--gray); }
+
+  .outs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .out { border: 1px solid var(--line); border-radius: 10px; padding: 14px; font-size: 13px; }
+  .out .lab { margin-bottom: 6px; }
+  .out .kv { grid-template-columns: 74px minmax(0, 1fr); font-size: 12.5px; margin-top: 0; }
+  .out p { font-size: 13px; line-height: 1.5; }
+
+  .meas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .meas div { font-size: 12.5px; color: var(--gray); }
+  .meas b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: var(--forest); font-variant-numeric: tabular-nums; }
+
+  /* ---------- Example link ---------- */
+  .ref { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; text-decoration: none; color: inherit; margin-top: 20px; }
+  .ref:hover { border-color: var(--accent); }
+  .ref b { font-size: 17px; display: block; }
+  .ref .u { font-size: 13.5px; color: var(--accent-ink); }
+  .ref .go { font-weight: 800; color: var(--accent-ink); font-size: 20px; }
+  .anatomy { counter-reset: a; list-style: none; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
+  .anatomy li { counter-increment: a; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; font-size: 15px; }
+  .anatomy li::before { content: counter(a); width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 800; display: grid; place-items: center; margin-top: 2px; }
+
+  /* ---------- Tables ---------- */
+  .tw { overflow-x: auto; margin-top: 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); padding: 0 12px 10px 0; border-bottom: 1.5px solid var(--ink); vertical-align: bottom; }
+  td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.vs td:first-child { font-weight: 600; color: var(--black); width: 30%; }
+  table.vs td:nth-child(2) { color: var(--gray); }
+  table.fc td:first-child { color: var(--black); }
+  table.fc td.hl, table.fc th.hl { background: var(--tint); padding-left: 12px; }
+  table.fc th.hl { color: var(--forest); }
+
+  /* ---------- Cases ---------- */
+  .case { border-top: 1px solid var(--line); padding: 26px 0; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; }
+  .case.last { border-bottom: 1px solid var(--line); }
+  .case .big { font-size: 36px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .case .big small { display: block; font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--gray); margin-top: 8px; line-height: 1.4; }
+  .case h3 { margin: 0 0 6px; font-size: 18px; }
+  .case p { font-size: 15.5px; }
+  .case .rel { margin-top: 10px; font-size: 14.5px; color: var(--forest); background: var(--tint); border-radius: 8px; padding: 8px 12px; }
+  .case blockquote { margin-top: 10px; font-size: 15.5px; font-style: italic; color: var(--ink); }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 20px; font-size: 14.5px; color: var(--gray); }
+  .stats b { color: var(--black); }
+
+  /* ---------- Content plan ---------- */
+  .plan { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+  .pl { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .pl .h { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .pl .h b { font-size: 16px; }
+  .pl .h span { font-size: 13px; color: var(--gray); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pl ul { list-style: none; margin-top: 8px; font-size: 14px; color: var(--ink); }
+  .pl li { padding: 3px 0; }
+
+  /* ---------- Pricing ---------- */
+  .pk { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; margin-top: 20px; }
+  .p { border: 1px solid var(--line); background: #fff; border-radius: 14px; padding: 22px 24px; }
+  .p.main { background: var(--forest); border-color: var(--forest); color: rgba(255,255,255,.88); }
+  .p .lab { margin-bottom: 4px; }
+  .p.main .lab { color: var(--accent); }
+  .p h3 { margin: 0; font-size: 18px; }
+  .p.main h3 { color: #fff; }
+  .p .v { font-size: 40px; font-weight: 900; letter-spacing: -0.045em; margin-top: 10px; line-height: 1; color: var(--black); }
+  .p.main .v { color: #fff; }
+  .p .v small { font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .p.main .v small { color: rgba(255,255,255,.65); }
+  .p ul { list-style: none; margin-top: 16px; font-size: 14.5px; display: flex; flex-direction: column; gap: 6px; }
+  .p li { padding-left: 22px; position: relative; }
+  .p li::before { content: "✓"; position: absolute; left: 0; font-weight: 800; color: var(--accent-ink); }
+  .p.main li::before { color: var(--accent); }
+  .tl { margin-top: 26px; }
+  .tl div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+  .tl div b { font-size: 14px; color: var(--accent-ink); }
+
+  /* ---------- Person + contact ---------- */
+  .person { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 22px; align-items: start; }
+  .person img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+  .close { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-top: 28px; }
+  .close ol { list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .close li { counter-increment: s; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; }
+  .close li::before { content: counter(s); width: 26px; height: 26px; border-radius: 50%; background: var(--tint); color: var(--forest); font-size: 13px; font-weight: 800; display: grid; place-items: center; }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .btn { display: inline-flex; font: 700 15px var(--font); padding: 12px 20px; border-radius: 50px; text-decoration: none; background: var(--forest); color: #fff; }
+  .btn.o { background: #fff; color: var(--forest); border: 1.5px solid var(--forest); }
+
+  details.ap { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 14px; }
+  details.ap summary { cursor: pointer; font-weight: 700; color: var(--black); }
+  details.ap ol { margin: 12px 0 0 22px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+  details.ap h4 { font-size: 14px; margin-top: 16px; color: var(--accent-ink); }
+  footer { margin-top: 64px; font-size: 13px; color: var(--gray); border-top: 1px solid var(--line); padding-top: 18px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1020px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .toc { display: none; }
+    main { margin: 0 auto; width: 100%; }
   }
-  h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; text-wrap: balance; color: var(--black); }
-
-  /* ================= Deck / stage ================= */
-  .deck { position: fixed; inset: 0; }
-  .slide {
-    position: absolute; left: 50%; top: 50%;
-    width: 1280px; height: 720px;
-    transform: translate(-50%, -50%) scale(var(--s));
-    background: #fff; overflow: hidden;
-    display: flex; flex-direction: column;
-    padding: 50px 72px 0;
-    opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s;
-    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+  @media (max-width: 700px) {
+    body { font-size: 16px; }
+    .top-in { padding: 0 16px; }
+    .top .doc { display: none; }
+    .wrap { padding: 0 16px; }
+    main { padding-top: 32px; }
+    h1 { font-size: 30px; }
+    .lead { font-size: 17px; }
+    h2 { font-size: 24px; }
+    section { margin-top: 56px; }
+    .facts, .outs, .plan, .pk, .anatomy { grid-template-columns: minmax(0, 1fr); }
+    .meas { grid-template-columns: 1fr 1fr; }
+    .step { grid-template-columns: 36px minmax(0, 1fr); gap: 0 12px; }
+    .step .num { width: 30px; height: 30px; font-size: 14px; }
+    .split { grid-template-columns: minmax(0, 1fr); }
+    .split > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    .src-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    .case { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    .person { grid-template-columns: 64px minmax(0, 1fr); gap: 14px; }
+    .person img { width: 64px; height: 64px; }
+    .tl div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+    .close { padding: 20px; }
+    .callout { padding: 20px; font-size: 16px; }
   }
-  .slide.active { opacity: 1; visibility: visible; transition: opacity .35s ease; }
-  .slide.dark { background: var(--forest); color: #fff; }
-  .slide.dark h1, .slide.dark h2 { color: #fff; }
-
-  .s-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 28px; }
-  .s-head h2 { font-size: 38px; max-width: 920px; }
-  .s-head .s-sub { font-size: 17px; color: var(--gray); margin-top: 10px; font-weight: 400; max-width: 860px; line-height: 1.5; }
-  .s-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
-  .s-foot {
-    height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
-    font-size: 12px; color: var(--gray2); border-top: 1px solid var(--line); margin-top: 18px;
-  }
-  .s-foot b { color: var(--gray); font-weight: 700; }
-  .dark .s-foot { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.4); }
-  .dark .s-foot b { color: rgba(255,255,255,.7); }
-
-  .take {
-    margin-top: auto; display: flex; gap: 18px; align-items: center;
-    background: var(--forest); color: #fff; border-radius: 14px; padding: 18px 24px;
-    font-size: 16.5px; line-height: 1.5;
-  }
-  .take b.k { flex-shrink: 0; font-size: 14px; font-weight: 800; color: var(--accent); }
-
-  /* ================= Shared blocks ================= */
-  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-  .card { background: var(--card); border-radius: 16px; padding: 26px; }
-  .col-h { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
-  .lbl { font-size: 15px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
-
-  .check { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-  .check li { position: relative; padding-left: 30px; font-size: 16px; line-height: 1.45; }
-  .check li::before {
-    content: ""; position: absolute; left: 0; top: 2px; width: 19px; height: 19px; border-radius: 5px;
-    background: var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5E' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;
-  }
-  .check.sm li { font-size: 14.5px; }
-  .check.lt li::before { background-color: rgba(255,255,255,.12); }
-
-  .price { background: var(--forest); color: #fff; border-radius: 16px; padding: 26px; }
-  .price .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-  .price .v { font-size: 50px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 10px; }
-  .price .v small { font-size: 18px; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,.7); }
-  .price p { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 10px; line-height: 1.5; }
-  .result { background: var(--tint); border-radius: 16px; padding: 22px 24px; }
-  .result .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
-  .result p { font-size: 16px; color: var(--forest); line-height: 1.5; font-weight: 500; }
-  .small-note { font-size: 12.5px; color: var(--gray); margin-top: 12px; line-height: 1.5; }
-  .small-note b { color: var(--ink); }
-
-  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .steps4 > div { background: var(--card); border-radius: 16px; padding: 20px 20px 22px; position: relative; }
-  .steps4 > div:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 26px; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--accent-ink); z-index: 1; }
-  .steps4 .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; margin-bottom: 12px; }
-  .steps4 b { display: block; font-size: 17px; letter-spacing: -0.015em; }
-  .steps4 p { font-size: 14px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
-  .steps4.tint > div { background: var(--tint); }
-
-  .btn { display: inline-flex; align-items: center; gap: 8px; font: 700 16px var(--font); padding: 15px 28px; border-radius: 50px; text-decoration: none; transition: transform .18s ease, opacity .18s ease; }
-  .btn:hover { transform: translateY(-2px); opacity: .92; }
-  .btn-light { background: #fff; color: var(--forest); }
-  .btn-ghost { color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
-
-  /* ================= Cover ================= */
-  .cover { padding-top: 70px; }
-  .cover .gm { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -0.04em; }
-  .cover .gm img { width: 38px; height: 38px; border-radius: 8px; }
-  .cover .gm span { color: rgba(255,255,255,.45); font-weight: 500; }
-  .cover h1 { font-size: 60px; max-width: 980px; margin-top: 70px; letter-spacing: -0.035em; line-height: 1.05; }
-  .cover .for { font-size: 21px; color: rgba(255,255,255,.72); margin-top: 22px; font-weight: 400; }
-  .cover .meta { margin-top: auto; display: flex; gap: 56px; font-size: 14px; color: rgba(255,255,255,.55); padding-bottom: 8px; }
-  .cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 15px; margin-top: 3px; }
-
-  /* ================= Drei Stufen ================= */
-  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .stage { border-radius: 18px; padding: 24px 26px 26px; background: var(--card); display: flex; flex-direction: column; }
-  .stage.gm { background: var(--tint); }
-  .stage .who-tag { align-self: flex-start; font-size: 12.5px; font-weight: 800; padding: 6px 12px; border-radius: 50px; background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
-  .stage.gm .who-tag { background: var(--forest); color: #fff; border-color: var(--forest); }
-  .stage .st { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-top: 20px; }
-  .stage h3 { font-size: 26px; margin-top: 4px; }
-  .stage p { font-size: 15px; color: var(--gray); margin-top: 10px; line-height: 1.5; }
-  .stage ul { list-style: none; margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
-  .stage li { font-size: 13px; font-weight: 600; background: #fff; border-radius: 6px; padding: 5px 9px; }
-  /* ================= Agenten ================= */
-  .agents { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 36px; border-top: 2px solid var(--ink); }
-  .agents > div { padding: 12px 0 13px; border-bottom: 1px solid var(--line); }
-  .agents b { display: block; font-size: 15px; }
-  .agents span { display: block; font-size: 13.5px; color: var(--gray); line-height: 1.45; margin-top: 2px; }
-
-  /* ================= Portal-Mock ================= */
-  .wl { display: grid; grid-template-columns: 1.08fr 1fr; gap: 40px; align-items: start; }
-  .mock { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.07); }
-  .mock-bar { height: 30px; background: #F1F0EC; display: flex; align-items: center; gap: 5px; padding: 0 12px; font-size: 11.5px; color: var(--gray); }
-  .mock-bar i { width: 8px; height: 8px; border-radius: 50%; background: #D5D3CC; flex-shrink: 0; }
-  .mock-bar span { margin-left: 10px; background: #fff; border-radius: 5px; padding: 2px 10px; }
-  .mock-nav { display: flex; align-items: center; gap: 18px; padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--gray); }
-  .mock-nav .on { color: var(--ink); font-weight: 700; }
-  .mock-in { padding: 18px 20px 20px; }
-  .mock-h { display: flex; justify-content: space-between; align-items: baseline; }
-  .mock-h b { font-size: 17px; letter-spacing: -0.015em; }
-  .mock-h span { font-size: 12px; color: var(--gray); }
-  .mrow { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; align-items: center; background: var(--card); border-radius: 10px; padding: 10px 12px; margin-top: 8px; font-size: 13.5px; }
-  .mrow em { width: 30px; height: 30px; border-radius: 8px; background: #fff; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 800; color: var(--forest); }
-  .mrow small { display: block; font-size: 11.5px; color: var(--gray); }
-  .st-b { font-size: 11px; font-weight: 800; padding: 4px 9px; border-radius: 50px; white-space: nowrap; }
-  .st-b.a { background: var(--warn-bg); color: var(--warn); }
-  .st-b.p { background: #fff; color: var(--gray); border: 1px solid var(--line); }
-  .st-b.l { background: var(--tint); color: var(--accent-ink); }
-  .mock-chart { margin-top: 14px; display: flex; align-items: flex-end; gap: 6px; height: 54px; padding: 0 2px; }
-  .mock-chart div { flex: 1; background: var(--tint); border-radius: 4px 4px 0 0; }
-  .mock-chart div:last-child { background: var(--accent); }
-  .mock-cap { font-size: 12px; color: var(--gray); margin-top: 10px; text-align: center; }
-
-  /* ================= Nutzen ================= */
-  .gains { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; row-gap: 8px; }
-  .gain { border-top: 2px solid var(--ink); padding: 18px 0 22px; }
-  .gain b { display: block; font-size: 22px; letter-spacing: -0.02em; line-height: 1.25; }
-  .gain p { font-size: 16px; color: var(--gray); margin-top: 8px; line-height: 1.55; max-width: 500px; }
-
-  .points { list-style: none; border-top: 2px solid var(--ink); }
-  .points li { font-size: 15.5px; line-height: 1.5; color: var(--gray); padding: 13px 0; border-bottom: 1px solid var(--line); }
-  .points b { color: var(--ink); }
-
-  /* ================= Konditionen ================= */
-  .tiers { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 18px; }
-  .tier { border: 1.5px solid var(--line); border-radius: 18px; padding: 24px 26px; }
-  .tier.full { background: var(--forest); border-color: var(--forest); color: #fff; }
-  .tier.agency { background: var(--card); border-color: var(--card); }
-  .tier .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
-  .tier.full .k { color: var(--accent); }
-  .tier.agency .k, .tier.agency .v { color: var(--gray); }
-  .tier .v { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin: 12px 0 4px; white-space: nowrap; }
-  .tier .v small { font-size: 17px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
-  .tier.full .v small, .tier.full .sub { color: rgba(255,255,255,.65); }
-  .tier .sub { font-size: 13.5px; color: var(--gray); }
-  .tier ul { list-style: none; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
-  .tier.full ul { border-color: rgba(255,255,255,.15); }
-  .tier li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; }
-  .tier li span:last-child { font-weight: 700; white-space: nowrap; }
-  .tier .on { color: var(--accent-ink); }
-  .tier.full .on { color: var(--accent); }
-  .tier .incl { font-size: 13.5px; margin-top: 14px; color: var(--gray); line-height: 1.5; }
-  .tier.full .incl { color: rgba(255,255,255,.7); }
-  .scale li { font-variant-numeric: tabular-nums; }
-  .scale li span:first-child { color: var(--gray); }
-
-  /* ================= Proof ================= */
-  .about { display: grid; grid-template-columns: 340px 1fr; gap: 40px; align-items: start; }
-  .person { background: var(--card); border-radius: 18px; padding: 26px; }
-  .person img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; display: block; }
-  .person b { display: block; font-size: 20px; margin-top: 16px; letter-spacing: -0.015em; }
-  .person .role { font-size: 14px; color: var(--accent-ink); font-weight: 700; margin-top: 2px; }
-  .person p { font-size: 14.5px; color: var(--gray); margin-top: 12px; line-height: 1.55; }
-  .person a { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--forest); text-decoration: none; }
-  .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .nums > div { border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
-  .nums b { display: block; font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
-  .nums span { display: block; font-size: 14.5px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
-  .tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
-  .tech em { font-style: normal; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); margin-right: 4px; }
-  .tech span { font-size: 13.5px; font-weight: 600; padding: 7px 12px; border-radius: 8px; background: var(--card); }
-
-  /* ================= Pilot ================= */
-  .pilot { display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: stretch; }
-  .pilot .steps4 { grid-template-columns: 1fr 1fr; }
-  .pilot .steps4 > div::after { display: none; }
-
-  /* ================= Close ================= */
-  .close-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; flex: 1; }
-  .close h2 { font-size: 46px; line-height: 1.08; }
-  .close .lead { font-size: 17.5px; color: rgba(255,255,255,.72); margin-top: 20px; max-width: 520px; line-height: 1.55; }
-  .who { display: flex; align-items: center; gap: 16px; margin-top: 34px; }
-  .who img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
-  .who b { display: block; font-size: 17px; }
-  .who span { font-size: 14px; color: rgba(255,255,255,.65); }
-  .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-  .opts { display: flex; flex-direction: column; gap: 12px; }
-  .opt { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: center; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 18px 22px; }
-  .opt .d { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,.1); display: grid; place-items: center; font-size: 28px; font-weight: 900; }
-  .opt.hl { background: #fff; border-color: #fff; color: var(--forest); }
-  .opt.hl .d { background: var(--accent); color: var(--forest); }
-  .opt b { display: block; font-size: 18px; letter-spacing: -0.015em; }
-  .opt span { display: block; font-size: 14px; color: rgba(255,255,255,.6); margin-top: 3px; }
-  .opt.hl span { color: var(--gray); }
-
-  /* ================= Cover note ================= */
-  .cover .note-in { margin-top: 30px; max-width: 640px; font-size: 16px; line-height: 1.55; color: rgba(255,255,255,.72); }
-  .cover .note-in a { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
-
-  /* ================= Intro mit Redaktionskalender ================= */
-  .intro { padding-top: 44px; }
-  .intro-grid { display: grid; grid-template-columns: 360px 1fr; gap: 44px; align-items: center; flex: 1; min-height: 0; }
-  .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
-  .intro h2 { font-size: 40px; line-height: 1.1; letter-spacing: -0.035em; margin-top: 12px; }
-  .intro .lead { font-size: 16px; color: var(--gray); margin-top: 16px; line-height: 1.55; }
-  .sum { margin-top: 26px; padding-top: 18px; border-top: 2px solid var(--ink); }
-  .sum b { display: block; font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
-  .sum span { display: block; font-size: 14px; color: var(--gray); margin-top: 8px; line-height: 1.45; }
-  .cal { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 8px 28px rgba(0,0,0,.06); }
-  .cal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
-  .cal-top b { font-size: 14px; }
-  .legend { display: flex; gap: 12px; }
-  .lg { font-size: 11.5px; color: var(--gray); display: inline-flex; align-items: center; gap: 6px; }
-  .lg::before { content: ""; width: 9px; height: 9px; border-radius: 2px; }
-  .lg.blog::before { background: var(--forest); }
-  .lg.li::before { background: #2D6CB5; }
-  .lg.rep::before { background: var(--gray2); }
-  .cal-days { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--card); border-bottom: 1px solid var(--line); }
-  .cal-days span { font-size: 11.5px; font-weight: 700; color: var(--gray); padding: 6px 8px; }
-  .cal-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
-  .cell { height: 104px; padding: 5px 6px 6px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-  .cell:nth-child(5n) { border-right: 0; }
-  .cell:nth-last-child(-n+5) { border-bottom: 0; }
-  .cell .dt { font-size: 11px; color: var(--gray2); font-weight: 600; }
-  .cell .dt i { font-style: normal; display: none; }
-  .ev { background: var(--tint); border-radius: 4px; padding: 4px 6px 5px; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
-  .ev.on { opacity: 1; transform: none; }
-  .ev.li { border-color: #2D6CB5; background: #EAF1FA; }
-  .ev.rep { border-color: var(--gray2); background: var(--card); }
-  .ev .ti { font-size: 11.5px; font-weight: 700; line-height: 1.28; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .ev .kw { font-size: 10.5px; color: var(--gray); margin-top: 3px; display: flex; gap: 4px; }
-  .ev .kw span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-  .ev .kw b { flex-shrink: 0; }
-  .ev .kw b { color: var(--forest); font-variant-numeric: tabular-nums; }
-  .ev.li .kw b { color: #2D6CB5; }
-
-  /* ================= Logos ================= */
-  .s-logo { height: 26px; width: auto; flex-shrink: 0; margin-top: 10px; }
-  .cover-logo { display: block; height: 52px; width: auto; margin-top: 40px; align-self: flex-start; }
-  .mock-nav img { height: 18px; width: auto; margin-right: auto; }
-
-  /* ================= Ergebnisse ================= */
-  .res { display: grid; grid-template-columns: 1fr 340px; gap: 52px; align-items: start; }
-  .ledger { border-top: 2px solid var(--ink); }
-  .ledger .row { display: grid; grid-template-columns: 210px 1fr; gap: 24px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .ledger .row > b { font-size: 44px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
-  .ledger strong { display: block; font-size: 17px; letter-spacing: -0.01em; }
-  .ledger span { display: block; font-size: 14px; color: var(--gray); margin-top: 4px; line-height: 1.45; }
-  .side-case { border-top: 2px solid var(--ink); padding-top: 14px; }
-  .side-case b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); }
-  .side-case strong { display: block; font-size: 17px; margin-top: 10px; letter-spacing: -0.01em; }
-  .side-case span { display: block; font-size: 14px; color: var(--gray); margin-top: 4px; line-height: 1.45; }
-  .total { margin-top: 28px; background: var(--forest); color: #fff; border-radius: 16px; padding: 22px 24px; }
-  .total b { display: block; font-size: 44px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
-  .total span { display: block; font-size: 14px; color: rgba(255,255,255,.7); margin-top: 8px; line-height: 1.45; }
-
-  /* ================= VHI ================= */
-  .cover .kicker { margin-top: 64px; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-  .cover .kicker + h1 { margin-top: 14px; }
-  .s-head .eyebrow { margin-bottom: 10px; }
-  .eyebrow.lt { color: var(--accent); margin-bottom: 14px; }
-  .s-mark { flex-shrink: 0; margin-top: 4px; font-size: 15px; font-weight: 900; letter-spacing: .04em; color: var(--forest); border: 2px solid var(--forest); border-radius: 8px; padding: 5px 10px; }
-  .sit { display: flex; flex-direction: column; }
-  .sit .n { width: 32px; height: 32px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; }
-  .sit h3 { font-size: 22px; margin-top: 18px; }
-  .sit p { font-size: 15.5px; color: var(--gray); margin-top: 10px; line-height: 1.55; }
-  .topics { border-top: 2px solid var(--ink); }
-  .topic { display: grid; grid-template-columns: 56px 1fr auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
-  .topic .tn { font-size: 26px; font-weight: 900; letter-spacing: -0.04em; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
-  .topic b { font-size: 21px; letter-spacing: -0.02em; line-height: 1.3; }
-  .topic .tags { display: flex; gap: 6px; }
-  .topic .tags i { font-style: normal; font-size: 13px; font-weight: 600; background: var(--card); border-radius: 6px; padding: 6px 10px; white-space: nowrap; }
-  .topic .tags i:first-child { background: var(--tint); color: var(--accent-ink); }
-  .tiers.two { grid-template-columns: 1.3fr 1fr; }
-  .tier ul.extra { border-top: 0; margin-top: 10px; padding-top: 0; }
-  .tier ul.extra li { font-size: 18px; font-weight: 700; padding: 12px 0; border-bottom: 1px solid var(--line); }
-  .stack .sit h3 { font-size: 20px; }
-  .stack .topic { grid-template-columns: 40px 1fr; gap: 12px; }
-  .stack .topic .tags { grid-column: 2; flex-wrap: wrap; }
-  .stack .topic b { font-size: 17px; }
-  .stack .tiers.two { grid-template-columns: minmax(0, 1fr); }
-
-  .seo { display: grid; grid-template-columns: 400px 1fr; gap: 48px; align-items: start; }
-  .seo .ledger .row { grid-template-columns: 110px 1fr; padding: 12px 0; }
-  .seo .ledger .row > b { font-size: 38px; }
-  .kwt { width: 100%; border-collapse: collapse; font-size: 14px; border-top: 2px solid var(--ink); }
-  .kwt th { text-align: left; font-size: 11.5px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); padding: 9px 8px 8px 0; border-bottom: 1px solid var(--line); }
-  .kwt td { padding: 9px 8px 9px 0; border-bottom: 1px solid var(--line); }
-  .kwt td:first-child { font-weight: 700; }
-  .kwt td:nth-child(2), .kwt td:nth-child(3), .kwt th:nth-child(2), .kwt th:nth-child(3) { text-align: right; padding-right: 20px; font-variant-numeric: tabular-nums; }
-  .kwt td:last-child { color: var(--gray); }
-  .uc { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; text-align: center; padding: 14px 0 12px; color: var(--gray); }
-  .st2 { column-gap: 48px; }
-  .st2 .ledger .row { grid-template-columns: 150px 1fr; padding: 11px 0; gap: 18px; }
-  .st2 .ledger .row > b { font-size: 32px; }
-  .st2 .ledger strong { font-size: 15.5px; }
-  .st2 .ledger span { font-size: 13.5px; }
-  .pot { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
-  .pot .kwt td:nth-child(4), .pot .kwt td:nth-child(5), .pot .kwt th:nth-child(4), .pot .kwt th:nth-child(5) { text-align: right; font-variant-numeric: tabular-nums; }
-  .pot .kwt td:nth-child(3) { color: var(--gray); white-space: nowrap; }
-  .pot .kwt td:first-child { max-width: 300px; }
-  .pot .kwt .sum-row td { font-weight: 800; color: var(--forest); border-bottom: 0; border-top: 2px solid var(--ink); font-size: 15px; }
-  .pot .side-case b { font-size: 38px; }
-  .pot .total { margin-top: 18px; }
-  .pot .total b { font-size: 38px; }
-  .phases { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .phase { background: var(--card); border-radius: 18px; padding: 22px 24px 24px; }
-  .phase.on { background: var(--forest); color: #fff; }
-  .ph-top { display: grid; grid-template-columns: 34px 1fr auto; gap: 14px; align-items: center; margin-bottom: 18px; }
-  .ph-top .n { width: 34px; height: 34px; border-radius: 9px; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; }
-  .phase.on .ph-top .n { background: var(--accent); color: var(--forest); }
-  .ph-top b { display: block; font-size: 20px; letter-spacing: -0.02em; }
-  .ph-top span:not(.n):not(.cnt) { display: block; font-size: 13.5px; color: var(--gray); margin-top: 2px; }
-  .phase.on .ph-top span:not(.n) { color: rgba(255,255,255,.65); }
-  .cnt { font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 50px; background: var(--warn-bg); color: var(--warn); white-space: nowrap; }
-  .fixlist { display: flex; flex-direction: column; gap: 7px; user-select: none; }
-  .fixlist div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center; background: #fff; border-radius: 9px; padding: 9px 12px; font-size: 13.5px; }
-  .fixlist i { font-style: normal; font-size: 12px; font-weight: 700; color: var(--forest); }
-  .fixlist span { filter: blur(5px); color: var(--ink); }
-  .lock { font-size: 13.5px; color: var(--gray); margin-top: 12px; display: flex; gap: 8px; align-items: center; }
-  .lock::before { content: ""; width: 14px; height: 14px; flex-shrink: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.4' stroke-linecap='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center/contain no-repeat; }
-  .phase.on .check li { font-size: 16px; }
-  .stack .phases { grid-template-columns: minmax(0, 1fr); }
-  .stack .fixlist div { grid-template-columns: 96px 1fr; }
-  .arts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .art { background: var(--card); border-radius: 14px; padding: 14px 16px 12px; display: flex; flex-direction: column; }
-  .art .tag { align-self: flex-start; font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--accent-ink); }
-  .art .at { font-size: 15.5px; letter-spacing: -0.015em; line-height: 1.3; margin-top: 5px; }
-  .kws { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 3px; }
-  .kws li { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; color: var(--gray); }
-  .kws b { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .vis { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
-  .art .kws + .vis { margin-top: 10px; }
-  .vis span { font-size: 12px; color: var(--gray); }
-  .vis b { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; color: var(--forest); font-variant-numeric: tabular-nums; }
-  .art-note { margin-top: 12px; }
-  .nums.n3 { grid-template-columns: repeat(3, 1fr); }
-  .stack .arts, .stack .nums.n3 { grid-template-columns: minmax(0, 1fr); }
-  .stack .art { padding: 16px 18px 14px; }
-  .stack .art .at { font-size: 17px; }
-  .stack .kws li { font-size: 14px; }
-  .stack .slide { border-bottom: 0; padding-bottom: 28px; }
-  .stack .slide + .slide { border-top: 10px solid #E4E1D9; }
-  .stack .s-foot { margin-top: 24px; }
-  .stack .pot, .stack .st2 { grid-template-columns: minmax(0, 1fr); }
-  .stack .st2 .ledger .row { grid-template-columns: 1fr; gap: 4px; }
-  .stack .pot .kwt { display: block; overflow-x: auto; }
-  .stack .seo { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .stack .kwt { font-size: 12.5px; }
-  .stack .kwt td:nth-child(2), .stack .kwt td:nth-child(3), .stack .kwt th:nth-child(2), .stack .kwt th:nth-child(3) { padding-right: 8px; }
-
-
-  /* ================= take-e-way ================= */
-  .steps5 { grid-template-columns: repeat(5, 1fr); }
-  .steps4 > div.you { background: var(--tint); }
-  .btn-dark { background: var(--forest); color: #fff; }
-  .gains.g3 { grid-template-columns: repeat(3, 1fr); column-gap: 40px; }
-  .gains.g3 .gain b { font-size: 20px; }
-  .gains.g3 .gain p { font-size: 15px; }
-  .kwt th:nth-child(n+2), .kwt td:nth-child(n+2) { text-align: right; padding-right: 0; padding-left: 16px; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .pot .kwt td:nth-child(3) { color: var(--ink); }
-  .kwt td:last-child { color: var(--ink); }
-  .kwt tr.us td { color: var(--forest); font-weight: 800; }
-  .kwt .sum-row td { font-weight: 800; color: var(--forest); border-bottom: 0; border-top: 2px solid var(--ink); }
-  .kwt2 td:first-child { font-weight: 500; }
-  .kwt2 .sum-row td:first-child { font-weight: 800; }
-  .kwt + .total, .kwt3 + .total { margin-top: 22px; }
-  .tier ul.two-col { display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; }
-  .tier ul.two-col li { font-size: 14px; }
-  .ledger.tl .row { grid-template-columns: 210px 1fr; padding: 15px 0; }
-  .ledger.tl .row > b { font-size: 30px; }
-  .st2 .ledger .row > b { white-space: nowrap; }
-  .recs .points li b { color: var(--accent-ink); margin-right: 6px; }
-  ol.points { list-style: none; }
-
-  .kwgrid { grid-template-columns: 1fr 330px; }
-  .kwv td:nth-child(2) { position: relative; font-weight: 800; color: var(--forest); min-width: 150px; }
-  .kwv .vb { display: inline-block; vertical-align: middle; height: 8px; width: calc(var(--w) * 0.7); min-width: 3px; max-width: 70px; background: var(--accent); border-radius: 3px; margin-right: 10px; }
-  .kwv td:nth-child(3), .kwv td:nth-child(4), .kwv th:nth-child(3), .kwv th:nth-child(4) { text-align: left; color: var(--gray); font-weight: 500; }
-  .kwv td:last-child { color: var(--gray); }
-  .qs { list-style: none; border-top: 2px solid var(--ink); }
-  .qs li { font-size: 15px; font-weight: 600; padding: 11px 0 11px 26px; border-bottom: 1px solid var(--line); position: relative; }
-  .qs li::before { content: "?"; position: absolute; left: 0; top: 11px; width: 18px; height: 18px; border-radius: 5px; background: var(--tint); color: var(--accent-ink); font-size: 12px; font-weight: 900; display: grid; place-items: center; }
-  .clusters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .cl { background: var(--card); border-radius: 16px; padding: 18px 18px 16px; }
-  .cl.hl { background: var(--forest); color: #fff; }
-  .ct { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); }
-  .ct span { width: 22px; height: 22px; border-radius: 6px; background: var(--forest); color: #fff; display: grid; place-items: center; font-size: 12px; letter-spacing: 0; }
-  .cl.hl .ct { color: var(--accent); }
-  .cl.hl .ct span { background: var(--accent); color: var(--forest); }
-  .cv { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); margin-top: 10px; line-height: 1; }
-  .cv small { font-size: 13px; font-weight: 600; letter-spacing: 0; color: var(--gray); }
-  .cl.hl .cv { color: #fff; }
-  .cl.hl .cv small { color: rgba(255,255,255,.6); }
-  .cl ul { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 7px; }
-  .cl li { font-size: 13.5px; line-height: 1.35; padding-left: 14px; position: relative; }
-  .cl li::before { content: ""; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-ink); }
-  .cl.hl li { color: rgba(255,255,255,.9); }
-  .cl.hl li::before { background: var(--accent); }
-  .plan3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: auto; border-top: 2px solid var(--ink); padding-top: 12px; }
-  .plan3 div { font-size: 13.5px; color: var(--gray); line-height: 1.45; }
-  .plan3 b { display: block; font-size: 15px; color: var(--forest); margin-bottom: 2px; }
-  table.vs { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 18px; border-top: 2px solid var(--ink); }
-  .vs th { text-align: left; font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); padding: 9px 14px 8px 0; border-bottom: 1px solid var(--line); }
-  .vs th:last-child { color: var(--accent-ink); }
-  .vs td { padding: 8px 14px 8px 0; border-bottom: 1px solid var(--line); line-height: 1.4; vertical-align: top; }
-  .vs td:first-child { font-weight: 700; width: 30%; }
-  .vs td:nth-child(2) { color: var(--gray); width: 30%; }
-  .vs td:last-child { color: var(--forest); font-weight: 600; background: var(--tint); padding-left: 14px; }
-  .vs th:last-child { padding-left: 14px; }
-  .cases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .case { border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; }
-  .case .ind { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); min-height: 30px; }
-  .case .big { font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); margin-top: 10px; }
-  .case .big small { font-size: 18px; letter-spacing: -0.01em; color: var(--gray); font-weight: 600; }
-  .case b { font-size: 15px; margin-top: 12px; line-height: 1.35; }
-  .case p { font-size: 13.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
-  .case.hl { background: var(--tint); border-color: var(--tint); }
-  .proof { display: flex; gap: 14px; margin-top: 18px; }
-  .proof div { flex: 1; background: var(--card); border-radius: 14px; padding: 16px 20px; display: flex; align-items: baseline; gap: 12px; }
-  .proof b { font-size: 28px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); white-space: nowrap; }
-  .proof span { font-size: 14px; color: var(--gray); }
-  .quote-line { margin-top: 16px; font-size: 15px; color: var(--ink); font-style: italic; }
-  .quote-line span { font-style: normal; color: var(--gray); font-size: 13px; }
-  .stack .kwgrid, .stack .clusters, .stack .plan3, .stack .cases { grid-template-columns: minmax(0, 1fr); }
-  .stack .proof { flex-direction: column; }
-  .stack .vs { display: block; overflow-x: auto; font-size: 13px; }
-  .stack .vs td:first-child, .stack .vs td:nth-child(2) { width: auto; min-width: 120px; }
-  .stack .plan3 { margin-top: 18px; }
-  .stack .steps5, .stack .gains.g3, .stack .tier ul.two-col { grid-template-columns: minmax(0, 1fr); }
-  .stack .ledger.tl .row { grid-template-columns: 1fr; }
-  .stack .kwt { display: block; overflow-x: auto; }
-
-  /* ================= Controls ================= */
-  .ctrl {
-    position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; align-items: center; gap: 6px;
-    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 50px; padding: 5px;
-    box-shadow: 0 4px 18px rgba(0,0,0,.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-  }
-  .ctrl button { width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; font: 700 16px var(--font); color: var(--ink); display: grid; place-items: center; }
-  .ctrl button:hover { background: var(--card); }
-  .ctrl button:disabled { opacity: .3; cursor: default; background: transparent; }
-  .ctrl .count { font-size: 13px; font-weight: 700; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
-  body:not(.stack) .s-foot .pg { visibility: hidden; }
-  .progress { position: fixed; left: 0; top: 0; width: 100%; height: 3px; background: var(--accent); z-index: 50; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
-
-  /* ================= Stacked mode (phones / portrait) ================= */
-  body.stack { overflow: auto; background: #fff; }
-  .stack .deck { position: static; }
-  .stack .slide {
-    position: relative; left: auto; top: auto; transform: none; width: 100%; height: auto;
-    opacity: 1; visibility: visible; box-shadow: none; padding: 48px 16px 0;
-    border-bottom: 8px solid #EEEDE8;
-  }
-  .stack .ctrl, .stack .progress { display: none; }
-  .stack .slide * { min-width: 0; }
-  .stack .s-head { flex-direction: column-reverse; gap: 14px; margin-bottom: 22px; }
-  .stack .s-head h2 { font-size: 26px; }
-  .stack .s-head .s-sub { font-size: 15px; }
-  .stack .grid3, .stack .grid2, .stack .intro-grid, .stack .res, .stack .stages, .stack .agents, .stack .wl, .stack .gains,
-  .stack .tiers, .stack .about, .stack .nums, .stack .pilot, .stack .pilot .steps4, .stack .steps4, .stack .close-grid { grid-template-columns: minmax(0, 1fr) !important; }
-  .stack .steps4 > div::after { display: none; }
-  .stack .take { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 15px; margin-top: 22px; }
-  .stack .cover { padding-top: 40px; }
-  .stack .cover h1 { font-size: 34px; margin-top: 40px; }
-  .stack .cover .for { font-size: 17px; }
-  .stack .cover .meta { flex-direction: column; gap: 14px; margin-top: 36px; }
-  .stack .intro h2 { font-size: 28px; }
-  .stack .s-logo { height: 20px; margin-top: 0; }
-  .stack .cover-logo { height: 38px; }
-  .stack .cal-days { display: none; }
-  .stack .cal-grid { grid-template-columns: minmax(0, 1fr); }
-  .stack .cell { height: auto; border-right: 0; border-bottom: 1px solid var(--line) !important; display: grid; grid-template-columns: 54px 1fr; align-items: start; gap: 8px; padding: 8px 12px; }
-  .stack .cell:empty { display: none; }
-  .stack .cell .dt i { display: inline; }
-  .stack .ev .kw { white-space: normal; }
-  .stack .legend { display: none; }
-  .stack .ledger .row { grid-template-columns: 1fr; gap: 6px; }
-  .stack .ledger .row > b { font-size: 38px; }
-  .stack .side-case b { font-size: 38px; }
-  .stack .gains { row-gap: 0; }
-  .stack .cover .note-in { font-size: 15px; }
-  .stack .mock-nav { gap: 10px; font-size: 12px; flex-wrap: wrap; }
-  .stack .tier .v { font-size: 40px; }
-  .stack .nums b { font-size: 36px; }
-  .stack .close h2 { font-size: 30px; }
-  .stack .close-grid { gap: 32px; padding-bottom: 24px; }
-  .stack .opt { grid-template-columns: 48px 1fr; gap: 14px; padding: 14px 16px; }
-  .stack .opt .d { width: 44px; height: 44px; font-size: 22px; }
-
-  /* ================= Print / PDF ================= */
   @media print {
-    @page { size: 1280px 720px; margin: 0; }
-    html, body { height: auto; overflow: visible; background: #fff; }
-    .deck { position: static; }
-    .slide { position: relative; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; box-shadow: none; break-after: page; page-break-after: always; }
-    .ctrl, .progress { display: none !important; }
-    body:not(.stack) .s-foot .pg { visibility: visible; }
-    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .top, .toc { display: none; }
+    .wrap { display: block; }
+    main { max-width: none; padding: 0; }
+    .step, .case, .p { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 
-<div class="progress" id="progress"></div>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/"><img src="/logo.jpg" alt="" />GetMarketing</a>
+    <span class="doc">Angebot für take-e-way · vertraulich</span>
+    <a class="cta" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin vereinbaren</a>
+  </div>
+</header>
 
-<main class="deck" id="deck">
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="Inhalt">
+    <b>Inhalt</b>
+    <a href="#kurz"><span>01</span>Kurz gesagt</a>
+    <a href="#so"><span>02</span>So funktioniert das System</a>
+    <a href="#beispiel"><span>03</span>So sehen die Texte aus</a>
+    <a href="#chatgpt"><span>04</span>Warum nicht ChatGPT?</a>
+    <a href="#cases"><span>05</span>Ergebnisse bei anderen</a>
+    <a href="#prognose"><span>06</span>Prognose für take-e-way</a>
+    <a href="#preis"><span>07</span>Pakete und Preis</a>
+    <a href="#start"><span>08</span>Nächster Schritt</a>
+  </nav>
 
-  <!-- Cover -->
-  <section class="slide dark cover">
-    <div class="gm"><img src="/logo.jpg" alt="" />GetMarketing</div>
-    <div class="kicker">Für Christoph Brellinger und Team, take-e-way GmbH</div>
-    <h1>News-Automatisierung für take-e-way</h1>
-    <p class="for">Ein eigenes News-System, das Gesetzesänderungen erkennt, im take-e-way-Ton vorbereitet und nach eurer Freigabe direkt in TYPO3 veröffentlicht. Konzept und Angebot.</p>
-    <p class="note-in">Wie das im Alltag aussieht, zeigt der <a href="prototyp/">Prototyp des Redaktions-Dashboards →</a></p>
+  <main>
+    <div class="kicker">Angebot für Christoph Brellinger und Team, take-e-way GmbH</div>
+    <h1>Ein News-System, mit dem take-e-way bei jeder EPR-Frage die erste Adresse wird</h1>
+    <p class="lead">Das System findet Gesetzesänderungen in Europa, schreibt daraus Fachtexte im take-e-way-Ton und stellt sie nach eurer Freigabe in TYPO3, auf LinkedIn und in den Newsletter. Euer Team prüft nur noch, statt zu recherchieren und zu schreiben.</p>
     <div class="meta">
-      <div>Von<b>Darya Kablash, GetMarketing</b></div>
-      <div>Stand<b>03.11.2026</b></div>
+      <div><b>Darya Kablash</b>GetMarketing</div>
+      <div><b>03.11.2026</b>Stand</div>
+      <div><b>ab 7.900 €</b>einmalig, kein Abo</div>
+      <div><b>6 Wochen</b>bis zum Livegang</div>
     </div>
-    <div class="s-foot" style="margin-top:28px"><span></span><span class="pg"></span></div>
-  </section>
 
-  <!-- Ausgangslage -->
-  <section class="slide" id="ausgangslage">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Ausgangslage</div>
-        <h2>take-e-way.de wird fast nur über den Markennamen gefunden</h2>
-        <p class="s-sub">Bei den Themen, die Hersteller und Händler wirklich suchen, ist viel Platz. Und wo es eine Fachseite gibt, steht ihr schon auf Platz 1.</p>
+    <!-- 01 -->
+    <section id="kurz">
+      <div class="sh"><span class="n">01</span><h2>Kurz gesagt</h2></div>
+      <p>Wir haben uns angesehen, wie take-e-way.de bei Google und in KI-Antworten gefunden wird. Das Ergebnis ist eine gute Nachricht: Überall dort, wo ihr eine Fachseite zu einer konkreten Frage habt, steht ihr schon ganz vorne.</p>
+      <div class="facts">
+        <div><b>Platz 1</b>mit euren drei Fachseiten, etwa zu „industriebatterien entsorgen“ und „entsorgung b2b geräte“</div>
+        <div><b>42-mal</b>zitieren Googles KI-Antworten take-e-way schon heute. In ChatGPT taucht ihr erst 2-mal auf.</div>
+        <div><b>15.900</b>Suchen pro Monat zu euren Themen, allein „ppwr“ 8.400. Dafür gibt es bei euch noch keine Seite.</div>
       </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="res">
-        <div class="ledger">
-          <div class="row"><b>36 von 40</b><div><strong>Top-Keywords sind Markenbegriffe</strong><span>etwa „take e way login“, „mengenmeldung“ oder „takeaway gmbh“</span></div></div>
-          <div class="row"><b>3 Seiten</b><div><strong>auf Platz 1, die einzigen thematischen</strong><span>„industriebatterien entsorgen“, „industriebatterien definition“, „entsorgung b2b geräte“</span></div></div>
-          <div class="row"><b>42 : 2</b><div><strong>KI-Prompts bei Google gegenüber ChatGPT</strong><span>In AI Overviews wird take-e-way zitiert, in ChatGPT kaum</span></div></div>
-        </div>
+      <p>Bisher wird take-e-way.de vor allem über den Namen gefunden: 36 der 40 stärksten Suchbegriffe sind Markenbegriffe wie „take e way login“. Euer Fachwissen zu 35 Ländern steckt im Team, aber noch nicht auf der Website.</p>
+      <div class="callout"><b>Lasst uns das für jedes Gesetz machen.</b> Für jede Pflicht, jedes Land und jede Änderung eine Seite, die die Frage direkt beantwortet. So wird take-e-way die Quelle, die Google und ChatGPT nennen, wenn Hersteller und Händler nach EPR fragen.</div>
+      <p class="small" style="margin-top:12px">Quelle: SISTRIX und SISTRIX AI Check, Deutschland, November 2026. Suchvolumen sind Schätzungen.</p>
+    </section>
+
+    <!-- 02 -->
+    <section id="so">
+      <div class="sh"><span class="n">02</span><h2>So funktioniert das System</h2></div>
+      <p>Am einfachsten zeigt es ein echtes Beispiel. Wir spielen eine Änderung durch, die eure Kunden direkt betrifft, vom ersten Hinweis in einer Quelle bis zur Meldung auf take-e-way.de.</p>
+      <div class="ex-intro"><b>Beispiel:</b> Ab dem 18. Februar 2027 brauchen bestimmte Batterien einen digitalen Batteriepass (EU-Batterieverordnung 2023/1542, Art. 77).</div>
+
+      <div class="step">
+        <div class="num">1</div>
         <div>
-          <div class="side-case"><b>13 %</b><strong>Google-Sichtbarkeit im Vergleich zu 2018</strong><span>Die Konkurrenz in den Rankings sind vor allem Behörden und Verbände: stiftung-ear.de, ihk.de, gruener-punkt.de.</span></div>
-          <div class="total"><b>35 Länder</b><span>deren Regeln euer Team kennt. Am Fachwissen liegt es nicht.</span></div>
+          <h3>Das System findet die Änderung <span class="who">automatisch</span></h3>
+          <p>Jeden Morgen liest das System eure Quellen: EUR-Lex, stiftung ear, Zentrale Stelle Verpackungsregister, nationale Behörden und Fachmedien. Es sortiert aus, was für eure Kunden keine neue Pflicht bedeutet, und sagt bei jedem Treffer, warum es ihn übernommen hat.</p>
+        </div>
+        <div class="screen">
+          <div class="screen-h"><span class="dot"></span>Quellen von heute<span class="r">14 gelesen · 1 übernommen</span></div>
+          <div class="screen-b">
+            <div class="src-row hit">
+              <div class="s">EUR-Lex</div>
+              <div class="t"><b>Verordnung (EU) 2023/1542, Art. 77: Batteriepass</b><span>Pflicht ab 18.02.2027</span><div class="why">Betrifft Industriebatterien über 2 kWh, Batterien für E-Bikes und E-Scooter sowie für E-Autos. Gehört zum Thema Batterien, auf dem ihr schon auf Platz 1 steht.</div></div>
+              <div><span class="tag ok">Übernommen</span></div>
+            </div>
+            <div class="src-row">
+              <div class="s">Fachmedium</div>
+              <div class="t"><b>Interview: Kreislaufwirtschaft im Handel</b><div class="why">Meinungsbeitrag, keine neue Pflicht.</div></div>
+              <div><span class="tag no">Aussortiert</span></div>
+            </div>
+            <div class="src-row">
+              <div class="s">ZSVR</div>
+              <div class="t"><b>Hinweis zur Systembeteiligung</b><div class="why">Schon am 12.10. als Meldung erschienen.</div></div>
+              <div><span class="tag no">Aussortiert</span></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="take"><b class="k">Das heißt</b>Das Muster funktioniert schon: eine Seite pro Frage, mit direkter Antwort. Es fehlt die Zeit, das für jedes Gesetz und jede Änderung zu machen.</div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Quelle: SISTRIX und SISTRIX AI Check, Deutschland, November 2026</span><span class="pg"></span></div>
-  </section>
 
-  <!-- Keywords -->
-  <section class="slide" id="keywords">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Suchnachfrage</div>
-        <h2>Über 15.000 Suchen im Monat zu euren Themen</h2>
-        <p class="s-sub">Allein in Deutschland, ohne Academy und Sprachdomains. Unter den 40 stärksten Keywords von take-e-way.de ist keiner davon.</p>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Es schreibt einen Entwurf <span class="who">automatisch</span></h3>
+          <p>Aus dem Gesetzestext entsteht ein Fachtext, der klingt wie eure bisherigen Meldungen. Die Antwort steht in den ersten zwei Sätzen, Frist und Betroffene sind auf einen Blick zu sehen, am Ende verlinkt er auf eure passende Lösungsseite. Die Originalquelle steht immer daneben.</p>
+        </div>
+        <div class="screen">
+          <div class="screen-h"><span class="dot"></span>Entwurf · Batterien · EU<span class="r">SEO-Ziel: „Für welche Batterien gilt das Gesetz?“</span></div>
+          <div class="split">
+            <div>
+              <div class="lab">Quelle</div>
+              <p class="legal">„Ab dem 18. Februar 2027 muss jede LV-Batterie, jede Industriebatterie mit einer Kapazität von mehr als 2 kWh und jede Elektrofahrzeugbatterie, die in Verkehr gebracht oder in Betrieb genommen wird, über einen elektronischen Datensatz (Batteriepass) verfügen.“</p>
+              <p class="small" style="margin-top:8px">Art. 77 Abs. 1, Verordnung (EU) 2023/1542 · eur-lex.europa.eu</p>
+            </div>
+            <div class="draft">
+              <div class="lab">Entwurf für take-e-way.de</div>
+              <h4>Batteriepass ab Februar 2027: Was Hersteller von Industriebatterien jetzt vorbereiten sollten</h4>
+              <p class="teaser">Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass, ebenso Batterien für E-Bikes, E-Scooter und E-Autos. Wer diese Batterien in Verkehr bringt, muss die Daten bis dahin vollständig erfassen.</p>
+              <dl class="kv">
+                <dt>Frist</dt><dd>18.02.2027</dd>
+                <dt>Betrifft</dt><dd>Hersteller und Inverkehrbringer</dd>
+                <dt>Verlinkt auf</dt><dd>take-e-way · Batterien</dd>
+              </dl>
+              <ul class="faq">
+                <li>Für welche Batterien gilt der Batteriepass?</li>
+                <li>Welche Daten muss der Batteriepass enthalten?</li>
+                <li>Gilt die Pflicht auch für Batterien, die schon im Lager sind?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="pot kwgrid">
-        <table class="kwt kwv">
-          <thead><tr><th>Keyword</th><th>Suchen / Monat</th><th>Thema</th><th>Seitentyp</th></tr></thead>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Euer Fachkollege prüft und gibt frei <span class="who you">5 bis 10 Minuten</span></h3>
+          <p>Das ist der einzige Schritt, den ein Mensch macht, und der wichtigste. Euer Kollege liest den Entwurf neben der Quelle, korrigiert oder kommentiert und klickt auf Freigeben. Ohne diese Freigabe geht nichts online. Aus jeder Korrektur lernt das System für die nächsten Texte.</p>
+        </div>
+        <div class="screen">
+          <div class="screen-h"><span class="dot"></span>Prüfung<span class="r">Entwurf 1 von 3 heute</span></div>
+          <div class="screen-b">
+            <p style="font-size:14px">… Wer diese Batterien <mark class="c">in Verkehr bringt</mark>, muss die Daten bis dahin vollständig erfassen.</p>
+            <div class="comment">
+              <div class="av">TW</div>
+              <div><b>Fachkollege take-e-way</b><br />Passt. Bitte bei der Lagerfrage noch auf unser Webinar zum Batteriepass verweisen.</div>
+            </div>
+            <div class="actions">
+              <span class="btn-s p">Freigeben</span>
+              <span class="btn-s">Zurück an Entwurf</span>
+              <span class="t">Quelle geprüft ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <h3>Die Meldung erscheint überall gleichzeitig <span class="who">automatisch</span></h3>
+          <p>Nach der Freigabe landet der Text als fertiger News-Datensatz in TYPO3, mit Kategorie, Meta-Daten und FAQ-Markup für Google. Gleichzeitig entstehen ein LinkedIn-Post und ein Baustein für den nächsten Newsletter, beide ebenfalls zur Freigabe.</p>
+        </div>
+        <div class="screen">
+          <div class="screen-h"><span class="dot"></span>Veröffentlicht</div>
+          <div class="screen-b outs">
+            <div class="out">
+              <div class="lab">TYPO3</div>
+              <dl class="kv">
+                <dt>Pfad</dt><dd>/news/batteriepass-2027/</dd>
+                <dt>Kategorie</dt><dd>Batterien</dd>
+                <dt>FAQ</dt><dd>3 Fragen, mit Markup</dd>
+                <dt>Status</dt><dd>online</dd>
+              </dl>
+            </div>
+            <div class="out">
+              <div class="lab">LinkedIn</div>
+              <p>Ab Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass. Was Hersteller bis dahin erfassen müssen →</p>
+            </div>
+            <div class="out">
+              <div class="lab">Newsletter</div>
+              <p><b>Batteriepass: noch 15 Monate.</b> Für wen die Pflicht gilt und was jetzt zu tun ist.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">5</div>
+        <div>
+          <h3>Ihr seht, was es bringt <span class="who">automatisch</span></h3>
+          <p>Nach einigen Wochen zeigt das Dashboard für jede Meldung, wie oft sie bei Google erscheint, wie viele Besucher sie bringt und wie viele davon eine Beratung anfragen. So seht ihr, welche Themen sich lohnen, und das System schreibt mehr davon.</p>
+        </div>
+        <div class="screen">
+          <div class="screen-h"><span class="dot"></span>Auswertung · Batteriepass ab Februar 2027<span class="r">nach 6 Wochen</span></div>
+          <div class="screen-b meas">
+            <div><b>2.140</b>Einblendungen bei Google</div>
+            <div><b>6,4</b>durchschnittliche Position</div>
+            <div><b>118</b>Besucher</div>
+            <div><b>2</b>Beratungsanfragen</div>
+          </div>
+        </div>
+        <p class="cap">Der Ablauf ist echt, die Texte und Zahlen in den Ausschnitten sind ein Beispiel. Vor dem Einsatz prüft euer Team jeden Text fachlich.</p>
+      </div>
+
+      <h3>Was das System über take-e-way weiß</h3>
+      <p>Damit die Texte nach euch klingen und nicht nach KI, richten wir das System im Kick-off auf take-e-way ein:</p>
+      <ul class="list">
+        <li><b>Eure Sprache:</b> bisherige Meldungen, Fachbegriffe und Formulierungen, die ihr nicht verwendet.</li>
+        <li><b>Eure Themen:</b> Rechtsgebiete, Kernländer und Zielgruppen, für die eine Meldung relevant ist.</li>
+        <li><b>Eure Lösungen:</b> auf welche Seite jede Meldung verlinkt, damit aus Lesern Anfragen werden.</li>
+        <li><b>Euer Content-Plan:</b> welche Fragen noch keine Seite haben (siehe Abschnitt 06).</li>
+      </ul>
+      <p class="small" style="margin-top:16px">Wer sich das Redaktions-Dashboard selbst ansehen möchte: <a href="prototyp/">Prototyp öffnen</a>. Im Termin führe ich es gern live vor.</p>
+    </section>
+
+    <!-- 03 -->
+    <section id="beispiel">
+      <div class="sh"><span class="n">03</span><h2>So sehen die fertigen Texte aus</h2></div>
+      <p>Mit demselben Vorgehen entstehen bei uns schon Fachseiten zu Vorschriften für andere Kunden. Ein gutes Beispiel ist diese Seite zur Arbeitssicherheit nach ASiG und DGUV Vorschrift 2. Das Thema ist ähnlich rechtlich und erklärungsbedürftig wie eures.</p>
+      <a class="ref" href="https://ki-consulting.eu/arbeitssicherheit/" target="_blank" rel="noopener">
+        <div><b>Externe Fachkraft für Arbeitssicherheit</b><span class="u">ki-consulting.eu/arbeitssicherheit/</span></div>
+        <span class="go">→</span>
+      </a>
+      <p style="margin-top:18px">Darauf lohnt es sich zu achten, denn genau so bauen wir die Seiten für take-e-way auf:</p>
+      <ol class="anatomy">
+        <li><span><b>Die Frage steht in der Überschrift</b>, die Antwort im ersten Absatz.</span></li>
+        <li><span><b>Gesetze sind benannt</b>: ArbSchG, ASiG, DGUV Vorschrift 1 und 2.</span></li>
+        <li><span><b>Eine Tabelle mit Rechenbeispiel</b> statt langer Erklärung.</span></li>
+        <li><span><b>Elf FAQ</b>, die Google und ChatGPT direkt übernehmen können.</span></li>
+        <li><span><b>Fachlich verantwortlich</b> ist ein namentlich genannter Experte.</span></li>
+        <li><span><b>Am Ende steht ein Ansprechpartner</b> mit Kontaktformular.</span></li>
+      </ol>
+    </section>
+
+    <!-- 04 -->
+    <section id="chatgpt">
+      <div class="sh"><span class="n">04</span><h2>Warum nicht einfach ChatGPT?</h2></div>
+      <p>ChatGPT schreibt einen ordentlichen Text, wenn ihr ihm sagt, worüber. Alles davor und danach bleibt aber bei eurem Team, und genau das kostet heute die Zeit.</p>
+      <div class="tw">
+        <table class="vs">
+          <thead><tr><th></th><th>ChatGPT mit einem Prompt</th><th>News-System für take-e-way</th></tr></thead>
           <tbody>
-            <tr><td>ppwr</td><td><i class="vb" style="--w:100%"></i>8.400</td><td>Verpackung</td><td>Hauptseite</td></tr>
-            <tr><td>verpackungsgesetz</td><td><i class="vb" style="--w:31%"></i>2.600</td><td>Verpackung</td><td>Hauptseite</td></tr>
-            <tr><td>epr</td><td><i class="vb" style="--w:24%"></i>2.050</td><td>Allgemein</td><td>Glossar</td></tr>
-            <tr><td>lucid registrierung</td><td><i class="vb" style="--w:8%"></i>700</td><td>Verpackung</td><td>Anleitung</td></tr>
-            <tr><td>verpackungsregister lucid</td><td><i class="vb" style="--w:6%"></i>500</td><td>Verpackung</td><td>Anleitung</td></tr>
-            <tr><td>batteriegesetz</td><td><i class="vb" style="--w:5.4%"></i>450</td><td>Batterien</td><td>Hauptseite</td></tr>
-            <tr><td>weee registrierung</td><td><i class="vb" style="--w:4.2%"></i>350</td><td>Elektro</td><td>Anleitung</td></tr>
-            <tr><td>elektrogesetz</td><td><i class="vb" style="--w:3.6%"></i>300</td><td>Elektro</td><td>Hauptseite</td></tr>
-            <tr><td>erweiterte herstellerverantwortung</td><td><i class="vb" style="--w:1.8%"></i>150</td><td>Allgemein</td><td>Glossar</td></tr>
-            <tr><td>amazon epr nummer, epr service</td><td><i class="vb" style="--w:1%"></i>je 10</td><td>Anbieter</td><td>Entscheiderseite</td></tr>
+            <tr><td>Wer merkt, dass sich ein Gesetz ändert?</td><td>Euer Team, wie heute</td><td>Das System, jeden Morgen in euren Quellen</td></tr>
+            <tr><td>Stimmt der Inhalt?</td><td>Wissensstand von gestern, Quellen oft unklar</td><td>Jeder Text mit Link auf die Originalquelle</td></tr>
+            <tr><td>Klingt es nach take-e-way?</td><td>Jedes Mal neu erklären</td><td>Eingestellt auf eure Meldungen und Begriffe</td></tr>
+            <tr><td>Wird die Seite gefunden?</td><td>Kennt weder Suchvolumen noch Fragen</td><td>Arbeitet euren Content-Plan ab</td></tr>
+            <tr><td>Wie kommt es auf die Website?</td><td>Kopieren nach TYPO3, LinkedIn, Newsletter</td><td>Ein Klick, alles erscheint gleichzeitig</td></tr>
           </tbody>
         </table>
+      </div>
+      <h3>Und selbst bauen?</h3>
+      <p>Könnt ihr, und nach der Übergabe betreibt ihr das System ohnehin selbst. Den Teil, der am längsten dauert, bringen wir fertig mit: Quellen-Monitoring, Schreib-Logik, Freigabe und Messung laufen bei uns schon in anderen Projekten. Deshalb sind es rund 15 Personentage statt einer Neuentwicklung über Monate.</p>
+    </section>
+
+    <!-- 05 -->
+    <section id="cases">
+      <div class="sh"><span class="n">05</span><h2>Ergebnisse bei anderen Kunden</h2></div>
+      <p>Drei Projekte, die eurer Lage am nächsten kommen. Kundennamen nennen wir nur mit Erlaubnis, die Zahlen stammen aus abgeschlossenen Projekten.</p>
+
+      <div class="case" style="margin-top:20px">
+        <div class="big">383.000<small>organische Besucher pro Monat, ohne Werbebudget</small></div>
         <div>
-          <div class="col-h">Fragen, die Google dazu zeigt</div>
-          <ul class="qs">
-            <li>Wer ist von der PPWR betroffen?</li>
-            <li>Welche Geräte fallen unter das Elektrogesetz?</li>
-            <li>Welche Änderungen gibt es ab 2026?</li>
-            <li>Ist das Batteriegesetz noch gültig?</li>
-            <li>Wie sieht eine technische Dokumentation aus?</li>
-          </ul>
-          <p class="small-note">Zum Elektrogesetz zeigt Google die meisten Fragevarianten. Die kleinen Begriffe wie „amazon epr nummer“ haben wenig Volumen, aber die höchste Kaufabsicht.</p>
+          <h3>E-Commerce: automatisierte Fachtexte in großer Zahl</h3>
+          <p>Wir haben ein System aufgebaut, das laufend Ratgeber- und Kategorieseiten zu konkreten Suchanfragen erstellt. Heute ranken über 54.000 Suchbegriffe.</p>
+          <p class="rel">Für euch: dieselbe Technik wie im News-System, nur mit Gesetzen statt Produkten.</p>
         </div>
       </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Quelle: SISTRIX, Deutschland, November 2026. Volumina sind Schätzungen.</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Content-Plan -->
-  <section class="slide" id="contentplan">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Content-Plan</div>
-        <h2>Pro Gesetz eine Hauptseite, darum die Fragen</h2>
-        <p class="s-sub">Jede Seite beantwortet die Frage in den ersten zwei Sätzen, danach folgen Tabellen, Fristen und FAQ. Genau diese Seiten zitieren auch ChatGPT und Google AI Overviews.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="clusters">
-        <div class="cl hl"><div class="ct"><span>1</span>Verpackung</div><div class="cv">12.270 <small>Suchen / Monat</small></div><ul><li>PPWR: Pflichten für Hersteller und Händler</li><li>Wer ist von der PPWR betroffen?</li><li>LUCID-Registrierung Schritt für Schritt</li><li>PPWR und Verpackungsgesetz im Vergleich</li></ul></div>
-        <div class="cl"><div class="ct"><span>2</span>Elektro</div><div class="cv">750 <small>+ meiste Fragen</small></div><ul><li>ElektroG: Was Hersteller 2026 wissen müssen</li><li>Welche Geräte fallen unter das Elektrogesetz?</li><li>WEEE-Registrierung in der EU</li></ul></div>
-        <div class="cl"><div class="ct"><span>3</span>Batterien</div><div class="cv">Platz 1 <small>ausbauen</small></div><ul><li>Batteriegesetz und EU-Batterieverordnung: Was gilt wann?</li><li>Für welche Batterien gilt das Gesetz?</li><li>FAQ für „Industriebatterien entsorgen“</li></ul></div>
-        <div class="cl"><div class="ct"><span>4</span>Einstieg und Kauf</div><div class="cv">2.270 <small>Suchen / Monat</small></div><ul><li>Was ist EPR?</li><li>EPR-Dienstleister vergleichen</li><li>Amazon EPR-Nummer</li><li>Bevollmächtigter für Verpackungen</li></ul></div>
-      </div>
-      <div class="plan3">
-        <div><b>Woche 1–4</b>PPWR-Hauptseite, „Welche Geräte fallen unter das Elektrogesetz?“, „Was ist EPR?“, FAQ auf den drei Platz-1-Seiten</div>
-        <div><b>Woche 5–8</b>LUCID- und WEEE-Anleitungen, Batterie-Hauptseite, drei PPWR-Fragenseiten</div>
-        <div><b>Woche 9–12</b>Länderseiten, Entscheiderseiten, Verzahnung mit der Academy</div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Neben dem Plan laufen die aktuellen Meldungen zu Gesetzesänderungen</span><span class="pg"></span></div>
-  </section>
-
-<!-- @ChatGPT -->
-
-  <!-- Was wir bauen -->
-  <section class="slide" id="bausteine">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Was wir bauen</div>
-        <h2>Sieben Bausteine, ein System</h2>
-        <p class="s-sub">Von der Quelle bis zur fertigen Meldung in TYPO3, auf LinkedIn und im Newsletter. Es arbeitet den Content-Plan ab und greift neue Gesetzesänderungen auf.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="agents">
-        <div><b>Quellen-Monitoring</b><span>EUR-Lex und EU-Amtsblatt, stiftung ear, Zentrale Stelle Verpackungsregister, nationale Register und Behörden, Fachmedien. Die Liste könnt ihr selbst erweitern.</span></div>
-        <div><b>Relevanz-Filter</b><span>Ordnet nach Rechtsgebiet (WEEE, Batterien, Verpackungen, Textilien, PV), Land und Zielgruppe. Nur echter Handlungsbedarf kommt auf die Liste.</span></div>
-        <div><b>Entwurf im take-e-way-Ton</b><span>Kernfrage in den ersten zwei Sätzen, sichtbare Fristen, FAQ-Block, Link zur Lösungsseite. Diese Struktur zitieren KI-Systeme bevorzugt.</span></div>
-        <div><b>Redaktions-Dashboard</b><span>Kalender, Quellennachweis zu jedem Entwurf, Kommentare, Freigabe per Klick und Sammelfreigabe. Ohne eure Freigabe geht nichts online.</span></div>
-        <div><b>Direktanbindung an TYPO3</b><span>Freigegebene Meldungen landen als fertiger News-Datensatz mit Titel, Teaser, Text, Kategorien, FAQ und Meta-Daten.</span></div>
-        <div><b>LinkedIn und Newsletter</b><span>Zu jeder Meldung entstehen ein LinkedIn-Post und ein Newsletter-Baustein, ebenfalls zur Freigabe.</span></div>
-        <div><b>Messung</b><span>Search Console und GA4 (nur Lesezugriff) zeigen im Dashboard, welche Themen Besucher und Anfragen bringen.</span></div>
-      </div>
-      <div class="take"><b class="k">Gehört euch</b>Gemeinsam aufgebaut, drei Monate betreut, dann übergeben. Es läuft auf eurer Infrastruktur, ohne Abo und ohne Lizenzgebühr.</div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Ablauf -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">So läuft es ab</div>
-        <h2>Von der Gesetzesänderung zur Meldung</h2>
-        <p class="s-sub">Beispiel: eine neue Registrierungspflicht für Verpackungen in Polen.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="steps4 steps5">
-        <div><span class="n">1</span><b>Erkennen</b><p>Das System erkennt die Änderung in einer beobachteten Quelle.</p></div>
-        <div><span class="n">2</span><b>Entwerfen</b><p>Es prüft die Relevanz und erstellt einen Entwurf mit Quellenangabe.</p></div>
-        <div class="you"><span class="n">3</span><b>Prüfen</b><p>Ein Fachkollege bei euch prüft im Dashboard, korrigiert bei Bedarf und gibt frei.</p></div>
-        <div><span class="n">4</span><b>Veröffentlichen</b><p>Die Meldung erscheint in TYPO3, auf LinkedIn und im nächsten Newsletter.</p></div>
-        <div><span class="n">5</span><b>Messen</b><p>Nach einigen Wochen zeigt das Dashboard, wie die Meldung bei Google abschneidet.</p></div>
-      </div>
-      <div class="take"><b class="k">5 bis 10 Minuten</b>Realistischer Aufwand für euer Team pro Meldung. Der einzige Schritt, den ein Mensch macht, ist die fachliche Prüfung.</div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Prototyp -->
-  <section class="slide" id="prototyp">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Prototyp</div>
-        <h2>So sieht das Dashboard für take-e-way aus</h2>
-        <p class="s-sub">Ein klickbarer Prototyp mit Beispielmeldungen zu euren Themen: Entwürfe prüfen, kommentieren, freigeben und sehen, was in TYPO3 ankommt.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="wl">
-        <div class="mock">
-          <div class="mock-bar"><i></i><i></i><i></i><span>News-Redaktion · take-e-way</span></div>
-          <div class="mock-nav"><span class="on">Entwürfe</span><span>Quellen-Monitor</span><span>Kalender</span><span>Auswertung</span></div>
-          <div class="mock-in">
-            <div class="mock-h"><b>Entwürfe zur Freigabe</b><span>Dienstag, 3. November</span></div>
-            <div class="mrow"><em>PL</em><div>Polen: neue Registrierungspflicht für Verpackungen<small>Verpackungen · Quelle gov.pl · Relevanz 94</small></div><span class="st-b a">Neu</span></div>
-            <div class="mrow"><em>EU</em><div>PPWR: Was die Konformitätserklärung verlangt<small>Verpackungen · Quelle EUR-Lex · 1 Kommentar</small></div><span class="st-b p">In Prüfung</span></div>
-            <div class="mrow"><em>DE</em><div>Ratgeber: Welche Geräte fallen unter das Elektrogesetz?<small>Content-Plan · Google-Frage mit den meisten Varianten</small></div><span class="st-b p">In Prüfung</span></div>
-            <div class="mrow"><em>EU</em><div>Batteriepass ab Februar 2027<small>Batterien · geplant für Donnerstag</small></div><span class="st-b l">Freigegeben</span></div>
-          </div>
-        </div>
+      <div class="case">
+        <div class="big">34.000<small>Besucher, gestartet bei null</small></div>
         <div>
-          <ul class="check">
-            <li>Content-Plan mit Ziel-Keyword und Suchvolumen für jede Seite</li>
-            <li>Entwürfe mit Kernaussage, Frist, FAQ und Quellennachweis</li>
-            <li>Freigabe einzeln oder gesammelt</li>
-            <li>Vorschau für TYPO3-Datensatz, LinkedIn und Newsletter</li>
-            <li>Quellen-Monitor: was gefunden und warum es übernommen wurde</li>
-            <li>Redaktionskalender und Auswertung</li>
-          </ul>
-          <div class="btns" style="margin-top:26px"><a class="btn btn-dark" href="prototyp/">Prototyp öffnen →</a></div>
-          <p class="small-note">Inhalte und Zahlen im Prototyp dienen der Veranschaulichung und sind noch nicht fachlich geprüft.</p>
+          <h3>Industrie und Maschinenbau: von null zu Anfragen über die Website</h3>
+          <p>SEO und LinkedIn haben wir von Grund auf aufgebaut, für ein B2B-Unternehmen mit erklärungsbedürftigem Angebot.</p>
+          <blockquote>„Wir bekommen ständig Anfragen über die Website und müssen uns um nichts kümmern.“</blockquote>
+          <p class="rel">Für euch: B2B, Fachthema, und das Ziel sind Anfragen, nicht nur Besucher.</p>
         </div>
       </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Warum nicht ChatGPT -->
-  <section class="slide" id="chatgpt">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Die naheliegende Frage</div>
-        <h2>Warum nicht einfach ChatGPT?</h2>
-        <p class="s-sub">ChatGPT schreibt einen guten Text, wenn ihr ihm sagt, worüber. Alles davor und danach bleibt bei eurem Team. Genau das ist heute der Engpass.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <table class="vs">
-        <thead><tr><th></th><th>ChatGPT mit einem Prompt</th><th>News-System für take-e-way</th></tr></thead>
-        <tbody>
-          <tr><td>Wer merkt, dass sich ein Gesetz ändert?</td><td>Euer Team, wie heute</td><td>Das System liest täglich EUR-Lex, stiftung ear, ZSVR und nationale Behörden</td></tr>
-          <tr><td>Wie aktuell und belegt ist der Inhalt?</td><td>Stand des Trainings, Quellen oft nicht nachvollziehbar</td><td>Jede Meldung mit Link auf die Originalquelle, die ihr beim Prüfen seht</td></tr>
-          <tr><td>Klingt es nach take-e-way?</td><td>Allgemeiner Ton, jedes Mal neu erklären</td><td>Eingestellt auf eure bisherigen Meldungen, Fachbegriffe und Lösungsseiten</td></tr>
-          <tr><td>Wird die Seite gefunden?</td><td>Kennt weder Suchvolumen noch Fragen</td><td>Plan aus SISTRIX-Daten, Struktur und FAQ-Schema für Google und KI-Antworten</td></tr>
-          <tr><td>Wie kommt es auf die Website?</td><td>Kopieren nach TYPO3, LinkedIn, Newsletter</td><td>Freigabe per Klick, Datensatz landet fertig in TYPO3</td></tr>
-          <tr><td>Was hat es gebracht?</td><td>Niemand misst es</td><td>Search Console und GA4 im Dashboard</td></tr>
-        </tbody>
-      </table>
-      <div class="take"><b class="k">Und selbst bauen?</b>Könnt ihr, nach der Übergabe macht ihr das ohnehin. Monitoring, Schreib-Logik, Freigabe und Messung bringen wir fertig aus anderen Projekten mit: rund 15 Personentage statt einer Neuentwicklung.</div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Ergebnisse -->
-  <section class="slide" id="ergebnisse">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Ergebnisse</div>
-        <h2>So hat dieser Ansatz bei anderen gewirkt</h2>
-        <p class="s-sub">Kundennamen nennen wir nicht. Die Zahlen stammen aus abgeschlossenen Projekten, die wir umgesetzt haben.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="cases">
-        <div class="case hl"><div class="ind">E-Commerce · KI-Content-Automatisierung</div><div class="big">383K<small> / Monat</small></div><b>organische Besucher, ohne Werbebudget</b><p>Content-Automatisierung aufgebaut, 54.376 Keywords ranken.</p></div>
-        <div class="case"><div class="ind">B2B-Industrie · Sondermaschinenbau</div><div class="big">+96 %</div><b>Sichtbarkeitsindex</b><p>Hauptkeyword auf Platz 1, Traffic-Wert 1.486 € pro Monat.</p></div>
-        <div class="case"><div class="ind">Industrie und Maschinenbau</div><div class="big">34.000</div><b>Besucher, gestartet bei null</b><p>SEO und LinkedIn von Grund auf aufgebaut. Anfragen kommen jetzt über die Website.</p></div>
-        <div class="case"><div class="ind">B2B-Software · technische Nische</div><div class="big">360K</div><b>Impressionen in Google</b><p>Mehrere Zielbegriffe auf Platz 1, 4.590 Klicks.</p></div>
-      </div>
-      <div class="proof">
-        <div><b>6 Mio.+</b><span>organische Besucher für Kunden</span></div>
-        <div><b>3</b><span>Enterprise-Kunden mit einem individuell gebauten System</span></div>
-        <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
-      </div>
-      <p class="quote-line">„Wir bekommen ständig Anfragen über die Website und müssen uns um nichts kümmern.“ <span>Geschäftsführer, B2B-Industrieausrüstung</span></p>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Wer dahintersteht -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Wer dahintersteht</div>
-        <h2>Gebaut aus acht Jahren Agenturpraxis</h2>
-        <p class="s-sub">Ich habe GetMarketing gegründet, nachdem ich über acht Jahre im B2B-Marketing im DACH-Raum gearbeitet habe.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="about">
-        <div class="person">
-          <img src="/darya.jpg" alt="Darya Kablash" />
-          <b>Darya Kablash</b>
-          <div class="role">Gründerin von GetMarketing</div>
-          <p>Growth Consultant und Fractional CMO für B2B-Gründer im DACH-Raum, außerdem Head of Growth bei Invictus Lead Generation. Ich arbeite von Berlin aus.</p>
-          <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn-Profil →</a>
-        </div>
+      <div class="case last">
+        <div class="big">+96 %<small>Sichtbarkeit bei Google (SISTRIX)</small></div>
         <div>
-          <div class="nums n3">
-            <div><b>55</b><span>abgeschlossene Projekte in SEO, Ads, LinkedIn und KI-Automatisierung</span></div>
-            <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
-            <div><b>3</b><span>Enterprise-Kunden, bei denen ein individuell gebautes System im Einsatz ist</span></div>
-          </div>
-          <div class="tech"><em>Technik</em><span>Claude API von Anthropic</span><span>n8n</span><span>Postgres</span><span>Hosting in Deutschland oder bei euch</span></div>
+          <h3>Sondermaschinenbau: Platz 1 für das wichtigste Suchwort</h3>
+          <p>Mit gezielten Fachseiten und technischer SEO steht der Kunde heute für sein Hauptkeyword auf Platz 1. Allein dieser Traffic wäre als Werbung rund 1.486 € im Monat wert.</p>
+          <p class="rel">Für euch: genau das Ziel für „ppwr“ mit 8.400 Suchen im Monat.</p>
         </div>
       </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
+      <div class="stats"><span><b>6 Mio.+</b> organische Besucher für Kunden</span><span><b>55</b> abgeschlossene Projekte</span><span><b>3</b> Enterprise-Kunden mit individuell gebautem System</span></div>
+    </section>
 
-  <!-- Hebel 1 -->
-  <section class="slide" id="rechnung">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Wirtschaftlichkeit · Hebel 1</div>
-        <h2>Rund 97 Stunden weniger Arbeit im Monat</h2>
-        <p class="s-sub">Von Hand heißt: Quelle finden, einordnen, schreiben, gegenlesen, in TYPO3 einpflegen, LinkedIn und Newsletter formulieren. Mit dem System bleibt die fachliche Prüfung.</p>
+    <!-- 06 -->
+    <section id="prognose">
+      <div class="sh"><span class="n">06</span><h2>Was wir für take-e-way erwarten</h2></div>
+      <p>Neben den laufenden Meldungen arbeitet das System einen Content-Plan ab: pro Gesetz eine Hauptseite und dazu die Fragen, die Hersteller und Händler bei Google stellen. Die Reihenfolge richtet sich nach dem Suchvolumen.</p>
+      <div class="plan">
+        <div class="pl"><div class="h"><b>Verpackung</b><span>12.270 Suchen / Monat</span></div><ul><li>PPWR: Pflichten für Hersteller und Händler</li><li>Wer ist von der PPWR betroffen?</li><li>LUCID-Registrierung Schritt für Schritt</li></ul></div>
+        <div class="pl"><div class="h"><b>Einstieg und Kauf</b><span>2.270 Suchen / Monat</span></div><ul><li>Was ist EPR?</li><li>Amazon EPR-Nummer</li><li>EPR-Dienstleister vergleichen</li></ul></div>
+        <div class="pl"><div class="h"><b>Elektro</b><span>750 Suchen / Monat</span></div><ul><li>ElektroG: Was Hersteller 2026 wissen müssen</li><li>Welche Geräte fallen unter das Elektrogesetz?</li><li>WEEE-Registrierung in der EU</li></ul></div>
+        <div class="pl"><div class="h"><b>Batterien</b><span>Platz 1 ausbauen</span></div><ul><li>Batteriegesetz und EU-Batterieverordnung</li><li>Für welche Batterien gilt das Gesetz?</li><li>FAQ für „Industriebatterien entsorgen“</li></ul></div>
       </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="pot">
-        <table class="kwt">
-          <thead><tr><th></th><th>Konservativ</th><th>Realistisch</th><th>Ziel</th></tr></thead>
+
+      <h3>Prognose</h3>
+      <p>So entwickelt sich das nach unserer Erfahrung, wenn das System nach sechs Wochen live geht und 30 Meldungen im Monat erscheinen. Wir rechnen bewusst vorsichtig.</p>
+      <div class="tw">
+        <table class="fc">
+          <thead><tr><th></th><th class="r">Heute</th><th class="r">Monat 3</th><th class="r">Monat 6</th><th class="r hl">Monat 12</th></tr></thead>
           <tbody>
-            <tr><td>Meldungen pro Monat</td><td>30</td><td>30</td><td>60</td></tr>
-            <tr><td>Aufwand pro Meldung von Hand</td><td>2 Std.</td><td>3,5 Std.</td><td>3,5 Std.</td></tr>
-            <tr><td>Aufwand von Hand pro Monat</td><td>60 Std.</td><td>105 Std.</td><td>210 Std.</td></tr>
-            <tr><td>Aufwand mit System pro Monat</td><td>8 Std.</td><td>8 Std.</td><td>13 Std.</td></tr>
-            <tr class="us"><td>Gesparte Zeit pro Monat</td><td>52 Std.</td><td>97 Std.</td><td>197 Std.</td></tr>
-            <tr><td>Gesparte Kosten pro Monat</td><td>3.120 €</td><td>5.820 €</td><td>11.820 €</td></tr>
-            <tr><td>Gesparte Kosten pro Jahr</td><td>37.440 €</td><td>69.840 €</td><td>141.840 €</td></tr>
-            <tr class="sum-row"><td>Paket 1 bezahlt nach</td><td>ca. 2,6 Mon.</td><td>ca. 1,4 Mon.</td><td>&lt; 1 Mon.</td></tr>
+            <tr><td>Neue Fachseiten online</td><td class="r">–</td><td class="r">ca. 50</td><td class="r">ca. 140</td><td class="r hl">ca. 330</td></tr>
+            <tr><td>Seiten aus dem Plan in den Top 10</td><td class="r">3</td><td class="r">5</td><td class="r">8 bis 10</td><td class="r hl">12 bis 15</td></tr>
+            <tr><td>Zusätzliche Besucher pro Monat</td><td class="r">–</td><td class="r">300 bis 800</td><td class="r">1.500 bis 3.000</td><td class="r hl">4.000 bis 8.000</td></tr>
+            <tr><td>Beratungsanfragen pro Monat</td><td class="r">–</td><td class="r">1 bis 4</td><td class="r">8 bis 15</td><td class="r hl">20 bis 40</td></tr>
+            <tr><td>Nennungen in KI-Antworten</td><td class="r">56</td><td class="r">70</td><td class="r">100</td><td class="r hl">150+</td></tr>
           </tbody>
         </table>
-        <div>
-          <div class="side-case"><b>&gt; 1 Stelle</b><strong>Aufwand von Hand im Zielvolumen</strong><span>210 Stunden im Monat. Ohne System entstehen diese Meldungen in der Praxis gar nicht.</span></div>
-          <p class="small-note"><b>Annahmen:</b> 60 € interne Vollkosten pro Stunde, 10 Minuten Prüfung pro Meldung, 3 Stunden im Monat für Stichproben und Quellenpflege. Im Kick-off ersetzen wir sie durch eure Werte.</p>
-        </div>
       </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
+      <p class="small" style="margin-top:12px">Annahmen: Anfragen von 0,5 % der zusätzlichen Besucher. Nennungen in KI-Antworten gemessen mit dem SISTRIX AI Check. Das ist eine Prognose und keine Zusage. Im Dashboard seht ihr jeden Monat, wo ihr tatsächlich steht.</p>
+      <p style="margin-top:18px">Dazu kommt die Entlastung im Team: 30 Meldungen von Hand brauchen rund 100 Stunden im Monat, mit dem System bleiben etwa 8 Stunden für die Prüfung. Was ein Neukunde für take-e-way wert ist, wisst ihr besser als wir. Im Termin rechnen wir die Prognose gern mit euren Zahlen durch.</p>
+    </section>
 
-  <!-- Hebel 2 + 3 -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Wirtschaftlichkeit · Hebel 2 und 3</div>
-        <h2>Übersetzungen und Alternativen</h2>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="grid2 st2">
-        <div>
-          <div class="col-h">Übersetzungen für die Sprachdomains</div>
-          <table class="kwt kwt3">
-            <thead><tr><th>Bei 30 Meldungen</th><th>1 Sprache</th><th>3</th><th>10</th></tr></thead>
-            <tbody>
-              <tr><td>Übersetzungen pro Monat</td><td>30</td><td>90</td><td>300</td></tr>
-              <tr><td>Kosten extern pro Monat</td><td>2.250 €</td><td>6.750 €</td><td>22.500 €</td></tr>
-              <tr><td>Paket 2 bezahlt nach</td><td>ca. 2 Mon.</td><td>&lt; 1 Mon.</td><td>&lt; 1 Mon.</td></tr>
-            </tbody>
-          </table>
-          <p class="small-note">Rund 500 Wörter pro Meldung, Fachübersetzung zu etwa 0,15 € pro Wort, also rund 75 € pro Meldung und Sprache. Die Prüfung durch eure Kollegen in den Ländern bleibt und dauert wenige Minuten.</p>
-        </div>
-        <div>
-          <div class="col-h">Alternativen</div>
-          <div class="ledger">
-            <div class="row"><b>5.500 €+</b><div><strong>Zusätzliche Redaktionsstelle pro Monat</strong><span>schafft 30 bis 40 Meldungen, Einarbeitung ins Fachgebiet nötig</span></div></div>
-            <div class="row"><b>7.500 €+</b><div><strong>Agentur oder Fachautoren pro Monat</strong><span>250 bis 400 € pro Artikel, das Wissen bleibt beim Dienstleister</span></div></div>
-            <div class="row"><b>7.900 €</b><div><strong>News-System von GetMarketing, einmalig</strong><span>danach ca. 50 bis 160 € im Monat, System und Wissen bleiben bei euch</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Hebel 4 + 5 -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Wirtschaftlichkeit · Hebel 4 und 5</div>
-        <h2>Neue Anfragen und Kosten über drei Jahre</h2>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="grid2 st2">
-        <div>
-          <div class="col-h">Neue Anfragen über Google und KI-Suche</div>
-          <div class="ledger">
-            <div class="row"><b>180</b><div><strong>neue Fachseiten nach sechs Monaten</strong><span>bei 30 Meldungen im Monat</span></div></div>
-            <div class="row"><b>9.000</b><div><strong>zusätzliche Besuche pro Monat</strong><span>bei durchschnittlich 50 Besuchen pro Seite</span></div></div>
-            <div class="row"><b>45</b><div><strong>Anfragen pro Monat</strong><span>wenn 0,5 % der Besucher eine Beratung anfragen</span></div></div>
-            <div class="row"><b>9</b><div><strong>Neukunden pro Monat</strong><span>wenn jede fünfte Anfrage Kunde wird. Ein Szenario, keine Zusage.</span></div></div>
-          </div>
-        </div>
-        <div>
-          <div class="col-h">Gesamtkosten, Paket 1, 30 Meldungen pro Monat</div>
-          <table class="kwt kwt3">
-            <thead><tr><th></th><th>Jahr 1</th><th>3 Jahre</th></tr></thead>
-            <tbody>
-              <tr class="us"><td>News-System</td><td>9.100 €</td><td>11.500 €</td></tr>
-              <tr><td>Redaktionsstelle</td><td>66.000 €</td><td>198.000 €</td></tr>
-              <tr><td>Agentur oder Fachautoren</td><td>90.000 €</td><td>270.000 €</td></tr>
-            </tbody>
-          </table>
-          <div class="total"><b>ca. 25 €</b><span>pro Meldung im ersten Jahr, ab dem zweiten Jahr nur noch wenige Euro. Gerechnet mit einmalig 7.900 € plus ca. 100 € laufend im Monat.</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Alle Zahlen sind vorsichtige Schätzungen</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Pakete -->
-  <section class="slide" id="konditionen">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Pakete und Preise</div>
-        <h2>Einmalig 7.900 €, kein Abo</h2>
-        <p class="s-sub">Beide Pakete umfassen den gemeinsamen Aufbau, drei Monate Betreuung und die vollständige Übergabe an euch.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="tiers two">
-        <div class="tier full">
-          <div class="k">Paket 1 · News-System Deutsch</div>
+    <!-- 07 -->
+    <section id="preis">
+      <div class="sh"><span class="n">07</span><h2>Pakete und Preis</h2></div>
+      <p>Wir bauen das System gemeinsam mit euch auf, betreuen es drei Monate und übergeben es dann vollständig. Es läuft auf eurem Server oder in einer EU-Cloud. Es gibt kein Abo und keine Lizenzgebühr.</p>
+      <div class="pk">
+        <div class="p main">
+          <div class="lab">Paket 1</div>
+          <h3>News-System auf Deutsch</h3>
           <div class="v">7.900 € <small>einmalig</small></div>
-          <div class="sub">rund 15 Personentage</div>
-          <ul class="two-col">
-            <li><span>Quellen-Monitoring für Kernländer und Rechtsgebiete</span><span class="on">✓</span></li>
-            <li><span>Entwürfe im take-e-way-Ton auf Deutsch</span><span class="on">✓</span></li>
-            <li><span>30 bis 90 Meldungen pro Monat</span><span class="on">✓</span></li>
-            <li><span>Redaktions-Dashboard mit Sammelfreigabe</span><span class="on">✓</span></li>
-            <li><span>Direktanbindung an TYPO3</span><span class="on">✓</span></li>
-            <li><span>LinkedIn-Post und Newsletter-Baustein</span><span class="on">✓</span></li>
-            <li><span>Search Console und GA4</span><span class="on">✓</span></li>
-            <li><span>Einrichtung auf eurem Server oder EU-Cloud</span><span class="on">✓</span></li>
-            <li><span>Dokumentation und Einweisung</span><span class="on">✓</span></li>
-            <li><span>3 Monate Betreuung nach Livegang</span><span class="on">✓</span></li>
-          </ul>
-        </div>
-        <div class="tier">
-          <div class="k">Paket 2 · Sprachdomains</div>
-          <div class="v">4.500 € <small>einmalig</small></div>
-          <div class="sub">rund 8 Personentage · nur zusammen mit Paket 1</div>
           <ul>
-            <li><span>Übertragung freigegebener Meldungen in eure Sprachversionen</span><span class="on">✓</span></li>
-            <li><span>Länderbezug und Fachbegriffe je Sprache</span><span class="on">✓</span></li>
-            <li><span>Veröffentlichung auf den TYPO3-Sprachdomains</span><span class="on">✓</span></li>
-            <li><span>Freigabe pro Sprache, auf Wunsch vor Ort</span><span class="on">✓</span></li>
-            <li><span>Bis zu 10 weitere Sprachdomains</span><span class="on">✓</span></li>
+            <li>Quellen-Monitoring für eure Kernländer und Rechtsgebiete</li>
+            <li>Entwürfe im take-e-way-Ton, 30 bis 90 im Monat</li>
+            <li>Redaktions-Dashboard mit Freigabe</li>
+            <li>Direkt in TYPO3, dazu LinkedIn und Newsletter</li>
+            <li>Content-Plan aus der Keyword-Analyse</li>
+            <li>Auswertung mit Search Console und GA4</li>
+            <li>Einweisung, Dokumentation, 3 Monate Betreuung</li>
+          </ul>
+        </div>
+        <div class="p">
+          <div class="lab">Paket 2 · zusätzlich</div>
+          <h3>Sprachdomains</h3>
+          <div class="v">4.500 € <small>einmalig</small></div>
+          <ul>
+            <li>Freigegebene Meldungen in euren Sprachversionen</li>
+            <li>Fachbegriffe und Länderbezug je Sprache</li>
+            <li>Veröffentlichung auf den TYPO3-Sprachdomains</li>
+            <li>Freigabe pro Sprache durch eure Kollegen vor Ort</li>
+            <li>Bis zu 10 weitere Sprachen</li>
           </ul>
         </div>
       </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Alle Preise netto zzgl. MwSt.</span><span class="pg"></span></div>
-  </section>
+      <p class="small" style="margin-top:12px">Alle Preise netto zzgl. MwSt. Laufend zahlt ihr nur Server und KI-Schnittstelle direkt an den Anbieter, ohne Aufschlag: etwa 50 bis 160 € im Monat für Deutsch, mit Sprachdomains 50 bis 150 € mehr. Die Kosten seht ihr jederzeit im Dashboard.</p>
 
-  <!-- Zeitplan -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Zeitplan</div>
-        <h2>Livegang nach rund sechs Wochen</h2>
-        <p class="s-sub">Paket 2 kann direkt mitgebaut werden oder nach dem Livegang von Paket 1 folgen.</p>
+      <div class="tl">
+        <div><b>Woche 1</b><span>Kick-off: Kernländer, Themen und Quellen festlegen, eure bisherigen Meldungen für den Ton auswerten</span></div>
+        <div><b>Woche 2 bis 4</b><span>Aufbau von Monitoring, Dashboard und TYPO3-Anbindung, erste Testentwürfe zur Abstimmung</span></div>
+        <div><b>Woche 5 bis 6</b><span>Testbetrieb mit echten Meldungen, Einweisung, Livegang</span></div>
+        <div><b>Monat 2 bis 4</b><span>Betreuung: Fehler beheben, Ton und Filter anhand eurer Korrekturen nachschärfen, Antwort innerhalb eines Werktags</span></div>
+        <div><b>Ende Monat 4</b><span>Übergabe mit Dokumentation</span></div>
       </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="ledger tl">
-        <div class="row"><b>Woche 1</b><div><strong>Kick-off</strong><span>Kernländer, Themen und Quellen festlegen, bisherige News für die Tonalität analysieren, Zugang zu TYPO3 und Server</span></div></div>
-        <div class="row"><b>Woche 2–4</b><div><strong>Aufbau</strong><span>Monitoring, Dashboard und TYPO3-Anbindung, erste Testentwürfe zur Abstimmung</span></div></div>
-        <div class="row"><b>Woche 5–6</b><div><strong>Testbetrieb und Livegang</strong><span>echte Meldungen, Einweisung eures Teams</span></div></div>
-        <div class="row"><b>Monat 2–4</b><div><strong>Betreuung</strong><span>Fehlerbehebung und Feinschliff im laufenden Betrieb</span></div></div>
-        <div class="row"><b>Ende Monat 4</b><div><strong>Übergabe</strong><span>mit Dokumentation und Abschlusstermin</span></div></div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
+    </section>
 
-  <!-- Nächster Schritt -->
-  <section class="slide dark close" id="termin">
-    <div class="s-body">
-      <div class="close-grid">
+    <!-- 08 -->
+    <section id="start">
+      <div class="sh"><span class="n">08</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
+      <div class="person">
+        <img src="/darya.jpg" alt="Darya Kablash" />
         <div>
-          <div class="eyebrow lt">Nächste Schritte</div>
-          <h2>Erst den Prototyp sehen, dann entscheiden</h2>
-          <p class="lead">In 30 Minuten zeige ich euch Entwürfe und Dashboard für take-e-way. Danach entscheidet ihr über das Paket.</p>
-          <div class="who">
-            <img src="/darya.jpg" alt="Darya Kablash" />
-            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
-          </div>
-          <div class="btns">
-            <a class="btn btn-light" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
-            <a class="btn btn-ghost" href="prototyp/">Prototyp ansehen</a>
-            <a class="btn btn-ghost" href="mailto:darya@getmarketing.team?subject=take-e-way%20%C2%B7%20News-Automatisierung">Per E-Mail</a>
-          </div>
-        </div>
-        <div class="opts">
-          <div class="opt hl"><span class="d">1</span><div><b>Prototyp ansehen</b><span>unsere Plattform mit Beispielmeldungen zu euren Themen</span></div></div>
-          <div class="opt"><span class="d">2</span><div><b>Gemeinsamer Termin</b><span>30 Minuten zur Vorstellung des Prototyps</span></div></div>
-          <div class="opt"><span class="d">3</span><div><b>Entscheidung und Start</b><span>Paket wählen, Kick-off in Woche 1</span></div></div>
+          <p><b>Darya Kablash</b>, Gründerin von GetMarketing. Ich arbeite seit über acht Jahren im B2B-Marketing im DACH-Raum, als Growth Consultant und Fractional CMO und als Head of Growth bei Invictus Lead Generation. Das System baue und betreue ich persönlich, ihr habt also eine feste Ansprechpartnerin. <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
       </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
+      <div class="close">
+        <h3 style="margin-top:0">Nächster Schritt</h3>
+        <p>In 30 Minuten zeige ich euch das System mit Beispielen zu euren Themen und beantworte eure Fragen. Danach entscheidet ihr in Ruhe.</p>
+        <ol>
+          <li><span>Termin vereinbaren, gern mit dem Fachkollegen, der später die Texte prüft</span></li>
+          <li><span>Paket wählen</span></li>
+          <li><span>Kick-off in der Woche danach, Livegang nach sechs Wochen</span></li>
+        </ol>
+        <div class="btns">
+          <a class="btn" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
+          <a class="btn o" href="mailto:darya@getmarketing.team?subject=take-e-way%20%C2%B7%20News-System">darya@getmarketing.team</a>
+        </div>
+      </div>
 
-  <!-- Aufwand -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Anhang · Was im Preis steckt</div>
-        <h2>Aufwand nach Arbeitspaketen</h2>
-        <p class="s-sub">Schreib-Logik, Freigabe und Messung bringen wir aus unserer Plattform mit. Deshalb liegt der Aufwand deutlich unter einer kompletten Neuentwicklung.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="grid2 st2">
-        <table class="kwt kwt2">
-          <thead><tr><th>Paket 1</th><th>Tage</th></tr></thead>
-          <tbody>
-            <tr><td>Kick-off, Auswahl von Quellen, Themen und Kernländern</td><td>1,5</td></tr>
-            <tr><td>Quellen-Monitoring: Anbindung, Abfrage, Ablage</td><td>2,5</td></tr>
-            <tr><td>Relevanz-Filter und Schreib-Logik mit FAQ und Meta-Daten</td><td>2</td></tr>
-            <tr><td>Redaktions-Dashboard mit Kalender und Sammelfreigabe</td><td>2,5</td></tr>
-            <tr><td>Direktanbindung an TYPO3 inklusive Tests</td><td>2</td></tr>
-            <tr><td>LinkedIn, Newsletter, GA4 und Search Console</td><td>1</td></tr>
-            <tr><td>Einrichtung, Testbetrieb, Dokumentation, Einweisung</td><td>1,5</td></tr>
-            <tr><td>Betreuung in den ersten 3 Monaten</td><td>2</td></tr>
-            <tr class="sum-row"><td>Summe</td><td>15</td></tr>
-          </tbody>
-        </table>
-        <div>
-          <table class="kwt kwt2">
-            <thead><tr><th>Paket 2</th><th>Tage</th></tr></thead>
-            <tbody>
-              <tr><td>Übersetzungs-Logik mit Fachbegriffen pro Sprache</td><td>2</td></tr>
-              <tr><td>Anbindung der TYPO3-Sprachdomains inklusive Tests</td><td>2,5</td></tr>
-              <tr><td>Freigabe pro Sprache im Dashboard</td><td>1</td></tr>
-              <tr><td>Testbetrieb in allen Sprachen</td><td>1,5</td></tr>
-              <tr><td>Betreuung in den ersten 3 Monaten</td><td>1</td></tr>
-              <tr class="sum-row"><td>Summe</td><td>8</td></tr>
-            </tbody>
-          </table>
-          <p class="small-note">Den genauen Umfang stimmen wir im Kick-off ab. Ändert sich der Bedarf deutlich, etwa durch Quellen mit Zugangsbeschränkung oder Sonderwünsche an TYPO3, sprechen wir das vorher mit euch ab.</p>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
+      <details class="ap">
+        <summary>Anhang: Was wir für take-e-way.de außerdem empfehlen</summary>
+        <h4>Nächste 4 Wochen</h4>
+        <ol>
+          <li>Pro Gesetz eine Seite mit der Frage in der Zwischenüberschrift und sichtbaren Fristen (VerpackDG, PPWR, BattDG, ElektroG)</li>
+          <li>FAQ-Blöcke mit FAQ-Markup auf Startseite und Lösungsseiten</li>
+          <li>Strukturierte Daten für Organisation, Leistungen und Artikel</li>
+          <li>Title, Meta-Description und H1 der Startseite schärfen</li>
+          <li>robots.txt bereinigen und KI-Crawler bewusst zulassen</li>
+        </ol>
+        <h4>In 1 bis 3 Monaten</h4>
+        <ol start="6">
+          <li>Academy und Hauptdomain stärker verlinken</li>
+          <li>Vergleichs- und Entscheiderseiten, etwa „Amazon EPR-Nummer“</li>
+          <li>„take-e-way“ auf der Website immer zusammen mit „EPR“ und „Hamburg“ nennen</li>
+          <li>hreflang und Domain-Strategie für die 11 Sprachen prüfen</li>
+        </ol>
+        <p class="small" style="margin-top:12px">Die Punkte 1 bis 3 setzt das News-System bei jeder neuen Seite automatisch um.</p>
+      </details>
 
-  <!-- Betreuung und laufende Kosten -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Anhang · Betreuung und laufende Kosten</div>
-        <h2>Drei Monate Betreuung, danach übernehmt ihr</h2>
-        <p class="s-sub">Weitere Unterstützung, etwa für neue Rechtsgebiete oder Funktionen, gern nach Aufwand. Verpflichtend ist das nicht.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="grid2 st2">
-        <div>
-          <div class="col-h">Was die Betreuung umfasst</div>
-          <ul class="points">
-            <li><b>Fehler und Störungen</b> beheben wir, etwa wenn eine Quelle ihr Format ändert oder ein Import in TYPO3 hakt.</li>
-            <li><b>Tonalität und Relevanz-Filter</b> schärfen wir anhand eurer Korrekturen nach.</li>
-            <li><b>Ein fester Ansprechpartner</b> bei uns, Reaktion innerhalb eines Werktags.</li>
-          </ul>
-        </div>
-        <div>
-          <div class="col-h">Laufende Kosten bei euch, ohne Aufschlag</div>
-          <div class="ledger">
-            <div class="row"><b>20–60 €</b><div><strong>Server bzw. EU-Cloud-Hosting</strong><span>pro Monat</span></div></div>
-            <div class="row"><b>30–100 €</b><div><strong>KI-Schnittstelle, nur Deutsch</strong><span>pro Monat, je nach Volumen</span></div></div>
-            <div class="row"><b>+50–150 €</b><div><strong>KI-Schnittstelle mit Sprachdomains</strong><span>zusätzlich pro Monat</span></div></div>
-          </div>
-          <p class="small-note">Die tatsächlichen Kosten seht ihr jederzeit im Dashboard.</p>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Alle Preise netto zzgl. MwSt.</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Anhang SEO/GEO -->
-  <section class="slide" id="anhang">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Anhang · SEO- und GEO-Kurzanalyse</div>
-        <h2>In KI-Antworten zitiert, bei Google schwach</h2>
-        <p class="s-sub">In KI-Antworten erscheint take-e-way eher als Quelle und seltener als aktiv empfohlener Anbieter.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="grid2 st2">
-        <div>
-          <div class="col-h">Google · SISTRIX</div>
-          <div class="ledger">
-            <div class="row"><b>0,0112</b><div><strong>Sichtbarkeitsindex</strong><span>Höchstwert 0,0858 im April 2018, im März 2022 praktisch null (0,0001)</span></div></div>
-            <div class="row"><b>213</b><div><strong>Keywords in den Top 10</strong><span>Vorne stehen stiftung-ear.de, ear-system.de, elektrogesetz.de, ihk.de und gruener-punkt.de</span></div></div>
-            <div class="row"><b>11</b><div><strong>Sprachdomains</strong><span>Das verteilt Autorität. hreflang ist noch zu prüfen.</span></div></div>
-          </div>
-        </div>
-        <div>
-          <div class="col-h">KI-Antworten · SISTRIX AI Check</div>
-          <div class="ledger">
-            <div class="row"><b>56</b><div><strong>Prompts mit take-e-way.de</strong><span>42 in Google AI Overviews, 12 im AI Mode, 2 in ChatGPT</span></div></div>
-            <div class="row"><b>Quelle</b><div><strong>zu „epr service“, „industriebatterien“, „EU-Verpackungsverordnung Konformitätserklärung“</strong><span>Bei den ersten beiden auch als Anbieter erwähnt</span></div></div>
-            <div class="row"><b>Interzero</b><div><strong>wird mehrfach vor take-e-way genannt</strong><span>daneben ecosistant, RecycleMe, lizenzero und hpm</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Quelle: SISTRIX und SISTRIX AI Check, DE, 03.11.2026. Core Web Vitals, hreflang und Schema.org noch nicht technisch geprüft.</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Maßnahmen -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Anhang · Empfohlene Maßnahmen</div>
-        <h2>Was wir für take-e-way.de empfehlen</h2>
-        <p class="s-sub">Die Punkte 1 bis 3 deckt das News-System für alle neuen Meldungen automatisch ab, Punkt 10 im Dashboard.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="grid3 recs">
-        <div>
-          <div class="col-h">Hoch · nächste 4 Wochen</div>
-          <ol class="points">
-            <li><b>1</b> Antwortfähige Inhalte pro Gesetz (VerpackDG, PPWR, BattDG, ElektroG) mit Frage im H2 und sichtbaren Fristen</li>
-            <li><b>2</b> FAQ-Blöcke mit FAQPage-Schema auf Startseite und Lösungsseiten</li>
-            <li><b>3</b> Strukturierte Daten: Organization mit sameAs, Service, BreadcrumbList, Article</li>
-            <li><b>4</b> Title, Meta-Description und H1 der Startseite schärfen</li>
-            <li><b>5</b> robots.txt bereinigen, KI-Crawler bewusst erlauben</li>
-          </ol>
-        </div>
-        <div>
-          <div class="col-h">Mittel · 1 bis 3 Monate</div>
-          <ol class="points">
-            <li><b>6</b> Academy und Hauptdomain stärker verzahnen</li>
-            <li><b>7</b> Vergleichs- und Entscheiderseiten, etwa „Amazon EPR-Nummer“</li>
-            <li><b>8</b> „take-e-way“ immer mit „EPR“ und „Hamburg“ verbinden</li>
-            <li><b>9</b> hreflang und Domain-Strategie für 11 Sprachen prüfen</li>
-          </ol>
-        </div>
-        <div>
-          <div class="col-h">Fortlaufend</div>
-          <ol class="points">
-            <li><b>10</b> Monatliches Monitoring der KI-Sichtbarkeit zu „epr service“, „BattDG Pflichten“ und „Amazon EPR-Nummer“</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-</main>
-
-<div class="ctrl" id="ctrl">
-  <button id="prev" aria-label="Vorherige Folie">←</button>
-  <span class="count" id="count">1 / 1</span>
-  <button id="next" aria-label="Nächste Folie">→</button>
-  <button id="fs" aria-label="Vollbild" title="Vollbild (F)">⤢</button>
+      <footer>GetMarketing · Darya Kablash · Berlin · Dieses Angebot ist vertraulich und nur für take-e-way bestimmt.</footer>
+    </section>
+  </main>
 </div>
 
 <script>
-/* ---- Deck: 16:9 stage, one slide at a time; stacked on phones ---- */
-(function () {
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var count = document.getElementById('count'), bar = document.getElementById('progress');
-  var prev = document.getElementById('prev'), next = document.getElementById('next');
-  var cur = 0;
-  slides.forEach(function (s, i) { s.querySelectorAll('.pg').forEach(function (pg) { pg.textContent = i + 1; }); });
-
-  function stacked() { return document.body.classList.contains('stack'); }
-  function fit() {
-    var stack = innerWidth < 800 || (innerWidth < 1000 && innerHeight > innerWidth);
-    document.body.classList.toggle('stack', stack);
-    if (!stack) {
-      var s = Math.min(innerWidth / 1280, innerHeight / 720);
-      if (!document.fullscreenElement) s *= 0.96;
-      document.documentElement.style.setProperty('--s', s);
-    }
-  }
-  function show(n, initial) {
-    n = Math.max(0, Math.min(slides.length - 1, n));
-    slides[cur].classList.remove('active');
-    cur = n;
-    slides[cur].classList.add('active');
-    count.textContent = (cur + 1) + ' / ' + slides.length;
-    bar.style.transform = 'scaleX(' + ((cur + 1) / slides.length) + ')';
-    prev.disabled = cur === 0; next.disabled = cur === slides.length - 1;
-    if (stacked() && !(initial && cur === 0)) slides[cur].scrollIntoView({ behavior: initial ? 'auto' : 'smooth' });
-    if (!initial) history.replaceState(null, '', '#' + (cur + 1));
-  }
-  function fromHash() {
-    var h = location.hash.slice(1);
-    if (!h) return 0;
-    if (/^\d+$/.test(h)) return +h - 1;
-    var el = document.getElementById(h);
-    return el ? slides.indexOf(el.closest('.slide')) : 0;
-  }
-  function toggleFs() {
-    if (document.fullscreenElement) document.exitFullscreen();
-    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
-  }
-
-  prev.addEventListener('click', function () { show(cur - 1); });
-  next.addEventListener('click', function () { show(cur + 1); });
-  document.getElementById('fs').addEventListener('click', toggleFs);
-
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('a[href^="#"]');
-    if (!a) return;
-    var el = document.getElementById(a.getAttribute('href').slice(1));
-    if (!el) return;
-    e.preventDefault();
-    show(slides.indexOf(el.closest('.slide')));
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.metaKey || e.ctrlKey || e.altKey || stacked()) return;
-    if (e.target.closest && e.target.closest('input, textarea, select')) return;
-    var k = e.key;
-    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
-    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
-    else if (k === 'Home') { e.preventDefault(); show(0); }
-    else if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
-    else if (k === 'f' || k === 'F') { toggleFs(); }
-  });
-
-  // swipe on touch screens in deck mode
-  var tx = null, ty = null;
-  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
-  document.addEventListener('touchend', function (e) {
-    if (tx === null || stacked()) { tx = null; return; }
-    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
-    tx = null;
-  }, { passive: true });
-
-  window.addEventListener('scroll', function () {
-    if (!stacked()) return;
-    var line = innerHeight * 0.4, best = 0;
-    for (var i = 0; i < slides.length; i++) if (slides[i].getBoundingClientRect().top <= line) best = i;
-    cur = best;
-  }, { passive: true });
-
-  window.addEventListener('resize', fit);
-  document.addEventListener('fullscreenchange', fit);
-  fit();
-  show(fromHash(), true);
-})();
+  (function () {
+    var links = [].slice.call(document.querySelectorAll('#toc a'));
+    var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var i = secs.indexOf(e.target);
+        links.forEach(function (a, j) { a.classList.toggle('on', j === i); });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    secs.forEach(function (s) { if (s) io.observe(s); });
+  })();
 </script>
 <script defer src="/analytics.js"></script>
 </body>
