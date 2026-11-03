@@ -233,6 +233,18 @@
   .ai-row .y { color: var(--accent-ink); font-weight: 800; text-align: center; }
   .ai-row .n { color: var(--gray2); text-align: center; }
 
+  .pill.rg { background: var(--forest); color: #fff; }
+  .seo-box { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; }
+  .seo-box b { display: block; font-size: 13px; color: var(--forest); }
+  .seo-box span { color: var(--gray); }
+  .seo-box .hub { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); font-weight: 600; }
+  .seo-box .hub em { font-style: normal; font-weight: 500; color: var(--gray); }
+  table.plan td { vertical-align: middle; }
+  table.plan tr.cl-h td { background: var(--soft); font-weight: 800; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--forest); }
+  table.plan tr.cl-h span { font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--gray); margin-left: 6px; }
+  table.plan .kwc { font-family: var(--mono); font-size: 12px; color: var(--accent-ink); }
+  table.plan tr.go { cursor: pointer; }
+  table.plan tr.go:hover td { background: var(--tint); }
   .toast { position: fixed; bottom: 22px; left: 50%; transform: translate(-50%, 30px); opacity: 0; background: var(--black); color: #fff; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 500; transition: .25s; z-index: 50; pointer-events: none; max-width: calc(100vw - 32px); }
   .toast.on { opacity: 1; transform: translate(-50%, 0); }
   .toast b { color: var(--accent); }
@@ -278,6 +290,7 @@
   <nav class="rail" id="rail">
     <div class="h">Redaktion</div>
     <button data-v="redaktion" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>Entwürfe<span class="c" id="c-open">0</span></button>
+    <button data-v="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Content-Plan</button>
     <button data-v="monitor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>Quellen-Monitor</button>
     <button data-v="kalender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Kalender</button>
     <button data-v="auswertung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Auswertung</button>
@@ -302,6 +315,7 @@
         <button class="chip" data-f="Batterien">Batterien</button>
         <button class="chip" data-f="WEEE">WEEE</button>
         <button class="chip" data-f="Textilien">Textilien</button>
+        <button class="chip" data-f="Ratgeber">Nur Ratgeber</button>
         <span class="sep"></span>
         <select id="f-cc" aria-label="Land"><option value="">Alle Länder</option></select>
         <select id="f-st" aria-label="Status"><option value="">Jeder Status</option><option value="neu">Neu</option><option value="pruefung">In Prüfung</option><option value="frei">Freigegeben</option><option value="online">Online</option></select>
@@ -313,6 +327,18 @@
         </div>
         <div class="card det" id="det"></div>
       </div>
+    </section>
+
+    <!-- ================= Content-Plan ================= -->
+    <section class="view" id="v-plan">
+      <div class="vh"><h1>Content-Plan</h1><span class="sub">Pro Gesetz eine Hauptseite, darum die Fragen · Keyword-Daten: SISTRIX, DE, November 2026</span></div>
+      <div class="stats">
+        <div><b>17</b><span>Seiten im Plan, 12 Wochen</span></div>
+        <div><b>15.900</b><span>Suchen pro Monat zu diesen Themen</span></div>
+        <div><b>2</b><span>Entwürfe bereit zur Prüfung</span></div>
+        <div><b>3</b><span>bestehende Seiten auf Platz 1, werden ausgebaut</span></div>
+      </div>
+      <div class="card" style="overflow-x:auto"><table class="t plan" id="plan"></table></div>
     </section>
 
     <!-- ================= Monitor ================= -->
@@ -381,7 +407,31 @@
 (function () {
   /* ---------- Beispieldaten (nicht fachlich geprüft) ---------- */
   var D = [
-    { id: 1, st: 'neu', cc: 'PL', area: 'Verpackungen', aud: 'Hersteller, Händler', when: 'heute 07:41', score: 94,
+    { id: 9, type: 'Ratgeber', st: 'pruefung', cc: 'DE', area: 'WEEE', aud: 'Hersteller, Händler, Marktplatz-Verkäufer', when: 'heute 08:30', score: 97, kw: ['welche geräte fallen unter das elektrogesetz', 'Frage mit den meisten Varianten'], hub: ['ElektroG-Hauptseite', 'elektrogesetz', '300'],
+      title: 'Welche Geräte fallen unter das Elektrogesetz?',
+      teaser: 'Unter das Elektrogesetz fallen grundsätzlich alle Geräte, die mit Strom oder Batterie betrieben werden, vom Toaster bis zur Photovoltaikanlage. Ausgenommen sind nur wenige Gruppen, etwa ortsfeste industrielle Großwerkzeuge, ortsfeste Großanlagen und Verkehrsmittel.',
+      dl: ['Registrierung', 'vor dem ersten Verkauf'],
+      body: [
+        ['Der offene Anwendungsbereich', 'Seit August 2018 gilt der offene Anwendungsbereich. Jedes Gerät wird einer von sechs Kategorien zugeordnet: Wärmeüberträger, Bildschirme, Lampen, Großgeräte, Kleingeräte sowie kleine IT- und Telekommunikationsgeräte.'],
+        ['Was nicht darunter fällt', 'Ausgenommen sind unter anderem ortsfeste industrielle Großwerkzeuge, ortsfeste Großanlagen, Verkehrsmittel für Personen oder Güter, Geräte für militärische Zwecke und Geräte, die nur für Forschung und Entwicklung bestimmt sind.'],
+        ['Was solltet ihr jetzt tun?', 'Ordnet jede Produktgruppe einer Kategorie zu und prüft, ob ihr als Hersteller geltet. Bei Grenzfällen hilft eine Einstufung, bevor das erste Gerät verkauft wird.']
+      ],
+      faq: [['Fallen auch B2B-Geräte darunter?', 'Ja, auch Geräte, die nur an gewerbliche Nutzer verkauft werden, müssen registriert werden.'], ['Was gilt für Geräte mit eingebauter Batterie?', 'Sie fallen unter das ElektroG. Für die Batterie gelten zusätzlich die Pflichten nach dem Batterierecht.'], ['Welche Geräte müssen nicht registriert werden?', 'Nur die Geräte aus den Ausnahmen des Gesetzes. Alles andere braucht eine WEEE-Reg.-Nr.']],
+      link: 'WEEE-Registrierung', src: ['SISTRIX · Fragen bei Google', 'Keyword elektrogesetz, DE, November 2026', 'welche geräte fallen unter das elektrogesetz · welche geräte müssen nicht registriert werden …'],
+      cm: [['Markus (WEEE)', 'vor 1 Std.', 'Gut. Bitte eine Tabelle mit Beispielgeräten je Kategorie ergänzen.']] },
+    { id: 10, type: 'Ratgeber', st: 'neu', cc: 'EU', area: 'Allgemein', aud: 'Hersteller, Händler, Marktplatz-Verkäufer', when: 'heute 08:30', score: 92, kw: ['epr', '2.050 Suchen / Monat'], hub: ['Was ist EPR?', 'epr', '2.050'],
+      title: 'Was ist EPR? Erweiterte Herstellerverantwortung einfach erklärt',
+      teaser: 'EPR steht für Extended Producer Responsibility, auf Deutsch erweiterte Herstellerverantwortung. Wer Verpackungen, Elektrogeräte oder Batterien in einem Land in Verkehr bringt, muss sich dort registrieren und für Sammlung und Recycling zahlen.',
+      dl: null,
+      body: [
+        ['Wofür gilt EPR?', 'In der EU vor allem für Verpackungen, Elektro- und Elektronikgeräte und Batterien. Für Textilien und Schuhe kommt sie in allen Mitgliedstaaten hinzu.'],
+        ['Was heißt das konkret?', 'Registrieren, Mengen melden, an einem System teilnehmen und die Registrierungsnummer angeben, auch auf Marktplätzen wie Amazon. Ohne Sitz im Land braucht ihr oft einen Bevollmächtigten.'],
+        ['Warum ist das für Online-Händler wichtig?', 'Marktplätze prüfen die Registrierungen. Fehlt eine Nummer, wird das Angebot gesperrt.']
+      ],
+      faq: [['Was ist eine EPR-Nummer?', 'Die Registrierungsnummer, die ihr in einem Land für eine Produktkategorie bekommt.'], ['Brauche ich in jedem Land eine eigene Registrierung?', 'Ja, EPR ist national geregelt. Jedes Land hat eigene Register und Fristen.']],
+      link: 'EPR-Lösungen', src: ['SISTRIX · Keyword-Daten', 'epr · 2.050 Suchen pro Monat, DE', 'Glossarseite für den Einstieg, verlinkt auf alle Hauptseiten'],
+      cm: [] },
+    { id: 1, type: 'Meldung', hub: ['PPWR-Hauptseite', 'ppwr', '8.400'], st: 'neu', cc: 'PL', area: 'Verpackungen', aud: 'Hersteller, Händler', when: 'heute 07:41', score: 94,
       title: 'Polen: neue Registrierungspflicht für Verpackungen geplant',
       teaser: 'Polen will die Herstellerverantwortung für Verpackungen neu regeln. Wer verpackte Waren nach Polen liefert, muss sich voraussichtlich neu registrieren und Mengen melden, auch ohne Sitz im Land.',
       dl: ['Stellungnahmen bis', '27.11.2026'],
@@ -393,7 +443,7 @@
       faq: [['Brauche ich ohne Sitz in Polen einen Bevollmächtigten?', 'Nach dem Entwurf voraussichtlich ja, wenn ihr direkt an Endkunden in Polen liefert.'], ['Gilt die bestehende BDO-Registrierung weiter?', 'Bis zum Inkrafttreten ja. Danach kann eine Anpassung nötig sein.']],
       link: 'Verpackungslizenzierung Polen', src: ['Ministerstwo Klimatu i Środowiska', 'gov.pl · Gesetzentwurf, 02.11.2026', 'Projekt ustawy o zmianie ustawy o gospodarce opakowaniami …'],
       cm: [] },
-    { id: 2, st: 'pruefung', cc: 'EU', area: 'Verpackungen', aud: 'Hersteller', when: 'gestern 16:20', score: 91,
+    { id: 2, type: 'Meldung', hub: ['PPWR-Hauptseite', 'ppwr', '8.400'], st: 'pruefung', cc: 'EU', area: 'Verpackungen', aud: 'Hersteller', when: 'gestern 16:20', score: 91,
       title: 'PPWR: Was die EU-Konformitätserklärung für Verpackungen verlangt',
       teaser: 'Seit dem 12. August 2026 gilt die EU-Verpackungsverordnung. Hersteller müssen für ihre Verpackungen eine technische Dokumentation führen und eine EU-Konformitätserklärung ausstellen.',
       dl: ['Gilt seit', '12.08.2026'],
@@ -405,7 +455,7 @@
       faq: [['Gilt die Pflicht auch für Händler?', 'Händler müssen prüfen, dass der Hersteller seine Pflichten erfüllt hat.'], ['Muss die Erklärung veröffentlicht werden?', 'Nein, sie muss auf Anfrage vorgelegt werden.']],
       link: 'PPWR-Beratung', src: ['EUR-Lex', 'Verordnung (EU) 2025/40, ABl. L', 'Verordnung über Verpackungen und Verpackungsabfälle …'],
       cm: [['Julia (Fachbereich Verpackungen)', 'vor 2 Std.', 'Bitte noch den Hinweis auf die Übergangsfristen für Kennzeichnung ergänzen.']] },
-    { id: 3, st: 'neu', cc: 'DE', area: 'Batterien', aud: 'Hersteller, Marktplatz-Verkäufer', when: 'heute 06:05', score: 88,
+    { id: 3, type: 'Meldung', hub: ['Batteriegesetz-Hauptseite', 'batteriegesetz', '450'], st: 'neu', cc: 'DE', area: 'Batterien', aud: 'Hersteller, Marktplatz-Verkäufer', when: 'heute 06:05', score: 88,
       title: 'BattDG: stiftung ear erinnert an Registrierung vor dem ersten Verkauf',
       teaser: 'Wer Batterien in Deutschland in Verkehr bringt, auch eingebaut in Geräte, muss vorher bei der stiftung ear registriert sein. Marktplätze dürfen nicht registrierte Angebote nicht mehr zulassen.',
       dl: ['Pflicht', 'vor dem ersten Verkauf'],
@@ -417,7 +467,7 @@
       faq: [['Gilt das auch für Batterien in Geräten?', 'Ja, eingebaute Batterien zählen mit.'], ['Was passiert ohne Registrierung?', 'Es drohen Vertriebsverbot und Bußgelder.']],
       link: 'Batterieregistrierung Deutschland', src: ['stiftung ear', 'stiftung-ear.de · Mitteilung, 03.11.2026', 'Hinweis zur Registrierungspflicht nach BattDG …'],
       cm: [] },
-    { id: 4, st: 'frei', cc: 'EU', area: 'Batterien', aud: 'Hersteller', when: '01.11. 10:12', score: 83, plan: 'Do, 05.11.',
+    { id: 4, type: 'Meldung', hub: ['Batteriegesetz-Hauptseite', 'batteriegesetz', '450'], st: 'frei', cc: 'EU', area: 'Batterien', aud: 'Hersteller', when: '01.11. 10:12', score: 83, plan: 'Do, 05.11.',
       title: 'Batteriepass: Ab Februar 2027 für Industrie- und E-Auto-Batterien',
       teaser: 'Ab dem 18. Februar 2027 brauchen Industriebatterien über 2 kWh, Batterien für leichte Verkehrsmittel und E-Auto-Batterien einen digitalen Batteriepass mit QR-Code.',
       dl: ['Ab', '18.02.2027'],
@@ -428,7 +478,7 @@
       faq: [['Gilt der Pass für Gerätebatterien?', 'Nein, nur für die genannten Kategorien.']],
       link: 'Batterien EU', src: ['EUR-Lex', 'Verordnung (EU) 2023/1542, Art. 77', 'Batteriepass …'],
       cm: [['Markus (Batterien)', '01.11.', 'Fachlich ok, freigegeben.']] },
-    { id: 5, st: 'neu', cc: 'CZ', area: 'Verpackungen', aud: 'Hersteller, Händler', when: 'heute 05:31', score: 79,
+    { id: 5, type: 'Meldung', hub: ['PPWR-Hauptseite', 'ppwr', '8.400'], st: 'neu', cc: 'CZ', area: 'Verpackungen', aud: 'Hersteller, Händler', when: 'heute 05:31', score: 79,
       title: 'Tschechien: Umweltministerium veröffentlicht Leitfaden zur PPWR',
       teaser: 'Das tschechische Umweltministerium hat erklärt, wie es die PPWR-Pflichten kontrollieren will. Für ausländische Hersteller ändert sich vor allem die Meldung über das nationale System.',
       dl: ['Meldung bis', '28.02.2027'],
@@ -439,7 +489,7 @@
       faq: [['Brauche ich einen Bevollmächtigten?', 'Ja, wenn ihr ohne Sitz in Tschechien an Endkunden liefert.']],
       link: 'Verpackungen Tschechien', src: ['MŽP Tschechien', 'mzp.gov.cz · Leitfaden, 02.11.2026', 'Metodický pokyn k nařízení PPWR …'],
       cm: [] },
-    { id: 6, st: 'pruefung', cc: 'EU', area: 'Textilien', aud: 'Hersteller, Händler', when: '02.11. 14:48', score: 76,
+    { id: 6, type: 'Meldung', hub: ['Was ist EPR?', 'epr', '2.050'], st: 'pruefung', cc: 'EU', area: 'Textilien', aud: 'Hersteller, Händler', when: '02.11. 14:48', score: 76,
       title: 'Textil-EPR: Alle EU-Länder müssen Herstellerverantwortung einführen',
       teaser: 'Mit der überarbeiteten Abfallrahmenrichtlinie müssen alle Mitgliedstaaten eine Herstellerverantwortung für Textilien und Schuhe einführen. Auch Online-Händler aus Drittstaaten sind erfasst.',
       dl: ['Umsetzung bis', 'voraussichtlich 2028'],
@@ -450,7 +500,7 @@
       faq: [['Gilt das auch für Marktplatz-Verkäufer?', 'Ja, auch Fernabsatz aus Drittstaaten ist erfasst.']],
       link: 'Textil-EPR', src: ['EUR-Lex', 'Änderung der Abfallrahmenrichtlinie 2008/98/EG', 'Erweiterte Herstellerverantwortung für Textilien …'],
       cm: [['Anna (Textilien)', 'gestern', 'Bitte Frankreich und Niederlande mit Link zu unseren Länderseiten ergänzen.']] },
-    { id: 7, st: 'online', cc: 'DE', area: 'WEEE', aud: 'Marktplatz-Verkäufer', when: '30.10. 09:02', score: 81,
+    { id: 7, type: 'Meldung', hub: ['ElektroG-Hauptseite', 'elektrogesetz', '300'], st: 'online', cc: 'DE', area: 'WEEE', aud: 'Marktplatz-Verkäufer', when: '30.10. 09:02', score: 81,
       title: 'ElektroG: Marktplätze prüfen WEEE-Nummern strenger',
       teaser: 'Online-Marktplätze müssen prüfen, ob Verkäufer von Elektrogeräten bei der stiftung ear registriert sind. Angebote ohne gültige WEEE-Reg.-Nr. werden gesperrt.',
       dl: ['Gilt', 'bereits'],
@@ -461,7 +511,7 @@
       faq: [['Reicht die Nummer des Herstellers?', 'Nur, wenn ihr nicht selbst als Hersteller geltet.']],
       link: 'WEEE-Registrierung', src: ['stiftung ear', 'stiftung-ear.de', 'Prüfpflichten für Marktplätze …'],
       cm: [] },
-    { id: 8, st: 'frei', cc: 'AT', area: 'WEEE', aud: 'Hersteller', when: '31.10. 11:30', score: 72, plan: 'Fr, 06.11.',
+    { id: 8, type: 'Meldung', hub: ['ElektroG-Hauptseite', 'elektrogesetz', '300'], st: 'frei', cc: 'AT', area: 'WEEE', aud: 'Hersteller', when: '31.10. 11:30', score: 72, plan: 'Fr, 06.11.',
       title: 'Österreich: Meldetermin für Elektroaltgeräte rückt näher',
       teaser: 'Hersteller, die Elektrogeräte in Österreich verkaufen, müssen ihre Mengen über ihr Sammel- und Verwertungssystem melden. Ohne Sitz im Land ist ein Bevollmächtigter Pflicht.',
       dl: ['Quartalsmeldung bis', '15.01.2027'],
@@ -474,7 +524,7 @@
       cm: [] }
   ];
   var ST = { neu: ['Neu', 'st-neu'], pruefung: ['In Prüfung', 'st-pruefung'], frei: ['Freigegeben', 'st-frei'], online: ['Online', 'st-online'] };
-  var cur = 1, tab = 'web', fArea = 'all', sel = {};
+  var cur = 9, tab = 'web', fArea = 'all', sel = {};
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
@@ -484,12 +534,12 @@
   Array.from(new Set(D.map(function (d) { return d.cc; }))).sort().forEach(function (c) { $('f-cc').insertAdjacentHTML('beforeend', '<option>' + c + '</option>'); });
   function visible() {
     var cc = $('f-cc').value, st = $('f-st').value;
-    return D.filter(function (d) { return (fArea === 'all' || d.area === fArea) && (!cc || d.cc === cc) && (!st || d.st === st); });
+    return D.filter(function (d) { return (fArea === 'all' || d.area === fArea || (fArea === 'Ratgeber' && d.type === 'Ratgeber')) && (!cc || d.cc === cc) && (!st || d.st === st); });
   }
   function renderList() {
     var v = visible();
     $('items').innerHTML = v.length ? v.map(function (d) {
-      return '<div class="it' + (d.id === cur ? ' on' : '') + '" data-id="' + d.id + '"><input type="checkbox" data-id="' + d.id + '"' + (sel[d.id] ? ' checked' : '') + (d.st === 'online' ? ' disabled' : '') + ' aria-label="Auswählen" /><div><h3>' + esc(d.title) + '</h3><div class="m"><span class="pill cc">' + d.cc + '</span><span class="pill">' + d.area + '</span><span class="pill ' + ST[d.st][1] + '">' + ST[d.st][0] + '</span><span class="t">' + d.when + '</span></div></div></div>';
+      return '<div class="it' + (d.id === cur ? ' on' : '') + '" data-id="' + d.id + '"><input type="checkbox" data-id="' + d.id + '"' + (sel[d.id] ? ' checked' : '') + (d.st === 'online' ? ' disabled' : '') + ' aria-label="Auswählen" /><div><h3>' + esc(d.title) + '</h3><div class="m">' + (d.type === 'Ratgeber' ? '<span class="pill rg">Ratgeber</span>' : '') + '<span class="pill cc">' + d.cc + '</span><span class="pill">' + d.area + '</span><span class="pill ' + ST[d.st][1] + '">' + ST[d.st][0] + '</span><span class="t">' + d.when + '</span></div></div></div>';
     }).join('') : '<div class="empty">Keine Entwürfe für diesen Filter.</div>';
     var n = Object.keys(sel).filter(function (k) { return sel[k]; }).length;
     $('sel-n').textContent = n + ' ausgewählt';
@@ -524,7 +574,7 @@
     var canApprove = d.st === 'neu' || d.st === 'pruefung';
     var head = '<div class="det-h"><span class="pill ' + ST[d.st][1] + '">' + ST[d.st][0] + '</span><span class="pill cc">' + d.cc + '</span><span class="pill">' + d.area + '</span>' + (d.plan && d.st === 'frei' ? '<span class="sub" style="font-size:12.5px">geplant für ' + d.plan + '</span>' : '') +
       '<div class="r">' + (canApprove ? '<button class="btn l" id="b-rev">' + (d.st === 'neu' ? 'In Prüfung nehmen' : 'Zurück an Redaktion') + '</button><button class="btn" id="b-ok">Freigeben</button>' : d.st === 'frei' ? '<button class="btn" id="b-pub">Jetzt veröffentlichen</button>' : '<button class="btn l" disabled>Veröffentlicht</button>') + '</div></div>';
-    var tabs = '<div class="tabs">' + [['web', 'Newsbeitrag'], ['typo3', 'TYPO3-Datensatz'], ['li', 'LinkedIn'], ['nl', 'Newsletter'], ['lang', 'Sprachen']].map(function (t) { return '<button data-t="' + t[0] + '"' + (tab === t[0] ? ' class="on"' : '') + '>' + t[1] + '</button>'; }).join('') + '</div>';
+    var tabs = '<div class="tabs">' + [['web', d.type === 'Ratgeber' ? 'Ratgeberseite' : 'Newsbeitrag'], ['typo3', 'TYPO3-Datensatz'], ['li', 'LinkedIn'], ['nl', 'Newsletter'], ['lang', 'Sprachen']].map(function (t) { return '<button data-t="' + t[0] + '"' + (tab === t[0] ? ' class="on"' : '') + '>' + t[1] + '</button>'; }).join('') + '</div>';
     var body;
     if (tab === 'web') {
       body = '<h2 contenteditable="true" spellcheck="false">' + esc(d.title) + '</h2>' +
@@ -536,7 +586,7 @@
     } else if (tab === 'typo3') {
       var slug = d.title.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
       body = '<p class="sub" style="margin-bottom:12px">So landet die Meldung nach Freigabe in TYPO3 (EXT:news). Kein Kopieren nötig.</p><div style="overflow-x:auto"><table class="map"><thead><tr><th>Feld</th><th>Inhalt</th></tr></thead><tbody>' +
-        [['title', esc(d.title)], ['teaser', esc(d.teaser)], ['bodytext', d.body.length + ' Abschnitte mit H2, ' + d.body.map(function (b) { return b[1].split(' ').length; }).reduce(function (a, b) { return a + b; }, 0) + ' Wörter'], ['categories', d.area + ', ' + d.cc + ', ' + d.aud], ['path_segment', '/news/' + slug], ['description', esc(d.teaser.split('. ')[0]) + '.'], ['tx_faq', d.faq.length + ' Fragen · Schema FAQPage'], ['schema', 'NewsArticle, BreadcrumbList, Organization'], ['related_links', esc(d.link)], ['datetime', d.plan ? d.plan + ' 09:00' : 'nach Freigabe']].map(function (r) { return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td></tr>'; }).join('') + '</tbody></table></div>';
+        [['title', esc(d.title)], ['teaser', esc(d.teaser)], ['bodytext', d.body.length + ' Abschnitte mit H2, ' + d.body.map(function (b) { return b[1].split(' ').length; }).reduce(function (a, b) { return a + b; }, 0) + ' Wörter'], ['categories', d.area + ', ' + d.cc + ', ' + d.aud], ['keywords', esc(d.kw ? d.kw[0] : d.hub[1])], ['path_segment', (d.type === 'Ratgeber' ? '/ratgeber/' : '/news/') + slug], ['description', esc(d.teaser.split('. ')[0]) + '.'], ['tx_faq', d.faq.length + ' Fragen · Schema FAQPage'], ['schema', (d.type === 'Ratgeber' ? 'Article, FAQPage' : 'NewsArticle') + ', BreadcrumbList, Organization'], ['related_links', esc(d.link)], ['datetime', d.plan ? d.plan + ' 09:00' : 'nach Freigabe']].map(function (r) { return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td></tr>'; }).join('') + '</tbody></table></div>';
     } else if (tab === 'li') {
       body = '<div class="li-post"><div class="who"><div class="av">tew</div><div><b>take-e-way GmbH</b><span>EPR-Compliance · Hamburg</span></div></div><p contenteditable="true">' + esc(li(d)) + '</p><div class="lk"><div>' + esc(d.title) + '</div><span>take-e-way.de</span></div></div>';
     } else if (tab === 'nl') {
@@ -548,8 +598,9 @@
     var aside = '<div class="aside">' +
       '<div class="row"><span class="label">Quelle</span><div class="src-box"><b>' + esc(d.src[0]) + '</b>' + esc(d.src[1]) + '<div class="q">' + esc(d.src[2]) + '</div></div></div>' +
       '<div class="row"><span class="label">Relevanz</span><div class="score"><div class="b"><i style="width:' + d.score + '%"></i></div><b>' + d.score + '</b></div></div>' +
+      '<div class="row"><span class="label">SEO-Ziel</span><div class="seo-box">' + (d.kw ? '<b>' + esc(d.kw[0]) + '</b><span>' + esc(d.kw[1]) + '</span>' : '<span>Aktuelle Meldung, verlinkt auf</span>') + '<div class="hub">→ ' + esc(d.hub[0]) + ' <em>' + esc(d.hub[1]) + ' · ' + d.hub[2] + '</em></div></div></div>' +
       '<div class="row"><span class="label">Zielgruppe</span>' + esc(d.aud) + '</div>' +
-      '<div class="row"><span class="label">Automatisch geprüft</span><ul class="checks"><li>Kernfrage in den ersten zwei Sätzen</li><li>Frist sichtbar</li><li>FAQ-Block mit ' + d.faq.length + ' Fragen</li><li>Link auf Lösungsseite</li><li>Quelle verlinkt</li></ul></div>' +
+      '<div class="row"><span class="label">Automatisch geprüft</span><ul class="checks"><li>Kernfrage in den ersten zwei Sätzen</li><li>Frist sichtbar</li><li>FAQ-Block mit ' + d.faq.length + ' Fragen</li><li>Link auf Lösungsseite und Hauptseite</li><li>Quelle verlinkt</li></ul></div>' +
       '<div class="row"><span class="label">Kommentare</span><div class="comments" id="cms">' + d.cm.map(function (c) { return '<div class="cm"><b>' + esc(c[0]) + '</b><span>' + esc(c[1]) + '</span><div>' + esc(c[2]) + '</div></div>'; }).join('') +
       '<div class="cm-in"><input id="cm-t" placeholder="Kommentar schreiben" /><button id="cm-b">Senden</button></div></div></div></div>';
     $('det').innerHTML = head + tabs + '<div class="det-b"><div class="doc">' + body + '</div>' + aside + '</div>';
@@ -563,6 +614,38 @@
     if (e.target.id === 'cm-b') { var v = $('cm-t').value.trim(); if (v) { d.cm.push(['Du', 'gerade eben', v]); renderDet(); } }
   });
   $('det').addEventListener('keydown', function (e) { if (e.target.id === 'cm-t' && e.key === 'Enter') $('cm-b').click(); });
+
+  /* ---------- Content-Plan (Keyword-Daten: SISTRIX, DE, November 2026) ---------- */
+  var P = [
+    ['Verpackung', '12.270', [
+      ['PPWR: Pflichten für Hersteller und Händler', 'ppwr', '8.400', 'Hauptseite', '1–4', 'arbeit'],
+      ['Wer ist von der PPWR betroffen?', 'Google-Frage', '–', 'Fragenseite', '5–8', 'geplant'],
+      ['PPWR-Registrierung', 'Google-Frage', '–', 'Fragenseite', '5–8', 'geplant'],
+      ['PPWR-Recyclingquoten', 'Google-Frage', '–', 'Fragenseite', '5–8', 'geplant'],
+      ['LUCID-Registrierung Schritt für Schritt', 'lucid registrierung', '700', 'Anleitung', '5–8', 'geplant'],
+      ['PPWR und Verpackungsgesetz im Vergleich', 'verpackungsgesetz', '2.600', 'Fragenseite', '9–12', 'geplant'],
+      ['EPR für Verpackungen in Frankreich', 'epr frankreich', '40', 'Länderseite', '9–12', 'geplant']]],
+    ['Elektro', '750', [
+      ['Welche Geräte fallen unter das Elektrogesetz?', 'meiste Fragevarianten', '–', 'Fragenseite', '1–4', 'entwurf', 9],
+      ['ElektroG: Was Hersteller 2026 wissen müssen', 'elektrogesetz', '300', 'Hauptseite', '5–8', 'geplant'],
+      ['WEEE-Registrierung in der EU', 'weee registrierung', '350', 'Anleitung', '5–8', 'geplant']]],
+    ['Batterien', '590', [
+      ['FAQ für „Industriebatterien entsorgen“', 'industriebatterien', '70', 'Ausbau · Platz 1', '1–4', 'arbeit'],
+      ['Batteriegesetz und EU-Batterieverordnung: Was gilt wann?', 'batteriegesetz', '450', 'Hauptseite', '5–8', 'geplant'],
+      ['Für welche Batterien gilt das Gesetz?', 'Google-Frage', '–', 'Ausbau', '9–12', 'geplant']]],
+    ['Einstieg und Kauf', '2.270', [
+      ['Was ist EPR?', 'epr', '2.050', 'Glossar', '1–4', 'entwurf', 10],
+      ['EPR-Dienstleister vergleichen', 'epr service', '10', 'Entscheiderseite', '9–12', 'geplant'],
+      ['Amazon EPR-Nummer', 'amazon epr nummer', '10', 'Entscheiderseite', '9–12', 'geplant'],
+      ['Bevollmächtigter für Verpackungen', 'kein Volumen gemessen', '–', 'Entscheiderseite', '9–12', 'geplant']]]
+  ];
+  var PS = { geplant: ['Geplant', ''], arbeit: ['In Arbeit', 'st-pruefung'], entwurf: ['Entwurf bereit', 'st-neu'] };
+  $('plan').innerHTML = '<thead><tr><th>Seite</th><th>Ziel-Keyword</th><th class="r">Suchen / Monat</th><th>Typ</th><th>Woche</th><th>Status</th></tr></thead><tbody>' + P.map(function (c) {
+    return '<tr class="cl-h"><td colspan="6">' + c[0] + ' <span>' + c[1] + ' Suchen / Monat</span></td></tr>' + c[2].map(function (r) {
+      return '<tr' + (r[6] ? ' class="go" data-open="' + r[6] + '"' : '') + '><td><b>' + esc(r[0]) + '</b></td><td class="kwc">' + esc(r[1]) + '</td><td class="r">' + r[2] + '</td><td>' + r[3] + '</td><td>' + r[4] + '</td><td><span class="pill ' + PS[r[5]][1] + '">' + PS[r[5]][0] + (r[6] ? ' →' : '') + '</span></td></tr>';
+    }).join('');
+  }).join('') + '</tbody>';
+  $('plan').addEventListener('click', function (e) { var a = e.target.closest('[data-open]'); if (!a) return; cur = +a.dataset.open; tab = 'web'; go('redaktion'); renderList(); renderDet(); });
 
   /* ---------- Monitor ---------- */
   var F = [

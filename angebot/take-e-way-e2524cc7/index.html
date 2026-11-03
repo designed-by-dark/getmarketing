@@ -414,6 +414,61 @@
   .st2 .ledger .row > b { white-space: nowrap; }
   .recs .points li b { color: var(--accent-ink); margin-right: 6px; }
   ol.points { list-style: none; }
+
+  .kwgrid { grid-template-columns: 1fr 330px; }
+  .kwv td:nth-child(2) { position: relative; font-weight: 800; color: var(--forest); min-width: 150px; }
+  .kwv .vb { display: inline-block; vertical-align: middle; height: 8px; width: calc(var(--w) * 0.7); min-width: 3px; max-width: 70px; background: var(--accent); border-radius: 3px; margin-right: 10px; }
+  .kwv td:nth-child(3), .kwv td:nth-child(4), .kwv th:nth-child(3), .kwv th:nth-child(4) { text-align: left; color: var(--gray); font-weight: 500; }
+  .kwv td:last-child { color: var(--gray); }
+  .qs { list-style: none; border-top: 2px solid var(--ink); }
+  .qs li { font-size: 15px; font-weight: 600; padding: 11px 0 11px 26px; border-bottom: 1px solid var(--line); position: relative; }
+  .qs li::before { content: "?"; position: absolute; left: 0; top: 11px; width: 18px; height: 18px; border-radius: 5px; background: var(--tint); color: var(--accent-ink); font-size: 12px; font-weight: 900; display: grid; place-items: center; }
+  .clusters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .cl { background: var(--card); border-radius: 16px; padding: 18px 18px 16px; }
+  .cl.hl { background: var(--forest); color: #fff; }
+  .ct { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); }
+  .ct span { width: 22px; height: 22px; border-radius: 6px; background: var(--forest); color: #fff; display: grid; place-items: center; font-size: 12px; letter-spacing: 0; }
+  .cl.hl .ct { color: var(--accent); }
+  .cl.hl .ct span { background: var(--accent); color: var(--forest); }
+  .cv { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); margin-top: 10px; line-height: 1; }
+  .cv small { font-size: 13px; font-weight: 600; letter-spacing: 0; color: var(--gray); }
+  .cl.hl .cv { color: #fff; }
+  .cl.hl .cv small { color: rgba(255,255,255,.6); }
+  .cl ul { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 7px; }
+  .cl li { font-size: 13.5px; line-height: 1.35; padding-left: 14px; position: relative; }
+  .cl li::before { content: ""; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-ink); }
+  .cl.hl li { color: rgba(255,255,255,.9); }
+  .cl.hl li::before { background: var(--accent); }
+  .plan3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: auto; border-top: 2px solid var(--ink); padding-top: 12px; }
+  .plan3 div { font-size: 13.5px; color: var(--gray); line-height: 1.45; }
+  .plan3 b { display: block; font-size: 15px; color: var(--forest); margin-bottom: 2px; }
+  table.vs { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 18px; border-top: 2px solid var(--ink); }
+  .vs th { text-align: left; font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); padding: 9px 14px 8px 0; border-bottom: 1px solid var(--line); }
+  .vs th:last-child { color: var(--accent-ink); }
+  .vs td { padding: 8px 14px 8px 0; border-bottom: 1px solid var(--line); line-height: 1.4; vertical-align: top; }
+  .vs td:first-child { font-weight: 700; width: 30%; }
+  .vs td:nth-child(2) { color: var(--gray); width: 30%; }
+  .vs td:last-child { color: var(--forest); font-weight: 600; background: var(--tint); padding-left: 14px; }
+  .vs th:last-child { padding-left: 14px; }
+  .cases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .case { border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; }
+  .case .ind { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); min-height: 30px; }
+  .case .big { font-size: 46px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); margin-top: 10px; }
+  .case .big small { font-size: 18px; letter-spacing: -0.01em; color: var(--gray); font-weight: 600; }
+  .case b { font-size: 15px; margin-top: 12px; line-height: 1.35; }
+  .case p { font-size: 13.5px; color: var(--gray); margin-top: 8px; line-height: 1.5; }
+  .case.hl { background: var(--tint); border-color: var(--tint); }
+  .proof { display: flex; gap: 14px; margin-top: 18px; }
+  .proof div { flex: 1; background: var(--card); border-radius: 14px; padding: 16px 20px; display: flex; align-items: baseline; gap: 12px; }
+  .proof b { font-size: 28px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); white-space: nowrap; }
+  .proof span { font-size: 14px; color: var(--gray); }
+  .quote-line { margin-top: 16px; font-size: 15px; color: var(--ink); font-style: italic; }
+  .quote-line span { font-style: normal; color: var(--gray); font-size: 13px; }
+  .stack .kwgrid, .stack .clusters, .stack .plan3, .stack .cases { grid-template-columns: minmax(0, 1fr); }
+  .stack .proof { flex-direction: column; }
+  .stack .vs { display: block; overflow-x: auto; font-size: 13px; }
+  .stack .vs td:first-child, .stack .vs td:nth-child(2) { width: auto; min-width: 120px; }
+  .stack .plan3 { margin-top: 18px; }
   .stack .steps5, .stack .gains.g3, .stack .tier ul.two-col { grid-template-columns: minmax(0, 1fr); }
   .stack .ledger.tl .row { grid-template-columns: 1fr; }
   .stack .kwt { display: block; overflow-x: auto; }
@@ -512,48 +567,98 @@
     <div class="s-head">
       <div>
         <div class="eyebrow">Ausgangslage</div>
-        <h2>Eure News sind euer wertvollster Content</h2>
-        <p class="s-sub">Jede Gesetzesänderung erzeugt Suchanfragen bei Herstellern und Händlern. Wer sie als Erstes sauber erklärt, wird in Google AI Overviews und ChatGPT als Quelle zitiert.</p>
+        <h2>take-e-way.de wird fast nur über den Markennamen gefunden</h2>
+        <p class="s-sub">Bei den Themen, die Hersteller und Händler wirklich suchen, ist viel Platz. Und wo es eine Fachseite gibt, steht ihr schon auf Platz 1.</p>
       </div>
       <span class="s-mark">take-e-way</span>
     </div>
     <div class="s-body">
       <div class="res">
         <div class="ledger">
-          <div class="row"><b>13 %</b><div><strong>Google-Sichtbarkeit im Vergleich zu 2018</strong><span>Der Sichtbarkeitsindex von take-e-way.de liegt bei rund 13 % des Höchstwerts.</span></div></div>
-          <div class="row"><b>42 : 2</b><div><strong>Prompts in AI Overviews gegenüber ChatGPT</strong><span>Bei Google wird take-e-way schon zitiert, in ChatGPT kaum.</span></div></div>
-          <div class="row"><b>Academy</b><div><strong>hält einen großen Teil der Autorität</strong><span>Zitiert wird oft trade-e-bility.de. Das fließt kaum auf die Hauptdomain zurück.</span></div></div>
+          <div class="row"><b>36 von 40</b><div><strong>Top-Keywords sind Markenbegriffe</strong><span>etwa „take e way login“, „mengenmeldung“ oder „takeaway gmbh“</span></div></div>
+          <div class="row"><b>3 Seiten</b><div><strong>auf Platz 1, die einzigen thematischen</strong><span>„industriebatterien entsorgen“, „industriebatterien definition“, „entsorgung b2b geräte“</span></div></div>
+          <div class="row"><b>42 : 2</b><div><strong>KI-Prompts bei Google gegenüber ChatGPT</strong><span>In AI Overviews wird take-e-way zitiert, in ChatGPT kaum</span></div></div>
         </div>
         <div>
-          <div class="side-case"><b>13.10.</b><strong>die letzten drei Fachmeldungen</strong><span>Bevollmächtigte im EU-Ausland, LUCID und VerpackDG, PPWR in Tschechien. Dazu kommen Newsletter, LinkedIn, Academy und elf Sprachdomains.</span></div>
+          <div class="side-case"><b>13 %</b><strong>Google-Sichtbarkeit im Vergleich zu 2018</strong><span>Die Konkurrenz in den Rankings sind vor allem Behörden und Verbände: stiftung-ear.de, ihk.de, gruener-punkt.de.</span></div>
           <div class="total"><b>35 Länder</b><span>deren Regeln euer Team kennt. Am Fachwissen liegt es nicht.</span></div>
         </div>
       </div>
-      <div class="take"><b class="k">Der Engpass</b>Es fehlt die Zeit, jede Änderung schnell, regelmäßig und in mehreren Sprachen aufzubereiten.</div>
+      <div class="take"><b class="k">Das heißt</b>Das Muster funktioniert schon: eine Seite pro Frage, mit direkter Antwort. Es fehlt die Zeit, das für jedes Gesetz und jede Änderung zu machen.</div>
     </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Quelle: SISTRIX, Deutschland, November 2026</span><span class="pg"></span></div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Quelle: SISTRIX und SISTRIX AI Check, Deutschland, November 2026</span><span class="pg"></span></div>
   </section>
 
-  <!-- Ziel -->
-  <section class="slide">
+  <!-- Keywords -->
+  <section class="slide" id="keywords">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Ziel</div>
-        <h2>Ein News-System, das euch gehört</h2>
-        <p class="s-sub">Es erkennt Gesetzesänderungen und Fristen automatisch, bereitet sie als Fachmeldung vor und veröffentlicht sie nach eurer Freigabe direkt in TYPO3.</p>
+        <div class="eyebrow">Suchnachfrage</div>
+        <h2>Über 15.000 Suchen im Monat zu euren Themen</h2>
+        <p class="s-sub">Allein in Deutschland, ohne Academy und Sprachdomains. Unter den 40 stärksten Keywords von take-e-way.de ist keiner davon.</p>
       </div>
       <span class="s-mark">take-e-way</span>
     </div>
     <div class="s-body">
-      <div class="grid3">
-        <div class="card sit"><span class="n">1</span><h3>30 Meldungen im Monat und mehr</h3><p>Das System ist auf mindestens 30 Meldungen im Monat ausgelegt und schafft auf Wunsch mehrere pro Tag.</p></div>
-        <div class="card sit"><span class="n">2</span><h3>Gemeinsam aufbauen, dann übergeben</h3><p>Wir bauen es mit euch auf, betreuen es drei Monate und übergeben es danach vollständig an euer Team.</p></div>
-        <div class="card sit"><span class="n">3</span><h3>Auf eurer Infrastruktur</h3><p>Das System läuft bei euch. Code, Dashboard, Prompts und Dokumentation gehören euch.</p></div>
+      <div class="pot kwgrid">
+        <table class="kwt kwv">
+          <thead><tr><th>Keyword</th><th>Suchen / Monat</th><th>Thema</th><th>Seitentyp</th></tr></thead>
+          <tbody>
+            <tr><td>ppwr</td><td><i class="vb" style="--w:100%"></i>8.400</td><td>Verpackung</td><td>Hauptseite</td></tr>
+            <tr><td>verpackungsgesetz</td><td><i class="vb" style="--w:31%"></i>2.600</td><td>Verpackung</td><td>Hauptseite</td></tr>
+            <tr><td>epr</td><td><i class="vb" style="--w:24%"></i>2.050</td><td>Allgemein</td><td>Glossar</td></tr>
+            <tr><td>lucid registrierung</td><td><i class="vb" style="--w:8%"></i>700</td><td>Verpackung</td><td>Anleitung</td></tr>
+            <tr><td>verpackungsregister lucid</td><td><i class="vb" style="--w:6%"></i>500</td><td>Verpackung</td><td>Anleitung</td></tr>
+            <tr><td>batteriegesetz</td><td><i class="vb" style="--w:5.4%"></i>450</td><td>Batterien</td><td>Hauptseite</td></tr>
+            <tr><td>weee registrierung</td><td><i class="vb" style="--w:4.2%"></i>350</td><td>Elektro</td><td>Anleitung</td></tr>
+            <tr><td>elektrogesetz</td><td><i class="vb" style="--w:3.6%"></i>300</td><td>Elektro</td><td>Hauptseite</td></tr>
+            <tr><td>erweiterte herstellerverantwortung</td><td><i class="vb" style="--w:1.8%"></i>150</td><td>Allgemein</td><td>Glossar</td></tr>
+            <tr><td>amazon epr nummer, epr service</td><td><i class="vb" style="--w:1%"></i>je 10</td><td>Anbieter</td><td>Entscheiderseite</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <div class="col-h">Fragen, die Google dazu zeigt</div>
+          <ul class="qs">
+            <li>Wer ist von der PPWR betroffen?</li>
+            <li>Welche Geräte fallen unter das Elektrogesetz?</li>
+            <li>Welche Änderungen gibt es ab 2026?</li>
+            <li>Ist das Batteriegesetz noch gültig?</li>
+            <li>Wie sieht eine technische Dokumentation aus?</li>
+          </ul>
+          <p class="small-note">Zum Elektrogesetz zeigt Google die meisten Fragevarianten. Die kleinen Begriffe wie „amazon epr nummer“ haben wenig Volumen, aber die höchste Kaufabsicht.</p>
+        </div>
       </div>
-      <div class="take"><b class="k">Einmal zahlen</b>Kein Abo, keine Lizenzgebühr, keine Kündigungsfrist. Laufend zahlt ihr nur Server und KI-Schnittstelle direkt beim Anbieter.</div>
     </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Quelle: SISTRIX, Deutschland, November 2026. Volumina sind Schätzungen.</span><span class="pg"></span></div>
   </section>
+
+  <!-- Content-Plan -->
+  <section class="slide" id="contentplan">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Content-Plan</div>
+        <h2>Pro Gesetz eine Hauptseite, darum die Fragen</h2>
+        <p class="s-sub">Jede Seite beantwortet die Frage in den ersten zwei Sätzen, danach folgen Tabellen, Fristen und FAQ. Genau diese Seiten zitieren auch ChatGPT und Google AI Overviews.</p>
+      </div>
+      <span class="s-mark">take-e-way</span>
+    </div>
+    <div class="s-body">
+      <div class="clusters">
+        <div class="cl hl"><div class="ct"><span>1</span>Verpackung</div><div class="cv">12.270 <small>Suchen / Monat</small></div><ul><li>PPWR: Pflichten für Hersteller und Händler</li><li>Wer ist von der PPWR betroffen?</li><li>LUCID-Registrierung Schritt für Schritt</li><li>PPWR und Verpackungsgesetz im Vergleich</li></ul></div>
+        <div class="cl"><div class="ct"><span>2</span>Elektro</div><div class="cv">750 <small>+ meiste Fragen</small></div><ul><li>ElektroG: Was Hersteller 2026 wissen müssen</li><li>Welche Geräte fallen unter das Elektrogesetz?</li><li>WEEE-Registrierung in der EU</li></ul></div>
+        <div class="cl"><div class="ct"><span>3</span>Batterien</div><div class="cv">Platz 1 <small>ausbauen</small></div><ul><li>Batteriegesetz und EU-Batterieverordnung: Was gilt wann?</li><li>Für welche Batterien gilt das Gesetz?</li><li>FAQ für „Industriebatterien entsorgen“</li></ul></div>
+        <div class="cl"><div class="ct"><span>4</span>Einstieg und Kauf</div><div class="cv">2.270 <small>Suchen / Monat</small></div><ul><li>Was ist EPR?</li><li>EPR-Dienstleister vergleichen</li><li>Amazon EPR-Nummer</li><li>Bevollmächtigter für Verpackungen</li></ul></div>
+      </div>
+      <div class="plan3">
+        <div><b>Woche 1–4</b>PPWR-Hauptseite, „Welche Geräte fallen unter das Elektrogesetz?“, „Was ist EPR?“, FAQ auf den drei Platz-1-Seiten</div>
+        <div><b>Woche 5–8</b>LUCID- und WEEE-Anleitungen, Batterie-Hauptseite, drei PPWR-Fragenseiten</div>
+        <div><b>Woche 9–12</b>Länderseiten, Entscheiderseiten, Verzahnung mit der Academy</div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Neben dem Plan laufen die aktuellen Meldungen zu Gesetzesänderungen</span><span class="pg"></span></div>
+  </section>
+
+<!-- @ChatGPT -->
 
   <!-- Was wir bauen -->
   <section class="slide" id="bausteine">
@@ -561,7 +666,7 @@
       <div>
         <div class="eyebrow">Was wir bauen</div>
         <h2>Sieben Bausteine, ein System</h2>
-        <p class="s-sub">Von der Quelle bis zur fertigen Meldung in TYPO3, auf LinkedIn und im Newsletter.</p>
+        <p class="s-sub">Von der Quelle bis zur fertigen Meldung in TYPO3, auf LinkedIn und im Newsletter. Es arbeitet den Content-Plan ab und greift neue Gesetzesänderungen auf.</p>
       </div>
       <span class="s-mark">take-e-way</span>
     </div>
@@ -575,6 +680,7 @@
         <div><b>LinkedIn und Newsletter</b><span>Zu jeder Meldung entstehen ein LinkedIn-Post und ein Newsletter-Baustein, ebenfalls zur Freigabe.</span></div>
         <div><b>Messung</b><span>Search Console und GA4 (nur Lesezugriff) zeigen im Dashboard, welche Themen Besucher und Anfragen bringen.</span></div>
       </div>
+      <div class="take"><b class="k">Gehört euch</b>Gemeinsam aufgebaut, drei Monate betreut, dann übergeben. Es läuft auf eurer Infrastruktur, ohne Abo und ohne Lizenzgebühr.</div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
   </section>
@@ -621,16 +727,17 @@
             <div class="mock-h"><b>Entwürfe zur Freigabe</b><span>Dienstag, 3. November</span></div>
             <div class="mrow"><em>PL</em><div>Polen: neue Registrierungspflicht für Verpackungen<small>Verpackungen · Quelle gov.pl · Relevanz 94</small></div><span class="st-b a">Neu</span></div>
             <div class="mrow"><em>EU</em><div>PPWR: Was die Konformitätserklärung verlangt<small>Verpackungen · Quelle EUR-Lex · 1 Kommentar</small></div><span class="st-b p">In Prüfung</span></div>
-            <div class="mrow"><em>DE</em><div>BattDG: Registrierung vor dem ersten Verkauf<small>Batterien · Quelle stiftung ear</small></div><span class="st-b a">Neu</span></div>
+            <div class="mrow"><em>DE</em><div>Ratgeber: Welche Geräte fallen unter das Elektrogesetz?<small>Content-Plan · Google-Frage mit den meisten Varianten</small></div><span class="st-b p">In Prüfung</span></div>
             <div class="mrow"><em>EU</em><div>Batteriepass ab Februar 2027<small>Batterien · geplant für Donnerstag</small></div><span class="st-b l">Freigegeben</span></div>
           </div>
         </div>
         <div>
           <ul class="check">
+            <li>Content-Plan mit Ziel-Keyword und Suchvolumen für jede Seite</li>
             <li>Entwürfe mit Kernaussage, Frist, FAQ und Quellennachweis</li>
             <li>Freigabe einzeln oder gesammelt</li>
             <li>Vorschau für TYPO3-Datensatz, LinkedIn und Newsletter</li>
-            <li>Quellen-Monitor: was gefunden wurde und warum es verworfen oder übernommen wurde</li>
+            <li>Quellen-Monitor: was gefunden und warum es übernommen wurde</li>
             <li>Redaktionskalender und Auswertung</li>
           </ul>
           <div class="btns" style="margin-top:26px"><a class="btn btn-dark" href="prototyp/">Prototyp öffnen →</a></div>
@@ -641,23 +748,87 @@
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
   </section>
 
-  <!-- Warum -->
-  <section class="slide">
+  <!-- Warum nicht ChatGPT -->
+  <section class="slide" id="chatgpt">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Warum sich das lohnt</div>
-        <h2>Schneller, mehr und mit weniger Aufwand</h2>
+        <div class="eyebrow">Die naheliegende Frage</div>
+        <h2>Warum nicht einfach ChatGPT?</h2>
+        <p class="s-sub">ChatGPT schreibt einen guten Text, wenn ihr ihm sagt, worüber. Alles davor und danach bleibt bei eurem Team. Genau das ist heute der Engpass.</p>
       </div>
       <span class="s-mark">take-e-way</span>
     </div>
     <div class="s-body">
-      <div class="gains g3">
-        <div class="gain"><b>Geschwindigkeit</b><p>Ein Entwurf liegt wenige Stunden nach Veröffentlichung einer Quelle vor. Bei Gesetzesänderungen gewinnt, wer zuerst gut antwortet.</p></div>
-        <div class="gain"><b>Volumen</b><p>30 und mehr Meldungen im Monat sind händisch kaum machbar. Mit dem System wird diese Menge planbar.</p></div>
-        <div class="gain"><b>Entlastung der Fachleute</b><p>Eure Experten prüfen, statt selbst zu schreiben. Ihre Zeit fließt in Beratung und Kundenprojekte.</p></div>
-        <div class="gain"><b>Mehr Präsenz in der KI-Suche</b><p>Antwortfähige Struktur und FAQ-Blöcke erhöhen die Chance, genannt zu werden. Heute steht dort oft Interzero vor euch.</p></div>
-        <div class="gain"><b>Eigentum statt Abhängigkeit</b><p>Keine laufende Agenturgebühr. Ihr könnt das System intern weiterentwickeln.</p></div>
-        <div class="gain"><b>Datenhoheit</b><p>Das System läuft auf eurer Infrastruktur. Das passt zu eurem ISMS nach ISO 27001.</p></div>
+      <table class="vs">
+        <thead><tr><th></th><th>ChatGPT mit einem Prompt</th><th>News-System für take-e-way</th></tr></thead>
+        <tbody>
+          <tr><td>Wer merkt, dass sich ein Gesetz ändert?</td><td>Euer Team, wie heute</td><td>Das System liest täglich EUR-Lex, stiftung ear, ZSVR und nationale Behörden</td></tr>
+          <tr><td>Wie aktuell und belegt ist der Inhalt?</td><td>Stand des Trainings, Quellen oft nicht nachvollziehbar</td><td>Jede Meldung mit Link auf die Originalquelle, die ihr beim Prüfen seht</td></tr>
+          <tr><td>Klingt es nach take-e-way?</td><td>Allgemeiner Ton, jedes Mal neu erklären</td><td>Eingestellt auf eure bisherigen Meldungen, Fachbegriffe und Lösungsseiten</td></tr>
+          <tr><td>Wird die Seite gefunden?</td><td>Kennt weder Suchvolumen noch Fragen</td><td>Plan aus SISTRIX-Daten, Struktur und FAQ-Schema für Google und KI-Antworten</td></tr>
+          <tr><td>Wie kommt es auf die Website?</td><td>Kopieren nach TYPO3, LinkedIn, Newsletter</td><td>Freigabe per Klick, Datensatz landet fertig in TYPO3</td></tr>
+          <tr><td>Was hat es gebracht?</td><td>Niemand misst es</td><td>Search Console und GA4 im Dashboard</td></tr>
+        </tbody>
+      </table>
+      <div class="take"><b class="k">Und selbst bauen?</b>Könnt ihr, nach der Übergabe macht ihr das ohnehin. Monitoring, Schreib-Logik, Freigabe und Messung bringen wir fertig aus anderen Projekten mit: rund 15 Personentage statt einer Neuentwicklung.</div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Ergebnisse -->
+  <section class="slide" id="ergebnisse">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Ergebnisse</div>
+        <h2>So hat dieser Ansatz bei anderen gewirkt</h2>
+        <p class="s-sub">Kundennamen nennen wir nicht. Die Zahlen stammen aus abgeschlossenen Projekten, die wir umgesetzt haben.</p>
+      </div>
+      <span class="s-mark">take-e-way</span>
+    </div>
+    <div class="s-body">
+      <div class="cases">
+        <div class="case hl"><div class="ind">E-Commerce · KI-Content-Automatisierung</div><div class="big">383K<small> / Monat</small></div><b>organische Besucher, ohne Werbebudget</b><p>Content-Automatisierung aufgebaut, 54.376 Keywords ranken.</p></div>
+        <div class="case"><div class="ind">B2B-Industrie · Sondermaschinenbau</div><div class="big">+96 %</div><b>Sichtbarkeitsindex</b><p>Hauptkeyword auf Platz 1, Traffic-Wert 1.486 € pro Monat.</p></div>
+        <div class="case"><div class="ind">Industrie und Maschinenbau</div><div class="big">34.000</div><b>Besucher, gestartet bei null</b><p>SEO und LinkedIn von Grund auf aufgebaut. Anfragen kommen jetzt über die Website.</p></div>
+        <div class="case"><div class="ind">B2B-Software · technische Nische</div><div class="big">360K</div><b>Impressionen in Google</b><p>Mehrere Zielbegriffe auf Platz 1, 4.590 Klicks.</p></div>
+      </div>
+      <div class="proof">
+        <div><b>6 Mio.+</b><span>organische Besucher für Kunden</span></div>
+        <div><b>3</b><span>Enterprise-Kunden mit einem individuell gebauten System</span></div>
+        <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
+      </div>
+      <p class="quote-line">„Wir bekommen ständig Anfragen über die Website und müssen uns um nichts kümmern.“ <span>Geschäftsführer, B2B-Industrieausrüstung</span></p>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Wer dahintersteht -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Wer dahintersteht</div>
+        <h2>Gebaut aus acht Jahren Agenturpraxis</h2>
+        <p class="s-sub">Ich habe GetMarketing gegründet, nachdem ich über acht Jahre im B2B-Marketing im DACH-Raum gearbeitet habe.</p>
+      </div>
+      <span class="s-mark">take-e-way</span>
+    </div>
+    <div class="s-body">
+      <div class="about">
+        <div class="person">
+          <img src="/darya.jpg" alt="Darya Kablash" />
+          <b>Darya Kablash</b>
+          <div class="role">Gründerin von GetMarketing</div>
+          <p>Growth Consultant und Fractional CMO für B2B-Gründer im DACH-Raum, außerdem Head of Growth bei Invictus Lead Generation. Ich arbeite von Berlin aus.</p>
+          <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn-Profil →</a>
+        </div>
+        <div>
+          <div class="nums n3">
+            <div><b>55</b><span>abgeschlossene Projekte in SEO, Ads, LinkedIn und KI-Automatisierung</span></div>
+            <div><b>8+ Jahre</b><span>B2B-Marketing im DACH-Raum</span></div>
+            <div><b>3</b><span>Enterprise-Kunden, bei denen ein individuell gebautes System im Einsatz ist</span></div>
+          </div>
+          <div class="tech"><em>Technik</em><span>Claude API von Anthropic</span><span>n8n</span><span>Postgres</span><span>Hosting in Deutschland oder bei euch</span></div>
+        </div>
       </div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
@@ -816,11 +987,61 @@
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Alle Preise netto zzgl. MwSt.</span><span class="pg"></span></div>
   </section>
 
+  <!-- Zeitplan -->
+  <section class="slide">
+    <div class="s-head">
+      <div>
+        <div class="eyebrow">Zeitplan</div>
+        <h2>Livegang nach rund sechs Wochen</h2>
+        <p class="s-sub">Paket 2 kann direkt mitgebaut werden oder nach dem Livegang von Paket 1 folgen.</p>
+      </div>
+      <span class="s-mark">take-e-way</span>
+    </div>
+    <div class="s-body">
+      <div class="ledger tl">
+        <div class="row"><b>Woche 1</b><div><strong>Kick-off</strong><span>Kernländer, Themen und Quellen festlegen, bisherige News für die Tonalität analysieren, Zugang zu TYPO3 und Server</span></div></div>
+        <div class="row"><b>Woche 2–4</b><div><strong>Aufbau</strong><span>Monitoring, Dashboard und TYPO3-Anbindung, erste Testentwürfe zur Abstimmung</span></div></div>
+        <div class="row"><b>Woche 5–6</b><div><strong>Testbetrieb und Livegang</strong><span>echte Meldungen, Einweisung eures Teams</span></div></div>
+        <div class="row"><b>Monat 2–4</b><div><strong>Betreuung</strong><span>Fehlerbehebung und Feinschliff im laufenden Betrieb</span></div></div>
+        <div class="row"><b>Ende Monat 4</b><div><strong>Übergabe</strong><span>mit Dokumentation und Abschlusstermin</span></div></div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
+  </section>
+
+  <!-- Nächster Schritt -->
+  <section class="slide dark close" id="termin">
+    <div class="s-body">
+      <div class="close-grid">
+        <div>
+          <div class="eyebrow lt">Nächste Schritte</div>
+          <h2>Erst den Prototyp sehen, dann entscheiden</h2>
+          <p class="lead">In 30 Minuten zeige ich euch Entwürfe und Dashboard für take-e-way. Danach entscheidet ihr über das Paket.</p>
+          <div class="who">
+            <img src="/darya.jpg" alt="Darya Kablash" />
+            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
+          </div>
+          <div class="btns">
+            <a class="btn btn-light" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
+            <a class="btn btn-ghost" href="prototyp/">Prototyp ansehen</a>
+            <a class="btn btn-ghost" href="mailto:darya@getmarketing.team?subject=take-e-way%20%C2%B7%20News-Automatisierung">Per E-Mail</a>
+          </div>
+        </div>
+        <div class="opts">
+          <div class="opt hl"><span class="d">1</span><div><b>Prototyp ansehen</b><span>unsere Plattform mit Beispielmeldungen zu euren Themen</span></div></div>
+          <div class="opt"><span class="d">2</span><div><b>Gemeinsamer Termin</b><span>30 Minuten zur Vorstellung des Prototyps</span></div></div>
+          <div class="opt"><span class="d">3</span><div><b>Entscheidung und Start</b><span>Paket wählen, Kick-off in Woche 1</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
+  </section>
+
   <!-- Aufwand -->
   <section class="slide">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Was im Preis steckt</div>
+        <div class="eyebrow">Anhang · Was im Preis steckt</div>
         <h2>Aufwand nach Arbeitspaketen</h2>
         <p class="s-sub">Schreib-Logik, Freigabe und Messung bringen wir aus unserer Plattform mit. Deshalb liegt der Aufwand deutlich unter einer kompletten Neuentwicklung.</p>
       </div>
@@ -865,7 +1086,7 @@
   <section class="slide">
     <div class="s-head">
       <div>
-        <div class="eyebrow">Betreuung und laufende Kosten</div>
+        <div class="eyebrow">Anhang · Betreuung und laufende Kosten</div>
         <h2>Drei Monate Betreuung, danach übernehmt ihr</h2>
         <p class="s-sub">Weitere Unterstützung, etwa für neue Rechtsgebiete oder Funktionen, gern nach Aufwand. Verpflichtend ist das nicht.</p>
       </div>
@@ -893,28 +1114,6 @@
       </div>
     </div>
     <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way · Alle Preise netto zzgl. MwSt.</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Zeitplan -->
-  <section class="slide">
-    <div class="s-head">
-      <div>
-        <div class="eyebrow">Zeitplan</div>
-        <h2>Livegang nach rund sechs Wochen</h2>
-        <p class="s-sub">Paket 2 kann direkt mitgebaut werden oder nach dem Livegang von Paket 1 folgen.</p>
-      </div>
-      <span class="s-mark">take-e-way</span>
-    </div>
-    <div class="s-body">
-      <div class="ledger tl">
-        <div class="row"><b>Woche 1</b><div><strong>Kick-off</strong><span>Kernländer, Themen und Quellen festlegen, bisherige News für die Tonalität analysieren, Zugang zu TYPO3 und Server</span></div></div>
-        <div class="row"><b>Woche 2–4</b><div><strong>Aufbau</strong><span>Monitoring, Dashboard und TYPO3-Anbindung, erste Testentwürfe zur Abstimmung</span></div></div>
-        <div class="row"><b>Woche 5–6</b><div><strong>Testbetrieb und Livegang</strong><span>echte Meldungen, Einweisung eures Teams</span></div></div>
-        <div class="row"><b>Monat 2–4</b><div><strong>Betreuung</strong><span>Fehlerbehebung und Feinschliff im laufenden Betrieb</span></div></div>
-        <div class="row"><b>Ende Monat 4</b><div><strong>Übergabe</strong><span>mit Dokumentation und Abschlusstermin</span></div></div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
   </section>
 
   <!-- Anhang SEO/GEO -->
@@ -986,34 +1185,6 @@
           <ol class="points">
             <li><b>10</b> Monatliches Monitoring der KI-Sichtbarkeit zu „epr service“, „BattDG Pflichten“ und „Amazon EPR-Nummer“</li>
           </ol>
-        </div>
-      </div>
-    </div>
-    <div class="s-foot"><span><b>GetMarketing</b> · Angebot take-e-way</span><span class="pg"></span></div>
-  </section>
-
-  <!-- Nächster Schritt -->
-  <section class="slide dark close" id="termin">
-    <div class="s-body">
-      <div class="close-grid">
-        <div>
-          <div class="eyebrow lt">Nächste Schritte</div>
-          <h2>Erst den Prototyp sehen, dann entscheiden</h2>
-          <p class="lead">In 30 Minuten zeige ich euch Entwürfe und Dashboard für take-e-way. Danach entscheidet ihr über das Paket.</p>
-          <div class="who">
-            <img src="/darya.jpg" alt="Darya Kablash" />
-            <div><b>Darya Kablash</b><span>GetMarketing · darya@getmarketing.team</span></div>
-          </div>
-          <div class="btns">
-            <a class="btn btn-light" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
-            <a class="btn btn-ghost" href="prototyp/">Prototyp ansehen</a>
-            <a class="btn btn-ghost" href="mailto:darya@getmarketing.team?subject=take-e-way%20%C2%B7%20News-Automatisierung">Per E-Mail</a>
-          </div>
-        </div>
-        <div class="opts">
-          <div class="opt hl"><span class="d">1</span><div><b>Prototyp ansehen</b><span>unsere Plattform mit Beispielmeldungen zu euren Themen</span></div></div>
-          <div class="opt"><span class="d">2</span><div><b>Gemeinsamer Termin</b><span>30 Minuten zur Vorstellung des Prototyps</span></div></div>
-          <div class="opt"><span class="d">3</span><div><b>Entscheidung und Start</b><span>Paket wählen, Kick-off in Woche 1</span></div></div>
         </div>
       </div>
     </div>
