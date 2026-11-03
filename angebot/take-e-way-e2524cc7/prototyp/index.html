@@ -70,6 +70,12 @@
 
   .view { display: none; padding: 22px 24px 60px; min-width: 0; }
   .view.on { display: block; }
+  .guide { list-style: none; counter-reset: g; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .guide li { counter-increment: g; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px 12px 48px; position: relative; font-size: 13.5px; color: var(--gray); line-height: 1.45; }
+  .guide li::before { content: counter(g); position: absolute; left: 14px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: var(--forest); color: #fff; font-size: 12px; font-weight: 800; display: grid; place-items: center; }
+  .guide b { color: var(--black); display: block; font-size: 14px; }
+  [hidden], .it > input { display: none !important; }
+  @media (max-width: 760px) { .guide { grid-template-columns: minmax(0, 1fr); } }
   .vh { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
   .vh h1 { font-size: 22px; }
   .vh .sub { color: var(--gray); font-size: 13.5px; }
@@ -291,26 +297,20 @@
     <div class="h">Redaktion</div>
     <button data-v="redaktion" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>Entwürfe<span class="c" id="c-open">0</span></button>
     <button data-v="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Content-Plan</button>
-    <button data-v="monitor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>Quellen-Monitor</button>
-    <button data-v="kalender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Kalender</button>
-    <button data-v="auswertung"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Auswertung</button>
-    <div class="foot"><b>KI-Kosten November</b><div class="meter"><i></i></div>41 € von 100 € Budget</div>
   </nav>
 
   <div>
     <!-- ================= Redaktion ================= -->
     <section class="view on" id="v-redaktion">
       <div class="vh">
-        <h1>Entwürfe</h1><span class="sub">Dienstag, 3. November 2026</span>
+        <h1>Entwürfe zur Prüfung</h1><span class="sub">Dienstag, 3. November 2026</span>
       </div>
-      <div class="stats">
-        <div><b id="s-new">0</b><span>neue Entwürfe</span></div>
-        <div><b id="s-rev">0</b><span>in Prüfung</span></div>
-        <div><b id="s-ok">0</b><span>freigegeben, geplant</span></div>
-        <div><b>38</b><span>veröffentlicht im Oktober</span></div>
-      </div>
-      <div class="filters" id="filters">
-        <button class="chip on" data-f="all">Alle</button>
+      <ol class="guide">
+        <li><b>Entwurf wählen.</b> In der Liste stehen die Texte, die das System heute vorbereitet hat.</li>
+        <li><b>Mit der Quelle vergleichen.</b> Neben dem Text seht ihr, woher die Information stammt. Korrigieren könnt ihr direkt im Text.</li>
+        <li><b>Freigeben.</b> Oben auf „Freigeben“ klicken. Unter „TYPO3“ und „LinkedIn“ seht ihr, wie es dort ankommt.</li>
+      </ol>
+      <div class="filters" id="filters" hidden><button class="chip on" data-f="all">Alle</button>
         <button class="chip" data-f="Verpackungen">Verpackungen</button>
         <button class="chip" data-f="Batterien">Batterien</button>
         <button class="chip" data-f="WEEE">WEEE</button>
@@ -322,7 +322,7 @@
       </div>
       <div class="ed">
         <div class="card list">
-          <div class="list-h"><input type="checkbox" id="all" aria-label="Alle auswählen" style="accent-color:var(--forest)" /><span id="sel-n">0 ausgewählt</span><button class="btn" id="bulk" disabled>Sammelfreigabe</button></div>
+          <div class="list-h" hidden><input type="checkbox" id="all" aria-label="Alle auswählen" style="accent-color:var(--forest)" /><span id="sel-n">0 ausgewählt</span><button class="btn" id="bulk" disabled>Sammelfreigabe</button></div>
           <div id="items"></div>
         </div>
         <div class="card det" id="det"></div>
@@ -467,17 +467,18 @@
       faq: [['Gilt das auch für Batterien in Geräten?', 'Ja, eingebaute Batterien zählen mit.'], ['Was passiert ohne Registrierung?', 'Es drohen Vertriebsverbot und Bußgelder.']],
       link: 'Batterieregistrierung Deutschland', src: ['stiftung ear', 'stiftung-ear.de · Mitteilung, 03.11.2026', 'Hinweis zur Registrierungspflicht nach BattDG …'],
       cm: [] },
-    { id: 4, type: 'Meldung', hub: ['Batteriegesetz-Hauptseite', 'batteriegesetz', '450'], st: 'frei', cc: 'EU', area: 'Batterien', aud: 'Hersteller', when: '01.11. 10:12', score: 83, plan: 'Do, 05.11.',
-      title: 'Batteriepass: Ab Februar 2027 für Industrie- und E-Auto-Batterien',
-      teaser: 'Ab dem 18. Februar 2027 brauchen Industriebatterien über 2 kWh, Batterien für leichte Verkehrsmittel und E-Auto-Batterien einen digitalen Batteriepass mit QR-Code.',
-      dl: ['Ab', '18.02.2027'],
+    { id: 4, type: 'Meldung', hub: ['Batteriegesetz-Hauptseite', 'batteriegesetz', '450'], kw: ['für welche batterien gilt das gesetz', 'Frage aus dem Content-Plan'], st: 'pruefung', cc: 'EU', area: 'Batterien', aud: 'Hersteller und Inverkehrbringer', when: 'heute 07:12', score: 96,
+      title: 'Batteriepass ab Februar 2027: Was Hersteller von Industriebatterien jetzt vorbereiten sollten',
+      teaser: 'Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass, ebenso Batterien für E-Bikes, E-Scooter und E-Autos. Wer diese Batterien in Verkehr bringt, muss die Daten bis dahin vollständig erfassen.',
+      dl: ['Frist', '18.02.2027'],
       body: [
-        ['Was ist der Batteriepass?', 'Ein digitaler Datensatz nach der EU-Batterieverordnung 2023/1542 mit Angaben zu Herkunft, Zusammensetzung, CO2-Fußabdruck und Recycling.'],
-        ['Was solltet ihr jetzt tun?', 'Klärt mit euren Zulieferern, welche Daten ihr bekommt, und wählt einen Anbieter für die technische Umsetzung.']
+        ['Was ist der Batteriepass?', 'Ein digitaler Datensatz nach Art. 77 der EU-Batterieverordnung 2023/1542. Er ist über einen QR-Code auf der Batterie abrufbar und enthält unter anderem Angaben zu Hersteller, Zusammensetzung, CO2-Fußabdruck, Recyclinganteil und Haltbarkeit.'],
+        ['Für welche Batterien gilt er?', 'Für Industriebatterien mit mehr als 2 kWh Kapazität, für Batterien leichter Verkehrsmittel wie E-Bikes und E-Scooter und für Batterien von Elektrofahrzeugen. Gerätebatterien sind nicht betroffen.'],
+        ['Was solltet ihr jetzt tun?', 'Klärt mit euren Zulieferern, welche Daten ihr bekommt und welche fehlen. Plant außerdem, wer den Batteriepass technisch bereitstellt.']
       ],
-      faq: [['Gilt der Pass für Gerätebatterien?', 'Nein, nur für die genannten Kategorien.']],
-      link: 'Batterien EU', src: ['EUR-Lex', 'Verordnung (EU) 2023/1542, Art. 77', 'Batteriepass …'],
-      cm: [['Markus (Batterien)', '01.11.', 'Fachlich ok, freigegeben.']] },
+      faq: [['Für welche Batterien gilt der Batteriepass?', 'Für Industriebatterien über 2 kWh, Batterien leichter Verkehrsmittel und Elektrofahrzeugbatterien.'], ['Welche Daten muss der Batteriepass enthalten?', 'Unter anderem Angaben zu Hersteller, Zusammensetzung, CO2-Fußabdruck, Recyclinganteil und Haltbarkeit.'], ['Gilt die Pflicht auch für Batterien, die schon im Lager sind?', 'Maßgeblich ist, wann die Batterie in Verkehr gebracht oder in Betrieb genommen wird.']],
+      link: 'Batterien EU', src: ['EUR-Lex', 'Verordnung (EU) 2023/1542, Art. 77 Abs. 1', '„Ab dem 18. Februar 2027 muss jede LV-Batterie, jede Industriebatterie mit einer Kapazität von mehr als 2 kWh und jede Elektrofahrzeugbatterie … über einen elektronischen Datensatz (Batteriepass) verfügen.“'],
+      cm: [['Fachkollege take-e-way', 'heute 08:40', 'Passt. Bitte bei der Lagerfrage noch auf unser Webinar zum Batteriepass verweisen.']] },
     { id: 5, type: 'Meldung', hub: ['PPWR-Hauptseite', 'ppwr', '8.400'], st: 'neu', cc: 'CZ', area: 'Verpackungen', aud: 'Hersteller, Händler', when: 'heute 05:31', score: 79,
       title: 'Tschechien: Umweltministerium veröffentlicht Leitfaden zur PPWR',
       teaser: 'Das tschechische Umweltministerium hat erklärt, wie es die PPWR-Pflichten kontrollieren will. Für ausländische Hersteller ändert sich vor allem die Meldung über das nationale System.',
@@ -523,8 +524,9 @@
       link: 'WEEE Österreich', src: ['BMK Österreich', 'bmk.gv.at', 'Elektroaltgeräteverordnung …'],
       cm: [] }
   ];
+  D = [4, 9, 10, 1, 7].map(function (id) { return D.find(function (d) { return d.id === id; }); });
   var ST = { neu: ['Neu', 'st-neu'], pruefung: ['In Prüfung', 'st-pruefung'], frei: ['Freigegeben', 'st-frei'], online: ['Online', 'st-online'] };
-  var cur = 9, tab = 'web', fArea = 'all', sel = {};
+  var cur = 4, tab = 'web', fArea = 'all', sel = {};
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
@@ -545,9 +547,6 @@
     $('sel-n').textContent = n + ' ausgewählt';
     $('bulk').disabled = !n;
     $('bulk').textContent = n ? n + ' freigeben' : 'Sammelfreigabe';
-    $('s-new').textContent = D.filter(function (d) { return d.st === 'neu'; }).length;
-    $('s-rev').textContent = D.filter(function (d) { return d.st === 'pruefung'; }).length;
-    $('s-ok').textContent = D.filter(function (d) { return d.st === 'frei'; }).length;
     $('c-open').textContent = D.filter(function (d) { return d.st === 'neu' || d.st === 'pruefung'; }).length;
   }
   $('items').addEventListener('click', function (e) {
@@ -574,7 +573,7 @@
     var canApprove = d.st === 'neu' || d.st === 'pruefung';
     var head = '<div class="det-h"><span class="pill ' + ST[d.st][1] + '">' + ST[d.st][0] + '</span><span class="pill cc">' + d.cc + '</span><span class="pill">' + d.area + '</span>' + (d.plan && d.st === 'frei' ? '<span class="sub" style="font-size:12.5px">geplant für ' + d.plan + '</span>' : '') +
       '<div class="r">' + (canApprove ? '<button class="btn l" id="b-rev">' + (d.st === 'neu' ? 'In Prüfung nehmen' : 'Zurück an Redaktion') + '</button><button class="btn" id="b-ok">Freigeben</button>' : d.st === 'frei' ? '<button class="btn" id="b-pub">Jetzt veröffentlichen</button>' : '<button class="btn l" disabled>Veröffentlicht</button>') + '</div></div>';
-    var tabs = '<div class="tabs">' + [['web', d.type === 'Ratgeber' ? 'Ratgeberseite' : 'Newsbeitrag'], ['typo3', 'TYPO3-Datensatz'], ['li', 'LinkedIn'], ['nl', 'Newsletter'], ['lang', 'Sprachen']].map(function (t) { return '<button data-t="' + t[0] + '"' + (tab === t[0] ? ' class="on"' : '') + '>' + t[1] + '</button>'; }).join('') + '</div>';
+    var tabs = '<div class="tabs">' + [['web', 'Text'], ['typo3', 'TYPO3'], ['li', 'LinkedIn']].map(function (t) { return '<button data-t="' + t[0] + '"' + (tab === t[0] ? ' class="on"' : '') + '>' + t[1] + '</button>'; }).join('') + '</div>';
     var body;
     if (tab === 'web') {
       body = '<h2 contenteditable="true" spellcheck="false">' + esc(d.title) + '</h2>' +
@@ -597,9 +596,7 @@
     }
     var aside = '<div class="aside">' +
       '<div class="row"><span class="label">Quelle</span><div class="src-box"><b>' + esc(d.src[0]) + '</b>' + esc(d.src[1]) + '<div class="q">' + esc(d.src[2]) + '</div></div></div>' +
-      '<div class="row"><span class="label">Relevanz</span><div class="score"><div class="b"><i style="width:' + d.score + '%"></i></div><b>' + d.score + '</b></div></div>' +
       '<div class="row"><span class="label">SEO-Ziel</span><div class="seo-box">' + (d.kw ? '<b>' + esc(d.kw[0]) + '</b><span>' + esc(d.kw[1]) + '</span>' : '<span>Aktuelle Meldung, verlinkt auf</span>') + '<div class="hub">→ ' + esc(d.hub[0]) + ' <em>' + esc(d.hub[1]) + ' · ' + d.hub[2] + '</em></div></div></div>' +
-      '<div class="row"><span class="label">Zielgruppe</span>' + esc(d.aud) + '</div>' +
       '<div class="row"><span class="label">Automatisch geprüft</span><ul class="checks"><li>Kernfrage in den ersten zwei Sätzen</li><li>Frist sichtbar</li><li>FAQ-Block mit ' + d.faq.length + ' Fragen</li><li>Link auf Lösungsseite und Hauptseite</li><li>Quelle verlinkt</li></ul></div>' +
       '<div class="row"><span class="label">Kommentare</span><div class="comments" id="cms">' + d.cm.map(function (c) { return '<div class="cm"><b>' + esc(c[0]) + '</b><span>' + esc(c[1]) + '</span><div>' + esc(c[2]) + '</div></div>'; }).join('') +
       '<div class="cm-in"><input id="cm-t" placeholder="Kommentar schreiben" /><button id="cm-b">Senden</button></div></div></div></div>';
