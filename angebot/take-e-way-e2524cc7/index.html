@@ -166,10 +166,32 @@
   .three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 12px 0 14px; }
   .three div { background: var(--tint); border-radius: 10px; padding: 12px 14px; font-size: 13.5px; line-height: 1.45; color: var(--forest); }
   .three b { display: block; font-size: 14.5px; color: var(--forest); margin-bottom: 2px; }
-  .chan { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
-  .chan > div { padding: 16px; font-size: 13.5px; line-height: 1.5; }
-  .chan > div + div { border-left: 1px solid var(--line); }
   .kv.t3 { grid-template-columns: 90px minmax(0, 1fr); margin-top: 0; gap: 8px 14px; }
+  .srcline { display: flex; gap: 12px; align-items: baseline; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--gray); font-style: italic; line-height: 1.5; }
+  .srcline em { font-style: normal; white-space: nowrap; color: var(--gray2); }
+  .ch3 { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 12px; padding: 16px; background: #FBFBF9; }
+  .chc { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px; font-size: 13px; line-height: 1.5; display: flex; flex-direction: column; gap: 8px; }
+  .chc p { margin: 0; }
+  .chh { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); }
+  .chh i { font-style: normal; width: 20px; height: 20px; border-radius: 5px; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; background: var(--forest); text-transform: none; letter-spacing: 0; }
+  .li .chh i { background: #0A66C2; }
+  .nl .chh i { background: var(--accent-ink); }
+  .chc h4 { font-size: 14.5px; line-height: 1.3; }
+  .chc .fr { font-size: 12px; font-weight: 700; color: var(--warn); background: var(--warn-bg); border-radius: 6px; padding: 3px 8px; width: fit-content; }
+  .chc .faq { margin-top: 0; font-size: 12.5px; }
+  .chc .faq li { padding: 4px 0; }
+  .chc .lk { font-size: 12.5px; font-weight: 700; color: var(--accent-ink); margin-top: auto; }
+  .who2 { display: flex; gap: 8px; align-items: center; }
+  .av2 { width: 30px; height: 30px; border-radius: 6px; background: var(--forest); color: #fff; font-size: 10px; font-weight: 800; display: grid; place-items: center; }
+  .who2 b { display: block; font-size: 13px; line-height: 1.2; }
+  .who2 small { font-size: 11.5px; color: var(--gray); }
+  .prev { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin-top: auto; background: var(--soft); }
+  .prev b { display: block; font-size: 12.5px; }
+  .prev span { font-size: 11.5px; color: var(--gray); }
+  .mailh { border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  .mailh small { font-size: 11.5px; color: var(--gray); }
+  .nlt { font-size: 15px; line-height: 1.3; }
+  .nlb { margin-top: auto; align-self: flex-start; background: var(--forest); color: #fff; font-weight: 700; font-size: 12px; border-radius: 6px; padding: 6px 12px; }
   /* ---------- Example link ---------- */
   .ref { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; text-decoration: none; color: inherit; margin-top: 20px; }
   .ref:hover { border-color: var(--accent); }
@@ -273,7 +295,8 @@
     table.kw td:first-child { white-space: normal; }
     .step { grid-template-columns: 36px minmax(0, 1fr); gap: 0 12px; }
     .step .num { width: 30px; height: 30px; font-size: 14px; }
-    .split, .chan, .three { grid-template-columns: minmax(0, 1fr); }
+    .split, .chan, .three, .ch3 { grid-template-columns: minmax(0, 1fr); }
+    .srcline { flex-direction: column; gap: 4px; }
     .chan > div + div { border-left: 0; border-top: 1px solid var(--line); }
     .split > div + div { border-left: 0; border-top: 1px solid var(--line); }
     .src-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -457,37 +480,35 @@
           </ul>
         </div>
         <div class="screen">
-          <div class="screen-h"><span class="dot"></span>Drei Entwürfe · Batterien · EU<span class="r">SEO-Ziel: „Für welche Batterien gilt das Gesetz?“</span></div>
-          <div class="split">
-            <div>
-              <div class="lab">Quelle</div>
-              <p class="legal">„Ab dem 18. Februar 2027 muss jede LV-Batterie, jede Industriebatterie mit einer Kapazität von mehr als 2 kWh und jede Elektrofahrzeugbatterie, die in Verkehr gebracht oder in Betrieb genommen wird, über einen elektronischen Datensatz (Batteriepass) verfügen.“</p>
-              <p class="small" style="margin-top:8px">Art. 77 Abs. 1, Verordnung (EU) 2023/1542 · eur-lex.europa.eu</p>
-            </div>
-            <div class="draft">
-              <div class="lab">Entwurf für take-e-way.de</div>
+          <div class="screen-h"><span class="dot"></span>Drei Entwürfe aus einer Quelle · Batterien · EU<span class="r">SEO-Ziel: „Für welche Batterien gilt das Gesetz?“</span></div>
+          <div class="srcline"><span class="lab" style="margin:0">Quelle</span><span>„Ab dem 18. Februar 2027 muss jede LV-Batterie, jede Industriebatterie mit einer Kapazität von mehr als 2 kWh und jede Elektrofahrzeugbatterie … über einen elektronischen Datensatz (Batteriepass) verfügen.“ <em>Art. 77 Abs. 1, VO (EU) 2023/1542</em></span></div>
+          <div class="ch3">
+            <div class="chc web">
+              <div class="chh"><i>W</i>Website · take-e-way.de</div>
               <h4>Batteriepass ab Februar 2027: Was Hersteller von Industriebatterien jetzt vorbereiten sollten</h4>
-              <p class="teaser">Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass, ebenso Batterien für E-Bikes, E-Scooter und E-Autos. Wer diese Batterien in Verkehr bringt, muss die Daten bis dahin vollständig erfassen.</p>
-              <dl class="kv">
-                <dt>Frist</dt><dd>18.02.2027</dd>
-                <dt>Betrifft</dt><dd>Hersteller und Inverkehrbringer</dd>
-                <dt>Verlinkt auf</dt><dd>take-e-way · Batterien</dd>
-              </dl>
+              <p>Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass, ebenso Batterien für E-Bikes, E-Scooter und E-Autos.</p>
+              <div class="fr">Frist: 18.02.2027</div>
               <ul class="faq">
                 <li>Für welche Batterien gilt der Batteriepass?</li>
-                <li>Welche Daten muss der Batteriepass enthalten?</li>
-                <li>Gilt die Pflicht auch für Batterien, die schon im Lager sind?</li>
+                <li>Welche Daten muss er enthalten?</li>
+                <li>Gilt die Pflicht auch fürs Lager?</li>
               </ul>
+              <div class="lk">→ Lösungsseite Batterien</div>
             </div>
-          </div>
-          <div class="chan">
-            <div>
-              <div class="lab">Entwurf LinkedIn</div>
-              <p>Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass. Klingt weit weg, aber die Daten dafür kommen von euren Zulieferern, und das dauert. Was Hersteller jetzt klären sollten, steht im Beitrag →</p>
+            <div class="chc li">
+              <div class="chh"><i>in</i>LinkedIn-Post</div>
+              <div class="who2"><span class="av2">tew</span><div><b>take-e-way GmbH</b><small>EPR-Compliance · Hamburg</small></div></div>
+              <p>Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass.</p>
+              <p>Klingt weit weg? Die Daten dafür kommen von euren Zulieferern, und das dauert.</p>
+              <p>Was Hersteller jetzt klären sollten 👇</p>
+              <div class="prev"><b>Batteriepass ab Februar 2027</b><span>take-e-way.de</span></div>
             </div>
-            <div>
-              <div class="lab">Entwurf Newsletter</div>
-              <p><b>Batteriepass: noch 15 Monate.</b> Ab Februar 2027 Pflicht für Industriebatterien über 2 kWh, E-Bike- und E-Auto-Batterien. Jetzt mit den Zulieferern klären, welche Daten fehlen. <span style="color:var(--accent-ink)">Zum Beitrag →</span></p>
+            <div class="chc nl">
+              <div class="chh"><i>@</i>Newsletter-Beitrag</div>
+              <div class="mailh"><small>Rubrik Batterien</small></div>
+              <b class="nlt">Batteriepass: noch 15 Monate</b>
+              <p>Ab Februar 2027 Pflicht für Industriebatterien über 2 kWh sowie E-Bike- und E-Auto-Batterien. Klärt jetzt mit euren Zulieferern, welche Daten noch fehlen.</p>
+              <span class="nlb">Zum Beitrag</span>
             </div>
           </div>
         </div>
