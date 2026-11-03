@@ -167,9 +167,6 @@
   .out .kv { grid-template-columns: 74px minmax(0, 1fr); font-size: 12.5px; margin-top: 0; }
   .out p { font-size: 13px; line-height: 1.5; }
 
-  .meas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-  .meas div { font-size: 12.5px; color: var(--gray); }
-  .meas b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: var(--forest); font-variant-numeric: tabular-nums; }
 
   /* ---------- Example link ---------- */
   .ref { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; text-decoration: none; color: inherit; margin-top: 20px; }
@@ -272,7 +269,6 @@
     .dnum { font-size: 56px; }
     table.kw td:last-child, table.kw th.bar-h { display: none; }
     table.kw td:first-child { white-space: normal; }
-    .meas { grid-template-columns: 1fr 1fr; }
     .step { grid-template-columns: 36px minmax(0, 1fr); gap: 0 12px; }
     .step .num { width: 30px; height: 30px; font-size: 14px; }
     .split { grid-template-columns: minmax(0, 1fr); }
@@ -313,8 +309,9 @@
     <a href="#chatgpt"><span>05</span>Warum nicht ChatGPT?</a>
     <a href="#cases"><span>06</span>Ergebnisse bei anderen</a>
     <a href="#prognose"><span>07</span>Prognose für take-e-way</a>
-    <a href="#preis"><span>08</span>Pakete und Preis</a>
-    <a href="#start"><span>09</span>Nächster Schritt</a>
+    <a href="#datenschutz"><span>08</span>Datenschutz</a>
+    <a href="#preis"><span>09</span>Pakete und Preis</a>
+    <a href="#start"><span>10</span>Nächster Schritt</a>
   </nav>
 
   <main>
@@ -531,23 +528,7 @@
         </div>
       </div>
 
-      <div class="step">
-        <div class="num">5</div>
-        <div>
-          <h3>Ihr seht, was es bringt <span class="who">automatisch</span></h3>
-          <p>Nach einigen Wochen zeigt das Dashboard für jede Meldung, wie oft sie bei Google erscheint, wie viele Besucher sie bringt und wie viele davon eine Beratung anfragen. So seht ihr, welche Themen sich lohnen, und das System schreibt mehr davon.</p>
-        </div>
-        <div class="screen">
-          <div class="screen-h"><span class="dot"></span>Auswertung · Batteriepass ab Februar 2027<span class="r">nach 6 Wochen</span></div>
-          <div class="screen-b meas">
-            <div><b>2.140</b>Einblendungen bei Google</div>
-            <div><b>6,4</b>durchschnittliche Position</div>
-            <div><b>118</b>Besucher</div>
-            <div><b>2</b>Beratungsanfragen</div>
-          </div>
-        </div>
-        <p class="cap">Der Ablauf ist echt, die Texte und Zahlen in den Ausschnitten sind ein Beispiel. Vor dem Einsatz prüft euer Team jeden Text fachlich.</p>
-      </div>
+      <p class="small" style="margin-top:14px">Der Ablauf ist echt, die Texte in den Ausschnitten sind ein Beispiel. Vor dem Einsatz prüft euer Team jeden Text fachlich.</p>
 
       <h3>Was das System über take-e-way weiß</h3>
       <p>Damit die Texte nach euch klingen und nicht nach KI, richten wir das System im Kick-off auf take-e-way ein:</p>
@@ -595,7 +576,7 @@
         </table>
       </div>
       <h3>Und selbst bauen?</h3>
-      <p>Könnt ihr, und nach der Übergabe betreibt ihr das System ohnehin selbst. Den Teil, der am längsten dauert, bringen wir fertig mit: Quellen-Monitoring, Schreib-Logik, Freigabe und Messung laufen bei uns schon in anderen Projekten. Deshalb sind es rund 15 Personentage statt einer Neuentwicklung über Monate.</p>
+      <p>Könnt ihr, und nach der Übergabe betreibt ihr das System ohnehin selbst. Den Teil, der am längsten dauert, bringen wir fertig mit: Quellen-Monitoring, Schreib-Logik, Freigabe und Veröffentlichung laufen bei uns schon in anderen Projekten. Deshalb sind es rund 15 Personentage statt einer Neuentwicklung über Monate.</p>
     </section>
 
     <!-- 06 -->
@@ -656,13 +637,28 @@
           </tbody>
         </table>
       </div>
-      <p class="small" style="margin-top:12px">Annahmen: Anfragen von 0,5 % der zusätzlichen Besucher. Nennungen in KI-Antworten gemessen mit dem SISTRIX AI Check. Das ist eine Prognose und keine Zusage. Im Dashboard seht ihr jeden Monat, wo ihr tatsächlich steht.</p>
+      <p class="small" style="margin-top:12px">Annahmen: Anfragen von 0,5 % der zusätzlichen Besucher. Nennungen in KI-Antworten gemessen mit dem SISTRIX AI Check. Das ist eine Prognose und keine Zusage. Wie sich die Sichtbarkeit bei Google und in KI-Antworten entwickelt, messen wir jeden Monat von außen mit SISTRIX. Zugriff auf eure Daten brauchen wir dafür nicht.</p>
       <p style="margin-top:18px">Dazu kommt die Entlastung im Team: 30 Meldungen von Hand brauchen rund 100 Stunden im Monat, mit dem System bleiben etwa 8 Stunden für die Prüfung. Was ein Neukunde für take-e-way wert ist, wisst ihr besser als wir. Im Termin rechnen wir die Prognose gern mit euren Zahlen durch.</p>
     </section>
 
     <!-- 08 -->
+    <section id="datenschutz">
+      <div class="sh"><span class="n">08</span><h2>Datenschutz und Sicherheit</h2></div>
+      <p>Ihr arbeitet für Hersteller und Händler, und eure Kunden vertrauen euch ihre Daten an. Deshalb haben wir das System so gebaut, dass es davon nichts braucht.</p>
+      <ul class="list">
+        <li><b>Keine Kundendaten:</b> Das System liest nur öffentliche Quellen und eure bereits veröffentlichten Texte. Mit Kundendaten, Mengenmeldungen oder eurem CRM kommt es nicht in Berührung.</li>
+        <li><b>Kein Zugriff auf eure Analytics:</b> Google Analytics und Search Console brauchen wir nicht. Die Sichtbarkeit messen wir von außen.</li>
+        <li><b>Hosting in Deutschland oder bei euch:</b> Das System läuft auf eurem Server oder bei einem Hoster in Deutschland. Das entscheidet ihr.</li>
+        <li><b>Eure Texte trainieren keine KI:</b> Wir nutzen die Business-Schnittstelle eines KI-Anbieters. Dort werden Eingaben nicht zum Training verwendet, und es gibt einen Vertrag zur Auftragsverarbeitung.</li>
+        <li><b>So wenig Zugang wie möglich:</b> In TYPO3 bekommt das System nur ein Redakteurskonto für die News. Nach der Übergabe entfernen wir unsere Zugänge, alle Zugangsdaten liegen bei euch.</li>
+        <li><b>Alles nachvollziehbar:</b> Zu jeder Veröffentlichung ist gespeichert, aus welcher Quelle sie stammt und wer sie wann freigegeben hat.</li>
+      </ul>
+      <p style="margin-top:16px">Vor dem Start schließen wir mit euch einen Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO, soweit er nötig ist. Wenn eure Datenschutz- oder IT-Abteilung Fragen hat, beantworten wir sie gern direkt.</p>
+    </section>
+
+    <!-- 09 -->
     <section id="preis">
-      <div class="sh"><span class="n">08</span><h2>Pakete und Preis</h2></div>
+      <div class="sh"><span class="n">09</span><h2>Pakete und Preis</h2></div>
       <p>Wir bauen das System gemeinsam mit euch auf, betreuen es drei Monate und übergeben es dann vollständig. Es läuft auf eurem Server oder in einer EU-Cloud. Es gibt kein Abo und keine Lizenzgebühr.</p>
       <div class="pk">
         <div class="p main">
@@ -675,7 +671,7 @@
             <li>Redaktions-Dashboard mit Freigabe</li>
             <li>Direkt in TYPO3, dazu LinkedIn und Newsletter</li>
             <li>Content-Plan aus der Keyword-Analyse</li>
-            <li>Auswertung mit Search Console und GA4</li>
+            <li>Monatlicher Sichtbarkeits-Report aus SISTRIX</li>
             <li>Einweisung, Dokumentation, 3 Monate Betreuung</li>
           </ul>
         </div>
@@ -703,9 +699,9 @@
       </div>
     </section>
 
-    <!-- 09 -->
+    <!-- 10 -->
     <section id="start">
-      <div class="sh"><span class="n">09</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
+      <div class="sh"><span class="n">10</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
       <div class="person">
         <img src="/darya.jpg" alt="Darya Kablash" />
         <div>
