@@ -161,13 +161,15 @@
   .btn-s.p { background: var(--forest); border-color: var(--forest); color: #fff; }
   .actions .t { margin-left: auto; font-size: 12.5px; color: var(--gray); }
 
-  .outs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-  .out { border: 1px solid var(--line); border-radius: 10px; padding: 14px; font-size: 13px; }
-  .out .lab { margin-bottom: 6px; }
-  .out .kv { grid-template-columns: 74px minmax(0, 1fr); font-size: 12.5px; margin-top: 0; }
-  .out p { font-size: 13px; line-height: 1.5; }
 
 
+  .three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 12px 0 14px; }
+  .three div { background: var(--tint); border-radius: 10px; padding: 12px 14px; font-size: 13.5px; line-height: 1.45; color: var(--forest); }
+  .three b { display: block; font-size: 14.5px; color: var(--forest); margin-bottom: 2px; }
+  .chan { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .chan > div { padding: 16px; font-size: 13.5px; line-height: 1.5; }
+  .chan > div + div { border-left: 1px solid var(--line); }
+  .kv.t3 { grid-template-columns: 90px minmax(0, 1fr); margin-top: 0; gap: 8px 14px; }
   /* ---------- Example link ---------- */
   .ref { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; text-decoration: none; color: inherit; margin-top: 20px; }
   .ref:hover { border-color: var(--accent); }
@@ -264,14 +266,15 @@
     .lead { font-size: 17px; }
     h2 { font-size: 24px; }
     section { margin-top: 56px; }
-    .facts, .outs, .plan, .pk, .anatomy, .wish, .demand, .kwrap { grid-template-columns: minmax(0, 1fr); }
+    .facts, .plan, .pk, .anatomy, .wish, .demand, .kwrap { grid-template-columns: minmax(0, 1fr); }
     .demand { gap: 14px; }
     .dnum { font-size: 56px; }
     table.kw td:last-child, table.kw th.bar-h { display: none; }
     table.kw td:first-child { white-space: normal; }
     .step { grid-template-columns: 36px minmax(0, 1fr); gap: 0 12px; }
     .step .num { width: 30px; height: 30px; font-size: 14px; }
-    .split { grid-template-columns: minmax(0, 1fr); }
+    .split, .chan, .three { grid-template-columns: minmax(0, 1fr); }
+    .chan > div + div { border-left: 0; border-top: 1px solid var(--line); }
     .split > div + div { border-left: 0; border-top: 1px solid var(--line); }
     .src-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
     .case { grid-template-columns: minmax(0, 1fr); gap: 10px; }
@@ -317,7 +320,7 @@
   <main>
     <div class="kicker">Angebot für Christoph Brellinger und Team, take-e-way GmbH</div>
     <h1>Ein News-System, mit dem take-e-way bei jeder EPR-Frage die erste Adresse wird</h1>
-    <p class="lead">Das System findet Gesetzesänderungen in Europa, schreibt daraus Fachtexte im take-e-way-Ton und stellt sie nach eurer Freigabe in TYPO3, auf LinkedIn und in den Newsletter. Euer Team prüft nur noch, statt zu recherchieren und zu schreiben.</p>
+    <p class="lead">Das System findet Gesetzesänderungen in Europa und schreibt daraus im take-e-way-Ton drei Texte: den Fachtext für eure Website, einen LinkedIn-Post und einen Newsletter-Beitrag. Nach eurer Freigabe geht der Fachtext direkt in TYPO3. Euer Team prüft nur noch, statt zu recherchieren und zu schreiben.</p>
     <div class="meta">
       <div><b>Darya Kablash</b>GetMarketing</div>
       <div><b>03.11.2026</b>Stand</div>
@@ -437,9 +440,14 @@
       <div class="step">
         <div class="num">2</div>
         <div>
-          <h3>Es schreibt den Text, dazu Newsletter und LinkedIn <span class="who">automatisch</span></h3>
-          <p>Aus dem Gesetzestext entsteht ein fertiger Fachtext für take-e-way.de. Wenn das Thema es hergibt, schreibt das System gleich einen Entwurf für den Newsletter und einen LinkedIn-Post dazu. Bei kleineren Meldungen lässt es beides weg.</p>
-          <p>Der Unterschied zu einem Text, den man sich von ChatGPT schreiben lässt:</p>
+          <h3>Es schreibt drei Texte: Website, LinkedIn und Newsletter <span class="who">automatisch</span></h3>
+          <p>Aus einer Quelle entstehen drei Entwürfe, jeder passend zu seinem Kanal:</p>
+          <div class="three">
+            <div><b>Fachtext für take-e-way.de</b><span>ausführlich, mit Frist, FAQ und Link auf eure Lösungsseite</span></div>
+            <div><b>LinkedIn-Post</b><span>kurz, macht neugierig und verlinkt auf den Fachtext</span></div>
+            <div><b>Newsletter-Beitrag</b><span>das Wichtigste in drei Sätzen für euren nächsten Versand</span></div>
+          </div>
+          <p>Bei kleineren Meldungen schreibt das System nur den Website-Text. Der Unterschied zu einem Text, den man sich von ChatGPT schreiben lässt:</p>
           <ul class="list">
             <li><b>Er beruht auf der Originalquelle von heute</b> und nicht auf dem Wissensstand eines Chatbots. Das Zitat steht beim Prüfen direkt daneben.</li>
             <li><b>Er klingt nach take-e-way</b>, weil das System eure bisherigen Meldungen, Fachbegriffe und No-Gos kennt. Niemand muss das jedes Mal neu erklären.</li>
@@ -449,7 +457,7 @@
           </ul>
         </div>
         <div class="screen">
-          <div class="screen-h"><span class="dot"></span>Entwurf · Batterien · EU<span class="r">SEO-Ziel: „Für welche Batterien gilt das Gesetz?“</span></div>
+          <div class="screen-h"><span class="dot"></span>Drei Entwürfe · Batterien · EU<span class="r">SEO-Ziel: „Für welche Batterien gilt das Gesetz?“</span></div>
           <div class="split">
             <div>
               <div class="lab">Quelle</div>
@@ -472,6 +480,16 @@
               </ul>
             </div>
           </div>
+          <div class="chan">
+            <div>
+              <div class="lab">Entwurf LinkedIn</div>
+              <p>Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass. Klingt weit weg, aber die Daten dafür kommen von euren Zulieferern, und das dauert. Was Hersteller jetzt klären sollten, steht im Beitrag →</p>
+            </div>
+            <div>
+              <div class="lab">Entwurf Newsletter</div>
+              <p><b>Batteriepass: noch 15 Monate.</b> Ab Februar 2027 Pflicht für Industriebatterien über 2 kWh, E-Bike- und E-Auto-Batterien. Jetzt mit den Zulieferern klären, welche Daten fehlen. <span style="color:var(--accent-ink)">Zum Beitrag →</span></p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -479,7 +497,7 @@
         <div class="num">3</div>
         <div>
           <h3>Euer Fachkollege prüft und gibt frei <span class="who you">5 bis 10 Minuten</span></h3>
-          <p>Das ist der einzige Schritt, den ein Mensch macht, und der wichtigste. Euer Kollege liest den Text neben der Quelle, dazu die Entwürfe für Newsletter und LinkedIn, korrigiert oder kommentiert und klickt auf Freigeben. Ohne diese Freigabe geht nichts online. Aus jeder Korrektur lernt das System für die nächsten Texte.</p>
+          <p>Das ist der einzige Schritt, den ein Mensch macht, und der wichtigste. Euer Kollege liest die drei Entwürfe neben der Quelle, korrigiert oder kommentiert und klickt auf Freigeben. Ohne diese Freigabe geht nichts online. Aus jeder Korrektur lernt das System für die nächsten Texte.</p>
         </div>
         <div class="screen">
           <div class="screen-h"><span class="dot"></span>Prüfung<span class="r">Entwurf 1 von 3 heute</span></div>
@@ -501,29 +519,22 @@
       <div class="step">
         <div class="num">4</div>
         <div>
-          <h3>Die Meldung erscheint überall gleichzeitig <span class="who">automatisch</span></h3>
-          <p>Nach der Freigabe landet der Text als fertiger News-Datensatz in TYPO3, mit Kategorie, Meta-Daten und FAQ-Markup für Google. Der LinkedIn-Post geht raus, und der Newsletter-Text liegt im nächsten Versand bereit.</p>
+          <h3>Nach der Freigabe: Website, LinkedIn, Newsletter</h3>
+          <p>Der Fachtext geht direkt in TYPO3. LinkedIn-Post und Newsletter-Beitrag liegen fertig bereit, und ihr entscheidet, wann sie rausgehen: einplanen, kopieren oder auf Wunsch direkt an euer Newsletter-Tool übergeben.</p>
+          <p><b>So wird TYPO3 angebunden:</b> Wir installieren eine kleine Schnittstelle in eurer TYPO3-Installation, abgestimmt mit eurer TYPO3-Agentur. Darüber legt das System nach der Freigabe einen ganz normalen News-Datensatz an, genau so, als hätte ihn ein Redakteur angelegt. Das System nutzt dafür ein eigenes Redakteurskonto, das nur News anlegen darf. Auf Wunsch landet der Beitrag erst versteckt und wird von euch mit einem Klick sichtbar geschaltet.</p>
         </div>
         <div class="screen">
-          <div class="screen-h"><span class="dot"></span>Veröffentlicht</div>
-          <div class="screen-b outs">
-            <div class="out">
-              <div class="lab">TYPO3</div>
-              <dl class="kv">
-                <dt>Pfad</dt><dd>/news/batteriepass-2027/</dd>
-                <dt>Kategorie</dt><dd>Batterien</dd>
-                <dt>FAQ</dt><dd>3 Fragen, mit Markup</dd>
-                <dt>Status</dt><dd>online</dd>
-              </dl>
-            </div>
-            <div class="out">
-              <div class="lab">LinkedIn</div>
-              <p>Ab Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass. Was Hersteller bis dahin erfassen müssen →</p>
-            </div>
-            <div class="out">
-              <div class="lab">Newsletter</div>
-              <p><b>Batteriepass: noch 15 Monate.</b> Für wen die Pflicht gilt und was jetzt zu tun ist.</p>
-            </div>
+          <div class="screen-h"><span class="dot"></span>TYPO3 · Neuer News-Datensatz<span class="r">angelegt vom Konto „News-System“</span></div>
+          <div class="screen-b">
+            <dl class="kv t3">
+              <dt>Titel</dt><dd>Batteriepass ab Februar 2027: Was Hersteller von Industriebatterien jetzt vorbereiten sollten</dd>
+              <dt>Teaser</dt><dd>Ab dem 18. Februar 2027 braucht jede Industriebatterie über 2 kWh einen digitalen Batteriepass …</dd>
+              <dt>Text</dt><dd>3 Abschnitte mit Zwischenüberschriften, Link auf „Batterien EU“</dd>
+              <dt>Kategorie</dt><dd>Batterien · EU</dd>
+              <dt>URL</dt><dd>/news/batteriepass-2027/</dd>
+              <dt>SEO</dt><dd>Seitentitel, Meta-Description, FAQ-Markup für Google</dd>
+              <dt>Status</dt><dd>versteckt, bereit zum Sichtbarschalten</dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -571,7 +582,7 @@
             <tr><td>Stimmt der Inhalt?</td><td>Wissensstand von gestern, Quellen oft unklar</td><td>Jeder Text mit Link auf die Originalquelle</td></tr>
             <tr><td>Klingt es nach take-e-way?</td><td>Jedes Mal neu erklären</td><td>Eingestellt auf eure Meldungen und Begriffe</td></tr>
             <tr><td>Wird die Seite gefunden?</td><td>Kennt weder Suchvolumen noch Fragen</td><td>Arbeitet euren Content-Plan ab</td></tr>
-            <tr><td>Wie kommt es auf die Website?</td><td>Kopieren nach TYPO3, LinkedIn, Newsletter</td><td>Ein Klick, alles erscheint gleichzeitig</td></tr>
+            <tr><td>Wie kommt es auf die Website?</td><td>Kopieren nach TYPO3, LinkedIn, Newsletter</td><td>Fachtext direkt in TYPO3, LinkedIn und Newsletter fertig zum Einplanen</td></tr>
           </tbody>
         </table>
       </div>
@@ -669,7 +680,8 @@
             <li>Quellen-Monitoring für eure Kernländer und Rechtsgebiete</li>
             <li>Entwürfe im take-e-way-Ton, 30 bis 90 im Monat</li>
             <li>Redaktions-Dashboard mit Freigabe</li>
-            <li>Direkt in TYPO3, dazu LinkedIn und Newsletter</li>
+            <li>Pro Meldung drei Texte: Website, LinkedIn, Newsletter</li>
+            <li>Schnittstelle zu TYPO3</li>
             <li>Content-Plan aus der Keyword-Analyse</li>
             <li>Monatlicher Sichtbarkeits-Report aus SISTRIX</li>
             <li>Einweisung, Dokumentation, 3 Monate Betreuung</li>
