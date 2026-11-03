@@ -80,6 +80,38 @@
   .callout { background: var(--forest); color: rgba(255,255,255,.9); border-radius: 14px; padding: 24px 28px; margin-top: 24px; font-size: 17.5px; line-height: 1.55; }
   .callout b { color: #fff; }
 
+  /* ---------- Vision ---------- */
+  .wish { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; margin-top: 22px; align-items: start; }
+  .serp, .chat { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: 0 8px 24px -14px rgba(0,0,0,.12); font-size: 14px; line-height: 1.5; }
+  .sbar { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 50px; padding: 8px 14px; }
+  .sbar .g { font-weight: 800; color: var(--gray); font-size: 13px; }
+  .sbar .q { color: var(--black); }
+  .aio { background: var(--soft); border-radius: 10px; padding: 12px 14px; margin-top: 12px; }
+  .aio p { font-size: 13.5px; }
+  .srcchip { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--forest); background: var(--tint); border-radius: 50px; padding: 3px 10px; }
+  .res { margin-top: 14px; display: flex; flex-direction: column; gap: 2px; }
+  .res .url { font-size: 12.5px; color: var(--gray); }
+  .res b { color: #1a0dab; font-weight: 600; font-size: 16px; }
+  .res .snip { font-size: 13.5px; color: var(--gray); }
+  .chat .you { margin-left: auto; width: fit-content; max-width: 90%; background: var(--soft); border-radius: 14px; padding: 8px 12px; font-size: 13.5px; }
+  .chat .bot { margin-top: 12px; font-size: 13.5px; }
+  .cap2 { font-size: 13px; color: var(--gray); margin-top: 8px; }
+
+  /* ---------- Demand ---------- */
+  .demand { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px; align-items: center; }
+  .dnum { font-size: 76px; font-weight: 900; letter-spacing: -0.055em; line-height: .95; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .dnum span { display: block; font-size: 14.5px; font-weight: 500; letter-spacing: 0; line-height: 1.45; color: var(--gray); margin-top: 10px; }
+  .kwrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; margin-top: 28px; align-items: start; }
+  table.kw { font-size: 14.5px; }
+  table.kw td { padding: 8px 10px 8px 0; }
+  table.kw td:first-child { white-space: nowrap; }
+  table.kw td:last-child { width: 26%; vertical-align: middle; }
+  table.kw td i { display: block; height: 8px; border-radius: 4px; background: var(--accent); width: max(var(--w), 3px); }
+  .qbox { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .qbox ul { list-style: none; font-size: 14.5px; }
+  .qbox li { padding: 7px 0; border-top: 1px solid var(--line); }
+  .qbox li:first-child { border-top: 0; }
+
   /* ---------- Walkthrough ---------- */
   .ex-intro { background: var(--tint); border-radius: 12px; padding: 18px 22px; margin: 22px 0 8px; font-size: 15.5px; color: var(--forest); }
   .ex-intro b { color: var(--forest); }
@@ -235,7 +267,11 @@
     .lead { font-size: 17px; }
     h2 { font-size: 24px; }
     section { margin-top: 56px; }
-    .facts, .outs, .plan, .pk, .anatomy { grid-template-columns: minmax(0, 1fr); }
+    .facts, .outs, .plan, .pk, .anatomy, .wish, .demand, .kwrap { grid-template-columns: minmax(0, 1fr); }
+    .demand { gap: 14px; }
+    .dnum { font-size: 56px; }
+    table.kw td:last-child, table.kw th.bar-h { display: none; }
+    table.kw td:first-child { white-space: normal; }
     .meas { grid-template-columns: 1fr 1fr; }
     .step { grid-template-columns: 36px minmax(0, 1fr); gap: 0 12px; }
     .step .num { width: 30px; height: 30px; font-size: 14px; }
@@ -270,14 +306,15 @@
 <div class="wrap">
   <nav class="toc" id="toc" aria-label="Inhalt">
     <b>Inhalt</b>
-    <a href="#kurz"><span>01</span>Kurz gesagt</a>
-    <a href="#so"><span>02</span>So funktioniert das System</a>
-    <a href="#beispiel"><span>03</span>So sehen die Texte aus</a>
-    <a href="#chatgpt"><span>04</span>Warum nicht ChatGPT?</a>
-    <a href="#cases"><span>05</span>Ergebnisse bei anderen</a>
-    <a href="#prognose"><span>06</span>Prognose für take-e-way</a>
-    <a href="#preis"><span>07</span>Pakete und Preis</a>
-    <a href="#start"><span>08</span>Nächster Schritt</a>
+    <a href="#vision"><span>01</span>In zwölf Monaten</a>
+    <a href="#kurz"><span>02</span>Die Nachfrage ist da</a>
+    <a href="#so"><span>03</span>So funktioniert das System</a>
+    <a href="#beispiel"><span>04</span>So sehen die Texte aus</a>
+    <a href="#chatgpt"><span>05</span>Warum nicht ChatGPT?</a>
+    <a href="#cases"><span>06</span>Ergebnisse bei anderen</a>
+    <a href="#prognose"><span>07</span>Prognose für take-e-way</a>
+    <a href="#preis"><span>08</span>Pakete und Preis</a>
+    <a href="#start"><span>09</span>Nächster Schritt</a>
   </nav>
 
   <main>
@@ -292,22 +329,83 @@
     </div>
 
     <!-- 01 -->
+    <section id="vision">
+      <div class="sh"><span class="n">01</span><h2>Stellt euch take-e-way in zwölf Monaten vor</h2></div>
+      <p>Eine Produktmanagerin bei einem Elektronikhersteller muss bis Freitag wissen, ob die PPWR ihr Unternehmen betrifft. Sie googelt die Frage und fragt zur Sicherheit noch ChatGPT. Beide Male landet sie bei euch.</p>
+      <div class="wish">
+        <div class="serp">
+          <div class="sbar"><span class="g">Google</span><span class="q">wer ist von der ppwr betroffen</span></div>
+          <div class="aio">
+            <div class="lab">KI-Übersicht</div>
+            <p>Von der PPWR betroffen sind alle Hersteller, Importeure und Händler, die Verpackungen in der EU in Verkehr bringen, auch Online-Händler aus Drittländern …</p>
+            <span class="srcchip">take-e-way.de</span>
+          </div>
+          <div class="res">
+            <span class="url">take-e-way.de › ratgeber › ppwr</span>
+            <b>PPWR: Wer betroffen ist und was Hersteller jetzt tun müssen</b>
+            <span class="snip">Die Antwort in zwei Sätzen, die wichtigsten Fristen und ein Selbstcheck für euer Unternehmen …</span>
+          </div>
+        </div>
+        <div class="chat">
+          <div class="you">Welcher Dienstleister hilft bei EPR in mehreren EU-Ländern?</div>
+          <div class="bot">Ein spezialisierter Anbieter ist <b>take-e-way</b> aus Hamburg. Das Unternehmen übernimmt Registrierung und Meldungen für Verpackungen, Elektrogeräte und Batterien in über 30 Ländern und erklärt die einzelnen Pflichten ausführlich auf seiner Website.</div>
+          <span class="srcchip">Quelle: take-e-way.de</span>
+        </div>
+      </div>
+      <p class="cap2">Wunschbild, so könnte es aussehen</p>
+      <p style="margin-top:18px">Sie liest die Antwort, sieht die Frist und klickt auf „Beratung anfragen“. Und das nicht bei einer Frage, sondern bei jeder Frage zu jedem Gesetz in jedem Land, in dem eure Kunden verkaufen. Die Nachfrage dafür gibt es schon heute.</p>
+    </section>
+
+    <!-- 02 -->
     <section id="kurz">
-      <div class="sh"><span class="n">01</span><h2>Kurz gesagt</h2></div>
-      <p>Wir haben uns angesehen, wie take-e-way.de bei Google und in KI-Antworten gefunden wird. Das Ergebnis ist eine gute Nachricht: Überall dort, wo ihr eine Fachseite zu einer konkreten Frage habt, steht ihr schon ganz vorne.</p>
+      <div class="sh"><span class="n">02</span><h2>Die Nachfrage ist da</h2></div>
+      <div class="demand">
+        <div class="dnum">15.900<span>Suchen pro Monat zu euren Themen, allein in Deutschland, ohne Academy und Sprachdomains</span></div>
+        <p>Hersteller und Händler suchen jeden Monat tausendfach nach PPWR, Verpackungsgesetz, EPR und LUCID. Bei take-e-way.de kommt davon heute fast nichts an: <b>36 der 40 stärksten Suchbegriffe sind Markenbegriffe</b> wie „take e way login“ oder „mengenmeldung“. Gefunden werdet ihr von Leuten, die euch schon kennen.</p>
+      </div>
+      <div class="kwrap">
+        <div class="tw" style="margin-top:0">
+          <table class="kw">
+            <thead><tr><th>Suchbegriff</th><th class="r">Suchen / Monat</th><th class="bar-h"></th></tr></thead>
+            <tbody>
+              <tr><td>ppwr</td><td class="r">8.400</td><td><i style="--w:100%"></i></td></tr>
+              <tr><td>verpackungsgesetz</td><td class="r">2.600</td><td><i style="--w:31%"></i></td></tr>
+              <tr><td>epr</td><td class="r">2.050</td><td><i style="--w:24%"></i></td></tr>
+              <tr><td>lucid registrierung</td><td class="r">700</td><td><i style="--w:8%"></i></td></tr>
+              <tr><td>verpackungsregister lucid</td><td class="r">500</td><td><i style="--w:6%"></i></td></tr>
+              <tr><td>batteriegesetz</td><td class="r">450</td><td><i style="--w:5%"></i></td></tr>
+              <tr><td>weee registrierung</td><td class="r">350</td><td><i style="--w:4%"></i></td></tr>
+              <tr><td>elektrogesetz</td><td class="r">300</td><td><i style="--w:4%"></i></td></tr>
+              <tr><td>erweiterte herstellerverantwortung</td><td class="r">150</td><td><i style="--w:2%"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="qbox">
+          <div class="lab">Fragen, die Google dazu zeigt</div>
+          <ul>
+            <li>Wer ist von der PPWR betroffen?</li>
+            <li>Welche Geräte fallen unter das Elektrogesetz?</li>
+            <li>Welche Änderungen gibt es ab 2026?</li>
+            <li>Ist das Batteriegesetz noch gültig?</li>
+            <li>Wie sieht eine technische Dokumentation aus?</li>
+          </ul>
+          <p class="small" style="margin-top:10px">Kleine Begriffe wie „amazon epr nummer“ haben wenig Volumen, aber die höchste Kaufabsicht.</p>
+        </div>
+      </div>
+
+      <h3>Und wo es eine Fachseite gibt, gewinnt ihr schon</h3>
       <div class="facts">
         <div><b>Platz 1</b>mit euren drei Fachseiten, etwa zu „industriebatterien entsorgen“ und „entsorgung b2b geräte“</div>
         <div><b>42-mal</b>zitieren Googles KI-Antworten take-e-way schon heute. In ChatGPT taucht ihr erst 2-mal auf.</div>
-        <div><b>15.900</b>Suchen pro Monat zu euren Themen, allein „ppwr“ 8.400. Dafür gibt es bei euch noch keine Seite.</div>
+        <div><b>35 Länder</b>deren Regeln euer Team kennt. Das Wissen ist da, es steht nur noch nicht auf der Website.</div>
       </div>
-      <p>Bisher wird take-e-way.de vor allem über den Namen gefunden: 36 der 40 stärksten Suchbegriffe sind Markenbegriffe wie „take e way login“. Euer Fachwissen zu 35 Ländern steckt im Team, aber noch nicht auf der Website.</p>
       <div class="callout"><b>Lasst uns das für jedes Gesetz machen.</b> Für jede Pflicht, jedes Land und jede Änderung eine Seite, die die Frage direkt beantwortet. So wird take-e-way die Quelle, die Google und ChatGPT nennen, wenn Hersteller und Händler nach EPR fragen.</div>
       <p class="small" style="margin-top:12px">Quelle: SISTRIX und SISTRIX AI Check, Deutschland, November 2026. Suchvolumen sind Schätzungen.</p>
     </section>
 
-    <!-- 02 -->
+    <!-- 03 -->
     <section id="so">
-      <div class="sh"><span class="n">02</span><h2>So funktioniert das System</h2></div>
+      <div class="sh"><span class="n">03</span><h2>So funktioniert das System</h2></div>
       <p>Am einfachsten zeigt es ein echtes Beispiel. Wir spielen eine Änderung durch, die eure Kunden direkt betrifft, vom ersten Hinweis in einer Quelle bis zur Meldung auf take-e-way.de.</p>
       <div class="ex-intro"><b>Beispiel:</b> Ab dem 18. Februar 2027 brauchen bestimmte Batterien einen digitalen Batteriepass (EU-Batterieverordnung 2023/1542, Art. 77).</div>
 
@@ -449,14 +547,13 @@
         <li><b>Eure Sprache:</b> bisherige Meldungen, Fachbegriffe und Formulierungen, die ihr nicht verwendet.</li>
         <li><b>Eure Themen:</b> Rechtsgebiete, Kernländer und Zielgruppen, für die eine Meldung relevant ist.</li>
         <li><b>Eure Lösungen:</b> auf welche Seite jede Meldung verlinkt, damit aus Lesern Anfragen werden.</li>
-        <li><b>Euer Content-Plan:</b> welche Fragen noch keine Seite haben (siehe Abschnitt 06).</li>
+        <li><b>Euer Content-Plan:</b> welche Fragen noch keine Seite haben (siehe Abschnitt 07).</li>
       </ul>
-      <p class="small" style="margin-top:16px">Wer sich das Redaktions-Dashboard selbst ansehen möchte: <a href="prototyp/">Prototyp öffnen</a>. Im Termin führe ich es gern live vor.</p>
     </section>
 
-    <!-- 03 -->
+    <!-- 04 -->
     <section id="beispiel">
-      <div class="sh"><span class="n">03</span><h2>So sehen die fertigen Texte aus</h2></div>
+      <div class="sh"><span class="n">04</span><h2>So sehen die fertigen Texte aus</h2></div>
       <p>Mit demselben Vorgehen entstehen bei uns schon Fachseiten zu Vorschriften für andere Kunden. Ein gutes Beispiel ist diese Seite zur Arbeitssicherheit nach ASiG und DGUV Vorschrift 2. Das Thema ist ähnlich rechtlich und erklärungsbedürftig wie eures.</p>
       <a class="ref" href="https://ki-consulting.eu/arbeitssicherheit/" target="_blank" rel="noopener">
         <div><b>Externe Fachkraft für Arbeitssicherheit</b><span class="u">ki-consulting.eu/arbeitssicherheit/</span></div>
@@ -473,9 +570,9 @@
       </ol>
     </section>
 
-    <!-- 04 -->
+    <!-- 05 -->
     <section id="chatgpt">
-      <div class="sh"><span class="n">04</span><h2>Warum nicht einfach ChatGPT?</h2></div>
+      <div class="sh"><span class="n">05</span><h2>Warum nicht einfach ChatGPT?</h2></div>
       <p>ChatGPT schreibt einen ordentlichen Text, wenn ihr ihm sagt, worüber. Alles davor und danach bleibt aber bei eurem Team, und genau das kostet heute die Zeit.</p>
       <div class="tw">
         <table class="vs">
@@ -493,9 +590,9 @@
       <p>Könnt ihr, und nach der Übergabe betreibt ihr das System ohnehin selbst. Den Teil, der am längsten dauert, bringen wir fertig mit: Quellen-Monitoring, Schreib-Logik, Freigabe und Messung laufen bei uns schon in anderen Projekten. Deshalb sind es rund 15 Personentage statt einer Neuentwicklung über Monate.</p>
     </section>
 
-    <!-- 05 -->
+    <!-- 06 -->
     <section id="cases">
-      <div class="sh"><span class="n">05</span><h2>Ergebnisse bei anderen Kunden</h2></div>
+      <div class="sh"><span class="n">06</span><h2>Ergebnisse bei anderen Kunden</h2></div>
       <p>Drei Projekte, die eurer Lage am nächsten kommen. Kundennamen nennen wir nur mit Erlaubnis, die Zahlen stammen aus abgeschlossenen Projekten.</p>
 
       <div class="case" style="margin-top:20px">
@@ -526,9 +623,9 @@
       <div class="stats"><span><b>6 Mio.+</b> organische Besucher für Kunden</span><span><b>55</b> abgeschlossene Projekte</span><span><b>3</b> Enterprise-Kunden mit individuell gebautem System</span></div>
     </section>
 
-    <!-- 06 -->
+    <!-- 07 -->
     <section id="prognose">
-      <div class="sh"><span class="n">06</span><h2>Was wir für take-e-way erwarten</h2></div>
+      <div class="sh"><span class="n">07</span><h2>Was wir für take-e-way erwarten</h2></div>
       <p>Neben den laufenden Meldungen arbeitet das System einen Content-Plan ab: pro Gesetz eine Hauptseite und dazu die Fragen, die Hersteller und Händler bei Google stellen. Die Reihenfolge richtet sich nach dem Suchvolumen.</p>
       <div class="plan">
         <div class="pl"><div class="h"><b>Verpackung</b><span>12.270 Suchen / Monat</span></div><ul><li>PPWR: Pflichten für Hersteller und Händler</li><li>Wer ist von der PPWR betroffen?</li><li>LUCID-Registrierung Schritt für Schritt</li></ul></div>
@@ -555,9 +652,9 @@
       <p style="margin-top:18px">Dazu kommt die Entlastung im Team: 30 Meldungen von Hand brauchen rund 100 Stunden im Monat, mit dem System bleiben etwa 8 Stunden für die Prüfung. Was ein Neukunde für take-e-way wert ist, wisst ihr besser als wir. Im Termin rechnen wir die Prognose gern mit euren Zahlen durch.</p>
     </section>
 
-    <!-- 07 -->
+    <!-- 08 -->
     <section id="preis">
-      <div class="sh"><span class="n">07</span><h2>Pakete und Preis</h2></div>
+      <div class="sh"><span class="n">08</span><h2>Pakete und Preis</h2></div>
       <p>Wir bauen das System gemeinsam mit euch auf, betreuen es drei Monate und übergeben es dann vollständig. Es läuft auf eurem Server oder in einer EU-Cloud. Es gibt kein Abo und keine Lizenzgebühr.</p>
       <div class="pk">
         <div class="p main">
@@ -598,9 +695,9 @@
       </div>
     </section>
 
-    <!-- 08 -->
+    <!-- 09 -->
     <section id="start">
-      <div class="sh"><span class="n">08</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
+      <div class="sh"><span class="n">09</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
       <div class="person">
         <img src="/darya.jpg" alt="Darya Kablash" />
         <div>
