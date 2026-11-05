@@ -251,6 +251,11 @@
   .p li { padding-left: 22px; position: relative; }
   .p li::before { content: "✓"; position: absolute; left: 0; font-weight: 800; color: var(--accent-ink); }
   .p.main li::before { color: var(--accent); }
+  .bundle { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 14px; background: var(--tint); border-radius: 14px; padding: 18px 24px; }
+  .bundle b { display: block; font-size: 17px; color: var(--forest); }
+  .bundle span { font-size: 14px; color: var(--forest); }
+  .bundle .bv { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); white-space: nowrap; }
+  .bundle .bv s { font-size: 16px; font-weight: 500; color: var(--gray); letter-spacing: 0; margin-right: 6px; }
   .tl { margin-top: 26px; }
   .tl div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
   .tl div b { font-size: 14px; color: var(--accent-ink); }
@@ -347,8 +352,8 @@
     <div class="meta">
       <div><b>Darya Kablash</b>GetMarketing</div>
       <div><b>03.11.2026</b>Stand</div>
-      <div><b>ab 7.900 €</b>einmalig, kein Abo</div>
-      <div><b>6 Wochen</b>bis zum Livegang</div>
+      <div><b>ab 5.900 €</b>einmalig, kein Abo</div>
+      <div><b>5 bis 7 Wochen</b>bis zum Livegang</div>
     </div>
 
     <!-- 01 -->
@@ -608,7 +613,7 @@
         </table>
       </div>
       <h3>Und selbst bauen?</h3>
-      <p>Könnt ihr, und nach der Übergabe betreibt ihr das System ohnehin selbst. Den Teil, der am längsten dauert, bringen wir fertig mit: Quellen-Monitoring, Schreib-Logik, Freigabe und Veröffentlichung laufen bei uns schon in anderen Projekten. Deshalb sind es rund 15 Personentage statt einer Neuentwicklung über Monate.</p>
+      <p>Könnt ihr, und nach der Übergabe betreibt ihr das System ohnehin selbst. Den Teil, der am längsten dauert, bringen wir fertig mit: Quellen-Monitoring, Schreib-Logik, Freigabe und Veröffentlichung laufen bei uns schon in anderen Projekten. Deshalb dauert der Aufbau wenige Wochen statt einer Neuentwicklung über Monate.</p>
     </section>
 
     <!-- 06 -->
@@ -656,7 +661,7 @@
       </div>
 
       <h3>Prognose</h3>
-      <p>So entwickelt sich das nach unserer Erfahrung, wenn das System nach sechs Wochen live geht und 30 Meldungen im Monat erscheinen. Wir rechnen bewusst vorsichtig.</p>
+      <p>So entwickelt sich das nach unserer Erfahrung, wenn das System nach fünf bis sieben Wochen live geht und 30 Meldungen im Monat erscheinen. Wir rechnen bewusst vorsichtig.</p>
       <div class="tw">
         <table class="fc">
           <thead><tr><th></th><th class="r">Heute</th><th class="r">Monat 3</th><th class="r">Monat 6</th><th class="r hl">Monat 12</th></tr></thead>
@@ -696,14 +701,14 @@
         <div class="p main">
           <div class="lab">Paket 1</div>
           <h3>News-System auf Deutsch</h3>
-          <div class="v">7.900 € <small>einmalig</small></div>
+          <div class="v">5.900 € <small>einmalig</small></div>
           <ul>
-            <li>Quellen-Monitoring für eure Kernländer und Rechtsgebiete</li>
+            <li>Quellen-Monitoring für bis zu 3 Länder plus EU-Ebene, bis zu 8 offizielle Quellen</li>
             <li>Entwürfe im take-e-way-Ton, 30 bis 90 im Monat</li>
+            <li>Pro Meldung drei Entwürfe: Website, LinkedIn, Newsletter</li>
             <li>Redaktions-Dashboard mit Freigabe</li>
-            <li>Pro Meldung drei Texte: Website, LinkedIn, Newsletter</li>
             <li>Schnittstelle zu TYPO3</li>
-            <li>Content-Plan aus der Keyword-Analyse</li>
+            <li>Keyword-Content-Plan für die ersten 12 Wochen</li>
             <li>Monatlicher Sichtbarkeits-Report aus SISTRIX</li>
             <li>Einweisung, Dokumentation, 3 Monate Betreuung</li>
           </ul>
@@ -719,17 +724,20 @@
             <li>Freigabe pro Sprache durch eure Kollegen vor Ort</li>
             <li>Bis zu 10 weitere Sprachen</li>
           </ul>
+          <p class="small" style="margin-top:12px">Voraussetzung: Alle Sprachdomains laufen in einer gemeinsamen TYPO3-Installation.</p>
         </div>
       </div>
-      <p class="small" style="margin-top:12px">Alle Preise netto zzgl. MwSt. Laufend zahlt ihr nur Server und KI-Schnittstelle direkt an den Anbieter, ohne Aufschlag: etwa 50 bis 160 € im Monat für Deutsch, mit Sprachdomains 50 bis 150 € mehr. Die Kosten seht ihr jederzeit im Dashboard.</p>
+      <div class="bundle"><div><b>Beide Pakete zusammen</b><span>News-System auf Deutsch und alle Sprachdomains</span></div><div class="bv"><s>10.400 €</s> 9.900 €</div></div>
+      <p class="small" style="margin-top:12px">Alle Preise netto zzgl. MwSt. Laufend zahlt ihr nur Server und KI-Schnittstelle direkt an den Anbieter, ohne Aufschlag: etwa 25 bis 70 € im Monat. Die Kosten seht ihr jederzeit im Dashboard. LinkedIn-Post und Newsletter sind als Entwürfe enthalten. Automatisch posten und versenden ist optional und hängt vom Zugang zu euren Konten ab.</p>
 
       <div class="tl">
         <div><b>Woche 1</b><span>Kick-off: Kernländer, Themen und Quellen festlegen, eure bisherigen Meldungen für den Ton auswerten</span></div>
-        <div><b>Woche 2 bis 4</b><span>Aufbau von Monitoring, Dashboard und TYPO3-Anbindung, erste Testentwürfe zur Abstimmung</span></div>
-        <div><b>Woche 5 bis 6</b><span>Testbetrieb mit echten Meldungen, Einweisung, Livegang</span></div>
+        <div><b>Woche 2 bis 5</b><span>Aufbau von Monitoring, Dashboard und TYPO3-Anbindung, erste Testentwürfe zur Abstimmung</span></div>
+        <div><b>Woche 5 bis 7</b><span>Testbetrieb mit echten Meldungen, Einweisung, Livegang</span></div>
         <div><b>Monat 2 bis 4</b><span>Betreuung: Fehler beheben, Ton und Filter anhand eurer Korrekturen nachschärfen, Antwort innerhalb eines Werktags</span></div>
         <div><b>Ende Monat 4</b><span>Übergabe mit Dokumentation</span></div>
       </div>
+      <p class="small" style="margin-top:10px">Die Wochen zählen ab dem Zugang zu eurer TYPO3-Testumgebung. Sollen alle Sprachen schon zum Start live gehen, kommen etwa 12 Arbeitstage dazu.</p>
     </section>
 
     <!-- 10 -->
@@ -747,7 +755,7 @@
         <ol>
           <li><span>Termin vereinbaren, gern mit dem Fachkollegen, der später die Texte prüft</span></li>
           <li><span>Paket wählen</span></li>
-          <li><span>Kick-off in der Woche danach, Livegang nach sechs Wochen</span></li>
+          <li><span>Kick-off in der Woche danach, Livegang nach fünf bis sieben Wochen</span></li>
         </ol>
         <div class="btns">
           <a class="btn" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
