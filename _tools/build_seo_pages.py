@@ -167,69 +167,214 @@ def split_page(blocks):
         closing = (rest[-2][1], rest[-1][1]); rest = rest[:-2]
     return h1, intro, hero_cta, rest, closing
 
-def nav_html(lang, alt=None):
-    t = T[lang]
-    links = "".join(f'<li><a href="{h}">{esc(x)}</a></li>' for h, x in t["nav"])
-    return f'''<nav>
-  <div class="wrap nav-inner">
-    <a href="{t["home"]}" class="nav-logo"><img src="/logo.jpg" alt="GetMarketing" /><span class="nav-logo-text">GetMarketing</span></a>
-    <ul class="nav-links">{links}</ul>
-    <a href="{alt or t["lang_href"]}" class="nav-lang">{t["lang_label"]}</a>
-    <a href="{t["start"]}" class="nav-cta">{t["cta"]}</a>
-  </div>
-</nav>'''
+# ---------- Landing page template: homepage design, homepage sales sections ----------
+HOME_FILE = {"en": ROOT / "index.html", "de": ROOT / "de" / "index.html"}
+# homepage sections every landing page carries after its own content (in this order)
+HOME_SECTIONS = ["ba-section", "loop-section", "cs-section", 'id="diff"', "about-section", "click-band", "offer-section", "lead-section", "mission-section"]
+LP = {
+ "en": dict(facts="Takes 2 minutes · €249 a month · cancel monthly", ph="yourcompany.com", btn="Check my website for free",
+            dare='Prefer to start on your own? <a href="/marketing-plan-generator/">Generate your marketing plan in seconds&nbsp;→</a>',
+            mid_h="Rather have it done for you?", mid_p="Send us your website. Within 3 working days you know what is costing you enquiries, and what to do about it.",
+            mid_btn="Get my free analysis", app="https://app.getmarketing.team", tool_btn="Generate my marketing plan", tool_facts="Free · no credit card · ready in seconds", tool_dare='Rather have it done for you? <a href="#start">Get a free website analysis&nbsp;→</a>', faq_k="FAQ", how_k="How it works", cmp_k="Comparison", who_k="Who it is for"),
+ "de": dict(facts="Dauert 2 Minuten · 249 € im Monat · monatlich kündbar", ph="deinefirma.de", btn="Website kostenlos prüfen",
+            dare='Lieber erst selbst loslegen? <a href="/marketingplan-erstellen/">Erstelle deinen Marketingplan in Sekunden&nbsp;→</a>',
+            mid_h="Lieber machen lassen?", mid_p="Schick uns deine Website. In 3 Werktagen weißt du, was dich Anfragen kostet, und was dagegen hilft.",
+            mid_btn="Kostenlose Analyse anfordern", app="https://app.getmarketing.team", tool_btn="Marketingplan erstellen", tool_facts="Kostenlos · ohne Kreditkarte · in Sekunden fertig", tool_dare='Lieber machen lassen? <a href="#start">Kostenlose Website-Analyse anfordern&nbsp;→</a>', faq_k="FAQ", how_k="So läuft es", cmp_k="Vergleich", who_k="Für wen"),
+}
+_HOME = {}
 
-def footer_html(lang, pages):
-    t = T[lang]
-    prod = "".join(f'<li><a href="{h}">{esc(x)}</a></li>' for h, x in t["nav"][:3]) + f'<li><a href="{t["plan"]}">{esc(t["plan_cta"])}</a></li>'
-    topics = "".join(f'<li><a href="/{p["slug"]}/">{esc(p["short"])}</a></li>' for p in pages if p["lang"] == lang and p["slug"] not in TOOL_PAGES)
-    legal = "".join(f'<a href="{h}">{esc(x)}</a>' for h, x in t["legal"])
-    return f'''<footer class="ft">
-  <div class="wrap">
-    <div class="ft-grid">
-      <div class="ft-brand"><a href="{t["home"]}" class="ft-logo"><img src="/logo.jpg" alt="" /><span>GetMarketing</span></a><p class="ft-tag">{esc(t["ft_tag"])}</p><p class="ft-desc">{esc(t["ft_desc"])}</p></div>
-      <div class="ft-col"><h4>{t["ft_prod"]}</h4><ul>{prod}</ul></div>
-      <div class="ft-col"><h4>{t["ft_topics"]}</h4><ul class="ft-topics-list">{topics}</ul></div>
-      <div class="ft-col"><h4>{t["ft_contact"]}</h4><ul><li><a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a></li><li><a href="{t["start"]}">{t["ft_start"]}</a></li><li>{t["city"]}</li></ul></div>
-    </div>
-    <div class="ft-bottom"><span>© {TODAY[:4]} GetMarketing</span><div class="ft-legal">{legal}</div></div>
-  </div>
-</footer>'''
+def home_parts(lang):
+    if lang in _HOME: return _HOME[lang]
+    s = HOME_FILE[lang].read_text()
+    home = T[lang]["home"]
+    nav = re.search(r"<nav>.*?</nav>", s, re.S).group(0)
+    nav = nav.replace('class="nav-logo"', 'class="nav-logo"', 1).replace('<a href="#" class="nav-logo">', f'<a href="{home}" class="nav-logo">')
+    dash = re.search(r'(<div class="dash" id="ccal".*?)\n  </div>\n</header>', s, re.S).group(1)
+    secs = []
+    for key in HOME_SECTIONS:
+        m = re.search(r'<section[^>]*' + (key if "=" in key else f'class="{key}"') + r'[^>]*>.*?</section>', s, re.S)
+        assert m, (lang, key); secs.append(m.group(0))
+    foot = re.search(r'<footer class="ft">.*?</footer>', s, re.S).group(0).replace('<a href="#" class="ft-logo">', f'<a href="{home}" class="ft-logo">')
+    _HOME[lang] = dict(nav=nav, dash=dash, sections="\n\n".join(secs), footer=foot)
+    return _HOME[lang]
+
+def nav_for(lang, alt):
+    nav = home_parts(lang)["nav"]
+    return re.sub(r'(<a href=")[^"]*(" class="nav-lang")', lambda m: m.group(1) + alt + m.group(2), nav, count=1)
+
+def h1_html(h1, short):
+    """Put the page keyword in the lime box, like the homepage headline."""
+    txt = inline(h1)
+    m = re.match(r"^(.{3,40}?):\s+(.+)$", txt)
+    if m: return f'<span class="hl">{m.group(1)}</span> <span class="h1-rest">{m.group(2)}</span>'
+    for key in sorted({short, re.sub(r"^(The|Der|Die|Das|Dein|Your|An|Ein)\s+", "", short)}, key=len, reverse=True):
+        k = re.search(re.escape(key), txt, re.I)
+        if k and len(key) >= 5: return txt[:k.start()] + f'<span class="hl">{txt[k.start():k.end()]}</span>' + txt[k.end():]
+    return txt
 
 def short_title(title, h1):
     s = re.split(r"\s[|:–—]\s|:\s", title)[0].strip()
     return s if len(s) <= 48 else plain(h1)[:48].rsplit(" ", 1)[0]
 
+def is_faq(h2, lang): return any(w in h2.lower() for w in T[lang]["faq_words"])
+
+def sections_of(body):
+    out, cur = [], None
+    for k, v in body:
+        if k == "h2": cur = [v, []]; out.append(cur)
+        elif cur is None: cur = ["", [(k, v)]]; out.append(cur)
+        else: cur[1].append((k, v))
+    return out
+
+BOLD_LEAD = re.compile(r"^\*\*(.+?)\*\*[:.]?\s*(.*)$")
+
+def card_items(items):
+    """['**Title:** text', ...] -> [(title, text)] when every item starts bold, else None"""
+    out = []
+    for x in items:
+        m = BOLD_LEAD.match(x)
+        if not m: return None
+        out.append((m.group(1).rstrip(":."), m.group(2)))
+    return out
+
+def step_paras(blocks):
+    """paragraphs like '**1. Diagnosis.** text' -> [(title, text)]"""
+    out = []
+    for k, v in blocks:
+        if k != "p": continue
+        m = re.match(r"^\*\*(?:\d+\.|Step \d+:|Schritt \d+:)\s*(.+?)\*\*\s*(.*)$", " ".join(v))
+        if m: out.append((m.group(1).rstrip(":."), m.group(2)))
+    return out
+
+def render_section(h2, blocks, lang, faq, idx):
+    """One H2 section of the markdown as a landing-page block."""
+    L = LP[lang]; head = f'<h2>{inline(h2)}</h2>' if h2 else ""
+    kinds = [k for k, _ in blocks]
+    # FAQ
+    if h2 and is_faq(h2, lang):
+        pairs = faq_pairs(blocks)
+        if pairs:
+            faq.extend(pairs)
+            items = "".join(f'<details{" open" if i == 0 else ""}><summary>{inline(q)}</summary>' + "".join(f"<p>{inline(a)}</p>" for a in ans) + "</details>" for i, (q, ans) in enumerate(pairs))
+            return f'<section class="lp-sec lp-faq"><div class="wrap lp-faq-grid"><div class="lp-faq-head reveal"><span class="lp-k">{L["faq_k"]}</span>{head}</div><div class="lp-faq-list">{items}</div></div></section>'
+    steps = step_paras(blocks)
+    paras = [b for b in blocks if b[0] == "p" and not step_paras([b])]
+    lists = [b for b in blocks if b[0] in ("ul", "ol")]
+    tables = [b for b in blocks if b[0] == "table"]
+    def text_html(bs):
+        out = []
+        for k, v in bs:
+            if k == "p" and BOLD_LEAD.match(" ".join(v)) and len(" ".join(v)) < 600:
+                m = BOLD_LEAD.match(" ".join(v)); item = f'<div class="lp-def"><b>{inline(m.group(1).rstrip(":."))}</b><p>{inline(m.group(2))}</p></div>'
+                if out and out[-1].startswith('<div class="lp-defs">'): out[-1] = out[-1][:-6] + item + "</div>"
+                else: out.append(f'<div class="lp-defs">{item}</div>')
+                continue
+            if k == "p":
+                t = " ".join(v)
+                q = re.match(r'^[„"“](.+?)[“"”]\s*(.*)$', t)
+                if q and len(t) < 300: out.append(f'<blockquote class="lp-quote"><p>{"„" if lang == "de" else "“"}{inline(q.group(1))}{"“" if lang == "de" else "”"}</p><cite>{inline(q.group(2))}</cite></blockquote>')
+                else: out.append(f"<p>{inline(t)}</p>")
+            elif k == "h3": out.append(f"<h3>{inline(v)}</h3>")
+            elif k == "cta":
+                b, n = cta_buttons(v, lang); out.append(f'<div class="lp-inline-cta">{b[0]}</div>')
+        return "".join(out)
+    def list_html(k, items):
+        cards = card_items(items)
+        if cards:
+            cls = "lp-cards" + (" lp-cards-num" if k == "ol" else "")
+            return f'<div class="{cls}">' + "".join(f'<div class="lp-card reveal">{f"<span class=lp-num>{i + 1:02d}</span>" if k == "ol" else ""}<h3>{inline(a)}</h3><p>{inline(b)}</p></div>' for i, (a, b) in enumerate(cards)) + "</div>"
+        if k == "ol":
+            return '<ol class="lp-olist">' + "".join(f"<li><span>{i + 1}</span><p>{inline(x)}</p></li>" for i, x in enumerate(items)) + "</ol>"
+        return '<ul class="lp-checks">' + "".join(f"<li>{inline(x)}</li>" for x in items) + "</ul>"
+    # comparison table
+    if tables:
+        head_row, *rows = tables[0][1]
+        gm = next((i for i, c in enumerate(head_row) if "getmarketing" in c.lower()), None)
+        def td(i, c, tag="td"): return f'<{tag}{" class=gm" if i == gm else ""}>{inline(c)}</{tag}>'
+        tbl = '<div class="lp-table reveal"><table><thead><tr>' + "".join(td(i, c, "th") for i, c in enumerate(head_row)) + "</tr></thead><tbody>" + "".join("<tr>" + "".join(td(i, c) for i, c in enumerate(r)) + "</tr>" for r in rows) + "</tbody></table></div>"
+        rest = [b for b in blocks if b[0] != "table"]
+        before = []; after = []; seen = False
+        for b in blocks:
+            if b[0] == "table": seen = True; continue
+            (after if seen else before).append(b)
+        def mix(bs): return "".join(list_html(k, v) if k in ("ul", "ol") else text_html([(k, v)]) for k, v in bs)
+        return f'<section class="lp-sec lp-cmp"><div class="wrap"><div class="sec-head reveal"><span class="lp-k">{L["cmp_k"]}</span>{head}<div class="lp-lead">{mix(before)}</div></div>{tbl}<div class="lp-after">{mix(after)}</div></div></section>'
+    # numbered steps written as bold paragraphs
+    if len(steps) >= 3:
+        cards = "".join(f'<div class="lp-step reveal"><span class="lp-num">{i + 1:02d}</span><h3>{inline(a)}</h3><p>{inline(b)}</p></div>' for i, (a, b) in enumerate(steps))
+        return f'<section class="lp-sec lp-steps-sec"><div class="wrap"><div class="sec-head reveal"><span class="lp-k">{L["how_k"]}</span>{head}<div class="lp-lead">{text_html(paras)}</div></div><div class="lp-steps" style="--n:{min(len(steps), 5)}">{cards}</div></div></section>'
+    # list-led section: cards or checks next to the text
+    if lists:
+        body_bits = []
+        for k, v in blocks:
+            body_bits.append(list_html(k, v) if k in ("ul", "ol") else text_html([(k, v)]))
+        has_cards = any(card_items(v) for _, v in lists)
+        if has_cards or lists[0][0] == "ol":
+            return f'<section class="lp-sec"><div class="wrap"><div class="sec-head reveal">{head}</div><div class="lp-body">{"".join(body_bits)}</div></div></section>'
+        return f'<section class="lp-sec lp-split{" lp-flip" if idx % 3 == 1 else ""}"><div class="wrap lp-split-grid"><div class="lp-split-head reveal">{head}</div><div class="lp-split-body reveal">{"".join(body_bits)}</div></div></section>'
+    # quote-only section
+    if paras and all(re.match(r'^[„"“]', " ".join(v)) for _, v in paras):
+        return f'<section class="lp-sec lp-quote-sec"><div class="wrap reveal">{text_html(blocks)}</div></section>'
+    # text-only section
+    return f'<section class="lp-sec lp-split{" lp-flip" if idx % 3 == 1 else ""}"><div class="wrap lp-split-grid"><div class="lp-split-head reveal">{head}</div><div class="lp-split-body lp-prose reveal">{text_html(blocks)}</div></div></section>'
+
+def mid_cta(lang):
+    L = LP[lang]; t = T[lang]
+    return f'<section class="lp-mid"><div class="wrap reveal"><div><h2>{L["mid_h"]}</h2><p>{L["mid_p"]}</p></div><a href="#start" class="btn-hero">{L["mid_btn"]} →</a></div></section>'
+
 def build_page(p, pages):
-    lang, t = p["lang"], T[p["lang"]]
+    lang, t, L = p["lang"], T[p["lang"]], LP[p["lang"]]
     h1, intro, hero_cta, body, closing = split_page(p["blocks"])
-    btns, notes = cta_buttons(hero_cta, lang) if hero_cta else ([f'<a href="{t["start"]}" class="btn-lime">{t["cta"]}</a>'], [])
+    notes = cta_buttons(hero_cta, lang)[1] if hero_cta else []
+    labels = re.findall(r"\[\s*([^\]]+?)\s*\]", hero_cta or "")
+    btn = labels[0] if labels and "plan" not in labels[0].lower() else L["btn"]
+    # proof line right after the hero CTA ("55+ projects · 383,000 ...")
+    proof = ""
+    if body and body[0][0] == "p" and "·" in " ".join(body[0][1]) and re.search(r"\d", " ".join(body[0][1])):
+        proof = "".join(f"<li>{inline(x.strip())}</li>" for x in " ".join(body[0][1]).split("·")); body = body[1:]
+    sents = re.split(r"(?<=[.!?])\s+", " ".join(intro))
+    hero_txt, n = sents[0], 1
+    while n < len(sents) and len(hero_txt) + len(sents[n]) <= 260: hero_txt += " " + sents[n]; n += 1
+    intro_html = inline(hero_txt)
     faq = []
-    article = render_blocks(body, lang, faq)
-    if closing:
-        cb, cnotes = cta_buttons(closing[1], lang)
-        band = f'<h2>{inline(closing[0])}</h2><p>{t["band_p"]}</p><div class="sp-ctas">{"".join(cb)}</div>'
-    else:
-        band = f'<h2>{t["band_h"]}</h2><p>{t["band_p"]}</p><div class="sp-ctas"><a href="{t["start"]}" class="btn-lime">{t["cta"]}</a><a href="{t["plan"]}" class="btn-ghost">{t["plan_cta"]}</a></div>'
-    same = [q for q in pages if q["lang"] == lang and q["slug"] != p["slug"]]
-    k = pages.index(p) % max(1, len(same)); rel = (same[k:] + same[:k])[:6]
-    related = "".join(f'<a href="/{q["slug"]}/"><b>{esc(q["short"])}</b><span>{esc(q["desc"][:120].rsplit(" ", 1)[0])}…</span></a>' for q in rel)
+    secs = sections_of(body)
+    if n < len(sents):
+        lead = ("p", [" ".join(sents[n:])])
+        if secs and not secs[0][0]: secs[0][1].insert(0, lead)
+        elif secs: secs[0][1].insert(0, lead)
+    close_p = t["band_p"]
+    if closing is None and secs and secs[-1][0] and not is_faq(secs[-1][0], lang) and all(k in ("p", "cta") for k, _ in secs[-1][1]):
+        txt = " ".join(" ".join(v) if k == "p" else v for k, v in secs[-1][1])
+        if "[" in txt:
+            closing = (secs[-1][0], ""); secs = secs[:-1]
+            rest = re.sub(r"\[[^\]]*\]", "", txt).strip(" ·")
+            if rest: close_p = inline(rest)
+    blocks_html = []
+    for i, (h2, bs) in enumerate(secs):
+        blocks_html.append(render_section(h2, bs, lang, faq, i))
+        if len(secs) >= 7 and i == len(secs) // 2 - 1: blocks_html.append(mid_cta(lang))
     url = f'{SITE}/{p["slug"]}/'
+    alt = "/" + ALT[p["slug"]] + "/"
     de_s, en_s = (p["slug"], ALT[p["slug"]]) if lang == "de" else (ALT[p["slug"]], p["slug"])
     hreflang = (f'<link rel="alternate" hreflang="de" href="{SITE}/{de_s}/" />\n<link rel="alternate" hreflang="en" href="{SITE}/{en_s}/" />\n'
                 f'<link rel="alternate" hreflang="x-default" href="{SITE}/{en_s}/" />')
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": p["title"], "description": p["desc"], "url": url, "inLanguage": lang,
-           "dateModified": TODAY, "publisher": {"@type": "Organization", "name": "GetMarketing", "url": SITE, "logo": SITE + "/logo.jpg"}},
-          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-              {"@type": "ListItem", "position": 1, "name": "GetMarketing", "item": SITE + t["home"]},
-              {"@type": "ListItem", "position": 2, "name": p["short"], "item": url}]}]
+           "dateModified": TODAY, "publisher": {"@type": "Organization", "name": "GetMarketing", "url": SITE, "logo": SITE + "/logo.jpg"}}]
     if faq:
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(" ".join(a))}} for q, a in faq]})
     ld_html = "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
-    intro_html = "".join(f'<p class="sp-intro">{inline(x)}</p>' for x in intro[:1])
-    extra_intro = "".join(f"<p>{inline(x)}</p>" for x in intro[1:])
-    note = f'<p class="sp-note">{esc(" · ".join(notes))}</p>' if notes else ""
+    facts = " · ".join(notes) if notes else L["facts"]
+    H = home_parts(lang)
+    tool = p["slug"] in TOOL_PAGES
+    form = f'<form class="hero-url" action="#start" data-lead-prefill><input type="text" name="website" inputmode="url" autocomplete="url" placeholder="{L["ph"]}" aria-label="Website"><button type="submit" class="btn-hero">{esc(btn)}</button></form>'
+    app_btn = f'<a href="{L["app"]}" class="btn-hero lp-app-btn">{esc(L["tool_btn"])} →</a>'
+    hero_action = app_btn if tool else form
+    dare = L["tool_dare"] if tool else L["dare"]
+    if tool: facts = L["tool_facts"]
+    closing_html = ""
+    if closing:
+        closing_html = f'<section class="lp-close"><div class="wrap reveal"><h2>{inline(closing[0])}</h2><p>{close_p}</p>{app_btn if tool else form}</div></section>'
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -249,32 +394,42 @@ def build_page(p, pages):
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/seo-page.css?v=4" />
+<link rel="stylesheet" href="/home-hero.css?v=13" />
+<link rel="stylesheet" href="/home.css?v=1" />
+<link rel="stylesheet" href="/theme.css?v=17" />
+<link rel="stylesheet" href="/landing.css?v=1" />
 {ld_html}
+<script defer src="/content-calendar.js?v=9"></script>
+<script defer src="/dash-demo.js?v=1"></script>
+<script defer src="/site.js?v=1"></script>
+<script defer src="/home.js?v=10"></script>
 <script defer src="/analytics.js"></script>
 <script defer src="/nav-menu.js?v=2"></script>
 </head>
-<body>
+<body class="lp">
 <!-- generated from _content/{p["file"]} by _tools/build_seo_pages.py, edit the markdown, not this file -->
-{nav_html(lang, "/" + ALT[p["slug"]] + "/")}
-<header class="sp-hero">
+{nav_for(lang, alt)}
+
+<header class="hero hero-light lp-hero">
   <div class="wrap">
-    <p class="sp-crumbs"><a href="{t["home"]}">{t["crumb_home"]}</a><span>›</span><span>{esc(p["short"])}</span></p>
-    <h1>{inline(h1)}</h1>
-    {intro_html}
-    <div class="sp-ctas">{"".join(btns)}</div>
-    {note}
+    <h1>{h1_html(h1, p["short"])}</h1>
+    <p class="sub">{intro_html}</p>
+    <div class="hero-row">
+      {hero_action}<p class="hero-facts">{esc(facts)}</p>
+    </div>
+    <p class="hero-dare">{dare}</p>
+    {f'<ul class="lp-proof">{proof}</ul>' if proof else ""}
+    {H["dash"]}
   </div>
 </header>
-<main class="sp-main">
-  <div class="wrap"><article class="sp-article">
-{extra_intro}
-{article}
-  </article></div>
-</main>
-<section class="sp-band"><div class="wrap">{band}</div></section>
-<section class="sp-related"><div class="wrap"><h2>{t["related"]}</h2><div class="sp-rel-grid">{related}</div></div></section>
-{footer_html(lang, pages)}
+
+{"".join(blocks_html)}
+
+{closing_html}
+
+{H["sections"]}
+
+{H["footer"]}
 </body>
 </html>
 '''
@@ -320,8 +475,9 @@ def main():
         h1 = next(v for k, v in blocks if k == "h1")
         pages.append(dict(file=f.name, slug=slug, lang=lang, blocks=blocks, title=meta.get("title", plain(h1)), desc=meta.get("description", ""), short=SHORT.get(slug) or short_title(meta.get("title", h1), h1)))
     for p in pages:
-        if p["slug"] in TOOL_PAGES: build_tool(p); print("tool page", p["slug"]); continue
-        out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(no_orphans(build_page(p, pages))); print("page", p["slug"])
+        html_out = build_page(p, pages)
+        if p["slug"] in TOOL_PAGES: html_out = html_out.replace(f'href="{T[p["lang"]]["plan"]}" class="btn-lime"', f'href="{LP[p["lang"]]["app"]}" class="btn-lime"')
+        out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(no_orphans(html_out)); print("page", p["slug"])
     urls = ["/", "/de/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
