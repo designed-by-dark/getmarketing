@@ -15,8 +15,22 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "_content"
 SITE = "https://getmarketing.team"
 TOOL_PAGES = {"marketing-plan-generator", "marketingplan-erstellen"}
-DE_SLUGS = {"ki-marketing-agentur", "ki-marketing-manager", "ki-seo-tool", "marketing-automatisierung", "marketing-ki",
-            "marketingplan-erstellen", "b2b-leadgenerierung", "marketing-fuer-kleine-unternehmen"}
+# German slug -> English slug. Every topic exists in both languages.
+PAIRS = {"ki-marketing-agentur": "ai-marketing-agency", "ki-marketing-manager": "ai-marketing-manager", "ki-seo-tool": "ai-seo-tool",
+         "marketing-automatisierung": "marketing-automation", "marketing-ki": "ai-in-marketing", "b2b-leadgenerierung": "b2b-lead-generation",
+         "marketing-fuer-kleine-unternehmen": "marketing-for-small-businesses", "marketingplan-erstellen": "marketing-plan-generator",
+         "ki-cmo": "ai-cmo", "virtueller-cmo": "virtual-cmo", "ki-marketingteam": "ai-marketing-team",
+         "ki-marketing-automatisierung": "ai-marketing-automation", "marketing-auslagern": "done-for-you-marketing",
+         "seo-automatisieren": "automate-seo", "ki-blogartikel-schreiben": "ai-blog-writing", "saas-marketing": "marketing-for-saas",
+         "b2b-leadgenerierung-strategien": "b2b-lead-generation-strategies", "linkedin-leadgenerierung-b2b": "b2b-linkedin-lead-generation"}
+DE_SLUGS = set(PAIRS)
+# Short names for breadcrumbs, related cards and footers, where the title is too long to shorten automatically
+SHORT = {"ai-blog-writing": "AI Blog Writing", "ai-marketing-automation": "AI Marketing Automation", "ai-marketing-team": "AI Marketing Team",
+         "b2b-lead-generation-strategies": "B2B Lead Generation Strategies", "virtual-cmo": "Virtual CMO",
+         "b2b-leadgenerierung-strategien": "B2B-Leadgenerierung: Strategien", "ki-blogartikel-schreiben": "KI-Blogartikel",
+         "ki-marketing-automatisierung": "KI-Marketing-Automatisierung", "ki-marketingteam": "KI-Marketingteam", "virtueller-cmo": "Virtueller CMO"}
+
+ALT = {**PAIRS, **{en: de for de, en in PAIRS.items()}}
 TODAY = datetime.date.today().isoformat()
 BOLT = '<svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg>'
 
@@ -30,7 +44,7 @@ T = {
             ft_prod="Product", ft_topics="Topics", ft_contact="Contact", ft_start="Get started",
             legal=[("/impressum-en.html", "Legal Notice"), ("/datenschutz-en.html", "Privacy Policy"), ("/de/", "Deutsch")], city="Berlin, Germany"),
  "de": dict(home="/de/", start="/de/#start", plan="/marketingplan-erstellen/", lang_href="/", lang_label="EN",
-            nav=[("/de/#so-funktionierts", "So funktioniert's"), ("/de/#ergebnisse", "Ergebnisse"), ("/de/#diff", "Vergleich"), ("/partners/", "Partner"), ("/marketingplan-erstellen/", "Marketingplan")],
+            nav=[("/de/#so-funktionierts", "So funktioniert's"), ("/de/#ergebnisse", "Ergebnisse"), ("/de/#diff", "Vergleich"), ("/de/partners/", "Partner"), ("/marketingplan-erstellen/", "Marketingplan")],
             cta="Jetzt testen", diag="Diagnose anfragen", plan_cta="Marketingplan erstellen", crumb_home="Start",
             band_h="Dein KI-Marketingteam <span>bringt die Kunden.</span>", band_p="Du gibst frei. Alles andere läuft im Hintergrund.",
             related="Mehr zum Thema", faq_words=("häufige fragen", "faq", "fragen"),
@@ -151,14 +165,14 @@ def split_page(blocks):
         closing = (rest[-2][1], rest[-1][1]); rest = rest[:-2]
     return h1, intro, hero_cta, rest, closing
 
-def nav_html(lang):
+def nav_html(lang, alt=None):
     t = T[lang]
     links = "".join(f'<li><a href="{h}">{esc(x)}</a></li>' for h, x in t["nav"])
     return f'''<nav>
   <div class="wrap nav-inner">
     <a href="{t["home"]}" class="nav-logo"><img src="/logo.jpg" alt="GetMarketing" /><span class="nav-logo-text">GetMarketing</span></a>
     <ul class="nav-links">{links}</ul>
-    <a href="{t["lang_href"]}" class="nav-lang">{t["lang_label"]}</a>
+    <a href="{alt or t["lang_href"]}" class="nav-lang">{t["lang_label"]}</a>
     <a href="{t["start"]}" class="nav-cta">{t["cta"]}</a>
   </div>
 </nav>'''
@@ -173,7 +187,7 @@ def footer_html(lang, pages):
     <div class="ft-grid">
       <div class="ft-brand"><a href="{t["home"]}" class="ft-logo"><img src="/logo.jpg" alt="" /><span>GetMarketing</span></a><p class="ft-tag">{esc(t["ft_tag"])}</p><p class="ft-desc">{esc(t["ft_desc"])}</p></div>
       <div class="ft-col"><h4>{t["ft_prod"]}</h4><ul>{prod}</ul></div>
-      <div class="ft-col"><h4>{t["ft_topics"]}</h4><ul>{topics}</ul></div>
+      <div class="ft-col"><h4>{t["ft_topics"]}</h4><ul class="ft-topics-list">{topics}</ul></div>
       <div class="ft-col"><h4>{t["ft_contact"]}</h4><ul><li><a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a></li><li><a href="{t["start"]}">{t["ft_start"]}</a></li><li>{t["city"]}</li></ul></div>
     </div>
     <div class="ft-bottom"><span>© {TODAY[:4]} GetMarketing</span><div class="ft-legal">{legal}</div></div>
@@ -199,6 +213,9 @@ def build_page(p, pages):
     k = pages.index(p) % max(1, len(same)); rel = (same[k:] + same[:k])[:6]
     related = "".join(f'<a href="/{q["slug"]}/"><b>{esc(q["short"])}</b><span>{esc(q["desc"][:120].rsplit(" ", 1)[0])}…</span></a>' for q in rel)
     url = f'{SITE}/{p["slug"]}/'
+    de_s, en_s = (p["slug"], ALT[p["slug"]]) if lang == "de" else (ALT[p["slug"]], p["slug"])
+    hreflang = (f'<link rel="alternate" hreflang="de" href="{SITE}/{de_s}/" />\n<link rel="alternate" hreflang="en" href="{SITE}/{en_s}/" />\n'
+                f'<link rel="alternate" hreflang="x-default" href="{SITE}/{en_s}/" />')
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": p["title"], "description": p["desc"], "url": url, "inLanguage": lang,
            "dateModified": TODAY, "publisher": {"@type": "Organization", "name": "GetMarketing", "url": SITE, "logo": SITE + "/logo.jpg"}},
           {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -219,6 +236,7 @@ def build_page(p, pages):
 <title>{esc(p["title"])}</title>
 <meta name="description" content="{esc(p["desc"])}" />
 <link rel="canonical" href="{url}" />
+{hreflang}
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{esc(p["title"])}" />
 <meta property="og:description" content="{esc(p["desc"])}" />
@@ -229,14 +247,14 @@ def build_page(p, pages):
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/seo-page.css?v=1" />
+<link rel="stylesheet" href="/seo-page.css?v=2" />
 {ld_html}
 <script defer src="/analytics.js"></script>
 <script defer src="/nav-menu.js?v=2"></script>
 </head>
 <body>
 <!-- generated from _content/{p["file"]} by _tools/build_seo_pages.py, edit the markdown, not this file -->
-{nav_html(lang)}
+{nav_html(lang, "/" + ALT[p["slug"]] + "/")}
 <header class="sp-hero">
   <div class="wrap">
     <p class="sp-crumbs"><a href="{t["home"]}">{t["crumb_home"]}</a><span>›</span><span>{esc(p["short"])}</span></p>
@@ -298,11 +316,11 @@ def main():
         meta, blocks = parse(f.read_text())
         slug = f.stem; lang = "de" if slug in DE_SLUGS else "en"
         h1 = next(v for k, v in blocks if k == "h1")
-        pages.append(dict(file=f.name, slug=slug, lang=lang, blocks=blocks, title=meta.get("title", plain(h1)), desc=meta.get("description", ""), short=short_title(meta.get("title", h1), h1)))
+        pages.append(dict(file=f.name, slug=slug, lang=lang, blocks=blocks, title=meta.get("title", plain(h1)), desc=meta.get("description", ""), short=SHORT.get(slug) or short_title(meta.get("title", h1), h1)))
     for p in pages:
         if p["slug"] in TOOL_PAGES: build_tool(p); print("tool page", p["slug"]); continue
         out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(build_page(p, pages)); print("page", p["slug"])
-    urls = ["/", "/de/", "/partners/", "/press/", "/de/presse/"] + [f'/{p["slug"]}/' for p in pages]
+    urls = ["/", "/de/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")

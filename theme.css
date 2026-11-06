@@ -408,3 +408,9 @@ html nav.menu-open .nav-links { top: calc(100% + 8px); left: 16px; right: 16px; 
 
 /* footer with topics column */
 @media (min-width: 901px) { .ft-grid { grid-template-columns: 1.5fr 1fr 1fr 1.3fr 1.1fr; gap: 32px; } }
+.ft-topics-list { display: block !important; columns: 2; column-gap: 24px; }
+.ft-topics-list li { break-inside: avoid; margin-bottom: 10px; }
+@media (min-width: 901px) { .ft-grid { grid-template-columns: 1.3fr .9fr .9fr 2fr 1fr; } }
+@media (max-width: 520px) { .ft-topics-list { columns: 1; } }
+/* phones: the AI icon makes the pill nav too wide, the burger menu covers it */
+@media (max-width: 440px) { nav .nav-ai { display: none; } }

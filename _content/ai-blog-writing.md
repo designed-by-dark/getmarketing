@@ -1,9 +1,9 @@
-TITLE: AI Blog Writing That Ranks: Researched, Checked and Published | GetMarketing
-DESCRIPTION: AI blog writing that starts with what your buyers search for: GetMarketing researches, writes, quality-checks and publishes guides and pages that rank on Google and in AI answers. €249/month.
+TITLE: AI Blog Writing That Ranks: Researched, Written and Published | GetMarketing
+DESCRIPTION: AI blog writing that starts with what your buyers search for: GetMarketing researches, writes and publishes guides and pages that rank on Google and in AI answers. €249/month.
 
 # AI blog writing that ranks, because it starts with what your buyers search for
 
-Most AI blog writers produce text on request. The result: more posts, but no more visitors. GetMarketing starts earlier. It checks which searches your website is missing, writes guides and pages for exactly those, checks every piece for quality and publishes it after your approval.
+Most AI blog writers produce text on request. The result: more posts, but no more visitors. GetMarketing starts earlier. It checks which searches your website is missing, writes guides and pages for exactly those and publishes them after your approval.
 
 [ Check my website for free ] · €249 per month per domain · cancel monthly
 
@@ -43,13 +43,13 @@ A blog alone rarely fixes visibility. GetMarketing also:
 ## FAQs
 
 **Can AI write a whole blog post?**
-Yes. The real question is whether anyone will search for it and whether it says something specific. That's why GetMarketing plans topics from search data and checks every post.
+Yes. The real question is whether anyone will search for it and whether it says something specific. That's why GetMarketing plans topics from search data and builds every post on your expertise.
 
 **Will Google penalise AI content?**
-Google penalises unhelpful content, especially at scale, not AI as such. Specific, checked posts that answer real searches rank.
+Google penalises unhelpful content, especially at scale, not AI as such. Specific posts that answer real searches rank.
 
 **Can I control tone and brand voice?**
-Yes. Through onboarding, your materials and your edits. What you correct once doesn't come back.
+Yes. Through onboarding, your materials and your edits before approval.
 
 **Does it publish to WordPress?**
 Yes, after your approval.

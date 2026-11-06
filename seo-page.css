@@ -151,3 +151,9 @@ html nav.menu-open .nav-links { top: calc(100% + 8px); left: 16px; right: 16px; 
   .btn-lime, .btn-ghost { width: 100%; }
   .sp-band .wrap { padding: 48px 20px; border-radius: 22px; }
 }
+
+/* topics list in footer: two columns, it holds every topic of one language */
+.ft-topics-list { display: block !important; columns: 2; column-gap: 24px; }
+.ft-topics-list li { break-inside: avoid; margin-bottom: 10px; }
+@media (min-width: 901px) { .ft-grid { grid-template-columns: 1.3fr 1fr 2fr 1fr; } }
+@media (max-width: 600px) { .ft-topics-list { columns: 1; } }
