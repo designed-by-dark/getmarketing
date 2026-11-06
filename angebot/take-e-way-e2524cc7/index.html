@@ -192,6 +192,16 @@
   .mailh small { font-size: 11.5px; color: var(--gray); }
   .nlt { font-size: 15px; line-height: 1.3; }
   .nlb { margin-top: auto; align-self: flex-start; background: var(--forest); color: #fff; font-weight: 700; font-size: 12px; border-radius: 6px; padding: 6px 12px; }
+  .demo { margin-top: 44px; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; }
+  .demo h3 { margin-top: 0; }
+  .demo h4 { font-size: 17px; margin-top: 26px; }
+  .login { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin: 18px 0 4px; padding: 16px 18px; background: var(--tint); border-radius: 12px; }
+  .login dl { display: grid; grid-template-columns: auto auto; gap: 4px 12px; font-size: 14.5px; }
+  .login dt { color: var(--forest); }
+  .login code { font: 600 14px ui-monospace, Menlo, monospace; background: #fff; border-radius: 5px; padding: 2px 7px; color: var(--black); }
+  .demo figure { margin-top: 18px; }
+  .demo img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); background: #1a1a1a; }
+  .demo figcaption { font-size: 13px; color: var(--gray); margin-top: 8px; }
   /* ---------- Example link ---------- */
   .ref { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; text-decoration: none; color: inherit; margin-top: 20px; }
   .ref:hover { border-color: var(--accent); }
@@ -310,6 +320,7 @@
     .person img { width: 64px; height: 64px; }
     .tl div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
     .close { padding: 20px; }
+    .demo { padding: 20px 16px; }
     .callout { padding: 20px; font-size: 16px; }
   }
   @media print {
@@ -567,6 +578,29 @@
 
       <p class="small" style="margin-top:14px">Der Ablauf ist echt, die Texte in den Ausschnitten sind ein Beispiel. Vor dem Einsatz prüft euer Team jeden Text fachlich.</p>
 
+      <div class="demo" id="demo">
+        <h3>Probiert es selbst aus: die Live-Demo</h3>
+        <p>Wir haben das System für take-e-way schon als Demo gebaut. Es liest echte Quellen von dieser Woche, etwa das EU-Amtsblatt, den Bundestag und Fachmedien, prüft, was für eure Kunden relevant ist, und schreibt daraus Fachmeldung, LinkedIn-Post und Newsletter-Baustein. Ihr könnt Meldungen öffnen, bearbeiten und freigeben und seht danach den fertigen TYPO3-Datensatz. Veröffentlicht wird dabei nichts.</p>
+        <div class="login">
+          <a class="btn" href="https://start-berlin.app.n8n.cloud/webhook/take-e-way-dashboard" target="_blank" rel="noopener">Demo öffnen</a>
+          <dl><dt>Benutzer</dt><dd><code>take-e-way</code></dd><dt>Passwort</dt><dd><code>getmarketing</code></dd></dl>
+        </div>
+        <figure>
+          <img src="n8n-workflow.webp" alt="Workflow hinter der Demo: Quellen-Monitoring, Relevanz prüfen, Fachmeldung schreiben, Redaktions-Dashboard, Freigabe und TYPO3" width="2000" height="1032" loading="lazy" />
+          <figcaption>Der Workflow hinter der Demo: Quellen-Monitoring, Relevanzprüfung, Fachmeldung schreiben, Redaktions-Dashboard sowie Freigabe und TYPO3-Datensatz.</figcaption>
+        </figure>
+        <h4>Von der Demo zum Live-System</h4>
+        <p>Die Demo zeigt, wie das System arbeitet. Im Projekt kommt dazu, was es braucht, damit es bei euch jeden Tag zuverlässig läuft:</p>
+        <ul class="list">
+          <li><b>Echte Anbindung an euer TYPO3</b>, abgestimmt auf eure Version und News-Extension und auf eurer Testumgebung geprüft.</li>
+          <li><b>Eure offiziellen Quellen</b> wie stiftung ear, Zentrale Stelle Verpackungsregister und nationale Register, auch wenn sie keinen Feed haben oder nur PDFs veröffentlichen.</li>
+          <li><b>Euer Ton und euer Fachwissen</b> aus eurem News-Archiv. Was als relevant gilt, stimmen wir mit eurer Fachredaktion ab.</li>
+          <li><b>Doppelte Themen erkennen:</b> Berichten drei Quellen über dieselbe Änderung, entsteht eine Meldung statt drei.</li>
+          <li><b>Eigene Zugänge pro Person</b>, Rollen für Redaktion und Freigabe und ein Protokoll, passend zu eurer ISO 27001.</li>
+          <li><b>Betrieb auf eurem Server</b> mit eigenem KI-Zugang, Backups, Kostenkontrolle und einer Warnung, wenn eine Quelle ausfällt.</li>
+        </ul>
+      </div>
+
       <h3>Was das System über take-e-way weiß</h3>
       <p>Damit die Texte nach euch klingen und nicht nach KI, richten wir das System im Kick-off auf take-e-way ein:</p>
       <ul class="list">
@@ -759,6 +793,7 @@
         </ol>
         <div class="btns">
           <a class="btn" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
+          <a class="btn o" href="#demo">Zur Live-Demo</a>
           <a class="btn o" href="mailto:darya@getmarketing.team?subject=take-e-way%20%C2%B7%20News-System">darya@getmarketing.team</a>
         </div>
       </div>
