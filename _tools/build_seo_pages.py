@@ -9,7 +9,9 @@
 - Also writes sitemap.xml and robots.txt.
 Markdown format: first lines "TITLE: ..." and "DESCRIPTION: ...", then "# H1", intro, "[ Button ]" lines.
 """
-import html, json, re, pathlib, datetime
+import html, json, re, pathlib, datetime, sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from no_orphans import fix as no_orphans
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "_content"
@@ -247,7 +249,7 @@ def build_page(p, pages):
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/seo-page.css?v=2" />
+<link rel="stylesheet" href="/seo-page.css?v=4" />
 {ld_html}
 <script defer src="/analytics.js"></script>
 <script defer src="/nav-menu.js?v=2"></script>
@@ -308,7 +310,7 @@ def build_tool(p):
         ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(" ".join(a))}} for q, a in faq]}
         s = s.replace("</head>", f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n</head>', 1)
-    path.write_text(s)
+    path.write_text(no_orphans(s))
 
 def main():
     pages = []
@@ -319,7 +321,7 @@ def main():
         pages.append(dict(file=f.name, slug=slug, lang=lang, blocks=blocks, title=meta.get("title", plain(h1)), desc=meta.get("description", ""), short=SHORT.get(slug) or short_title(meta.get("title", h1), h1)))
     for p in pages:
         if p["slug"] in TOOL_PAGES: build_tool(p); print("tool page", p["slug"]); continue
-        out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(build_page(p, pages)); print("page", p["slug"])
+        out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(no_orphans(build_page(p, pages))); print("page", p["slug"])
     urls = ["/", "/de/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")

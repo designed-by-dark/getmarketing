@@ -157,3 +157,9 @@ html nav.menu-open .nav-links { top: calc(100% + 8px); left: 16px; right: 16px; 
 .ft-topics-list li { break-inside: avoid; margin-bottom: 10px; }
 @media (min-width: 901px) { .ft-grid { grid-template-columns: 1.3fr 1fr 2fr 1fr; } }
 @media (max-width: 600px) { .ft-topics-list { columns: 1; } }
+
+/* no lonely last words */
+h1, h2, h3, .sp-quote, .sp-intro { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
+li, summary, .ft-col a, .sp-rel-grid b { text-wrap: balance; }

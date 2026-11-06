@@ -18,6 +18,16 @@
     var beforeSteps = [[0, 'm'], [1, 'm'], [2, 'm'], [0, 'm'], [3, 'm'], [1, 'd'], [2, 'd']];
     var afterSteps = [[0, 1], [1, 1], [0, 2], [1, 2], [0, 3], [2, 1], [1, 3], [3, 1], [2, 2], [3, 2], [2, 3], [3, 3]];
     var bCol = [], timer = null, tick = 0;
+    var sumPub = ba.querySelector('[data-sum="pub"]'), sumClicks = ba.querySelector('[data-sum="clicks"]'), sumLeads = ba.querySelector('[data-sum="leads"]');
+    var fmt = new Intl.NumberFormat(document.documentElement.lang || 'en');
+    var tot = { pub: 0, clicks: 0, leads: 0 };
+    function showSum() {
+      if (!sumPub) return;
+      sumPub.textContent = tot.pub + '/4';
+      sumClicks.textContent = fmt.format(tot.clicks);
+      sumLeads.textContent = tot.leads;
+      [sumPub, sumClicks, sumLeads].forEach(function (el) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); });
+    }
 
     function place(el, col) { el.style.transform = 'translateX(' + (col * 100) + '%)'; }
     function tag(el, cls, text) { var t = el.querySelector('.ba-tag'); t.className = 'ba-tag ' + cls; t.textContent = text; }
@@ -28,6 +38,7 @@
         place(bItems[i], startCol[i]); bItems[i].classList.remove('dropped'); tag(bItems[i], '', st[0]);
         place(aItems[i], startCol[i]); tag(aItems[i], '', st[0]);
       }
+      tot = { pub: 0, clicks: 0, leads: 0 }; if (sumPub) { sumPub.textContent = '0/4'; sumClicks.textContent = '0'; sumLeads.textContent = '0'; }
     }
     function step() {
       var b = beforeSteps[tick], a = afterSteps[tick];
@@ -36,9 +47,14 @@
         if (b[1] === 'm') { bCol[b[0]] = Math.min(2, bCol[b[0]] + 1); place(el, bCol[b[0]]); tag(el, 'moved', moved); }
         else { el.classList.add('dropped'); tag(el, 'dropped', dropped); }
       }
-      if (a) tag(aItems[a[0]], 's' + a[1], a[1] === 3 && aItems[a[0]].getAttribute('data-res') ? aItems[a[0]].getAttribute('data-res') : st[a[1]]);
+      if (a) {
+        var it = aItems[a[0]];
+        tag(it, 's' + a[1], a[1] === 3 && it.getAttribute('data-res') ? it.getAttribute('data-res') : st[a[1]]);
+        if (a[1] === 2) { tot.pub++; showSum(); }
+        if (a[1] === 3) { tot.clicks += +it.getAttribute('data-clicks') || 0; tot.leads += +it.getAttribute('data-leads') || 0; showSum(); }
+      }
       tick++;
-      if (tick > afterSteps.length + 4) reset();
+      if (tick > afterSteps.length + 7) reset();
     }
     function finalState() {
       reset();
@@ -48,9 +64,22 @@
     if (still) finalState();
     else {
       reset();
-      whenVisible(ba, function () { if (!timer) timer = setInterval(step, 1100); }, function () { clearInterval(timer); timer = null; });
+      whenVisible(ba, function () { if (!timer) timer = setInterval(step, 650); }, function () { clearInterval(timer); timer = null; });
     }
   }
+
+  /* ---- Hero: website field fills the lead form and jumps to it ---- */
+  document.querySelectorAll('form[data-lead-prefill]').forEach(function (f) {
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = f.querySelector('input[name="website"]').value.trim();
+      var lead = document.getElementById('lead-form');
+      var target = document.getElementById('start');
+      if (lead && v) { var w = lead.querySelector('input[name="website"]'); if (w) w.value = v; }
+      if (target) target.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
+      if (lead) { var next = lead.querySelector(v ? 'input[name="name"]' : 'input[name="website"]'); if (next) setTimeout(function () { next.focus({ preventScroll: true }); }, still ? 0 : 600); }
+    });
+  });
 
   /* ---- Cycle ring: dot, trailing arc and active step share one clock ---- */
   var dot = document.getElementById('cyDot'), arc = document.getElementById('cyArc');
