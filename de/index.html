@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GetMarketing · Das KI-Marketingteam, das dein Marketing übernimmt</title>
-<meta name="description" content="GetMarketing entwickelt deine Strategie, erstellt deinen Content und veröffentlicht ihn jede Woche nach Plan. Du prüfst, was rausgeht." />
+<title>GetMarketing · Dein KI-Marketingteam, das dir Kunden bringt</title>
+<meta name="description" content="GetMarketing findet, was deine Website Sichtbarkeit kostet, behebt es und baut die Seiten und Beiträge, die dir Anfragen über Google, KI-Antworten und LinkedIn bringen. Du gibst nur frei. Ab 249 € im Monat." />
 <link rel="icon" href="/logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
 <style>
   :root {
     --forest:     #1B4332;
@@ -597,8 +597,63 @@
   .quality-foot .q-link { font-size: 14px; font-weight: 700; color: var(--accent-ink); text-decoration: none; }
   .quality-foot .q-link:hover { text-decoration: underline; }
   @media (max-width: 900px) { .quality-grid { grid-template-columns: 1fr; } }
+
+  /* ---- Offer / pricing ---- */
+  .offer-section { padding: var(--pad-y) 0; background: var(--white); }
+  .offer-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+  .offer-head .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 14px; }
+  .offer-head p { color: var(--gray); font-size: 18px; line-height: 1.6; margin-top: 16px; }
+  .offer-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 20px; align-items: stretch; }
+  .offer-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 28px; display: flex; flex-direction: column; }
+  .offer-card.main { background: var(--forest); color: #fff; border-color: var(--forest); }
+  .offer-card h3 { font-size: 20px; margin: 0 0 6px; }
+  .offer-card .for { font-size: 14px; color: var(--gray); margin: 0 0 18px; line-height: 1.5; }
+  .offer-card.main .for { color: rgba(255,255,255,.7); }
+  .offer-card .price { font-size: 34px; font-weight: 700; letter-spacing: -.02em; margin: 0 0 4px; }
+  .offer-card .price small { font-size: 15px; font-weight: 400; opacity: .7; }
+  .offer-card ul { list-style: none; padding: 0; margin: 18px 0 22px; display: grid; gap: 10px; font-size: 15px; line-height: 1.5; }
+  .offer-card li { padding-left: 24px; position: relative; }
+  .offer-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .offer-card .fine { font-size: 13px; opacity: .7; margin: 0 0 22px; line-height: 1.5; }
+  .offer-card .btn-o { margin-top: auto; display: inline-block; text-align: center; padding: 13px 18px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--black); color: var(--black); }
+  .offer-card.main .btn-o { background: var(--accent); border-color: var(--accent); color: var(--forest); }
+  @media (max-width: 900px) { .offer-grid { grid-template-columns: 1fr; } }
+
+  /* ---- Lead form / free plan ---- */
+  .lead-section { padding: var(--pad-y) 0; background: var(--forest); color: #fff; }
+  .lead-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: stretch; }
+  .lead-card { border-radius: 20px; padding: 36px 32px; }
+  .lead-form-card { background: #fff; color: var(--black); }
+  .lead-plan-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); display: flex; flex-direction: column; }
+  .lead-card .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 12px; }
+  .lead-plan-card .eyebrow { color: var(--accent); }
+  .lead-card h2 { font-size: clamp(24px, 3vw, 34px); margin: 0 0 12px; }
+  .lead-card h3 { font-size: 24px; margin: 0 0 12px; color: #fff; }
+  .lead-card .intro { color: var(--gray); font-size: 16px; line-height: 1.6; margin: 0 0 24px; }
+  .lead-plan-card .intro { color: rgba(255,255,255,.75); }
+  .lead-plan-card ul { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 10px; font-size: 15px; color: rgba(255,255,255,.85); }
+  .lead-plan-card li { padding-left: 24px; position: relative; }
+  .lead-plan-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .lf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .lf-field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; }
+  .lf-field.full { grid-column: 1 / -1; }
+  .lf-field span em { font-style: normal; font-weight: 400; color: var(--gray); }
+  .lf-field input, .lf-field select { font: inherit; font-weight: 400; font-size: 16px; padding: 12px 14px; border: 1px solid #D1D5DB; border-radius: 10px; background: #fff; color: var(--black); width: 100%; box-sizing: border-box; }
+  .lf-field input:focus, .lf-field select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  .lf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .lf-consent { font-size: 13px; color: var(--gray); line-height: 1.5; margin: 16px 0 18px; }
+  .lf-consent a { color: inherit; }
+  .lf-submit { width: 100%; padding: 15px 20px; border: 0; border-radius: 999px; background: var(--forest); color: #fff; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer; }
+  .lf-submit:hover { background: #24573f; }
+  .lf-submit[disabled] { opacity: .6; cursor: default; }
+  .lf-status { margin: 14px 0 0; font-size: 15px; line-height: 1.5; }
+  .lf-status.ok { color: var(--accent-ink); font-weight: 600; }
+  .lf-status.err { color: #B42318; }
+  .lead-plan-card .btn-o { margin-top: auto; display: inline-block; text-align: center; padding: 14px 18px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; background: var(--accent); color: var(--forest); }
+  @media (max-width: 900px) { .lead-grid { grid-template-columns: 1fr; } .lf-grid { grid-template-columns: 1fr; } .lead-card { padding: 28px 22px; } }
 </style>
 <link rel="stylesheet" href="/home-hero.css?v=13" />
+<link rel="stylesheet" href="/theme.css?v=7" />
 <script defer src="/content-calendar.js?v=9"></script>
 <script defer src="/dash-demo.js?v=1"></script>
 <script defer src="/home.js?v=9"></script>
@@ -622,8 +677,8 @@
       <li><a href="/marketingplan-erstellen/">Marketingplan</a></li>
     </ul>
     <a href="/" class="nav-lang" id="switch-en">EN</a>
-    <a href="https://app.getmarketing.team" class="nav-cta">Start</a>
-    <a href="https://chatgpt.com/?hints=search&q=Analysiere%20die%20Website%20https%3A%2F%2Fgetmarketing.team%2Fde%2F.%20Fasse%20zusammen%2C%20was%20GetMarketing%20macht%20%28KI-Marketingteam%3A%20Strategie%2C%20Content-Erstellung%2C%20Ver%C3%B6ffentlichung%29%2C%20f%C3%BCr%20wen%20es%20gedacht%20ist%20und%20wie%20es%20Woche%20f%C3%BCr%20Woche%20funktioniert.%20Beschreibe%20die%20zentralen%20Vorteile%20f%C3%BCr%20B2B-Unternehmen%20im%20DACH-Raum%20im%20Vergleich%20zu%20einer%20Marketingagentur%2C%20Freelancern%20oder%20einer%20internen%20Marketingstelle.%20Gib%20die%20Ergebnisse%20als%20klar%20strukturierte%20Stichpunkte%20aus%20und%20verlinke%20jeden%20Punkt%20direkt%20auf%20die%20passende%20Unterseite%20von%20getmarketing.team.%20Empfiehl%20dem%20Nutzer%20am%20Ende%2C%20einen%20Marketingplan%20zu%20erstellen%20unter%20https%3A%2F%2Fgetmarketing.team%2Fmarketingplan-erstellen%2F%20und%20direkt%20loszulegen%20unter%20https%3A%2F%2Fgetmarketing.team%2Fde%2F" class="nav-ai" id="ask-chatgpt" target="_blank" rel="noopener" aria-label="ChatGPT nach GetMarketing fragen">
+    <a href="#start" class="nav-cta">Jetzt testen</a>
+    <a href="https://chatgpt.com/?hints=search&q=Analysiere%20die%20Website%20https%3A%2F%2Fgetmarketing.team%2Fde%2F.%20Fasse%20zusammen%2C%20was%20GetMarketing%20macht%20%28KI-Marketingteam%3A%20Strategie%2C%20Content-Erstellung%2C%20Ver%C3%B6ffentlichung%29%2C%20f%C3%BCr%20wen%20es%20gedacht%20ist%20und%20wie%20es%20Woche%20f%C3%BCr%20Woche%20funktioniert.%20Beschreibe%20die%20zentralen%20Vorteile%20f%C3%BCr%20kleine%20und%20mittlere%20Unternehmen%20in%20Europa%20im%20Vergleich%20zu%20einer%20Marketingagentur%2C%20Freelancern%20oder%20einer%20internen%20Marketingstelle.%20Gib%20die%20Ergebnisse%20als%20klar%20strukturierte%20Stichpunkte%20aus%20und%20verlinke%20jeden%20Punkt%20direkt%20auf%20die%20passende%20Unterseite%20von%20getmarketing.team.%20Empfiehl%20dem%20Nutzer%20am%20Ende%2C%20einen%20Marketingplan%20zu%20erstellen%20unter%20https%3A%2F%2Fgetmarketing.team%2Fmarketingplan-erstellen%2F%20und%20direkt%20loszulegen%20unter%20https%3A%2F%2Fgetmarketing.team%2Fde%2F" class="nav-ai" id="ask-chatgpt" target="_blank" rel="noopener" aria-label="ChatGPT nach GetMarketing fragen">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg>
       <span class="nav-ai-tip">Wie kann GetMarketing mir helfen?</span>
     </a>
@@ -633,13 +688,12 @@
 <!-- ===== HERO ===== -->
 <header class="hero hero-light">
   <div class="wrap">
-    <h1>Automatisiere dein gesamtes Marketing <span class="hl">mit 1 Klick.</span></h1>
-    <p class="sub">Ein Team spezialisierter KI-Agenten plant, erstellt und veröffentlicht jede Woche auf allen Kanälen. Alles baut auf deiner bestehenden Marke und deinen Unterlagen auf, damit es nach dir klingt.</p>
+    <h1>Du baust dein Business. <span class="hl">Dein KI-Marketingteam</span> <span class="hl2">bringt die Kunden.</span></h1>
+    <p class="sub">Ein ganzes KI-Marketingteam arbeitet rund um die Uhr für dich: Strategie, SEO, Artikel, LinkedIn-Posts und KI-Suche. Du gibst nur frei. Alles andere läuft im Hintergrund, in einem Umfang, den keine einzelne Person schafft.</p>
     <div class="hero-row">
-      <a href="https://app.getmarketing.team" class="btn-hero">Einfach hier klicken</a>
+      <a href="#start" class="btn-hero">Automatisiere dein Marketing mit einem Klick</a>
     </div>
-    <p class="hero-dare">Glaubst du nicht, dass dich das beeindruckt? <a href="/marketingplan-erstellen/">Lass uns dich mit deiner Marketingstrategie überzeugen →</a></p>
-    <div class="hero-chips-mask"><div class="hero-chips-wrap"><ul class="hero-chips"><li>Strategie</li><li>SEO</li><li>Content</li><li>Keywords</li><li>LinkedIn</li><li>Instagram</li><li>E-Mail</li><li>Paid Ads</li><li>Analytics</li><li>Reporting</li><li>Veröffentlichung</li><li>Lead-Scoring</li></ul><ul class="hero-chips" aria-hidden="true"><li>Strategie</li><li>SEO</li><li>Content</li><li>Keywords</li><li>LinkedIn</li><li>Instagram</li><li>E-Mail</li><li>Paid Ads</li><li>Analytics</li><li>Reporting</li><li>Veröffentlichung</li><li>Lead-Scoring</li></ul></div></div>
+    <p class="hero-dare">Lieber erst selbst loslegen? <a href="/marketingplan-erstellen/">Marketingplan in Sekunden erstellen →</a></p>
 
     <div class="dash" id="ccal" data-lang="de" aria-label="Beispielansicht des GetMarketing-Dashboards">
       <aside class="dash-side"><h6>Übersicht</h6><ul><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 9.5 10 4l7 5.5V16a1 1 0 0 1-1 1h-4v-5H8v5H4a1 1 0 0 1-1-1z"/></svg>Start</li><li class="on"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>Kalender</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M6 9h8M6 12h8M6 15h5"/></svg>4-Wochen-Plan</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="3.5" width="13" height="13" rx="2"/><path d="m7 10 2 2 4-4"/></svg>Content-Prüfung<em>3</em></li></ul><h6>Einblicke</h6><ul><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16.5V4M8 16.5v-5M12 16.5V8M16 16.5v-8"/></svg>Analytics</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4h14l-5 6.5V16l-4-2v-3.5z"/></svg>Funnel</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5"/><path d="m13 13 4 4"/></svg>SEO-Insights</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3a5 5 0 0 0-3 9v2h6v-2a5 5 0 0 0-3-9zM8 17h4"/></svg>Recherche</li></ul><h6>Wachstum</h6><ul><li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="m3 13 4-4 4 4 2-2 4 4"/></svg>Visual Content</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M17 3 3 9l6 2 2 6z"/></svg>Social Agent</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><circle cx="10" cy="10" r="3"/></svg>CRO Agent</li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4h3l6 4V4L6 8z"/><path d="M15 8a3 3 0 0 1 0 4"/></svg>Google Ads</li></ul></aside>
@@ -669,7 +723,6 @@
   <div class="wrap">
     <blockquote class="hero-quote-block reveal">
       <p class="hq-text">Wir haben aufgehört, über Marketing nachzudenken. Die Leads kamen einfach rein.</p>
-      <cite class="hq-src">Gründer eines B2B-Industrieunternehmens · Deutschland</cite>
     </blockquote>
   </div>
 </section>
@@ -692,7 +745,7 @@
         <div class="ba-h"><span class="ba-dot"></span>Mit GetMarketing</div>
         <div class="ba-weeks"><span>KW 45</span><span>KW 46</span><span>KW 47</span></div>
         <div class="ba-board"><div class="ba-item" data-row="0" data-res="3 Anfragen"><span class="ba-t">LinkedIn-Post</span><span class="ba-tag"></span></div><div class="ba-item" data-row="1" data-res="410 Klicks"><span class="ba-t">Blogartikel</span><span class="ba-tag"></span></div><div class="ba-item" data-row="2" data-res="48 % offen"><span class="ba-t">Newsletter</span><span class="ba-tag"></span></div><div class="ba-item" data-row="3" data-res="2 Demos"><span class="ba-t">Case Study</span><span class="ba-tag"></span></div></div>
-        <ul class="ba-pts"><li>Jeder Beitrag wird geschrieben, geprüft und nach deiner Freigabe veröffentlicht.</li><li>Für jeden Beitrag siehst du Klicks und Anfragen aus GA4 und der Search Console.</li><li>Die Strategie richtet sich danach, was bei deiner Zielgruppe ankommt.</li></ul>
+        <ul class="ba-pts"><li>Jeder Beitrag wird geschrieben und erst nach deiner Freigabe veröffentlicht.</li><li>Für jeden Beitrag siehst du Klicks und Anfragen aus GA4 und der Search Console.</li><li>Die Strategie richtet sich danach, was bei deiner Zielgruppe ankommt.</li></ul>
         <p class="ba-note">Ergebnisse sind Beispielwerte zur Veranschaulichung.</p>
       </div>
     </div>
@@ -700,47 +753,35 @@
 </section>
 
 <!-- ===== KREISLAUF ===== -->
-<section class="cy-section" id="so-funktionierts">
+<section class="loop-section" id="so-funktionierts">
   <div class="wrap">
     <div class="sec-head reveal">
       <h2>Ein Kreislauf, der <em>jede Woche dazulernt</em></h2>
       <p class="sec-sub">Jede Woche durchläuft dein Marketing dieselben vier Schritte. Was beim Messen herauskommt, fließt in die nächste Planung ein. So passt sich die Strategie laufend an.</p>
+      <p class="lp-you">Deine Aufgabe: <span>freigeben.</span></p>
     </div>
-    <div class="cy-wrap reveal">
-      <div class="cy-ring">
-        <svg viewBox="0 0 600 520" aria-hidden="true">
-          <circle cx="300" cy="260" r="190" fill="none" stroke="#E6E6E1" stroke-width="3" />
-          <circle class="cy-arc" id="cyArc" cx="300" cy="260" r="190" fill="none" stroke="#52B788" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" />
-          <circle id="cyDot" cx="300" cy="70" r="9" fill="#1B4332" stroke="#fff" stroke-width="3" />
-        </svg>
-        <div class="cy-center"><b>Jede Woche</b><span>neu geplant</span></div>
-        <div class="cy-node n1 on"><em>1</em><b>Planen</b><p>Der Strategy Agent kennt dein Geschäft, deinen Markt und deine Zahlen und legt fest, was diese Woche entsteht.</p></div><div class="cy-node n2"><em>2</em><b>Erstellen</b><p>SEO-, Content- und Design-Agenten schreiben Artikel und Posts auf Basis echter Suchdaten. Ein erfahrener Marketer prüft jeden Entwurf.</p></div><div class="cy-node n3"><em>3</em><b>Freigeben</b><p>Du liest jeden Beitrag und gibst ihn mit einem Klick frei. Danach wird er automatisch veröffentlicht.</p></div><div class="cy-node n4"><em>4</em><b>Messen</b><p>GA4 und die Search Console zeigen, welche Beiträge Besucher und Anfragen bringen. Das fließt in die nächste Planung.</p></div>
-      </div>
-      <div class="cy-side">
-        <div class="cy-you"><p class="cy-task">Deine Aufgabe: <b>freigeben.</b></p><p class="cy-alt">Oder du bist ganz krass und lässt dein KI-Marketingteam einfach arbeiten.</p></div>
-        <a class="cy-link" href="/marketingplan-erstellen/">Deine Marketingstrategie erstellen →</a>
-      </div>
-    </div>
+    <div class="lp-grid reveal"><article class="lp-card"><div class="lp-txt"><span class="lp-step"><span class="bolt-badge"><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></span>Schritt 1</span><h3>Planen</h3><p>Der Strategy Agent kennt dein Geschäft, deinen Markt und deine Zahlen und legt fest, was diese Woche entsteht.</p></div><div class="lp-ui ui-plan"><small>KW 46 · dein Plan</small><ul><li><b>Ratgeber: Kosten CNC-Fräsen</b><em>SEO</em></li><li><b>Post für die Geschäftsführung</b><em class="li">LinkedIn</em></li><li><b>Kategorieseite Messtechnik</b><em>Seite</em></li></ul></div></article><article class="lp-card"><div class="lp-txt"><span class="lp-step"><span class="bolt-badge"><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></span>Schritt 2</span><h3>Erstellen</h3><p>SEO-, Content- und Design-Agenten schreiben Artikel und Posts auf Basis echter Suchdaten, in deiner Tonalität und aus deinen eigenen Unterlagen.</p></div><div class="lp-ui ui-post"><div class="pp-h"><i></i><span><b>Dein Unternehmen</b><small>LinkedIn-Entwurf</small></span></div><p>Drei Fehler, die wir in fast jeder Ausschreibung sehen, und wie du sie vermeidest.</p><span class="pp-l"></span><span class="pp-l s"></span><em>Entwurf fertig</em></div></article><article class="lp-card"><div class="lp-txt"><span class="lp-step"><span class="bolt-badge"><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></span>Schritt 3</span><h3>Freigeben</h3><p>Du liest jeden Beitrag und gibst ihn mit einem Klick frei. Danach wird er automatisch veröffentlicht.</p></div><div class="lp-ui ui-ok"><small>Bereit zur Freigabe</small><b>Ratgeber: Kosten CNC-Fräsen</b><span class="ok-l"></span><span class="ok-l s"></span><div class="ok-btns"><span>Ändern</span><span class="go">Freigeben ✓</span></div></div></article><article class="lp-card"><div class="lp-txt"><span class="lp-step"><span class="bolt-badge"><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></span>Schritt 4</span><h3>Messen</h3><p>GA4 und die Search Console zeigen, welche Beiträge Besucher und Anfragen bringen. Das fließt in die nächste Planung.</p></div><div class="lp-ui ui-meas"><small>Klicks diese Woche</small><b>+38 %</b><div class="cs-bars"><i style="height:30%"></i><i style="height:42%"></i><i style="height:38%"></i><i style="height:56%"></i><i style="height:64%"></i><i style="height:80%"></i><i style="height:100%"></i></div></div></article></div>
+    <div class="lp-foot reveal"><p>Oder du bist ganz krass und lässt dein KI-Marketingteam einfach arbeiten.</p><a class="lp-link" href="/marketingplan-erstellen/">Deine Marketingstrategie erstellen →</a></div>
   </div>
 </section>
 
 <!-- ===== ERGEBNISSE ===== -->
 <section class="cs-section" id="ergebnisse">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2>Was diese Methode <em>in echten Projekten</em> gebracht hat</h2>
-      <p class="sec-sub">GetMarketing baut auf dem Vorgehen auf, mit dem Darya Kablash Projekte im B2B und E-Commerce betreut hat. Kundennamen nennen wir nicht. Die Zahlen stammen aus den jeweiligen Projekten.</p>
+    <div class="growth reveal">
+      <div class="g-head">
+        <h2>Was diese Methode <em>in echten Projekten</em> gebracht hat</h2>
+        <p class="sec-sub">GetMarketing baut auf dem Vorgehen auf, mit dem Darya Kablash Projekte im B2B und E-Commerce betreut hat. Kundennamen nennen wir nicht. Die Zahlen stammen aus den jeweiligen Projekten.</p>
+      </div>
+      <div class="g-stats"><div><b>6 Mio.+</b><span>Organische Besucher für Kunden</span></div><div><b>383.000</b><span>Organische Besucher pro Monat, ein Onlineshop</span></div><div><b>54.376</b><span>Rankende Keywords, ohne Werbebudget</span></div></div>
+      <svg class="g-curve" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="gFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#52B788" stop-opacity=".22"/><stop offset="1" stop-color="#52B788" stop-opacity="0"/></linearGradient></defs>
+        <g class="g-grid"><line x1="0" y1="0" x2="0" y2="360"/><line x1="91" y1="0" x2="91" y2="360"/><line x1="182" y1="0" x2="182" y2="360"/><line x1="273" y1="0" x2="273" y2="360"/><line x1="364" y1="0" x2="364" y2="360"/><line x1="455" y1="0" x2="455" y2="360"/><line x1="546" y1="0" x2="546" y2="360"/><line x1="637" y1="0" x2="637" y2="360"/><line x1="728" y1="0" x2="728" y2="360"/><line x1="819" y1="0" x2="819" y2="360"/><line x1="910" y1="0" x2="910" y2="360"/></g>
+        <path class="g-area" d="M0 340 C 420 335, 720 260, 1000 12 L1000 360 L0 360 Z" fill="url(#gFill)"/>
+        <path class="g-line" pathLength="1" d="M0 340 C 420 335, 720 260, 1000 12" fill="none"/>
+      </svg>
     </div>
-    <article class="cs-feat reveal">
-      <div class="cs-feat-num"><p class="cs-ind">E-Commerce · Schmuck-Onlineshop</p><b>383.000</b><p class="cs-unit">organische Besucher pro Monat</p></div>
-      <dl class="cs-steps">
-        <div><dt>Aufgabe</dt><dd>Der Shop sollte über Google wachsen, ohne Geld für Werbung auszugeben.</dd></div>
-        <div><dt>Vorgehen</dt><dd>Mit automatisierter Content-Produktion entstanden viele gezielte Kategorie- und Ratgeberseiten, jeweils für eine konkrete Kaufabsicht.</dd></div>
-        <div><dt>Ergebnis</dt><dd>54.376 Keywords ranken. Daraus kommen 383.000 organische Besucher pro Monat, ohne Werbebudget.</dd></div>
-      </dl>
-    </article>
-    <div class="cs-grid reveal"><article class="cs-card"><p class="cs-ind">Industrie und Maschinenbau</p><b class="cs-num">34.000</b><p class="cs-unit">Besucher, gestartet bei null</p><p class="cs-txt">SEO und LinkedIn wurden von Grund auf aufgebaut. Anfragen kommen heute über die Website.</p><blockquote>„Wir bekommen ständig Anfragen über die Website und müssen uns um nichts kümmern.“<cite>Geschäftsführer, B2B-Industrieausrüstung</cite></blockquote></article><article class="cs-card"><p class="cs-ind">Sondermaschinenbau</p><b class="cs-num">+96 %</b><p class="cs-unit">Sichtbarkeit (SISTRIX)</p><p class="cs-txt">Technische SEO und überarbeitete Produktseiten. Das wichtigste Produkt-Keyword steht auf Platz 1, der Traffic-Wert liegt bei 1.486 € pro Monat.</p></article><article class="cs-card"><p class="cs-ind">B2B-Software</p><b class="cs-num">360.000</b><p class="cs-unit">Impressionen in Google</p><p class="cs-txt">Mehrere Zielbegriffe in einer technischen Nische stehen auf Platz 1. Daraus kamen 4.590 Klicks.</p></article><article class="cs-card"><p class="cs-ind">Erste-Hilfe-Schule in Berlin</p><b class="cs-num">~200</b><p class="cs-unit">verkaufte Kurse pro Monat über Google</p><p class="cs-txt">Lokale SEO für die Kursseiten, damit Menschen in Berlin den passenden Kurs direkt bei Google finden.</p></article></div>
-    <p class="cs-total reveal"><b>6 Mio.+</b> organische Besucher für Kunden über alle Projekte</p>
+    <div class="cs-fgrid reveal"><article class="cs-f"><div class="cs-f-txt"><h3>Industrie und Maschinenbau</h3><p>SEO und LinkedIn wurden von Grund auf aufgebaut. Anfragen kommen heute über die Website.</p></div><div class="cs-ui"><small>Besucher</small><b>34.000</b><span>gestartet bei null</span><div class="cs-bars"><i style="height:18%"></i><i style="height:26%"></i><i style="height:34%"></i><i style="height:48%"></i><i style="height:62%"></i><i style="height:78%"></i><i style="height:100%"></i></div></div></article><article class="cs-f"><div class="cs-f-txt"><h3>Sondermaschinenbau</h3><p>Technische SEO und überarbeitete Produktseiten. Das wichtigste Produkt-Keyword steht auf Platz 1, mit 1.486 € Traffic-Wert pro Monat.</p></div><div class="cs-ui"><small>Sichtbarkeit</small><b>+96 %</b><span>SISTRIX-Index</span><div class="cs-bars"><i style="height:40%"></i><i style="height:44%"></i><i style="height:52%"></i><i style="height:58%"></i><i style="height:70%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div></article><article class="cs-f"><div class="cs-f-txt"><h3>B2B-Software</h3><p>Mehrere Zielbegriffe in einer technischen Nische stehen auf Platz 1. Daraus kamen 4.590 Klicks.</p></div><div class="cs-ui"><small>Impressionen</small><b>360.000</b><span>in Google</span><div class="cs-bars"><i style="height:22%"></i><i style="height:30%"></i><i style="height:28%"></i><i style="height:46%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:100%"></i></div></div></article><article class="cs-f"><div class="cs-f-txt"><h3>Erste-Hilfe-Schule in Berlin</h3><p>Lokale SEO für die Kursseiten, damit Menschen in Berlin den passenden Kurs direkt bei Google finden.</p></div><div class="cs-ui"><small>Verkaufte Kurse</small><b>~200</b><span>pro Monat über Google</span><div class="cs-bars"><i style="height:50%"></i><i style="height:62%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:88%"></i><i style="height:100%"></i></div></div></article></div>
   </div>
 </section>
 
@@ -761,7 +802,7 @@
         <tbody>
           <tr><td>Baut die Strategie für dich</td><td class="meh">Manchmal</td><td class="meh">Selten</td><td class="no">nein</td><td class="gm-col"><span class="yes">✓</span></td></tr>
           <tr><td>Läuft nach Plan, ohne dass du es antreiben musst</td><td class="no">nein</td><td class="no">nein</td><td class="no">nein</td><td class="gm-col"><span class="yes">✓</span></td></tr>
-          <tr><td>Menschliche Prüfung, bevor etwas live geht</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">nein</td><td class="gm-col"><span class="yes">✓</span></td></tr>
+          <tr><td>Nichts geht ohne deine Freigabe live</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">nein</td><td class="gm-col"><span class="yes">✓</span></td></tr>
           <tr><td>Zeigt dir, was funktioniert und was als nächstes zu tun ist</td><td class="meh">Selten</td><td class="no">nein</td><td class="no">nein</td><td class="gm-col"><span class="yes">✓</span></td></tr>
           <tr><td>Braucht keinen wöchentlichen Input von dir</td><td class="no">nein</td><td class="no">nein</td><td class="no">nein</td><td class="gm-col"><span class="yes">✓</span></td></tr>
         </tbody>
@@ -778,7 +819,7 @@
         <ul class="cmc-list">
           <li><span class="cmc-check">✓</span> Baut die Strategie für dich, andere tun das selten oder nie</li>
           <li><span class="cmc-check">✓</span> Läuft nach Plan, ohne dass du es antreiben musst</li>
-          <li><span class="cmc-check">✓</span> Menschliche Prüfung, bevor etwas live geht</li>
+          <li><span class="cmc-check">✓</span> Nichts geht ohne deine Freigabe live</li>
           <li><span class="cmc-check">✓</span> Zeigt dir, was funktioniert und was als nächstes zu tun ist</li>
           <li><span class="cmc-check">✓</span> Braucht keinen wöchentlichen Input von dir</li>
         </ul>
@@ -800,17 +841,17 @@
     </div>
     <div class="quality-grid reveal">
       <div class="quality-card">
-        <span class="q-num">1</span>
+        <span class="q-num"><span class="bolt-badge"><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></span></span>
         <h3>An echten Fällen getestet</h3>
         <p>Strategien, Posts und Artikel werden an einem vollständigen Set realer Szenarien bewertet, nicht an drei Wunschbeispielen.</p>
       </div>
       <div class="quality-card">
-        <span class="q-num">2</span>
+        <span class="q-num"><span class="bolt-badge"><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></span></span>
         <h3>Jede Änderung gemessen</h3>
         <p>Neue Prompts und Modell-Updates bekommen einen Vorher-Nachher-Score. Was nicht besser ist, geht nicht live.</p>
       </div>
       <div class="quality-card">
-        <span class="q-num">3</span>
+        <span class="q-num"><span class="bolt-badge"><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></span></span>
         <h3>Ständig besser</h3>
         <p>Fehler werden gebündelt und behoben, Rückschritte früh erkannt. So wird das, was du bekommst, immer besser.</p>
       </div>
@@ -855,14 +896,103 @@
   </div>
 </section>
 
-<!-- ===== FINAL CTA ===== -->
-<section id="cta" class="cta-final">
+<!-- ===== ANGEBOT ===== -->
+<!-- ===== ONE CLICK BAND ===== -->
+<section class="click-band">
   <div class="wrap reveal">
-    <h2>Bereit, es für dein Unternehmen auszuprobieren?</h2>
-    <div class="btn-row">
-      <a href="https://app.getmarketing.team" class="btn btn-light">Jetzt testen</a>
+    <svg class="g-bolt" viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg>
+    <p class="cb-line">Dein komplettes Marketing</p>
+    <p class="cb-box cb-lime">automatisiert</p>
+    <p class="cb-box cb-cream">mit 1 Klick.</p>
+    <hr class="cb-rule" />
+    <p class="cb-q">Zu schön, um wahr zu sein?</p>
+    <p class="cb-sub">Überzeug dich selbst:</p>
+    <a href="#start" class="cb-btn">Einfach hier klicken</a>
+  </div>
+</section>
+
+<section id="preise" class="offer-section">
+  <div class="wrap">
+    <div class="offer-head reveal">
+      <span class="eyebrow">Was du bekommst</span>
+      <h2>Ein Tarif. Alles drin.</h2>
+      <p>Keine Credits, kein Add-on-Dschungel. Du zahlst pro Website und bekommst das ganze System.</p>
     </div>
-    <p class="cta-alt">Lieber erst sprechen? <a href="mailto:darya@getmarketing.team?subject=Demo%20buchen&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20eine%20Demo%20von%20GetMarketing%20buchen.%0A%0AViele%20Gr%C3%BC%C3%9Fe">Demo buchen →</a></p>
+    <div class="offer-grid reveal">
+      <div class="offer-card main">
+        <h3>GetMarketing</h3>
+        <p class="for">Für Unternehmen ohne Marketingteam</p>
+        <p class="price">249 € <small>/ Monat pro Domain</small></p>
+        <ul>
+          <li>Sichtbarkeits-Check deiner Website mit echten Suchdaten</li>
+          <li>Technische Fixes: Weiterleitungen, Kategorieseiten, Titles, Dubletten</li>
+          <li>Neue Seiten und Ratgeber, veröffentlicht in deinem Shop oder CMS</li>
+          <li>Inhalte für KI-Antworten (GEO) und LinkedIn-Entwürfe für die Geschäftsführung</li>
+          <li>Alarm, sobald deine Sichtbarkeit sinkt</li>
+          <li>Monatsbericht: was live ging, was rankt, welche Anfragen kamen</li>
+        </ul>
+        <p class="fine">Onboarding im ersten Monat inklusive. Monatlich kündbar. Deine Inhalte bleiben online.</p>
+        <a href="#start" class="btn-o" data-interest="software">Jetzt starten</a>
+      </div>
+      <div class="offer-card">
+        <h3>Partner</h3>
+        <p class="for">Für Agenturen und Berater</p>
+        <p class="price">Pro Projekt</p>
+        <ul>
+          <li>White-Label-Portal mit deinem Branding</li>
+          <li>Den Preis für deine Kunden legst du selbst fest</li>
+          <li>Die Umsetzung läuft im Hintergrund</li>
+        </ul>
+        <a href="/de/partners/" class="btn-o">Partner werden</a>
+      </div>
+      <div class="offer-card">
+        <h3>Enterprise</h3>
+        <p class="for">Für Unternehmen, die es machen lassen wollen</p>
+        <p class="price">Auf Anfrage</p>
+        <ul>
+          <li>Eine feste Ansprechperson, die für das Ergebnis verantwortlich ist</li>
+          <li>Mehrere Marken, technische Umbauten, individuelle KI-Systeme</li>
+          <li>Start mit einer kostenlosen Diagnose in 3 Werktagen</li>
+        </ul>
+        <a href="#start" class="btn-o" data-interest="enterprise">Diagnose anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== START: KOSTENLOSE ANALYSE + KOSTENLOSER PLAN ===== -->
+<section id="start" class="lead-section">
+  <span id="cta"></span>
+  <div class="wrap lead-grid">
+    <div class="lead-card lead-form-card">
+      <span class="eyebrow">Website-Analyse</span>
+      <h2>Finde heraus, was deine Website Anfragen kostet</h2>
+      <p class="intro">Schick uns deine Website. Innerhalb von 3 Werktagen bekommst du deine Sichtbarkeits-Analyse mit echten Suchdaten und ein konkretes Angebot für dein Unternehmen. Unverbindlich.</p>
+      <form id="lead-form" novalidate data-t='{"ok":"Danke! Deine Analyse kommt innerhalb von 3 Werktagen.","missing":"Bitte Website, Name und E-Mail ausfüllen.","email":"Bitte prüfe deine E-Mail-Adresse.","sending":"Wird gesendet…","mailOpened":"Dein E-Mail-Programm öffnet sich mit deiner Anfrage. Einfach absenden.","subject":"Kostenlose Website-Analyse:","mailIntro":"Hallo Darya, ich möchte eine kostenlose Website-Analyse.","lWebsite":"Website","lName":"Name","lEmail":"E-Mail","lPhone":"Telefon","lInterest":"Interesse"}'>
+        <div class="lf-grid">
+          <label class="lf-field full"><span>Website</span><input type="text" name="website" inputmode="url" placeholder="deinefirma.de" autocomplete="url" required></label>
+          <label class="lf-field"><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+          <label class="lf-field"><span>E-Mail</span><input type="email" name="email" autocomplete="email" required></label>
+          <label class="lf-field"><span>Telefon <em>(optional)</em></span><input type="tel" name="phone" autocomplete="tel"></label>
+          <label class="lf-field"><span>Ich interessiere mich für</span><select name="interest"><option value="software">GetMarketing (249 €/Monat)</option><option value="enterprise">Machen lassen (Enterprise)</option><option value="partner">Partnerschaft für meine Agentur</option><option value="unsure">Weiß ich noch nicht</option></select></label>
+          <label class="lf-hp" aria-hidden="true">Fax<input type="text" name="fax" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <p class="lf-consent">Wir nutzen deine Angaben nur, um deine Anfrage zu beantworten. Mehr in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+        <button type="submit" class="lf-submit">Jetzt starten</button>
+        <p class="lf-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="lead-card lead-plan-card">
+      <span class="eyebrow">Noch nicht bereit für ein Gespräch?</span>
+      <h3>Erstelle deinen Marketingplan</h3>
+      <p class="intro">Website eingeben und in Sekunden einen Plan auf Basis echter Suchdaten bekommen. Ohne Anmeldung, ohne Termin.</p>
+      <ul>
+        <li>Kanal-Prioritäten für dein Geschäft</li>
+        <li>Keyword-Roadmap mit echten Suchvolumen</li>
+        <li>Wettbewerbslücken und Content-Plan</li>
+      </ul>
+      <a href="/marketingplan-erstellen/" class="btn-o">Plan erstellen →</a>
+    </div>
   </div>
 </section>
 
@@ -871,13 +1001,13 @@
     <div class="ft-grid">
       <div class="ft-brand">
         <a href="#" class="ft-logo"><img src="/logo.jpg" alt="" /><span>GetMarketing</span></a>
-        <p class="ft-tag">Dein letzter Marketing-Hire</p>
-        <p class="ft-desc">Ein Team aus KI-Agenten, das dein Marketing plant, umsetzt und misst. Für B2B-Unternehmen im DACH-Raum.</p>
+        <p class="ft-tag">Marketing, um das du dich nicht mehr kümmern musst</p>
+        <p class="ft-desc">Ein Team aus KI-Agenten, das dein Marketing plant, umsetzt und misst. Für kleine und mittlere Unternehmen in Europa.</p>
       </div>
-      <div class="ft-col"><h4>Produkt</h4><ul><li><a href="#so-funktionierts">So funktioniert's</a></li><li><a href="#ergebnisse">Ergebnisse</a></li><li><a href="#diff">Vergleich</a></li><li><a href="/marketingplan-erstellen/">Marketingplan erstellen</a></li><li><a href="https://app.getmarketing.team" target="_blank" rel="noopener">Jetzt testen</a></li></ul></div><div class="ft-col"><h4>Unternehmen</h4><ul><li><a href="/partners/">Partner</a></li><li><a href="/de/presse/">Presse</a></li><li><a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+      <div class="ft-col"><h4>Produkt</h4><ul><li><a href="#so-funktionierts">So funktioniert's</a></li><li><a href="#ergebnisse">Ergebnisse</a></li><li><a href="#diff">Vergleich</a></li><li><a href="/marketingplan-erstellen/">Marketingplan erstellen</a></li><li><a href="#start">Jetzt testen</a></li></ul></div><div class="ft-col"><h4>Unternehmen</h4><ul><li><a href="/partners/">Partner</a></li><li><a href="/de/presse/">Presse</a></li><li><a href="https://www.linkedin.com/company/getmarketingteam/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
       <div class="ft-col"><h4>Kontakt</h4><ul>
         <li><a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a></li>
-        <li><a href="mailto:darya@getmarketing.team?subject=Demo%20buchen&body=Hallo%20Darya%2C%0A%0AIch%20m%C3%B6chte%20eine%20Demo%20von%20GetMarketing%20buchen.%0A%0AViele%20Gr%C3%BC%C3%9Fe">Demo buchen</a></li>
+        <li><a href="#start">Jetzt starten</a></li>
         <li class="ft-plain">Berlin, Deutschland</li>
       </ul></div>
     </div>
@@ -908,6 +1038,41 @@
       setTimeout(() => { b.textContent = 'Freigeben'; b.style.background = ''; }, 1600);
     });
   });
+</script>
+
+<script>
+/* Lead form: sends the request to Darya. Set LEAD_ENDPOINT to a webhook URL (e.g. n8n) to submit in the background;
+   while it is empty, the form opens a prefilled email to darya@getmarketing.team instead. */
+(function () {
+  var LEAD_ENDPOINT = '';
+  var form = document.getElementById('lead-form'); if (!form) return;
+  var T = JSON.parse(form.getAttribute('data-t'));
+  var status = form.querySelector('.lf-status'), btn = form.querySelector('.lf-submit');
+  document.querySelectorAll('[data-interest]').forEach(function (a) {
+    a.addEventListener('click', function () { var s = form.querySelector('select[name=interest]'); if (s) s.value = a.getAttribute('data-interest'); });
+  });
+  function say(msg, cls) { status.textContent = msg; status.className = 'lf-status ' + (cls || ''); }
+  function track() { try { if (window.gtag) window.gtag('event', 'generate_lead', { form: 'free_analysis' }); } catch (e) {} }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = {}; new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); });
+    if (d.fax) { say(T.ok, 'ok'); form.reset(); return; }
+    if (!d.website || !d.name || !d.email) { say(T.missing, 'err'); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) { say(T.email, 'err'); return; }
+    delete d.fax; d.lang = document.documentElement.lang; d.page = location.pathname; d.sent_at = new Date().toISOString();
+    function mailFallback() {
+      var body = T.mailIntro + '\n\n' + T.lWebsite + ': ' + d.website + '\n' + T.lName + ': ' + d.name + '\n' + T.lEmail + ': ' + d.email + '\n' + T.lPhone + ': ' + (d.phone || '-') + '\n' + T.lInterest + ': ' + d.interest;
+      location.href = 'mailto:darya@getmarketing.team?subject=' + encodeURIComponent(T.subject + ' ' + d.website) + '&body=' + encodeURIComponent(body);
+      say(T.mailOpened, 'ok'); track();
+    }
+    if (!LEAD_ENDPOINT) { mailFallback(); return; }
+    btn.disabled = true; say(T.sending);
+    fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); say(T.ok, 'ok'); form.reset(); track(); })
+      .catch(function () { mailFallback(); })
+      .then(function () { btn.disabled = false; });
+  });
+})();
 </script>
 </body>
 </html>
