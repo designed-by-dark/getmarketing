@@ -397,7 +397,7 @@ def build_page(p, pages):
 <link rel="stylesheet" href="/home-hero.css?v=13" />
 <link rel="stylesheet" href="/home.css?v=1" />
 <link rel="stylesheet" href="/theme.css?v=17" />
-<link rel="stylesheet" href="/landing.css?v=1" />
+<link rel="stylesheet" href="/landing.css?v=2" />
 {ld_html}
 <script defer src="/content-calendar.js?v=9"></script>
 <script defer src="/dash-demo.js?v=1"></script>

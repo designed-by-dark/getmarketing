@@ -136,7 +136,8 @@
 .lp-split-head h2 { font-size: clamp(26px, 2.7vw, 38px); hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
 .lp-sec .sec-head h2, .lp-faq-head h2 { hyphens: auto; -webkit-hyphens: auto; }
 .lp-defs { display: grid; gap: 10px; }
-.lp-def { padding: 16px 18px; border-radius: 14px; background: #F5F6F3; border-left: 3px solid var(--lime); }
+.lp-def { padding: 16px 18px; border-radius: 14px; background: #F5F6F3; }
+.lp-def b::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); margin-right: 9px; vertical-align: 2px; }
 .lp-def b { display: block; font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
 .lp-def p { font-size: 15.5px !important; line-height: 1.6 !important; margin: 0 !important; }
 .lp-flip .lp-def { background: rgba(255,255,255,.06); }
