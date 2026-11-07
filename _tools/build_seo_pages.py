@@ -172,14 +172,14 @@ HOME_FILE = {"en": ROOT / "index.html", "de": ROOT / "de" / "index.html"}
 # homepage sections every landing page carries after its own content (in this order)
 HOME_SECTIONS = ["offer-section", "lead-section"]
 LP = {
- "en": dict(facts="Free demo and website analysis · no credit card needed", ph="yourcompany.com", btn="Check my website for free",
+ "en": dict(facts="Free demo and website analysis · reply within 3 working days", ph="yourcompany.com", btn="Check my website for free",
             dare='Prefer to start on your own? <a href="/marketing-plan-generator/">Generate your marketing plan in seconds&nbsp;→</a>',
             mid_h="Rather have it done for you?", mid_p="Send us your website. Within 3 working days you know what is costing you enquiries, and what to do about it.",
-            mid_btn="Get my free analysis", app="https://app.getmarketing.team", tool_btn="Generate my marketing plan", tool_facts="Free · no credit card · ready in seconds", tool_dare='Rather have it done for you? <a href="#start">Get a free website analysis&nbsp;→</a>', faq_k="FAQ", how_k="How it works", cmp_k="Comparison", who_k="Who it is for"),
- "de": dict(facts="Kostenlose Demo und Website-Analyse · ohne Kreditkarte", ph="deinefirma.de", btn="Website kostenlos prüfen",
+            mid_btn="Get my free analysis", app="https://app.getmarketing.team", tool_btn="Generate my marketing plan", tool_facts="Free · ready in seconds", tool_dare='Rather have it done for you? <a href="#start">Get a free website analysis&nbsp;→</a>', faq_k="FAQ", how_k="How it works", cmp_k="Comparison", who_k="Who it is for"),
+ "de": dict(facts="Kostenlose Demo und Website-Analyse · Antwort in 3 Werktagen", ph="deinefirma.de", btn="Website kostenlos prüfen",
             dare='Lieber erst selbst loslegen? <a href="/marketingplan-erstellen/">Erstelle deinen Marketingplan in Sekunden&nbsp;→</a>',
             mid_h="Lieber machen lassen?", mid_p="Schick uns deine Website. In 3 Werktagen weißt du, was dich Anfragen kostet, und was dagegen hilft.",
-            mid_btn="Kostenlose Analyse anfordern", app="https://app.getmarketing.team", tool_btn="Marketingplan erstellen", tool_facts="Kostenlos · ohne Kreditkarte · in Sekunden fertig", tool_dare='Lieber machen lassen? <a href="#start">Kostenlose Website-Analyse anfordern&nbsp;→</a>', faq_k="FAQ", how_k="So läuft es", cmp_k="Vergleich", who_k="Für wen"),
+            mid_btn="Kostenlose Analyse anfordern", app="https://app.getmarketing.team", tool_btn="Marketingplan erstellen", tool_facts="Kostenlos · in Sekunden fertig", tool_dare='Lieber machen lassen? <a href="#start">Kostenlose Website-Analyse anfordern&nbsp;→</a>', faq_k="FAQ", how_k="So läuft es", cmp_k="Vergleich", who_k="Für wen"),
 }
 _HOME = {}
 
