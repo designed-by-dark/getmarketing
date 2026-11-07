@@ -541,3 +541,19 @@ li, summary, .ft-col a, .sp-rel-grid b { text-wrap: balance; }
 }
 @media (min-width: 901px) { .ft-grid { grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px; } }
 .lead-section .lf-grid > .lf-field:nth-child(n+4) { grid-column: 1 / -1; }
+
+/* hero pull-quote: one line on desktop, site font */
+.hero-quote-block { max-width: none; }
+.hq-text { font-size: clamp(20px, 2.1vw, 28px); text-wrap: pretty; }
+@media (min-width: 1100px) { .hq-text { white-space: nowrap; } }
+
+/* tighter rhythm between homepage blocks */
+.ba-section, #how-it-works, #results, #diff, .quality-section, .about-section { padding-top: 56px !important; padding-bottom: 56px !important; }
+.hero-quote { padding: 56px 0 8px; }
+.offer-section, #pricing { padding-bottom: 72px; }
+.mission-section { padding-bottom: 72px; }
+@media (max-width: 760px) {
+  .ba-section, #how-it-works, #results, #diff, .quality-section, .about-section { padding-top: 40px !important; padding-bottom: 40px !important; }
+}
+.diff-head { display: block; max-width: 760px; margin: 0 0 40px; text-align: left; }
+.diff-head .body { margin-top: 16px; }

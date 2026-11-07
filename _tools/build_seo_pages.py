@@ -170,13 +170,13 @@ def split_page(blocks):
 # ---------- Landing page template: homepage design, homepage sales sections ----------
 HOME_FILE = {"en": ROOT / "index.html", "de": ROOT / "de" / "index.html"}
 # homepage sections every landing page carries after its own content (in this order)
-HOME_SECTIONS = ["ba-section", "loop-section", "cs-section", 'id="diff"', "about-section", "click-band", "offer-section", "lead-section", "mission-section"]
+HOME_SECTIONS = ["offer-section", "lead-section"]
 LP = {
- "en": dict(facts="Takes 2 minutes · €249 a month · cancel monthly", ph="yourcompany.com", btn="Check my website for free",
+ "en": dict(facts="Free demo and website analysis · no credit card needed", ph="yourcompany.com", btn="Check my website for free",
             dare='Prefer to start on your own? <a href="/marketing-plan-generator/">Generate your marketing plan in seconds&nbsp;→</a>',
             mid_h="Rather have it done for you?", mid_p="Send us your website. Within 3 working days you know what is costing you enquiries, and what to do about it.",
             mid_btn="Get my free analysis", app="https://app.getmarketing.team", tool_btn="Generate my marketing plan", tool_facts="Free · no credit card · ready in seconds", tool_dare='Rather have it done for you? <a href="#start">Get a free website analysis&nbsp;→</a>', faq_k="FAQ", how_k="How it works", cmp_k="Comparison", who_k="Who it is for"),
- "de": dict(facts="Dauert 2 Minuten · 249 € im Monat · monatlich kündbar", ph="deinefirma.de", btn="Website kostenlos prüfen",
+ "de": dict(facts="Kostenlose Demo und Website-Analyse · ohne Kreditkarte", ph="deinefirma.de", btn="Website kostenlos prüfen",
             dare='Lieber erst selbst loslegen? <a href="/marketingplan-erstellen/">Erstelle deinen Marketingplan in Sekunden&nbsp;→</a>',
             mid_h="Lieber machen lassen?", mid_p="Schick uns deine Website. In 3 Werktagen weißt du, was dich Anfragen kostet, und was dagegen hilft.",
             mid_btn="Kostenlose Analyse anfordern", app="https://app.getmarketing.team", tool_btn="Marketingplan erstellen", tool_facts="Kostenlos · ohne Kreditkarte · in Sekunden fertig", tool_dare='Lieber machen lassen? <a href="#start">Kostenlose Website-Analyse anfordern&nbsp;→</a>', faq_k="FAQ", how_k="So läuft es", cmp_k="Vergleich", who_k="Für wen"),
@@ -246,6 +246,8 @@ def step_paras(blocks):
         if m: out.append((m.group(1).rstrip(":."), m.group(2)))
     return out
 
+BOLT = '<svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg>'
+
 def render_section(h2, blocks, lang, faq, idx):
     """One H2 section of the markdown as a landing-page block."""
     L = LP[lang]; head = f'<h2>{inline(h2)}</h2>' if h2 else ""
@@ -280,9 +282,12 @@ def render_section(h2, blocks, lang, faq, idx):
         return "".join(out)
     def list_html(k, items):
         cards = card_items(items)
+        if cards and k == "ol":
+            step_w = "Schritt" if lang == "de" else "Step"
+            return f'<div class="lpc-steps" style="--n:{min(len(cards), 5)}">' + "".join(f'<div class="lpc-step reveal"><span class="lpc-chip"><span class="bolt-badge">{BOLT}</span>{step_w} {i + 1}</span><h3>{inline(a)}</h3><p>{inline(b)}</p></div>' for i, (a, b) in enumerate(cards)) + "</div>"
         if cards:
-            cls = "lp-cards" + (" lp-cards-num" if k == "ol" else "")
-            return f'<div class="{cls}">' + "".join(f'<div class="lp-card reveal">{f"<span class=lp-num>{i + 1:02d}</span>" if k == "ol" else ""}<h3>{inline(a)}</h3><p>{inline(b)}</p></div>' for i, (a, b) in enumerate(cards)) + "</div>"
+            cls = "lpc-cards"
+            return f'<div class="{cls}">' + "".join(f'<div class="lpc-card reveal">{f"<span class=lp-num>{i + 1:02d}</span>" if k == "ol" else ""}<h3>{inline(a)}</h3><p>{inline(b)}</p></div>' for i, (a, b) in enumerate(cards)) + "</div>"
         if k == "ol":
             return '<ol class="lp-olist">' + "".join(f"<li><span>{i + 1}</span><p>{inline(x)}</p></li>" for i, x in enumerate(items)) + "</ol>"
         return '<ul class="lp-checks">' + "".join(f"<li>{inline(x)}</li>" for x in items) + "</ul>"
@@ -301,8 +306,9 @@ def render_section(h2, blocks, lang, faq, idx):
         return f'<section class="lp-sec lp-cmp"><div class="wrap"><div class="sec-head reveal"><span class="lp-k">{L["cmp_k"]}</span>{head}<div class="lp-lead">{mix(before)}</div></div>{tbl}<div class="lp-after">{mix(after)}</div></div></section>'
     # numbered steps written as bold paragraphs
     if len(steps) >= 3:
-        cards = "".join(f'<div class="lp-step reveal"><span class="lp-num">{i + 1:02d}</span><h3>{inline(a)}</h3><p>{inline(b)}</p></div>' for i, (a, b) in enumerate(steps))
-        return f'<section class="lp-sec lp-steps-sec"><div class="wrap"><div class="sec-head reveal"><span class="lp-k">{L["how_k"]}</span>{head}<div class="lp-lead">{text_html(paras)}</div></div><div class="lp-steps" style="--n:{min(len(steps), 5)}">{cards}</div></div></section>'
+        step_w = "Schritt" if lang == "de" else "Step"
+        cards = "".join(f'<div class="lpc-step reveal"><span class="lpc-chip"><span class="bolt-badge">{BOLT}</span>{step_w} {i + 1}</span><h3>{inline(a)}</h3><p>{inline(b)}</p></div>' for i, (a, b) in enumerate(steps))
+        return f'<section class="lp-sec lpc-steps-sec"><div class="wrap"><div class="sec-head reveal"><span class="lp-k">{L["how_k"]}</span>{head}<div class="lp-lead">{text_html(paras)}</div></div><div class="lpc-steps" style="--n:{min(len(steps), 5)}">{cards}</div></div></section>'
     # list-led section: cards or checks next to the text
     if lists:
         body_bits = []
@@ -321,6 +327,42 @@ def render_section(h2, blocks, lang, faq, idx):
 def mid_cta(lang):
     L = LP[lang]; t = T[lang]
     return f'<section class="lp-mid"><div class="wrap reveal"><div><h2>{L["mid_h"]}</h2><p>{L["mid_p"]}</p></div><a href="#start" class="btn-hero">{L["mid_btn"]} →</a></div></section>'
+
+MKT = {
+ "en": dict(tag="Market scan", ex="Example", site="yourcompany.com", region="Germany", scanning="Scanning your market",
+   steps=[("Search demand in your niche", "1,240 queries"), ("Competitors on Google", "8 companies"),
+          ("Mentions in AI answers", "ChatGPT · Perplexity · Gemini"), ("Gaps competitors leave open", "23 topics")],
+   opp="Biggest opportunities", cols=("Search query", "per month", "Competition"),
+   rows=[("commercial cleaning Munich", "880", "low"), ("office cleaning company", "1,300", "medium"),
+         ("cost of commercial cleaning", "590", "low"), ("eco cleaning for businesses", "320", "low")],
+   vis="Visibility in your market", bars=[("Competitor A", 64), ("Competitor B", 41), ("You", 9)],
+   done="Plan ready: 3 priorities for the next 90 days"),
+ "de": dict(tag="Marktanalyse", ex="Beispiel", site="deinefirma.de", region="Deutschland", scanning="Dein Markt wird analysiert",
+   steps=[("Suchnachfrage in deiner Nische", "1.240 Suchanfragen"), ("Wettbewerber bei Google", "8 Unternehmen"),
+          ("Nennungen in KI-Antworten", "ChatGPT · Perplexity · Gemini"), ("Lücken, die Wettbewerber offen lassen", "23 Themen")],
+   opp="Größte Chancen", cols=("Suchanfrage", "pro Monat", "Wettbewerb"),
+   rows=[("Gebäudereinigung München", "880", "gering"), ("Büroreinigung Firma", "1.300", "mittel"),
+         ("Gebäudereinigung Kosten", "590", "gering"), ("nachhaltige Reinigung Unternehmen", "320", "gering")],
+   vis="Sichtbarkeit in deinem Markt", bars=[("Wettbewerber A", 64), ("Wettbewerber B", 41), ("Du", 9)],
+   done="Plan fertig: 3 Prioritäten für die nächsten 90 Tage"),
+}
+
+def market_demo(lang):
+    M = MKT[lang]; d = 0.0
+    def nd():
+        nonlocal d; d += 0.35; return f"{d:.2f}s"
+    steps = "".join(f'<li class="mk-in" style="--d:{nd()}"><span class="mk-ok">✓</span><span>{esc(a)}</span><b>{esc(b)}</b></li>' for a, b in M["steps"])
+    rows = "".join(f'<tr class="mk-in" style="--d:{nd()}"><td>{esc(q)}</td><td>{esc(v)}</td><td><span class="mk-lvl mk-{"lo" if c in ("low", "gering") else "mid"}">{esc(c)}</span></td></tr>' for q, v, c in M["rows"])
+    bars = "".join(f'<div class="mk-bar mk-in{" mk-you" if i == len(M["bars"]) - 1 else ""}" style="--d:{nd()};--w:{w}%"><span>{esc(n)}</span><i><em></em></i><b>{w}%</b></div>' for i, (n, w) in enumerate(M["bars"]))
+    return f'''<div class="mkt-demo" aria-label="{esc(M["tag"])} ({esc(M["ex"])})">
+      <div class="mk-top"><span class="mk-tag">{esc(M["tag"])}</span><span class="mk-search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m14 14 4 4"/></svg>{esc(M["site"])} · {esc(M["region"])}</span><span class="mk-ex">{esc(M["ex"])}</span></div>
+      <div class="mk-grid">
+        <div class="mk-col"><p class="mk-h">{esc(M["scanning"])}</p><div class="mk-prog"><i></i></div><ul class="mk-steps">{steps}</ul>
+          <p class="mk-h mk-h2">{esc(M["vis"])}</p>{bars}</div>
+        <div class="mk-col mk-panel"><p class="mk-h">{esc(M["opp"])}</p><table class="mk-table"><thead><tr><th>{esc(M["cols"][0])}</th><th>{esc(M["cols"][1])}</th><th>{esc(M["cols"][2])}</th></tr></thead><tbody>{rows}</tbody></table>
+          <p class="mk-done mk-in" style="--d:{nd()}"><span class="bolt-badge">{BOLT}</span>{esc(M["done"])}</p></div>
+      </div>
+    </div>'''
 
 def build_page(p, pages):
     lang, t, L = p["lang"], T[p["lang"]], LP[p["lang"]]
@@ -364,7 +406,7 @@ def build_page(p, pages):
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(" ".join(a))}} for q, a in faq]})
     ld_html = "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
-    facts = " · ".join(notes) if notes else L["facts"]
+    facts = L["facts"]
     H = home_parts(lang)
     tool = p["slug"] in TOOL_PAGES
     form = f'<form class="hero-url" action="#start" data-lead-prefill><input type="text" name="website" inputmode="url" autocomplete="url" placeholder="{L["ph"]}" aria-label="Website"><button type="submit" class="btn-hero">{esc(btn)}</button></form>'
@@ -394,10 +436,10 @@ def build_page(p, pages):
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/home-hero.css?v=13" />
 <link rel="stylesheet" href="/home.css?v=1" />
-<link rel="stylesheet" href="/theme.css?v=17" />
-<link rel="stylesheet" href="/landing.css?v=2" />
+<link rel="stylesheet" href="/home-hero.css?v=14" />
+<link rel="stylesheet" href="/theme.css?v=18" />
+<link rel="stylesheet" href="/landing.css?v=4" />
 {ld_html}
 <script defer src="/content-calendar.js?v=9"></script>
 <script defer src="/dash-demo.js?v=1"></script>
@@ -419,7 +461,7 @@ def build_page(p, pages):
     </div>
     <p class="hero-dare">{dare}</p>
     {f'<ul class="lp-proof">{proof}</ul>' if proof else ""}
-    {H["dash"]}
+    {market_demo(lang) if tool else H["dash"]}
   </div>
 </header>
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Give the hand-built pages (partners, press, legal) the homepage look:
-homepage nav + footer, homepage CSS stack, lead form and mission on the sales pages."""
+homepage nav + footer, homepage CSS stack, lead form on the sales pages."""
 import re, pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import build_seo_pages as B
@@ -11,14 +11,13 @@ PAGES = {  # file: (lang, counterpart, kind)
  "impressum.html": ("de", "/impressum-en.html", "legal"), "impressum-en.html": ("en", "/impressum.html", "legal"),
  "datenschutz.html": ("de", "/datenschutz-en.html", "legal"), "datenschutz-en.html": ("en", "/datenschutz.html", "legal"),
 }
-CSS = ('<link rel="stylesheet" href="/home-hero.css?v=13" />\n<link rel="stylesheet" href="/home.css?v=1" />\n'
-       '<link rel="stylesheet" href="/theme.css?v=17" />\n<link rel="stylesheet" href="/landing.css?v=1" />\n<link rel="stylesheet" href="/subpage.css?v=1" />')
+CSS = ('<link rel="stylesheet" href="/home.css?v=1" />\n<link rel="stylesheet" href="/home-hero.css?v=14" />\n'
+       '<link rel="stylesheet" href="/theme.css?v=18" />\n<link rel="stylesheet" href="/landing.css?v=1" />\n<link rel="stylesheet" href="/subpage.css?v=2" />')
 FONT = '<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />'
 
 def lead_and_mission(lang):
     secs = B.home_parts(lang)["sections"]
-    out = [re.search(r'<section id="start" class="lead-section">.*?</section>', secs, re.S).group(0),
-           re.search(r'<section class="mission-section">.*?</section>', secs, re.S).group(0)]
+    out = [re.search(r'<section id="start" class="lead-section">.*?</section>', secs, re.S).group(0)]
     return "\n\n".join(out)
 
 for rel, (lang, alt, kind) in PAGES.items():
