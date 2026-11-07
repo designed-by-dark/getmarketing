@@ -438,7 +438,7 @@ def build_page(p, pages):
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/home.css?v=1" />
 <link rel="stylesheet" href="/home-hero.css?v=14" />
-<link rel="stylesheet" href="/theme.css?v=19" />
+<link rel="stylesheet" href="/theme.css?v=20" />
 <link rel="stylesheet" href="/landing.css?v=4" />
 {ld_html}
 <script defer src="/content-calendar.js?v=9"></script>
