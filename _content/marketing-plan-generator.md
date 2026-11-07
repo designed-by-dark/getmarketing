@@ -3,7 +3,7 @@ DESCRIPTION: Generate a free marketing plan from your website: channel prioritie
 
 # Free AI marketing plan generator
 
-Enter your website and get a marketing plan built on real search data: what to focus on, which searches to win and what to publish in the next weeks. It's free and needs no credit card. If you want it carried out, GetMarketing does that too.
+Enter your website and get a marketing plan built on real search data: what to focus on, which searches to win and what to publish in the next weeks. It's free. If you want it carried out, GetMarketing does that too.
 
 [ Generate my marketing plan ]
 
@@ -52,7 +52,7 @@ A plan only helps if someone carries it out. That is usually where marketing sta
 ## Common questions
 
 **Is the marketing plan generator really free?**
-Yes. No credit card, and you keep the plan.
+Yes. And you keep the plan.
 
 **How accurate are the search volumes?**
 They are real monthly values for your market, from Google Ads data via DataForSEO.

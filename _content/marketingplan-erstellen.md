@@ -3,7 +3,7 @@ DESCRIPTION: Marketingplan kostenlos erstellen, aus deiner Website und echten Su
 
 # Marketingplan erstellen: kostenlos und auf Basis echter Suchdaten
 
-Gib deine Website ein und bekomm einen Marketingplan, der auf echten Suchdaten beruht: worauf du dich konzentrieren solltest, welche Suchanfragen du gewinnen kannst und was in den nächsten Wochen veröffentlicht werden sollte. Kostenlos, ohne Kreditkarte. Und wenn du willst, setzt GetMarketing ihn auch um.
+Gib deine Website ein und bekomm einen Marketingplan, der auf echten Suchdaten beruht: worauf du dich konzentrieren solltest, welche Suchanfragen du gewinnen kannst und was in den nächsten Wochen veröffentlicht werden sollte. Kostenlos. Und wenn du willst, setzt GetMarketing ihn auch um.
 
 [ Marketingplan erstellen ]
 
@@ -62,7 +62,7 @@ Ein Plan hilft nur, wenn ihn jemand umsetzt. Genau daran scheitert Marketing in 
 ## Häufige Fragen
 
 **Ist der Marketingplan-Generator wirklich kostenlos?**
-Ja. Ohne Kreditkarte, und der Plan gehört dir.
+Ja. Und der Plan gehört dir.
 
 **Woher kommen die Suchvolumen?**
 Es sind echte monatliche Werte für Deutschland, aus Google-Ads-Daten über DataForSEO.
