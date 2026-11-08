@@ -60,7 +60,7 @@ Entscheidend ist aber nicht die KI, sondern die Reihenfolge. Wir beginnen nicht 
 - +96 % Sichtbarkeit im Sondermaschinenbau, das wichtigste Produkt-Keyword auf Platz 1
 - Rund 200 verkaufte Kurse pro Monat über Google für eine Erste-Hilfe-Schule in Berlin
 
-„Wir bekommen ständig Anfragen über die Website und müssen uns um nichts kümmern.“ Geschäftsführer, B2B-Industrieausrüstung
+„Her work contributed meaningfully to increasing our brand visibility and recognition in a niche B2B market.“ Nicholas Ottersbach, Commercial & BD Leader, Energy & Climate Tech (Original auf Englisch)
 
 ## Häufige Fragen
 

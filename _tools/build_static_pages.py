@@ -121,7 +121,7 @@ def page(lang, key, title, desc, h1, sub, action, dare, body, ld, alt_lang_url):
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/home.css?v=1" />
 <link rel="stylesheet" href="/home-hero.css?v=15" />
-<link rel="stylesheet" href="/theme.css?v=21" />
+<link rel="stylesheet" href="/theme.css?v=25" />
 <link rel="stylesheet" href="/landing.css?v=4" />
 {EXTRA_CSS}
 <script defer src="/site.js?v=1"></script>

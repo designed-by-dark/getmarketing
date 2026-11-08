@@ -55,7 +55,7 @@ Für Unternehmen, die eine feste Person wollen, die das Ergebnis verantwortet:
 - +96 % Sichtbarkeit für einen Sondermaschinenbauer
 - Rund 200 verkaufte Kurse im Monat über Google für eine Erste-Hilfe-Schule in Berlin
 
-„Wir haben aufgehört, über Marketing nachzudenken. Die Leads kamen einfach weiter.“ Gründer, B2B-Industrieausrüstung
+„What I particularly appreciated was the combination of speed, professionalism, and good value for money.“ Katya de Fredericksz, Startup-Mentorin bei Techstars und Google for Startups (Original auf Englisch)
 
 ## Häufige Fragen zum Auslagern von Marketing
 

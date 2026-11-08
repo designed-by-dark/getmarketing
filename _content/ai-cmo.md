@@ -60,7 +60,7 @@ If you want a person to own the whole thing, or you need a custom AI system, our
 
 ## What clients say
 
-"We get inquiries through the website all the time and don't have to do anything." Managing director, B2B industrial equipment
+"Her work contributed meaningfully to increasing our brand visibility and recognition in a niche B2B market." Nicholas Ottersbach, Commercial & BD Leader, Energy & Climate Tech
 
 ## AI CMO FAQs
 

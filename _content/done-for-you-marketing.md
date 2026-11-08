@@ -55,7 +55,7 @@ For companies that want a named person who owns the result:
 - +96% visibility for a special machinery manufacturer
 - About 200 courses sold a month via Google for a first-aid school in Berlin
 
-"We stopped thinking about marketing. Leads just kept coming in." Founder, B2B industrial equipment, Germany
+"What I particularly appreciated was the combination of speed, professionalism, and good value for money." Katya de Fredericksz, startup mentor at Techstars and Google for Startups
 
 ## Done-for-you marketing FAQs
 

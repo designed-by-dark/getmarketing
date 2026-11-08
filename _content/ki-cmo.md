@@ -60,7 +60,7 @@ Wenn du eine Person willst, die das Ganze verantwortet, oder ein individuelles K
 
 ## Was Kunden sagen
 
-„Wir bekommen ständig Anfragen über die Website und müssen nichts dafür tun.“ Geschäftsführer, B2B-Industrieausrüstung
+„Her work contributed meaningfully to increasing our brand visibility and recognition in a niche B2B market.“ Nicholas Ottersbach, Commercial & BD Leader, Energy & Climate Tech (Original auf Englisch)
 
 ## Häufige Fragen zum KI-CMO
 

@@ -60,7 +60,7 @@ What matters most is not the AI, but the order of work. We don't start with an e
 - +96% visibility in special machinery, with the most important product keyword at position 1
 - Around 200 courses sold per month via Google for a first-aid school in Berlin
 
-"We get enquiries through the website all the time and don't have to worry about a thing." Managing director, B2B industrial equipment
+"Her work contributed meaningfully to increasing our brand visibility and recognition in a niche B2B market." Nicholas Ottersbach, Commercial & BD Leader, Energy & Climate Tech
 
 ## Frequently asked questions
 

@@ -56,7 +56,7 @@ GetMarketing is built on the approach Darya Kablash used in more than 55 project
 - +96% visibility in special machinery, with the main product keyword at #1
 - 383,943 organic visitors a month for an online jewelry shop, with about 15 new pages a month
 
-"We get inquiries through the website all the time and don't have to do anything." Managing director, B2B industrial equipment
+"Her work contributed meaningfully to increasing our brand visibility and recognition in a niche B2B market." Nicholas Ottersbach, Commercial & BD Leader, Energy & Climate Tech
 
 ## FAQs
 

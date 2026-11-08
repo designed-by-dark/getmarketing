@@ -12,7 +12,7 @@ PAGES = {  # file: (lang, counterpart, kind)
  "datenschutz.html": ("de", "/datenschutz-en.html", "legal"), "datenschutz-en.html": ("en", "/datenschutz.html", "legal"),
 }
 CSS = ('<link rel="stylesheet" href="/home.css?v=1" />\n<link rel="stylesheet" href="/home-hero.css?v=15" />\n'
-       '<link rel="stylesheet" href="/theme.css?v=21" />\n<link rel="stylesheet" href="/landing.css?v=1" />\n<link rel="stylesheet" href="/subpage.css?v=2" />')
+       '<link rel="stylesheet" href="/theme.css?v=25" />\n<link rel="stylesheet" href="/landing.css?v=4" />\n<link rel="stylesheet" href="/subpage.css?v=2" />')
 FONT = '<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />'
 
 def lead_and_mission(lang):

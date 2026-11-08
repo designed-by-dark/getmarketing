@@ -56,7 +56,7 @@ GetMarketing beruht auf dem Ansatz, den Darya Kablash in über 55 Projekten eing
 - +96 % Sichtbarkeit im Sondermaschinenbau, mit dem wichtigsten Produkt-Keyword auf Platz 1
 - 383.943 organische Besucher im Monat für einen Schmuck-Onlineshop, mit rund 15 neuen Seiten pro Monat
 
-„Wir bekommen ständig Anfragen über die Website und müssen nichts dafür tun.“ Geschäftsführer, B2B-Industrieausrüstung
+„Her work contributed meaningfully to increasing our brand visibility and recognition in a niche B2B market.“ Nicholas Ottersbach, Commercial & BD Leader, Energy & Climate Tech (Original auf Englisch)
 
 ## Häufige Fragen
 
