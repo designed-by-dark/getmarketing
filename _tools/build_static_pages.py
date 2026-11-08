@@ -81,7 +81,7 @@ EXTRA_CSS = """<style>
 </style>"""
 
 
-def page(lang, key, title, desc, h1, sub, action, dare, body, ld, alt_lang_url):
+def page(lang, key, title, desc, h1, sub, action, dare, body, ld, alt_lang_url, hero_extra=""):
     nav, foot, offer, lead = home_parts(lang)
     url = SITE + PATHS[key][lang]
     other = "de" if lang == "en" else "en"
@@ -142,6 +142,7 @@ def page(lang, key, title, desc, h1, sub, action, dare, body, ld, alt_lang_url):
     </div>
     <p class="hero-dare">{dare}</p>
   </div>
+  {hero_extra}
 </header>
 
 {body}
@@ -290,67 +291,8 @@ def enterprise(lang):
             ("Can you work with our developer or freelancer?", "Yes. We brief your own freelancer or developer, and they keep doing the parts they already&nbsp;do."),
             ("Do you also run ads?", "Yes, Google Ads and Google Shopping are available as an add-on in Enterprise. They are not part of the&nbsp;software."),
             ("Who is behind it?", "Darya Kablash, with more than 8 years in B2B marketing in the DACH region and over 55 completed projects. Every Enterprise client works with her directly, not with&nbsp;juniors.")]
-        body = "\n\n".join([
-            cards("What we have built for&nbsp;clients", [
-                ("NEWS", "Law changes into three texts", "Every morning the system reads EU law sources, drops what creates no new obligation and turns each real change into a website article, a LinkedIn post and a newsletter item. After approval the article goes straight into&nbsp;TYPO3."),
-                ("3 SHOPS", "Three online shops, one cockpit", "Visibility recovered after a domain move, duplicates between the shops resolved, new pages for wholesale and private label, and social posts for all three brands from one&nbsp;login."),
-                ("SHOP", "~15 new SEO pages a month", "For a jewelry shop with a large range: category pages instead of filter URLs, clear product titles and a steady flow of new SEO pages. Today 383,943 organic visitors a&nbsp;month."),
-                ("B2B", "Expert knowledge that AI cites", "For an industry association: existing expertise turned into articles that Google and AI answers use as a source, plus LinkedIn posts for the&nbsp;board."),
-                ("AMAZON", "Own shop next to Amazon", "A lean shop, Google Shopping set up once and SEO running every month, so a product sold on Amazon gets a second channel that it&nbsp;owns."),
-                ("AGENCY", "White label for an agency", "The agency sets the positioning. The system produces articles, posts and landing pages, and clients see it all in a portal with the agency’s&nbsp;brand.")],
-                k="Workflows", sub="Every company works differently, so we build the workflow around yours. A few examples from projects and offers, without client&nbsp;names."),
-            split("Fully automated, and it still doesn’t sound like&nbsp;AI", ul([
-                "<strong>Every text starts from a real source:</strong> your documents, the original law text, real search data. Not from what a chatbot happens to know",
-                "<strong>It sounds like you.</strong> The system knows your past texts, your terms and your no-gos, so nobody has to explain them again",
-                "<strong>A named person reads every text</strong> before you see it, and fixes what doesn’t sound right",
-                "<strong>Built to be found and quoted:</strong> the answer in the first two sentences, deadlines and facts at a glance, a link to the right page of yours",
-                "<strong>It learns from your corrections.</strong> What you change once stays changed",
-                "<strong>No mass content.</strong> Pages only where people actually search, so Google has no reason to see it as&nbsp;spam"]), k="Quality", flip=True),
-            steps("From diagnosis to&nbsp;results", [
-                ("STEP 0", "Visibility diagnosis", "Free", [
-                    "Analysis of your domain with SISTRIX, Semrush, DataForSEO and Search Console",
-                    "What lost visibility costs you, as one number",
-                    "A ranked list of the levers that bring enquiries"]),
-                ("STEP 1", "Foundation sprint", "from €990, one time", [
-                    "Technical clean-up: redirects, categories instead of filter URLs, duplicates, titles and H1",
-                    "GA4 and Search Console connected",
-                    "Strategy and page plan",
-                    "Your cockpit, for several brands if you need it"]),
-                ("STEP 2", "Ongoing work", "from €750 a month", [
-                    "Finished pages live in your shop or CMS: category pages, guides, pages for AI answers",
-                    "LinkedIn drafts for the company and management",
-                    "A monthly report in business language",
-                    "A named person who checks every text before you approve"]),
-                ("STEP 3", "Custom workflows", "Per project", [
-                    "Automation built for your processes, like the examples above",
-                    "Handed over with support, or run and maintained by us for a monthly fee"])],
-                k="How it works", sub="It always starts with the diagnosis. After that we suggest what fits, with a fixed price. Ongoing work is per domain, with a minimum of 3 months and monthly after&nbsp;that."),
-            split("One page for your&nbsp;IT", ul([
-                "<strong>Read-only first, step by step.</strong> The diagnosis needs only read access to Search Console. CMS access comes later, once the first changes are approved",
-                "<strong>Every change can be undone.</strong> Each change is logged as before and after and can be rolled back with one click",
-                "<strong>Content and SEO settings through your CMS.</strong> Theme code only when agreed with you, and documented",
-                "<strong>Hosting in Germany</strong> at Hetzner, GDPR-compliant",
-                "<strong>Nothing goes live without approval</strong>, and nothing is posted on LinkedIn automatically",
-                "<strong>No lock-in.</strong> Content belongs to you and stays online after you&nbsp;cancel"]) +
-                '<p><a href="javascript:window.print()">Print this page for your IT&nbsp;team</a></p>', k="Security", flip=True, sid="it"),
-            table("Compared with an agency, a freelancer or a&nbsp;consultant", ["", "What clients told us bothers them", "GetMarketing Enterprise"], [
-                ["Agency, €2,000–7,000 a month", "Expensive, juniors do the work, results are hard to trace", "From €750 a month, the founder checks the work&nbsp;herself"],
-                ["Freelancers", "They keep changing, nobody checks them", "One system with fixed responsibility. We brief your freelancer&nbsp;too"],
-                ["Consultant, about €7,000 one time", "Expensive, a concept without execution", "The diagnosis is free, execution is&nbsp;included"]], k="Compare"),
-            cards("What this method achieved in real&nbsp;projects", [
-                ("55+", "Completed projects", "More than 8 years of B2B marketing in the DACH&nbsp;region."),
-                ("383,000", "Organic visitors a month", "One online shop, without ad&nbsp;budget."),
-                ("+96%", "Visibility", "Special machinery, SISTRIX&nbsp;index."),
-                ("~200", "Courses sold a month", "A first-aid school, via&nbsp;Google.")], k="Results", sub="We don’t name clients. The numbers come from the respective&nbsp;projects."),
-            faq_section(lang, faq_items, sec_id="enterprise-faq"),
-            "{LEAD}", pre])
-        page(lang, "enterprise", "Enterprise · GetMarketing",
-             "Your entire marketing automated, built around your workflows, and it still doesn't sound like AI. A named person checks every text and owns the result.",
-             '<span class="hl">Enterprise:</span> <span class="h1-rest">your entire marketing automated, and it still doesn’t sound like&nbsp;AI</span>',
-             "We build the system around how your company works: fixes, pages, LinkedIn, newsletters, custom workflows. A named person checks every text and owns the&nbsp;result.",
-             '<a href="#start" class="btn-hero" data-interest="enterprise">Book a free diagnosis</a>',
-             'Prefer the software? <a href="/pricing/">See pricing&nbsp;→</a>',
-             body, [faq_ld(lang, faq_items)], PATHS["enterprise"]["de"])
+        import enterprise_page
+        enterprise_page.build(lang, faq_items, pre)
     else:
         faq_items = [
             ("Was ist bei Enterprise anders als im Tarif für 249 €?", "Es läuft auf demselben System. In der Software macht das System die Arbeit und prüft die Qualität automatisch, und du gibst frei. Bei Enterprise prüft eine feste Person jeden Text, übernimmt die technische Arbeit, auch Theme-Code und Ladezeit, und ist für das Ergebnis&nbsp;verantwortlich."),
@@ -359,67 +301,8 @@ def enterprise(lang):
             ("Arbeitet ihr mit unserem Entwickler oder Freelancer zusammen?", "Ja. Wir briefen deinen eigenen Freelancer oder Entwickler, und er macht weiter, was er schon&nbsp;macht."),
             ("Schaltet ihr auch Werbung?", "Ja, Google Ads und Google Shopping gibt es bei Enterprise als Add-on. In der Software sind sie nicht&nbsp;enthalten."),
             ("Wer steckt dahinter?", "Darya Kablash, mit mehr als 8 Jahren B2B-Marketing im DACH-Raum und über 55 abgeschlossenen Projekten. Jeder Enterprise-Kunde arbeitet direkt mit ihr, nicht mit&nbsp;Junioren.")]
-        body = "\n\n".join([
-            cards("Was wir für Kunden gebaut&nbsp;haben", [
-                ("NEWS", "Aus Gesetzesänderungen werden drei Texte", "Jeden Morgen liest das System EU-Rechtsquellen, sortiert aus, was keine neue Pflicht bedeutet, und macht aus jeder echten Änderung einen Fachtext, einen LinkedIn-Post und einen Newsletter-Beitrag. Nach der Freigabe geht der Fachtext direkt in&nbsp;TYPO3."),
-                ("3 SHOPS", "Drei Onlineshops, ein Cockpit", "Sichtbarkeit nach einem Domain-Umzug zurückgeholt, Dubletten zwischen den Shops aufgelöst, neue Seiten für Großhandel und Private Label und Social-Posts für alle drei Marken aus einem&nbsp;Login."),
-                ("SHOP", "~15 neue SEO-Seiten im Monat", "Für einen Schmuckshop mit großem Sortiment: Kategorieseiten statt Filter-URLs, klare Produkttitel und ein fester Rhythmus neuer SEO-Seiten. Heute 383.943 organische Besucher im&nbsp;Monat."),
-                ("B2B", "Fachwissen, das KI zitiert", "Für einen Industrieverband: vorhandenes Fachwissen als Beiträge, die Google und KI-Antworten als Quelle nutzen, dazu LinkedIn-Posts für den&nbsp;Vorstand."),
-                ("AMAZON", "Eigener Shop neben Amazon", "Ein schlanker Shop, Google Shopping einmal sauber eingerichtet und SEO jeden Monat. So bekommt ein Amazon-Produkt einen zweiten Kanal, der dem Händler&nbsp;gehört."),
-                ("AGENTUR", "White Label für eine Agentur", "Die Agentur gibt die Positionierung vor. Das System erstellt Artikel, Posts und Landingpages, und die Kunden sehen alles in einem Portal mit der Marke der&nbsp;Agentur.")],
-                k="Workflows", sub="Jedes Unternehmen arbeitet anders, deshalb bauen wir den Workflow um deine Abläufe herum. Ein paar Beispiele aus Projekten und Angeboten, ohne&nbsp;Kundennamen."),
-            split("Komplett automatisiert, und es klingt trotzdem nicht nach&nbsp;KI", ul([
-                "<strong>Jeder Text beginnt mit einer echten Quelle:</strong> deinen Unterlagen, dem Originaltext des Gesetzes, echten Suchdaten. Nicht mit dem, was ein Chatbot zufällig weiß",
-                "<strong>Er klingt nach dir.</strong> Das System kennt deine bisherigen Texte, deine Fachbegriffe und deine No-Gos, niemand muss sie neu erklären",
-                "<strong>Eine feste Person liest jeden Text</strong>, bevor du ihn siehst, und korrigiert, was nicht passt",
-                "<strong>Gebaut, um gefunden und zitiert zu werden:</strong> die Antwort in den ersten zwei Sätzen, Fristen und Fakten auf einen Blick, ein Link auf deine passende Seite",
-                "<strong>Es lernt aus deinen Korrekturen.</strong> Was du einmal änderst, bleibt geändert",
-                "<strong>Keine Massenware.</strong> Seiten nur dort, wo wirklich gesucht wird, damit Google keinen Grund hat, sie als Spam zu&nbsp;sehen"]), k="Qualität", flip=True),
-            steps("Von der Diagnose zum&nbsp;Ergebnis", [
-                ("STUFE 0", "Sichtbarkeits-Diagnose", "Kostenlos", [
-                    "Analyse deiner Domain mit SISTRIX, Semrush, DataForSEO und Search Console",
-                    "Was dich verlorene Sichtbarkeit kostet, als eine Zahl",
-                    "Eine priorisierte Liste der Hebel, die Anfragen bringen"]),
-                ("STUFE 1", "Fundament-Sprint", "ab 990 €, einmalig", [
-                    "Technik aufräumen: Weiterleitungen, Kategorien statt Filter-URLs, Dubletten, Titles und H1",
-                    "GA4 und Search Console angebunden",
-                    "Strategie und Seitenplan",
-                    "Dein Cockpit, bei Bedarf für mehrere Marken"]),
-                ("STUFE 2", "Laufende Umsetzung", "ab 750 € im Monat", [
-                    "Fertige Seiten live in deinem Shop oder CMS: Kategorieseiten, Ratgeber, Seiten für KI-Antworten",
-                    "LinkedIn-Entwürfe für Unternehmen und Geschäftsführung",
-                    "Ein Monatsbericht in Business-Sprache",
-                    "Eine feste Person, die jeden Text prüft, bevor du freigibst"]),
-                ("STUFE 3", "Eigene Workflows", "Pro Projekt", [
-                    "Automatisierung für deine Abläufe, wie die Beispiele oben",
-                    "Übergabe mit Betreuung, oder von uns betrieben und gepflegt gegen eine Monatsgebühr"])],
-                k="So läuft es", sub="Es beginnt immer mit der Diagnose. Danach schlagen wir vor, was passt, mit festem Preis. Die laufende Umsetzung gilt pro Domain, mit 3 Monaten Mindestlaufzeit und danach monatlich&nbsp;kündbar."),
-            split("Eine Seite für deine&nbsp;IT", ul([
-                "<strong>Erst nur lesend, Schritt für Schritt.</strong> Für die Diagnose reicht ein Lesezugriff auf die Search Console. Der Zugang zum CMS kommt später, wenn die ersten Änderungen freigegeben sind",
-                "<strong>Jede Änderung lässt sich zurücknehmen.</strong> Jede Änderung wird mit vorher und nachher protokolliert und lässt sich mit einem Klick rückgängig machen",
-                "<strong>Inhalte und SEO-Einstellungen über dein CMS.</strong> Theme-Code nur nach Absprache mit dir und dokumentiert",
-                "<strong>Hosting in Deutschland</strong> bei Hetzner, DSGVO-konform",
-                "<strong>Nichts geht ohne Freigabe live</strong>, und auf LinkedIn wird nichts automatisch gepostet",
-                "<strong>Kein Lock-in.</strong> Die Inhalte gehören dir und bleiben nach der Kündigung&nbsp;online"]) +
-                '<p><a href="javascript:window.print()">Diese Seite für deine IT&nbsp;drucken</a></p>', k="Sicherheit", flip=True, sid="it"),
-            table("Im Vergleich zu Agentur, Freelancer oder&nbsp;Berater", ["", "Was Kunden daran stört", "GetMarketing Enterprise"], [
-                ["Agentur, 2.000–7.000 € im Monat", "Teuer, Junioren machen die Arbeit, Ergebnisse sind nicht nachvollziehbar", "Ab 750 € im Monat, die Gründerin prüft&nbsp;selbst"],
-                ["Freelancer", "Wechseln ständig, niemand kontrolliert sie", "Ein System mit fester Verantwortung. Deinen Freelancer briefen wir&nbsp;mit"],
-                ["Berater, ca. 7.000 € einmalig", "Teuer, Konzept ohne Umsetzung", "Die Diagnose ist kostenlos, die Umsetzung ist&nbsp;enthalten"]], k="Vergleich"),
-            cards("Was diese Methode in echten Projekten erreicht&nbsp;hat", [
-                ("55+", "Abgeschlossene Projekte", "Mehr als 8 Jahre B2B-Marketing im&nbsp;DACH-Raum."),
-                ("383.000", "Organische Besucher im Monat", "Ein Onlineshop, ohne&nbsp;Werbebudget."),
-                ("+96 %", "Sichtbarkeit", "Sondermaschinenbau,&nbsp;SISTRIX-Index."),
-                ("~200", "Verkaufte Kurse im Monat", "Eine Erste-Hilfe-Schule, über&nbsp;Google.")], k="Ergebnisse", sub="Wir nennen keine Kunden. Die Zahlen stammen aus den jeweiligen&nbsp;Projekten."),
-            faq_section(lang, faq_items, sec_id="enterprise-faq"),
-            "{LEAD}", pre])
-        page(lang, "enterprise", "Enterprise · GetMarketing",
-             "Dein ganzes Marketing automatisiert, um deine Abläufe herum gebaut, und es klingt trotzdem nicht nach KI. Eine feste Person prüft jeden Text und ist für das Ergebnis verantwortlich.",
-             '<span class="hl">Enterprise:</span> <span class="h1-rest">dein ganzes Marketing automatisiert, und es klingt trotzdem nicht nach&nbsp;KI</span>',
-             "Wir bauen das System um die Abläufe deines Unternehmens herum: Fixes, Seiten, LinkedIn, Newsletter, eigene Workflows. Eine feste Person prüft jeden Text und ist für das Ergebnis&nbsp;verantwortlich.",
-             '<a href="#start" class="btn-hero" data-interest="enterprise">Kostenlose Diagnose anfragen</a>',
-             'Lieber die Software? <a href="/de/preise/">Preise ansehen&nbsp;→</a>',
-             body, [faq_ld(lang, faq_items)], PATHS["enterprise"]["en"])
+        import enterprise_page
+        enterprise_page.build(lang, faq_items, pre)
 
 
 if __name__ == "__main__":
