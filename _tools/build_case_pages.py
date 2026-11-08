@@ -15,7 +15,7 @@ T = {
  "en": {"k_ch": "Starting point", "h_ch": "The challenge", "k_did": "What we did", "h_did": "What we built",
         "k_why": "Why it worked", "h_why": "How the system worked", "k_today": "With GetMarketing", "h_today": "How GetMarketing does this&nbsp;today",
         "today_link": '<p><a href="/#how-it-works">See how GetMarketing works&nbsp;→</a></p>',
-        "more": "More case&nbsp;studies", "btn": "Get a free analysis of your&nbsp;website", "facts": "Free · no obligation",
+        "more": "More case&nbsp;studies", "btn": "Get a free analysis of your&nbsp;website", "facts": "",
         "back": '<a href="/case-studies/">← All case&nbsp;studies</a>', "anon": "We don’t name clients. The numbers come from the respective project. First results typically showed after 3–6&nbsp;months.",
         "ov_title": "Case studies · GetMarketing", "ov_desc": "Real projects behind the GetMarketing method: B2B, e-commerce and local businesses, with the numbers from each project.",
         "ov_h1": '<span class="hl">Case studies:</span> <span class="h1-rest">what this method achieved in real&nbsp;projects</span>',
@@ -24,7 +24,7 @@ T = {
  "de": {"k_ch": "Ausgangslage", "h_ch": "Die Herausforderung", "k_did": "Was wir gemacht haben", "h_did": "Was wir aufgebaut&nbsp;haben",
         "k_why": "Warum es funktioniert hat", "h_why": "Wie das System funktioniert&nbsp;hat", "k_today": "Mit GetMarketing", "h_today": "So macht GetMarketing das&nbsp;heute",
         "today_link": '<p><a href="/de/#so-funktionierts">So funktioniert GetMarketing&nbsp;→</a></p>',
-        "more": "Weitere&nbsp;Referenzen", "btn": "Kostenlose Analyse deiner Website", "facts": "Kostenlos · unverbindlich",
+        "more": "Weitere&nbsp;Referenzen", "btn": "Kostenlose Analyse deiner Website", "facts": "",
         "back": '<a href="/de/referenzen/">← Alle&nbsp;Referenzen</a>', "anon": "Wir nennen keine Kunden. Die Zahlen stammen aus dem jeweiligen Projekt. Erste Ergebnisse zeigten sich meist nach 3–6&nbsp;Monaten.",
         "ov_title": "Referenzen · GetMarketing", "ov_desc": "Echte Projekte hinter der GetMarketing-Methode: B2B, E-Commerce und lokale Anbieter, mit den Zahlen aus jedem Projekt.",
         "ov_h1": '<span class="hl">Referenzen:</span> <span class="h1-rest">was diese Methode in echten Projekten erreicht&nbsp;hat</span>',
@@ -95,7 +95,7 @@ def more(case, lang):
 
 def action(lang):
     t = T[lang]
-    return f'<a href="#start" class="btn-hero">{t["btn"]}</a><p class="hero-facts">{t["facts"]}</p>'
+    return f'<a href="#start" class="btn-hero">{t["btn"]}</a>'
 
 
 def build():
