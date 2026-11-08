@@ -38,7 +38,7 @@ BOLT = '<svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 
 
 T = {
  "en": dict(home="/", start="/#start", plan="/marketing-plan-generator/", lang_href="/de/", lang_label="DE",
-            nav=[("/#how-it-works", "How it works"), ("/#results", "Results"), ("/#diff", "Compare"), ("/partners/", "Partners"), ("/marketing-plan-generator/", "Marketing plan")],
+            nav=[("/#how-it-works", "How it works"), ("/pricing/", "Pricing"), ("/enterprise/", "Enterprise"), ("/#faq", "FAQ"), ("/partners/", "Partners"), ("/marketing-plan-generator/", "Marketing plan")],
             cta="Try it now", diag="Book a diagnosis", plan_cta="Generate my marketing plan", crumb_home="Home",
             band_h="Your AI marketing team <span>brings the customers.</span>", band_p="You approve. Everything else runs in the background.",
             related="More on this topic", faq_words=("frequently", "faq", "questions"),
@@ -46,7 +46,7 @@ T = {
             ft_prod="Product", ft_topics="Topics", ft_contact="Contact", ft_start="Get started",
             legal=[("/impressum-en.html", "Legal Notice"), ("/datenschutz-en.html", "Privacy Policy"), ("/de/", "Deutsch")], city="Berlin, Germany"),
  "de": dict(home="/de/", start="/de/#start", plan="/marketingplan-erstellen/", lang_href="/", lang_label="EN",
-            nav=[("/de/#so-funktionierts", "So funktioniert's"), ("/de/#ergebnisse", "Ergebnisse"), ("/de/#diff", "Vergleich"), ("/de/partners/", "Partner"), ("/marketingplan-erstellen/", "Marketingplan")],
+            nav=[("/de/#so-funktionierts", "So funktioniert's"), ("/de/preise/", "Preise"), ("/de/enterprise/", "Enterprise"), ("/de/#faq", "FAQ"), ("/de/partners/", "Partner"), ("/marketingplan-erstellen/", "Marketingplan")],
             cta="Jetzt testen", diag="Diagnose anfragen", plan_cta="Marketingplan erstellen", crumb_home="Start",
             band_h="Dein KI-Marketingteam <span>bringt die Kunden.</span>", band_p="Du gibst frei. Alles andere läuft im Hintergrund.",
             related="Mehr zum Thema", faq_words=("häufige fragen", "faq", "fragen"),
@@ -437,12 +437,12 @@ def build_page(p, pages):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/home.css?v=1" />
-<link rel="stylesheet" href="/home-hero.css?v=14" />
-<link rel="stylesheet" href="/theme.css?v=20" />
+<link rel="stylesheet" href="/home-hero.css?v=15" />
+<link rel="stylesheet" href="/theme.css?v=21" />
 <link rel="stylesheet" href="/landing.css?v=4" />
 {ld_html}
 <script defer src="/content-calendar.js?v=9"></script>
-<script defer src="/dash-demo.js?v=1"></script>
+<script defer src="/dash-demo.js?v=2"></script>
 <script defer src="/site.js?v=1"></script>
 <script defer src="/home.js?v=10"></script>
 <script defer src="/analytics.js"></script>
@@ -520,7 +520,7 @@ def main():
         html_out = build_page(p, pages)
         if p["slug"] in TOOL_PAGES: html_out = html_out.replace(f'href="{T[p["lang"]]["plan"]}" class="btn-lime"', f'href="{LP[p["lang"]]["app"]}" class="btn-lime"')
         out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(no_orphans(html_out)); print("page", p["slug"])
-    urls = ["/", "/de/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages]
+    urls = ["/", "/de/", "/pricing/", "/de/preise/", "/enterprise/", "/de/enterprise/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")

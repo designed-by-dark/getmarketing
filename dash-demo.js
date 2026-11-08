@@ -38,8 +38,8 @@
           ['SA', t('Strategy Agent', 'Strategie-Agent'), t('planned 4 pieces for week 46', 'hat 4 Beiträge für KW 46 geplant'), t('Mon 08:00', 'Mo 08:00')],
           ['SEO', t('SEO Agent', 'SEO-Agent'), t('compared 38 keywords and picked “cnc fräsen” (22,200 searches/month)', 'hat 38 Keywords verglichen und „cnc fräsen“ gewählt (22.200 Suchen/Monat)'), t('Mon 09:12', 'Mo 09:12')],
           ['CA', t('Content Agent', 'Content-Agent'), t('finished the draft “CNC milling: process and costs”', 'hat den Entwurf „CNC-Fräsen: Verfahren und Kosten“ fertiggestellt'), t('Tue 14:30', 'Di 14:30')],
-          ['MK', t('Marketer review', 'Marketer-Prüfung'), t('checked facts and tone, made 2 edits', 'hat Fakten und Tonalität geprüft, 2 Änderungen'), t('Wed 10:05', 'Mi 10:05')],
-          ['SO', t('Social Agent', 'Social Agent'), t('published the LinkedIn post you approved', 'hat den freigegebenen LinkedIn-Post veröffentlicht'), t('Thu 08:30', 'Do 08:30')],
+          ['QC', t('Quality check', 'Qualitätsprüfung'), t('checked facts, brand and SEO: score green, sent to you for approval', 'hat Fakten, Marke und SEO geprüft: Score grün, zur Freigabe an dich'), t('Wed 10:05', 'Mi 10:05')],
+          ['WP', t('Publishing', 'Veröffentlichung'), t('put the approved guide live in WordPress', 'hat den freigegebenen Ratgeber in WordPress live gestellt'), t('Thu 08:30', 'Do 08:30')],
           ['RP', t('Reporting', 'Reporting'), t('sent the weekly report', 'hat den Wochenreport verschickt'), t('Fri 16:00', 'Fr 16:00')]
         ];
         return head(t('This week at a glance', 'Diese Woche auf einen Blick')) +
@@ -83,11 +83,11 @@
     },
     {
       id: 'review', name: t('Content Review', 'Content-Prüfung'),
-      lead: t('Nothing goes live without you. An experienced marketer reviews every draft first, then you read it and approve it with one click. It is then published automatically.',
-              'Ohne dich geht nichts live. Ein erfahrener Marketer prüft jeden Entwurf zuerst, dann liest du ihn und gibst ihn mit einem Klick frei. Danach wird er automatisch veröffentlicht.'),
+      lead: t('You write nothing yourself, you only approve. Every draft first passes automatic checks for facts, brand and SEO. Then you read it and approve it with one click. Pages go live in your CMS, LinkedIn posts you copy and post yourself.',
+              'Du schreibst nichts selbst, du gibst nur frei. Jeder Entwurf läuft zuerst durch automatische Prüfungen für Fakten, Marke und SEO. Dann liest du ihn und gibst ihn mit einem Klick frei. Seiten gehen in deinem CMS live, LinkedIn-Posts kopierst und postest du selbst.'),
       pts: [t('Try it: approve the drafts on the left', 'Probier es aus: Gib die Entwürfe frei'),
-            t('Ask for changes in plain words, the agent revises', 'Änderungen in normalen Worten, der Agent überarbeitet'),
-            t('Approved pieces go out at the planned time', 'Freigegebenes geht zur geplanten Zeit raus')],
+            t('Ask for changes in plain words, the system revises and learns from it', 'Änderungen in normalen Worten, das System überarbeitet und lernt daraus'),
+            t('Nothing is posted on LinkedIn automatically', 'Auf LinkedIn wird nichts automatisch gepostet')],
       html: function () {
         var R = [
           ['blog', t('CNC milling: process and costs', 'CNC-Fräsen: Verfahren und Kosten'), t('What drives the price of a milled part, how long a batch takes and when turning is the better choice. With a cost table for typical materials.', 'Was den Preis eines Frästeils bestimmt, wie lange eine Serie dauert und wann Drehen die bessere Wahl ist. Mit Kostentabelle für typische Werkstoffe.'), t('Tue 09:00', 'Di 09:00')],
@@ -95,9 +95,9 @@
           ['li', t('Training machinists in-house', 'Ausbildung zum Zerspanungsmechaniker'), t('Our apprentices run their first CNC job in week three. A look at how we structure the training …', 'Unsere Azubis fahren ihren ersten CNC-Auftrag in Woche drei. So ist unsere Ausbildung aufgebaut …'), t('Wed 08:30', 'Mi 08:30')]
         ];
         return head(t('Content review · 3 waiting', 'Content-Prüfung · 3 offen').replace('3', '<span data-dv-count>3</span>')) + '<div class="dv-rvs">' + R.map(function (r) {
-          return '<div class="dv-rv"><div class="dv-rv-h">' + ch(r[0]) + '<span class="dv-ok">✓ ' + t('Reviewed by a marketer', 'Vom Marketer geprüft') + '</span></div><b>' + r[1] + '</b><p>' + r[2] + '</p>' +
+          return '<div class="dv-rv"><div class="dv-rv-h">' + ch(r[0]) + '<span class="dv-ok">✓ ' + t('Quality check passed', 'Qualitätsprüfung bestanden') + '</span></div><b>' + r[1] + '</b><p>' + r[2] + '</p>' +
             '<div class="dv-rv-a"><button type="button" class="dv-approve" data-when="' + r[3] + '">' + t('Approve', 'Freigeben') + '</button><button type="button" class="dv-change">' + t('Request changes', 'Änderung anfragen') + '</button></div>' +
-            '<p class="dv-rv-note" hidden>' + t('In the app you write what to change, for example “shorter intro”, and the agent revises the draft.', 'In der App schreibst du, was sich ändern soll, zum Beispiel „kürzere Einleitung“, und der Agent überarbeitet den Entwurf.') + '</p></div>';
+            '<p class="dv-rv-note" hidden>' + t('In the app you write what to change, for example “shorter intro”. The system revises the draft and remembers it for next time.', 'In der App schreibst du, was sich ändern soll, zum Beispiel „kürzere Einleitung“. Das System überarbeitet den Entwurf und merkt es sich für das nächste Mal.') + '</p></div>';
         }).join('') + '</div><p class="dv-empty" hidden>' + t('All caught up. The next drafts arrive on Monday.', 'Alles erledigt. Die nächsten Entwürfe kommen am Montag.') + '</p>';
       }
     },
@@ -134,7 +134,7 @@
         return head(t('Funnel · October', 'Funnel · Oktober')) + '<div class="dv-fun">' + S.map(function (s, i) {
           return (i ? '<div class="dv-rate' + (i === 2 ? ' weak' : '') + '">↓ ' + rates[i - 1] + '</div>' : '') + '<div class="dv-step"><span>' + s[0] + '</span><div class="dv-bar"><i style="width:' + s[2] + '%"></i></div><b>' + s[1] + '</b></div>';
         }).join('') + '</div><div class="dv-tip"><b>' + t('Biggest drop: engaged → inquiry', 'Größter Abbruch: interessiert → Anfrage') + '</b>' +
-          t('The CRO Agent suggests a shorter contact form and a price range on the CNC pages.', 'Der CRO Agent schlägt ein kürzeres Kontaktformular und eine Preisspanne auf den CNC-Seiten vor.') + '</div>';
+          t('Next plan: a guide on CNC costs with a price range, linked from the CNC pages.', 'Nächster Plan: ein Ratgeber zu CNC-Kosten mit Preisspanne, verlinkt von den CNC-Seiten.') + '</div>';
       }
     },
     {
@@ -170,65 +170,22 @@
       }
     },
     {
-      id: 'visual', name: 'Visual Content',
-      lead: t('Graphics for every piece in your colors, fonts and style: article headers, LinkedIn carousels, quote cards. Sized for each channel, no design tool needed.',
-              'Grafiken für jeden Beitrag in deinen Farben, Schriften und deinem Stil: Artikelbilder, LinkedIn-Karussells, Zitatkarten. Im richtigen Format für jeden Kanal, ohne Design-Tool.'),
-      pts: [t('Built from your brand guidelines', 'Aus deinen Markenrichtlinien aufgebaut'),
-            t('Your own photos where you have them', 'Deine eigenen Fotos, wo vorhanden'),
-            t('Reviewed together with the text', 'Zusammen mit dem Text geprüft')],
+      id: 'changes', name: t('Website changes', 'Website-Änderungen'),
+      lead: t('What GetMarketing changes on your website, and how. New pages, titles, meta descriptions, headings, alt texts and redirects go in through your CMS, never through your theme code. Every change shows before and after and can be undone with one click.',
+              'Was GetMarketing an deiner Website ändert, und wie. Neue Seiten, Titles, Meta-Beschreibungen, Überschriften, Alt-Texte und Weiterleitungen laufen über dein CMS, nie über den Code deines Themes. Jede Änderung zeigt vorher und nachher und lässt sich mit einem Klick zurücknehmen.'),
+      pts: [t('WordPress and Shopify at launch, other systems via HTML or Markdown export', 'WordPress und Shopify zum Start, andere Systeme per HTML- oder Markdown-Export'),
+            t('Theme code, page speed, robots.txt: a ready brief for your developer', 'Theme-Code, Ladezeit, robots.txt: eine fertige Anleitung für deinen Entwickler'),
+            t('Nothing changes without your approval', 'Nichts ändert sich ohne deine Freigabe')],
       html: function () {
-        var V = [['a', t('Blog header', 'Artikelbild'), t('CNC milling: process and costs', 'CNC-Fräsen: Verfahren und Kosten')], ['b', t('LinkedIn carousel', 'LinkedIn-Karussell'), t('5 steps to ISO 9001', 'In 5 Schritten zu ISO 9001')], ['c', t('Quote card', 'Zitatkarte'), t('“Quality is measured, not checked.”', '„Qualität wird gemessen, nicht geprüft.“')],
-                 ['d', t('Infographic', 'Infografik'), t('Turning vs. milling', 'Drehen vs. Fräsen')], ['e', 'Instagram', t('Meet the team', 'Das Team')], ['f', t('Ad banner', 'Anzeigenbanner'), t('CNC parts from one piece', 'CNC-Teile ab Stückzahl 1')]];
-        return head(t('Visual content · week 46', 'Visual Content · KW 46')) + '<div class="dv-vis">' + V.map(function (v) {
-          return '<figure><div class="dv-art ' + v[0] + '"><span>' + v[2] + '</span></div><figcaption>' + v[1] + '</figcaption></figure>';
-        }).join('') + '</div>';
-      }
-    },
-    {
-      id: 'social', name: 'Social Agent',
-      lead: t('Every article becomes posts for your channels, written for each platform. The Social Agent publishes at the times your audience is active, once you have approved them.',
-              'Aus jedem Artikel werden Posts für deine Kanäle, passend für jede Plattform geschrieben. Der Social Agent veröffentlicht zu den Zeiten, in denen deine Zielgruppe aktiv ist, sobald du freigegeben hast.'),
-      pts: [t('LinkedIn company page and personal profiles', 'LinkedIn-Unternehmensseite und persönliche Profile'),
-            t('Instagram and Facebook', 'Instagram und Facebook'),
-            t('Replies and reach in the weekly report', 'Reaktionen und Reichweite im Wochenreport')],
-      html: function () {
-        var Q = [[t('Thu 08:30', 'Do 08:30'), 'li', t('How we find skilled workers', 'Wie wir Fachkräfte finden'), t('Scheduled', 'Geplant')], [t('Thu 12:00', 'Do 12:00'), 'ig', t('Meet the team', 'Das Team'), t('Scheduled', 'Geplant')], [t('Tue 08:30', 'Di 08:30'), 'li', t('5 steps to ISO 9001', 'In 5 Schritten zu ISO 9001'), t('In review', 'In Prüfung')]];
-        return head(t('Social agent · queue', 'Social Agent · Warteschlange')) + '<div class="dv-soc"><div class="dv-post"><div class="dv-post-h"><i>M</i><div><b>' + t('Müller Metal Works', 'Müller Metallbau') + '</b><small>' + t('Company page · scheduled Thu 08:30', 'Unternehmensseite · geplant Do 08:30') + '</small></div></div>' +
-          '<p>' + t('Three years ago we had four open positions and not a single applicant. Today we train six apprentices.<br><br>What changed? We stopped posting job ads and started showing the work. 👇', 'Vor drei Jahren hatten wir vier offene Stellen und keine einzige Bewerbung. Heute bilden wir sechs Azubis aus.<br><br>Was sich geändert hat? Wir haben aufgehört, Stellenanzeigen zu schalten, und angefangen, die Arbeit zu zeigen. 👇') + '</p>' +
-          '<div class="dv-art b"><span>' + t('How we find skilled workers', 'Wie wir Fachkräfte finden') + '</span></div></div>' +
-          '<ul class="dv-q">' + Q.map(function (q) { return '<li><small>' + q[0] + '</small>' + ch(q[1]) + '<span>' + q[2] + '</span><em>' + q[3] + '</em></li>'; }).join('') + '</ul></div>';
-      }
-    },
-    {
-      id: 'cro', name: 'CRO Agent',
-      lead: t('More inquiries from the visitors you already have. The CRO Agent looks at how people use your pages, proposes changes and tests them against the current version.',
-              'Mehr Anfragen aus den Besuchern, die du schon hast. Der CRO Agent analysiert, wie Menschen deine Seiten nutzen, schlägt Änderungen vor und testet sie gegen die aktuelle Version.'),
-      pts: [t('A/B tests on headlines, forms and calls to action', 'A/B-Tests für Überschriften, Formulare und Buttons'),
-            t('Nothing changes on your site without approval', 'Nichts ändert sich ohne deine Freigabe'),
-            t('Winners are kept, losers rolled back', 'Gewinner bleiben, Verlierer werden zurückgesetzt')],
-      html: function () {
-        var p = function (s) { return en ? s : s.replace('.', ','); };
-        return head(t('CRO agent · running test', 'CRO Agent · laufender Test')) + '<div class="dv-ab">' +
-          '<div class="dv-var"><span class="k">A · ' + t('current', 'aktuell') + '</span><b>' + t('CNC milling services', 'CNC-Fräsen als Dienstleistung') + '</b><div class="dv-bar"><i style="width:47%"></i></div><small>' + p('1.4 %') + ' ' + t('inquiry rate', 'Anfragequote') + '</small></div>' +
-          '<div class="dv-var win"><span class="k">B · ' + t('new', 'neu') + '</span><b>' + t('CNC parts in 5 days, from one piece', 'CNC-Teile in 5 Tagen, ab Stückzahl 1') + '</b><div class="dv-bar"><i style="width:77%"></i></div><small>' + p('2.3 %') + ' ' + t('inquiry rate', 'Anfragequote') + '</small></div></div>' +
-          '<p class="dv-meta">' + t('Page /cnc-milling · running for 18 days · 94 % confidence', 'Seite /cnc-fraesen · läuft seit 18 Tagen · 94 % Konfidenz') + '</p>' +
-          '<h5 class="dv-sub">' + t('Next suggestions', 'Nächste Vorschläge') + '</h5><ul class="dv-list"><li>' + t('Shorten the contact form from 9 to 4 fields', 'Kontaktformular von 9 auf 4 Felder kürzen') + '</li><li>' + t('Show a price range on the CNC pages', 'Preisspanne auf den CNC-Seiten zeigen') + '</li><li>' + t('Add the phone number to the header', 'Telefonnummer in den Header') + '</li></ul>';
-      }
-    },
-    {
-      id: 'ads', name: 'Google Ads',
-      lead: t('Search campaigns built from the keywords that already bring you inquiries. The agent adjusts bids and pauses keywords that cost money without results, within the budget you set.',
-              'Suchkampagnen aus den Keywords, die dir schon Anfragen bringen. Der Agent passt Gebote an und pausiert Keywords, die Geld kosten, aber nichts bringen, im Rahmen deines Budgets.'),
-      pts: [t('You set the monthly budget', 'Du legst das Monatsbudget fest'),
-            t('Cost per inquiry, not just clicks', 'Kosten pro Anfrage, nicht nur Klicks'),
-            t('Organic and paid in one plan', 'Organisch und bezahlt in einem Plan')],
-      html: function () {
-        var m = function (n) { return en ? '€' + n : n.replace('.', ',') + ' €'; };
-        return head(t('Google Ads · October', 'Google Ads · Oktober')) +
-          kpis([[t('Spend', 'Ausgaben'), m('995'), t('of €1,000 budget', 'von 1.000 € Budget'), 'flat'], [t('Inquiries', 'Anfragen'), '16', '+4'], [t('Cost per inquiry', 'Kosten pro Anfrage'), m('62'), t('−18 %', '−18 %')]]) +
-          table([t('Campaign', 'Kampagne'), t('Spend', 'Ausgaben'), t('Clicks', 'Klicks'), 'CPC', t('Inquiries', 'Anfragen')], [
-            [t('CNC milling · Search', 'CNC-Fräsen · Suche'), m('640'), '412', m('1.55'), '9'], [t('Laser cutting · Search', 'Laserschneiden · Suche'), m('310'), '198', m('1.57'), '4'], [t('Brand', 'Marke'), m('45'), '88', m('0.51'), '3']]) +
-          '<div class="dv-tip"><b>' + t('This week', 'Diese Woche') + '</b>' + t('Paused 14 keywords with no inquiries in 30 days and moved the budget to “cnc fräsen”.', '14 Keywords ohne Anfrage in 30 Tagen pausiert und das Budget auf „cnc fräsen“ verschoben.') + '</div>';
+        var undo = '<button type="button" class="dv-undo">' + t('Undo', 'Zurücknehmen') + '</button>';
+        var ba = function (b, a) { return '<span class="dv-before">' + b + '</span> → <b>' + a + '</b>'; };
+        return head(t('Website changes · WordPress', 'Website-Änderungen · WordPress')) +
+          table([t('Page', 'Seite'), t('Change', 'Änderung'), t('Before → after', 'Vorher → nachher'), 'Status'], [
+            ['/cnc-fraesen', 'Title', ba('CNC Fräsen – Müller', t('CNC milling from one piece | Müller Metal Works', 'CNC-Fräsen ab Stückzahl 1 | Müller Metallbau')), '<span class="dv-up">Live</span> ' + undo],
+            ['/lohnfertigung', t('Meta description', 'Meta-Beschreibung'), ba(t('empty', 'leer'), t('Contract manufacturing in 5 days …', 'Lohnfertigung in 5 Tagen …')), '<span class="dv-up">Live</span> ' + undo],
+            ['/laser-alt', t('301 redirect', '301-Weiterleitung'), ba('404', '/laserschneiden'), '<span class="dv-up">Live</span> ' + undo],
+            [t('/guide/powder-coating', '/ratgeber/pulverbeschichtung'), t('New page', 'Neue Seite'), ba('–', t('Powder coating: process and durability', 'Pulverbeschichtung: Ablauf und Haltbarkeit')), '<span class="dv-new">' + t('Waiting for you', 'Wartet auf dich') + '</span>']]) +
+          '<div class="dv-tip"><b>' + t('For your developer', 'Für deinen Entwickler') + '</b>' + t('Page speed: 3 images are larger than 1 MB. GetMarketing does not touch your theme code, so this arrives as a short brief. With Enterprise we fix it for you.', 'Ladezeit: 3 Bilder sind größer als 1 MB. GetMarketing fasst den Code deines Themes nicht an, deshalb kommt das als kurze Anleitung. Bei Enterprise beheben wir es für dich.') + '</div>';
       }
     }
   ];
@@ -299,11 +256,14 @@
   window.addEventListener('resize', function () { main.style.minHeight = ''; });
   guide.addEventListener('click', function (e) { if (e.target.closest('.dg-next')) show((cur + 1) % VIEWS.length, true); });
   main.addEventListener('click', function (e) {
-    var a = e.target.closest('.dv-approve'), c = e.target.closest('.dv-change');
-    if (a) {
+    var a = e.target.closest('.dv-approve'), c = e.target.closest('.dv-change'), u = e.target.closest('.dv-undo');
+    if (u) {
+      u.parentNode.innerHTML = '<span class="dv-down">' + t('Undone', 'Zurückgenommen') + '</span>';
+    } else if (a) {
       var card = a.closest('.dv-rv');
       card.classList.add('done');
-      card.querySelector('.dv-rv-a').innerHTML = '<span class="dv-done">✓ ' + t('Approved · goes live ', 'Freigegeben · geht live ') + a.getAttribute('data-when') + '</span>';
+      var when = a.getAttribute('data-when');
+      card.querySelector('.dv-rv-a').innerHTML = '<span class="dv-done">✓ ' + (when ? t('Approved · goes live ', 'Freigegeben · geht live ') + when : t('Approved · ready to copy and post', 'Freigegeben · bereit zum Kopieren und Posten')) + '</span>';
       card.querySelector('.dv-rv-note').hidden = true;
       pending = Math.max(0, pending - 1);
       setCount();

@@ -563,3 +563,24 @@ li, summary, .ft-col a, .sp-rel-grid b { text-wrap: balance; }
 .ft-social a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); color: inherit; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: background .2s, border-color .2s; }
 footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.4); color: #fff; }
 .ft-social svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+
+/* ===== Prices, FAQ and the pricing / Enterprise pages (Nov 2026) ===== */
+.offer-card .price-alt { font-size: 14px; color: var(--gray); margin: 0 0 4px; }
+.offer-card.main .price-alt { color: rgba(255,255,255,.75); }
+.offer-head .offer-more { display: inline-block; margin-left: 4px; color: var(--forest); font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
+/* FAQ: same look as on the landing pages (landing.css), the homepage does not load landing.css */
+.lp-sec { padding: 88px 0; }
+.lp-k { display: inline-block; margin-bottom: 16px; padding: 5px 11px; border: 1px solid currentColor; border-radius: 7px; font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--forest); }
+.lp-faq-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: start; max-width: calc(var(--maxw) - 56px); }
+.lp-faq-head { position: sticky; top: 100px; }
+.lp-faq-head h2 { font-size: clamp(30px, 3.6vw, 46px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.08; color: var(--black); hyphens: auto; -webkit-hyphens: auto; }
+.lp-faq-list { text-align: left; }
+.lp-faq-list details { background: #fff; border-radius: 16px; box-shadow: var(--card-shadow); padding: 0 22px; }
+.lp-faq-list details + details { margin-top: 10px; }
+.lp-faq-list summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 20px 0; font-size: 17px; font-weight: 650; color: var(--black); }
+.lp-faq-list summary::-webkit-details-marker { display: none; }
+.lp-faq-list summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #F0F1EE; color: var(--forest); font-weight: 700; transition: transform .2s; }
+.lp-faq-list details[open] summary::after { transform: rotate(45deg); background: var(--lime); }
+.lp-faq-list details p { padding: 0 0 20px; font-size: 16px; line-height: 1.65; color: #4A504C; }
+.lp-faq-list details a { color: var(--forest); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) { .lp-faq-grid { grid-template-columns: 1fr; } .lp-faq-head { position: static; } }
