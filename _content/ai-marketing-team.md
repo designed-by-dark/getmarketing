@@ -54,7 +54,7 @@ GetMarketing is built on the approach Darya Kablash used in more than 55 project
 
 - 383,000 organic visitors a month for an online jewellery shop
 - +96% visibility in special machinery, with the main product keyword at #1
-- 34,000 visitors, starting from zero, for an industrial company
+- 383,943 organic visitors a month for an online jewelry shop, with about 15 new pages a month
 
 "We get inquiries through the website all the time and don't have to do anything." Managing director, B2B industrial equipment
 
