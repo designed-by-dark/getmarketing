@@ -9,6 +9,9 @@
 - Also writes sitemap.xml and robots.txt.
 Markdown format: first lines "TITLE: ..." and "DESCRIPTION: ...", then "# H1", intro, "[ Button ]" lines.
 """
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).parent))
+from case_data import CASES
 import html, json, re, pathlib, datetime, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from no_orphans import fix as no_orphans
@@ -520,7 +523,7 @@ def main():
         html_out = build_page(p, pages)
         if p["slug"] in TOOL_PAGES: html_out = html_out.replace(f'href="{T[p["lang"]]["plan"]}" class="btn-lime"', f'href="{LP[p["lang"]]["app"]}" class="btn-lime"')
         out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(no_orphans(html_out)); print("page", p["slug"])
-    urls = ["/", "/de/", "/pricing/", "/de/preise/", "/enterprise/", "/de/enterprise/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages]
+    urls = ["/", "/de/", "/pricing/", "/de/preise/", "/enterprise/", "/de/enterprise/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages] + ["/case-studies/", "/de/referenzen/"] + [f'/case-studies/{c["slug"]["en"]}/' for c in CASES] + [f'/de/referenzen/{c["slug"]["de"]}/' for c in CASES]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")

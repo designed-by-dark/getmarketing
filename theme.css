@@ -607,3 +607,29 @@ footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(
   .mission-photo { position: relative; width: min(340px, 78%); aspect-ratio: 3 / 4; margin: -96px auto 0; }
 }
 @media (max-width: 760px) { .mission-section.has-photo > .mission-shell > .wrap { padding: 56px 22px 110px; border-radius: 22px; } }
+
+/* reviews marquee under the case studies */
+.rv-band { margin-top: 56px; }
+.rv-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; margin-bottom: 20px; }
+.rv-head h3 { font-weight: 600; font-size: clamp(22px, 2.2vw, 28px); letter-spacing: -0.025em; color: #111; }
+.rv-head span { font-size: 13px; color: #6B716D; }
+.rv-viewport { overflow: hidden; margin: 0 -16px; padding: 8px 16px 24px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.rv-track { display: flex; gap: 20px; width: max-content; animation: rv-scroll 60s linear infinite; }
+.rv-viewport:hover .rv-track, .rv-viewport:focus-within .rv-track { animation-play-state: paused; }
+@keyframes rv-scroll { to { transform: translateX(calc(-50% - 10px)); } }
+.rv-card { flex: 0 0 auto; width: 360px; margin: 0; display: flex; flex-direction: column; gap: 14px; padding: 26px 26px 22px; background: #fff; border-radius: 22px; box-shadow: var(--card-shadow); }
+.rv-stars { color: #E9B949; font-size: 17px; letter-spacing: 3px; line-height: 1; }
+.rv-card blockquote { margin: 0; flex: 1; font-size: 16px; line-height: 1.55; color: #222; text-wrap: pretty; }
+.rv-card figcaption { display: flex; flex-direction: column; gap: 2px; padding-top: 12px; border-top: 1px solid #EEECE6; }
+.rv-card figcaption b { font-size: 13px; font-weight: 600; color: #111; }
+.rv-card figcaption span { font-size: 12px; color: #7A807C; line-height: 1.4; }
+@media (max-width: 600px) { .rv-card { width: 280px; padding: 22px 20px 18px; } .rv-card blockquote { font-size: 15px; } }
+@media (prefers-reduced-motion: reduce) {
+  .rv-track { animation: none; }
+  .rv-viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .rv-card[aria-hidden="true"] { display: none; }
+}
+.cs-more { display: inline-block; margin-top: 14px; font-size: 15px; font-weight: 600; color: var(--forest); text-decoration: none; }
+.cs-more:hover, .cs-all:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cs-all { font-weight: 600; color: var(--forest); text-decoration: none; white-space: nowrap; }
