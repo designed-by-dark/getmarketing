@@ -24,7 +24,7 @@ Entscheidend ist aber nicht die KI, sondern die Reihenfolge. Wir beginnen nicht 
 - Onboarding im ersten Monat inklusive, monatlich kündbar
 
 **Enterprise, die Boutique-Agentur: auf Anfrage**
-1. **Kostenlose Diagnose** in 3 Werktagen
+1. **Kostenlose Diagnose** deiner Website und deines Markts
 2. **Fundament-Sprint** ab 990 €: Technik aufräumen, Tracking, Strategie und Seitenplan in vier Wochen
 3. **Laufende Umsetzung:** Seiten live im Shop, LinkedIn, Monatsbericht, eine feste Ansprechperson
 4. **Individuelle KI-Systeme**, auf Wunsch von uns betrieben und gepflegt

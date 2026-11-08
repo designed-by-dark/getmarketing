@@ -26,7 +26,7 @@ Für Unternehmen, die es erledigt haben wollen, zu Softwarepreisen:
 
 **Enterprise, die Boutique-Agentur: auf Anfrage**
 Für Unternehmen, die eine feste Person wollen, die das Ergebnis verantwortet:
-1. **Kostenlose Diagnose** innerhalb von 3 Werktagen
+1. **Kostenlose Diagnose** deiner Website und deines Markts
 2. **Fundament-Sprint** (ab 990 €, vier Wochen): Technik aufräumen, Tracking, Strategie, Seitenplan
 3. **Laufende Umsetzung:** Seiten live im Shop, LinkedIn, Monatsbericht, eine feste Ansprechperson
 4. **Individuelle KI-Systeme,** wenn du mehr als Marketing brauchst, von uns betrieben und gepflegt

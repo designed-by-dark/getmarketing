@@ -24,7 +24,7 @@ What matters most is not the AI, but the order of work. We don't start with an e
 - Onboarding in the first month included, cancel monthly
 
 **Enterprise, the boutique agency: on request**
-1. **Free diagnosis** in 3 working days
+1. **Free diagnosis** of your website and market
 2. **Foundation sprint** from €990: technical clean-up, tracking, strategy and page plan in four weeks
 3. **Ongoing delivery:** pages live in your shop, LinkedIn, monthly report, one dedicated contact
 4. **Custom AI systems**, run and maintained by us if you like

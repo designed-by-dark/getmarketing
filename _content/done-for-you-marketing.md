@@ -26,7 +26,7 @@ For companies that want it done, with software-level pricing:
 
 **Enterprise, the boutique agency: on request**
 For companies that want a named person who owns the result:
-1. **Free diagnosis** within 3 working days
+1. **Free diagnosis** of your website and market
 2. **Foundation sprint** (from €990, four weeks): technical clean-up, tracking, strategy, page plan
 3. **Ongoing execution:** pages live in your shop, LinkedIn, monthly report, one named contact
 4. **Custom AI systems** when you need more than marketing, run and maintained by us

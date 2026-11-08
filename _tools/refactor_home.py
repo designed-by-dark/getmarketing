@@ -5,18 +5,18 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 LEAD = {
 "en": dict(eyebrow="Free website analysis", h2="Find out what is costing your website <em>enquiries.</em>",
-  intro="Send us your website. Within 3 working days you get your visibility analysis with real search data and a concrete proposal for your&nbsp;company.",
+  intro="Send us your website. You get your visibility analysis with real search data and a concrete proposal for your&nbsp;company.",
   gets=[("Visibility check", "with real Google search data"), ("Your biggest leaks", "ranked by how many enquiries they cost"), ("A concrete proposal", "with the pages that will bring you&nbsp;enquiries")],
   who="<b>Darya Kablash</b>, founder<br>Your request comes straight to&nbsp;me.",
   form_h="Get your free analysis", step="Takes 30 seconds",
-  btn="Send me my free analysis", trust=["Free", "No obligation", "Reply within 3 working days"],
+  btn="Send me my free analysis", trust=["Free", "No obligation"],
   alt='Not ready to talk? <a href="/marketing-plan-generator/">Generate your marketing plan in seconds&nbsp;→</a>'),
 "de": dict(eyebrow="Kostenlose Website-Analyse", h2="Finde heraus, was deine Website <em>Anfragen kostet.</em>",
-  intro="Schick uns deine Website. Innerhalb von 3 Werktagen bekommst du deine Sichtbarkeits-Analyse mit echten Suchdaten und ein konkretes Angebot für dein&nbsp;Unternehmen.",
+  intro="Schick uns deine Website. Du bekommst deine Sichtbarkeits-Analyse mit echten Suchdaten und ein konkretes Angebot für dein&nbsp;Unternehmen.",
   gets=[("Sichtbarkeits-Check", "mit echten Google-Suchdaten"), ("Deine größten Lecks", "sortiert danach, wie viele Anfragen sie kosten"), ("Ein konkretes Angebot", "mit den Seiten, die dir Anfragen&nbsp;bringen")],
   who="<b>Darya Kablash</b>, Gründerin<br>Deine Anfrage landet direkt bei&nbsp;mir.",
   form_h="Hol dir deine kostenlose Analyse", step="Dauert 30 Sekunden",
-  btn="Analyse kostenlos anfordern", trust=["Kostenlos", "Unverbindlich", "Antwort in 3 Werktagen"],
+  btn="Analyse kostenlos anfordern", trust=["Kostenlos", "Unverbindlich"],
   alt='Noch nicht bereit für ein Gespräch? <a href="/marketingplan-erstellen/">Erstelle deinen Marketingplan in Sekunden&nbsp;→</a>'),
 }
 
