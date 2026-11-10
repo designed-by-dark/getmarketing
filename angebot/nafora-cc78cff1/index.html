@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dein Marketingplan: naforacafe.com · GetMarketing</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<link rel="icon" href="/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  color-scheme:light;
+  --forest:#1B4332; --deep:#0D1D15; --green:#2F8A5E; --tint:#E7F3EC;
+  --lime:#86EFAC;
+  --ink:#111312; --soft:#5F635F; --faint:#8D918C;
+  --bg:#F5F4F0; --white:#fff; --line:#E5E3DC;
+  --red:#B42318; --red-bg:#FDECEA;
+  --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.num{font-variant-numeric:tabular-nums}
+
+.topbar{max-width:880px;margin:0 auto;padding:22px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:inline-flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.03em;font-size:17px;color:var(--ink);text-decoration:none}
+.logo i{width:28px;height:28px;border-radius:8px;background:var(--forest);display:grid;place-items:center}
+.logo i svg{width:15px;height:15px;fill:var(--lime)}
+.topbar span{font-size:14px;color:var(--faint)}
+
+main{max-width:880px;margin:0 auto;padding:24px 24px 80px;display:grid;gap:72px}
+.block{display:grid;gap:22px}
+.block > h2{font-size:clamp(26px,3.4vw,34px);font-weight:800}
+.lead{font-size:18px;color:var(--soft);max-width:60ch}
+
+/* 1. potential */
+.hero{border-radius:28px;padding:44px 44px 36px;color:#fff;display:grid;gap:28px;
+  background:radial-gradient(720px 380px at 0% 0%,rgba(82,183,136,.30),transparent 70%),var(--deep)}
+.hero .hi{font-size:15px;color:rgba(255,255,255,.65)}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-.035em;line-height:1.06;max-width:18ch}
+.hero h1 .hl{background:var(--lime);color:var(--deep);padding:0 .16em;border-radius:8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .sub{font-size:18px;color:rgba(255,255,255,.78);max-width:52ch}
+.chart{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px 18px 10px}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart text{font-family:var(--font)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fact{border-top:1px solid rgba(255,255,255,.14);padding-top:14px;display:grid;gap:2px}
+.fact b{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.fact span{font-size:14.5px;color:rgba(255,255,255,.65)}
+.fact.lime b{color:var(--lime)}
+
+/* 2. why not yet */
+.reasons{display:grid;gap:12px}
+.reason{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;grid-template-columns:44px 1fr;gap:4px 18px;align-items:start}
+.reason .ic{width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center;grid-row:span 2}
+.reason .ic svg{width:22px;height:22px;stroke:var(--forest);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.reason h3{font-size:19px;font-weight:700}
+.reason p{color:var(--soft);font-size:16px}
+.good{display:flex;gap:12px;align-items:flex-start;padding:18px 22px;border-radius:16px;background:var(--tint);color:var(--forest);font-size:16px}
+.good svg{width:22px;height:22px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+
+/* 3. what customers see */
+.serp{background:var(--white);border-radius:20px;overflow:hidden}
+.serp .bar{display:flex;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid var(--line);font-size:16px}
+.serp .bar svg{width:18px;height:18px;stroke:var(--faint);fill:none;stroke-width:2}
+.serp .bar b{font-weight:600}
+.serp .ai{margin:16px 22px 0;padding:14px 16px;border-radius:14px;background:#F2F5FB;font-size:15px}
+.serp .ai small{display:block;font-size:13px;color:var(--faint);margin-bottom:2px}
+.serp ol{list-style:none;margin:0;padding:6px 22px 4px}
+.serp li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:28px 1fr;gap:12px}
+.serp li:last-child{border-bottom:0}
+.serp li .p{font-weight:700;color:var(--faint);font-size:15px;padding-top:1px}
+.serp li .d{font-size:13.5px;color:var(--faint)}
+.serp li .t{font-size:17px;color:#1A0DAB;line-height:1.35}
+.serp .you.pos{background:var(--tint);color:var(--forest)}
+.serp .you{margin:4px 22px 22px;padding:14px 16px;border-radius:14px;background:var(--red-bg);color:var(--red);font-weight:600;font-size:15.5px}
+
+/* 4. where customers search */
+.demand{background:var(--white);border-radius:20px;padding:26px;display:grid;gap:20px}
+.dm{display:grid;gap:7px}
+.dm .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.dm .row span{font-size:16.5px;font-weight:600}
+.dm .row b{font-size:16px;font-weight:700;white-space:nowrap}
+.dm .row b small{font-weight:500;color:var(--faint);font-size:14px}
+.dm .track{height:12px;border-radius:999px;background:var(--bg);overflow:hidden}
+.dm .track i{display:block;height:100%;border-radius:999px;background:var(--green)}
+.dm.top .track i{background:var(--forest)}
+.dm p{font-size:14.5px;color:var(--soft)}
+.demand .sum{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;font-weight:700}
+
+/* 5. plan */
+.note{font-size:15.5px;color:var(--soft);background:var(--white);border-radius:16px;padding:16px 20px}
+.weeks{display:grid;gap:14px}
+.week{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;gap:16px}
+.week .wh{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.week .wh span{font-size:14px;font-weight:700;color:var(--green)}
+.week .wh h3{font-size:20px;font-weight:800}
+.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.list li{display:grid;grid-template-columns:24px 1fr;gap:12px;font-size:16.5px;line-height:1.5}
+.list li svg{width:20px;height:20px;margin-top:2px;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.yours{display:grid;grid-template-columns:24px 1fr;gap:12px;padding:14px 16px;border-radius:14px;background:#FFF6E0;font-size:16px}
+.yours svg{width:20px;height:20px;margin-top:2px;stroke:#9A5B05;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.yours b{font-weight:700}
+.yours small{color:#7A5A1E;font-size:14px}
+
+/* 6. next step */
+.cta{border-radius:28px;padding:40px;color:#fff;display:grid;gap:16px;background:radial-gradient(600px 300px at 100% 0%,rgba(82,183,136,.25),transparent 70%),var(--deep)}
+.cta h2{font-size:clamp(26px,3.6vw,36px);font-weight:900;letter-spacing:-.03em;max-width:22ch}
+.cta p{color:rgba(255,255,255,.75);max-width:56ch}
+.cta a{justify-self:start;display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--deep);font-weight:700;text-decoration:none;border-radius:999px;padding:14px 24px;font-size:16px}
+.cta .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 4px}
+.cta .steps div{border-top:2px solid rgba(255,255,255,.16);padding-top:12px;display:grid;gap:2px;font-size:15px;color:rgba(255,255,255,.72)}
+.cta .steps div:first-child{border-color:var(--lime)}
+.cta .steps b{color:#fff;font-size:16px}
+.cta .small{font-size:14px;color:rgba(255,255,255,.6)}
+.extra{display:grid;gap:8px;font-size:15.5px;color:var(--soft)}
+.extra b{color:var(--ink)}
+.foot{font-size:13.5px;color:var(--faint);text-align:center;max-width:60ch;margin:0 auto}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .topbar,main{padding-left:16px;padding-right:16px}
+  main{gap:56px}
+  .hero,.cta{padding:28px 20px;border-radius:22px}
+  .facts,.cta .steps{grid-template-columns:1fr}
+  .reason{grid-template-columns:1fr;padding:22px 20px}
+  .reason .ic{grid-row:auto}
+  .week,.demand{padding:22px 20px}
+  .serp .bar,.serp ol{padding-left:16px;padding-right:16px}
+  .serp .ai,.serp .you{margin-left:16px;margin-right:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="https://getmarketing.team"><i><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></i>GetMarketing</a>
+  <span id="top-for"></span>
+</header>
+
+<main id="app"></main>
+
+<script>
+const DATA = {
+  company: "Nafora Café", domain: "naforacafe.com", date: "10. November 2026", market: "Deutschland",
+  connected: false,
+  cms_connected: false,
+
+  hero: {
+    title_before: "Jeden Monat suchen", title_hl: "21.600 Menschen", title_after: "nach Frühstück, Kuchen und Kaffee in Berlin, wie es sie bei Nafora gibt.",
+    sub: "8.100 Menschen suchen schon jeden Monat direkt nach Nafora Café. Mit dem Plan unten findet dich in 6 bis 12 Monaten auch, wer einfach ein Café in Mitte oder eine Torte für den Geburtstag sucht.",
+    today: 40, low: 200, high: 450,
+    facts: [
+      { v: "21.600", t: "Suchen pro Monat nach dem, was du anbietest" },
+      { v: "200–450", t: "neue Besucher pro Monat, die realistisch sind", lime: true },
+      { v: "20–80", t: "Torten- und Catering-Anfragen im Jahr, dazu neue Gäste" }
+    ]
+  },
+
+  reasons: [
+    { icon: "copy", title: "Deine Website hat bisher nur eine Seite",
+      text: "Öffnungszeiten, Story und Kontakt stehen auf einer Seite, die Speisekarte fehlt noch. Google zeigt für „Frühstück Alexanderplatz“ oder „Torte bestellen Berlin“ am liebsten eine Seite, die genau davon handelt. Diese Seiten schreiben wir." },
+    { icon: "search", title: "Google hält deine Unterseiten für Kopien",
+      text: "Eine kleine technische Einstellung sagt Google gerade, dass jede Unterseite nur eine Kopie der Startseite ist. Neue Seiten würden so nicht gefunden. Das lässt sich in wenigen Minuten ändern, wir schreiben deinem Entwickler genau auf, was zu tun ist." },
+    { icon: "link", title: "Die meisten Suchen in Berlin sind auf Deutsch",
+      text: "Deine Website ist auf Englisch. Das passt für Touristen, aber Berliner suchen meist auf Deutsch. Mit Seiten in beiden Sprachen erreichst du beide." }
+  ],
+  good: "Das Gute: 8.100 Menschen suchen jeden Monat schon direkt nach Nafora Café, und bei dieser Suche bist du auf Platz 1. So bekannt sind die wenigsten Cafés.",
+
+  search: {
+    query: "torte bestellen berlin",
+    ai_names: "",
+    results: [
+      { pos: 1, domain: "zucker-boutique.de", title: "Zucker-Boutique | Patisserie Berlin | Café | Tortenbestellung" },
+      { pos: 3, domain: "laelia.de", title: "Cake Torten Shop LAELIA Berlin" },
+      { pos: 4, domain: "fraubehrenstorten.de", title: "Frau Behrens Torten" }
+    ],
+    positive: true,
+    missing: "Hier ist Platz für dich. Mit hausgemachten Torten aus dem eigenen Café passt Nafora genau in diese Liste."
+  },
+
+  demand: [
+    { name: "Café und Frühstück in Mitte und am Alexanderplatz", v: 9210, note: "Gäste ganz in deiner Nähe, die heute noch einen Platz zum Frühstücken oder für einen Kaffee suchen.", top: true },
+    { name: "Catering in Berlin", v: 4370, note: "Firmen und Familien, die für ein Treffen oder eine Feier bestellen wollen. Eine Anfrage bringt oft viel auf einmal." },
+    { name: "Kaffee, Desserts und schöne Cafés", v: 3700, note: "Leute, die nach einem besonderen Ort suchen, so wie Nafora einer ist." },
+    { name: "Torten und Kuchen bestellen", v: 2300, note: "Menschen mit einem Anlass, zum Beispiel einem Geburtstag. Genau dafür hast du schon das Formular." },
+    { name: "Süßes aus dem Nahen Osten", v: 2040, note: "Gäste, die gezielt nach Baklava und Kunafa suchen. Hier gibt es noch wenige gute Seiten." }
+  ],
+
+  weeks: [
+    { title: "Deine Karte zeigen",
+      we: ["Eine eigene Seite: „Speisekarte: Frühstück, Kuchen und Kaffee im Nafora Café“, auf Deutsch und Englisch",
+           "Eine kurze Anleitung für deinen Entwickler, damit Google neue Seiten richtig erkennt",
+           "Einen Beitrag für dein Google-Profil schreiben"],
+      you: { t: "Uns deine aktuelle Speisekarte schicken, ein Foto reicht", min: 5 } },
+    { title: "Frühstück in Mitte",
+      we: ["Eine eigene Seite: „Frühstück und Brunch am Alexanderplatz“",
+           "Eine eigene Seite: „Café in Berlin-Mitte: Kaffee, hausgemachte Kuchen und Zeit für dich“",
+           "Einen Beitrag für dein Google-Profil schreiben"],
+      you: { t: "Dein Google-Profil prüfen: Öffnungszeiten, neue Fotos und ein Link zur Speisekarte", min: 15 } },
+    { title: "Torten bestellen",
+      we: ["Eine eigene Seite: „Torte bestellen in Berlin: Geburtstagstorten und Kuchen aus dem Nafora Café“",
+           "Einen neuen Beitrag: „Geburtstagstorte bestellen: wie viel Vorlauf und wie viele Stücke du brauchst“",
+           "Einen Beitrag für dein Google-Profil schreiben"],
+      you: { t: "Uns 5 Fotos deiner Torten und einen groben Preisrahmen schicken", min: 15 } },
+    { title: "Catering und Süßes aus dem Nahen Osten",
+      we: ["Eine eigene Seite: „Catering in Berlin: Frühstück, Fingerfood und Süßes fürs Büro“",
+           "Eine eigene Seite: „Ost trifft West: Desserts aus dem Nahen Osten im Nafora Café“",
+           "Einen Beitrag für dein Google-Profil schreiben"],
+      you: { t: "Nafora bei 2 Berliner Portalen wie visitBerlin oder Top10 Berlin vorschlagen", min: 20 } }
+  ],
+
+  extra: ["Alle Seiten auch auf Englisch, für Touristen rund um den Alexanderplatz.",
+          "Eine Seite für Matcha und besondere Getränke, wenn sie auf deiner Karte stehen. Danach wird in Berlin fast 3.000-mal im Monat gesucht."],
+
+  checkout: {
+    url: "https://buy.stripe.com/3cI3cveuy3vH8Ah7tJ5J607",
+    price: "249 €", guarantee_days: 7
+  }
+};
+
+const D = DATA;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = n => n.toLocaleString("de-DE");
+const ICON = {
+  link: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+  copy: '<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M4 16V5a2 2 0 0 1 2-2h11"/>',
+  search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+  check: '<path d="m5 12 5 5L20 7"/>',
+  hand: '<path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/>'
+};
+const svg = (k, cls = "") => `<svg viewBox="0 0 24 24" class="${cls}" aria-hidden="true">${ICON[k]}</svg>`;
+document.getElementById("top-for").textContent = `Für ${D.domain}`;
+document.title = `Dein Marketingplan: ${D.domain} · GetMarketing`;
+
+/* growth chart: today -> 12 months, as a band (low/high), slow start, honest */
+function chart() {
+  const W = 640, H = 230, L = 8, R = 120, T = 18, B = 34;
+  const max = D.hero.high * 1.12, x = m => L + (W - L - R) * m / 12, y = v => T + (H - T - B) * (1 - v / max);
+  const s = m => m <= 1 ? 0 : Math.pow(Math.min(1, (m - 1) / 11), 1.6);
+  const pts = []; for (let m = 0; m <= 12; m += .25) pts.push(m);
+  const hi = pts.map(m => `${x(m).toFixed(1)},${y(D.hero.today + (D.hero.high - D.hero.today) * s(m)).toFixed(1)}`);
+  const lo = pts.map(m => `${x(m).toFixed(1)},${y(D.hero.today + (D.hero.low - D.hero.today) * s(m)).toFixed(1)}`).reverse();
+  const ticks = [[0, "Heute"], [3, "3 Monate"], [6, "6 Monate"], [9, "9 Monate"], [12, "12 Monate"]];
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Geschätzte Besucher über Google: heute ${D.hero.today}, in 12 Monaten ${D.hero.low} bis ${D.hero.high} pro Monat">
+    <line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="rgba(255,255,255,.18)"/>
+    ${ticks.map(([m, t]) => `<text x="${x(m)}" y="${H - 8}" fill="rgba(255,255,255,.5)" font-size="13" text-anchor="${m === 0 ? "start" : m === 12 ? "end" : "middle"}">${t}</text>`).join("")}
+    <polygon points="${hi.join(" ")} ${lo.join(" ")}" fill="rgba(134,239,172,.22)"/>
+    <polyline points="${hi.join(" ")}" fill="none" stroke="#86EFAC" stroke-width="2.5"/>
+    <polyline points="${lo.slice().reverse().join(" ")}" fill="none" stroke="#86EFAC" stroke-width="1.5" stroke-dasharray="4 5" opacity=".7"/>
+    <circle cx="${x(0)}" cy="${y(D.hero.today)}" r="5" fill="#fff"/>
+    <circle cx="${x(12)}" cy="${y(D.hero.high)}" r="5" fill="#86EFAC"/>
+    <text x="${x(12) + 14}" y="${y(D.hero.high) + 5}" fill="#fff" font-size="20" font-weight="800">${fmt(D.hero.low)}–${fmt(D.hero.high)}</text>
+    <text x="${x(12) + 14}" y="${y(D.hero.high) + 25}" fill="rgba(255,255,255,.6)" font-size="13">Besucher pro Monat</text>
+    <text x="${x(0) + 12}" y="${y(D.hero.today) - 10}" fill="rgba(255,255,255,.75)" font-size="13">Heute: ${D.hero.today}</text>
+  </svg>`;
+}
+
+const maxDemand = Math.max(...D.demand.map(d => d.v));
+const total = D.demand.reduce((a, d) => a + d.v, 0);
+
+document.getElementById("app").innerHTML = `
+<section class="hero" aria-labelledby="h1">
+  <p class="hi">Deine Auswertung vom ${esc(D.date)}</p>
+  <h1 id="h1">${esc(D.hero.title_before)} <span class="hl">${esc(D.hero.title_hl)}</span> ${esc(D.hero.title_after)}</h1>
+  <p class="sub">${esc(D.hero.sub)}</p>
+  <div class="chart">${chart()}</div>
+  <div class="facts">${D.hero.facts.map(f => `<div class="fact${f.lime ? " lime" : ""}"><b class="num">${esc(f.v)}</b><span>${esc(f.t)}</span></div>`).join("")}</div>
+</section>
+
+<section class="block" aria-labelledby="h2a">
+  <h2 id="h2a">Warum das heute noch nicht passiert</h2>
+  <div class="reasons">${D.reasons.map(r => `
+    <div class="reason"><span class="ic">${svg(r.icon)}</span><h3>${esc(r.title)}</h3><p>${esc(r.text)}</p></div>`).join("")}</div>
+  <div class="good">${svg("check")}<span>${esc(D.good)}</span></div>
+</section>
+
+<section class="block" aria-labelledby="h2b">
+  <h2 id="h2b">Das sehen deine Kunden, wenn sie dich suchen</h2>
+  <div class="serp">
+    <div class="bar">${svg("search")}<b>${esc(D.search.query)}</b></div>
+    ${D.search.ai_names ? `<div class="ai"><small>Antwort der Google-KI</small>Empfohlen werden: ${esc(D.search.ai_names)}</div>` : ""}
+    <ol>${D.search.results.map((r, i) => `<li><span class="p">${r.pos ?? i + 1}</span><span><span class="d">${esc(r.domain)}</span><br><span class="t">${esc(r.title)}</span></span></li>`).join("")}</ol>
+    <div class="you${D.search.positive ? " pos" : ""}">${esc(D.search.missing)}</div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="h2c">
+  <h2 id="h2c">Wonach deine Kunden suchen</h2>
+  <p class="lead">So oft wird pro Monat in ${esc(D.market)} bei Google danach gesucht.</p>
+  <div class="demand">
+    ${D.demand.map(d => `<div class="dm${d.top ? " top" : ""}">
+      <div class="row"><span>${esc(d.name)}</span><b class="num">${fmt(d.v)} <small>Suchen</small></b></div>
+      <div class="track"><i style="width:${(d.v / maxDemand * 100).toFixed(1)}%"></i></div>
+      <p>${esc(d.note)}</p></div>`).join("")}
+    <div class="sum"><span>Zusammen</span><span class="num">${fmt(total)} Suchen pro Monat</span></div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="h2d">
+  <h2 id="h2d">Was wir in den nächsten 4 Wochen machen</h2>
+  <p class="lead">Wir schreiben alle Seiten und Beiträge. Du machst pro Woche nur einen kurzen Schritt, den wir dir vorbereiten.</p>
+  ${D.cms_connected ? "" : `<p class="note">Deine Website ist noch nicht mit uns verbunden. Bis dahin stellst du unsere fertigen Seiten selbst online, das dauert pro Seite etwa 5 Minuten. Nutzt du WordPress oder Shopify, erledigen wir auch das.</p>`}
+  <div class="weeks">${D.weeks.map((w, i) => `
+    <div class="week">
+      <div class="wh"><span>Woche ${i + 1}</span><h3>${esc(w.title)}</h3></div>
+      <ul class="list">${w.we.map(t => `<li>${svg("check")}<span>${esc(t)}</span></li>`).join("")}</ul>
+      <div class="yours">${svg("hand")}<span><b>Dein Schritt:</b> ${esc(w.you.t)}<br><small>ca. ${w.you.min} Minuten, die Texte bekommst du von uns</small></span></div>
+    </div>`).join("")}</div>
+  ${D.extra.length ? `<div class="extra"><b>Was später zusätzlich helfen kann</b>${D.extra.map(e => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
+</section>
+
+<section class="cta" id="start" aria-labelledby="h2e">
+  <h2 id="h2e">Sollen wir mit Woche 1 anfangen?</h2>
+  <p>Starte heute, und wir schreiben die ersten Seiten noch diese Woche. Du siehst alles, bevor es online geht.</p>
+  <div class="steps">
+    <div><b>Heute</b><span>Bezahlen und loslegen. ${esc(D.checkout.price)} im Monat, monatlich kündbar. Als Kleinunternehmer berechnen wir keine Umsatzsteuer. Deinen Zugang bekommst du per E-Mail.</span></div>
+    <div><b>Woche 1</b><span>Wir schreiben die ersten Seiten. Du liest sie und gibst sie frei.</span></div>
+    <div><b>Bis Tag ${D.checkout.guarantee_days}</b><span>Gefallen sie dir nicht, kündigst du und bekommst dein Geld zurück.</span></div>
+  </div>
+  <a href="${esc(D.checkout.url)}">Jetzt starten</a>
+  <p class="small">Wir liefern Woche für Woche, nicht alles auf einmal. Alles, was du bezahlt hast, gehört dir und bleibt online.</p>
+</section>
+
+<p class="foot">Alle Zahlen sind Schätzungen aus öffentlichen Suchdaten, Stand ${esc(D.date)}. Niemand kann Plätze bei Google garantieren, auch wir nicht.</p>
+`;
+</script>
+</body>
+</html>
