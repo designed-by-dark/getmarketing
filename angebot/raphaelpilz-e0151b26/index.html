@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dein Marketingplan: webantis.at · GetMarketing</title>
+<title>Dein Marketingplan: raphaelpilz.de · GetMarketing</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 <link rel="icon" href="/logo.jpg" />
@@ -80,6 +80,70 @@ main{max-width:880px;margin:0 auto;padding:24px 24px 80px;display:grid;gap:72px}
 .serp .you.pos{background:var(--tint);color:var(--forest)}
 .serp .you{margin:4px 22px 22px;padding:14px 16px;border-radius:14px;background:var(--red-bg);color:var(--red);font-weight:600;font-size:15.5px}
 
+/* 3b. competitors */
+.rivals{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.rival{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:10px;align-content:start}
+.rival .who{display:grid;gap:2px}
+.rival .who b{font-size:18px;font-weight:700}
+.rival .who span{font-size:14px;color:var(--faint)}
+.rival dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:15px}
+.rival dt{color:var(--faint)}
+.rival dd{margin:0}
+.rival .learn{font-size:15px;color:var(--forest);background:var(--tint);border-radius:12px;padding:10px 12px}
+.prices{background:var(--white);border-radius:20px;padding:26px;display:grid;gap:16px}
+.prices h3{font-size:19px;font-weight:700}
+.pr{display:grid;grid-template-columns:minmax(150px,220px) 1fr auto;gap:14px;align-items:center;font-size:15.5px}
+.pr .track{height:12px;border-radius:999px;background:var(--bg);overflow:hidden}
+.pr .track i{display:block;height:100%;border-radius:999px;background:#C9CEC8}
+.pr.me .track i{background:var(--green)}
+.pr.me span:first-child{font-weight:700}
+.pr b{font-weight:700;white-space:nowrap}
+.prices p{font-size:15px;color:var(--soft)}
+.full{display:grid;gap:10px}
+.full > h3{font-size:21px;font-weight:800;margin-top:6px}
+.full > p{font-size:16px;color:var(--soft)}
+.acc{background:var(--white);border-radius:18px}
+.acc summary{list-style:none;cursor:pointer;padding:18px 22px;display:grid;grid-template-columns:1fr 24px;gap:4px 14px;align-items:center}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary b{font-size:17.5px;font-weight:700}
+.acc summary small{grid-column:1;font-size:14.5px;color:var(--soft)}
+.acc summary i{grid-column:2;grid-row:1 / span 2;width:24px;height:24px;border-radius:50%;background:var(--tint);display:grid;place-items:center;transition:transform .2s}
+.acc summary i svg{width:14px;height:14px;stroke:var(--forest);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.acc[open] summary i{transform:rotate(180deg)}
+.acc .body{padding:0 22px 22px;display:grid;gap:14px;font-size:15.5px}
+.acc .intro{color:var(--soft)}
+.sq{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:6px}
+.sq .q{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.sq .q b{font-size:16.5px}
+.sq .q span{font-size:13.5px;color:var(--faint)}
+.sq .lbl{font-size:13px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
+.sq ul{margin:0;padding-left:18px;display:grid;gap:2px}
+.sq .take{background:var(--tint);color:var(--forest);border-radius:12px;padding:10px 12px}
+.pp{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px}
+.pp .n{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pp .n b{font-size:16px}
+.pp .n span{font-size:13.5px;color:var(--faint)}
+.pp dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 12px}
+.pp dt{color:var(--faint)}
+.pp dd{margin:0}
+.pp.me{background:var(--tint);border:0;border-radius:12px;padding:12px 14px}
+.pts{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.pts li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.pts li svg{width:18px;height:18px;margin-top:3px;stroke:var(--green);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pts li b{font-weight:700}
+ol.pts{counter-reset:s}
+ol.pts li::before{counter-increment:s;content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--forest);color:#fff;font-size:12.5px;font-weight:700;display:grid;place-items:center;margin-top:1px}
+.ch{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px}
+.ch .n{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.ch .n b{font-size:16px}
+.badge{font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.badge.hoch{background:var(--tint);color:var(--forest)}
+.badge.mittel{background:#FFF6E0;color:#8A5A00}
+.badge.niedrig,.badge.nein{background:var(--bg);color:var(--soft)}
+.ch p{color:var(--soft)}
+.ch p b{color:var(--ink);font-weight:600}
+.src{font-size:13.5px;color:var(--faint)}
+
 /* 4. where customers search */
 .demand{background:var(--white);border-radius:20px;padding:26px;display:grid;gap:20px}
 .dm{display:grid;gap:7px}
@@ -130,7 +194,10 @@ main{max-width:880px;margin:0 auto;padding:24px 24px 80px;display:grid;gap:72px}
   .facts,.cta .steps{grid-template-columns:1fr}
   .reason{grid-template-columns:1fr;padding:22px 20px}
   .reason .ic{grid-row:auto}
-  .week,.demand{padding:22px 20px}
+  .week,.demand,.prices{padding:22px 20px}
+  .rivals{grid-template-columns:1fr}
+  .pr{grid-template-columns:1fr auto}
+  .pr .track{grid-column:1 / -1;grid-row:2}
   .serp .bar,.serp ol{padding-left:16px;padding-right:16px}
   .serp .ai,.serp .you{margin-left:16px;margin-right:16px}
 }
@@ -173,15 +240,141 @@ const DATA = {
   good: "Das Gute: Deine Website ist technisch einwandfrei und lädt sehr schnell. Und deine Geschichte aus dem Spitzensport hebt dich klar von anderen Coaches ab.",
 
   search: {
-    query: "sportpsychologe berlin",
-    ai_names: "Kopfathleten, Sportpsychologie.Berlin, Olympiastützpunkt Berlin, ALBA Berlin",
+    query: "mental coach berlin",
+    ai_label: "Ganz oben auf der Google-Karte",
+    ai_names: "Sandra Jakisch (33 Bewertungen), Psychologicum Berlin (139 Bewertungen), Philipp Stahl (41 Bewertungen)",
     results: [
-      { pos: 3, domain: "theinnercompass.de", title: "Über mich · Sportpsychologe & Coach Berlin" },
-      { pos: 5, domain: "sportpsychologie.berlin", title: "Kosten für sportpsychologische Leistungen" },
-      { pos: 7, domain: "struch-coaching.de", title: "Führungskräftecoaching und Sportcoaching" }
+      { pos: 1, domain: "berlin.de", title: "Mentaltraining" },
+      { pos: 2, domain: "coachingberlinmitte.de", title: "Personal Coaching Berlin · Life Coaching · Business Coach" },
+      { pos: 3, domain: "zinkernagel.net", title: "Mental Health Coaching Berlin" }
     ],
     positive: true,
-    missing: "Hier ist noch Platz für dich. Mit deinem Hintergrund aus dem Spitzensport passt du genau in diese Liste."
+    missing: "Hier ist noch Platz für dich. Wer mit einem Google-Profil und ein paar Bewertungen auf die Karte kommt, steht über allen anderen Ergebnissen."
+  },
+
+  rivals: {
+    lead: "Wir haben uns 11 Coaches angesehen, die bei Google auftauchen, wenn deine Kunden suchen. Die gute Nachricht: Kaum einer nutzt Google bisher richtig. Diese vier zeigen am besten, was funktioniert.",
+    list: [
+      { name: "Philipp Stahl", where: "coachingpsychologe.de · Berlin-Mitte",
+        what: "Psychologisches Coaching für Unternehmer und Führungskräfte", price: "nicht auf der Website",
+        google: "Eigene Seite für Unternehmer, 41 Bewertungen",
+        learn: "Eine eigene Seite nur für Unternehmer bringt ihn nach vorne. Deine Seite für Gründer kann das mit deinem Sport-Hintergrund noch besser." },
+      { name: "Christoph Kittler", where: "sportpsychologie.berlin",
+        what: "Mentale Stärke für Sportler und Teams", price: "120 € pro Sitzung",
+        google: "Gut sichtbar über sein Google-Profil, die Website selbst wird kaum gefunden",
+        learn: "Das Google-Profil mit Bewertungen bringt die meisten Anfragen. Das geht bei dir genauso." },
+      { name: "Coaching Berlin Mitte", where: "coachingberlinmitte.de",
+        what: "Business-Coaching, Führung, Resilienz", price: "Pakete für etwa 900–2.000 €",
+        google: "Der sichtbarste Coach in Berlin, mit einer Seite für jedes Thema",
+        learn: "Viele Seiten zu vielen Fragen bringen viele Besucher. Genau das baut unser Plan für dich auf." },
+      { name: "Katia Steilemann", where: "steilemann.com",
+        what: "Mental Coaching", price: "nicht auf der Website",
+        google: "Platz 1 für „Mental Coaching“ (1.900 Suchen im Monat), mit einer einzigen Seite",
+        learn: "Eine gute Seite, die das Thema einfach erklärt, kann den größten Suchbegriff gewinnen." }
+    ],
+    gap: "Deine Lücke: Niemand verbindet Methoden aus dem Spitzensport mit Gründern und Selbstständigen. Sport-Coaches sprechen Sportler an, Business-Coaches sprechen Führungskräfte an. Genau dazwischen ist dein Platz.",
+    prices: [
+      { name: "Du (Einführungspreis)", v: 33, label: "25–33 €", me: true },
+      { name: "Mentaltraining über Trainer-Portale", v: 60, label: "ab 60 €" },
+      { name: "Sport-Mentaltraining auf Superprof", v: 90, label: "90 €" },
+      { name: "Christoph Kittler", v: 120, label: "120 €" }
+    ],
+    price_note: "Fast kein anderer Coach zeigt seine Preise. Du schon, und das schafft Vertrauen. Dein Einführungspreis macht den Einstieg leicht. Später ist hier noch viel Luft nach oben."
+  },
+
+  analysis: {
+    title: "Die ganze Wettbewerbsanalyse",
+    lead: "Hier findest du alles, was wir uns angesehen haben. Klick auf ein Thema, um es aufzuklappen.",
+    source: "Grundlage: Google-Suchen in Berlin und Deutschland vom 10. November 2026, öffentliche Daten zur Sichtbarkeit bei Google und die Websites der Coaches. Besucherzahlen sind Schätzungen.",
+    parts: [
+      { t: "Was Google bei 7 wichtigen Suchen zeigt", s: "Wer oben steht, wenn deine Kunden suchen, und was das für dich heißt",
+        intro: "Wir haben die Suchen angesehen, die zu deinem Angebot passen. Die Karte ist der Kasten mit Google-Profilen und Sternen, der oft über allen anderen Ergebnissen steht.",
+        searches: [
+          { q: "mental coach berlin", where: "Suche aus Berlin",
+            map: ["Sandra Jakisch, Coaching (33 Bewertungen)", "Psychologicum Berlin (139 Bewertungen)", "Philipp Stahl, coachingpsychologe.de (41 Bewertungen)"],
+            top: ["berlin.de: Mentaltraining", "coachingberlinmitte.de: Personal und Business Coaching", "zinkernagel.net: Mental Health Coaching für Sportler und Führungskräfte", "lea-vogel-coaching.de, personalfitness.de, struch-coaching.de, juttanather.de"],
+            take: "Wer auf der Karte steht, bekommt hier die Anfragen. Dafür reichen ein Google-Profil und ein paar echte Bewertungen." },
+          { q: "mental coaching", where: "ganz Deutschland, 1.900 Suchen im Monat",
+            map: ["Anika Schrade (28 Bewertungen)", "Janine Reinisch, Sport Mental Coaching (20)", "KFK Mental-Coaching (29)"],
+            top: ["Platz 1: steilemann.com, eine einzige Seite, die Mental Coaching einfach erklärt", "Danach: Ratgeber und Ausbildungsanbieter (accountable.de, Bundesverband Sportmentaltraining, Wikipedia, MentalHouse)"],
+            take: "Ein großer Begriff, den eine kleine Website mit einer guten Erklärseite gewinnt. Die Google-KI betont dabei: Coaching ist keine Therapie, und gute Coaches zeigen offen ihre Ausbildung. Genau das kannst du." },
+          { q: "mentaltrainer berlin", where: "Suche aus Berlin",
+            map: ["Life Coaches: hapily, Carolin Mallmann, Johanna Melchiorre"],
+            top: ["diepenhorst.de, annekathrin-zimmermann.de, Jameda, lisa-zimmermann.de (Stress und Burnout), expertenmarkt.de, meeet.de"],
+            take: "Niemand verbindet hier Sport und Business. Ein freier Platz für dich." },
+          { q: "mental coach für unternehmer", where: "ganz Deutschland",
+            top: ["Ben Schulz & Partner, Jansen Beratung, scaleup.de, Mission Mittelstand, mentaltraining.de, Caroline Birke"],
+            take: "Fast alle bieten Strategie, Verkauf oder Firmentrainings. Kaum jemand kümmert sich um den Kopf des Unternehmers selbst. Das ist genau dein Thema." },
+          { q: "business coach berlin", where: "Suche aus Berlin, 260 Suchen im Monat",
+            map: ["Coaching Berlin Mitte (70 Bewertungen)", "AVGS Coaching Berlin (399)", "Wistor GmbH (110)"],
+            top: ["Thomas Wehrs, Jens Korz, coachingteam.de, Coaching Spirale, Karsten Noack, Martina Reiss"],
+            take: "Hier gibt es viel Coaching, das die Agentur für Arbeit bezahlt. Darum ist das nicht dein Hauptweg. Deine Kunden finden dich eher über Mental Coaching." },
+          { q: "hochstapler syndrom", where: "ganz Deutschland, 2.900 Suchen im Monat",
+            top: ["IU Hochschule, Hogrefe, Quarks, Uni Heidelberg, GoodJobs", "Die Google-KI zitiert Wikipedia, AOK, TK und die Oberberg Kliniken"],
+            take: "Die ersten Plätze gehören großen Seiten. Ein Artikel aus Sicht von Gründern kann trotzdem auf Seite 1 kommen und Leute erreichen, die genau dieses Gefühl kennen." },
+          { q: "sportpsychologe berlin", where: "Suche aus Berlin",
+            top: ["Infokasten: Sportpsychologie.Berlin (Christoph Kittler)", "Studiengänge (StudyCheck, BSP Berlin), mindmess-training.de, Jobportale"],
+            take: "Hier suchen vor allem Sportler und Studierende. Für dein Angebot passen „Mentaltraining“ und „Mental Coaching“ besser." }
+        ] },
+      { t: "Alle 11 Wettbewerber im Überblick", s: "Wer sie sind, was sie kosten und wie gut Google sie findet",
+        intro: "„Bei Google“ heißt: für wie viele Suchbegriffe die Website gefunden wird und wie viele Besucher sie darüber ungefähr im Monat bekommt.",
+        people: [
+          { name: "Du, raphaelpilz.de", where: "Berlin und online", what: "Mentaltraining mit Methoden aus dem Spitzensport für Gründer und Selbstständige", price: "25–33 € pro Sitzung, Erstgespräch kostenlos", google: "Noch keine Suchbegriffe, die Website ist neu. Alles, was jetzt kommt, ist Zuwachs.", me: true },
+          { name: "Philipp Stahl", where: "coachingpsychologe.de · Berlin-Mitte", what: "Psychologisches Coaching für Unternehmer, Führungskräfte und Umbrüche. Psychologe und Psychotherapeut.", price: "Nicht online, Angebot nach kostenlosem Gespräch", google: "Etwa 20–40 Suchbegriffe, rund 100 Besucher im Monat, meist über seinen Namen. Platz 5 für „Unternehmer-Coaching“ mit einer eigenen Seite. 41 Bewertungen." },
+          { name: "Christoph Kittler", where: "sportpsychologie.berlin", what: "Mentale Stärke für Sportler und Teams, auch für Leistung im Beruf", price: "120 € pro 50 Minuten online", google: "13 Suchbegriffe, kaum Besucher über die Website. Sichtbar über sein Google-Profil und den Infokasten." },
+          { name: "Philipp Reich", where: "theinnercompass.de · Berlin", what: "Systemisches Coaching für neue Lebensphasen und berufliche Neuorientierung. Ähnlicher Werdegang wie du.", price: "Nicht online, kostenloses Erstgespräch (45 Minuten)", google: "1 Suchbegriff. Die Website gibt es seit August 2026, sie besteht aus einer Seite." },
+          { name: "Mindmess", where: "mindmess-training.de · Berlin", what: "Mentale Stärke für Sportler, Teams, Trainer, Menschen auf der Bühne und Firmen. Arbeitet am Olympiastützpunkt.", price: "Nicht geprüft", google: "3 Suchbegriffe. Gute Idee: eine eigene Seite pro Zielgruppe." },
+          { name: "Marc Zinkernagel", where: "zinkernagel.net · Berlin", what: "Mental Health Coaching für Leistungssportler, Führungskräfte und stark belastete Berufe", price: "Nicht geprüft", google: "5 Suchbegriffe, steht aber bei „mental coach berlin“ auf Seite 1." },
+          { name: "Struch Coaching", where: "struch-coaching.de", what: "Coaching für Führungskräfte und Sportler", price: "Nicht geprüft", google: "3 Suchbegriffe, steht bei „mental coach berlin“ auf Seite 1." },
+          { name: "Lea Vogel", where: "lea-vogel-coaching.de · Prenzlauer Berg", what: "Psychologisches Coaching und Therapie, dazu Podcast, Webinare und ein Online-Kurs", price: "Nicht geprüft", google: "32 Suchbegriffe, rund 190 Besucher im Monat. Ihre Seite „Selbstbewusstsein stärken“ steht für mehrere Suchen auf Platz 1 bis 7." },
+          { name: "Coaching Berlin Mitte", where: "coachingberlinmitte.de", what: "Business-Coaching, Führung, Resilienz, Teams und Seminare", price: "Pakete etwa 900–2.000 € für 6 bis 10 Sitzungen", google: "Rund 250 Suchbegriffe, etwa 770 Besucher im Monat. Der sichtbarste Coach in Berlin. 70 Bewertungen." },
+          { name: "Kopfathleten", where: "kopfathleten.de · Hamburg", what: "Mentaltraining für Sport, Beruf und Teams", price: "Nicht geprüft", google: "38 Suchbegriffe, rund 50 Besucher im Monat, vor allem durch Interviews mit Sportlern. Wird von der Google-KI genannt." },
+          { name: "Katia Steilemann", where: "steilemann.com", what: "Mental Coaching", price: "Nicht geprüft", google: "Platz 1 für „Mental Coaching“ (1.900 Suchen im Monat) mit einer einzigen, gut erklärten Seite." },
+          { name: "Sandra Jakisch, Psychologicum und andere", where: "Google-Karte Berlin", what: "Coaching mit starkem Google-Profil", price: "Nicht geprüft", google: "Werden vor allem über die Karte gefunden, mit 20 bis 139 Bewertungen." }
+        ] },
+      { t: "Was die Erfolgreichen gemeinsam haben", s: "Vier Dinge, die bei allen funktionieren",
+        points: [
+          "<b>Eine eigene Seite für jedes Thema oder jede Zielgruppe.</b> Philipp Stahl hat Seiten für Unternehmer, Führungskräfte und „Coaching statt Therapie“. Lea Vogel hat „Selbstbewusstsein stärken“. Mindmess hat Seiten für Sportler, Teams und Firmen.",
+          "<b>Ein Google-Profil mit 20 oder mehr Bewertungen.</b> Damit steht man auf der Karte über allen anderen Ergebnissen.",
+          "<b>Eine gute Seite, die ein großes Thema einfach erklärt.</b> So steht Katia Steilemann bei „Mental Coaching“ auf Platz 1.",
+          "<b>Echte Stimmen von Kunden</b> mit Vornamen und einem konkreten Ergebnis. Philipp Stahl zeigt sechs davon auf seiner Unternehmer-Seite."
+        ] },
+      { t: "Was fast allen fehlt, und deine Chance ist", s: "Drei Lücken, die du füllen kannst",
+        points: [
+          "<b>Klare Preise.</b> Fast niemand zeigt, was eine Sitzung kostet. Dabei fragt Google bei fast jeder Suche „Was kostet Mentalcoaching?“. Du hast klare Pakete, das ist ein Vorteil, wenn man es sieht.",
+          "<b>Der Sport als Brücke zu Gründern.</b> „Gründung ist Leistungssport“ sagt sonst niemand. Sport-Coaches bleiben beim Sport, Business-Coaches reden über Strategie.",
+          "<b>Antworten auf die Gefühle von Gründern:</b> Selbstzweifel, das Gefühl, ein Hochstapler zu sein, Angst vor dem Pitch, Druck aushalten. Dazu gibt es kaum gute Seiten aus Sicht von Selbstständigen."
+        ] },
+      { t: "Wo du realistisch gewinnen kannst", s: "Suchbegriffe nach Chance sortiert",
+        chances: [
+          { q: "mental coach berlin, mentaltrainer berlin", c: "hoch", who: "Coaches auf der Karte mit 33 bis 139 Bewertungen", need: "Google-Profil und 10 bis 20 Bewertungen" },
+          { q: "Unternehmer-Coaching (260), Coaching für Selbstständige (70)", c: "hoch", who: "Philipp Stahl auf Platz 5, sonst Strategie-Berater", need: "Eine Seite „Mentaltraining für Gründer und Selbstständige“" },
+          { q: "Was kostet Coaching? (220)", c: "hoch", who: "Allgemeine Ratgeber", need: "Eine Seite, die Preise ehrlich erklärt, mit deinen Paketen" },
+          { q: "Unterschied Coaching und Therapie (40)", c: "hoch", who: "Philipp Stahl hat eine Seite dazu", need: "Ein kurzer, ehrlicher Artikel" },
+          { q: "Mental Coaching (1.900)", c: "mittel", who: "Katia Steilemann auf Platz 1 mit einer Seite", need: "Eine gute Erklärseite mit Beispielen von Gründern" },
+          { q: "Mentaltrainer (1.300), Resilienz-Coaching (590), Performance-Coaching (320)", c: "mittel", who: "Gemischt, niemand ist übermächtig", need: "Je eine Seite oder ein eigener Abschnitt" },
+          { q: "Selbstzweifel überwinden (320), Angst vor Präsentation (140), Angst vor Versagen (110)", c: "mittel", who: "Gemischt, kaum aus Gründersicht", need: "Ratgeber-Artikel mit Übungen aus dem Spitzensport" },
+          { q: "Hochstapler-Syndrom (2.900)", c: "niedrig", who: "IU, AOK, TK, Quarks", need: "Ein Artikel aus Gründersicht für Seite 1, nicht für Platz 1" },
+          { q: "Business Coach Berlin (260)", c: "niedrig", who: "Große Anbieter und kostenloses gefördertes Coaching", need: "Nicht dein Schwerpunkt" }
+        ] },
+      { t: "Deine nächsten Schritte, nach Wirkung sortiert", s: "Was am schnellsten Anfragen bringt",
+        steps: [
+          "<b>Google-Profil anlegen</b> und bisherige Kunden um eine Bewertung bitten. Ziel: 10 Bewertungen in 3 Monaten.",
+          "<b>Seite „Mentaltraining für Gründer und Selbstständige“</b> mit deiner Geschichte aus dem Sport, klaren Paketen und 3 bis 5 Kundenstimmen.",
+          "<b>Erklärseite „Mental Coaching“:</b> Was ist das, wie läuft es ab, was kostet es, und wann ist eine Therapie der bessere Weg.",
+          "<b>Jeden Monat ein Ratgeber-Artikel:</b> Selbstzweifel als Gründer, das Hochstapler-Gefühl, Angst vor dem Pitch, Druck aushalten wie im Spitzensport.",
+          "<b>Einträge in Verzeichnissen</b>, die bei Google oben stehen: expertenmarkt.de, Jameda, meeet.de. Das sind deine ersten Empfehlungen für Google.",
+          "<b>Unter „Gründung ist Leistungssport.“ einen Satz ergänzen</b>, den Google versteht, zum Beispiel: „Mentaltraining für Gründer und Selbstständige, online und in Berlin.“",
+          "<b>Später die Preise anheben.</b> Andere nehmen 90 bis 120 € pro Sitzung. Deine Einführungspreise können für die ersten Kunden sichtbar bleiben."
+        ] },
+      { t: "Worauf du achten solltest", s: "Damit du dich klar abhebst",
+        points: [
+          "<b>Philipp Stahl ist Psychotherapeut.</b> Mit ihm musst du dich nicht über Titel messen. Dein Vorteil sind der Sport, deine Nähe zu Gründern und klare Preise.",
+          "<b>Philipp Reich hat einen ähnlichen Werdegang.</b> Seine Website ist noch fast leer. Wer zuerst gute Inhalte hat, wird zuerst gefunden.",
+          "<b>Die Google-KI steht oft ganz oben.</b> Sie nennt gern Coaches, die offen sagen, welche Ausbildung sie haben, mit welchen Methoden sie arbeiten und wo Coaching aufhört. Darum steht auf jeder deiner Seiten: „Coaching ist keine Psychotherapie.“",
+          "<b>Kostenloses Coaching vom Amt</b> gibt es für Arbeitssuchende und Gründer vor dem Start. Deine Kunden sind meist schon selbstständig, darum betrifft dich das kaum."
+        ] }
+    ]
   },
 
   demand: [
@@ -283,11 +476,48 @@ document.getElementById("app").innerHTML = `
   <h2 id="h2b">Das sehen deine Kunden, wenn sie dich suchen</h2>
   <div class="serp">
     <div class="bar">${svg("search")}<b>${esc(D.search.query)}</b></div>
-    <div class="ai"><small>Antwort der Google-KI</small>Empfohlen werden: ${esc(D.search.ai_names)}</div>
+    <div class="ai"><small>${esc(D.search.ai_label || "Antwort der Google-KI")}</small>${D.search.ai_label ? "" : "Empfohlen werden: "}${esc(D.search.ai_names)}</div>
     <ol>${D.search.results.map((r, i) => `<li><span class="p">${r.pos ?? i + 1}</span><span><span class="d">${esc(r.domain)}</span><br><span class="t">${esc(r.title)}</span></span></li>`).join("")}</ol>
     <div class="you${D.search.positive ? " pos" : ""}">${esc(D.search.missing)}</div>
   </div>
 </section>
+
+${D.rivals ? (() => { const R = D.rivals, pmax = Math.max(...R.prices.map(p => p.v)); return `
+<section class="block" aria-labelledby="h2r">
+  <h2 id="h2r">Wer sonst noch gefunden wird</h2>
+  <p class="lead">${esc(R.lead)}</p>
+  <div class="rivals">${R.list.map(c => `
+    <div class="rival">
+      <div class="who"><b>${esc(c.name)}</b><span>${esc(c.where)}</span></div>
+      <dl><dt>Angebot</dt><dd>${esc(c.what)}</dd><dt>Preis</dt><dd>${esc(c.price)}</dd><dt>Bei Google</dt><dd>${esc(c.google)}</dd></dl>
+      <p class="learn">${esc(c.learn)}</p>
+    </div>`).join("")}</div>
+  <div class="good">${svg("check")}<span>${esc(R.gap)}</span></div>
+  <div class="prices">
+    <h3>Was eine Sitzung bei anderen kostet</h3>
+    ${R.prices.map(p => `<div class="pr${p.me ? " me" : ""}"><span>${esc(p.name)}</span><div class="track"><i style="width:${(p.v / pmax * 100).toFixed(1)}%"></i></div><b class="num">${esc(p.label)}</b></div>`).join("")}
+    <p>${esc(R.price_note)}</p>
+  </div>
+  ${D.analysis ? (() => { const A = D.analysis, chev = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>', lab = { hoch: "Chance hoch", mittel: "Chance mittel", niedrig: "Chance niedrig" }; return `
+  <div class="full">
+    <h3>${esc(A.title)}</h3>
+    <p>${esc(A.lead)}</p>
+    ${A.parts.map(p => `<details class="acc"><summary><b>${esc(p.t)}</b><small>${esc(p.s)}</small><i>${chev}</i></summary><div class="body">
+      ${p.intro ? `<p class="intro">${esc(p.intro)}</p>` : ""}
+      ${(p.searches || []).map(s => `<div class="sq"><div class="q"><b>„${esc(s.q)}“</b><span>${esc(s.where)}</span></div>
+        ${s.map ? `<span class="lbl">Auf der Karte</span><ul>${s.map.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+        <span class="lbl">In den Ergebnissen</span><ul>${s.top.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+        <p class="take">${esc(s.take)}</p></div>`).join("")}
+      ${(p.people || []).map(c => `<div class="pp${c.me ? " me" : ""}"><div class="n"><b>${esc(c.name)}</b><span>${esc(c.where)}</span></div>
+        <dl><dt>Angebot</dt><dd>${esc(c.what)}</dd><dt>Preis</dt><dd>${esc(c.price)}</dd><dt>Bei Google</dt><dd>${esc(c.google)}</dd></dl></div>`).join("")}
+      ${p.points ? `<ul class="pts">${p.points.map(x => `<li>${svg("check")}<span>${x}</span></li>`).join("")}</ul>` : ""}
+      ${(p.chances || []).map(c => `<div class="ch"><div class="n"><b>${esc(c.q)}</b><span class="badge ${c.c}">${lab[c.c]}</span></div>
+        <p><b>Dort heute:</b> ${esc(c.who)}</p><p><b>Was es braucht:</b> ${esc(c.need)}</p></div>`).join("")}
+      ${p.steps ? `<ol class="pts">${p.steps.map(x => `<li><span>${x}</span></li>`).join("")}</ol>` : ""}
+    </div></details>`).join("")}
+    <p class="src">${esc(A.source)}</p>
+  </div>`; })() : ""}
+</section>`; })() : ""}
 
 <section class="block" aria-labelledby="h2c">
   <h2 id="h2c">Wonach deine Kunden suchen</h2>
