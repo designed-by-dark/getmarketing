@@ -655,9 +655,9 @@ footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(
 .es-q { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13.5px; color: rgba(255,255,255,.86); overflow-wrap: anywhere; }
 .es-page { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; padding: 8px 10px; border-radius: 9px; background: rgba(198,242,90,.12); box-shadow: inset 0 0 0 1px rgba(198,242,90,.28); }
 .es-page code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.es-page em { flex: none; font-style: normal; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 7px; border-radius: 6px; background: var(--lime); color: var(--lime-ink); }
+.es-page em { flex: none; font-style: normal; display: grid; place-items: center; width: 22px; height: 22px; font-size: 11.5px; font-weight: 700; border-radius: 6px; background: var(--lime); color: var(--lime-ink); }
 .es-comp { padding: 8px 10px; border-radius: 9px; border: 1px dashed rgba(255,255,255,.2); font-size: 13px; color: rgba(255,255,255,.45); }
-.es-comp.es-home { border-style: solid; color: rgba(255,255,255,.78); }
+.es-comp.es-home { border-style: solid; color: rgba(255,255,255,.85); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 .es-chat { display: grid; gap: 12px; }
 .es-bubble { justify-self: end; max-width: 92%; padding: 12px 16px; border-radius: 16px 16px 4px 16px; background: rgba(255,255,255,.1); font-size: 14.5px; line-height: 1.45; }
 .es-answer { padding: 20px; border-radius: 18px; background: #fff; color: #111; box-shadow: 0 24px 50px -24px rgba(0,0,0,.6); }
