@@ -213,6 +213,48 @@ ol.pts li::before{counter-increment:s;content:counter(s);width:22px;height:22px;
   .serp .bar,.serp ol{padding-left:16px;padding-right:16px}
   .serp .ai,.serp .you{margin-left:16px;margin-right:16px}
 }
+/* extension: funnel, ads, social, partners, prices */
+.funnel{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:none}
+.stg{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:8px;position:relative}
+.stg.free{box-shadow:inset 0 0 0 2px var(--green)}
+.stg .sh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stg .sn{width:30px;height:30px;border-radius:50%;background:var(--forest);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;flex-shrink:0}
+.stg h3{font-size:19px;font-weight:800;flex:1}
+.stg p{color:var(--soft);font-size:16px}
+.stg .chn{font-size:15px;background:var(--bg);border-radius:12px;padding:10px 12px;color:var(--ink)}
+.stg .chn b{font-weight:700}
+.stg:not(:last-child)::after{content:"";position:absolute;left:38px;bottom:-12px;width:2px;height:12px;background:var(--green)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.st{background:var(--white);border-radius:20px;padding:20px 22px;display:grid;gap:4px;align-content:start}
+.st b{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.st.bad b{color:var(--red)}
+.st span{font-size:14.5px;color:var(--soft)}
+.panel{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;gap:14px}
+.panel h3{font-size:19px;font-weight:800}
+.panel .pts{font-size:16px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tile{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:6px;align-content:start}
+.tile h3{font-size:18px;font-weight:800}
+.tile p{color:var(--soft);font-size:15.5px}
+.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tier{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;gap:4px;align-content:start}
+.tier.main{background:var(--deep);color:#fff}
+.tier .k{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.tier.main .k{color:var(--lime)}
+.tier .v{font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1;margin-top:4px}
+.tier .per{font-size:14.5px;color:var(--soft)}
+.tier.main .per{color:rgba(255,255,255,.65)}
+.tier .list{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.tier.main .list{border-color:rgba(255,255,255,.15)}
+.tier .list li{font-size:15.5px}
+.tier.main .list li svg{stroke:var(--lime)}
+.cta .btns{display:flex;gap:10px;flex-wrap:wrap}
+.cta .btns a.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+@media (max-width:640px){
+  .stats,.tiles,.tiers{grid-template-columns:1fr}
+  .stg,.tile,.tier,.panel{padding:20px}
+  .st b{font-size:28px}
+}
 </style>
 </head>
 <body>
@@ -396,7 +438,7 @@ const DATA = {
       you: { t: "3 Hochzeitsplaner oder Fotografen fragen, ob sie dich auf ihrer Website empfehlen", min: 20 } }
   ],
 
-  extra: ["Hochzeitsplaner, Fotografen und Locations als Partner, die dich ihren Paaren empfehlen und auf ihrer Website verlinken"],
+  extra: [],
 
   cases: {
     title: "Was das bei anderen gebracht hat",
@@ -413,6 +455,83 @@ const DATA = {
         url: "/de/referenzen/erste-hilfe-schule/" }
     ],
     note: "Wir nennen keine Kunden. Die Zahlen stammen aus dem jeweiligen Projekt. Erste Ergebnisse zeigten sich meist nach 3 bis 6 Monaten."
+  },
+
+  more: {
+    funnel: {
+      title: "Dein Funnel: vom kostenlosen Save the Date bis zur Galerie",
+      lead: "Unser Vorschlag: Paare lernen dich mit etwas Kostenlosem kennen und kaufen, wenn die Hochzeit näher rückt. Jede Stufe bekommt ihre eigenen Kanäle.",
+      stages: [
+        { n: "1", t: "Save the Date", tag: "kostenlos", free: true,
+          d: "Der Einstieg. Paare probieren dich aus, ohne etwas zu bezahlen. Du bekommst dafür ihre E-Mail-Adresse und ihr Hochzeitsdatum.",
+          ch: "Google (1.900 Suchen nach „Save the Date“), Pinterest, Reels, Werbung auf Instagram" },
+        { n: "2", t: "Offizielle Einladung", tag: "bezahlt",
+          d: "Ein paar Wochen später verschicken Paare die Einladung. Wer dein Save the Date schon benutzt hat, kauft hier am leichtesten.",
+          ch: "E-Mails passend zum Hochzeitsdatum, Retargeting auf Instagram und Facebook" },
+        { n: "3", t: "Hochzeitstag", tag: "bezahlt",
+          d: "Galerie, Fotospiele und Gästebuch mit Sprachnachrichten. Am Tag selbst sehen alle Gäste dein Produkt, und unter ihnen sind die Paare von morgen.",
+          ch: "Erinnerungen vor dem Termin, Komplettpaket, Hinweis „Gemacht mit MyMillionSnaps“ in der Galerie" },
+        { n: "4", t: "Nach der Hochzeit", tag: "Empfehlung",
+          d: "Paare bewerten dich und empfehlen dich weiter. Gäste bekommen einen Gutschein für ihre eigene Hochzeit und starten wieder bei Stufe 1.",
+          ch: "Bewertungs-Mail, Empfehlungscode, Gutschein für Gäste" }
+      ],
+      note: "Hochzeiten haben Saison: Am meisten wird von Januar bis Juli gesucht. Der Winter ist deshalb die richtige Zeit, um den Funnel aufzubauen, damit er im Frühjahr läuft."
+    },
+    ads: {
+      title: "Deine Meta-Werbung kostet gerade mehr, als sie bringt",
+      lead: "Wir haben uns die laufende Kampagne angesehen. Ein Kauf kostet dich im Moment mehr, als er einbringt.",
+      stats: [
+        { v: "46,85 €", t: "kostet ein Kauf in der aktiven Kampagne (Phase 4, Advantage+)", bad: true },
+        { v: "~40 €", t: "Umsatz pro Kauf: 955,72 € aus 24 Käufen" },
+        { v: "0,85", t: "ROAS: Für jeden Euro Werbung kommen 85 Cent zurück", bad: true }
+      ],
+      sub: "Die pausierte Testkampagne (Phase 2) lag bei 129,53 € pro Kauf.",
+      fixes: [
+        "<b>Werbung auf das kostenlose Save the Date.</b> Etwas kostenlos auszuprobieren ist für Paare eine viel kleinere Entscheidung als ein Kauf. Die Einladung verkaufen danach E-Mails und Retargeting.",
+        "<b>Getrennte Zielgruppen.</b> Paare, die gerade planen, sehen das Save the Date. Wer schon auf deiner Seite war, sieht die Einladung und das Komplettpaket.",
+        "<b>Videos mit echten Paaren und Gästen.</b> Kurze Clips aus Galerie, Fotospielen und Gästebuch zeigen in Sekunden, was dein Produkt kann.",
+        "<b>Budget nach Saison.</b> Im Winter mit kleinem Budget testen, welche Anzeigen funktionieren, und ab Januar hochfahren, wenn die Nachfrage steigt."
+      ],
+      goal: "Erstes Ziel: Ein Kauf kostet weniger als der Warenkorb, also unter 40 €. Dann trägt sich jede Bestellung, und wir arbeiten weiter an den Kosten."
+    },
+    social: {
+      title: "Instagram und Reels, die zu Bestellungen führen",
+      lead: "Solange bei dir niemand fürs Marketing da ist, übernehmen wir Instagram mit festem Rhythmus. Wir planen, schreiben und gestalten, du gibst nur frei.",
+      pillars: [
+        { t: "Echte Momente", d: "Fotos, Spiele und Sprachnachrichten von Hochzeiten, mit Erlaubnis der Paare. Das überzeugt mehr als jedes Produktbild." },
+        { t: "Ideen für Paare", d: "Fotospiele, Save-the-Date-Ideen, Gästebuch-Alternativen. Das sind die Themen, nach denen Paare auch bei Google suchen." },
+        { t: "So einfach geht’s", d: "Kurze Reels: QR-Code scannen, Foto hochladen, fertig. Damit verstehen Paare in 15 Sekunden, was sie kaufen." },
+        { t: "Pinterest", d: "Hochzeiten werden auf Pinterest geplant. Die Grafiken aus Instagram laufen dort als Pins weiter und führen zum Save the Date." }
+      ],
+      opt: "Optional: Reels-Automatisierung. Aus Vorlagen und Beispielhochzeiten entstehen Reels automatisch, wir prüfen jedes vor dem Posten."
+    },
+    partners: {
+      title: "Andere verkaufen für dich: Creator, Partner und Gäste",
+      lead: "Hier zahlst du erst, wenn verkauft wird. Selbst eine großzügige Provision liegt unter den 46,85 €, die ein Kauf über Meta gerade kostet.",
+      list: [
+        { t: "Creator-Marketing", d: "Hochzeits-Creator und Paare mit Reichweite bekommen dein Komplettpaket für ihre Hochzeit und zeigen es ihren Followern, mit eigenem Rabattcode." },
+        { t: "Affiliate-Programm", d: "Hochzeitsblogs und Creator bekommen für jeden Verkauf über ihren Link eine Provision." },
+        { t: "Partner aus der Branche", d: "Hochzeitsplaner, Fotografen, Locations und DJs empfehlen dich ihren Paaren und bekommen dafür Provision oder einen Rabatt für ihre Kunden." },
+        { t: "Gäste werden Kunden", d: "In jeder Galerie steht ein Hinweis mit Gutschein. Gäste, die selbst bald heiraten, landen direkt beim kostenlosen Save the Date." }
+      ],
+      we: "Wir setzen die Programme auf, suchen passende Creator und Partner, sprechen sie an und richten Codes und Tracking ein."
+    },
+    prices: {
+      title: "Was das kostet",
+      lead: "Du startest mit SEO und nimmst dazu, was du brauchst. Die Monatspakete sind monatlich kündbar.",
+      tiers: [
+        { k: "Basis", v: "249 €", per: "im Monat", main: true,
+          items: ["SEO und KI-Suche: neue Seiten zu Gästebuch, Einladung, Spielen", "1 Instagram-Post pro Woche", "Der Plan oben auf dieser Seite"] },
+        { k: "Social", v: "+ 390 €", per: "im Monat",
+          items: ["3 Instagram-Posts und 2 Reels pro Woche", "Pinterest", "Content-Plan passend zur Saison"] },
+        { k: "Werbung", v: "+ 290 €", per: "im Monat, zzgl. Werbebudget",
+          items: ["Meta-Kampagnen neu aufsetzen und betreuen", "Funnel mit Save the Date und Retargeting", "Monatlicher Bericht zu Kosten pro Kauf"] },
+        { k: "Creator und Partner", v: "490 €", per: "einmalig",
+          items: ["Affiliate- und Partnerprogramm einrichten", "Die ersten 20 Creator und Partner ansprechen", "Gutschein für Gäste in der Galerie"] }
+      ],
+      extra: "Reels-Automatisierung bieten wir optional an. Einzelne Aufgaben ohne festes Paket rechnen wir mit 75 € pro Stunde ab."
+    },
+    booking: "https://calendly.com/darya-getmarketing/getmarketing-discovery-slot"
   },
 
   checkout: {
@@ -536,6 +655,39 @@ ${D.rivals ? (() => { const R = D.rivals, pmax = Math.max(...(R.prices || [{v:1}
   </div>
 </section>
 
+${D.more ? (() => { const M = D.more; return `
+<section class="block" aria-labelledby="h2f">
+  <h2 id="h2f">${esc(M.funnel.title)}</h2>
+  <p class="lead">${esc(M.funnel.lead)}</p>
+  <ol class="funnel">${M.funnel.stages.map(s => `<li class="stg${s.free ? " free" : ""}">
+    <div class="sh"><span class="sn">${esc(s.n)}</span><h3>${esc(s.t)}</h3><span class="badge ${s.free ? "hoch" : "mittel"}">${esc(s.tag)}</span></div>
+    <p>${esc(s.d)}</p><p class="chn"><b>Kanäle:</b> ${esc(s.ch)}</p></li>`).join("")}</ol>
+  <p class="note">${esc(M.funnel.note)}</p>
+</section>
+
+<section class="block" aria-labelledby="h2g">
+  <h2 id="h2g">${esc(M.ads.title)}</h2>
+  <p class="lead">${esc(M.ads.lead)}</p>
+  <div class="stats">${M.ads.stats.map(s => `<div class="st${s.bad ? " bad" : ""}"><b class="num">${esc(s.v)}</b><span>${esc(s.t)}</span></div>`).join("")}</div>
+  <p class="src">${esc(M.ads.sub)}</p>
+  <div class="panel"><h3>Was wir ändern würden</h3><ul class="pts">${M.ads.fixes.map(x => `<li>${svg("check")}<span>${x}</span></li>`).join("")}</ul></div>
+  <div class="good">${svg("check")}<span>${esc(M.ads.goal)}</span></div>
+</section>
+
+<section class="block" aria-labelledby="h2s">
+  <h2 id="h2s">${esc(M.social.title)}</h2>
+  <p class="lead">${esc(M.social.lead)}</p>
+  <div class="tiles">${M.social.pillars.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
+  <p class="note">${esc(M.social.opt)}</p>
+</section>
+
+<section class="block" aria-labelledby="h2p">
+  <h2 id="h2p">${esc(M.partners.title)}</h2>
+  <p class="lead">${esc(M.partners.lead)}</p>
+  <div class="tiles">${M.partners.list.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
+  <div class="good">${svg("check")}<span>${esc(M.partners.we)}</span></div>
+</section>`; })() : ""}
+
 <section class="block" aria-labelledby="h2d">
   <h2 id="h2d">Was wir in den nächsten 4 Wochen machen</h2>
   <p class="lead">Wir schreiben alle Seiten und Beiträge. Du machst pro Woche nur einen kurzen Schritt, den wir dir vorbereiten.</p>
@@ -558,6 +710,14 @@ ${D.cases ? `<section class="block" aria-labelledby="h2k">
   </a>`).join("")}</div>
   <p class="cases-note">${esc(D.cases.note)}</p>
 </section>` : ""}
+${D.more ? `<section class="block" id="preise" aria-labelledby="h2pr">
+  <h2 id="h2pr">${esc(D.more.prices.title)}</h2>
+  <p class="lead">${esc(D.more.prices.lead)}</p>
+  <div class="tiers">${D.more.prices.tiers.map(t => `<div class="tier${t.main ? " main" : ""}">
+    <span class="k">${esc(t.k)}</span><b class="v num">${esc(t.v)}</b><span class="per">${esc(t.per)}</span>
+    <ul class="list">${t.items.map(i => `<li>${svg("check")}<span>${esc(i)}</span></li>`).join("")}</ul></div>`).join("")}</div>
+  <p class="note">${esc(D.more.prices.extra)}</p>
+</section>` : ""}
 <section class="cta" id="start" aria-labelledby="h2e">
   <h2 id="h2e">Sollen wir mit Woche 1 anfangen?</h2>
   <p>Starte heute, und wir schreiben die ersten Seiten noch diese Woche. Du siehst alles, bevor es online geht.</p>
@@ -566,7 +726,8 @@ ${D.cases ? `<section class="block" aria-labelledby="h2k">
     <div><b>Woche 1</b><span>Wir schreiben die ersten Seiten. Du liest sie und gibst sie frei.</span></div>
     <div><b>Bis Tag ${D.checkout.guarantee_days}</b><span>Gefallen sie dir nicht, kündigst du und bekommst dein Geld zurück.</span></div>
   </div>
-  <a href="${esc(D.checkout.url)}">Jetzt starten</a>
+  <div class="btns"><a href="${esc(D.checkout.url)}">Mit Basis starten</a>${D.more ? `<a class="ghost" href="${esc(D.more.booking)}" target="_blank" rel="noopener">Erweiterung besprechen</a>` : ""}</div>
+  ${D.more ? `<p class="small">Social, Werbung oder das Creator-Programm kommen dazu, sobald du willst. Das klären wir in einem kurzen Termin.</p>` : ""}
   <p class="small">Wir liefern Woche für Woche, nicht alles auf einmal. Alles, was du bezahlt hast, gehört dir und bleibt online.</p>
 </section>
 
