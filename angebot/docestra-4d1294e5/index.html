@@ -6,7 +6,7 @@
 <title>Marketingplan für Docestra von GetMarketing</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-<meta name="description" content="Marketingplan von GetMarketing für Docestra: mehr Output für die Marketing-Person mit KI-Agenten, SEO, KI-Suche und LinkedIn." />
+<meta name="description" content="Marketingplan von GetMarketing für Docestra: Potenzial bei Google, 12 Fachartikel im Monat, LinkedIn und Dashboard." />
 <link rel="icon" href="/logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -336,6 +336,48 @@
   }
 
   .case .shot { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 14px; background: var(--tint); }
+  /* ---------- Dashboard preview ---------- */
+  .gmd { margin-top: 20px; background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 12px 32px -14px rgba(0,0,0,.14); font-size: 13.5px; line-height: 1.45; }
+  .gmd-bar { display: flex; align-items: center; gap: 6px; padding: 9px 14px; background: var(--soft); border-bottom: 1px solid var(--line); font-size: 12px; color: var(--gray); }
+  .gmd-bar i { width: 8px; height: 8px; border-radius: 50%; background: #D5D3CC; }
+  .gmd-bar span { margin-left: 8px; background: #fff; border-radius: 5px; padding: 1px 10px; }
+  .gmd-in { display: grid; grid-template-columns: 170px minmax(0, 1fr); }
+  .gmd-side { border-right: 1px solid var(--line); padding: 14px 10px; display: flex; flex-direction: column; gap: 2px; }
+  .gmd-side b { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray2); margin: 10px 8px 4px; }
+  .gmd-side b:first-child { margin-top: 0; }
+  .gmd-side span { padding: 6px 8px; border-radius: 7px; color: var(--gray); display: flex; justify-content: space-between; }
+  .gmd-side span.on { background: var(--tint); color: var(--forest); font-weight: 600; }
+  .gmd-side em { font-style: normal; font-size: 11px; font-weight: 700; background: var(--warn-bg); color: var(--warn); border-radius: 50px; padding: 0 7px; }
+  .gmd-main { padding: 16px 18px 18px; min-width: 0; }
+  .gmd-h { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 16px 0 8px; }
+  .gmd-h:first-child { margin-top: 0; }
+  .gmd-h strong { font-size: 14.5px; color: var(--black); }
+  .gmd-ex { font-size: 11px; font-weight: 700; color: var(--gray); background: var(--soft); border-radius: 50px; padding: 2px 9px; }
+  .gmd-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .gmd-kpis div { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .gmd-kpis span { font-size: 11.5px; color: var(--gray); }
+  .gmd-kpis b { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: var(--black); line-height: 1.1; }
+  .gmd-kpis small { font-size: 11px; color: var(--gray); }
+  .gmd-kpis small.up { color: var(--accent-ink); font-weight: 700; }
+  .gmd-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 10px; align-items: center; background: var(--soft); border-radius: 10px; padding: 9px 12px; margin-top: 6px; }
+  .gmd-row em { width: 32px; height: 32px; border-radius: 8px; background: #fff; display: grid; place-items: center; font-style: normal; font-size: 10.5px; font-weight: 800; color: var(--forest); }
+  .gmd-row b { display: block; font-size: 13.5px; color: var(--black); }
+  .gmd-row small { font-size: 11.5px; color: var(--gray); }
+  .gmd-row .st { font-size: 11.5px; font-weight: 700; border-radius: 7px; padding: 5px 10px; background: var(--forest); color: #fff; }
+  .gmd-feed { list-style: none; display: flex; flex-direction: column; }
+  .gmd-feed li { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); }
+  .gmd-feed li:first-child { border-top: 0; }
+  .gmd-feed i { width: 30px; height: 30px; border-radius: 50%; background: var(--tint); color: var(--forest); font-style: normal; font-size: 10px; font-weight: 800; display: grid; place-items: center; }
+  .gmd-feed small { font-size: 11.5px; color: var(--gray2); white-space: nowrap; }
+  @media (max-width: 700px) {
+    .gmd-in { grid-template-columns: minmax(0, 1fr); }
+    .gmd-side { display: none; }
+    .gmd-kpis { grid-template-columns: 1fr 1fr; }
+    .gmd-row { grid-template-columns: 32px minmax(0, 1fr); }
+    .gmd-row .st { grid-column: 2; justify-self: start; }
+    .gmd-feed li { grid-template-columns: 30px minmax(0, 1fr); }
+    .gmd-feed small { grid-column: 2; }
+  }
   /* ---------- Dokument ---------- */
   .step .who.ok { background: var(--tint); color: var(--forest); }
   .step h3 { font-size: 19px; }
@@ -368,19 +410,21 @@
   <nav class="toc" id="toc" aria-label="Inhalt">
     <b>Inhalt</b>
     <a href="#lage"><span>01</span>Ausgangslage</a>
-    <a href="#output"><span>02</span>Zehnmal so viel Output</a>
-    <a href="#themen"><span>03</span>Themen und Kanäle</a>
-    <a href="#ablauf"><span>04</span>So läuft es</a>
-    <a href="#cases"><span>05</span>Ergebnisse bei anderen</a>
-    <a href="#preis"><span>06</span>Preis und warum er sich rechnet</a>
-    <a href="#start"><span>07</span>Nächster Schritt</a>
+    <a href="#potenzial"><span>02</span>Das Potenzial bei Google</a>
+    <a href="#output"><span>03</span>Was das System liefert</a>
+    <a href="#themen"><span>04</span>Themen und Kanäle</a>
+    <a href="#dashboard"><span>05</span>Vorschau: das Dashboard</a>
+    <a href="#ablauf"><span>06</span>So läuft es</a>
+    <a href="#cases"><span>07</span>Ergebnisse bei anderen</a>
+    <a href="#preis"><span>08</span>Preis</a>
+    <a href="#start"><span>09</span>Nächster Schritt</a>
   </nav>
 
   <main>
     <div class="private"><b>Vertraulich, nur für Docestra.</b> Diese Seite ist nicht veröffentlicht: Sie ist nirgends verlinkt, nur über diesen Link erreichbar und für Suchmaschinen gesperrt. Bitte gebt Link und Preise nicht an Dritte weiter.</div>
     <div class="kicker">Angebot für Corinna und das Team der Docestra GmbH</div>
-    <h1>Wie eure Marketing-Person mit GetMarketing zehnmal so viel schafft</h1>
-    <p class="lead">Ihr habt jetzt jemanden, der das Marketing übernimmt. Eine Person allein kann aber nicht gleichzeitig recherchieren, Fachartikel schreiben, LinkedIn bespielen, die Website optimieren und auswerten. GetMarketing übernimmt diese Arbeit mit KI-Agenten. Eure Marketing-Person entscheidet, was erscheint, und gibt frei. Das kostet 249 € im Monat.</p>
+    <h1>Mehr Reichweite für Docestra, ohne dass das Team wachsen muss</h1>
+    <p class="lead">Ihr habt jetzt jemanden, der das Marketing übernimmt. Mit GetMarketing bekommt diese Person ein System aus KI-Agenten an die Seite, das recherchiert, schreibt, veröffentlicht und auswertet. Sie setzt die Themen und gibt frei. So entstehen jeden Monat 12 Fachartikel und rund 20 LinkedIn-Entwürfe für 249 € im Monat.</p>
     <div class="meta">
       <div><b>Anbieter</b>Darya Kablash, GetMarketing<br />Heidenfeldstraße 9, 10249 Berlin</div>
       <div><b>Kontakt</b><a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a><br /><a href="tel:+491603030242">+49 160 3030242</a></div>
@@ -390,74 +434,142 @@
     <!-- 01 -->
     <section id="lage">
       <div class="sh"><span class="n">01</span><h2>Wo Docestra heute steht</h2></div>
-      <p>Docestra hilft Unternehmen, Wissen zu sichern, bevor es mit Mitarbeitenden verloren geht. Nach genau diesem Problem suchen Personalverantwortliche, Geschäftsführer und Teamleiter bei Google und fragen ChatGPT. Bei Google taucht docestra.ai dabei bisher kaum auf:</p>
+      <p>Docestra hilft Unternehmen, Wissen zu sichern, bevor es mit Mitarbeitenden verloren geht. Nach Lösungen dafür suchen Personalverantwortliche, Geschäftsführer und Teamleiter bei Google und fragen ChatGPT. Bei Google taucht docestra.ai dabei bisher kaum auf:</p>
       <div class="facts">
         <div><b>1</b>Suchbegriff, für den docestra.ai in Deutschland in den Top 100 steht, auf Platz 66</div>
         <div><b>~0</b>Besucher pro Monat über die Google-Suche, laut Semrush</div>
         <div><b>237</b>Websites verlinken schon auf euch. Darauf lässt sich aufbauen.</div>
       </div>
-      <p>Das ist für ein junges Startup normal. Es heißt aber auch: Wer heute nach Wissenstransfer oder Wissensverlust sucht, findet eure Wettbewerber, Beratungen und Ratgeberseiten und nicht euch.</p>
-      <div class="callout"><b>Unser Vorschlag:</b> Eure Marketing-Person leitet eine Redaktion aus KI-Agenten. Das System recherchiert, schreibt und misst. Sie setzt die Themen, prüft die Entwürfe und gibt frei. So entsteht in einem Monat, wofür sie allein ein halbes Jahr bräuchte.</div>
+      <p>Für ein junges Startup ist das normal. Es heißt aber auch: Wer heute nach Wissensmanagement oder einer Wissensdatenbank sucht, findet Wettbewerber, Beratungen und Ratgeberseiten.</p>
+      <div class="callout"><b>Unser Vorschlag:</b> Eure Marketing-Person bekommt ein System aus KI-Agenten an die Seite. Sie bestimmt Themen und Ton und gibt frei. Das System übernimmt Recherche, Entwürfe, Veröffentlichung und Auswertung, und zwar jede Woche.</div>
       <p class="small" style="margin-top:12px">Quelle: Semrush, Datenbank Deutschland, 13. November 2026.</p>
     </section>
 
     <!-- 02 -->
-    <section id="output">
-      <div class="sh"><span class="n">02</span><h2>Zehnmal so viel Output für dieselbe Person</h2></div>
-      <p>So sieht ein Monat Marketing aus, einmal mit einer Person allein und einmal mit GetMarketing. Die Werte sind Erfahrungswerte aus unseren Projekten.</p>
+    <section id="potenzial">
+      <div class="sh"><span class="n">02</span><h2>Das Potenzial bei Google</h2></div>
+      <div class="demand">
+        <div class="dnum">8.930<span>Suchen pro Monat in Deutschland zu zehn Kernbegriffen rund um euer Thema</span></div>
+        <p>Die Nachfrage ist da, und die meisten Begriffe sind gut erreichbar: Die Keyword Difficulty liegt zwischen 18 und 38. Auffällig ist, wonach gesucht wird. Nach dem Problem „Wissensverlust“ suchen nur 20 Menschen im Monat. Gesucht wird nach Lösungen und Anlässen: <b>Wissensmanagement, Wissensdatenbank und Onboarding</b>. Genau dort sollten eure Inhalte ansetzen.</p>
+      </div>
       <div class="tw">
-        <table class="fc">
-          <thead><tr><th>Im Monat</th><th class="r">Eine Person allein</th><th class="r hl">Mit GetMarketing</th></tr></thead>
+        <table class="kw">
+          <thead><tr><th>Suchbegriff</th><th class="r">Suchen / Monat</th><th class="r">Difficulty</th><th class="bar-h"></th></tr></thead>
           <tbody>
-            <tr><td>Fachartikel für Google und KI-Suche</td><td class="r">2 bis 3</td><td class="r hl">rund 8</td></tr>
-            <tr><td>LinkedIn-Entwürfe für Gründerteam und Firmenseite</td><td class="r">4 bis 8</td><td class="r hl">rund 20</td></tr>
-            <tr><td>Keyword- und Wettbewerbsrecherche</td><td class="r">einmal, von Hand</td><td class="r hl">laufend, automatisch</td></tr>
-            <tr><td>Technische SEO-Korrekturen</td><td class="r">selten</td><td class="r hl">laufend, über euer CMS</td></tr>
-            <tr><td>Reporting</td><td class="r">einmal im Monat, von Hand</td><td class="r hl">automatisch, mit Warnung bei Verlusten</td></tr>
+            <tr><td>wissensmanagement</td><td class="r">2.400</td><td class="r">37</td><td><i style="--w:100%"></i></td></tr>
+            <tr><td>onboarding prozess</td><td class="r">1.900</td><td class="r">28</td><td><i style="--w:79%"></i></td></tr>
+            <tr><td>wissensdatenbank</td><td class="r">1.600</td><td class="r">29</td><td><i style="--w:67%"></i></td></tr>
+            <tr><td>wissenstransfer</td><td class="r">880</td><td class="r">38</td><td><i style="--w:37%"></i></td></tr>
+            <tr><td>wissensmanagement software</td><td class="r">720</td><td class="r">18</td><td><i style="--w:30%"></i></td></tr>
+            <tr><td>einarbeitung neuer mitarbeiter</td><td class="r">720</td><td class="r">23</td><td><i style="--w:30%"></i></td></tr>
+            <tr><td>implizites wissen</td><td class="r">590</td><td class="r">21</td><td><i style="--w:25%"></i></td></tr>
+            <tr><td>ki wissensmanagement</td><td class="r">70</td><td class="r">19</td><td><i style="--w:3%"></i></td></tr>
+            <tr><td>wissenstransfer im unternehmen</td><td class="r">30</td><td class="r">0</td><td><i style="--w:2%"></i></td></tr>
+            <tr><td>wissensverlust</td><td class="r">20</td><td class="r">0</td><td><i style="--w:1%"></i></td></tr>
           </tbody>
         </table>
       </div>
-      <h3>Wo die Zeit herkommt</h3>
-      <p>Ein guter Fachartikel braucht von Hand 4 bis 6 Stunden: Suchbegriffe recherchieren, Wettbewerber lesen, schreiben, optimieren, veröffentlichen. Mit dem System bleiben etwa 30 Minuten für Prüfung und Freigabe. Für 8 Artikel im Monat sind das rund 40 Stunden von Hand und rund 4 Stunden mit dem System. Die gewonnene Zeit kann eure Marketing-Person in das stecken, was keine KI kann: Gespräche mit Kunden, Partnerschaften, Events und Vertrieb.</p>
-      <ul class="list">
-        <li><b>Sie schreibt nichts mehr von Null.</b> Jeder Entwurf kommt mit Suchbegriff, Gliederung, Quellen und Vorschlägen für interne Links.</li>
-        <li><b>Sie behält die Kontrolle.</b> Nichts geht ohne ihre Freigabe online, und aus ihren Korrekturen lernt das System eure Sprache.</li>
-        <li><b>Sie sieht, was wirkt.</b> Das Reporting zeigt jeden Monat, was live ging, was rankt und welche Anfragen kamen.</li>
-      </ul>
+
+      <h3>Was daraus werden kann</h3>
+      <p>Gerechnet nur mit den sieben größten Begriffen, nach 9 bis 12 Monaten. Das Lexikon und die vielen kleineren Suchen sind nicht eingerechnet.</p>
+      <div class="tw">
+        <table class="fc">
+          <thead><tr><th></th><th class="r">Heute</th><th class="r">Vorsichtig</th><th class="r hl">Realistisch</th></tr></thead>
+          <tbody>
+            <tr><td>Besucher über Google pro Monat</td><td class="r">~0</td><td class="r">rund 470</td><td class="r hl">rund 940</td></tr>
+            <tr><td>Demo-Anfragen pro Monat</td><td class="r">0</td><td class="r">2</td><td class="r hl">5</td></tr>
+            <tr><td>Nennungen in KI-Antworten</td><td class="r">kaum</td><td class="r" colspan="2" style="text-align:right">messen wir monatlich ab Start</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:12px">So haben wir gerechnet: Für „wissensmanagement“, „onboarding prozess“ und „wissensdatenbank“ (zusammen 5.900 Suchen) eine Klickrate von 3 bzw. 6 %, was Plätzen im unteren Bereich der ersten Seite entspricht. Für die vier mittleren Begriffe (zusammen 2.910 Suchen) 10 bzw. 20 %, was Plätzen unter den ersten drei entspricht. Demo-Anfragen von 0,5 % der Besucher. Quelle der Suchdaten: Semrush, Deutschland, 13. November 2026. Das ist eine Prognose und keine Zusage.</p>
     </section>
 
     <!-- 03 -->
-    <section id="themen">
-      <div class="sh"><span class="n">03</span><h2>Mit welchen Themen Docestra gefunden werden sollte</h2></div>
-      <p>Eure Kunden suchen selten nach einer Software. Sie suchen nach ihrem Problem: Eine erfahrene Kollegin geht in Rente, ein Teamleiter kündigt, neue Leute brauchen Monate, bis sie eingearbeitet sind. Genau dort setzen die Inhalte an.</p>
-      <div class="plan">
-        <div class="pl"><div class="h"><b>Wissensverlust</b><span>Problem</span></div><ul><li>Wissensverlust, wenn Mitarbeitende in Rente gehen</li><li>Was passiert, wenn Schlüsselpersonen kündigen?</li><li>Erfahrungswissen sichern: eine Anleitung</li></ul></div>
-        <div class="pl"><div class="h"><b>Wissenstransfer</b><span>Methode</span></div><ul><li>Wissenstransfer im Unternehmen: Methoden im Vergleich</li><li>Implizites Wissen dokumentieren</li><li>Übergabe bei Stellenwechsel: Checkliste</li></ul></div>
-        <div class="pl"><div class="h"><b>Einarbeitung</b><span>Anlass</span></div><ul><li>Neue Mitarbeitende schneller einarbeiten</li><li>Onboarding-Dokumentation aufbauen</li><li>Einarbeitungsplan als Vorlage</li></ul></div>
-        <div class="pl"><div class="h"><b>Wissensmanagement mit KI</b><span>Lösung</span></div><ul><li>KI im Wissensmanagement: was heute funktioniert</li><li>Wissensdatenbank oder Wiki: was passt zu wem?</li><li>Vergleich von Wissensmanagement-Tools</li></ul></div>
+    <section id="output">
+      <div class="sh"><span class="n">03</span><h2>Was das System jeden Monat liefert</h2></div>
+      <div class="facts">
+        <div><b>12</b>Fachartikel für Google und KI-Suche, nach Freigabe direkt im CMS</div>
+        <div><b>~20</b>LinkedIn-Entwürfe für das Gründerteam und die Firmenseite</div>
+        <div><b>1</b>Monatsbericht: was live ging, was rankt, welche Anfragen kamen</div>
       </div>
-      <h3>Ein Lexikon zum Wissensmanagement</h3>
-      <p>Bei einer B2B-Agentur haben wir ein Lexikon mit über 300 Fachbegriffen aufgebaut, jeder auf einer eigenen Seite. Es wurde zum stärksten Besucherbringer der ganzen Website (mehr dazu in Abschnitt 05). Für Docestra passt das genauso: Begriffe wie implizites Wissen, Lessons Learned, Wissenslandkarte oder Kopfmonopol bekommen je eine Seite, die auf eure Lösung verlinkt. Solche klaren Definitionen übernehmen auch ChatGPT und Googles KI-Antworten gern als Quelle.</p>
-      <h3>LinkedIn für das Gründerteam</h3>
-      <p>Im B2B kaufen Menschen von Menschen. Aus jedem Fachartikel entstehen Entwürfe für LinkedIn, für die Profile im Gründerteam und für die Firmenseite. Eure Marketing-Person wählt aus und passt an, statt jeden Post neu zu schreiben.</p>
-      <p class="small" style="margin-top:12px">Die Themen sind ein erster Entwurf. Am ersten Tag prüft das System sie mit echten Suchdaten und sortiert sie nach Nachfrage und Chance.</p>
+      <p>Dazu laufen im Hintergrund die Keyword- und Wettbewerbsrecherche, technische SEO-Korrekturen über euer CMS und eine Warnung, sobald die Sichtbarkeit fällt.</p>
+      <ul class="list">
+        <li><b>Jeder Entwurf kommt vorbereitet:</b> mit Suchbegriff, Gliederung, Quellen und Vorschlägen für interne Links.</li>
+        <li><b>Eure Marketing-Person behält die Kontrolle.</b> Nichts geht ohne ihre Freigabe online, und aus ihren Korrekturen lernt das System eure Sprache.</li>
+        <li><b>Ihre Zeit geht dorthin, wo sie am meisten bringt:</b> Gespräche mit Kunden, Partnerschaften, Events und Vertrieb.</li>
+      </ul>
     </section>
 
     <!-- 04 -->
-    <section id="ablauf">
-      <div class="sh"><span class="n">04</span><h2>So läuft es ab dem ersten Tag</h2></div>
-      <div class="tl">
-        <div><b>Tag 1</b><span>Diagnose von docestra.ai mit echten Suchdaten: technische Fehler, Wettbewerber und die Suchen, bei denen ihr gewinnen könnt.</span></div>
-        <div><b>Woche 1</b><span>Daraus entsteht ein Plan mit Themen, Seiten und LinkedIn-Posts, jeweils mit Priorität. Eure Marketing-Person stimmt ihn ab und ergänzt, was das System nicht wissen kann.</span></div>
-        <div><b>Ab Woche 2</b><span>Jede Woche kommen neue Entwürfe zur Freigabe. Nach der Freigabe gehen sie direkt in euer CMS, die LinkedIn-Entwürfe liegen fertig bereit.</span></div>
-        <div><b>Jeden Monat</b><span>Ein Bericht zeigt, was live ging, was rankt und welche Anfragen kamen. Fällt die Sichtbarkeit, meldet sich das System sofort.</span></div>
+    <section id="themen">
+      <div class="sh"><span class="n">04</span><h2>Mit welchen Themen Docestra gefunden werden sollte</h2></div>
+      <p>Die Themen folgen den Suchdaten aus Abschnitt 02. Jede Gruppe bekommt eine Hauptseite und Artikel zu den konkreten Fragen dahinter, alle mit Link auf eure Lösung.</p>
+      <div class="plan">
+        <div class="pl"><div class="h"><b>Wissensmanagement</b><span>3.190 Suchen / Monat</span></div><ul><li>Wissensmanagement im Unternehmen: ein Leitfaden</li><li>Wissensmanagement-Software im Vergleich</li><li>KI im Wissensmanagement: was heute funktioniert</li></ul></div>
+        <div class="pl"><div class="h"><b>Onboarding und Einarbeitung</b><span>2.620 Suchen / Monat</span></div><ul><li>Onboarding-Prozess: Schritt für Schritt</li><li>Neue Mitarbeitende schneller einarbeiten</li><li>Einarbeitungsplan als Vorlage</li></ul></div>
+        <div class="pl"><div class="h"><b>Wissensdatenbank</b><span>1.600 Suchen / Monat</span></div><ul><li>Wissensdatenbank aufbauen: so geht’s</li><li>Wissensdatenbank oder Wiki: was passt zu wem?</li><li>Beispiele für eine gute Wissensdatenbank</li></ul></div>
+        <div class="pl"><div class="h"><b>Wissenstransfer</b><span>1.500 Suchen / Monat</span></div><ul><li>Wissenstransfer: Methoden im Vergleich</li><li>Implizites Wissen sichtbar machen</li><li>Übergabe, wenn Mitarbeitende in Rente gehen</li></ul></div>
       </div>
-      <p style="margin-top:14px">Der Aufwand für eure Marketing-Person liegt bei etwa 2 bis 4 Stunden pro Woche für Abstimmung und Freigabe.</p>
+      <h3>Ein Lexikon zum Wissensmanagement</h3>
+      <p>Bei einer B2B-Agentur haben wir ein Lexikon mit über 300 Fachbegriffen aufgebaut, jeder auf einer eigenen Seite. Es wurde zum stärksten Besucherbringer der ganzen Website (mehr dazu in Abschnitt 07). Für Docestra passt das genauso: Begriffe wie implizites Wissen, Lessons Learned, Wissenslandkarte oder Kopfmonopol bekommen je eine Seite, die auf eure Lösung verlinkt. Solche klaren Definitionen übernehmen auch ChatGPT und Googles KI-Antworten gern als Quelle.</p>
+      <h3>LinkedIn für das Gründerteam</h3>
+      <p>Im B2B kaufen Menschen von Menschen. Aus jedem Fachartikel entstehen Entwürfe für LinkedIn, für die Profile im Gründerteam und für die Firmenseite. Eure Marketing-Person wählt aus und passt an.</p>
     </section>
 
     <!-- 05 -->
+    <section id="dashboard">
+      <div class="sh"><span class="n">05</span><h2>Vorschau: So sieht das im Dashboard aus</h2></div>
+      <p>Alles läuft in einem Dashboard, auf das eure Marketing-Person und das Gründerteam Zugriff haben. So könnte eine Woche im zweiten Monat aussehen. Themen und Suchvolumen sind echt, die Zahlen zu Besuchern und Freigaben sind Beispieldaten.</p>
+      <div class="gmd" aria-label="Vorschau des GetMarketing-Dashboards für Docestra">
+        <div class="gmd-bar"><i></i><i></i><i></i><span>app.getmarketing.team/docestra</span></div>
+        <div class="gmd-in">
+          <aside class="gmd-side">
+            <b>Übersicht</b>
+            <span class="on">Start</span><span>Kalender</span><span>4-Wochen-Plan</span><span>Content-Prüfung <em>3</em></span>
+            <b>Auswertung</b>
+            <span>Analytics</span><span>SEO-Insights</span><span>KI-Sichtbarkeit</span>
+          </aside>
+          <div class="gmd-main">
+            <div class="gmd-h"><strong>Diese Woche auf einen Blick</strong><span class="gmd-ex">Beispieldaten</span></div>
+            <div class="gmd-kpis">
+              <div><span>Veröffentlicht</span><b>3</b><small>nach Plan</small></div>
+              <div><span>Wartet auf Freigabe</span><b>3</b><small>Artikel und Posts</small></div>
+              <div><span>Besucher über Google</span><b>212</b><small class="up">+38 % zum Vormonat</small></div>
+              <div><span>Demo-Anfragen</span><b>1</b><small>über den Artikel zur Wissensdatenbank</small></div>
+            </div>
+            <div class="gmd-h"><strong>Zur Freigabe</strong></div>
+            <div class="gmd-row"><em>SEO</em><div><b>Wissensdatenbank aufbauen: so geht’s</b><small>Suchbegriff „wissensdatenbank“, 1.600 Suchen, Qualitätsprüfung grün</small></div><span class="st a">Freigeben</span></div>
+            <div class="gmd-row"><em>SEO</em><div><b>Onboarding-Prozess: Schritt für Schritt</b><small>Suchbegriff „onboarding prozess“, 1.900 Suchen</small></div><span class="st a">Freigeben</span></div>
+            <div class="gmd-row"><em>in</em><div><b>LinkedIn-Post zum Artikel über implizites Wissen</b><small>für das Profil im Gründerteam</small></div><span class="st a">Freigeben</span></div>
+            <div class="gmd-h"><strong>Aktivität der Agenten</strong></div>
+            <ul class="gmd-feed">
+              <li><i>SA</i><div><b>Strategie-Agent</b> hat 3 Artikel und 5 Posts für diese Woche geplant</div><small>Mo 08:00</small></li>
+              <li><i>SEO</i><div><b>SEO-Agent</b> hat „wissensmanagement software“ gewählt: 720 Suchen, Difficulty 18</div><small>Mo 09:10</small></li>
+              <li><i>CA</i><div><b>Content-Agent</b> hat den Entwurf „Wissensmanagement-Software im Vergleich“ fertiggestellt</div><small>Di 14:30</small></li>
+              <li><i>WP</i><div><b>Veröffentlichung</b> hat den freigegebenen Artikel zu implizitem Wissen live gestellt</div><small>Do 08:30</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="cap">Schematische Vorschau des Dashboards mit Docestra-Themen. Im Termin zeigen wir es live.</p>
+    </section>
+
+    <!-- 06 -->
+    <section id="ablauf">
+      <div class="sh"><span class="n">06</span><h2>So läuft es ab dem ersten Tag</h2></div>
+      <div class="tl">
+        <div><b>Tag 1</b><span>Diagnose von docestra.ai mit echten Suchdaten: technische Fehler, Wettbewerber und die Suchen, bei denen ihr gewinnen könnt.</span></div>
+        <div><b>Woche 1</b><span>Daraus entsteht ein Plan mit Themen, Seiten und LinkedIn-Posts, jeweils mit Priorität. Eure Marketing-Person stimmt ihn ab und ergänzt, was das System nicht wissen kann.</span></div>
+        <div><b>Ab Woche 2</b><span>Jede Woche kommen drei Fachartikel und rund fünf LinkedIn-Entwürfe zur Freigabe. Nach der Freigabe gehen die Artikel direkt in euer CMS.</span></div>
+        <div><b>Jeden Monat</b><span>Ein Bericht zeigt, was live ging, was rankt und welche Anfragen kamen. Fällt die Sichtbarkeit, meldet sich das System sofort.</span></div>
+      </div>
+      <p style="margin-top:14px">Für Abstimmung und Freigabe plant eure Marketing-Person etwa 2 bis 4 Stunden pro Woche ein.</p>
+    </section>
+
+    <!-- 07 -->
     <section id="cases">
-      <div class="sh"><span class="n">05</span><h2>Ergebnisse bei anderen B2B-Kunden</h2></div>
+      <div class="sh"><span class="n">07</span><h2>Ergebnisse bei anderen B2B-Kunden</h2></div>
       <p>Drei Projekte, die eurer Lage am nächsten kommen: erklärungsbedürftige Angebote, Käufer mit sehr konkreten Fragen und ein Markt, in dem man über Wissen überzeugt. Kundennamen nennen wir nur mit Erlaubnis, die Zahlen stammen aus dem jeweiligen Projekt.</p>
       <div class="case" style="margin-top:20px">
         <div class="big">2 bis 3<small>Anfragen pro Tag, vorher 2 bis 3 pro Woche</small></div>
@@ -474,7 +586,7 @@
           <img class="shot" src="/case-studies/img/b2b-software.jpg" alt="" loading="lazy" />
           <h3>B2B-Software: Platz 1 in einem vollen Markt</h3>
           <p>Ein Händler für Engineering-Software. Statt einer allgemeinen Produktseite gab es eine Seite für jedes Modul und jedes Problem, nach dem Ingenieure suchen. Wichtige Produktbegriffe stehen heute auf Platz 1.</p>
-          <p class="rel">Für euch: Seiten für die Probleme eurer Kunden, vom Ruhestand bis zur Einarbeitung. <a href="/de/referenzen/b2b-software/" target="_blank" rel="noopener">Zum Projekt</a></p>
+          <p class="rel">Für euch: Seiten für die Fragen eurer Kunden, von der Wissensdatenbank bis zum Onboarding. <a href="/de/referenzen/b2b-software/" target="_blank" rel="noopener">Zum Projekt</a></p>
         </div>
       </div>
       <div class="case last">
@@ -489,9 +601,9 @@
       <div class="stats"><span><b>6 Mio.+</b> organische Besucher für Kunden</span><span><b>55</b> abgeschlossene Projekte</span><span>Erste Ergebnisse meist nach <b>3 bis 6 Monaten</b></span></div>
     </section>
 
-    <!-- 06 -->
+    <!-- 08 -->
     <section id="preis">
-      <div class="sh"><span class="n">06</span><h2>Preis und warum er sich rechnet</h2></div>
+      <div class="sh"><span class="n">08</span><h2>Preis</h2></div>
       <div class="pk">
         <div class="p main">
           <div class="lab">GetMarketing</div>
@@ -499,11 +611,11 @@
           <div class="v">249 € <small>im Monat</small></div>
           <ul>
             <li>Diagnose von docestra.ai mit echten Suchdaten</li>
-            <li>Plan mit Themen, Seiten und Prioritäten</li>
-            <li>Neue Fachartikel, nach Freigabe direkt im CMS</li>
-            <li>Inhalte für KI-Antworten und LinkedIn-Entwürfe</li>
+            <li>12 Fachartikel im Monat, nach Freigabe direkt im CMS</li>
+            <li>Rund 20 LinkedIn-Entwürfe im Monat</li>
+            <li>Inhalte für KI-Antworten und das Lexikon</li>
             <li>Technische SEO-Korrekturen</li>
-            <li>Warnung bei Verlusten und Monatsbericht</li>
+            <li>Dashboard, Warnung bei Verlusten und Monatsbericht</li>
           </ul>
         </div>
         <div class="p">
@@ -517,18 +629,18 @@
           </ul>
         </div>
       </div>
-      <h3>Warum sich 249 € für ein Startup lohnen</h3>
+      <h3>Warum der Preis so niedrig ist</h3>
       <ul class="list">
-        <li><b>Gemessen an eurer Marketing-Person:</b> Eine Marketingstelle kostet ein Unternehmen rund 60.000 € im Jahr, also etwa 5.000 € im Monat oder rund 230 € pro Arbeitstag. 249 € entsprechen damit ungefähr einem Arbeitstag. Allein bei den Fachartikeln spart das System ihr rund 36 Stunden im Monat.</li>
-        <li><b>Gemessen an einer Agentur:</b> Für einen vergleichbaren Umfang zahlt man bei einer Agentur üblicherweise 2.000 bis 4.500 € im Monat. Wir arbeiten mit KI-Agenten in automatischen Workflows: Recherche, Entwürfe, Veröffentlichung und Reporting laufen automatisch. Das sind die Stunden, die bei einer Agentur den Preis ausmachen.</li>
-        <li><b>Gemessen an einem Kunden:</b> Was ein Kunde für Docestra wert ist, wisst ihr besser als wir. Bringt euch ein Kunde mehr als 2.490 € im Jahr, reicht schon ein einziger zusätzlicher Kunde über Google oder LinkedIn, damit sich das Jahr bezahlt macht.</li>
+        <li><b>Pro Artikel gerechnet:</b> Bei 12 Fachartikeln im Monat sind das rund 21 € pro Artikel, inklusive Recherche, LinkedIn-Entwürfen, Veröffentlichung und Reporting.</li>
+        <li><b>Im Vergleich zu einer Agentur:</b> Für einen vergleichbaren Umfang zahlt man dort üblicherweise 2.000 bis 4.500 € im Monat. Bei uns laufen Recherche, Entwürfe, Veröffentlichung und Reporting in automatischen Workflows mit KI-Agenten. Das sind die Stunden, die bei einer Agentur den Preis ausmachen.</li>
+        <li><b>Im Verhältnis zu einem Kunden:</b> Was ein Kunde für Docestra wert ist, wisst ihr besser als wir. Bringt euch ein Kunde mehr als 2.490 € im Jahr, macht sich das Jahr schon mit einem einzigen zusätzlichen Kunden bezahlt.</li>
       </ul>
       <p class="small" style="margin-top:12px">Monatlich kündbar, die Einrichtung im ersten Monat ist enthalten. Gefallen euch die ersten Entwürfe nicht, bekommt ihr bis Tag 7 euer Geld zurück. Alles, was veröffentlicht wurde, gehört euch und bleibt online. Als Kleinunternehmer berechnen wir keine Umsatzsteuer.</p>
     </section>
 
-    <!-- 07 -->
+    <!-- 09 -->
     <section id="start">
-      <div class="sh"><span class="n">07</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
+      <div class="sh"><span class="n">09</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
       <div class="person">
         <img src="/darya.jpg" alt="Darya Kablash" />
         <div>
@@ -537,7 +649,7 @@
       </div>
       <div class="close">
         <h3 style="margin-top:0">Nächster Schritt</h3>
-        <p>In 30 Minuten zeige ich euch das System an docestra.ai, am besten zusammen mit eurer Marketing-Person. Danach entscheidet ihr in Ruhe.</p>
+        <p>In 30 Minuten zeige ich euch das Dashboard live mit den Themen für docestra.ai, am besten zusammen mit eurer Marketing-Person. Danach entscheidet ihr in Ruhe.</p>
         <ol>
           <li><span>Termin vereinbaren, mit Corinna und eurer Marketing-Person</span></li>
           <li><span>Start: Am ersten Tag steht die Diagnose, in Woche 1 der Plan</span></li>
