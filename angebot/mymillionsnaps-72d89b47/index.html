@@ -3,850 +3,743 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Euer Marketingplan: mymillionsnaps.com · GetMarketing</title>
+<title>Marketingplan für MyMillionSnaps von GetMarketing</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="description" content="Marketingplan von GetMarketing für MyMillionSnaps: SEO, Meta-Werbung, Instagram sowie Creator, Partner und Gäste entlang des Funnels." />
 <link rel="icon" href="/logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>
-:root{
-  color-scheme:light;
-  --forest:#1B4332; --deep:#0D1D15; --green:#2F8A5E; --tint:#E7F3EC;
-  --lime:#86EFAC;
-  --ink:#111312; --soft:#5F635F; --faint:#8D918C;
-  --bg:#F5F4F0; --white:#fff; --line:#E5E3DC;
-  --red:#B42318; --red-bg:#FDECEA;
-  --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{margin:0;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
-p{margin:0;text-wrap:pretty}
-.num{font-variant-numeric:tabular-nums}
+  :root {
+    --forest: #1B4332;
+    --accent: #52B788;
+    --accent-ink: #2F8A5E;
+    --black: #0A0A0A;
+    --ink: #1F2A24;
+    --gray: #6B7280;
+    --gray2: #A3ABB5;
+    --bg: #FAFAF8;
+    --card: #FFFFFF;
+    --soft: #F3F3F0;
+    --line: #E6E6E1;
+    --tint: #E7F3EC;
+    --warn: #B4532A;
+    --warn-bg: #F7EBE2;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: var(--font); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; font-size: 16.5px; line-height: 1.65; }
+  h1, h2, h3, h4 { color: var(--black); letter-spacing: -0.022em; line-height: 1.2; text-wrap: balance; }
+  a { color: var(--accent-ink); text-underline-offset: 2px; }
+  b, strong { font-weight: 650; color: var(--black); }
 
-.topbar{max-width:880px;margin:0 auto;padding:22px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{display:inline-flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.03em;font-size:17px;color:var(--ink);text-decoration:none}
-.logo i{width:28px;height:28px;border-radius:8px;background:var(--forest);display:grid;place-items:center}
-.logo i svg{width:15px;height:15px;fill:var(--lime)}
-.topbar span{font-size:14px;color:var(--faint)}
+  /* ---------- Top bar ---------- */
+  .top { position: sticky; top: 0; z-index: 20; background: rgba(250,250,248,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top-in { max-width: 1180px; margin: 0 auto; height: 60px; padding: 0 24px; display: flex; align-items: center; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: -0.04em; font-size: 17px; color: var(--black); text-decoration: none; }
+  .brand img { width: 28px; height: 28px; border-radius: 7px; }
+  .top .doc { font-size: 14px; color: var(--gray); }
+  .top .cta { margin-left: auto; font: 700 14px var(--font); background: var(--forest); color: #fff; text-decoration: none; padding: 9px 16px; border-radius: 8px; white-space: nowrap; }
 
-main{max-width:880px;margin:0 auto;padding:24px 24px 80px;display:grid;gap:72px}
-.block{display:grid;gap:22px}
-.block > h2{font-size:clamp(26px,3.4vw,34px);font-weight:800}
-.lead{font-size:18px;color:var(--soft);max-width:60ch}
+  /* ---------- Layout ---------- */
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 56px; }
+  .toc { position: sticky; top: 92px; align-self: start; padding-top: 56px; font-size: 14px; }
+  .toc b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--gray2); margin-bottom: 10px; }
+  .toc a { display: flex; gap: 10px; padding: 5px 0; color: var(--gray); text-decoration: none; line-height: 1.35; }
+  .toc a span { font-variant-numeric: tabular-nums; color: var(--gray2); min-width: 18px; }
+  .toc a:hover, .toc a.on { color: var(--black); }
+  .toc a.on span { color: var(--accent-ink); }
+  main { padding: 56px 0 96px; max-width: 800px; min-width: 0; }
 
-/* 1. potential */
-.hero{border-radius:28px;padding:44px 44px 36px;color:#fff;display:grid;gap:28px;
-  background:radial-gradient(720px 380px at 0% 0%,rgba(82,183,136,.30),transparent 70%),var(--deep)}
-.hero .hi{font-size:15px;color:rgba(255,255,255,.65)}
-.hero h1{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-.035em;line-height:1.06;max-width:18ch}
-.hero h1 .hl{background:var(--lime);color:var(--deep);padding:0 .16em;border-radius:8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.hero .sub{font-size:18px;color:rgba(255,255,255,.78);max-width:52ch}
-.chart{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px 18px 10px}
-.chart svg{width:100%;height:auto;display:block;overflow:visible}
-.chart text{font-family:var(--font)}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.fact{border-top:1px solid rgba(255,255,255,.14);padding-top:14px;display:grid;gap:2px}
-.fact b{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
-.fact span{font-size:14.5px;color:rgba(255,255,255,.65)}
-.fact.lime b{color:var(--lime)}
+  /* ---------- Title block ---------- */
+  .private { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 14px 18px; font-size: 14.5px; line-height: 1.5; margin-bottom: 28px; }
+  .private b { color: var(--warn); }
+  .kicker { font-size: 14px; color: var(--gray); }
+  h1 { font-size: 42px; letter-spacing: -0.035em; margin-top: 10px; }
+  .lead { font-size: 19px; line-height: 1.55; color: var(--ink); margin-top: 18px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 26px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--gray); }
+  .meta b { display: block; color: var(--black); font-size: 15px; }
+  .meta { line-height: 1.5; }
+  .meta a { color: var(--gray); text-decoration: none; }
+  footer a { color: var(--gray); }
 
-/* 2. why not yet */
-.reasons{display:grid;gap:12px}
-.reason{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;grid-template-columns:44px 1fr;gap:4px 18px;align-items:start}
-.reason .ic{width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center;grid-row:span 2}
-.reason .ic svg{width:22px;height:22px;stroke:var(--forest);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.reason h3{font-size:19px;font-weight:700}
-.reason p{color:var(--soft);font-size:16px}
-.good{display:flex;gap:12px;align-items:flex-start;padding:18px 22px;border-radius:16px;background:var(--tint);color:var(--forest);font-size:16px}
-.good svg{width:22px;height:22px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+  /* ---------- Sections ---------- */
+  section { margin-top: 72px; }
+  .sh { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+  .sh .n { font-size: 14px; font-weight: 700; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  h2 { font-size: 30px; letter-spacing: -0.03em; }
+  h3 { font-size: 20px; margin: 34px 0 8px; }
+  p + p { margin-top: 12px; }
+  .small { font-size: 14px; color: var(--gray); line-height: 1.55; }
+  ul.list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  ul.list li { padding-left: 22px; position: relative; }
+  ul.list li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
-/* 3. what customers see */
-.serp{background:var(--white);border-radius:20px;overflow:hidden}
-.serp .bar{display:flex;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid var(--line);font-size:16px}
-.serp .bar svg{width:18px;height:18px;stroke:var(--faint);fill:none;stroke-width:2}
-.serp .bar b{font-weight:600}
-.serp .ai{margin:16px 22px 0;padding:14px 16px;border-radius:14px;background:#F2F5FB;font-size:15px}
-.serp .ai small{display:block;font-size:13px;color:var(--faint);margin-bottom:2px}
-.serp ol{list-style:none;margin:0;padding:6px 22px 4px}
-.serp li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:28px 1fr;gap:12px}
-.serp li:last-child{border-bottom:0}
-.serp li .p{font-weight:700;color:var(--faint);font-size:15px;padding-top:1px}
-.serp li .d{font-size:13.5px;color:var(--faint)}
-.serp li .t{font-size:17px;color:#1A0DAB;line-height:1.35}
-.serp .you.pos{background:var(--tint);color:var(--forest)}
-.serp .you{margin:4px 22px 22px;padding:14px 16px;border-radius:14px;background:var(--red-bg);color:var(--red);font-weight:600;font-size:15.5px}
+  .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 24px 0; }
+  .facts div { background: #fff; padding: 18px 20px; font-size: 14.5px; line-height: 1.5; color: var(--gray); }
+  .facts b { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.035em; color: var(--forest); font-variant-numeric: tabular-nums; line-height: 1.15; margin-bottom: 4px; }
 
-/* 3b. competitors */
-.rivals{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.rival{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:10px;align-content:start}
-.rival .who{display:grid;gap:2px}
-.rival .who b{font-size:18px;font-weight:700}
-.rival .who span{font-size:14px;color:var(--faint)}
-.rival dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:15px}
-.rival dt{color:var(--faint)}
-.rival dd{margin:0}
-.rival .learn{font-size:15px;color:var(--forest);background:var(--tint);border-radius:12px;padding:10px 12px}
-.prices{background:var(--white);border-radius:20px;padding:26px;display:grid;gap:16px}
-.prices h3{font-size:19px;font-weight:700}
-.pr{display:grid;grid-template-columns:minmax(150px,220px) 1fr auto;gap:14px;align-items:center;font-size:15.5px}
-.pr .track{height:12px;border-radius:999px;background:var(--bg);overflow:hidden}
-.pr .track i{display:block;height:100%;border-radius:999px;background:#C9CEC8}
-.pr.me .track i{background:var(--green)}
-.pr.me span:first-child{font-weight:700}
-.pr b{font-weight:700;white-space:nowrap}
-.prices p{font-size:15px;color:var(--soft)}
-.full{display:grid;gap:10px}
-.full > h3{font-size:21px;font-weight:800;margin-top:6px}
-.full > p{font-size:16px;color:var(--soft)}
-.acc{background:var(--white);border-radius:18px}
-.acc summary{list-style:none;cursor:pointer;padding:18px 22px;display:grid;grid-template-columns:1fr 24px;gap:4px 14px;align-items:center}
-.acc summary::-webkit-details-marker{display:none}
-.acc summary b{font-size:17.5px;font-weight:700}
-.acc summary small{grid-column:1;font-size:14.5px;color:var(--soft)}
-.acc summary i{grid-column:2;grid-row:1 / span 2;width:24px;height:24px;border-radius:50%;background:var(--tint);display:grid;place-items:center;transition:transform .2s}
-.acc summary i svg{width:14px;height:14px;stroke:var(--forest);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.acc[open] summary i{transform:rotate(180deg)}
-.acc .body{padding:0 22px 22px;display:grid;gap:14px;font-size:15.5px}
-.acc .intro{color:var(--soft)}
-.sq{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:6px}
-.sq .q{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
-.sq .q b{font-size:16.5px}
-.sq .q span{font-size:13.5px;color:var(--faint)}
-.sq .lbl{font-size:13px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.04em}
-.sq ul{margin:0;padding-left:18px;display:grid;gap:2px}
-.sq .take{background:var(--tint);color:var(--forest);border-radius:12px;padding:10px 12px}
-.pp{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px}
-.pp .n{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.pp .n b{font-size:16px}
-.pp .n span{font-size:13.5px;color:var(--faint)}
-.pp dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 12px}
-.pp dt{color:var(--faint)}
-.pp dd{margin:0}
-.pp.me{background:var(--tint);border:0;border-radius:12px;padding:12px 14px}
-.pts{margin:0;padding:0;list-style:none;display:grid;gap:10px}
-.pts li{display:grid;grid-template-columns:22px 1fr;gap:10px}
-.pts li svg{width:18px;height:18px;margin-top:3px;stroke:var(--green);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.pts li b{font-weight:700}
-ol.pts{counter-reset:s}
-ol.pts li::before{counter-increment:s;content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--forest);color:#fff;font-size:12.5px;font-weight:700;display:grid;place-items:center;margin-top:1px}
-.ch{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px}
-.ch .n{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.ch .n b{font-size:16px}
-.badge{font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
-.badge.hoch{background:var(--tint);color:var(--forest)}
-.badge.mittel{background:#FFF6E0;color:#8A5A00}
-.badge.niedrig,.badge.nein{background:var(--bg);color:var(--soft)}
-.ch p{color:var(--soft)}
-.ch p b{color:var(--ink);font-weight:600}
-.src{font-size:13.5px;color:var(--faint)}
+  .callout { background: var(--forest); color: rgba(255,255,255,.9); border-radius: 14px; padding: 24px 28px; margin-top: 24px; font-size: 17.5px; line-height: 1.55; }
+  .callout b { color: #fff; }
 
-/* 4. where customers search */
-.demand{background:var(--white);border-radius:20px;padding:26px;display:grid;gap:20px}
-.dm{display:grid;gap:7px}
-.dm .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
-.dm .row span{font-size:16.5px;font-weight:600}
-.dm .row b{font-size:16px;font-weight:700;white-space:nowrap}
-.dm .row b small{font-weight:500;color:var(--faint);font-size:14px}
-.dm .track{height:12px;border-radius:999px;background:var(--bg);overflow:hidden}
-.dm .track i{display:block;height:100%;border-radius:999px;background:var(--green)}
-.dm.top .track i{background:var(--forest)}
-.dm p{font-size:14.5px;color:var(--soft)}
-.demand .sum{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;font-weight:700}
+  /* ---------- Vision ---------- */
+  .wish { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; margin-top: 22px; align-items: start; }
+  .serp, .chat { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: 0 8px 24px -14px rgba(0,0,0,.12); font-size: 14px; line-height: 1.5; }
+  .sbar { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 50px; padding: 8px 14px; }
+  .sbar .g { font-weight: 800; color: var(--gray); font-size: 13px; }
+  .sbar .q { color: var(--black); }
+  .aio { background: var(--soft); border-radius: 10px; padding: 12px 14px; margin-top: 12px; }
+  .aio p { font-size: 13.5px; }
+  .srcchip { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--forest); background: var(--tint); border-radius: 50px; padding: 3px 10px; }
+  .res { margin-top: 14px; display: flex; flex-direction: column; gap: 2px; }
+  .res .url { font-size: 12.5px; color: var(--gray); }
+  .res b { color: #1a0dab; font-weight: 600; font-size: 16px; }
+  .res .snip { font-size: 13.5px; color: var(--gray); }
+  .chat .you { margin-left: auto; width: fit-content; max-width: 90%; background: var(--soft); border-radius: 14px; padding: 8px 12px; font-size: 13.5px; }
+  .chat .bot { margin-top: 12px; font-size: 13.5px; }
+  .cap2 { font-size: 13px; color: var(--gray); margin-top: 8px; }
 
-/* 5. plan */
-.note{font-size:15.5px;color:var(--soft);background:var(--white);border-radius:16px;padding:16px 20px}
-.weeks{display:grid;gap:14px}
-.week{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;gap:16px}
-.week .wh{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
-.week .wh span{font-size:14px;font-weight:700;color:var(--green)}
-.week .wh h3{font-size:20px;font-weight:800}
-.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.list li{display:grid;grid-template-columns:24px 1fr;gap:12px;font-size:16.5px;line-height:1.5}
-.list li svg{width:20px;height:20px;margin-top:2px;stroke:var(--green);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.yours{display:grid;grid-template-columns:24px 1fr;gap:12px;padding:14px 16px;border-radius:14px;background:#FFF6E0;font-size:16px}
-.yours svg{width:20px;height:20px;margin-top:2px;stroke:#9A5B05;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.yours b{font-weight:700}
-.yours small{color:#7A5A1E;font-size:14px}
+  /* ---------- Demand ---------- */
+  .demand { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px; align-items: center; }
+  .dnum { font-size: 76px; font-weight: 900; letter-spacing: -0.055em; line-height: .95; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .dnum span { display: block; font-size: 14.5px; font-weight: 500; letter-spacing: 0; line-height: 1.45; color: var(--gray); margin-top: 10px; }
+  .kwrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; margin-top: 28px; align-items: start; }
+  table.kw { font-size: 14.5px; }
+  table.kw td { padding: 8px 10px 8px 0; }
+  table.kw td:first-child { white-space: nowrap; }
+  table.kw td:last-child { width: 26%; vertical-align: middle; }
+  table.kw td i { display: block; height: 8px; border-radius: 4px; background: var(--accent); width: max(var(--w), 3px); }
+  .qbox { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .qbox ul { list-style: none; font-size: 14.5px; }
+  .qbox li { padding: 7px 0; border-top: 1px solid var(--line); }
+  .qbox li:first-child { border-top: 0; }
 
-/* 6. next step */
-.cta{border-radius:28px;padding:40px;color:#fff;display:grid;gap:16px;background:radial-gradient(600px 300px at 100% 0%,rgba(82,183,136,.25),transparent 70%),var(--deep)}
-.cta h2{font-size:clamp(26px,3.6vw,36px);font-weight:900;letter-spacing:-.03em;max-width:22ch}
-.cta p{color:rgba(255,255,255,.75);max-width:56ch}
-.cta a{justify-self:start;display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--deep);font-weight:700;text-decoration:none;border-radius:999px;padding:14px 24px;font-size:16px}
-.cta .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 4px}
-.cta .steps div{border-top:2px solid rgba(255,255,255,.16);padding-top:12px;display:grid;gap:2px;font-size:15px;color:rgba(255,255,255,.72)}
-.cta .steps div:first-child{border-color:var(--lime)}
-.cta .steps b{color:#fff;font-size:16px}
-.cta .small{font-size:14px;color:rgba(255,255,255,.6)}
-.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.case{background:var(--white);border-radius:20px;overflow:hidden;display:grid;align-content:start;color:inherit;text-decoration:none;transition:transform .15s}
-.case:hover{transform:translateY(-2px)}
-.case img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--tint)}
-.case .cb{padding:18px 20px 20px;display:grid;gap:6px}
-.case .tag{font-size:13px;color:var(--faint)}
-.case .big{font-size:30px;font-weight:800;color:var(--forest);line-height:1.1}
-.case .lab{font-size:14px;color:var(--soft)}
-.case p{margin:6px 0 0;font-size:15px;color:var(--forest);background:var(--tint);border-radius:12px;padding:10px 12px}
-.case .more{font-size:14px;font-weight:600;color:var(--green);margin-top:4px}
-.cases-note{font-size:14px;color:var(--faint);margin-top:12px}
-.extra{display:grid;gap:8px;font-size:15.5px;color:var(--soft)}
-.extra b{color:var(--ink)}
-.foot{font-size:13.5px;color:var(--faint);text-align:center;max-width:60ch;margin:0 auto}
+  /* ---------- Walkthrough ---------- */
+  .ex-intro { background: var(--tint); border-radius: 12px; padding: 18px 22px; margin: 22px 0 8px; font-size: 15.5px; color: var(--forest); }
+  .ex-intro b { color: var(--forest); }
+  .step { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 18px; margin-top: 40px; }
+  .step .num { width: 36px; height: 36px; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 15px; margin-top: 2px; }
+  .step h3 { margin: 4px 0 6px; }
+  .step .who { display: inline-block; font-size: 12.5px; font-weight: 700; padding: 2px 9px; border-radius: 6px; background: var(--soft); color: var(--gray); margin-left: 8px; vertical-align: 3px; letter-spacing: 0; }
+  .step .who.you { background: var(--warn-bg); color: var(--warn); }
 
-@media (max-width:640px){
-  body{font-size:16px}
-  .topbar,main{padding-left:16px;padding-right:16px}
-  main{gap:56px}
-  .hero,.cta{padding:28px 20px;border-radius:22px}
-  .facts,.cta .steps{grid-template-columns:1fr}
-  .reason{grid-template-columns:1fr;padding:22px 20px}
-  .reason .ic{grid-row:auto}
-  .week,.demand,.prices{padding:22px 20px}
-  .rivals{grid-template-columns:1fr}
-  .cases{grid-template-columns:1fr}
-  .pr{grid-template-columns:1fr auto}
-  .pr .track{grid-column:1 / -1;grid-row:2}
-  .serp .bar,.serp ol{padding-left:16px;padding-right:16px}
-  .serp .ai,.serp .you{margin-left:16px;margin-right:16px}
-}
-/* extension: funnel, ads, social, partners, prices */
-.funnel{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:none}
-.stg{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:8px;position:relative}
-.stg.free{box-shadow:inset 0 0 0 2px var(--green)}
-.stg .sh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.stg .sn{width:30px;height:30px;border-radius:50%;background:var(--forest);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;flex-shrink:0}
-.stg h3{font-size:19px;font-weight:800;flex:1}
-.stg p{color:var(--soft);font-size:16px}
-.stg .chn{font-size:15px;background:var(--bg);border-radius:12px;padding:10px 12px;color:var(--ink)}
-.stg .chn b{font-weight:700}
-.stg:not(:last-child)::after{content:"";position:absolute;left:38px;bottom:-12px;width:2px;height:12px;background:var(--green)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.st{background:var(--white);border-radius:20px;padding:20px 22px;display:grid;gap:4px;align-content:start}
-.st b{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
-.st.bad b{color:var(--red)}
-.st span{font-size:14.5px;color:var(--soft)}
-.panel{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;gap:14px}
-.panel h3{font-size:19px;font-weight:800}
-.panel .pts{font-size:16px}
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.tile{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:6px;align-content:start}
-.tile h3{font-size:18px;font-weight:800}
-.tile p{color:var(--soft);font-size:15.5px}
-.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.tier{background:var(--white);border-radius:20px;padding:24px 26px;display:grid;gap:4px;align-content:start}
-.tier.main{background:var(--deep);color:#fff}
-.tier .k{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
-.tier.main .k{color:var(--lime)}
-.tier .v{font-size:34px;font-weight:900;letter-spacing:-.035em;line-height:1.1;margin-top:4px}
-.tier .per{font-size:14.5px;color:var(--soft)}
-.tier.main .per{color:rgba(255,255,255,.65)}
-.tier .list{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
-.tier.main .list{border-color:rgba(255,255,255,.15)}
-.tier .list li{font-size:15.5px}
-.tier.main .list li svg{stroke:var(--lime)}
-.cta .btns{display:flex;gap:10px;flex-wrap:wrap}
-.cta .btns a.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
-@media (max-width:640px){
-  .stats,.tiles,.tiers{grid-template-columns:1fr}
-  .stg,.tile,.tier,.panel{padding:20px}
-  .st b{font-size:28px}
-}
-/* brief + about */
-.brief{background:var(--white);border-radius:24px;padding:28px 30px;display:grid;gap:16px}
-.brief h2{font-size:clamp(22px,3vw,28px);font-weight:800}
-.brief > p{color:var(--soft);font-size:16.5px}
-.brief dl{margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.brief dl div{background:var(--bg);border-radius:14px;padding:14px 16px}
-.brief dt{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
-.brief dd{margin:4px 0 0;font-size:15.5px;line-height:1.5}
-.brief .from{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--soft);font-size:14.5px;border-top:1px solid var(--line);padding-top:14px}
-.brief .from img{width:40px;height:40px;border-radius:50%;object-fit:cover}
-.brief .from b{display:block;color:var(--ink);font-size:15.5px}
-.about{background:var(--white);border-radius:20px;padding:26px;display:grid;gap:14px}
-.about .me{display:flex;align-items:center;gap:16px}
-.about .me img{width:72px;height:72px;border-radius:50%;object-fit:cover}
-.about .me b{display:block;font-size:19px}
-.about .me span{color:var(--green);font-weight:600;font-size:15px}
-.about p{color:var(--soft);font-size:16px}
-.about .what{background:var(--tint);color:var(--forest);border-radius:14px;padding:14px 16px}
-.anums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.anums div{border-top:2px solid var(--ink);padding-top:10px;display:grid;gap:2px}
-.anums b{font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.1}
-.anums span{font-size:14px;color:var(--soft)}
-.about .links{display:flex;flex-wrap:wrap;gap:8px}
-.about .links a{font-size:14.5px;font-weight:600;color:var(--forest);background:var(--bg);border-radius:999px;padding:8px 14px;text-decoration:none}
-@media (max-width:640px){
-  .brief{padding:22px 20px}
-  .brief dl,.anums{grid-template-columns:1fr}
-  .about{padding:22px 20px}
-}
-/* plan blocks */
-.blocks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.bb{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:10px;align-content:start;color:inherit;text-decoration:none}
-.bb .bh{display:flex;align-items:center;gap:12px}
-.bb .bn{width:30px;height:30px;border-radius:9px;background:var(--forest);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;flex-shrink:0}
-.bb h3{font-size:18px;font-weight:800;flex:1}
-.bb dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:15px}
-.bb dt{color:var(--faint)}
-.bb dd{margin:0}
-.bb p{font-size:15px;color:var(--forest);background:var(--tint);border-radius:12px;padding:10px 12px}
-.bb .more{font-size:14px;font-weight:600;color:var(--green)}
-.kick{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:-14px}
-.stg .chn.seo{background:var(--tint);color:var(--forest)}
-@media (max-width:640px){
-  .blocks{grid-template-columns:1fr}
-  .bb{padding:20px}
-}
+  .screen { grid-column: 1 / -1; margin-top: 18px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 24px -12px rgba(0,0,0,.08); overflow: hidden; font-size: 14px; line-height: 1.5; }
+  .screen-h { display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: var(--soft); border-bottom: 1px solid var(--line); font-size: 12.5px; font-weight: 600; color: var(--gray); flex-wrap: wrap; }
+  .screen-h .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .screen-h .r { margin-left: auto; font-weight: 500; }
+  .screen-b { padding: 16px; }
+  .cap { grid-column: 1 / -1; font-size: 13px; color: var(--gray); margin-top: 8px; }
+
+  .src-row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 110px; gap: 14px; padding: 12px 4px; border-top: 1px solid var(--line); align-items: start; }
+  .src-row:first-child { border-top: 0; }
+  .src-row .s { font-size: 12.5px; font-weight: 700; color: var(--gray); }
+  .src-row .t b { display: block; font-size: 14.5px; }
+  .src-row .t span { font-size: 13px; color: var(--gray); }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 6px; white-space: nowrap; }
+  .tag.ok { background: var(--tint); color: var(--forest); }
+  .tag.no { background: var(--soft); color: var(--gray); }
+  .src-row .why { font-size: 12.5px; color: var(--gray); margin-top: 5px; line-height: 1.4; }
+  .src-row.hit { background: #F7FBF8; margin: 0 -16px; padding-left: 20px; padding-right: 20px; }
+
+  .split { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+  .split > div { padding: 16px; }
+  .split > div + div { border-left: 1px solid var(--line); }
+  .lab { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray2); margin-bottom: 8px; }
+  .legal { font-size: 13.5px; color: var(--gray); font-style: italic; line-height: 1.55; }
+  .draft h4 { font-size: 17px; line-height: 1.3; }
+  .draft .teaser { margin-top: 8px; font-size: 14px; color: var(--ink); }
+  .kv { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 6px 12px; margin-top: 12px; font-size: 13.5px; }
+  .kv dt { color: var(--gray); }
+  .kv dd { color: var(--ink); }
+  .faq { margin-top: 12px; font-size: 13.5px; }
+  .faq li { list-style: none; padding: 6px 0; border-top: 1px dashed var(--line); }
+
+  mark.c { background: #FFF1C2; color: inherit; padding: 0 2px; border-radius: 3px; }
+  .comment { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; background: var(--soft); border-radius: 10px; padding: 12px; margin-top: 14px; font-size: 13.5px; }
+  .comment .av { width: 32px; height: 32px; border-radius: 50%; background: var(--warn-bg); color: var(--warn); display: grid; place-items: center; font-weight: 800; font-size: 12px; }
+  .comment b { font-size: 13px; }
+  .actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-s { font: 700 13px var(--font); padding: 7px 14px; border-radius: 7px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+  .btn-s.p { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .actions .t { margin-left: auto; font-size: 12.5px; color: var(--gray); }
+
+
+
+  .three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 12px 0 14px; }
+  .three div { background: var(--tint); border-radius: 10px; padding: 12px 14px; font-size: 13.5px; line-height: 1.45; color: var(--forest); }
+  .three b { display: block; font-size: 14.5px; color: var(--forest); margin-bottom: 2px; }
+  .kv.t3 { grid-template-columns: 90px minmax(0, 1fr); margin-top: 0; gap: 8px 14px; }
+  .srcline { display: flex; gap: 12px; align-items: baseline; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--gray); font-style: italic; line-height: 1.5; }
+  .srcline em { font-style: normal; white-space: nowrap; color: var(--gray2); }
+  .ch3 { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 12px; padding: 16px; background: #FBFBF9; }
+  .chc { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px; font-size: 13px; line-height: 1.5; display: flex; flex-direction: column; gap: 8px; }
+  .chc p { margin: 0; }
+  .chh { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); }
+  .chh i { font-style: normal; width: 20px; height: 20px; border-radius: 5px; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; background: var(--forest); text-transform: none; letter-spacing: 0; }
+  .li .chh i { background: #0A66C2; }
+  .nl .chh i { background: var(--accent-ink); }
+  .chc h4 { font-size: 14.5px; line-height: 1.3; }
+  .chc .fr { font-size: 12px; font-weight: 700; color: var(--warn); background: var(--warn-bg); border-radius: 6px; padding: 3px 8px; width: fit-content; }
+  .chc .faq { margin-top: 0; font-size: 12.5px; }
+  .chc .faq li { padding: 4px 0; }
+  .chc .lk { font-size: 12.5px; font-weight: 700; color: var(--accent-ink); margin-top: auto; }
+  .who2 { display: flex; gap: 8px; align-items: center; }
+  .av2 { width: 30px; height: 30px; border-radius: 6px; background: var(--forest); color: #fff; font-size: 10px; font-weight: 800; display: grid; place-items: center; }
+  .who2 b { display: block; font-size: 13px; line-height: 1.2; }
+  .who2 small { font-size: 11.5px; color: var(--gray); }
+  .prev { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin-top: auto; background: var(--soft); }
+  .prev b { display: block; font-size: 12.5px; }
+  .prev span { font-size: 11.5px; color: var(--gray); }
+  .mailh { border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  .mailh small { font-size: 11.5px; color: var(--gray); }
+  .nlt { font-size: 15px; line-height: 1.3; }
+  .nlb { margin-top: auto; align-self: flex-start; background: var(--forest); color: #fff; font-weight: 700; font-size: 12px; border-radius: 6px; padding: 6px 12px; }
+  .demo { margin-top: 44px; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; }
+  .demo h3 { margin-top: 0; }
+  .demo h4 { font-size: 17px; margin-top: 26px; }
+  .login { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin: 18px 0 4px; padding: 16px 18px; background: var(--tint); border-radius: 12px; }
+  .login dl { display: grid; grid-template-columns: auto auto; gap: 4px 12px; font-size: 14.5px; }
+  .login dt { color: var(--forest); }
+  .login code { font: 600 14px ui-monospace, Menlo, monospace; background: #fff; border-radius: 5px; padding: 2px 7px; color: var(--black); }
+  .demo figure { margin-top: 18px; }
+  .demo img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); background: #1a1a1a; }
+  .demo figcaption { font-size: 13px; color: var(--gray); margin-top: 8px; }
+  /* ---------- Example link ---------- */
+  .ref { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; text-decoration: none; color: inherit; margin-top: 20px; }
+  .ref:hover { border-color: var(--accent); }
+  .ref b { font-size: 17px; display: block; }
+  .ref .u { font-size: 13.5px; color: var(--accent-ink); }
+  .ref .go { font-weight: 800; color: var(--accent-ink); font-size: 20px; }
+  .anatomy { counter-reset: a; list-style: none; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
+  .anatomy li { counter-increment: a; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; font-size: 15px; }
+  .anatomy li::before { content: counter(a); width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 800; display: grid; place-items: center; margin-top: 2px; }
+
+  /* ---------- Tables ---------- */
+  .tw { overflow-x: auto; margin-top: 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--gray); padding: 0 12px 10px 0; border-bottom: 1.5px solid var(--ink); vertical-align: bottom; }
+  td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.vs td:first-child { font-weight: 600; color: var(--black); width: 30%; }
+  table.vs td:nth-child(2) { color: var(--gray); }
+  table.fc td:first-child { color: var(--black); }
+  table.fc td.hl, table.fc th.hl { background: var(--tint); padding-left: 12px; }
+  table.fc th.hl { color: var(--forest); }
+
+  /* ---------- Cases ---------- */
+  .case { border-top: 1px solid var(--line); padding: 26px 0; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; }
+  .case.last { border-bottom: 1px solid var(--line); }
+  .case .big { font-size: 36px; font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .case .big small { display: block; font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--gray); margin-top: 8px; line-height: 1.4; }
+  .case h3 { margin: 0 0 6px; font-size: 18px; }
+  .case p { font-size: 15.5px; }
+  .case .rel { margin-top: 10px; font-size: 14.5px; color: var(--forest); background: var(--tint); border-radius: 8px; padding: 8px 12px; }
+  .case blockquote { margin-top: 10px; font-size: 15.5px; font-style: italic; color: var(--ink); }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 20px; font-size: 14.5px; color: var(--gray); }
+  .stats b { color: var(--black); }
+
+  /* ---------- Content plan ---------- */
+  .plan { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+  .pl { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .pl .h { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .pl .h b { font-size: 16px; }
+  .pl .h span { font-size: 13px; color: var(--gray); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pl ul { list-style: none; margin-top: 8px; font-size: 14px; color: var(--ink); }
+  .pl li { padding: 3px 0; }
+
+  /* ---------- Pricing ---------- */
+  .pk { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; margin-top: 20px; }
+  .p { border: 1px solid var(--line); background: #fff; border-radius: 14px; padding: 22px 24px; }
+  .p.main { background: var(--forest); border-color: var(--forest); color: rgba(255,255,255,.88); }
+  .p .lab { margin-bottom: 4px; }
+  .p.main .lab { color: var(--accent); }
+  .p h3 { margin: 0; font-size: 18px; }
+  .p.main h3 { color: #fff; }
+  .p .v { font-size: 40px; font-weight: 900; letter-spacing: -0.045em; margin-top: 10px; line-height: 1; color: var(--black); }
+  .p.main .v { color: #fff; }
+  .p .v small { font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--gray); }
+  .p.main .v small { color: rgba(255,255,255,.65); }
+  .p ul { list-style: none; margin-top: 16px; font-size: 14.5px; display: flex; flex-direction: column; gap: 6px; }
+  .p li { padding-left: 22px; position: relative; }
+  .p li::before { content: "✓"; position: absolute; left: 0; font-weight: 800; color: var(--accent-ink); }
+  .p.main li::before { color: var(--accent); }
+  .bundle { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 14px; background: var(--tint); border-radius: 14px; padding: 18px 24px; }
+  .bundle b { display: block; font-size: 17px; color: var(--forest); }
+  .bundle span { font-size: 14px; color: var(--forest); }
+  .bundle .bv { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; color: var(--forest); white-space: nowrap; }
+  .bundle .bv s { font-size: 16px; font-weight: 500; color: var(--gray); letter-spacing: 0; margin-right: 6px; }
+  .tl { margin-top: 26px; }
+  .tl div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+  .tl div b { font-size: 14px; color: var(--accent-ink); }
+
+  /* ---------- Person + contact ---------- */
+  .person { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 22px; align-items: start; }
+  .person img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+  .close { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-top: 28px; }
+  .close ol { list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .close li { counter-increment: s; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; }
+  .close li::before { content: counter(s); width: 26px; height: 26px; border-radius: 50%; background: var(--tint); color: var(--forest); font-size: 13px; font-weight: 800; display: grid; place-items: center; }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .btn { display: inline-flex; font: 700 15px var(--font); padding: 12px 20px; border-radius: 50px; text-decoration: none; background: var(--forest); color: #fff; }
+  .btn.o { background: #fff; color: var(--forest); border: 1.5px solid var(--forest); }
+
+  details.ap { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 14px; }
+  details.ap summary { cursor: pointer; font-weight: 700; color: var(--black); }
+  details.ap ol { margin: 12px 0 0 22px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+  details.ap h4 { font-size: 14px; margin-top: 16px; color: var(--accent-ink); }
+  footer { margin-top: 64px; font-size: 13px; color: var(--gray); border-top: 1px solid var(--line); padding-top: 18px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1020px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .toc { display: none; }
+    main { margin: 0 auto; width: 100%; }
+  }
+  @media (max-width: 700px) {
+    body { font-size: 16px; }
+    .top-in { padding: 0 16px; }
+    .top .doc { display: none; }
+    .wrap { padding: 0 16px; }
+    main { padding-top: 32px; }
+    h1 { font-size: 30px; }
+    .lead { font-size: 17px; }
+    h2 { font-size: 24px; }
+    section { margin-top: 56px; }
+    .facts, .plan, .pk, .anatomy, .wish, .demand, .kwrap { grid-template-columns: minmax(0, 1fr); }
+    .demand { gap: 14px; }
+    .dnum { font-size: 56px; }
+    table.kw td:last-child, table.kw th.bar-h { display: none; }
+    table.kw td:first-child { white-space: normal; }
+    .step { grid-template-columns: 36px minmax(0, 1fr); gap: 0 12px; }
+    .step .num { width: 30px; height: 30px; font-size: 14px; }
+    .split, .chan, .three, .ch3 { grid-template-columns: minmax(0, 1fr); }
+    .srcline { flex-direction: column; gap: 4px; }
+    .chan > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    .split > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    .src-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    .case { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    .person { grid-template-columns: 64px minmax(0, 1fr); gap: 14px; }
+    .person img { width: 64px; height: 64px; }
+    .tl div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+    .close { padding: 20px; }
+    .demo { padding: 20px 16px; }
+    .callout { padding: 20px; font-size: 16px; }
+  }
+  @media print {
+    .top, .toc { display: none; }
+    .wrap { display: block; }
+    main { max-width: none; padding: 0; }
+    .step, .case, .p { break-inside: avoid; }
+  }
+
+  /* ---------- MyMillionSnaps ---------- */
+  .step .who.ok { background: var(--tint); color: var(--forest); }
+  .step h3 { font-size: 19px; }
+  .wish.one { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+  .serp .res + .res { margin-top: 10px; }
+  .tag.mid { background: #FDF1D8; color: #794C02; }
+  .facts b.neg { color: #A42528; }
+  .bundle .bv small { display: block; font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--forest); text-align: right; }
+  .pk { grid-template-columns: 1fr 1fr; }
+  table.bs td:first-child { width: auto; }
+  .case .rel a { color: var(--forest); font-weight: 700; }
+  @media (max-width: 700px) {
+    .bundle { flex-direction: column; align-items: flex-start; }
+    .bundle .bv small { text-align: left; }
+    table.vs, table.fc { font-size: 14px; }
+  }
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <a class="logo" href="https://getmarketing.team"><i><svg viewBox="0 0 100 150" aria-hidden="true"><path d="M62 0 8 86h36L30 150 92 58H56z"/></svg></i>GetMarketing</a>
-  <span id="top-for"></span>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/"><img src="/logo.jpg" alt="" />GetMarketing</a>
+    <span class="doc">Marketingplan für MyMillionSnaps, vertraulich</span>
+    <a class="cta" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin vereinbaren</a>
+  </div>
 </header>
 
-<main id="app"></main>
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="Inhalt">
+    <b>Inhalt</b>
+    <a href="#funnel"><span>01</span>Euer Funnel</a>
+    <a href="#google"><span>02</span>Nachfrage bei Google</a>
+    <a href="#wettbewerb"><span>03</span>Wettbewerb</a>
+    <a href="#meta"><span>04</span>Meta-Werbung</a>
+    <a href="#plan"><span>05</span>Der Plan in vier Bausteinen</a>
+    <a href="#cases"><span>06</span>Ergebnisse bei anderen</a>
+    <a href="#prognose"><span>07</span>Prognose</a>
+    <a href="#preis"><span>08</span>Pakete und Preis</a>
+    <a href="#start"><span>09</span>Nächster Schritt</a>
+  </nav>
+
+  <main>
+    <div class="private"><b>Vertraulich, nur für MyMillionSnaps.</b> Diese Seite ist nicht veröffentlicht: Sie ist nirgends verlinkt, nur über diesen Link erreichbar und für Suchmaschinen gesperrt. Bitte gebt Link und Preise nicht an Dritte außerhalb von MyMillionSnaps weiter.</div>
+    <div class="kicker">Angebot für das Team von MyMillionSnaps</div>
+    <h1>Ein Marketingplan, der euren Funnel vom kostenlosen Save the Date bis zur Galerie füllt</h1>
+    <p class="lead">Wir haben uns eure Sichtbarkeit bei Google, eure Meta-Werbung und eure Wettbewerber angesehen. Daraus ist ein Plan mit vier Bausteinen entstanden: SEO, Meta-Werbung mit E-Mails, Instagram sowie ein Programm für Creator, Partner und Gäste. Jeder Baustein ist einzeln buchbar, wir empfehlen den Start mit SEO und Meta-Werbung.</p>
+    <div class="meta">
+      <div><b>Anbieter</b>Darya Kablash, GetMarketing<br />Heidenfeldstraße 9, 10249 Berlin</div>
+      <div><b>Kontakt</b><a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a><br /><a href="tel:+491603030242">+49 160 3030242</a></div>
+      <div><b>Stand</b>13. November 2026</div>
+    </div>
+
+    <!-- 01 -->
+    <section id="funnel">
+      <div class="sh"><span class="n">01</span><h2>Euer Funnel und wo das Marketing ansetzt</h2></div>
+      <p>Paare lernen MyMillionSnaps über ein kostenloses Save the Date kennen. Wenige Wochen später verschicken sie die offizielle Einladung, und am Hochzeitstag sammeln sie mit Galerie, Fotospielen und Gästebuch die Erinnerungen ihrer Gäste. Jede dieser Stufen braucht eigene Kanäle. Die Zahlen zeigen, wie oft in Deutschland pro Monat bei Google nach den Themen der jeweiligen Stufe gesucht wird.</p>
+
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Save the Date <span class="who ok">kostenlos</span></h3>
+          <p>Der Einstieg. Paare probieren euch aus, ohne etwas zu bezahlen, und haben den ersten Kontakt mit euch, lange bevor sie kaufen.</p>
+          <p class="small"><b>Bei Google:</b> „save the date“, 1.900 Suchen im Monat. <b>Weitere Kanäle:</b> Werbung auf Instagram, Reels, Pinterest, Creator.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Offizielle Einladung <span class="who">bezahlt</span></h3>
+          <p>Wer euer Save the Date schon benutzt hat, kauft die Einladung am leichtesten. Hier verkaufen E-Mails und Retargeting.</p>
+          <p class="small"><b>Bei Google:</b> „tischkarten hochzeit“ 2.900, „digitale hochzeitseinladung“ 880, „hochzeitseinladung online“ 210 Suchen im Monat.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Hochzeitstag <span class="who">bezahlt</span></h3>
+          <p>Galerie per QR-Code, Fotospiele, Gästebuch mit Sprachnachrichten und Live-Diashow. Am Tag selbst sehen alle Gäste euer Produkt, und unter ihnen sind die Paare von morgen.</p>
+          <p class="small"><b>Bei Google:</b> „gästebuch hochzeit“ 12.100, „hochzeitsspiele“ 6.600, „qr code hochzeit“ 880, „audio gästebuch hochzeit“ 880 Suchen im Monat.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <h3>Nach der Hochzeit <span class="who">Empfehlung</span></h3>
+          <p>Paare bewerten euch und empfehlen euch weiter. Gäste bekommen einen Gutschein für ihre eigene Hochzeit und starten wieder bei Stufe 1. 16.000 Paare und 4,94 Sterne sind dafür eine starke Grundlage.</p>
+        </div>
+      </div>
+      <div class="callout"><b>Der Winter ist die Zeit zum Aufbauen.</b> Am meisten wird von Januar bis Juli gesucht. Neue Seiten sollten deshalb bis Januar online sein, damit Google sie zur Saison kennt.</div>
+    </section>
+
+    <!-- 02 -->
+    <section id="google">
+      <div class="sh"><span class="n">02</span><h2>Die Nachfrage bei Google ist da</h2></div>
+      <div class="demand">
+        <div class="dnum">47.500<span>Suchen pro Monat in Deutschland zu Themen, die zu euren Produkten passen</span></div>
+        <p>Google findet euch schon heute gut, vor allem bei Hochzeitsspielen und QR-Codes für Fotos. Ihr steht für über 50 Suchbegriffe auf Seite 1, und die Google-KI nennt euch, wenn jemand fragt, wie man Hochzeitsfotos sammelt. Insgesamt kommen so <b>rund 580 Besucher im Monat</b> über Google. Für Gästebuch, Einladung und Tischkarten fehlen dagegen noch eigene Seiten.</p>
+      </div>
+      <div class="tw">
+        <table class="kw">
+          <thead><tr><th>Thema</th><th class="r">Suchen / Monat</th><th class="bar-h"></th></tr></thead>
+          <tbody>
+            <tr><td>Hochzeitsspiele und Fotospiele</td><td class="r">14.440</td><td><i style="--w:100%"></i></td></tr>
+            <tr><td>Gästebuch, auch mit Sprachnachrichten</td><td class="r">13.460</td><td><i style="--w:93%"></i></td></tr>
+            <tr><td>Planung: Hochzeitszeitung, Trauzeugin, Checkliste</td><td class="r">6.880</td><td><i style="--w:48%"></i></td></tr>
+            <tr><td>Save the Date, Einladung und Tischkarten</td><td class="r">5.890</td><td><i style="--w:41%"></i></td></tr>
+            <tr><td>Fotos sammeln per QR-Code</td><td class="r">3.880</td><td><i style="--w:27%"></i></td></tr>
+            <tr><td>Fotobox und Einwegkamera</td><td class="r">2.990</td><td><i style="--w:21%"></i></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Wo noch mehr für euch drin ist</h3>
+      <ul class="list">
+        <li><b>Euer Gästebuch kennt Google noch nicht.</b> Nach „gästebuch hochzeit“ wird 12.100 Mal im Monat gesucht. Ihr habt ein Gästebuch mit Sprachnachrichten, aber bisher keine Seite, die Google dafür zeigt. Ähnlich ist es bei Einladung, Save the Date und Tischkarten.</li>
+        <li><b>Viele Spiele-Themen stehen kurz vor Seite 1.</b> Euer Artikel über Hochzeitsspiele steht bei der größten Suche auf Platz 2. Für „hochzeitsspiel für gäste“, „spiele fürs brautpaar“ oder „foto-challenge“ steht er auf Platz 9 bis 25. Mit eigenen Seiten zu diesen Themen kommt ihr dort nach vorne.</li>
+        <li><b>Eure Länderseiten machen sich gegenseitig Konkurrenz.</b> Den Shop gibt es unter /de, /de-de, /de-at, /de-ch und weiteren Adressen. Google weiß nicht immer, welche die richtige ist. Wenn das klar geregelt ist, bleiben eure guten Plätze stabil.</li>
+      </ul>
+
+      <h3>Das sehen Paare, die „gästebuch hochzeit“ suchen</h3>
+      <div class="wish one">
+        <div class="serp">
+          <div class="sbar"><span class="g">Google</span><span class="q">gästebuch hochzeit</span></div>
+          <div class="res"><span class="url">myprintcard.de</span><b>Gästebuch zur Hochzeit, eine tolle Erinnerung</b></div>
+          <div class="res"><span class="url">pinterest.com</span><b>Die schönsten Gästebücher-Ideen</b></div>
+          <div class="res"><span class="url">cewe.de</span><b>Gästebuch für die Hochzeitsfeier</b></div>
+          <div class="res"><span class="url">hochzeitsportal24.de</span><b>30 coole Gästebuch-Alternativen zur Hochzeit</b></div>
+        </div>
+      </div>
+      <div class="callout"><b>Hier ist Platz für euch.</b> Oben stehen Shops für Gästebücher aus Papier und Ratgeber mit Alternativen. Ein modernes Gästebuch, in das Gäste per QR-Code Fotos, Grüße und Sprachnachrichten schicken, zeigt bisher niemand. Genau das habt ihr.</div>
+      <p class="small" style="margin-top:12px">Quelle: Google-Suchen in Deutschland vom 11. November 2026 und öffentliche Daten zur Sichtbarkeit. Besucherzahlen sind Schätzungen.</p>
+    </section>
+
+    <!-- 03 -->
+    <section id="wettbewerb">
+      <div class="sh"><span class="n">03</span><h2>Wer sonst bei euren Themen gefunden wird</h2></div>
+      <p>Wir haben uns die Shops und Portale angesehen, die bei euren Themen bei Google auftauchen. Ihr spielt schon vorne mit. „Bei Google“ heißt in der Tabelle: für wie viele Suchbegriffe eine Website gefunden wird und wie viele Besucher sie darüber ungefähr im Monat bekommt.</p>
+      <div class="tw">
+        <table class="vs">
+          <thead><tr><th>Anbieter</th><th>Angebot und Preis</th><th>Bei Google</th></tr></thead>
+          <tbody>
+            <tr><td>Ihr, mymillionsnaps.com</td><td>Galerie, Fotospiele, Gästebuch mit Sprachnachrichten, Einladung, Tischkarten. Komplettpaket einmalig 30 €</td><td>Rund 266 Suchbegriffe, etwa 580 Besucher. Platz 2 für „hochzeitsspiele“ und „qr code hochzeit“</td></tr>
+            <tr><td>weddies.de</td><td>Online-Hochzeitsalbum mit QR-Code</td><td>Rund 585 Suchbegriffe, etwa 1.000 Besucher, viele Ratgeber-Seiten</td></tr>
+            <tr><td>EventPics</td><td>Fotogalerie für Events, kostenlos, Abos 4,99 bis 29,99 € im Monat</td><td>Wird von der Google-KI zusammen mit euch genannt</td></tr>
+            <tr><td>Guestpix, WedUploader, Lense</td><td>Foto- und Video-Galerien per Link oder QR-Code</td><td>WedUploader auf Platz 1 und 2 für „hochzeitsfotos sammeln“</td></tr>
+            <tr><td>Gästetelefon-Vermieter</td><td>Audio-Gästebuch zum Mieten, etwa 130 bis 400 €</td><td>Ganz oben bei „audio gästebuch hochzeit“, 880 Suchen und steigend</td></tr>
+            <tr><td>weddingstyle.de und Hochzeitsportale</td><td>Ratgeber und Dienstleister-Verzeichnisse</td><td>9.000 bis 71.000 Besucher, stehen bei Spielen, Gästebuch und Planung oft vor oder neben euch</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Was die Erfolgreichen gemeinsam haben</h3>
+      <ul class="list">
+        <li><b>Eine eigene Seite für jede Frage.</b> weddies hat Seiten wie „Cloud für Hochzeitsfotos“ und „Hochzeitsfotos mit Gästen teilen“. Die Portale haben für jedes Detail der Hochzeit einen Artikel.</li>
+        <li><b>Listen und Ideen.</b> Artikel wie „30 Gästebuch-Alternativen“ oder „30 Hochzeitsspiele“ stehen oben. Euer Spiele-Artikel zeigt, dass das bei euch genauso klappt.</li>
+        <li><b>Ehrliche Vergleiche.</b> weddingstyle erklärt den kostenlosen Weg mit Dropbox. Wer ehrlich vergleicht, gewinnt das Vertrauen der Leser.</li>
+      </ul>
+      <div class="callout"><b>Eure Lücke:</b> Kein Anbieter bündelt Fotos, Spiele, Gästebuch mit Sprachnachrichten und Einladung so wie ihr. Die anderen haben jeweils ein Teil. Wenn Google jedes eurer Produkte mit einer eigenen Seite kennt, werdet ihr überall gefunden, wo Paare planen.</div>
+
+      <h3>Wo ihr realistisch gewinnen könnt</h3>
+      <div class="tw">
+        <table class="vs">
+          <thead><tr><th>Suchbegriffe (Suchen pro Monat)</th><th>Chance</th><th>Was es braucht</th></tr></thead>
+          <tbody>
+            <tr><td>Hochzeitsspiel für Gäste (1.000), Spiele fürs Brautpaar (720), Foto-Challenge (480)</td><td><span class="tag ok">hoch</span></td><td>Eigene Seiten zu jedem Thema, verlinkt mit eurem Spiele-Artikel</td></tr>
+            <tr><td>Audio-Gästebuch (880), Video-Gästebuch (390)</td><td><span class="tag ok">hoch</span></td><td>Seite „Audio-Gästebuch ohne Telefon“ mit Hörbeispiel</td></tr>
+            <tr><td>Digitale Hochzeitseinladung (880), Hochzeitseinladung online (210)</td><td><span class="tag ok">hoch</span></td><td>Produktseite mit Beispielen und Zu- und Absage</td></tr>
+            <tr><td>Save the Date (1.900), Tischkarten Hochzeit (2.900)</td><td><span class="tag mid">mittel</span></td><td>Seite für das kostenlose Save the Date, Tischkarten mit QR-Code</td></tr>
+            <tr><td>Gästebuch Hochzeit (12.100)</td><td><span class="tag mid">mittel</span></td><td>Ratgeber „Gästebuch-Ideen“ mit eurem Gästebuch als moderner Variante</td></tr>
+            <tr><td>Fotobox Hochzeit (2.400), Einwegkamera Hochzeit (590)</td><td><span class="tag mid">mittel</span></td><td>Vergleich „Fotobox, Einwegkamera oder QR-Galerie?“</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="meta">
+      <div class="sh"><span class="n">04</span><h2>Eure Meta-Werbung kostet gerade mehr, als sie einbringt</h2></div>
+      <p>Wir haben uns die Kampagnen in eurem Werbekonto angesehen. In der aktiven Kampagne kostet ein Kauf mehr, als er an Umsatz bringt.</p>
+      <div class="facts">
+        <div><b class="neg">46,85 €</b>kostet ein Kauf in der aktiven Kampagne (Advantage+)</div>
+        <div><b>39,82 €</b>Umsatz pro Kauf, 955,72 € aus 24 Käufen</div>
+        <div><b class="neg">0,85</b>ROAS: Für jeden Euro Werbung kommen 85 Cent zurück</div>
+      </div>
+      <div class="tw">
+        <table class="vs">
+          <thead><tr><th>Kampagne</th><th>Status</th><th class="r">Käufe</th><th class="r">Kosten pro Kauf</th><th class="r">ROAS</th></tr></thead>
+          <tbody>
+            <tr><td>Phase 4, Advantage+ Scaling</td><td>aktiv</td><td class="r">24</td><td class="r">46,85 €</td><td class="r">0,85</td></tr>
+            <tr><td>Phase 2, Creative Testing</td><td>pausiert</td><td class="r">3</td><td class="r">129,53 €</td><td class="r">0,27</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Was wir ändern würden</h3>
+      <ul class="list">
+        <li><b>Werbung auf das kostenlose Save the Date.</b> Etwas kostenlos auszuprobieren ist für Paare eine viel kleinere Entscheidung als ein Kauf. Die Einladung verkaufen danach E-Mails und Retargeting.</li>
+        <li><b>E-Mails vom Save the Date zur Einladung.</b> Paare, die ein Save the Date verschickt haben, bekommen zum passenden Zeitpunkt Beispiele und ein Angebot für die offizielle Einladung.</li>
+        <li><b>Getrennte Zielgruppen.</b> Paare, die gerade planen, sehen das Save the Date. Wer schon auf eurer Seite war, sieht die Einladung und das Komplettpaket.</li>
+        <li><b>Videos mit echten Paaren und Gästen.</b> Kurze Clips aus Galerie, Fotospielen und Gästebuch zeigen in Sekunden, was euer Produkt kann.</li>
+        <li><b>Budget nach Saison.</b> Im Winter mit kleinem Budget testen, welche Anzeigen funktionieren, und ab Januar hochfahren, wenn die Nachfrage steigt.</li>
+      </ul>
+      <div class="callout"><b>Erstes Ziel:</b> Ein Kauf kostet weniger als der Warenkorb, also unter 40 €. Dann trägt sich jede Bestellung, und wir arbeiten weiter an den Kosten.</div>
+      <p class="small" style="margin-top:12px">Quelle: euer Meta-Werbekonto, Stand 13. November 2026.</p>
+    </section>
+
+    <!-- 05 -->
+    <section id="plan">
+      <div class="sh"><span class="n">05</span><h2>Der Plan in vier Bausteinen</h2></div>
+      <p>Jeder Baustein unterstützt eine oder mehrere Stufen eures Funnels. Wir haben jeden danach bewertet, was er bringt, wann er wirkt und was er kostet. Die Bausteine mit Priorität 1 würden wir zuerst starten.</p>
+      <div class="tw">
+        <table class="vs bs">
+          <thead><tr><th>Baustein</th><th>Funnel</th><th>Wirkung</th><th>Ergebnisse</th><th>Priorität</th></tr></thead>
+          <tbody>
+            <tr><td>1. SEO und KI-Suche</td><td>Stufe 1 bis 3</td><td><span class="tag ok">hoch</span></td><td>nach 3 bis 6 Monaten</td><td><span class="tag ok">1</span></td></tr>
+            <tr><td>2. Meta-Werbung und E-Mails</td><td>Stufe 1 und 2</td><td><span class="tag ok">hoch</span></td><td>nach 4 bis 8 Wochen Test</td><td><span class="tag ok">1</span></td></tr>
+            <tr><td>3. Instagram, Reels und Pinterest</td><td>Stufe 1</td><td><span class="tag mid">mittel</span></td><td>nach 2 bis 3 Monaten</td><td><span class="tag no">2</span></td></tr>
+            <tr><td>4. Creator, Partner und Gäste</td><td>Stufe 1 und 4</td><td><span class="tag mid">mittel bis hoch</span></td><td>Gäste-Gutschein sofort, Creator ab Januar</td><td><span class="tag no">2</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:10px">Unsere Einschätzung auf Basis der Daten in diesem Dokument. Mit euren Shop- und Werbedaten prüfen wir sie im ersten Monat nach.</p>
+
+      <h3>Baustein 1: SEO und KI-Suche</h3>
+      <p>Wir schreiben pro Woche zwei neue Seiten, in der Reihenfolge eures Funnels. Ihr gebt jede Seite frei, bevor sie online geht. Von euch brauchen wir pro Woche etwa 15 Minuten.</p>
+      <div class="tl">
+        <div><b>Woche 1</b><span>Seite „Save the Date kostenlos erstellen und digital verschicken“, dazu ein klarer Plan für eure Länderseiten. Euer Schritt: den Plan an eure Shopify-Betreuung weitergeben oder uns Zugang geben.</span></div>
+        <div><b>Woche 2</b><span>Seiten „Digitale Hochzeitseinladung mit Zu- und Absage“ und „Tischkarten mit QR-Code: kostenlose Vorlagen“. Euer Schritt: drei Beispiel-Einladungen auswählen, die wir zeigen dürfen.</span></div>
+        <div><b>Woche 3</b><span>Seiten „Audio-Gästebuch ohne Telefon“ und „Hochzeitsspiele für Gäste: 25 Ideen, die alle mitmachen“. Euer Schritt: zwei Paare fragen, ob wir ihre schönsten Fotospiele zeigen dürfen.</span></div>
+        <div><b>Woche 4</b><span>Seiten „Fotobox, Einwegkamera oder QR-Galerie? Der ehrliche Vergleich“ und „Gästebuch-Ideen: von Papier bis Sprachnachricht“. Euer Schritt: drei Hochzeitsplaner oder Fotografen fragen, ob sie euch empfehlen.</span></div>
+      </div>
+      <p style="margin-top:14px">Dazu schreiben wir einen Instagram-Beitrag pro Woche. Eure Bewertungen, 4,94 Sterne von 16.000 Paaren, bauen wir sichtbar in jede Seite ein. Ist eure Website noch nicht mit uns verbunden, stellt ihr die fertigen Seiten selbst online. Das dauert pro Seite etwa 5 Minuten, bei Shopify übernehmen wir das auch.</p>
+
+      <h3>Baustein 2: Meta-Werbung und E-Mails</h3>
+      <p>Wir setzen die Kampagnen neu auf, so wie in Abschnitt 04 beschrieben: Werbung führt zum kostenlosen Save the Date, E-Mails und Retargeting verkaufen danach die Einladung. Jeden Monat bekommt ihr einen Bericht zu den Kosten pro Kauf.</p>
+
+      <h3>Baustein 3: Instagram, Reels und Pinterest</h3>
+      <p>Solange bei euch niemand fürs Marketing da ist, übernehmen wir Instagram mit festem Rhythmus: drei Posts und zwei Reels pro Woche. Wir planen, schreiben und gestalten, ihr gebt frei.</p>
+      <ul class="list">
+        <li><b>Echte Momente:</b> Fotos, Spiele und Sprachnachrichten von Hochzeiten, mit Erlaubnis der Paare.</li>
+        <li><b>Ideen für Paare:</b> Fotospiele, Save-the-Date-Ideen, Gästebuch-Alternativen. Das sind dieselben Themen, nach denen Paare bei Google suchen.</li>
+        <li><b>So einfach geht’s:</b> kurze Reels, die in 15 Sekunden zeigen, wie Gäste per QR-Code Fotos hochladen.</li>
+        <li><b>Pinterest:</b> Hochzeiten werden auf Pinterest geplant. Die Grafiken aus Instagram laufen dort als Pins weiter und führen zum Save the Date.</li>
+      </ul>
+      <p class="small" style="margin-top:10px">Auf Wunsch automatisieren wir die Reels: Aus Vorlagen und Beispielhochzeiten entstehen sie automatisch, wir prüfen jedes vor dem Posten.</p>
+
+      <h3>Baustein 4: Creator, Partner und Gäste</h3>
+      <p>Hier zahlt ihr erst, wenn verkauft wird. Selbst eine großzügige Provision liegt unter den 46,85 €, die ein Kauf über Meta gerade kostet.</p>
+      <ul class="list">
+        <li><b>Creator:</b> Hochzeits-Creator und Paare mit Reichweite bekommen euer Komplettpaket für ihre Hochzeit und zeigen es ihren Followern, mit eigenem Rabattcode.</li>
+        <li><b>Affiliate-Programm:</b> Hochzeitsblogs und Creator bekommen für jeden Verkauf über ihren Link eine Provision.</li>
+        <li><b>Partner aus der Branche:</b> Hochzeitsplaner, Fotografen, Locations und DJs empfehlen euch ihren Paaren und bekommen Provision oder einen Rabatt für ihre Kunden.</li>
+        <li><b>Gäste werden Kunden:</b> In jeder Galerie steht ein Hinweis mit Gutschein. Gäste, die selbst bald heiraten, landen direkt beim kostenlosen Save the Date.</li>
+      </ul>
+      <p style="margin-top:12px">Wir setzen die Programme auf, sprechen die ersten 20 Creator und Partner an und richten Codes und Tracking ein.</p>
+    </section>
+
+    <!-- 06 -->
+    <section id="cases">
+      <div class="sh"><span class="n">06</span><h2>Ergebnisse bei anderen Kunden</h2></div>
+      <p>Drei Projekte, die eurem Plan ähneln: ein Onlineshop, ein Blog, der zu Buchungen führt, und eine eigene Seite für jedes Angebot. Kundennamen nennen wir nur mit Erlaubnis, die Zahlen stammen aus dem jeweiligen Projekt.</p>
+      <div class="case" style="margin-top:20px">
+        <div class="big">383.943<small>Besucher im Monat über Google</small></div>
+        <div>
+          <h3>E-Commerce: ein Onlineshop für Schmuck</h3>
+          <p>Rund 15 neue Seiten pro Monat, jede auf eine Suche zugeschnitten.</p>
+          <p class="rel">Für euch: Genau dieser Rhythmus steckt in Baustein 1. <a href="/de/referenzen/schmuck-onlineshop/" target="_blank" rel="noopener">Zum Projekt</a></p>
+        </div>
+      </div>
+      <div class="case">
+        <div class="big">7.580<small>Klicks aus Google, 3,2 % Klickrate</small></div>
+        <div>
+          <h3>Kochschule: ein Blog, der zu Buchungen führt</h3>
+          <p>Wer Rezepte sucht, bucht später einen Kurs.</p>
+          <p class="rel">Für euch: Wer Hochzeitsspiele sucht, braucht auch eine Galerie und ein Gästebuch. <a href="/de/referenzen/kochschule/" target="_blank" rel="noopener">Zum Projekt</a></p>
+        </div>
+      </div>
+      <div class="case last">
+        <div class="big">~200<small>verkaufte Kurse im Monat über Google</small></div>
+        <div>
+          <h3>Erste-Hilfe-Schule in Berlin: eine Seite pro Kursart</h3>
+          <p>Jede Kursart hat eine eigene Seite, die bei Google für genau diese Suche gefunden wird.</p>
+          <p class="rel">Für euch: eine eigene Seite für jedes Produkt, vom Save the Date bis zum Gästebuch. <a href="/de/referenzen/erste-hilfe-schule/" target="_blank" rel="noopener">Zum Projekt</a></p>
+        </div>
+      </div>
+      <div class="stats"><span><b>6 Mio.+</b> organische Besucher für Kunden</span><span><b>55</b> abgeschlossene Projekte</span><span>Erste Ergebnisse meist nach <b>3 bis 6 Monaten</b></span></div>
+    </section>
+
+    <!-- 07 -->
+    <section id="prognose">
+      <div class="sh"><span class="n">07</span><h2>Was wir für MyMillionSnaps erwarten</h2></div>
+      <p>So entwickelt sich das nach unserer Erfahrung, wenn Baustein 1 und 2 im Dezember starten. Wir rechnen bewusst vorsichtig.</p>
+      <div class="tw">
+        <table class="fc">
+          <thead><tr><th></th><th class="r">Heute</th><th class="r hl">In 12 Monaten</th></tr></thead>
+          <tbody>
+            <tr><td>Besucher über Google pro Monat</td><td class="r">rund 580</td><td class="r hl">1.200 bis 2.000</td></tr>
+            <tr><td>Zusätzliche Bestellungen pro Jahr über Google</td><td class="r">0</td><td class="r hl">100 bis 350</td></tr>
+            <tr><td>Kosten pro Kauf über Meta</td><td class="r">46,85 €</td><td class="r hl">unter 40 € (Ziel)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:12px">Das ist eine Prognose auf Basis öffentlicher Suchdaten und keine Zusage. Plätze bei Google kann niemand garantieren. Mit euren Shop-Daten rechnen wir die Zahlen im Termin gern genauer durch.</p>
+    </section>
+
+    <!-- 08 -->
+    <section id="preis">
+      <div class="sh"><span class="n">08</span><h2>Pakete und Preis</h2></div>
+      <p>Jeder Baustein ist einzeln buchbar. Die Monatspakete sind monatlich kündbar, und alles, was ihr bezahlt habt, gehört euch und bleibt online.</p>
+      <div class="pk">
+        <div class="p main">
+          <div class="lab">Baustein 1</div>
+          <h3>SEO und KI-Suche</h3>
+          <div class="v">249 € <small>im Monat</small></div>
+          <ul>
+            <li>Zwei neue Seiten pro Woche entlang eures Funnels</li>
+            <li>Plan für die Länderseiten</li>
+            <li>1 Instagram-Post pro Woche</li>
+            <li>Gefällt euch die erste Woche nicht, bekommt ihr bis Tag 7 euer Geld zurück</li>
+          </ul>
+        </div>
+        <div class="p">
+          <div class="lab">Baustein 2</div>
+          <h3>Meta-Werbung und E-Mails</h3>
+          <div class="v">290 € <small>im Monat, plus Werbebudget</small></div>
+          <ul>
+            <li>Kampagnen neu aufsetzen und betreuen</li>
+            <li>Werbung auf das Save the Date, Retargeting für die Einladung</li>
+            <li>E-Mails vom Save the Date zur Einladung</li>
+            <li>Monatlicher Bericht zu den Kosten pro Kauf</li>
+          </ul>
+        </div>
+        <div class="p">
+          <div class="lab">Baustein 3</div>
+          <h3>Instagram, Reels und Pinterest</h3>
+          <div class="v">390 € <small>im Monat</small></div>
+          <ul>
+            <li>3 Posts und 2 Reels pro Woche</li>
+            <li>Pinterest mit denselben Motiven</li>
+            <li>Content-Plan passend zur Saison</li>
+          </ul>
+        </div>
+        <div class="p">
+          <div class="lab">Baustein 4</div>
+          <h3>Creator, Partner und Gäste</h3>
+          <div class="v">490 € <small>einmalig</small></div>
+          <ul>
+            <li>Affiliate- und Partnerprogramm einrichten</li>
+            <li>Die ersten 20 Creator und Partner ansprechen</li>
+            <li>Gutschein für Gäste in der Galerie</li>
+            <li>Danach nur Provision pro Verkauf</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bundle"><div><b>Unsere Empfehlung zum Start</b><span>Baustein 1 und 2: SEO und Meta-Werbung mit E-Mails</span></div><div class="bv">539 € <small>im Monat plus Werbebudget</small></div></div>
+      <p class="small" style="margin-top:12px">Als Kleinunternehmer berechnen wir keine Umsatzsteuer. Einzelne Aufgaben ohne festes Paket rechnen wir mit 75 € pro Stunde ab. Das Werbebudget zahlt ihr direkt an Meta.</p>
+    </section>
+
+    <!-- 09 -->
+    <section id="start">
+      <div class="sh"><span class="n">09</span><h2>Wer dahintersteht und wie es weitergeht</h2></div>
+      <div class="person">
+        <img src="/darya.jpg" alt="Darya Kablash" />
+        <div>
+          <p><b>Darya Kablash</b>, Gründerin von GetMarketing. Ich arbeite seit über acht Jahren im Marketing im DACH-Raum, als Growth Consultant und Fractional CMO und als Head of Growth bei Invictus Lead Generation. Euren Plan setze ich mit meinem Team um und bin eure feste Ansprechpartnerin. <a href="https://www.linkedin.com/in/darya-kablash-37288a254/" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </div>
+      <div class="close">
+        <h3 style="margin-top:0">Nächster Schritt</h3>
+        <p>In 30 Minuten gehen wir den Plan gemeinsam durch, und ich beantworte eure Fragen. Damit die ersten Seiten vor der Saison im Januar stehen, sollten wir bis Mitte Dezember starten.</p>
+        <ol>
+          <li><span>Termin vereinbaren, gern mit der Geschäftsführung</span></li>
+          <li><span>Bausteine wählen</span></li>
+          <li><span>Start in der Woche danach mit den ersten zwei Seiten</span></li>
+        </ol>
+        <div class="btns">
+          <a class="btn" href="https://calendly.com/darya-getmarketing/getmarketing-discovery-slot" target="_blank" rel="noopener">Termin auswählen</a>
+          <a class="btn o" href="https://buy.stripe.com/4gMaEXgCGd6h17P5lB5J608">Baustein 1 direkt starten</a>
+          <a class="btn o" href="mailto:darya@getmarketing.team?subject=MyMillionSnaps%20Marketingplan">darya@getmarketing.team</a>
+        </div>
+      </div>
+
+      <footer>
+        <p><b>Darya Kablash, GetMarketing</b>, Heidenfeldstraße 9, 10249 Berlin, Telefon +49 160 3030242, <a href="mailto:darya@getmarketing.team">darya@getmarketing.team</a><br />USt-IdNr. DE366952335, Steuernummer 14/370/03734, <a href="/impressum.html">Impressum</a>, <a href="/datenschutz.html">Datenschutz</a></p>
+        <p style="margin-top:8px">Dieses Angebot ist vertraulich und ausschließlich für MyMillionSnaps bestimmt. Es ist nicht öffentlich, nicht verlinkt und für Suchmaschinen gesperrt.</p>
+      </footer>
+    </section>
+  </main>
+</div>
 
 <script>
-const DATA = {
-  company: "MyMillionSnaps", domain: "mymillionsnaps.com", date: "11. November 2026", market: "Deutschland",
-  connected: false,
-  cms_connected: false,
-
-  brief: {
-    title: "Das Wichtigste in einer Minute",
-    intro: "Diese Seite ist ein Marketingplan von GetMarketing für MyMillionSnaps. Er besteht aus vier Bausteinen, die euren Funnel vom kostenlosen Save the Date bis zur Galerie unterstützen. Jeden Baustein haben wir bewertet, und ihr könnt sie einzeln buchen.",
-    items: [
-      { k: "Google", t: "Heute kommen rund 580 Besucher im Monat über Google, bis zu 2.000 sind drin. Dafür fehlen vor allem Seiten zu Gästebuch, Einladung und Tischkarten." },
-      { k: "Meta-Werbung", t: "Ein Kauf kostet gerade 46,85 € bei rund 40 € Umsatz. Wir schlagen vor, die Werbung auf euer kostenloses Save the Date auszurichten und danach über E-Mails und Retargeting zu verkaufen." },
-      { k: "Laufendes Marketing", t: "Wir übernehmen Instagram, Reels und Pinterest und bauen ein Programm für Creator, Partner aus der Hochzeitsbranche und Empfehlungen auf." },
-      { k: "Kosten", t: "Ab 249 € im Monat, monatlich kündbar. Social, Werbung und das Creator-Programm lassen sich einzeln dazubuchen." }
-    ]
-  },
-  plan: {
-    title: "Euer Marketingplan in vier Bausteinen",
-    lead: "Jeder Baustein unterstützt eine oder mehrere Stufen eures Funnels. Wir haben jeden danach bewertet, was er bringt, wann er wirkt und was er kostet. Priorität 1 würden wir zuerst starten.",
-    blocks: [
-      { n: 1, id: "seo", t: "SEO und KI-Suche", stages: "Stufe 1 bis 3", effect: "hoch", when: "erste Ergebnisse nach 3 bis 6 Monaten", cost: "249 € im Monat", prio: 1,
-        why: "Paare suchen bei Google nach Save the Date, Einladung, Gästebuch und Spielen. Die Seiten sollten bis Januar stehen, damit sie zur Saison gefunden werden." },
-      { n: 2, id: "ads", t: "Meta-Werbung und E-Mails", stages: "Stufe 1 und 2", effect: "hoch", when: "Testphase 4 bis 8 Wochen", cost: "+ 290 € im Monat, zzgl. Werbebudget", prio: 1,
-        why: "Die Werbung läuft gerade mit Verlust. Auf das kostenlose Save the Date ausgerichtet, holt sie Paare in den Funnel, und E-Mails verkaufen danach die Einladung." },
-      { n: 3, id: "social", t: "Instagram, Reels und Pinterest", stages: "Stufe 1", effect: "mittel", when: "spürbar nach 2 bis 3 Monaten", cost: "+ 390 € im Monat", prio: 2,
-        why: "Baut Vertrauen auf und liefert die Videos, die auch in der Werbung laufen. Direkte Bestellungen kommen eher über Google und Werbung." },
-      { n: 4, id: "partners", t: "Creator, Partner und Gäste", stages: "Stufe 1 und 4", effect: "mittel bis hoch", when: "Gäste-Gutschein sofort, Creator zur Saison ab Januar", cost: "490 € einmalig, danach Provision pro Verkauf", prio: 2,
-        why: "Kostet nur, wenn verkauft wird. Der Gutschein für Gäste macht aus jeder Hochzeit neue Paare, die mit dem Save the Date starten." }
-    ],
-    note: "Unsere Einschätzung auf Basis der Daten auf dieser Seite. Mit euren Shop- und Werbedaten prüfen wir sie im ersten Monat nach."
-  },
-  about: {
-    title: "Wer hinter diesem Angebot steht",
-    name: "Darya Kablash", role: "Gründerin von GetMarketing", img: "/darya.jpg",
-    bio: "Growth Consultant und Fractional CMO mit über acht Jahren Marketing-Erfahrung im DACH-Raum, außerdem Head of Growth bei Invictus Lead Generation. Ich arbeite von Berlin aus und bin eure Ansprechpartnerin.",
-    what: "GetMarketing ist ein Marketing-System aus KI-Agenten und Menschen. Es plant Themen, schreibt Seiten und Beiträge, betreut Kampagnen und misst, was wirkt. Veröffentlicht wird erst, wenn ihr freigebt.",
-    nums: [ { v: "55", t: "abgeschlossene Projekte in SEO, Ads, Social und KI-Automatisierung" }, { v: "8+ Jahre", t: "Marketing-Erfahrung im DACH-Raum" }, { v: "6 Mio.+", t: "organische Besucher für Kunden über alle Projekte" } ],
-    mail: "darya@getmarketing.team", linkedin: "https://www.linkedin.com/in/darya-kablash-37288a254/", web: "https://getmarketing.team"
-  },
-
-  hero: {
-    title_before: "Bis zu", title_hl: "2.000 Besucher", title_after: "im Monat über Google sind für euch drin.",
-    sub: "Google findet euch schon heute gut, vor allem bei Hochzeitsspielen und QR-Codes für Fotos. Jetzt fehlen noch eure anderen Produkte: Gästebuch, Einladung und Tischkarten. Daraus können in einem Jahr 100 bis 350 zusätzliche Bestellungen werden.",
-    today: 580, low: 1200, high: 2000,
-    facts: [
-      { v: "47.500", t: "Suchen pro Monat zu Themen, die zu euren Produkten passen" },
-      { v: "1.200–2.000", t: "Besucher pro Monat, die in 12 Monaten realistisch sind", lime: true },
-      { v: "100–350", t: "zusätzliche Bestellungen pro Jahr, die daraus werden können" }
-    ]
-  },
-
-  reasons_title: "Wo noch mehr für euch drin ist",
-  reasons: [
-    { icon: "search", title: "Euer Gästebuch kennt Google noch nicht",
-      text: "Nach „Gästebuch Hochzeit“ wird 12.100 Mal im Monat gesucht. Ihr habt ein Gästebuch mit Sprachnachrichten, aber bisher keine Seite, die Google dafür zeigt. Ähnlich ist es bei Einladung, Save the Date und Tischkarten." },
-    { icon: "copy", title: "Viele Spiele-Themen stehen kurz vor Seite 1",
-      text: "Euer Artikel über Hochzeitsspiele steht bei der größten Suche auf Platz 2. Für „Hochzeitsspiel für Gäste“, „Spiele fürs Brautpaar“ oder „Foto-Challenge“ steht er auf Platz 9 bis 25. Mit eigenen Seiten zu diesen Themen geht es nach vorne." },
-    { icon: "link", title: "Eure Länderseiten machen sich gegenseitig Konkurrenz",
-      text: "Euren Shop gibt es unter /de, /de-de, /de-at, /de-ch und weiteren Adressen. Google weiß nicht immer, welche die richtige ist. Wenn das klar geregelt ist, bleiben eure guten Plätze stabil." }
-  ],
-  good: "Das Gute: Ihr steht schon für über 50 Suchbegriffe auf Seite 1, und die Google-KI nennt euch, wenn jemand fragt, wie man Hochzeitsfotos sammelt. 16.000 Paare und 4,94 Sterne sind ein starkes Fundament.",
-
-  search: {
-    query: "gästebuch hochzeit",
-    ai_label: "12.100 Suchen im Monat",
-    ai_names: "Oben stehen Shops für Gästebücher aus Papier und Ratgeber mit „Gästebuch-Alternativen“",
-    results: [
-      { pos: 1, domain: "myprintcard.de", title: "Gästebuch zur Hochzeit – eine tolle Erinnerung" },
-      { pos: 2, domain: "pinterest.com", title: "Die schönsten Gästebücher-Ideen" },
-      { pos: 3, domain: "cewe.de", title: "Gästebuch für die Hochzeitsfeier" },
-      { pos: 4, domain: "hochzeitsportal24.de", title: "30 coole Gästebuch-Alternativen zur Hochzeit" }
-    ],
-    positive: true,
-    missing: "Hier ist Platz für euch. Ein modernes Gästebuch, in das Gäste per QR-Code Fotos, Grüße und Sprachnachrichten schicken, zeigt bisher niemand. Genau das habt ihr."
-  },
-
-  rivals: {
-    lead: "Wir haben uns die Shops und Portale angesehen, die bei euren Themen bei Google auftauchen. Ihr spielt schon vorne mit. Diese vier zeigen, wo noch mehr geht.",
-    list: [
-      { name: "weddies", where: "weddies.de",
-        what: "Online-Hochzeitsalbum mit QR-Code", price: "nicht geprüft",
-        google: "Rund 585 Suchbegriffe, etwa 1.000 Besucher im Monat. Hat eigene Seiten wie „Cloud für Hochzeitsfotos“",
-        learn: "Eine Seite pro Frage, die Paare stellen. Bei QR-Codes steht ihr schon vor weddies. Beim Gästebuch könnt ihr es auch." },
-      { name: "EventPics", where: "event.pics",
-        what: "Fotogalerie für Hochzeiten und Events", price: "kostenlos, mehr Speicher ab 4,99 € im Monat",
-        google: "Wird von der Google-KI zusammen mit euch genannt",
-        learn: "Wirbt stark mit „kostenlos“. Euer Vorteil: einmal zahlen, kein Abo, dazu Spiele und Gästebuch." },
-      { name: "weddingstyle", where: "weddingstyle.de",
-        what: "Großes Hochzeitsmagazin", price: "kostenlos (Ratgeber)",
-        google: "Etwa 58.000 Besucher im Monat, steht bei fast allen euren Themen mit euch in den Ergebnissen",
-        learn: "Erklärt, wie man Fotos mit Dropbox sammelt. Ein ehrlicher Vergleich „Dropbox, WhatsApp oder QR-Galerie“ bringt diese Leser zu euch." },
-      { name: "Gästetelefon-Vermieter", where: "gaestetelefon.de, weddingdjmunich.de",
-        what: "Audio-Gästebuch zum Mieten", price: "Geräte kosten etwa 130 bis 400 €",
-        google: "Stehen ganz oben bei „Audio Gästebuch Hochzeit“ (880 Suchen im Monat, steigend)",
-        learn: "Euer Gästebuch mit Sprachnachrichten braucht kein Telefon und keinen Versand. Das ist eine eigene Seite wert." }
-    ],
-    gap: "Eure Lücke: Kein Anbieter bündelt Fotos, Spiele, Gästebuch mit Sprachnachrichten und Einladung so wie ihr. Die anderen haben jeweils ein Teil. Wenn Google jedes eurer Produkte mit einer eigenen Seite kennt, werdet ihr überall gefunden, wo Paare planen."
-  },
-
-  analysis: {
-    title: "Die ganze Wettbewerbsanalyse",
-    lead: "Hier findet ihr alles, was wir uns angesehen haben. Klickt auf ein Thema, um es aufzuklappen.",
-    source: "Grundlage: Google-Suchen in Deutschland vom 11. November 2026, öffentliche Daten zur Sichtbarkeit bei Google und die Websites der Anbieter. Besucherzahlen sind Schätzungen.",
-    parts: [
-      { t: "Was Google bei 4 wichtigen Suchen zeigt", s: "Wer oben steht, wenn Paare suchen, und was das für euch heißt",
-        searches: [
-          { q: "hochzeitsfotos sammeln", where: "ganz Deutschland",
-            top: ["Die Google-KI nennt EventPics, Guestpix und MyMillionSnaps", "Danach: WedUploader, Reddit, weddies, EventPics, Guestpix, Lense"],
-            take: "Ihr seid schon in der Antwort der Google-KI. Das ist viel wert. Eure zwei Artikel zum Thema tauchen bei den Bildern auf. Mit einer klaren Vergleichsseite kommt ihr auch in die Ergebnisse." },
-          { q: "qr code hochzeit", where: "ganz Deutschland, 880 Suchen im Monat",
-            top: ["Platz 2: eure Startseite", "Dazu Platz 2 bis 3 für viele ähnliche Suchen wie „QR-Code für Hochzeitsfotos“"],
-            take: "Hier seid ihr stark. Wichtig ist, dass diese Plätze bleiben, wenn die Länderseiten aufgeräumt werden." },
-          { q: "gästebuch hochzeit", where: "ganz Deutschland, 12.100 Suchen im Monat",
-            top: ["myprintcard, Pinterest, CEWE, hochzeitsportal24 („30 Gästebuch-Alternativen“), Etsy, Goldbuch, brautmagazin.de"],
-            take: "Die meisten suchen ein Buch aus Papier. Viele suchen aber schon Alternativen. Ein Ratgeber „Gästebuch-Ideen: von Papier bis Sprachnachricht“ kann auf Seite 1 kommen." },
-          { q: "audio gästebuch hochzeit", where: "ganz Deutschland, 880 Suchen im Monat, Tendenz steigend",
-            top: ["Vermieter von Gästetelefonen (weddingdjmunich, gaestetelefon), Idealo, Etsy, Amazon, tomexclusive"],
-            take: "Paare zahlen für ein Gästetelefon 130 bis 400 €. Euer Gästebuch mit Sprachnachrichten ist einfacher und günstiger. Eine eigene Seite „Audio-Gästebuch ohne Telefon“ hat hier gute Chancen." }
-        ] },
-      { t: "Alle Wettbewerber im Überblick", s: "Wer sie sind und wie gut Google sie findet",
-        intro: "„Bei Google“ heißt: für wie viele Suchbegriffe die Website gefunden wird und wie viele Besucher sie darüber ungefähr im Monat bekommt.",
-        people: [
-          { name: "Ihr, mymillionsnaps.com", where: "Darmstadt, online", what: "Galerie per QR-Code, Fotospiele, Gästebuch mit Sprachnachrichten, Live-Diashow, Einladung, Tischkarten, Logo", price: "Einmalzahlung, Komplettpaket gerade 30 €", google: "Rund 266 Suchbegriffe, etwa 580 Besucher im Monat. Platz 2 für „Hochzeitsspiele“ (6.600 Suchen) und „QR-Code Hochzeit“.", me: true },
-          { name: "weddies", where: "weddies.de", what: "Online-Hochzeitsalbum mit QR-Code", price: "Nicht geprüft", google: "Rund 585 Suchbegriffe, etwa 1.000 Besucher im Monat. Viele Ratgeber-Seiten." },
-          { name: "EventPics", where: "event.pics", what: "Fotogalerie für Events", price: "Kostenlos, Abos 4,99 bis 29,99 € im Monat", google: "Wird von der Google-KI genannt, gute Seite für „QR-Code Fotos Hochzeit kostenlos“." },
-          { name: "Guestpix", where: "guestpix.com", what: "Foto- und Video-Galerie per QR-Code", price: "Nicht geprüft", google: "Wird von der Google-KI genannt, Ratgeber zu QR-Codes." },
-          { name: "WedUploader", where: "weduploader.com", what: "Gäste laden Fotos per Link oder QR-Code hoch", price: "Nicht geprüft", google: "Platz 1 und 2 für „Hochzeitsfotos sammeln“." },
-          { name: "Lense", where: "lense.app", what: "Digitale Einwegkamera für Gäste", price: "Kostenlos zum Ausprobieren", google: "Auf Seite 1 für „Hochzeitsfotos sammeln“, mit 4,9 Sternen in den Ergebnissen." },
-          { name: "ehemomente, zweierteam, FridaySnap", where: "verschiedene", what: "Ähnliche Tools für Gästefotos", price: "Nicht geprüft", google: "Tauchen bei Bildern und in der Google-KI auf." },
-          { name: "weddingstyle", where: "weddingstyle.de", what: "Hochzeitsmagazin", price: "Ratgeber", google: "Etwa 58.000 Besucher im Monat. Teilt mit euch 119 Suchbegriffe." },
-          { name: "hochzeitsportal24, weddyplace, hochzeitsplaza", where: "Portale", what: "Ratgeber und Dienstleister-Verzeichnisse", price: "Ratgeber", google: "9.000 bis 71.000 Besucher im Monat. Sie stehen bei Spielen, Gästebuch und Planung oft vor oder neben euch." }
-        ] },
-      { t: "Was die Erfolgreichen gemeinsam haben", s: "Drei Dinge, die bei allen funktionieren",
-        points: [
-          "<b>Eine eigene Seite für jede Frage.</b> weddies hat Seiten wie „Cloud für Hochzeitsfotos“ und „Hochzeitsfotos mit Gästen teilen“. Die Portale haben für jedes Detail der Hochzeit einen Artikel.",
-          "<b>Listen und Ideen.</b> „30 Gästebuch-Alternativen“ oder „30 Hochzeitsspiele“: Solche Artikel stehen oben. Euer Spiele-Artikel zeigt, dass das bei euch genauso klappt.",
-          "<b>Ehrliche Vergleiche.</b> weddingstyle erklärt den kostenlosen Weg mit Dropbox. Wer ehrlich vergleicht, bekommt das Vertrauen der Leser."
-        ] },
-      { t: "Was fast allen fehlt, und eure Chance ist", s: "Drei Lücken, die ihr füllen könnt",
-        points: [
-          "<b>Alles aus einer Hand.</b> Die Tools haben eine Galerie, die Vermieter ein Telefon, die Shops ein Buch. Ihr habt alles zusammen. Das sollte man auf jeder Seite sehen.",
-          "<b>Das Gästebuch mit Sprachnachrichten.</b> Bei „Audio-Gästebuch“ stehen fast nur Telefon-Vermieter. Eine Lösung ohne Gerät zeigt bisher niemand.",
-          "<b>Einmal zahlen statt Abo.</b> Viele Anbieter arbeiten mit Monatsabos oder „kostenlos mit Grenzen“. Euer Modell ist einfacher. Ein klarer Preisvergleich macht das sichtbar."
-        ] },
-      { t: "Wo ihr realistisch gewinnen könnt", s: "Suchbegriffe nach Chance sortiert",
-        chances: [
-          { q: "Hochzeitsspiel für Gäste (1.000), Spiele fürs Brautpaar (720), Foto-Challenge (480), Fotospiel Hochzeit (320)", c: "hoch", who: "Ihr auf Platz 9 bis 25, dazu die Portale", need: "Eigene Seiten zu jedem Thema, verlinkt mit eurem Spiele-Artikel" },
-          { q: "Audio-Gästebuch Hochzeit (880), Video-Gästebuch (390)", c: "hoch", who: "Telefon-Vermieter, Amazon, Etsy", need: "Eine Seite „Audio-Gästebuch ohne Telefon“ mit Hörbeispiel" },
-          { q: "Digitale Hochzeitseinladung (880), Hochzeitseinladung online (210)", c: "hoch", who: "Karten-Shops und Einladungs-Tools", need: "Eine eigene Produktseite mit Beispielen und RSVP erklärt" },
-          { q: "Tischkarten Hochzeit (2.900)", c: "mittel", who: "Karten-Shops und Etsy", need: "Seite „Tischkarten mit QR-Code“ mit euren kostenlosen Vorlagen" },
-          { q: "Gästebuch Hochzeit (12.100)", c: "mittel", who: "Papier-Shops und Portale", need: "Ratgeber „Gästebuch-Ideen“ mit eurem Gästebuch als moderne Variante" },
-          { q: "Fotobox Hochzeit (2.400), Einwegkamera Hochzeit (590)", c: "mittel", who: "Fotobox-Vermieter, Kamera-Shops", need: "Vergleich „Fotobox, Einwegkamera oder QR-Galerie?“" },
-          { q: "Save the Date (1.900), Hochzeitszeitung (3.600), Trauzeugin Aufgaben (2.400)", c: "mittel", who: "Große Portale", need: "Ratgeber, die zu euren Produkten führen" },
-          { q: "Gastgeschenke Hochzeit (12.100), Hochzeit Deko (2.400)", c: "niedrig", who: "Große Shops und Portale", need: "Nicht euer Schwerpunkt" }
-        ] },
-      { t: "Eure nächsten Schritte, nach Wirkung sortiert", s: "Was am schnellsten Bestellungen bringt",
-        steps: [
-          "<b>Länderseiten klar regeln:</b> Eine Adresse für Deutschland, und Google sagen, welche Seite für Österreich und die Schweiz gilt. So bleiben eure guten Plätze stabil.",
-          "<b>Seite „Save the Date kostenlos erstellen“</b> als Einstieg in euren Funnel. Danach wird 1.900 Mal im Monat gesucht.",
-          "<b>Eigene Seite für die digitale Einladung</b> mit Beispielen und RSVP erklärt, die nächste Stufe im Funnel.",
-          "<b>Seite „Audio-Gästebuch ohne Telefon“</b> mit Hörbeispiel, Ablauf und Preis.",
-          "<b>Spiele-Seiten ausbauen:</b> Spiele für Gäste, Spiele fürs Brautpaar, Foto-Challenge. Jede verlinkt auf eure Galerie.",
-          "<b>Ratgeber „Gästebuch-Ideen“</b> von Papier bis Sprachnachricht, mit eurem Gästebuch als moderne Variante.",
-          "<b>Vergleich „Fotobox, Einwegkamera oder QR-Galerie?“</b> mit ehrlichen Vor- und Nachteilen.",
-          "<b>Eure Bewertungen sichtbarer machen:</b> 4,94 Sterne von 16.000 Paaren gehören auf jede Seite und in die Google-Ergebnisse."
-        ] },
-      { t: "Worauf ihr achten solltet", s: "Damit euer Wachstum stabil bleibt",
-        points: [
-          "<b>Hochzeiten haben Saison.</b> Am meisten wird von Januar bis Juli gesucht. Neue Seiten sollten bis Januar online sein, damit sie im Frühjahr gefunden werden.",
-          "<b>Viele Suchen sind „kostenlos“-Suchen.</b> Ein ehrlicher Vergleich mit Dropbox und WhatsApp hilft, diese Leser zu überzeugen, statt sie zu verlieren.",
-          "<b>Die Google-KI steht oft ganz oben.</b> Sie nennt euch schon. Klare Seiten mit Fakten wie Preis, Speicherdauer und Originalqualität helfen, dass das so bleibt."
-        ] }
-    ]
-  },
-
-  demand: [
-    { name: "Save the Date, Einladung und Tischkarten", v: 5890, note: "Der Einstieg in euren Funnel und die erste Bestellung. Diese Produkte brauchen eigene Seiten." },
-    { name: "Gästebuch für die Hochzeit, auch mit Sprachnachrichten", v: 13460, note: "Das größte Thema, das Google noch nicht mit euch verbindet.", top: true },
-    { name: "Hochzeitsspiele und Fotospiele", v: 14440, note: "Hier seid ihr schon stark. Wir holen die Begriffe von Seite 2 nach vorne." },
-    { name: "Fotos sammeln per QR-Code", v: 3880, note: "Euer Kernthema. Hier steht ihr oft auf Platz 2 bis 3." },
-    { name: "Fotobox und Einwegkamera", v: 2990, note: "Paare, die Alternativen vergleichen. Ein guter Vergleich bringt sie zu euch." },
-    { name: "Planung: Hochzeitszeitung, Trauzeugin, Checkliste", v: 6880, note: "Leute, die mitten in der Planung sind und Ideen suchen." }
-  ],
-
-  weeks: [
-    { title: "Den Einstieg stärken",
-      we: ["Einen klaren Plan für eure Länderseiten, damit Google weiß, welche Seite für Deutschland gilt",
-           "Eine neue Seite: „Save the Date kostenlos erstellen und digital verschicken“",
-           "Einen Instagram-Beitrag für euch schreiben"],
-      you: { t: "Den Plan für die Länderseiten an eure Shopify-Betreuung weitergeben oder uns Zugang geben", min: 15 } },
-    { title: "Die Einladung verkaufen",
-      we: ["Eine neue Seite: „Digitale Hochzeitseinladung mit Zu- und Absage“",
-           "Eine neue Seite: „Tischkarten mit QR-Code: kostenlose Vorlagen für eure Hochzeit“",
-           "Einen Instagram-Beitrag für euch schreiben"],
-      you: { t: "3 Beispiel-Einladungen auswählen, die wir zeigen dürfen", min: 15 } },
-    { title: "Den Hochzeitstag zeigen",
-      we: ["Eine neue Seite: „Audio-Gästebuch ohne Telefon: So schicken eure Gäste Sprachnachrichten“",
-           "Eine neue Seite: „Hochzeitsspiele für Gäste: 25 Ideen, die alle mitmachen“",
-           "Einen Instagram-Beitrag für euch schreiben"],
-      you: { t: "2 Paare fragen, ob wir ihre schönsten Fotospiele zeigen dürfen", min: 15 } },
-    { title: "Paare überzeugen, die vergleichen",
-      we: ["Eine neue Seite: „Fotobox, Einwegkamera oder QR-Galerie? Der ehrliche Vergleich“",
-           "Eine neue Seite: „Gästebuch-Ideen: von Papier bis Sprachnachricht“",
-           "Einen Instagram-Beitrag für euch schreiben"],
-      you: { t: "3 Hochzeitsplaner oder Fotografen fragen, ob sie euch auf ihrer Website empfehlen", min: 20 } }
-  ],
-
-  extra: [],
-
-  cases: {
-    title: "Was das bei anderen gebracht hat",
-    lead: "Drei Projekte, die eurem Plan ähneln: ein Onlineshop, ein Blog, der zu Buchungen führt, und eine eigene Seite für jedes Angebot.",
-    list: [
-      { tag: "E-Commerce · Onlineshop", img: "/case-studies/img/jewelry-online-shop.jpg", big: "383.943", lab: "Besucher im Monat über Google",
-        text: "Rund 15 neue Seiten pro Monat, jede auf eine Suche zugeschnitten. Genau dieser Rhythmus steckt in eurem Plan.",
-        url: "/de/referenzen/schmuck-onlineshop/" },
-      { tag: "Kochschule · Blog", img: "/case-studies/img/cooking-school.jpg", big: "7.580", lab: "Klicks aus Google, 3,2 % Klickrate",
-        text: "Wer Rezepte sucht, bucht später einen Kurs. Bei euch: Wer Hochzeitsspiele sucht, braucht auch eine Galerie und ein Gästebuch.",
-        url: "/de/referenzen/kochschule/" },
-      { tag: "Kurse · Berlin", img: "/case-studies/img/first-aid-school.jpg", big: "~200", lab: "verkaufte Kurse im Monat über Google",
-        text: "Eine eigene Seite für jede Kursart. Bei euch: eine eigene Seite für jedes Produkt, vom Gästebuch bis zur Einladung.",
-        url: "/de/referenzen/erste-hilfe-schule/" }
-    ],
-    note: "Wir nennen keine Kunden. Die Zahlen stammen aus dem jeweiligen Projekt. Erste Ergebnisse zeigten sich meist nach 3 bis 6 Monaten."
-  },
-
-  more: {
-    funnel: {
-      title: "Euer Funnel: vom kostenlosen Save the Date bis zur Galerie",
-      lead: "So läuft euer Funnel: Paare starten mit einem kostenlosen Save the Date und kaufen, wenn die Hochzeit näher rückt. Jeder Baustein dieses Plans hat die Aufgabe, eine oder mehrere Stufen zu füllen.",
-      stages: [
-        { n: "1", t: "Save the Date", tag: "kostenlos", free: true,
-          d: "Der Einstieg. Paare probieren euch kostenlos aus und haben den ersten Kontakt mit euch, lange bevor sie etwas kaufen.",
-          seo: "„save the date“ 1.900",
-          ch: "Pinterest, Reels, Werbung auf Instagram, Creator" },
-        { n: "2", t: "Offizielle Einladung", tag: "bezahlt",
-          d: "Ein paar Wochen später verschicken Paare die Einladung. Wer euer Save the Date schon benutzt hat, kauft hier am leichtesten.",
-          seo: "„tischkarten hochzeit“ 2.900, „digitale hochzeitseinladung“ 880, „hochzeitseinladung online“ 210",
-          ch: "E-Mails an Paare mit Save the Date, Retargeting auf Instagram und Facebook" },
-        { n: "3", t: "Hochzeitstag", tag: "bezahlt",
-          d: "Galerie, Fotospiele und Gästebuch mit Sprachnachrichten. Am Tag selbst sehen alle Gäste euer Produkt, und unter ihnen sind die Paare von morgen.",
-          seo: "„gästebuch hochzeit“ 12.100, „hochzeitsspiele“ 6.600, „qr code hochzeit“ 880, „audio gästebuch hochzeit“ 880",
-          ch: "Erinnerungen vor dem Termin, Komplettpaket, Hinweis „Gemacht mit MyMillionSnaps“ in der Galerie" },
-        { n: "4", t: "Nach der Hochzeit", tag: "Empfehlung",
-          d: "Paare bewerten euch und empfehlen euch weiter. Gäste bekommen einen Gutschein für ihre eigene Hochzeit und starten wieder bei Stufe 1.",
-          ch: "Bewertungs-Mail, Empfehlungscode, Gutschein für Gäste" }
-      ],
-      note: "Hochzeiten haben Saison: Am meisten wird von Januar bis Juli gesucht. Der Winter ist deshalb die richtige Zeit, um den Funnel aufzubauen, damit er im Frühjahr läuft."
-    },
-    ads: {
-      title: "Eure Meta-Werbung kostet gerade mehr, als sie bringt",
-      lead: "Wir haben uns die laufende Kampagne angesehen. Ein Kauf kostet euch im Moment mehr, als er einbringt.",
-      stats: [
-        { v: "46,85 €", t: "kostet ein Kauf in der aktiven Kampagne (Phase 4, Advantage+)", bad: true },
-        { v: "~40 €", t: "Umsatz pro Kauf: 955,72 € aus 24 Käufen" },
-        { v: "0,85", t: "ROAS: Für jeden Euro Werbung kommen 85 Cent zurück", bad: true }
-      ],
-      sub: "Die pausierte Testkampagne (Phase 2) lag bei 129,53 € pro Kauf.",
-      fixes: [
-        "<b>Werbung auf das kostenlose Save the Date.</b> Etwas kostenlos auszuprobieren ist für Paare eine viel kleinere Entscheidung als ein Kauf. Die Einladung verkaufen danach E-Mails und Retargeting.",
-        "<b>E-Mails vom Save the Date zur Einladung.</b> Paare, die ein Save the Date verschickt haben, bekommen zum passenden Zeitpunkt Beispiele und ein Angebot für die offizielle Einladung.",
-        "<b>Getrennte Zielgruppen.</b> Paare, die gerade planen, sehen das Save the Date. Wer schon auf eurer Seite war, sieht die Einladung und das Komplettpaket.",
-        "<b>Videos mit echten Paaren und Gästen.</b> Kurze Clips aus Galerie, Fotospielen und Gästebuch zeigen in Sekunden, was euer Produkt kann.",
-        "<b>Budget nach Saison.</b> Im Winter mit kleinem Budget testen, welche Anzeigen funktionieren, und ab Januar hochfahren, wenn die Nachfrage steigt."
-      ],
-      goal: "Erstes Ziel: Ein Kauf kostet weniger als der Warenkorb, also unter 40 €. Dann trägt sich jede Bestellung, und wir arbeiten weiter an den Kosten."
-    },
-    social: {
-      title: "Instagram und Reels, die zu Bestellungen führen",
-      lead: "Solange bei euch niemand fürs Marketing da ist, übernehmen wir Instagram mit festem Rhythmus. Wir planen, schreiben und gestalten, ihr gebt nur frei.",
-      pillars: [
-        { t: "Echte Momente", d: "Fotos, Spiele und Sprachnachrichten von Hochzeiten, mit Erlaubnis der Paare. Das überzeugt mehr als jedes Produktbild." },
-        { t: "Ideen für Paare", d: "Fotospiele, Save-the-Date-Ideen, Gästebuch-Alternativen. Das sind die Themen, nach denen Paare auch bei Google suchen." },
-        { t: "So einfach geht’s", d: "Kurze Reels: QR-Code scannen, Foto hochladen, fertig. Damit verstehen Paare in 15 Sekunden, was sie kaufen." },
-        { t: "Pinterest", d: "Hochzeiten werden auf Pinterest geplant. Die Grafiken aus Instagram laufen dort als Pins weiter und führen zum Save the Date." }
-      ],
-      opt: "Optional: Reels-Automatisierung. Aus Vorlagen und Beispielhochzeiten entstehen Reels automatisch, wir prüfen jedes vor dem Posten."
-    },
-    partners: {
-      title: "Andere verkaufen für euch: Creator, Partner und Gäste",
-      lead: "Hier zahlt ihr erst, wenn verkauft wird. Selbst eine großzügige Provision liegt unter den 46,85 €, die ein Kauf über Meta gerade kostet.",
-      list: [
-        { t: "Creator-Marketing", d: "Hochzeits-Creator und Paare mit Reichweite bekommen euer Komplettpaket für ihre Hochzeit und zeigen es ihren Followern, mit eigenem Rabattcode." },
-        { t: "Affiliate-Programm", d: "Hochzeitsblogs und Creator bekommen für jeden Verkauf über ihren Link eine Provision." },
-        { t: "Partner aus der Branche", d: "Hochzeitsplaner, Fotografen, Locations und DJs empfehlen euch ihren Paaren und bekommen dafür Provision oder einen Rabatt für ihre Kunden." },
-        { t: "Gäste werden Kunden", d: "In jeder Galerie steht ein Hinweis mit Gutschein. Gäste, die selbst bald heiraten, landen direkt beim kostenlosen Save the Date." }
-      ],
-      we: "Wir setzen die Programme auf, suchen passende Creator und Partner, sprechen sie an und richten Codes und Tracking ein."
-    },
-    prices: {
-      title: "Was das kostet",
-      lead: "Jeder Baustein ist einzeln buchbar. Wir empfehlen, mit SEO zu starten und die Meta-Werbung direkt dazuzunehmen. Die Monatspakete sind monatlich kündbar.",
-      tiers: [
-        { k: "1 · SEO und KI-Suche", v: "249 €", per: "im Monat", main: true,
-          items: ["Neue Seiten entlang des Funnels: Save the Date, Einladung, Gästebuch, Spiele", "1 Instagram-Post pro Woche", "Der 4-Wochen-Plan auf dieser Seite"] },
-        { k: "3 · Instagram, Reels, Pinterest", v: "+ 390 €", per: "im Monat",
-          items: ["3 Instagram-Posts und 2 Reels pro Woche", "Pinterest", "Content-Plan passend zur Saison"] },
-        { k: "2 · Meta-Werbung und E-Mails", v: "+ 290 €", per: "im Monat, zzgl. Werbebudget",
-          items: ["Meta-Kampagnen neu aufsetzen und betreuen", "Werbung auf das Save the Date, Retargeting für die Einladung", "E-Mails vom Save the Date zur Einladung", "Monatlicher Bericht zu Kosten pro Kauf"] },
-        { k: "4 · Creator, Partner und Gäste", v: "490 €", per: "einmalig",
-          items: ["Affiliate- und Partnerprogramm einrichten", "Die ersten 20 Creator und Partner ansprechen", "Gutschein für Gäste in der Galerie"] }
-      ],
-      extra: "Reels-Automatisierung bieten wir optional an. Einzelne Aufgaben ohne festes Paket rechnen wir mit 75 € pro Stunde ab."
-    },
-    booking: "https://calendly.com/darya-getmarketing/getmarketing-discovery-slot"
-  },
-
-  checkout: {
-    url: "https://buy.stripe.com/4gMaEXgCGd6h17P5lB5J608",
-    price: "249 €", guarantee_days: 7
-  }
-};
-
-const D = DATA;
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const fmt = n => n.toLocaleString("de-DE");
-const ICON = {
-  link: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
-  copy: '<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M4 16V5a2 2 0 0 1 2-2h11"/>',
-  search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
-  check: '<path d="m5 12 5 5L20 7"/>',
-  hand: '<path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/>'
-};
-const svg = (k, cls = "") => `<svg viewBox="0 0 24 24" class="${cls}" aria-hidden="true">${ICON[k]}</svg>`;
-document.getElementById("top-for").textContent = `Für ${D.domain}`;
-document.title = `Euer Marketingplan: ${D.domain} · GetMarketing`;
-
-/* growth chart: today -> 12 months, as a band (low/high), slow start, honest */
-function chart() {
-  const W = 640, H = 230, L = 8, R = 120, T = 18, B = 34;
-  const max = D.hero.high * 1.12, x = m => L + (W - L - R) * m / 12, y = v => T + (H - T - B) * (1 - v / max);
-  const s = m => m <= 1 ? 0 : Math.pow(Math.min(1, (m - 1) / 11), 1.6);
-  const pts = []; for (let m = 0; m <= 12; m += .25) pts.push(m);
-  const hi = pts.map(m => `${x(m).toFixed(1)},${y(D.hero.today + (D.hero.high - D.hero.today) * s(m)).toFixed(1)}`);
-  const lo = pts.map(m => `${x(m).toFixed(1)},${y(D.hero.today + (D.hero.low - D.hero.today) * s(m)).toFixed(1)}`).reverse();
-  const ticks = [[0, "Heute"], [3, "3 Monate"], [6, "6 Monate"], [9, "9 Monate"], [12, "12 Monate"]];
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Geschätzte Besucher über Google: heute ${D.hero.today}, in 12 Monaten ${D.hero.low} bis ${D.hero.high} pro Monat">
-    <line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="rgba(255,255,255,.18)"/>
-    ${ticks.map(([m, t]) => `<text x="${x(m)}" y="${H - 8}" fill="rgba(255,255,255,.5)" font-size="13" text-anchor="${m === 0 ? "start" : m === 12 ? "end" : "middle"}">${t}</text>`).join("")}
-    <polygon points="${hi.join(" ")} ${lo.join(" ")}" fill="rgba(134,239,172,.22)"/>
-    <polyline points="${hi.join(" ")}" fill="none" stroke="#86EFAC" stroke-width="2.5"/>
-    <polyline points="${lo.slice().reverse().join(" ")}" fill="none" stroke="#86EFAC" stroke-width="1.5" stroke-dasharray="4 5" opacity=".7"/>
-    <circle cx="${x(0)}" cy="${y(D.hero.today)}" r="5" fill="#fff"/>
-    <circle cx="${x(12)}" cy="${y(D.hero.high)}" r="5" fill="#86EFAC"/>
-    <text x="${x(12) + 14}" y="${y(D.hero.high) + 5}" fill="#fff" font-size="20" font-weight="800">${fmt(D.hero.low)}–${fmt(D.hero.high)}</text>
-    <text x="${x(12) + 14}" y="${y(D.hero.high) + 25}" fill="rgba(255,255,255,.6)" font-size="13">Besucher pro Monat</text>
-    <text x="${x(0) + 12}" y="${y(D.hero.today) - 10}" fill="rgba(255,255,255,.75)" font-size="13">Heute: ${D.hero.today}</text>
-  </svg>`;
-}
-
-const maxDemand = Math.max(...D.demand.map(d => d.v));
-const total = D.demand.reduce((a, d) => a + d.v, 0);
-
-document.getElementById("app").innerHTML = `
-${D.brief ? `<section class="brief" aria-labelledby="h2z">
-  <h2 id="h2z">${esc(D.brief.title)}</h2>
-  <p>${esc(D.brief.intro)}</p>
-  <dl>${D.brief.items.map(i => `<div><dt>${esc(i.k)}</dt><dd>${esc(i.t)}</dd></div>`).join("")}</dl>
-  <a class="from" href="#wir"><img src="${esc(D.about.img)}" alt="" /><span><b>${esc(D.about.name)}</b>${esc(D.about.role)} · Wer wir sind ↓</span></a>
-</section>` : ""}
-${D.more ? (() => `<section class="block" aria-labelledby="h2f">
-  <h2 id="h2f">${esc(D.more.funnel.title)}</h2>
-  <p class="lead">${esc(D.more.funnel.lead)}</p>
-  <ol class="funnel">${D.more.funnel.stages.map(s => `<li class="stg${s.free ? " free" : ""}">
-    <div class="sh"><span class="sn">${esc(s.n)}</span><h3>${esc(s.t)}</h3><span class="badge ${s.free ? "hoch" : "mittel"}">${esc(s.tag)}</span></div>
-    <p>${esc(s.d)}</p>${s.seo ? `<p class="chn seo"><b>Bei Google:</b> ${esc(s.seo)} Suchen im Monat</p>` : ""}<p class="chn"><b>Weitere Kanäle:</b> ${esc(s.ch)}</p></li>`).join("")}</ol>
-  <p class="note">${esc(D.more.funnel.note)}</p>
-</section>`)() : ""}
-${D.plan ? `<section class="block" id="plan" aria-labelledby="h2y">
-  <h2 id="h2y">${esc(D.plan.title)}</h2>
-  <p class="lead">${esc(D.plan.lead)}</p>
-  <div class="blocks">${D.plan.blocks.map(b => `<a class="bb" href="#${esc(b.id)}">
-    <div class="bh"><span class="bn">${b.n}</span><h3>${esc(b.t)}</h3><span class="badge ${b.prio === 1 ? "hoch" : "mittel"}">Priorität ${b.prio}</span></div>
-    <dl><dt>Funnel</dt><dd>${esc(b.stages)}</dd><dt>Wirkung</dt><dd>${esc(b.effect)}</dd><dt>Wann</dt><dd>${esc(b.when)}</dd><dt>Kosten</dt><dd>${esc(b.cost)}</dd></dl>
-    <p>${esc(b.why)}</p><span class="more">Details ansehen ↓</span></a>`).join("")}</div>
-  <p class="src">${esc(D.plan.note)}</p>
-</section>` : ""}
-<section class="hero" id="seo" aria-labelledby="h1">
-  <p class="hi">Baustein 1 · SEO und KI-Suche · Auswertung vom ${esc(D.date)}</p>
-  <h1 id="h1">${esc(D.hero.title_before)} <span class="hl">${esc(D.hero.title_hl)}</span> ${esc(D.hero.title_after)}</h1>
-  <p class="sub">${esc(D.hero.sub)}</p>
-  <div class="chart">${chart()}</div>
-  <div class="facts">${D.hero.facts.map(f => `<div class="fact${f.lime ? " lime" : ""}"><b class="num">${esc(f.v)}</b><span>${esc(f.t)}</span></div>`).join("")}</div>
-</section>
-
-<section class="block" aria-labelledby="h2a">
-  <h2 id="h2a">${esc(D.reasons_title || "Warum das heute noch nicht passiert")}</h2>
-  <div class="reasons">${D.reasons.map(r => `
-    <div class="reason"><span class="ic">${svg(r.icon)}</span><h3>${esc(r.title)}</h3><p>${esc(r.text)}</p></div>`).join("")}</div>
-  <div class="good">${svg("check")}<span>${esc(D.good)}</span></div>
-</section>
-
-<section class="block" aria-labelledby="h2b">
-  <h2 id="h2b">Das sehen eure Kunden, wenn sie euch suchen</h2>
-  <div class="serp">
-    <div class="bar">${svg("search")}<b>${esc(D.search.query)}</b></div>
-    <div class="ai"><small>${esc(D.search.ai_label || "Antwort der Google-KI")}</small>${D.search.ai_label ? "" : "Empfohlen werden: "}${esc(D.search.ai_names)}</div>
-    <ol>${D.search.results.map((r, i) => `<li><span class="p">${r.pos ?? i + 1}</span><span><span class="d">${esc(r.domain)}</span><br><span class="t">${esc(r.title)}</span></span></li>`).join("")}</ol>
-    <div class="you${D.search.positive ? " pos" : ""}">${esc(D.search.missing)}</div>
-  </div>
-</section>
-
-${D.rivals ? (() => { const R = D.rivals, pmax = Math.max(...(R.prices || [{v:1}]).map(p => p.v)); return `
-<section class="block" aria-labelledby="h2r">
-  <h2 id="h2r">Wer sonst noch gefunden wird</h2>
-  <p class="lead">${esc(R.lead)}</p>
-  <div class="rivals">${R.list.map(c => `
-    <div class="rival">
-      <div class="who"><b>${esc(c.name)}</b><span>${esc(c.where)}</span></div>
-      <dl><dt>Angebot</dt><dd>${esc(c.what)}</dd><dt>Preis</dt><dd>${esc(c.price)}</dd><dt>Bei Google</dt><dd>${esc(c.google)}</dd></dl>
-      <p class="learn">${esc(c.learn)}</p>
-    </div>`).join("")}</div>
-  <div class="good">${svg("check")}<span>${esc(R.gap)}</span></div>
-  ${R.prices ? `<div class="prices">
-    <h3>${esc(R.price_title || "Was eine Sitzung bei anderen kostet")}</h3>
-    ${R.prices.map(p => `<div class="pr${p.me ? " me" : ""}"><span>${esc(p.name)}</span><div class="track"><i style="width:${(p.v / pmax * 100).toFixed(1)}%"></i></div><b class="num">${esc(p.label)}</b></div>`).join("")}
-    <p>${esc(R.price_note)}</p>
-  </div>` : ""}
-  ${D.analysis ? (() => { const A = D.analysis, chev = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>', lab = { hoch: "Chance hoch", mittel: "Chance mittel", niedrig: "Chance niedrig" }; return `
-  <div class="full">
-    <h3>${esc(A.title)}</h3>
-    <p>${esc(A.lead)}</p>
-    ${A.parts.map(p => `<details class="acc"><summary><b>${esc(p.t)}</b><small>${esc(p.s)}</small><i>${chev}</i></summary><div class="body">
-      ${p.intro ? `<p class="intro">${esc(p.intro)}</p>` : ""}
-      ${(p.searches || []).map(s => `<div class="sq"><div class="q"><b>„${esc(s.q)}“</b><span>${esc(s.where)}</span></div>
-        ${s.map ? `<span class="lbl">Auf der Karte</span><ul>${s.map.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
-        <span class="lbl">In den Ergebnissen</span><ul>${s.top.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-        <p class="take">${esc(s.take)}</p></div>`).join("")}
-      ${(p.people || []).map(c => `<div class="pp${c.me ? " me" : ""}"><div class="n"><b>${esc(c.name)}</b><span>${esc(c.where)}</span></div>
-        <dl><dt>Angebot</dt><dd>${esc(c.what)}</dd><dt>Preis</dt><dd>${esc(c.price)}</dd><dt>Bei Google</dt><dd>${esc(c.google)}</dd></dl></div>`).join("")}
-      ${p.points ? `<ul class="pts">${p.points.map(x => `<li>${svg("check")}<span>${x}</span></li>`).join("")}</ul>` : ""}
-      ${(p.chances || []).map(c => `<div class="ch"><div class="n"><b>${esc(c.q)}</b><span class="badge ${c.c}">${lab[c.c]}</span></div>
-        <p><b>Dort heute:</b> ${esc(c.who)}</p><p><b>Was es braucht:</b> ${esc(c.need)}</p></div>`).join("")}
-      ${p.steps ? `<ol class="pts">${p.steps.map(x => `<li><span>${x}</span></li>`).join("")}</ol>` : ""}
-    </div></details>`).join("")}
-    <p class="src">${esc(A.source)}</p>
-  </div>`; })() : ""}
-</section>`; })() : ""}
-
-<section class="block" aria-labelledby="h2c">
-  <h2 id="h2c">Wonach eure Kunden suchen</h2>
-  <p class="lead">So oft wird pro Monat in ${esc(D.market)} bei Google danach gesucht.</p>
-  <div class="demand">
-    ${D.demand.map(d => `<div class="dm${d.top ? " top" : ""}">
-      <div class="row"><span>${esc(d.name)}</span><b class="num">${fmt(d.v)} <small>Suchen</small></b></div>
-      <div class="track"><i style="width:${(d.v / maxDemand * 100).toFixed(1)}%"></i></div>
-      <p>${esc(d.note)}</p></div>`).join("")}
-    <div class="sum"><span>Zusammen</span><span class="num">${fmt(total)} Suchen pro Monat</span></div>
-  </div>
-</section>
-
-<section class="block" aria-labelledby="h2d">
-  <h2 id="h2d">Was wir in den nächsten 4 Wochen machen</h2>
-  <p class="lead">Die Reihenfolge folgt eurem Funnel: erst der Einstieg, dann die Einladung, dann der Hochzeitstag. Wir schreiben alle Seiten und Beiträge. Ihr macht pro Woche nur einen kurzen Schritt, den wir euch vorbereiten.</p>
-  ${D.cms_connected ? "" : `<p class="note">Eure Website ist noch nicht mit uns verbunden. Bis dahin stellt ihr unsere fertigen Seiten selbst online, das dauert pro Seite etwa 5 Minuten. Nutzt ihr WordPress oder Shopify, erledigen wir auch das.</p>`}
-  <div class="weeks">${D.weeks.map((w, i) => `
-    <div class="week">
-      <div class="wh"><span>Woche ${i + 1}</span><h3>${esc(w.title)}</h3></div>
-      <ul class="list">${w.we.map(t => `<li>${svg("check")}<span>${esc(t)}</span></li>`).join("")}</ul>
-      <div class="yours">${svg("hand")}<span><b>Euer Schritt:</b> ${esc(w.you.t)}<br><small>ca. ${w.you.min} Minuten, die Texte bekommt ihr von uns</small></span></div>
-    </div>`).join("")}</div>
-  ${D.extra.length ? `<div class="extra"><b>Was später zusätzlich helfen kann</b>${D.extra.map(e => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
-</section>
-
-${D.more ? (() => { const M = D.more; return `
-
-
-<section class="block" id="ads" aria-labelledby="h2g">
-  <p class="kick">Baustein 2 · Meta-Werbung und E-Mails</p>
-  <h2 id="h2g">${esc(M.ads.title)}</h2>
-  <p class="lead">${esc(M.ads.lead)}</p>
-  <div class="stats">${M.ads.stats.map(s => `<div class="st${s.bad ? " bad" : ""}"><b class="num">${esc(s.v)}</b><span>${esc(s.t)}</span></div>`).join("")}</div>
-  <p class="src">${esc(M.ads.sub)}</p>
-  <div class="panel"><h3>Was wir ändern würden</h3><ul class="pts">${M.ads.fixes.map(x => `<li>${svg("check")}<span>${x}</span></li>`).join("")}</ul></div>
-  <div class="good">${svg("check")}<span>${esc(M.ads.goal)}</span></div>
-</section>
-
-<section class="block" id="social" aria-labelledby="h2s">
-  <p class="kick">Baustein 3 · Instagram, Reels und Pinterest</p>
-  <h2 id="h2s">${esc(M.social.title)}</h2>
-  <p class="lead">${esc(M.social.lead)}</p>
-  <div class="tiles">${M.social.pillars.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
-  <p class="note">${esc(M.social.opt)}</p>
-</section>
-
-<section class="block" id="partners" aria-labelledby="h2p">
-  <p class="kick">Baustein 4 · Creator, Partner und Gäste</p>
-  <h2 id="h2p">${esc(M.partners.title)}</h2>
-  <p class="lead">${esc(M.partners.lead)}</p>
-  <div class="tiles">${M.partners.list.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
-  <div class="good">${svg("check")}<span>${esc(M.partners.we)}</span></div>
-</section>`; })() : ""}
-
-${D.about ? `<section class="block" id="wir" aria-labelledby="h2w">
-  <h2 id="h2w">${esc(D.about.title)}</h2>
-  <div class="about">
-    <div class="me"><img src="${esc(D.about.img)}" alt="${esc(D.about.name)}" /><div><b>${esc(D.about.name)}</b><span>${esc(D.about.role)}</span></div></div>
-    <p>${esc(D.about.bio)}</p>
-    <p class="what">${esc(D.about.what)}</p>
-    <div class="anums">${D.about.nums.map(n => `<div><b class="num">${esc(n.v)}</b><span>${esc(n.t)}</span></div>`).join("")}</div>
-    <div class="links"><a href="mailto:${esc(D.about.mail)}">${esc(D.about.mail)}</a><a href="${esc(D.about.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="${esc(D.about.web)}" target="_blank" rel="noopener">getmarketing.team</a></div>
-  </div>
-</section>` : ""}
-${D.cases ? `<section class="block" aria-labelledby="h2k">
-  <h2 id="h2k">${esc(D.cases.title)}</h2>
-  <p class="lead">${esc(D.cases.lead)}</p>
-  <div class="cases">${D.cases.list.map(c => `<a class="case" href="${esc(c.url)}" target="_blank" rel="noopener">
-    <img src="${esc(c.img)}" alt="" loading="lazy" />
-    <div class="cb"><span class="tag">${esc(c.tag)}</span><b class="big num">${esc(c.big)}</b><span class="lab">${esc(c.lab)}</span><p>${esc(c.text)}</p><span class="more">Zum ganzen Projekt →</span></div>
-  </a>`).join("")}</div>
-  <p class="cases-note">${esc(D.cases.note)}</p>
-</section>` : ""}
-${D.more ? `<section class="block" id="preise" aria-labelledby="h2pr">
-  <h2 id="h2pr">${esc(D.more.prices.title)}</h2>
-  <p class="lead">${esc(D.more.prices.lead)}</p>
-  <div class="tiers">${D.more.prices.tiers.map(t => `<div class="tier${t.main ? " main" : ""}">
-    <span class="k">${esc(t.k)}</span><b class="v num">${esc(t.v)}</b><span class="per">${esc(t.per)}</span>
-    <ul class="list">${t.items.map(i => `<li>${svg("check")}<span>${esc(i)}</span></li>`).join("")}</ul></div>`).join("")}</div>
-  <p class="note">${esc(D.more.prices.extra)}</p>
-</section>` : ""}
-<section class="cta" id="start" aria-labelledby="h2e">
-  <h2 id="h2e">Sollen wir mit Woche 1 anfangen?</h2>
-  <p>Startet heute, und wir schreiben die ersten Seiten noch diese Woche. Ihr seht alles, bevor es online geht.</p>
-  <div class="steps">
-    <div><b>Heute</b><span>Bezahlen und loslegen. ${esc(D.checkout.price)} im Monat, monatlich kündbar. Als Kleinunternehmer berechnen wir keine Umsatzsteuer. Euren Zugang bekommt ihr per E-Mail.</span></div>
-    <div><b>Woche 1</b><span>Wir schreiben die ersten Seiten. Ihr lest sie und gebt sie frei.</span></div>
-    <div><b>Bis Tag ${D.checkout.guarantee_days}</b><span>Gefallen sie euch nicht, kündigt ihr und bekommt euer Geld zurück.</span></div>
-  </div>
-  <div class="btns"><a href="${esc(D.checkout.url)}">Mit Baustein 1 starten</a>${D.more ? `<a class="ghost" href="${esc(D.more.booking)}" target="_blank" rel="noopener">Weitere Bausteine besprechen</a>` : ""}</div>
-  ${D.more ? `<p class="small">Die Bausteine 2 bis 4 kommen dazu, sobald ihr wollt. Das klären wir in einem kurzen Termin.</p>` : ""}
-  <p class="small">Wir liefern Woche für Woche, nicht alles auf einmal. Alles, was ihr bezahlt habt, gehört euch und bleibt online.</p>
-</section>
-
-<p class="foot">Alle Zahlen sind Schätzungen aus öffentlichen Suchdaten, Stand ${esc(D.date)}. Niemand kann Plätze bei Google garantieren, auch wir nicht.</p>
-`;
+  (function () {
+    var links = [].slice.call(document.querySelectorAll('#toc a'));
+    var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var i = secs.indexOf(e.target);
+        links.forEach(function (a, j) { a.classList.toggle('on', j === i); });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    secs.forEach(function (s) { if (s) io.observe(s); });
+  })();
 </script>
+<script defer src="/analytics.js"></script>
 </body>
 </html>
