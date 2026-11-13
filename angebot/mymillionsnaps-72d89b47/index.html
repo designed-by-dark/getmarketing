@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dein Marketingplan: mymillionsnaps.com · GetMarketing</title>
+<title>Euer Marketingplan: mymillionsnaps.com · GetMarketing</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 <link rel="icon" href="/logo.jpg" />
@@ -255,6 +255,35 @@ ol.pts li::before{counter-increment:s;content:counter(s);width:22px;height:22px;
   .stg,.tile,.tier,.panel{padding:20px}
   .st b{font-size:28px}
 }
+/* brief + about */
+.brief{background:var(--white);border-radius:24px;padding:28px 30px;display:grid;gap:16px}
+.brief h2{font-size:clamp(22px,3vw,28px);font-weight:800}
+.brief > p{color:var(--soft);font-size:16.5px}
+.brief dl{margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.brief dl div{background:var(--bg);border-radius:14px;padding:14px 16px}
+.brief dt{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green)}
+.brief dd{margin:4px 0 0;font-size:15.5px;line-height:1.5}
+.brief .from{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--soft);font-size:14.5px;border-top:1px solid var(--line);padding-top:14px}
+.brief .from img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.brief .from b{display:block;color:var(--ink);font-size:15.5px}
+.about{background:var(--white);border-radius:20px;padding:26px;display:grid;gap:14px}
+.about .me{display:flex;align-items:center;gap:16px}
+.about .me img{width:72px;height:72px;border-radius:50%;object-fit:cover}
+.about .me b{display:block;font-size:19px}
+.about .me span{color:var(--green);font-weight:600;font-size:15px}
+.about p{color:var(--soft);font-size:16px}
+.about .what{background:var(--tint);color:var(--forest);border-radius:14px;padding:14px 16px}
+.anums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.anums div{border-top:2px solid var(--ink);padding-top:10px;display:grid;gap:2px}
+.anums b{font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--forest);line-height:1.1}
+.anums span{font-size:14px;color:var(--soft)}
+.about .links{display:flex;flex-wrap:wrap;gap:8px}
+.about .links a{font-size:14.5px;font-weight:600;color:var(--forest);background:var(--bg);border-radius:999px;padding:8px 14px;text-decoration:none}
+@media (max-width:640px){
+  .brief{padding:22px 20px}
+  .brief dl,.anums{grid-template-columns:1fr}
+  .about{padding:22px 20px}
+}
 </style>
 </head>
 <body>
@@ -272,27 +301,46 @@ const DATA = {
   connected: false,
   cms_connected: false,
 
+  brief: {
+    title: "Das Wichtigste in einer Minute",
+    intro: "Diese Seite ist ein Angebot von GetMarketing für MyMillionSnaps. Sie zeigt, was wir bei Google, in eurer Meta-Werbung und auf Instagram gesehen haben, und was wir vorschlagen. Die Details stehen weiter unten.",
+    items: [
+      { k: "Google", t: "Heute kommen rund 580 Besucher im Monat über Google, bis zu 2.000 sind drin. Dafür fehlen vor allem Seiten zu Gästebuch, Einladung und Tischkarten." },
+      { k: "Meta-Werbung", t: "Ein Kauf kostet gerade 46,85 € bei rund 40 € Umsatz. Wir schlagen vor, die Werbung auf ein kostenloses Save the Date umzustellen und erst danach zu verkaufen." },
+      { k: "Laufendes Marketing", t: "Wir übernehmen Instagram, Reels und Pinterest und bauen ein Programm für Creator, Partner aus der Hochzeitsbranche und Empfehlungen auf." },
+      { k: "Kosten", t: "Ab 249 € im Monat, monatlich kündbar. Social, Werbung und das Creator-Programm lassen sich einzeln dazubuchen." }
+    ]
+  },
+  about: {
+    title: "Wer hinter diesem Angebot steht",
+    name: "Darya Kablash", role: "Gründerin von GetMarketing", img: "/darya.jpg",
+    bio: "Growth Consultant und Fractional CMO mit über acht Jahren Marketing-Erfahrung im DACH-Raum, außerdem Head of Growth bei Invictus Lead Generation. Ich arbeite von Berlin aus und bin eure Ansprechpartnerin.",
+    what: "GetMarketing ist ein Marketing-System aus KI-Agenten und Menschen. Es plant Themen, schreibt Seiten und Beiträge, betreut Kampagnen und misst, was wirkt. Veröffentlicht wird erst, wenn ihr freigebt.",
+    nums: [ { v: "55", t: "abgeschlossene Projekte in SEO, Ads, Social und KI-Automatisierung" }, { v: "8+ Jahre", t: "Marketing-Erfahrung im DACH-Raum" }, { v: "6 Mio.+", t: "organische Besucher für Kunden über alle Projekte" } ],
+    mail: "darya@getmarketing.team", linkedin: "https://www.linkedin.com/in/darya-kablash-37288a254/", web: "https://getmarketing.team"
+  },
+
   hero: {
-    title_before: "Bis zu", title_hl: "2.000 Besucher", title_after: "im Monat über Google sind für dich drin.",
-    sub: "Google findet dich schon heute gut, vor allem bei Hochzeitsspielen und QR-Codes für Fotos. Jetzt fehlen noch deine anderen Produkte: Gästebuch, Einladung und Tischkarten. Daraus können in einem Jahr 100 bis 350 zusätzliche Bestellungen werden.",
+    title_before: "Bis zu", title_hl: "2.000 Besucher", title_after: "im Monat über Google sind für euch drin.",
+    sub: "Google findet euch schon heute gut, vor allem bei Hochzeitsspielen und QR-Codes für Fotos. Jetzt fehlen noch eure anderen Produkte: Gästebuch, Einladung und Tischkarten. Daraus können in einem Jahr 100 bis 350 zusätzliche Bestellungen werden.",
     today: 580, low: 1200, high: 2000,
     facts: [
-      { v: "47.500", t: "Suchen pro Monat zu Themen, die zu deinen Produkten passen" },
+      { v: "47.500", t: "Suchen pro Monat zu Themen, die zu euren Produkten passen" },
       { v: "1.200–2.000", t: "Besucher pro Monat, die in 12 Monaten realistisch sind", lime: true },
       { v: "100–350", t: "zusätzliche Bestellungen pro Jahr, die daraus werden können" }
     ]
   },
 
-  reasons_title: "Wo noch mehr für dich drin ist",
+  reasons_title: "Wo noch mehr für euch drin ist",
   reasons: [
-    { icon: "search", title: "Dein Gästebuch kennt Google noch nicht",
-      text: "Nach „Gästebuch Hochzeit“ wird 12.100 Mal im Monat gesucht. Du hast ein Gästebuch mit Sprachnachrichten, aber bisher keine Seite, die Google dafür zeigt. Ähnlich ist es bei Einladung, Save the Date und Tischkarten." },
+    { icon: "search", title: "Euer Gästebuch kennt Google noch nicht",
+      text: "Nach „Gästebuch Hochzeit“ wird 12.100 Mal im Monat gesucht. Ihr habt ein Gästebuch mit Sprachnachrichten, aber bisher keine Seite, die Google dafür zeigt. Ähnlich ist es bei Einladung, Save the Date und Tischkarten." },
     { icon: "copy", title: "Viele Spiele-Themen stehen kurz vor Seite 1",
-      text: "Dein Artikel über Hochzeitsspiele steht bei der größten Suche auf Platz 2. Für „Hochzeitsspiel für Gäste“, „Spiele fürs Brautpaar“ oder „Foto-Challenge“ steht er auf Platz 9 bis 25. Mit eigenen Seiten zu diesen Themen geht es nach vorne." },
-    { icon: "link", title: "Deine Länderseiten machen sich gegenseitig Konkurrenz",
-      text: "Deinen Shop gibt es unter /de, /de-de, /de-at, /de-ch und weiteren Adressen. Google weiß nicht immer, welche die richtige ist. Wenn das klar geregelt ist, bleiben deine guten Plätze stabil." }
+      text: "Euer Artikel über Hochzeitsspiele steht bei der größten Suche auf Platz 2. Für „Hochzeitsspiel für Gäste“, „Spiele fürs Brautpaar“ oder „Foto-Challenge“ steht er auf Platz 9 bis 25. Mit eigenen Seiten zu diesen Themen geht es nach vorne." },
+    { icon: "link", title: "Eure Länderseiten machen sich gegenseitig Konkurrenz",
+      text: "Euren Shop gibt es unter /de, /de-de, /de-at, /de-ch und weiteren Adressen. Google weiß nicht immer, welche die richtige ist. Wenn das klar geregelt ist, bleiben eure guten Plätze stabil." }
   ],
-  good: "Das Gute: Du stehst schon für über 50 Suchbegriffe auf Seite 1, und die Google-KI nennt dich, wenn jemand fragt, wie man Hochzeitsfotos sammelt. 16.000 Paare und 4,94 Sterne sind ein starkes Fundament.",
+  good: "Das Gute: Ihr steht schon für über 50 Suchbegriffe auf Seite 1, und die Google-KI nennt euch, wenn jemand fragt, wie man Hochzeitsfotos sammelt. 16.000 Paare und 4,94 Sterne sind ein starkes Fundament.",
 
   search: {
     query: "gästebuch hochzeit",
@@ -305,153 +353,153 @@ const DATA = {
       { pos: 4, domain: "hochzeitsportal24.de", title: "30 coole Gästebuch-Alternativen zur Hochzeit" }
     ],
     positive: true,
-    missing: "Hier ist Platz für dich. Ein modernes Gästebuch, in das Gäste per QR-Code Fotos, Grüße und Sprachnachrichten schicken, zeigt bisher niemand. Genau das hast du."
+    missing: "Hier ist Platz für euch. Ein modernes Gästebuch, in das Gäste per QR-Code Fotos, Grüße und Sprachnachrichten schicken, zeigt bisher niemand. Genau das habt ihr."
   },
 
   rivals: {
-    lead: "Wir haben uns die Shops und Portale angesehen, die bei deinen Themen bei Google auftauchen. Du spielst schon vorne mit. Diese vier zeigen, wo noch mehr geht.",
+    lead: "Wir haben uns die Shops und Portale angesehen, die bei euren Themen bei Google auftauchen. Ihr spielt schon vorne mit. Diese vier zeigen, wo noch mehr geht.",
     list: [
       { name: "weddies", where: "weddies.de",
         what: "Online-Hochzeitsalbum mit QR-Code", price: "nicht geprüft",
         google: "Rund 585 Suchbegriffe, etwa 1.000 Besucher im Monat. Hat eigene Seiten wie „Cloud für Hochzeitsfotos“",
-        learn: "Eine Seite pro Frage, die Paare stellen. Bei QR-Codes stehst du schon vor weddies. Beim Gästebuch kannst du es auch." },
+        learn: "Eine Seite pro Frage, die Paare stellen. Bei QR-Codes steht ihr schon vor weddies. Beim Gästebuch könnt ihr es auch." },
       { name: "EventPics", where: "event.pics",
         what: "Fotogalerie für Hochzeiten und Events", price: "kostenlos, mehr Speicher ab 4,99 € im Monat",
-        google: "Wird von der Google-KI zusammen mit dir genannt",
-        learn: "Wirbt stark mit „kostenlos“. Dein Vorteil: einmal zahlen, kein Abo, dazu Spiele und Gästebuch." },
+        google: "Wird von der Google-KI zusammen mit euch genannt",
+        learn: "Wirbt stark mit „kostenlos“. Euer Vorteil: einmal zahlen, kein Abo, dazu Spiele und Gästebuch." },
       { name: "weddingstyle", where: "weddingstyle.de",
         what: "Großes Hochzeitsmagazin", price: "kostenlos (Ratgeber)",
-        google: "Etwa 58.000 Besucher im Monat, steht bei fast allen deinen Themen mit dir in den Ergebnissen",
-        learn: "Erklärt, wie man Fotos mit Dropbox sammelt. Ein ehrlicher Vergleich „Dropbox, WhatsApp oder QR-Galerie“ bringt diese Leser zu dir." },
+        google: "Etwa 58.000 Besucher im Monat, steht bei fast allen euren Themen mit euch in den Ergebnissen",
+        learn: "Erklärt, wie man Fotos mit Dropbox sammelt. Ein ehrlicher Vergleich „Dropbox, WhatsApp oder QR-Galerie“ bringt diese Leser zu euch." },
       { name: "Gästetelefon-Vermieter", where: "gaestetelefon.de, weddingdjmunich.de",
         what: "Audio-Gästebuch zum Mieten", price: "Geräte kosten etwa 130 bis 400 €",
         google: "Stehen ganz oben bei „Audio Gästebuch Hochzeit“ (880 Suchen im Monat, steigend)",
-        learn: "Dein Gästebuch mit Sprachnachrichten braucht kein Telefon und keinen Versand. Das ist eine eigene Seite wert." }
+        learn: "Euer Gästebuch mit Sprachnachrichten braucht kein Telefon und keinen Versand. Das ist eine eigene Seite wert." }
     ],
-    gap: "Deine Lücke: Kein Anbieter bündelt Fotos, Spiele, Gästebuch mit Sprachnachrichten und Einladung so wie du. Die anderen haben jeweils ein Teil. Wenn Google jedes deiner Produkte mit einer eigenen Seite kennt, wirst du überall gefunden, wo Paare planen."
+    gap: "Eure Lücke: Kein Anbieter bündelt Fotos, Spiele, Gästebuch mit Sprachnachrichten und Einladung so wie ihr. Die anderen haben jeweils ein Teil. Wenn Google jedes eurer Produkte mit einer eigenen Seite kennt, werdet ihr überall gefunden, wo Paare planen."
   },
 
   analysis: {
     title: "Die ganze Wettbewerbsanalyse",
-    lead: "Hier findest du alles, was wir uns angesehen haben. Klick auf ein Thema, um es aufzuklappen.",
+    lead: "Hier findet ihr alles, was wir uns angesehen haben. Klickt auf ein Thema, um es aufzuklappen.",
     source: "Grundlage: Google-Suchen in Deutschland vom 11. November 2026, öffentliche Daten zur Sichtbarkeit bei Google und die Websites der Anbieter. Besucherzahlen sind Schätzungen.",
     parts: [
-      { t: "Was Google bei 4 wichtigen Suchen zeigt", s: "Wer oben steht, wenn Paare suchen, und was das für dich heißt",
+      { t: "Was Google bei 4 wichtigen Suchen zeigt", s: "Wer oben steht, wenn Paare suchen, und was das für euch heißt",
         searches: [
           { q: "hochzeitsfotos sammeln", where: "ganz Deutschland",
             top: ["Die Google-KI nennt EventPics, Guestpix und MyMillionSnaps", "Danach: WedUploader, Reddit, weddies, EventPics, Guestpix, Lense"],
-            take: "Du bist schon in der Antwort der Google-KI. Das ist viel wert. Deine zwei Artikel zum Thema tauchen bei den Bildern auf. Mit einer klaren Vergleichsseite kommst du auch in die Ergebnisse." },
+            take: "Ihr seid schon in der Antwort der Google-KI. Das ist viel wert. Eure zwei Artikel zum Thema tauchen bei den Bildern auf. Mit einer klaren Vergleichsseite kommt ihr auch in die Ergebnisse." },
           { q: "qr code hochzeit", where: "ganz Deutschland, 880 Suchen im Monat",
-            top: ["Platz 2: deine Startseite", "Dazu Platz 2 bis 3 für viele ähnliche Suchen wie „QR-Code für Hochzeitsfotos“"],
-            take: "Hier bist du stark. Wichtig ist, dass diese Plätze bleiben, wenn die Länderseiten aufgeräumt werden." },
+            top: ["Platz 2: eure Startseite", "Dazu Platz 2 bis 3 für viele ähnliche Suchen wie „QR-Code für Hochzeitsfotos“"],
+            take: "Hier seid ihr stark. Wichtig ist, dass diese Plätze bleiben, wenn die Länderseiten aufgeräumt werden." },
           { q: "gästebuch hochzeit", where: "ganz Deutschland, 12.100 Suchen im Monat",
             top: ["myprintcard, Pinterest, CEWE, hochzeitsportal24 („30 Gästebuch-Alternativen“), Etsy, Goldbuch, brautmagazin.de"],
             take: "Die meisten suchen ein Buch aus Papier. Viele suchen aber schon Alternativen. Ein Ratgeber „Gästebuch-Ideen: von Papier bis Sprachnachricht“ kann auf Seite 1 kommen." },
           { q: "audio gästebuch hochzeit", where: "ganz Deutschland, 880 Suchen im Monat, Tendenz steigend",
             top: ["Vermieter von Gästetelefonen (weddingdjmunich, gaestetelefon), Idealo, Etsy, Amazon, tomexclusive"],
-            take: "Paare zahlen für ein Gästetelefon 130 bis 400 €. Dein Gästebuch mit Sprachnachrichten ist einfacher und günstiger. Eine eigene Seite „Audio-Gästebuch ohne Telefon“ hat hier gute Chancen." }
+            take: "Paare zahlen für ein Gästetelefon 130 bis 400 €. Euer Gästebuch mit Sprachnachrichten ist einfacher und günstiger. Eine eigene Seite „Audio-Gästebuch ohne Telefon“ hat hier gute Chancen." }
         ] },
       { t: "Alle Wettbewerber im Überblick", s: "Wer sie sind und wie gut Google sie findet",
         intro: "„Bei Google“ heißt: für wie viele Suchbegriffe die Website gefunden wird und wie viele Besucher sie darüber ungefähr im Monat bekommt.",
         people: [
-          { name: "Du, mymillionsnaps.com", where: "Darmstadt, online", what: "Galerie per QR-Code, Fotospiele, Gästebuch mit Sprachnachrichten, Live-Diashow, Einladung, Tischkarten, Logo", price: "Einmalzahlung, Komplettpaket gerade 30 €", google: "Rund 266 Suchbegriffe, etwa 580 Besucher im Monat. Platz 2 für „Hochzeitsspiele“ (6.600 Suchen) und „QR-Code Hochzeit“.", me: true },
+          { name: "Ihr, mymillionsnaps.com", where: "Darmstadt, online", what: "Galerie per QR-Code, Fotospiele, Gästebuch mit Sprachnachrichten, Live-Diashow, Einladung, Tischkarten, Logo", price: "Einmalzahlung, Komplettpaket gerade 30 €", google: "Rund 266 Suchbegriffe, etwa 580 Besucher im Monat. Platz 2 für „Hochzeitsspiele“ (6.600 Suchen) und „QR-Code Hochzeit“.", me: true },
           { name: "weddies", where: "weddies.de", what: "Online-Hochzeitsalbum mit QR-Code", price: "Nicht geprüft", google: "Rund 585 Suchbegriffe, etwa 1.000 Besucher im Monat. Viele Ratgeber-Seiten." },
           { name: "EventPics", where: "event.pics", what: "Fotogalerie für Events", price: "Kostenlos, Abos 4,99 bis 29,99 € im Monat", google: "Wird von der Google-KI genannt, gute Seite für „QR-Code Fotos Hochzeit kostenlos“." },
           { name: "Guestpix", where: "guestpix.com", what: "Foto- und Video-Galerie per QR-Code", price: "Nicht geprüft", google: "Wird von der Google-KI genannt, Ratgeber zu QR-Codes." },
           { name: "WedUploader", where: "weduploader.com", what: "Gäste laden Fotos per Link oder QR-Code hoch", price: "Nicht geprüft", google: "Platz 1 und 2 für „Hochzeitsfotos sammeln“." },
           { name: "Lense", where: "lense.app", what: "Digitale Einwegkamera für Gäste", price: "Kostenlos zum Ausprobieren", google: "Auf Seite 1 für „Hochzeitsfotos sammeln“, mit 4,9 Sternen in den Ergebnissen." },
           { name: "ehemomente, zweierteam, FridaySnap", where: "verschiedene", what: "Ähnliche Tools für Gästefotos", price: "Nicht geprüft", google: "Tauchen bei Bildern und in der Google-KI auf." },
-          { name: "weddingstyle", where: "weddingstyle.de", what: "Hochzeitsmagazin", price: "Ratgeber", google: "Etwa 58.000 Besucher im Monat. Teilt mit dir 119 Suchbegriffe." },
-          { name: "hochzeitsportal24, weddyplace, hochzeitsplaza", where: "Portale", what: "Ratgeber und Dienstleister-Verzeichnisse", price: "Ratgeber", google: "9.000 bis 71.000 Besucher im Monat. Sie stehen bei Spielen, Gästebuch und Planung oft vor oder neben dir." }
+          { name: "weddingstyle", where: "weddingstyle.de", what: "Hochzeitsmagazin", price: "Ratgeber", google: "Etwa 58.000 Besucher im Monat. Teilt mit euch 119 Suchbegriffe." },
+          { name: "hochzeitsportal24, weddyplace, hochzeitsplaza", where: "Portale", what: "Ratgeber und Dienstleister-Verzeichnisse", price: "Ratgeber", google: "9.000 bis 71.000 Besucher im Monat. Sie stehen bei Spielen, Gästebuch und Planung oft vor oder neben euch." }
         ] },
       { t: "Was die Erfolgreichen gemeinsam haben", s: "Drei Dinge, die bei allen funktionieren",
         points: [
           "<b>Eine eigene Seite für jede Frage.</b> weddies hat Seiten wie „Cloud für Hochzeitsfotos“ und „Hochzeitsfotos mit Gästen teilen“. Die Portale haben für jedes Detail der Hochzeit einen Artikel.",
-          "<b>Listen und Ideen.</b> „30 Gästebuch-Alternativen“ oder „30 Hochzeitsspiele“: Solche Artikel stehen oben. Dein Spiele-Artikel zeigt, dass das bei dir genauso klappt.",
+          "<b>Listen und Ideen.</b> „30 Gästebuch-Alternativen“ oder „30 Hochzeitsspiele“: Solche Artikel stehen oben. Euer Spiele-Artikel zeigt, dass das bei euch genauso klappt.",
           "<b>Ehrliche Vergleiche.</b> weddingstyle erklärt den kostenlosen Weg mit Dropbox. Wer ehrlich vergleicht, bekommt das Vertrauen der Leser."
         ] },
-      { t: "Was fast allen fehlt, und deine Chance ist", s: "Drei Lücken, die du füllen kannst",
+      { t: "Was fast allen fehlt, und eure Chance ist", s: "Drei Lücken, die ihr füllen könnt",
         points: [
-          "<b>Alles aus einer Hand.</b> Die Tools haben eine Galerie, die Vermieter ein Telefon, die Shops ein Buch. Du hast alles zusammen. Das sollte man auf jeder Seite sehen.",
+          "<b>Alles aus einer Hand.</b> Die Tools haben eine Galerie, die Vermieter ein Telefon, die Shops ein Buch. Ihr habt alles zusammen. Das sollte man auf jeder Seite sehen.",
           "<b>Das Gästebuch mit Sprachnachrichten.</b> Bei „Audio-Gästebuch“ stehen fast nur Telefon-Vermieter. Eine Lösung ohne Gerät zeigt bisher niemand.",
-          "<b>Einmal zahlen statt Abo.</b> Viele Anbieter arbeiten mit Monatsabos oder „kostenlos mit Grenzen“. Dein Modell ist einfacher. Ein klarer Preisvergleich macht das sichtbar."
+          "<b>Einmal zahlen statt Abo.</b> Viele Anbieter arbeiten mit Monatsabos oder „kostenlos mit Grenzen“. Euer Modell ist einfacher. Ein klarer Preisvergleich macht das sichtbar."
         ] },
-      { t: "Wo du realistisch gewinnen kannst", s: "Suchbegriffe nach Chance sortiert",
+      { t: "Wo ihr realistisch gewinnen könnt", s: "Suchbegriffe nach Chance sortiert",
         chances: [
-          { q: "Hochzeitsspiel für Gäste (1.000), Spiele fürs Brautpaar (720), Foto-Challenge (480), Fotospiel Hochzeit (320)", c: "hoch", who: "Du auf Platz 9 bis 25, dazu die Portale", need: "Eigene Seiten zu jedem Thema, verlinkt mit deinem Spiele-Artikel" },
+          { q: "Hochzeitsspiel für Gäste (1.000), Spiele fürs Brautpaar (720), Foto-Challenge (480), Fotospiel Hochzeit (320)", c: "hoch", who: "Ihr auf Platz 9 bis 25, dazu die Portale", need: "Eigene Seiten zu jedem Thema, verlinkt mit eurem Spiele-Artikel" },
           { q: "Audio-Gästebuch Hochzeit (880), Video-Gästebuch (390)", c: "hoch", who: "Telefon-Vermieter, Amazon, Etsy", need: "Eine Seite „Audio-Gästebuch ohne Telefon“ mit Hörbeispiel" },
           { q: "Digitale Hochzeitseinladung (880), Hochzeitseinladung online (210)", c: "hoch", who: "Karten-Shops und Einladungs-Tools", need: "Eine eigene Produktseite mit Beispielen und RSVP erklärt" },
-          { q: "Tischkarten Hochzeit (2.900)", c: "mittel", who: "Karten-Shops und Etsy", need: "Seite „Tischkarten mit QR-Code“ mit deinen kostenlosen Vorlagen" },
-          { q: "Gästebuch Hochzeit (12.100)", c: "mittel", who: "Papier-Shops und Portale", need: "Ratgeber „Gästebuch-Ideen“ mit deinem Gästebuch als moderne Variante" },
+          { q: "Tischkarten Hochzeit (2.900)", c: "mittel", who: "Karten-Shops und Etsy", need: "Seite „Tischkarten mit QR-Code“ mit euren kostenlosen Vorlagen" },
+          { q: "Gästebuch Hochzeit (12.100)", c: "mittel", who: "Papier-Shops und Portale", need: "Ratgeber „Gästebuch-Ideen“ mit eurem Gästebuch als moderne Variante" },
           { q: "Fotobox Hochzeit (2.400), Einwegkamera Hochzeit (590)", c: "mittel", who: "Fotobox-Vermieter, Kamera-Shops", need: "Vergleich „Fotobox, Einwegkamera oder QR-Galerie?“" },
-          { q: "Save the Date (1.900), Hochzeitszeitung (3.600), Trauzeugin Aufgaben (2.400)", c: "mittel", who: "Große Portale", need: "Ratgeber, die zu deinen Produkten führen" },
-          { q: "Gastgeschenke Hochzeit (12.100), Hochzeit Deko (2.400)", c: "niedrig", who: "Große Shops und Portale", need: "Nicht dein Schwerpunkt" }
+          { q: "Save the Date (1.900), Hochzeitszeitung (3.600), Trauzeugin Aufgaben (2.400)", c: "mittel", who: "Große Portale", need: "Ratgeber, die zu euren Produkten führen" },
+          { q: "Gastgeschenke Hochzeit (12.100), Hochzeit Deko (2.400)", c: "niedrig", who: "Große Shops und Portale", need: "Nicht euer Schwerpunkt" }
         ] },
-      { t: "Deine nächsten Schritte, nach Wirkung sortiert", s: "Was am schnellsten Bestellungen bringt",
+      { t: "Eure nächsten Schritte, nach Wirkung sortiert", s: "Was am schnellsten Bestellungen bringt",
         steps: [
-          "<b>Länderseiten klar regeln:</b> Eine Adresse für Deutschland, und Google sagen, welche Seite für Österreich und die Schweiz gilt. So bleiben deine guten Plätze stabil.",
+          "<b>Länderseiten klar regeln:</b> Eine Adresse für Deutschland, und Google sagen, welche Seite für Österreich und die Schweiz gilt. So bleiben eure guten Plätze stabil.",
           "<b>Seite „Audio-Gästebuch ohne Telefon“</b> mit Hörbeispiel, Ablauf und Preis.",
           "<b>Eigene Seite für die digitale Einladung</b> mit Beispielen und RSVP erklärt.",
-          "<b>Spiele-Seiten ausbauen:</b> Spiele für Gäste, Spiele fürs Brautpaar, Foto-Challenge. Jede verlinkt auf deine Galerie.",
-          "<b>Ratgeber „Gästebuch-Ideen“</b> von Papier bis Sprachnachricht, mit deinem Gästebuch als moderne Variante.",
+          "<b>Spiele-Seiten ausbauen:</b> Spiele für Gäste, Spiele fürs Brautpaar, Foto-Challenge. Jede verlinkt auf eure Galerie.",
+          "<b>Ratgeber „Gästebuch-Ideen“</b> von Papier bis Sprachnachricht, mit eurem Gästebuch als moderne Variante.",
           "<b>Vergleich „Fotobox, Einwegkamera oder QR-Galerie?“</b> mit ehrlichen Vor- und Nachteilen.",
-          "<b>Deine Bewertungen sichtbarer machen:</b> 4,94 Sterne von 16.000 Paaren gehören auf jede Seite und in die Google-Ergebnisse."
+          "<b>Eure Bewertungen sichtbarer machen:</b> 4,94 Sterne von 16.000 Paaren gehören auf jede Seite und in die Google-Ergebnisse."
         ] },
-      { t: "Worauf du achten solltest", s: "Damit dein Wachstum stabil bleibt",
+      { t: "Worauf ihr achten solltet", s: "Damit euer Wachstum stabil bleibt",
         points: [
           "<b>Hochzeiten haben Saison.</b> Am meisten wird von Januar bis Juli gesucht. Neue Seiten sollten bis Januar online sein, damit sie im Frühjahr gefunden werden.",
           "<b>Viele Suchen sind „kostenlos“-Suchen.</b> Ein ehrlicher Vergleich mit Dropbox und WhatsApp hilft, diese Leser zu überzeugen, statt sie zu verlieren.",
-          "<b>Die Google-KI steht oft ganz oben.</b> Sie nennt dich schon. Klare Seiten mit Fakten wie Preis, Speicherdauer und Originalqualität helfen, dass das so bleibt."
+          "<b>Die Google-KI steht oft ganz oben.</b> Sie nennt euch schon. Klare Seiten mit Fakten wie Preis, Speicherdauer und Originalqualität helfen, dass das so bleibt."
         ] }
     ]
   },
 
   demand: [
-    { name: "Gästebuch für die Hochzeit, auch mit Sprachnachrichten", v: 13460, note: "Das größte Thema, das Google noch nicht mit dir verbindet.", top: true },
-    { name: "Hochzeitsspiele und Fotospiele", v: 14440, note: "Hier bist du schon stark. Wir holen die Begriffe von Seite 2 nach vorne." },
-    { name: "Einladung, Save the Date und Tischkarten", v: 5890, note: "Produkte, die du schon hast. Sie brauchen eigene Seiten." },
-    { name: "Fotos sammeln per QR-Code", v: 3880, note: "Dein Kernthema. Hier stehst du oft auf Platz 2 bis 3." },
-    { name: "Fotobox und Einwegkamera", v: 2990, note: "Paare, die Alternativen vergleichen. Ein guter Vergleich bringt sie zu dir." },
+    { name: "Gästebuch für die Hochzeit, auch mit Sprachnachrichten", v: 13460, note: "Das größte Thema, das Google noch nicht mit euch verbindet.", top: true },
+    { name: "Hochzeitsspiele und Fotospiele", v: 14440, note: "Hier seid ihr schon stark. Wir holen die Begriffe von Seite 2 nach vorne." },
+    { name: "Einladung, Save the Date und Tischkarten", v: 5890, note: "Produkte, die ihr schon habt. Sie brauchen eigene Seiten." },
+    { name: "Fotos sammeln per QR-Code", v: 3880, note: "Euer Kernthema. Hier steht ihr oft auf Platz 2 bis 3." },
+    { name: "Fotobox und Einwegkamera", v: 2990, note: "Paare, die Alternativen vergleichen. Ein guter Vergleich bringt sie zu euch." },
     { name: "Planung: Hochzeitszeitung, Trauzeugin, Checkliste", v: 6880, note: "Leute, die mitten in der Planung sind und Ideen suchen." }
   ],
 
   weeks: [
     { title: "Stabil gefunden werden",
-      we: ["Einen klaren Plan für deine Länderseiten, damit Google weiß, welche Seite für Deutschland gilt",
+      we: ["Einen klaren Plan für eure Länderseiten, damit Google weiß, welche Seite für Deutschland gilt",
            "Eine neue Seite: „Audio-Gästebuch ohne Telefon: So schicken eure Gäste Sprachnachrichten“",
-           "Einen Instagram-Beitrag für dich schreiben"],
-      you: { t: "Den Plan für die Länderseiten an deine Shopify-Betreuung weitergeben oder uns Zugang geben", min: 15 } },
-    { title: "Deine Produkte zeigen",
+           "Einen Instagram-Beitrag für euch schreiben"],
+      you: { t: "Den Plan für die Länderseiten an eure Shopify-Betreuung weitergeben oder uns Zugang geben", min: 15 } },
+    { title: "Eure Produkte zeigen",
       we: ["Eine neue Seite: „Digitale Hochzeitseinladung mit Zu- und Absage“",
            "Eine neue Seite: „Tischkarten mit QR-Code: kostenlose Vorlagen für eure Hochzeit“",
-           "Einen Instagram-Beitrag für dich schreiben"],
+           "Einen Instagram-Beitrag für euch schreiben"],
       you: { t: "3 Beispiel-Einladungen auswählen, die wir zeigen dürfen", min: 15 } },
     { title: "Spiele nach vorne bringen",
       we: ["Eine neue Seite: „Hochzeitsspiele für Gäste: 25 Ideen, die alle mitmachen“",
            "Eine neue Seite: „Foto-Challenge zur Hochzeit: 50 Aufgaben für eure Gäste“",
-           "Einen Instagram-Beitrag für dich schreiben"],
+           "Einen Instagram-Beitrag für euch schreiben"],
       you: { t: "2 Paare fragen, ob wir ihre schönsten Fotospiele zeigen dürfen", min: 15 } },
     { title: "Paare überzeugen, die vergleichen",
       we: ["Eine neue Seite: „Fotobox, Einwegkamera oder QR-Galerie? Der ehrliche Vergleich“",
            "Eine neue Seite: „Gästebuch-Ideen: von Papier bis Sprachnachricht“",
-           "Einen Instagram-Beitrag für dich schreiben"],
-      you: { t: "3 Hochzeitsplaner oder Fotografen fragen, ob sie dich auf ihrer Website empfehlen", min: 20 } }
+           "Einen Instagram-Beitrag für euch schreiben"],
+      you: { t: "3 Hochzeitsplaner oder Fotografen fragen, ob sie euch auf ihrer Website empfehlen", min: 20 } }
   ],
 
   extra: [],
 
   cases: {
     title: "Was das bei anderen gebracht hat",
-    lead: "Drei Projekte, die deinem Plan ähneln: ein Onlineshop, ein Blog, der zu Buchungen führt, und eine eigene Seite für jedes Angebot.",
+    lead: "Drei Projekte, die eurem Plan ähneln: ein Onlineshop, ein Blog, der zu Buchungen führt, und eine eigene Seite für jedes Angebot.",
     list: [
       { tag: "E-Commerce · Onlineshop", img: "/case-studies/img/jewelry-online-shop.jpg", big: "383.943", lab: "Besucher im Monat über Google",
-        text: "Rund 15 neue Seiten pro Monat, jede auf eine Suche zugeschnitten. Genau dieser Rhythmus steckt in deinem Plan.",
+        text: "Rund 15 neue Seiten pro Monat, jede auf eine Suche zugeschnitten. Genau dieser Rhythmus steckt in eurem Plan.",
         url: "/de/referenzen/schmuck-onlineshop/" },
       { tag: "Kochschule · Blog", img: "/case-studies/img/cooking-school.jpg", big: "7.580", lab: "Klicks aus Google, 3,2 % Klickrate",
-        text: "Wer Rezepte sucht, bucht später einen Kurs. Bei dir: Wer Hochzeitsspiele sucht, braucht auch eine Galerie und ein Gästebuch.",
+        text: "Wer Rezepte sucht, bucht später einen Kurs. Bei euch: Wer Hochzeitsspiele sucht, braucht auch eine Galerie und ein Gästebuch.",
         url: "/de/referenzen/kochschule/" },
       { tag: "Kurse · Berlin", img: "/case-studies/img/first-aid-school.jpg", big: "~200", lab: "verkaufte Kurse im Monat über Google",
-        text: "Eine eigene Seite für jede Kursart. Bei dir: eine eigene Seite für jedes Produkt, vom Gästebuch bis zur Einladung.",
+        text: "Eine eigene Seite für jede Kursart. Bei euch: eine eigene Seite für jedes Produkt, vom Gästebuch bis zur Einladung.",
         url: "/de/referenzen/erste-hilfe-schule/" }
     ],
     note: "Wir nennen keine Kunden. Die Zahlen stammen aus dem jeweiligen Projekt. Erste Ergebnisse zeigten sich meist nach 3 bis 6 Monaten."
@@ -459,27 +507,27 @@ const DATA = {
 
   more: {
     funnel: {
-      title: "Dein Funnel: vom kostenlosen Save the Date bis zur Galerie",
-      lead: "Unser Vorschlag: Paare lernen dich mit etwas Kostenlosem kennen und kaufen, wenn die Hochzeit näher rückt. Jede Stufe bekommt ihre eigenen Kanäle.",
+      title: "Euer Funnel: vom kostenlosen Save the Date bis zur Galerie",
+      lead: "Unser Vorschlag: Paare lernen euch mit etwas Kostenlosem kennen und kaufen, wenn die Hochzeit näher rückt. Jede Stufe bekommt ihre eigenen Kanäle.",
       stages: [
         { n: "1", t: "Save the Date", tag: "kostenlos", free: true,
-          d: "Der Einstieg. Paare probieren dich aus, ohne etwas zu bezahlen. Du bekommst dafür ihre E-Mail-Adresse und ihr Hochzeitsdatum.",
+          d: "Der Einstieg. Paare probieren euch aus, ohne etwas zu bezahlen. Ihr bekommt dafür ihre E-Mail-Adresse und ihr Hochzeitsdatum.",
           ch: "Google (1.900 Suchen nach „Save the Date“), Pinterest, Reels, Werbung auf Instagram" },
         { n: "2", t: "Offizielle Einladung", tag: "bezahlt",
-          d: "Ein paar Wochen später verschicken Paare die Einladung. Wer dein Save the Date schon benutzt hat, kauft hier am leichtesten.",
+          d: "Ein paar Wochen später verschicken Paare die Einladung. Wer euer Save the Date schon benutzt hat, kauft hier am leichtesten.",
           ch: "E-Mails passend zum Hochzeitsdatum, Retargeting auf Instagram und Facebook" },
         { n: "3", t: "Hochzeitstag", tag: "bezahlt",
-          d: "Galerie, Fotospiele und Gästebuch mit Sprachnachrichten. Am Tag selbst sehen alle Gäste dein Produkt, und unter ihnen sind die Paare von morgen.",
+          d: "Galerie, Fotospiele und Gästebuch mit Sprachnachrichten. Am Tag selbst sehen alle Gäste euer Produkt, und unter ihnen sind die Paare von morgen.",
           ch: "Erinnerungen vor dem Termin, Komplettpaket, Hinweis „Gemacht mit MyMillionSnaps“ in der Galerie" },
         { n: "4", t: "Nach der Hochzeit", tag: "Empfehlung",
-          d: "Paare bewerten dich und empfehlen dich weiter. Gäste bekommen einen Gutschein für ihre eigene Hochzeit und starten wieder bei Stufe 1.",
+          d: "Paare bewerten euch und empfehlen euch weiter. Gäste bekommen einen Gutschein für ihre eigene Hochzeit und starten wieder bei Stufe 1.",
           ch: "Bewertungs-Mail, Empfehlungscode, Gutschein für Gäste" }
       ],
       note: "Hochzeiten haben Saison: Am meisten wird von Januar bis Juli gesucht. Der Winter ist deshalb die richtige Zeit, um den Funnel aufzubauen, damit er im Frühjahr läuft."
     },
     ads: {
-      title: "Deine Meta-Werbung kostet gerade mehr, als sie bringt",
-      lead: "Wir haben uns die laufende Kampagne angesehen. Ein Kauf kostet dich im Moment mehr, als er einbringt.",
+      title: "Eure Meta-Werbung kostet gerade mehr, als sie bringt",
+      lead: "Wir haben uns die laufende Kampagne angesehen. Ein Kauf kostet euch im Moment mehr, als er einbringt.",
       stats: [
         { v: "46,85 €", t: "kostet ein Kauf in der aktiven Kampagne (Phase 4, Advantage+)", bad: true },
         { v: "~40 €", t: "Umsatz pro Kauf: 955,72 € aus 24 Käufen" },
@@ -488,15 +536,15 @@ const DATA = {
       sub: "Die pausierte Testkampagne (Phase 2) lag bei 129,53 € pro Kauf.",
       fixes: [
         "<b>Werbung auf das kostenlose Save the Date.</b> Etwas kostenlos auszuprobieren ist für Paare eine viel kleinere Entscheidung als ein Kauf. Die Einladung verkaufen danach E-Mails und Retargeting.",
-        "<b>Getrennte Zielgruppen.</b> Paare, die gerade planen, sehen das Save the Date. Wer schon auf deiner Seite war, sieht die Einladung und das Komplettpaket.",
-        "<b>Videos mit echten Paaren und Gästen.</b> Kurze Clips aus Galerie, Fotospielen und Gästebuch zeigen in Sekunden, was dein Produkt kann.",
+        "<b>Getrennte Zielgruppen.</b> Paare, die gerade planen, sehen das Save the Date. Wer schon auf eurer Seite war, sieht die Einladung und das Komplettpaket.",
+        "<b>Videos mit echten Paaren und Gästen.</b> Kurze Clips aus Galerie, Fotospielen und Gästebuch zeigen in Sekunden, was euer Produkt kann.",
         "<b>Budget nach Saison.</b> Im Winter mit kleinem Budget testen, welche Anzeigen funktionieren, und ab Januar hochfahren, wenn die Nachfrage steigt."
       ],
       goal: "Erstes Ziel: Ein Kauf kostet weniger als der Warenkorb, also unter 40 €. Dann trägt sich jede Bestellung, und wir arbeiten weiter an den Kosten."
     },
     social: {
       title: "Instagram und Reels, die zu Bestellungen führen",
-      lead: "Solange bei dir niemand fürs Marketing da ist, übernehmen wir Instagram mit festem Rhythmus. Wir planen, schreiben und gestalten, du gibst nur frei.",
+      lead: "Solange bei euch niemand fürs Marketing da ist, übernehmen wir Instagram mit festem Rhythmus. Wir planen, schreiben und gestalten, ihr gebt nur frei.",
       pillars: [
         { t: "Echte Momente", d: "Fotos, Spiele und Sprachnachrichten von Hochzeiten, mit Erlaubnis der Paare. Das überzeugt mehr als jedes Produktbild." },
         { t: "Ideen für Paare", d: "Fotospiele, Save-the-Date-Ideen, Gästebuch-Alternativen. Das sind die Themen, nach denen Paare auch bei Google suchen." },
@@ -506,19 +554,19 @@ const DATA = {
       opt: "Optional: Reels-Automatisierung. Aus Vorlagen und Beispielhochzeiten entstehen Reels automatisch, wir prüfen jedes vor dem Posten."
     },
     partners: {
-      title: "Andere verkaufen für dich: Creator, Partner und Gäste",
-      lead: "Hier zahlst du erst, wenn verkauft wird. Selbst eine großzügige Provision liegt unter den 46,85 €, die ein Kauf über Meta gerade kostet.",
+      title: "Andere verkaufen für euch: Creator, Partner und Gäste",
+      lead: "Hier zahlt ihr erst, wenn verkauft wird. Selbst eine großzügige Provision liegt unter den 46,85 €, die ein Kauf über Meta gerade kostet.",
       list: [
-        { t: "Creator-Marketing", d: "Hochzeits-Creator und Paare mit Reichweite bekommen dein Komplettpaket für ihre Hochzeit und zeigen es ihren Followern, mit eigenem Rabattcode." },
+        { t: "Creator-Marketing", d: "Hochzeits-Creator und Paare mit Reichweite bekommen euer Komplettpaket für ihre Hochzeit und zeigen es ihren Followern, mit eigenem Rabattcode." },
         { t: "Affiliate-Programm", d: "Hochzeitsblogs und Creator bekommen für jeden Verkauf über ihren Link eine Provision." },
-        { t: "Partner aus der Branche", d: "Hochzeitsplaner, Fotografen, Locations und DJs empfehlen dich ihren Paaren und bekommen dafür Provision oder einen Rabatt für ihre Kunden." },
+        { t: "Partner aus der Branche", d: "Hochzeitsplaner, Fotografen, Locations und DJs empfehlen euch ihren Paaren und bekommen dafür Provision oder einen Rabatt für ihre Kunden." },
         { t: "Gäste werden Kunden", d: "In jeder Galerie steht ein Hinweis mit Gutschein. Gäste, die selbst bald heiraten, landen direkt beim kostenlosen Save the Date." }
       ],
       we: "Wir setzen die Programme auf, suchen passende Creator und Partner, sprechen sie an und richten Codes und Tracking ein."
     },
     prices: {
       title: "Was das kostet",
-      lead: "Du startest mit SEO und nimmst dazu, was du brauchst. Die Monatspakete sind monatlich kündbar.",
+      lead: "Ihr startet mit SEO und nehmt dazu, was ihr braucht. Die Monatspakete sind monatlich kündbar.",
       tiers: [
         { k: "Basis", v: "249 €", per: "im Monat", main: true,
           items: ["SEO und KI-Suche: neue Seiten zu Gästebuch, Einladung, Spielen", "1 Instagram-Post pro Woche", "Der Plan oben auf dieser Seite"] },
@@ -552,7 +600,7 @@ const ICON = {
 };
 const svg = (k, cls = "") => `<svg viewBox="0 0 24 24" class="${cls}" aria-hidden="true">${ICON[k]}</svg>`;
 document.getElementById("top-for").textContent = `Für ${D.domain}`;
-document.title = `Dein Marketingplan: ${D.domain} · GetMarketing`;
+document.title = `Euer Marketingplan: ${D.domain} · GetMarketing`;
 
 /* growth chart: today -> 12 months, as a band (low/high), slow start, honest */
 function chart() {
@@ -581,8 +629,14 @@ const maxDemand = Math.max(...D.demand.map(d => d.v));
 const total = D.demand.reduce((a, d) => a + d.v, 0);
 
 document.getElementById("app").innerHTML = `
+${D.brief ? `<section class="brief" aria-labelledby="h2z">
+  <h2 id="h2z">${esc(D.brief.title)}</h2>
+  <p>${esc(D.brief.intro)}</p>
+  <dl>${D.brief.items.map(i => `<div><dt>${esc(i.k)}</dt><dd>${esc(i.t)}</dd></div>`).join("")}</dl>
+  <a class="from" href="#wir"><img src="${esc(D.about.img)}" alt="" /><span><b>${esc(D.about.name)}</b>${esc(D.about.role)} · Wer wir sind ↓</span></a>
+</section>` : ""}
 <section class="hero" aria-labelledby="h1">
-  <p class="hi">Deine Auswertung vom ${esc(D.date)}</p>
+  <p class="hi">Eure Auswertung vom ${esc(D.date)}</p>
   <h1 id="h1">${esc(D.hero.title_before)} <span class="hl">${esc(D.hero.title_hl)}</span> ${esc(D.hero.title_after)}</h1>
   <p class="sub">${esc(D.hero.sub)}</p>
   <div class="chart">${chart()}</div>
@@ -597,7 +651,7 @@ document.getElementById("app").innerHTML = `
 </section>
 
 <section class="block" aria-labelledby="h2b">
-  <h2 id="h2b">Das sehen deine Kunden, wenn sie dich suchen</h2>
+  <h2 id="h2b">Das sehen eure Kunden, wenn sie euch suchen</h2>
   <div class="serp">
     <div class="bar">${svg("search")}<b>${esc(D.search.query)}</b></div>
     <div class="ai"><small>${esc(D.search.ai_label || "Antwort der Google-KI")}</small>${D.search.ai_label ? "" : "Empfohlen werden: "}${esc(D.search.ai_names)}</div>
@@ -644,7 +698,7 @@ ${D.rivals ? (() => { const R = D.rivals, pmax = Math.max(...(R.prices || [{v:1}
 </section>`; })() : ""}
 
 <section class="block" aria-labelledby="h2c">
-  <h2 id="h2c">Wonach deine Kunden suchen</h2>
+  <h2 id="h2c">Wonach eure Kunden suchen</h2>
   <p class="lead">So oft wird pro Monat in ${esc(D.market)} bei Google danach gesucht.</p>
   <div class="demand">
     ${D.demand.map(d => `<div class="dm${d.top ? " top" : ""}">
@@ -690,13 +744,13 @@ ${D.more ? (() => { const M = D.more; return `
 
 <section class="block" aria-labelledby="h2d">
   <h2 id="h2d">Was wir in den nächsten 4 Wochen machen</h2>
-  <p class="lead">Wir schreiben alle Seiten und Beiträge. Du machst pro Woche nur einen kurzen Schritt, den wir dir vorbereiten.</p>
-  ${D.cms_connected ? "" : `<p class="note">Deine Website ist noch nicht mit uns verbunden. Bis dahin stellst du unsere fertigen Seiten selbst online, das dauert pro Seite etwa 5 Minuten. Nutzt du WordPress oder Shopify, erledigen wir auch das.</p>`}
+  <p class="lead">Wir schreiben alle Seiten und Beiträge. Ihr macht pro Woche nur einen kurzen Schritt, den wir euch vorbereiten.</p>
+  ${D.cms_connected ? "" : `<p class="note">Eure Website ist noch nicht mit uns verbunden. Bis dahin stellt ihr unsere fertigen Seiten selbst online, das dauert pro Seite etwa 5 Minuten. Nutzt ihr WordPress oder Shopify, erledigen wir auch das.</p>`}
   <div class="weeks">${D.weeks.map((w, i) => `
     <div class="week">
       <div class="wh"><span>Woche ${i + 1}</span><h3>${esc(w.title)}</h3></div>
       <ul class="list">${w.we.map(t => `<li>${svg("check")}<span>${esc(t)}</span></li>`).join("")}</ul>
-      <div class="yours">${svg("hand")}<span><b>Dein Schritt:</b> ${esc(w.you.t)}<br><small>ca. ${w.you.min} Minuten, die Texte bekommst du von uns</small></span></div>
+      <div class="yours">${svg("hand")}<span><b>Euer Schritt:</b> ${esc(w.you.t)}<br><small>ca. ${w.you.min} Minuten, die Texte bekommt ihr von uns</small></span></div>
     </div>`).join("")}</div>
   ${D.extra.length ? `<div class="extra"><b>Was später zusätzlich helfen kann</b>${D.extra.map(e => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
 </section>
@@ -710,6 +764,16 @@ ${D.cases ? `<section class="block" aria-labelledby="h2k">
   </a>`).join("")}</div>
   <p class="cases-note">${esc(D.cases.note)}</p>
 </section>` : ""}
+${D.about ? `<section class="block" id="wir" aria-labelledby="h2w">
+  <h2 id="h2w">${esc(D.about.title)}</h2>
+  <div class="about">
+    <div class="me"><img src="${esc(D.about.img)}" alt="${esc(D.about.name)}" /><div><b>${esc(D.about.name)}</b><span>${esc(D.about.role)}</span></div></div>
+    <p>${esc(D.about.bio)}</p>
+    <p class="what">${esc(D.about.what)}</p>
+    <div class="anums">${D.about.nums.map(n => `<div><b class="num">${esc(n.v)}</b><span>${esc(n.t)}</span></div>`).join("")}</div>
+    <div class="links"><a href="mailto:${esc(D.about.mail)}">${esc(D.about.mail)}</a><a href="${esc(D.about.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="${esc(D.about.web)}" target="_blank" rel="noopener">getmarketing.team</a></div>
+  </div>
+</section>` : ""}
 ${D.more ? `<section class="block" id="preise" aria-labelledby="h2pr">
   <h2 id="h2pr">${esc(D.more.prices.title)}</h2>
   <p class="lead">${esc(D.more.prices.lead)}</p>
@@ -720,15 +784,15 @@ ${D.more ? `<section class="block" id="preise" aria-labelledby="h2pr">
 </section>` : ""}
 <section class="cta" id="start" aria-labelledby="h2e">
   <h2 id="h2e">Sollen wir mit Woche 1 anfangen?</h2>
-  <p>Starte heute, und wir schreiben die ersten Seiten noch diese Woche. Du siehst alles, bevor es online geht.</p>
+  <p>Startet heute, und wir schreiben die ersten Seiten noch diese Woche. Ihr seht alles, bevor es online geht.</p>
   <div class="steps">
-    <div><b>Heute</b><span>Bezahlen und loslegen. ${esc(D.checkout.price)} im Monat, monatlich kündbar. Als Kleinunternehmer berechnen wir keine Umsatzsteuer. Deinen Zugang bekommst du per E-Mail.</span></div>
-    <div><b>Woche 1</b><span>Wir schreiben die ersten Seiten. Du liest sie und gibst sie frei.</span></div>
-    <div><b>Bis Tag ${D.checkout.guarantee_days}</b><span>Gefallen sie dir nicht, kündigst du und bekommst dein Geld zurück.</span></div>
+    <div><b>Heute</b><span>Bezahlen und loslegen. ${esc(D.checkout.price)} im Monat, monatlich kündbar. Als Kleinunternehmer berechnen wir keine Umsatzsteuer. Euren Zugang bekommt ihr per E-Mail.</span></div>
+    <div><b>Woche 1</b><span>Wir schreiben die ersten Seiten. Ihr lest sie und gebt sie frei.</span></div>
+    <div><b>Bis Tag ${D.checkout.guarantee_days}</b><span>Gefallen sie euch nicht, kündigt ihr und bekommt euer Geld zurück.</span></div>
   </div>
   <div class="btns"><a href="${esc(D.checkout.url)}">Mit Basis starten</a>${D.more ? `<a class="ghost" href="${esc(D.more.booking)}" target="_blank" rel="noopener">Erweiterung besprechen</a>` : ""}</div>
-  ${D.more ? `<p class="small">Social, Werbung oder das Creator-Programm kommen dazu, sobald du willst. Das klären wir in einem kurzen Termin.</p>` : ""}
-  <p class="small">Wir liefern Woche für Woche, nicht alles auf einmal. Alles, was du bezahlt hast, gehört dir und bleibt online.</p>
+  ${D.more ? `<p class="small">Social, Werbung oder das Creator-Programm kommen dazu, sobald ihr wollt. Das klären wir in einem kurzen Termin.</p>` : ""}
+  <p class="small">Wir liefern Woche für Woche, nicht alles auf einmal. Alles, was ihr bezahlt habt, gehört euch und bleibt online.</p>
 </section>
 
 <p class="foot">Alle Zahlen sind Schätzungen aus öffentlichen Suchdaten, Stand ${esc(D.date)}. Niemand kann Plätze bei Google garantieren, auch wir nicht.</p>
