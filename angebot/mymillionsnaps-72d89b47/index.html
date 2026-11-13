@@ -284,6 +284,23 @@ ol.pts li::before{counter-increment:s;content:counter(s);width:22px;height:22px;
   .brief dl,.anums{grid-template-columns:1fr}
   .about{padding:22px 20px}
 }
+/* plan blocks */
+.blocks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.bb{background:var(--white);border-radius:20px;padding:22px 24px;display:grid;gap:10px;align-content:start;color:inherit;text-decoration:none}
+.bb .bh{display:flex;align-items:center;gap:12px}
+.bb .bn{width:30px;height:30px;border-radius:9px;background:var(--forest);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;flex-shrink:0}
+.bb h3{font-size:18px;font-weight:800;flex:1}
+.bb dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:15px}
+.bb dt{color:var(--faint)}
+.bb dd{margin:0}
+.bb p{font-size:15px;color:var(--forest);background:var(--tint);border-radius:12px;padding:10px 12px}
+.bb .more{font-size:14px;font-weight:600;color:var(--green)}
+.kick{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:-14px}
+.stg .chn.seo{background:var(--tint);color:var(--forest)}
+@media (max-width:640px){
+  .blocks{grid-template-columns:1fr}
+  .bb{padding:20px}
+}
 </style>
 </head>
 <body>
@@ -303,13 +320,28 @@ const DATA = {
 
   brief: {
     title: "Das Wichtigste in einer Minute",
-    intro: "Diese Seite ist ein Angebot von GetMarketing für MyMillionSnaps. Sie zeigt, was wir bei Google, in eurer Meta-Werbung und auf Instagram gesehen haben, und was wir vorschlagen. Die Details stehen weiter unten.",
+    intro: "Diese Seite ist ein Marketingplan von GetMarketing für MyMillionSnaps. Er besteht aus vier Bausteinen, die euren Funnel vom kostenlosen Save the Date bis zur Galerie unterstützen. Jeden Baustein haben wir bewertet, und ihr könnt sie einzeln buchen.",
     items: [
       { k: "Google", t: "Heute kommen rund 580 Besucher im Monat über Google, bis zu 2.000 sind drin. Dafür fehlen vor allem Seiten zu Gästebuch, Einladung und Tischkarten." },
-      { k: "Meta-Werbung", t: "Ein Kauf kostet gerade 46,85 € bei rund 40 € Umsatz. Wir schlagen vor, die Werbung auf ein kostenloses Save the Date umzustellen und erst danach zu verkaufen." },
+      { k: "Meta-Werbung", t: "Ein Kauf kostet gerade 46,85 € bei rund 40 € Umsatz. Wir schlagen vor, die Werbung auf euer kostenloses Save the Date auszurichten und danach über E-Mails und Retargeting zu verkaufen." },
       { k: "Laufendes Marketing", t: "Wir übernehmen Instagram, Reels und Pinterest und bauen ein Programm für Creator, Partner aus der Hochzeitsbranche und Empfehlungen auf." },
       { k: "Kosten", t: "Ab 249 € im Monat, monatlich kündbar. Social, Werbung und das Creator-Programm lassen sich einzeln dazubuchen." }
     ]
+  },
+  plan: {
+    title: "Euer Marketingplan in vier Bausteinen",
+    lead: "Jeder Baustein unterstützt eine oder mehrere Stufen eures Funnels. Wir haben jeden danach bewertet, was er bringt, wann er wirkt und was er kostet. Priorität 1 würden wir zuerst starten.",
+    blocks: [
+      { n: 1, id: "seo", t: "SEO und KI-Suche", stages: "Stufe 1 bis 3", effect: "hoch", when: "erste Ergebnisse nach 3 bis 6 Monaten", cost: "249 € im Monat", prio: 1,
+        why: "Paare suchen bei Google nach Save the Date, Einladung, Gästebuch und Spielen. Die Seiten sollten bis Januar stehen, damit sie zur Saison gefunden werden." },
+      { n: 2, id: "ads", t: "Meta-Werbung und E-Mails", stages: "Stufe 1 und 2", effect: "hoch", when: "Testphase 4 bis 8 Wochen", cost: "+ 290 € im Monat, zzgl. Werbebudget", prio: 1,
+        why: "Die Werbung läuft gerade mit Verlust. Auf das kostenlose Save the Date ausgerichtet, holt sie Paare in den Funnel, und E-Mails verkaufen danach die Einladung." },
+      { n: 3, id: "social", t: "Instagram, Reels und Pinterest", stages: "Stufe 1", effect: "mittel", when: "spürbar nach 2 bis 3 Monaten", cost: "+ 390 € im Monat", prio: 2,
+        why: "Baut Vertrauen auf und liefert die Videos, die auch in der Werbung laufen. Direkte Bestellungen kommen eher über Google und Werbung." },
+      { n: 4, id: "partners", t: "Creator, Partner und Gäste", stages: "Stufe 1 und 4", effect: "mittel bis hoch", when: "Gäste-Gutschein sofort, Creator zur Saison ab Januar", cost: "490 € einmalig, danach Provision pro Verkauf", prio: 2,
+        why: "Kostet nur, wenn verkauft wird. Der Gutschein für Gäste macht aus jeder Hochzeit neue Paare, die mit dem Save the Date starten." }
+    ],
+    note: "Unsere Einschätzung auf Basis der Daten auf dieser Seite. Mit euren Shop- und Werbedaten prüfen wir sie im ersten Monat nach."
   },
   about: {
     title: "Wer hinter diesem Angebot steht",
@@ -438,8 +470,9 @@ const DATA = {
       { t: "Eure nächsten Schritte, nach Wirkung sortiert", s: "Was am schnellsten Bestellungen bringt",
         steps: [
           "<b>Länderseiten klar regeln:</b> Eine Adresse für Deutschland, und Google sagen, welche Seite für Österreich und die Schweiz gilt. So bleiben eure guten Plätze stabil.",
+          "<b>Seite „Save the Date kostenlos erstellen“</b> als Einstieg in euren Funnel. Danach wird 1.900 Mal im Monat gesucht.",
+          "<b>Eigene Seite für die digitale Einladung</b> mit Beispielen und RSVP erklärt, die nächste Stufe im Funnel.",
           "<b>Seite „Audio-Gästebuch ohne Telefon“</b> mit Hörbeispiel, Ablauf und Preis.",
-          "<b>Eigene Seite für die digitale Einladung</b> mit Beispielen und RSVP erklärt.",
           "<b>Spiele-Seiten ausbauen:</b> Spiele für Gäste, Spiele fürs Brautpaar, Foto-Challenge. Jede verlinkt auf eure Galerie.",
           "<b>Ratgeber „Gästebuch-Ideen“</b> von Papier bis Sprachnachricht, mit eurem Gästebuch als moderne Variante.",
           "<b>Vergleich „Fotobox, Einwegkamera oder QR-Galerie?“</b> mit ehrlichen Vor- und Nachteilen.",
@@ -455,28 +488,28 @@ const DATA = {
   },
 
   demand: [
+    { name: "Save the Date, Einladung und Tischkarten", v: 5890, note: "Der Einstieg in euren Funnel und die erste Bestellung. Diese Produkte brauchen eigene Seiten." },
     { name: "Gästebuch für die Hochzeit, auch mit Sprachnachrichten", v: 13460, note: "Das größte Thema, das Google noch nicht mit euch verbindet.", top: true },
     { name: "Hochzeitsspiele und Fotospiele", v: 14440, note: "Hier seid ihr schon stark. Wir holen die Begriffe von Seite 2 nach vorne." },
-    { name: "Einladung, Save the Date und Tischkarten", v: 5890, note: "Produkte, die ihr schon habt. Sie brauchen eigene Seiten." },
     { name: "Fotos sammeln per QR-Code", v: 3880, note: "Euer Kernthema. Hier steht ihr oft auf Platz 2 bis 3." },
     { name: "Fotobox und Einwegkamera", v: 2990, note: "Paare, die Alternativen vergleichen. Ein guter Vergleich bringt sie zu euch." },
     { name: "Planung: Hochzeitszeitung, Trauzeugin, Checkliste", v: 6880, note: "Leute, die mitten in der Planung sind und Ideen suchen." }
   ],
 
   weeks: [
-    { title: "Stabil gefunden werden",
+    { title: "Den Einstieg stärken",
       we: ["Einen klaren Plan für eure Länderseiten, damit Google weiß, welche Seite für Deutschland gilt",
-           "Eine neue Seite: „Audio-Gästebuch ohne Telefon: So schicken eure Gäste Sprachnachrichten“",
+           "Eine neue Seite: „Save the Date kostenlos erstellen und digital verschicken“",
            "Einen Instagram-Beitrag für euch schreiben"],
       you: { t: "Den Plan für die Länderseiten an eure Shopify-Betreuung weitergeben oder uns Zugang geben", min: 15 } },
-    { title: "Eure Produkte zeigen",
+    { title: "Die Einladung verkaufen",
       we: ["Eine neue Seite: „Digitale Hochzeitseinladung mit Zu- und Absage“",
            "Eine neue Seite: „Tischkarten mit QR-Code: kostenlose Vorlagen für eure Hochzeit“",
            "Einen Instagram-Beitrag für euch schreiben"],
       you: { t: "3 Beispiel-Einladungen auswählen, die wir zeigen dürfen", min: 15 } },
-    { title: "Spiele nach vorne bringen",
-      we: ["Eine neue Seite: „Hochzeitsspiele für Gäste: 25 Ideen, die alle mitmachen“",
-           "Eine neue Seite: „Foto-Challenge zur Hochzeit: 50 Aufgaben für eure Gäste“",
+    { title: "Den Hochzeitstag zeigen",
+      we: ["Eine neue Seite: „Audio-Gästebuch ohne Telefon: So schicken eure Gäste Sprachnachrichten“",
+           "Eine neue Seite: „Hochzeitsspiele für Gäste: 25 Ideen, die alle mitmachen“",
            "Einen Instagram-Beitrag für euch schreiben"],
       you: { t: "2 Paare fragen, ob wir ihre schönsten Fotospiele zeigen dürfen", min: 15 } },
     { title: "Paare überzeugen, die vergleichen",
@@ -508,16 +541,19 @@ const DATA = {
   more: {
     funnel: {
       title: "Euer Funnel: vom kostenlosen Save the Date bis zur Galerie",
-      lead: "Unser Vorschlag: Paare lernen euch mit etwas Kostenlosem kennen und kaufen, wenn die Hochzeit näher rückt. Jede Stufe bekommt ihre eigenen Kanäle.",
+      lead: "So läuft euer Funnel: Paare starten mit einem kostenlosen Save the Date und kaufen, wenn die Hochzeit näher rückt. Jeder Baustein dieses Plans hat die Aufgabe, eine oder mehrere Stufen zu füllen.",
       stages: [
         { n: "1", t: "Save the Date", tag: "kostenlos", free: true,
-          d: "Der Einstieg. Paare probieren euch aus, ohne etwas zu bezahlen. Ihr bekommt dafür ihre E-Mail-Adresse und ihr Hochzeitsdatum.",
-          ch: "Google (1.900 Suchen nach „Save the Date“), Pinterest, Reels, Werbung auf Instagram" },
+          d: "Der Einstieg. Paare probieren euch kostenlos aus und haben den ersten Kontakt mit euch, lange bevor sie etwas kaufen.",
+          seo: "„save the date“ 1.900",
+          ch: "Pinterest, Reels, Werbung auf Instagram, Creator" },
         { n: "2", t: "Offizielle Einladung", tag: "bezahlt",
           d: "Ein paar Wochen später verschicken Paare die Einladung. Wer euer Save the Date schon benutzt hat, kauft hier am leichtesten.",
-          ch: "E-Mails passend zum Hochzeitsdatum, Retargeting auf Instagram und Facebook" },
+          seo: "„tischkarten hochzeit“ 2.900, „digitale hochzeitseinladung“ 880, „hochzeitseinladung online“ 210",
+          ch: "E-Mails an Paare mit Save the Date, Retargeting auf Instagram und Facebook" },
         { n: "3", t: "Hochzeitstag", tag: "bezahlt",
           d: "Galerie, Fotospiele und Gästebuch mit Sprachnachrichten. Am Tag selbst sehen alle Gäste euer Produkt, und unter ihnen sind die Paare von morgen.",
+          seo: "„gästebuch hochzeit“ 12.100, „hochzeitsspiele“ 6.600, „qr code hochzeit“ 880, „audio gästebuch hochzeit“ 880",
           ch: "Erinnerungen vor dem Termin, Komplettpaket, Hinweis „Gemacht mit MyMillionSnaps“ in der Galerie" },
         { n: "4", t: "Nach der Hochzeit", tag: "Empfehlung",
           d: "Paare bewerten euch und empfehlen euch weiter. Gäste bekommen einen Gutschein für ihre eigene Hochzeit und starten wieder bei Stufe 1.",
@@ -536,6 +572,7 @@ const DATA = {
       sub: "Die pausierte Testkampagne (Phase 2) lag bei 129,53 € pro Kauf.",
       fixes: [
         "<b>Werbung auf das kostenlose Save the Date.</b> Etwas kostenlos auszuprobieren ist für Paare eine viel kleinere Entscheidung als ein Kauf. Die Einladung verkaufen danach E-Mails und Retargeting.",
+        "<b>E-Mails vom Save the Date zur Einladung.</b> Paare, die ein Save the Date verschickt haben, bekommen zum passenden Zeitpunkt Beispiele und ein Angebot für die offizielle Einladung.",
         "<b>Getrennte Zielgruppen.</b> Paare, die gerade planen, sehen das Save the Date. Wer schon auf eurer Seite war, sieht die Einladung und das Komplettpaket.",
         "<b>Videos mit echten Paaren und Gästen.</b> Kurze Clips aus Galerie, Fotospielen und Gästebuch zeigen in Sekunden, was euer Produkt kann.",
         "<b>Budget nach Saison.</b> Im Winter mit kleinem Budget testen, welche Anzeigen funktionieren, und ab Januar hochfahren, wenn die Nachfrage steigt."
@@ -566,15 +603,15 @@ const DATA = {
     },
     prices: {
       title: "Was das kostet",
-      lead: "Ihr startet mit SEO und nehmt dazu, was ihr braucht. Die Monatspakete sind monatlich kündbar.",
+      lead: "Jeder Baustein ist einzeln buchbar. Wir empfehlen, mit SEO zu starten und die Meta-Werbung direkt dazuzunehmen. Die Monatspakete sind monatlich kündbar.",
       tiers: [
-        { k: "Basis", v: "249 €", per: "im Monat", main: true,
-          items: ["SEO und KI-Suche: neue Seiten zu Gästebuch, Einladung, Spielen", "1 Instagram-Post pro Woche", "Der Plan oben auf dieser Seite"] },
-        { k: "Social", v: "+ 390 €", per: "im Monat",
+        { k: "1 · SEO und KI-Suche", v: "249 €", per: "im Monat", main: true,
+          items: ["Neue Seiten entlang des Funnels: Save the Date, Einladung, Gästebuch, Spiele", "1 Instagram-Post pro Woche", "Der 4-Wochen-Plan auf dieser Seite"] },
+        { k: "3 · Instagram, Reels, Pinterest", v: "+ 390 €", per: "im Monat",
           items: ["3 Instagram-Posts und 2 Reels pro Woche", "Pinterest", "Content-Plan passend zur Saison"] },
-        { k: "Werbung", v: "+ 290 €", per: "im Monat, zzgl. Werbebudget",
-          items: ["Meta-Kampagnen neu aufsetzen und betreuen", "Funnel mit Save the Date und Retargeting", "Monatlicher Bericht zu Kosten pro Kauf"] },
-        { k: "Creator und Partner", v: "490 €", per: "einmalig",
+        { k: "2 · Meta-Werbung und E-Mails", v: "+ 290 €", per: "im Monat, zzgl. Werbebudget",
+          items: ["Meta-Kampagnen neu aufsetzen und betreuen", "Werbung auf das Save the Date, Retargeting für die Einladung", "E-Mails vom Save the Date zur Einladung", "Monatlicher Bericht zu Kosten pro Kauf"] },
+        { k: "4 · Creator, Partner und Gäste", v: "490 €", per: "einmalig",
           items: ["Affiliate- und Partnerprogramm einrichten", "Die ersten 20 Creator und Partner ansprechen", "Gutschein für Gäste in der Galerie"] }
       ],
       extra: "Reels-Automatisierung bieten wir optional an. Einzelne Aufgaben ohne festes Paket rechnen wir mit 75 € pro Stunde ab."
@@ -635,8 +672,25 @@ ${D.brief ? `<section class="brief" aria-labelledby="h2z">
   <dl>${D.brief.items.map(i => `<div><dt>${esc(i.k)}</dt><dd>${esc(i.t)}</dd></div>`).join("")}</dl>
   <a class="from" href="#wir"><img src="${esc(D.about.img)}" alt="" /><span><b>${esc(D.about.name)}</b>${esc(D.about.role)} · Wer wir sind ↓</span></a>
 </section>` : ""}
-<section class="hero" aria-labelledby="h1">
-  <p class="hi">Eure Auswertung vom ${esc(D.date)}</p>
+${D.more ? (() => `<section class="block" aria-labelledby="h2f">
+  <h2 id="h2f">${esc(D.more.funnel.title)}</h2>
+  <p class="lead">${esc(D.more.funnel.lead)}</p>
+  <ol class="funnel">${D.more.funnel.stages.map(s => `<li class="stg${s.free ? " free" : ""}">
+    <div class="sh"><span class="sn">${esc(s.n)}</span><h3>${esc(s.t)}</h3><span class="badge ${s.free ? "hoch" : "mittel"}">${esc(s.tag)}</span></div>
+    <p>${esc(s.d)}</p>${s.seo ? `<p class="chn seo"><b>Bei Google:</b> ${esc(s.seo)} Suchen im Monat</p>` : ""}<p class="chn"><b>Weitere Kanäle:</b> ${esc(s.ch)}</p></li>`).join("")}</ol>
+  <p class="note">${esc(D.more.funnel.note)}</p>
+</section>`)() : ""}
+${D.plan ? `<section class="block" id="plan" aria-labelledby="h2y">
+  <h2 id="h2y">${esc(D.plan.title)}</h2>
+  <p class="lead">${esc(D.plan.lead)}</p>
+  <div class="blocks">${D.plan.blocks.map(b => `<a class="bb" href="#${esc(b.id)}">
+    <div class="bh"><span class="bn">${b.n}</span><h3>${esc(b.t)}</h3><span class="badge ${b.prio === 1 ? "hoch" : "mittel"}">Priorität ${b.prio}</span></div>
+    <dl><dt>Funnel</dt><dd>${esc(b.stages)}</dd><dt>Wirkung</dt><dd>${esc(b.effect)}</dd><dt>Wann</dt><dd>${esc(b.when)}</dd><dt>Kosten</dt><dd>${esc(b.cost)}</dd></dl>
+    <p>${esc(b.why)}</p><span class="more">Details ansehen ↓</span></a>`).join("")}</div>
+  <p class="src">${esc(D.plan.note)}</p>
+</section>` : ""}
+<section class="hero" id="seo" aria-labelledby="h1">
+  <p class="hi">Baustein 1 · SEO und KI-Suche · Auswertung vom ${esc(D.date)}</p>
   <h1 id="h1">${esc(D.hero.title_before)} <span class="hl">${esc(D.hero.title_hl)}</span> ${esc(D.hero.title_after)}</h1>
   <p class="sub">${esc(D.hero.sub)}</p>
   <div class="chart">${chart()}</div>
@@ -709,42 +763,9 @@ ${D.rivals ? (() => { const R = D.rivals, pmax = Math.max(...(R.prices || [{v:1}
   </div>
 </section>
 
-${D.more ? (() => { const M = D.more; return `
-<section class="block" aria-labelledby="h2f">
-  <h2 id="h2f">${esc(M.funnel.title)}</h2>
-  <p class="lead">${esc(M.funnel.lead)}</p>
-  <ol class="funnel">${M.funnel.stages.map(s => `<li class="stg${s.free ? " free" : ""}">
-    <div class="sh"><span class="sn">${esc(s.n)}</span><h3>${esc(s.t)}</h3><span class="badge ${s.free ? "hoch" : "mittel"}">${esc(s.tag)}</span></div>
-    <p>${esc(s.d)}</p><p class="chn"><b>Kanäle:</b> ${esc(s.ch)}</p></li>`).join("")}</ol>
-  <p class="note">${esc(M.funnel.note)}</p>
-</section>
-
-<section class="block" aria-labelledby="h2g">
-  <h2 id="h2g">${esc(M.ads.title)}</h2>
-  <p class="lead">${esc(M.ads.lead)}</p>
-  <div class="stats">${M.ads.stats.map(s => `<div class="st${s.bad ? " bad" : ""}"><b class="num">${esc(s.v)}</b><span>${esc(s.t)}</span></div>`).join("")}</div>
-  <p class="src">${esc(M.ads.sub)}</p>
-  <div class="panel"><h3>Was wir ändern würden</h3><ul class="pts">${M.ads.fixes.map(x => `<li>${svg("check")}<span>${x}</span></li>`).join("")}</ul></div>
-  <div class="good">${svg("check")}<span>${esc(M.ads.goal)}</span></div>
-</section>
-
-<section class="block" aria-labelledby="h2s">
-  <h2 id="h2s">${esc(M.social.title)}</h2>
-  <p class="lead">${esc(M.social.lead)}</p>
-  <div class="tiles">${M.social.pillars.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
-  <p class="note">${esc(M.social.opt)}</p>
-</section>
-
-<section class="block" aria-labelledby="h2p">
-  <h2 id="h2p">${esc(M.partners.title)}</h2>
-  <p class="lead">${esc(M.partners.lead)}</p>
-  <div class="tiles">${M.partners.list.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
-  <div class="good">${svg("check")}<span>${esc(M.partners.we)}</span></div>
-</section>`; })() : ""}
-
 <section class="block" aria-labelledby="h2d">
   <h2 id="h2d">Was wir in den nächsten 4 Wochen machen</h2>
-  <p class="lead">Wir schreiben alle Seiten und Beiträge. Ihr macht pro Woche nur einen kurzen Schritt, den wir euch vorbereiten.</p>
+  <p class="lead">Die Reihenfolge folgt eurem Funnel: erst der Einstieg, dann die Einladung, dann der Hochzeitstag. Wir schreiben alle Seiten und Beiträge. Ihr macht pro Woche nur einen kurzen Schritt, den wir euch vorbereiten.</p>
   ${D.cms_connected ? "" : `<p class="note">Eure Website ist noch nicht mit uns verbunden. Bis dahin stellt ihr unsere fertigen Seiten selbst online, das dauert pro Seite etwa 5 Minuten. Nutzt ihr WordPress oder Shopify, erledigen wir auch das.</p>`}
   <div class="weeks">${D.weeks.map((w, i) => `
     <div class="week">
@@ -755,15 +776,35 @@ ${D.more ? (() => { const M = D.more; return `
   ${D.extra.length ? `<div class="extra"><b>Was später zusätzlich helfen kann</b>${D.extra.map(e => `<span>${esc(e)}</span>`).join("")}</div>` : ""}
 </section>
 
-${D.cases ? `<section class="block" aria-labelledby="h2k">
-  <h2 id="h2k">${esc(D.cases.title)}</h2>
-  <p class="lead">${esc(D.cases.lead)}</p>
-  <div class="cases">${D.cases.list.map(c => `<a class="case" href="${esc(c.url)}" target="_blank" rel="noopener">
-    <img src="${esc(c.img)}" alt="" loading="lazy" />
-    <div class="cb"><span class="tag">${esc(c.tag)}</span><b class="big num">${esc(c.big)}</b><span class="lab">${esc(c.lab)}</span><p>${esc(c.text)}</p><span class="more">Zum ganzen Projekt →</span></div>
-  </a>`).join("")}</div>
-  <p class="cases-note">${esc(D.cases.note)}</p>
-</section>` : ""}
+${D.more ? (() => { const M = D.more; return `
+
+
+<section class="block" id="ads" aria-labelledby="h2g">
+  <p class="kick">Baustein 2 · Meta-Werbung und E-Mails</p>
+  <h2 id="h2g">${esc(M.ads.title)}</h2>
+  <p class="lead">${esc(M.ads.lead)}</p>
+  <div class="stats">${M.ads.stats.map(s => `<div class="st${s.bad ? " bad" : ""}"><b class="num">${esc(s.v)}</b><span>${esc(s.t)}</span></div>`).join("")}</div>
+  <p class="src">${esc(M.ads.sub)}</p>
+  <div class="panel"><h3>Was wir ändern würden</h3><ul class="pts">${M.ads.fixes.map(x => `<li>${svg("check")}<span>${x}</span></li>`).join("")}</ul></div>
+  <div class="good">${svg("check")}<span>${esc(M.ads.goal)}</span></div>
+</section>
+
+<section class="block" id="social" aria-labelledby="h2s">
+  <p class="kick">Baustein 3 · Instagram, Reels und Pinterest</p>
+  <h2 id="h2s">${esc(M.social.title)}</h2>
+  <p class="lead">${esc(M.social.lead)}</p>
+  <div class="tiles">${M.social.pillars.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
+  <p class="note">${esc(M.social.opt)}</p>
+</section>
+
+<section class="block" id="partners" aria-labelledby="h2p">
+  <p class="kick">Baustein 4 · Creator, Partner und Gäste</p>
+  <h2 id="h2p">${esc(M.partners.title)}</h2>
+  <p class="lead">${esc(M.partners.lead)}</p>
+  <div class="tiles">${M.partners.list.map(x => `<div class="tile"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join("")}</div>
+  <div class="good">${svg("check")}<span>${esc(M.partners.we)}</span></div>
+</section>`; })() : ""}
+
 ${D.about ? `<section class="block" id="wir" aria-labelledby="h2w">
   <h2 id="h2w">${esc(D.about.title)}</h2>
   <div class="about">
@@ -773,6 +814,15 @@ ${D.about ? `<section class="block" id="wir" aria-labelledby="h2w">
     <div class="anums">${D.about.nums.map(n => `<div><b class="num">${esc(n.v)}</b><span>${esc(n.t)}</span></div>`).join("")}</div>
     <div class="links"><a href="mailto:${esc(D.about.mail)}">${esc(D.about.mail)}</a><a href="${esc(D.about.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="${esc(D.about.web)}" target="_blank" rel="noopener">getmarketing.team</a></div>
   </div>
+</section>` : ""}
+${D.cases ? `<section class="block" aria-labelledby="h2k">
+  <h2 id="h2k">${esc(D.cases.title)}</h2>
+  <p class="lead">${esc(D.cases.lead)}</p>
+  <div class="cases">${D.cases.list.map(c => `<a class="case" href="${esc(c.url)}" target="_blank" rel="noopener">
+    <img src="${esc(c.img)}" alt="" loading="lazy" />
+    <div class="cb"><span class="tag">${esc(c.tag)}</span><b class="big num">${esc(c.big)}</b><span class="lab">${esc(c.lab)}</span><p>${esc(c.text)}</p><span class="more">Zum ganzen Projekt →</span></div>
+  </a>`).join("")}</div>
+  <p class="cases-note">${esc(D.cases.note)}</p>
 </section>` : ""}
 ${D.more ? `<section class="block" id="preise" aria-labelledby="h2pr">
   <h2 id="h2pr">${esc(D.more.prices.title)}</h2>
@@ -790,8 +840,8 @@ ${D.more ? `<section class="block" id="preise" aria-labelledby="h2pr">
     <div><b>Woche 1</b><span>Wir schreiben die ersten Seiten. Ihr lest sie und gebt sie frei.</span></div>
     <div><b>Bis Tag ${D.checkout.guarantee_days}</b><span>Gefallen sie euch nicht, kündigt ihr und bekommt euer Geld zurück.</span></div>
   </div>
-  <div class="btns"><a href="${esc(D.checkout.url)}">Mit Basis starten</a>${D.more ? `<a class="ghost" href="${esc(D.more.booking)}" target="_blank" rel="noopener">Erweiterung besprechen</a>` : ""}</div>
-  ${D.more ? `<p class="small">Social, Werbung oder das Creator-Programm kommen dazu, sobald ihr wollt. Das klären wir in einem kurzen Termin.</p>` : ""}
+  <div class="btns"><a href="${esc(D.checkout.url)}">Mit Baustein 1 starten</a>${D.more ? `<a class="ghost" href="${esc(D.more.booking)}" target="_blank" rel="noopener">Weitere Bausteine besprechen</a>` : ""}</div>
+  ${D.more ? `<p class="small">Die Bausteine 2 bis 4 kommen dazu, sobald ihr wollt. Das klären wir in einem kurzen Termin.</p>` : ""}
   <p class="small">Wir liefern Woche für Woche, nicht alles auf einmal. Alles, was ihr bezahlt habt, gehört euch und bleibt online.</p>
 </section>
 
