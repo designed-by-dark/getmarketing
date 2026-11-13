@@ -378,6 +378,45 @@
     .gmd-feed li { grid-template-columns: 30px minmax(0, 1fr); }
     .gmd-feed small { grid-column: 2; }
   }
+  /* ---------- Calendar ---------- */
+  .cal { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 8px 28px -14px rgba(0,0,0,.12); margin-top: 18px; }
+  .cal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .cal-top b { font-size: 14px; }
+  .legend { display: flex; gap: 12px; flex-wrap: wrap; }
+  .lg { font-size: 11.5px; color: var(--gray); display: inline-flex; align-items: center; gap: 6px; }
+  .lg::before { content: ""; width: 9px; height: 9px; border-radius: 2px; }
+  .lg.blog::before { background: var(--forest); }
+  .lg.li::before { background: #2D6CB5; }
+  .lg.rep::before { background: var(--gray2); }
+  .cal-days { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: var(--soft); border-bottom: 1px solid var(--line); }
+  .cal-days span { font-size: 11.5px; font-weight: 700; color: var(--gray); padding: 6px 8px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .cell { min-height: 118px; padding: 6px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .cell:nth-child(5n) { border-right: 0; }
+  .cell:nth-last-child(-n+5) { border-bottom: 0; }
+  .cell .dt { font-size: 11px; color: var(--gray2); font-weight: 600; }
+  .cell .dt i { font-style: normal; display: none; }
+  .ev { border-left: 3px solid var(--forest); background: var(--tint); border-radius: 4px; padding: 4px 6px 5px; }
+  .ev.li { border-color: #2D6CB5; background: #EAF1FA; }
+  .ev.rep { border-color: var(--gray2); background: var(--soft); }
+  .ev .ti { font-size: 11.5px; font-weight: 700; line-height: 1.28; color: var(--ink); }
+  .ev.li .ti, .ev.rep .ti { font-weight: 600; }
+  .ev .kw { font-size: 10.5px; color: var(--gray); margin-top: 3px; display: flex; gap: 4px; justify-content: space-between; }
+  .ev .kw span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .ev .kw b { flex-shrink: 0; color: var(--forest); font-variant-numeric: tabular-nums; }
+  .agents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; border-top: 2px solid var(--ink); margin-top: 16px; }
+  .agents > div { padding: 11px 0 12px; border-bottom: 1px solid var(--line); }
+  .agents b { display: block; font-size: 15px; }
+  .agents span { display: block; font-size: 14px; color: var(--gray); line-height: 1.45; margin-top: 2px; }
+  @media (max-width: 700px) {
+    .cal-days { display: none; }
+    .cal-grid { grid-template-columns: minmax(0, 1fr); }
+    .cell { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line) !important; display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: start; gap: 4px 8px; padding: 8px 12px; }
+    .cell .dt { grid-row: span 3; }
+    .cell .dt i { display: inline; }
+    .cell .ev { grid-column: 2; }
+    .agents { grid-template-columns: minmax(0, 1fr); }
+  }
   /* ---------- Dokument ---------- */
   .step .who.ok { background: var(--tint); color: var(--forest); }
   .step h3 { font-size: 19px; }
@@ -471,10 +510,10 @@
       </div>
 
       <h3>Was daraus werden kann</h3>
-      <p>Gerechnet nur mit den sieben größten Begriffen, nach 9 bis 12 Monaten. Das Lexikon und die vielen kleineren Suchen sind nicht eingerechnet.</p>
+      <p>Gerechnet nur mit den sieben größten Begriffen, nach 6 Monaten. Das Lexikon und die vielen kleineren Suchen sind nicht eingerechnet.</p>
       <div class="tw">
         <table class="fc">
-          <thead><tr><th></th><th class="r">Heute</th><th class="r">Vorsichtig</th><th class="r hl">Realistisch</th></tr></thead>
+          <thead><tr><th></th><th class="r">Heute</th><th class="r">Nach 6 Monaten, vorsichtig</th><th class="r hl">Nach 6 Monaten, realistisch</th></tr></thead>
           <tbody>
             <tr><td>Besucher über Google pro Monat</td><td class="r">~0</td><td class="r">rund 470</td><td class="r hl">rund 940</td></tr>
             <tr><td>Demo-Anfragen pro Monat</td><td class="r">0</td><td class="r">2</td><td class="r hl">5</td></tr>
@@ -491,14 +530,37 @@
       <div class="facts">
         <div><b>12</b>Fachartikel für Google und KI-Suche, nach Freigabe direkt im CMS</div>
         <div><b>~20</b>LinkedIn-Entwürfe für das Gründerteam und die Firmenseite</div>
-        <div><b>1</b>Monatsbericht: was live ging, was rankt, welche Anfragen kamen</div>
+        <div><b>4 + 1</b>Wochenberichte und ein Monatsbericht mit allen Zahlen</div>
       </div>
-      <p>Dazu laufen im Hintergrund die Keyword- und Wettbewerbsrecherche, technische SEO-Korrekturen über euer CMS und eine Warnung, sobald die Sichtbarkeit fällt.</p>
+      <p>So könnte der erste volle Monat für Docestra aussehen. Jeder Artikel hängt an einem Suchbegriff aus Abschnitt 02, jeder LinkedIn-Post greift ein Thema der Woche auf.</p>
+      <div class="cal" aria-label="Beispiel-Redaktionsplan Januar 2027 für Docestra">
+        <div class="cal-top"><b>Redaktionsplan Docestra, Januar 2027</b><div class="legend"><span class="lg blog">Fachartikel</span><span class="lg li">LinkedIn</span><span class="lg rep">Bericht</span></div></div>
+        <div class="cal-days"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span></div>
+        <div class="cal-grid"><div class="cell"><span class="dt"><i>Mo</i> 4.1.</span><div class="ev"><div class="ti">Wissensmanagement im Unternehmen: ein Leitfaden</div><div class="kw"><span>wissensmanagement</span><b>2.400</b></div></div><div class="ev li"><div class="ti">Was passiert mit dem Wissen, wenn jemand kündigt?</div></div></div><div class="cell"><span class="dt"><i>Di</i> 5.1.</span><div class="ev li"><div class="ti">Drei Fragen für jedes Übergabegespräch</div></div></div><div class="cell"><span class="dt"><i>Mi</i> 6.1.</span><div class="ev"><div class="ti">Onboarding-Prozess: Schritt für Schritt</div><div class="kw"><span>onboarding prozess</span><b>1.900</b></div></div><div class="ev li"><div class="ti">Warum Onboarding bei der Dokumentation beginnt</div></div></div><div class="cell"><span class="dt"><i>Do</i> 7.1.</span><div class="ev"><div class="ti">Implizites Wissen sichtbar machen</div><div class="kw"><span>implizites wissen</span><b>590</b></div></div><div class="ev li"><div class="ti">Was in keinem Handbuch steht</div></div></div><div class="cell"><span class="dt"><i>Fr</i> 8.1.</span><div class="ev li"><div class="ti">Wochenrückblick aus dem Gründerteam</div></div><div class="ev rep"><div class="ti">Wochenbericht</div></div></div><div class="cell"><span class="dt"><i>Mo</i> 11.1.</span><div class="ev"><div class="ti">Wissensdatenbank aufbauen: so geht’s</div><div class="kw"><span>wissensdatenbank</span><b>1.600</b></div></div><div class="ev li"><div class="ti">Wiki, Datenbank oder Chat: was Teams wirklich nutzen</div></div></div><div class="cell"><span class="dt"><i>Di</i> 12.1.</span><div class="ev li"><div class="ti">Wie wir bei Docestra selbst Wissen teilen</div></div></div><div class="cell"><span class="dt"><i>Mi</i> 13.1.</span><div class="ev"><div class="ti">Wissensmanagement-Software im Vergleich</div><div class="kw"><span>wissensmanagement software</span><b>720</b></div></div><div class="ev li"><div class="ti">Woran man ein gutes Tool erkennt</div></div></div><div class="cell"><span class="dt"><i>Do</i> 14.1.</span><div class="ev"><div class="ti">Einarbeitung neuer Mitarbeiter: Plan und Vorlage</div><div class="kw"><span>einarbeitung neuer mitarbeiter</span><b>720</b></div></div><div class="ev li"><div class="ti">Die erste Woche neuer Mitarbeitender</div></div></div><div class="cell"><span class="dt"><i>Fr</i> 15.1.</span><div class="ev li"><div class="ti">Ein Kunde erzählt</div></div><div class="ev rep"><div class="ti">Wochenbericht</div></div></div><div class="cell"><span class="dt"><i>Mo</i> 18.1.</span><div class="ev"><div class="ti">Wissenstransfer: Methoden im Vergleich</div><div class="kw"><span>wissenstransfer</span><b>880</b></div></div><div class="ev li"><div class="ti">Wissenstransfer ist keine IT-Frage</div></div></div><div class="cell"><span class="dt"><i>Di</i> 19.1.</span><div class="ev li"><div class="ti">Was KI im Wissensmanagement heute kann</div></div></div><div class="cell"><span class="dt"><i>Mi</i> 20.1.</span><div class="ev"><div class="ti">KI im Wissensmanagement: was heute funktioniert</div><div class="kw"><span>ki wissensmanagement</span><b>70</b></div></div><div class="ev li"><div class="ti">Wenn die Rente naht: so plant ihr die Übergabe</div></div></div><div class="cell"><span class="dt"><i>Do</i> 21.1.</span><div class="ev"><div class="ti">Wissenstransfer im Unternehmen organisieren</div><div class="kw"><span>wissenstransfer im unternehmen</span><b>30</b></div></div><div class="ev li"><div class="ti">Kurz erklärt: implizites Wissen</div></div></div><div class="cell"><span class="dt"><i>Fr</i> 22.1.</span><div class="ev li"><div class="ti">Zahlen aus unseren Projekten</div></div><div class="ev rep"><div class="ti">Wochenbericht</div></div></div><div class="cell"><span class="dt"><i>Mo</i> 25.1.</span><div class="ev"><div class="ti">Wissensverlust vermeiden, wenn Mitarbeitende gehen</div><div class="kw"><span>wissensverlust</span><b>20</b></div></div><div class="ev li"><div class="ti">Ein Jahr Wissensverlust in Zahlen</div></div></div><div class="cell"><span class="dt"><i>Di</i> 26.1.</span><div class="ev li"><div class="ti">Kopfmonopol: ein Risiko für jedes Team</div></div></div><div class="cell"><span class="dt"><i>Mi</i> 27.1.</span><div class="ev"><div class="ti">Lexikon: Kopfmonopol</div><div class="kw"><span>Lexikon-Seite</span></div></div><div class="ev li"><div class="ti">Lessons Learned, die wirklich ankommen</div></div></div><div class="cell"><span class="dt"><i>Do</i> 28.1.</span><div class="ev"><div class="ti">Lexikon: Lessons Learned</div><div class="kw"><span>Lexikon-Seite</span></div></div><div class="ev li"><div class="ti">Fragen aus Kundengesprächen</div></div></div><div class="cell"><span class="dt"><i>Fr</i> 29.1.</span><div class="ev li"><div class="ti">Monatsrückblick und Ausblick</div></div><div class="ev rep"><div class="ti">Monatsbericht</div></div></div></div>
+      </div>
+      <p class="cap">Beispiel für den ersten vollen Monat. Suchvolumen pro Monat aus Semrush, Deutschland. Die LinkedIn-Themen stimmt eure Marketing-Person ab.</p>
+
+      <h3>Wie das System arbeitet</h3>
+      <p>Hinter dem Kalender arbeiten mehrere KI-Agenten zusammen, jeder mit einer festen Aufgabe. Eure Marketing-Person sieht jeden Schritt im Dashboard und gibt am Ende frei.</p>
+      <div class="agents">
+        <div><b>Strategie-Agent</b><span>kennt eure Ziele, Zielgruppen und Zahlen und plant die Themen der Woche</span></div>
+        <div><b>SEO-Agent</b><span>prüft Suchvolumen, Difficulty und die zehn bestplatzierten Wettbewerber zu jedem Thema</span></div>
+        <div><b>Content-Agent</b><span>schreibt Artikel und LinkedIn-Entwürfe in eurer Tonalität, mit Quellen und internen Links</span></div>
+        <div><b>Qualitätsprüfung</b><span>prüft Fakten, Marke und SEO, bevor ein Entwurf zur Freigabe geht</span></div>
+        <div><b>Veröffentlichung</b><span>stellt freigegebene Artikel direkt in euer CMS, mit Title, Meta-Description und Strukturdaten</span></div>
+        <div><b>Analytics-Agent</b><span>liest Search Console und Analytics und meldet, was wirkt und was nicht</span></div>
+      </div>
+
+      <h3>Jeden Monat besser: was wirkt, bekommt mehr Platz</h3>
+      <p>Der Plan steht nie fest. Jede Woche wertet das System aus, wie die veröffentlichten Inhalte laufen, und passt den nächsten Monat daran an:</p>
       <ul class="list">
-        <li><b>Jeder Entwurf kommt vorbereitet:</b> mit Suchbegriff, Gliederung, Quellen und Vorschlägen für interne Links.</li>
-        <li><b>Eure Marketing-Person behält die Kontrolle.</b> Nichts geht ohne ihre Freigabe online, und aus ihren Korrekturen lernt das System eure Sprache.</li>
-        <li><b>Ihre Zeit geht dorthin, wo sie am meisten bringt:</b> Gespräche mit Kunden, Partnerschaften, Events und Vertrieb.</li>
+        <li><b>Artikel, die auf Seite 2 stehen,</b> bekommen eine Überarbeitung und mehr interne Links, bis sie auf Seite 1 sind.</li>
+        <li><b>Themen, die Besucher und Demo-Anfragen bringen,</b> bekommen weitere Artikel zu den Fragen dahinter.</li>
+        <li><b>Themen ohne Wirkung</b> fliegen nach zwei bis drei Monaten aus dem Plan, damit keine Zeit in Inhalte geht, die niemand liest.</li>
+        <li><b>LinkedIn-Posts mit viel Resonanz</b> werden zu eigenen Artikeln ausgebaut.</li>
+        <li><b>Jeder Monatsbericht</b> zeigt, was sich geändert hat und warum. Eure Marketing-Person entscheidet, ob der neue Plan so läuft.</li>
       </ul>
+      <p style="margin-top:12px">Dazu laufen im Hintergrund technische SEO-Korrekturen über euer CMS und eine Warnung, sobald die Sichtbarkeit fällt.</p>
     </section>
 
     <!-- 04 -->
