@@ -658,8 +658,3 @@ footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(
 @media (max-width: 860px) {
   .vid-grid { grid-template-columns: 1fr; gap: 20px; }
 }
-/* featured review: fixed and centered above the scrolling strip */
-.rv-card.rv-feature { width: auto; max-width: 720px; margin: 0 auto 28px; padding: 34px 38px 28px; text-align: center; align-items: center; box-shadow: 0 0 0 2px var(--forest), var(--card-shadow); }
-.rv-card.rv-feature blockquote { font-size: clamp(18px, 1.8vw, 21px); line-height: 1.5; color: #111; }
-.rv-card.rv-feature figcaption { align-items: center; padding-top: 14px; }
-@media (max-width: 600px) { .rv-card.rv-feature { padding: 26px 22px 22px; } .rv-card.rv-feature blockquote { font-size: 17px; } }
