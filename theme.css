@@ -653,12 +653,16 @@ footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(
 .mv-note a { color: inherit; }
 .mission-collage .mission-photo figcaption { left: auto; right: -14px; bottom: auto; top: 58%; transform: rotate(3deg); }
 @media (min-width: 1000px) {
-  .mission-section.has-photo, .lead-section ~ .mission-section.has-photo { padding: 170px 0 190px; }
+  .mission-section.has-photo, .lead-section ~ .mission-section.has-photo { padding: 110px 0 130px; }
   .mission-collage { position: absolute; top: -56px; bottom: -56px; right: 3%; width: 38%; z-index: 2; }
   .mission-collage .mission-photo { position: absolute; inset: 0; width: auto; }
   .mv-vid { position: absolute; width: 80%; }
-  .mv-a { top: -110px; right: -8%; }
-  .mv-b { bottom: -120px; left: -14%; }
+  .mv-a { top: 70px; right: -5%; }
+  .mv-b { bottom: 40px; right: -3%; }
+}
+@media (min-width: 1240px) {
+  .mv-a { right: -26%; }
+  .mv-b { right: -21%; }
 }
 @media (max-width: 999px) {
   .mission-collage { position: relative; margin: -96px auto 0; width: min(380px, 88%); }
