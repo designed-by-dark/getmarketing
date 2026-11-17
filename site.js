@@ -1,6 +1,24 @@
 /* Shared on every page: scroll reveal and the lead form.
    Lead form: set LEAD_ENDPOINT to a webhook URL (e.g. n8n) to submit in the background;
    while it is empty, the form opens a prefilled email to darya@getmarketing.team instead. */
+/* Click-to-load YouTube player: <div class="player" data-yt="ID" data-title="..."><button class="player-btn">…</button></div>.
+   Nothing is requested from YouTube until the visitor clicks play. */
+(function () {
+  document.querySelectorAll('.player[data-yt]').forEach(function (p) {
+    var b = p.querySelector('.player-btn'); if (!b) return;
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(p.getAttribute('data-yt')) + '?autoplay=1&rel=0';
+      f.title = p.getAttribute('data-title') || 'YouTube video';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      p.replaceChild(f, b);
+      try { if (window.gtag) window.gtag('event', 'video_play', { video_id: p.getAttribute('data-yt'), page: location.pathname }); } catch (e) {}
+    });
+  });
+})();
+
 (function () {
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {

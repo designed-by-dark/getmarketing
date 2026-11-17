@@ -633,3 +633,38 @@ footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(
 .cs-more { display: inline-block; margin-top: 14px; font-size: 15px; font-weight: 600; color: var(--forest); text-decoration: none; }
 .cs-more:hover, .cs-all:hover { text-decoration: underline; text-underline-offset: 3px; }
 .cs-all { font-weight: 600; color: var(--forest); text-decoration: none; white-space: nowrap; }
+
+/* videos: founder preview + podcast, YouTube loads only after a click */
+.vid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.vid-card { margin: 0; display: flex; flex-direction: column; background: #fff; border-radius: var(--r-card); box-shadow: var(--card-shadow); overflow: hidden; }
+.vid-card .player { position: relative; aspect-ratio: 16 / 9; width: 100%; background: var(--deep); }
+.vid-card .player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vid-card .player-btn { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: var(--deep); font-family: var(--font); color: #fff; text-align: left; overflow: hidden; }
+.vid-card .player-btn > img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease, opacity .3s ease; }
+.vid-card .player-btn:hover > img { transform: scale(1.02); opacity: .92; }
+.vid-card .player-btn:focus-visible { outline: 3px solid var(--lime); outline-offset: -3px; }
+.vid-card .player-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 68px; height: 68px; border-radius: 50%; background: var(--lime); display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform .18s ease; }
+.vid-card .player-btn:hover .player-play, .vid-card .player-btn:focus-visible .player-play { transform: translate(-50%, -50%) scale(1.08); }
+.vid-card .player-play svg { width: 24px; height: 24px; margin-left: 4px; fill: var(--lime-ink); }
+.vid-card .player-meta { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 18px; font-size: 12px; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,.85); background: linear-gradient(to top, rgba(0,0,0,.7), transparent); }
+/* designed poster for the founder video (no thumbnail request to Google before the click) */
+.vid-poster { position: absolute; inset: 0; display: flex; align-items: center; gap: 22px; padding: 28px 30px 44px; background: radial-gradient(120% 90% at 85% 10%, rgba(198,242,90,.18), transparent 60%), var(--forest); }
+.vid-poster img { width: min(34%, 190px); height: auto; aspect-ratio: 1; object-fit: cover; object-position: top center; border-radius: 50%; border: 3px solid var(--lime); flex-shrink: 0; }
+.vid-poster b { display: block; font-size: clamp(20px, 2.1vw, 28px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; }
+.vid-poster small { display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 6px; background: var(--lime); color: var(--lime-ink); font-size: 12px; font-weight: 700; }
+.vid-card .player-btn.has-poster .player-play { left: auto; right: 22px; top: auto; bottom: 18px; transform: none; width: 52px; height: 52px; }
+.vid-card .player-btn.has-poster:hover .player-play, .vid-card .player-btn.has-poster:focus-visible .player-play { transform: scale(1.08); }
+.vid-card .player-btn.has-poster .player-play svg { width: 20px; height: 20px; }
+.vid-body { padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.vid-tag { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--forest); }
+.vid-body h3 { font-size: clamp(20px, 1.9vw, 24px); line-height: 1.2; color: #111; }
+.vid-body p { font-size: 15px; line-height: 1.6; color: var(--body, #4B514D); flex: 1; }
+.vid-yt { align-self: flex-start; margin-top: 6px; font-size: 15px; font-weight: 600; color: var(--forest); text-decoration: none; }
+.vid-yt:hover { text-decoration: underline; text-underline-offset: 3px; }
+.vid-note { margin-top: 18px; font-size: 12.5px; line-height: 1.5; color: #7A807C; }
+.vid-note a { color: inherit; }
+@media (max-width: 860px) {
+  .vid-grid { grid-template-columns: 1fr; gap: 20px; }
+  .vid-poster { padding: 20px 20px 40px; gap: 16px; }
+  .vid-poster img { width: 30%; }
+}
