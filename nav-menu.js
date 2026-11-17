@@ -9,6 +9,29 @@
   var de = (document.documentElement.lang || '').indexOf('de') === 0;
   var label = { open: de ? 'Menü öffnen' : 'Open menu', close: de ? 'Menü schließen' : 'Close menu' };
 
+  /* Mega menu for the use-case pages (markup is static in every page, see _tools/nav_usecases.py) */
+  var mcss = document.createElement('style');
+  mcss.textContent =
+    '.nav-dd{position:relative}' +
+    '.nav-dd-t::after{content:"";display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-3px) rotate(45deg);opacity:.7}' +
+    '.nav-mega{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:16px;display:none;z-index:70}' +
+    '.nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega{display:block}' +
+    '.nav-mega-in{width:580px;display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#fff;border-radius:16px;padding:10px;box-shadow:0 24px 48px -20px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.04)}' +
+    'nav .nav-links .nav-mega a{display:block;padding:12px 14px;border-radius:11px;color:#111312;text-decoration:none;white-space:normal}' +
+    'nav .nav-links .nav-mega a:hover,nav .nav-links .nav-mega a:focus-visible{background:#EEF6F0;color:#111312}' +
+    'nav .nav-links .nav-mega b{display:block;font-size:15px;font-weight:650;letter-spacing:-.01em;color:#111312}' +
+    'nav .nav-links .nav-mega span{display:block;margin-top:3px;font-size:13px;line-height:1.4;font-weight:400;color:#5F635F}' +
+    'nav .nav-links .nav-mega a.nav-mega-all{grid-column:1/-1;font-size:13.5px;font-weight:600;color:#1B4332;padding:10px 14px;border-top:1px solid #EEEEEA;border-radius:0 0 11px 11px}' +
+    '@media (max-width:900px){' +
+      '.nav-mega{position:static;transform:none;padding:0;display:block}' +
+      '.nav-mega-in{width:auto;grid-template-columns:1fr;box-shadow:none;padding:0 0 10px 12px;background:none;gap:0}' +
+      'nav.menu-open .nav-links .nav-mega a{padding:8px 0;font-size:15px}' +
+      'nav .nav-links .nav-mega span{display:none}' +
+      'nav .nav-links .nav-mega a.nav-mega-all{border-top:0;padding:8px 0}' +
+      '.nav-dd-t::after{display:none}' +
+    '}';
+  document.head.appendChild(mcss);
+
   var css = document.createElement('style');
   css.textContent =
     '.nav-burger{display:none;flex-shrink:0;width:40px;height:40px;margin-right:-8px;border:0;background:none;border-radius:10px;cursor:pointer;color:#111312;position:relative}' +
