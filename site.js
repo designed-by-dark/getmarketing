@@ -58,3 +58,24 @@
       .then(function () { btn.disabled = false; });
   });
 })();
+
+/* Reviews strip: start with the first review (Nicholas) centered, and only start moving once the strip is on screen. */
+(function () {
+  var vp = document.querySelector('.rv-viewport'), track = vp && vp.querySelector('.rv-track');
+  if (!track) return;
+  var card = track.querySelector('.rv-card'); if (!card) return;
+  var dur = parseFloat(getComputedStyle(track).animationDuration) || 60;
+  function place() {
+    var D = track.scrollWidth / 2 + 10;            /* distance of one loop (translateX(-50% - 10px)) */
+    var x = vp.clientWidth / 2 - (card.offsetLeft - track.offsetLeft) - card.offsetWidth / 2; /* shift that centers the card */
+    x = ((x % D) + D) % D - D;                       /* bring into the animated range [-D, 0] */
+    track.style.animationDelay = (-(-x / D) * dur) + 's';
+  }
+  place();
+  track.style.animationPlayState = 'paused';
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es, o) {
+      es.forEach(function (e) { if (e.isIntersecting) { place(); track.style.animationPlayState = ''; o.disconnect(); } });
+    }, { threshold: 0.4 }).observe(vp);
+  } else { track.style.animationPlayState = ''; }
+})();
