@@ -1,6 +1,6 @@
 /*
  * GetMarketing — consent-gated web analytics
- * Loads Google Tag Manager, Google Analytics 4 + Amplitude (EU data residency) only AFTER the
+ * Loads Google Tag Manager (which delivers GA4) + Amplitude (EU data residency) only AFTER the
  * visitor grants consent. Included on every page via:
  *   <script defer src="/analytics.js"></script>
  *
@@ -17,7 +17,8 @@
   // ---- Configuration -------------------------------------------------------
   // Amplitude → Settings → Projects → "default" → API Key (client-side, public):
   var AMPLITUDE_API_KEY = '76d34022534107357a0a7cef0d6030a9';
-  var GA_MEASUREMENT_ID = 'G-T7EBFEM00R';
+  // GA4 (G-T7EBFEM00R) is NOT loaded here any more: it runs as the "GA4 - Google Tag"
+  // inside the GTM container. Loading gtag.js directly as well would double-count.
   var GTM_CONTAINER_ID  = 'GTM-P249JD36';       // Google Tag Manager container
   var COOKIE_DOMAIN     = '.getmarketing.team'; // share identity across www + app subdomains
   var CONSENT_KEY       = 'gm_analytics_consent'; // localStorage: 'granted' | 'denied'
@@ -32,25 +33,15 @@
     try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
   }
 
-  // ---- Google Analytics 4 (loaded only after consent) ----------------------
-  function loadGA() {
-    if (!GA_MEASUREMENT_ID || window.__gmGaLoaded) return;
-    window.__gmGaLoaded = true;
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_MEASUREMENT_ID);
-  }
-
   // ---- Google Tag Manager (loaded only after consent) ----------------------
   function loadGTM() {
     if (!GTM_CONTAINER_ID || window.__gmGtmLoaded) return;
     window.__gmGtmLoaded = true;
     window.dataLayer = window.dataLayer || [];
+    // gtag() shim: site.js / dash-demo.js send GA4 events (video_play, generate_lead,
+    // demo_section_view) via gtag('event', ...). The Google tag in GTM reads them
+    // from the same dataLayer.
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
     var s = document.createElement('script');
     s.async = true;
@@ -143,8 +134,7 @@
   }
 
   function enableAnalytics() {
-    loadGTM();
-    loadGA();
+    loadGTM();         // GA4 is delivered through the GTM container
     loadAmplitude();   // trackLandingPageView() runs after Amplitude finishes init
     loadLeadfeeder();
     wireSignupLinks();
