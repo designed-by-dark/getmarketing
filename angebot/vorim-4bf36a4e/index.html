@@ -211,11 +211,12 @@ const DATA = {
   ],
 
   extra: ["Apply for the FCA AI Live Testing programme. GoCardless is already named by the Google AI for it, and a mention there is the strongest recommendation you can get",
-          "Pitch one guest article to a UK fintech newsletter or Innovate Finance. A link from a finance site counts more than many small ones"],
+          "Pitch one guest article to a UK fintech newsletter or Innovate Finance. A link from a finance site counts more than many small ones",
+          "Cold outreach stays your strongest channel for the first 10 customers. We don’t automate outreach, but we can introduce you to an agency that does"],
 
   checkout: {
-    url: "https://getmarketing.team",
-    price: "249 €", guarantee_days: 7
+    url: "#start",
+    price: "249 €"
   }
 };
 
@@ -310,15 +311,15 @@ document.getElementById("app").innerHTML = `
 </section>
 
 <section class="cta" id="start" aria-labelledby="h2e">
-  <h2 id="h2e">Shall we start with week 1?</h2>
-  <p>Start now and we write the first pages this week. You see everything before it goes online.</p>
+  <h2 id="h2e">Want to do this together?</h2>
+  <p>This plan is a thank-you for your time. Use it as it is, or let us take it off your plate so you can stay on calls and outreach.</p>
   <div class="steps">
-    <div><b>Today</b><span>${esc(D.checkout.price)} a month, cancel any month. As a German small business we charge no VAT. You get your access by email.</span></div>
-    <div><b>Week 1</b><span>We write the first pages. You read them and approve them.</span></div>
-    <div><b>Until day ${D.checkout.guarantee_days}</b><span>If you don’t like them, you cancel and get your money back.</span></div>
+    <div><b>A short call</b><span>We go through the plan together and pick what matters most for your pilots.</span></div>
+    <div><b>Week 1</b><span>We write the first pages. You read them and approve them before anything goes online.</span></div>
+    <div><b>The price</b><span>${esc(D.checkout.price)} a month, cancel any month. As a German small business we charge no VAT.</span></div>
   </div>
-  <a href="${esc(D.checkout.url)}">Let’s talk</a>
-  <p class="small">We deliver week by week, not all at once. Everything you paid for is yours and stays online.</p>
+  <a href="${esc(D.checkout.url)}">Let’s talk about it</a>
+  <p class="small">No obligation. Just reply to the email this plan came with.</p>
 </section>
 
 <p class="foot">All numbers are estimates from public search data for the UK, as of ${esc(D.date)}. Nobody can guarantee places on Google, including us.</p>
