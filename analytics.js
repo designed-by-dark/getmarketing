@@ -1,6 +1,6 @@
 /*
  * GetMarketing — consent-gated web analytics
- * Loads Google Analytics 4 + Amplitude (EU data residency) only AFTER the
+ * Loads Google Tag Manager, Google Analytics 4 + Amplitude (EU data residency) only AFTER the
  * visitor grants consent. Included on every page via:
  *   <script defer src="/analytics.js"></script>
  *
@@ -18,6 +18,7 @@
   // Amplitude → Settings → Projects → "default" → API Key (client-side, public):
   var AMPLITUDE_API_KEY = '76d34022534107357a0a7cef0d6030a9';
   var GA_MEASUREMENT_ID = 'G-T7EBFEM00R';
+  var GTM_CONTAINER_ID  = 'GTM-P249JD36';       // Google Tag Manager container
   var COOKIE_DOMAIN     = '.getmarketing.team'; // share identity across www + app subdomains
   var CONSENT_KEY       = 'gm_analytics_consent'; // localStorage: 'granted' | 'denied'
   var AMPLITUDE_SDK     = 'https://cdn.jsdelivr.net/npm/@amplitude/analytics-browser@2/lib/scripts/amplitude-min.umd.js';
@@ -43,6 +44,18 @@
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', GA_MEASUREMENT_ID);
+  }
+
+  // ---- Google Tag Manager (loaded only after consent) ----------------------
+  function loadGTM() {
+    if (!GTM_CONTAINER_ID || window.__gmGtmLoaded) return;
+    window.__gmGtmLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_CONTAINER_ID;
+    document.head.appendChild(s);
   }
 
   // ---- Amplitude (EU data residency, loaded only after consent) ------------
@@ -130,6 +143,7 @@
   }
 
   function enableAnalytics() {
+    loadGTM();
     loadGA();
     loadAmplitude();   // trackLandingPageView() runs after Amplitude finishes init
     loadLeadfeeder();
@@ -168,8 +182,8 @@
     wrap.innerHTML =
       '<p>' +
       (isDe
-        ? 'Wir nutzen Analyse- und Tracking-Tools (Google Analytics, Amplitude, Leadfeeder), um unsere Website zu verbessern – nur mit Ihrer Einwilligung. Mehr in unserer <a href="' + privacyHref + '">Datenschutzerklärung</a>.'
-        : 'We use analytics and tracking tools (Google Analytics, Amplitude, Leadfeeder) to improve our website – only with your consent. See our <a href="' + privacyHref + '">privacy policy</a>.') +
+        ? 'Wir nutzen Analyse- und Tracking-Tools (Google Tag Manager, Google Analytics, Amplitude, Leadfeeder), um unsere Website zu verbessern – nur mit Ihrer Einwilligung. Mehr in unserer <a href="' + privacyHref + '">Datenschutzerklärung</a>.'
+        : 'We use analytics and tracking tools (Google Tag Manager, Google Analytics, Amplitude, Leadfeeder) to improve our website – only with your consent. See our <a href="' + privacyHref + '">privacy policy</a>.') +
       '</p><div class="gm-row">' +
       '<button class="gm-accept" type="button">' + (isDe ? 'Akzeptieren' : 'Accept') + '</button>' +
       '<button class="gm-decline" type="button">' + (isDe ? 'Ablehnen' : 'Decline') + '</button>' +
