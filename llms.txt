@@ -1,0 +1,64 @@
+# GetMarketing
+
+> GetMarketing is an AI marketing team for small and mid-sized companies without a marketing team, mainly in Germany, Austria and Switzerland (B2B and e-commerce). It checks a website with real search data, fixes what costs visibility on Google and in AI answers, and keeps writing the pages, blog posts and LinkedIn drafts that bring enquiries. Nothing goes live without the customer's approval. The software costs €249 a month per domain (€2,490 a year); Enterprise, where a named person does the work on the same system, starts at €750 a month.
+
+The site is available in English (/) and German (/de/). Founder: Darya Kablash, Berlin. Contact: darya@getmarketing.team
+
+## Main pages
+
+- [Homepage (English)](https://getmarketing.team/): what GetMarketing does and how it works
+- [Homepage (German)](https://getmarketing.team/de/)
+- [Pricing](https://getmarketing.team/pricing/) · [Preise](https://getmarketing.team/de/preise/)
+- [Enterprise](https://getmarketing.team/enterprise/) · [Enterprise (DE)](https://getmarketing.team/de/enterprise/)
+- [Use cases](https://getmarketing.team/use-cases/) · [Lösungen](https://getmarketing.team/de/loesungen/): startups and SaaS, online shops, agencies, B2B and SMEs
+- [Case studies](https://getmarketing.team/case-studies/) · [Referenzen](https://getmarketing.team/de/referenzen/): real projects with numbers
+- [Free marketing plan generator](https://getmarketing.team/marketing-plan-generator/) · [Marketingplan erstellen](https://getmarketing.team/marketingplan-erstellen/)
+- [Press](https://getmarketing.team/press/) · [Partners](https://getmarketing.team/partners/)
+
+## Solutions (English)
+
+- [AI marketing team](https://getmarketing.team/ai-marketing-team/)
+- [AI CMO](https://getmarketing.team/ai-cmo/)
+- [Virtual CMO](https://getmarketing.team/virtual-cmo/)
+- [AI marketing manager](https://getmarketing.team/ai-marketing-manager/)
+- [AI marketing agency](https://getmarketing.team/ai-marketing-agency/)
+- [Done-for-you marketing](https://getmarketing.team/done-for-you-marketing/)
+- [AI SEO tool](https://getmarketing.team/ai-seo-tool/)
+- [Automate SEO](https://getmarketing.team/automate-seo/)
+- [AI blog writing](https://getmarketing.team/ai-blog-writing/)
+- [AI marketing automation](https://getmarketing.team/ai-marketing-automation/)
+- [Marketing automation](https://getmarketing.team/marketing-automation/)
+- [AI in marketing](https://getmarketing.team/ai-in-marketing/)
+- [B2B lead generation](https://getmarketing.team/b2b-lead-generation/)
+- [B2B lead generation strategies](https://getmarketing.team/b2b-lead-generation-strategies/)
+- [LinkedIn lead generation](https://getmarketing.team/b2b-linkedin-lead-generation/)
+- [Marketing for SaaS](https://getmarketing.team/marketing-for-saas/)
+- [Marketing for small businesses](https://getmarketing.team/marketing-for-small-businesses/)
+- [Marketing plan generator](https://getmarketing.team/marketing-plan-generator/)
+
+## Lösungen (Deutsch)
+
+- [KI-Marketingteam](https://getmarketing.team/ki-marketingteam/)
+- [KI-CMO](https://getmarketing.team/ki-cmo/)
+- [Virtueller CMO](https://getmarketing.team/virtueller-cmo/)
+- [KI-Marketing-Manager](https://getmarketing.team/ki-marketing-manager/)
+- [KI-Marketing-Agentur](https://getmarketing.team/ki-marketing-agentur/)
+- [Marketing auslagern](https://getmarketing.team/marketing-auslagern/)
+- [KI-SEO-Tool](https://getmarketing.team/ki-seo-tool/)
+- [SEO automatisieren](https://getmarketing.team/seo-automatisieren/)
+- [KI-Blogartikel schreiben](https://getmarketing.team/ki-blogartikel-schreiben/)
+- [KI-Marketing-Automatisierung](https://getmarketing.team/ki-marketing-automatisierung/)
+- [Marketing-Automatisierung](https://getmarketing.team/marketing-automatisierung/)
+- [Marketing-KI](https://getmarketing.team/marketing-ki/)
+- [B2B-Leadgenerierung](https://getmarketing.team/b2b-leadgenerierung/)
+- [Strategien für B2B-Leadgenerierung](https://getmarketing.team/b2b-leadgenerierung-strategien/)
+- [LinkedIn-Leadgenerierung im B2B](https://getmarketing.team/linkedin-leadgenerierung-b2b/)
+- [SaaS-Marketing](https://getmarketing.team/saas-marketing/)
+- [Marketing für kleine Unternehmen](https://getmarketing.team/marketing-fuer-kleine-unternehmen/)
+- [Marketingplan erstellen](https://getmarketing.team/marketingplan-erstellen/)
+
+## Optional
+
+- [Legal notice](https://getmarketing.team/impressum-en.html)
+- [Privacy policy](https://getmarketing.team/datenschutz-en.html)
+- [Sitemap](https://getmarketing.team/sitemap.xml)

@@ -75,10 +75,10 @@ ENT_CSS = """<style>
   /* "doesn't sound like AI": side-by-side */
   .ai-cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .ai-card { border-radius: 24px; padding: 32px; }
-  .ai-bad { background: #ECECE8; color: #6B706C; }
+  .ai-bad { background: #ECECE8; color: #575C58; }
   .ai-good { background: radial-gradient(420px 220px at 100% 0%, rgba(82,183,136,.35), transparent 70%), var(--deep); color: #fff; box-shadow: 0 30px 60px -36px rgba(13,29,21,.55); }
   .ai-card small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-  .ai-bad small { color: #8A8F8B; }
+  .ai-bad small { color: #5F6460; }
   .ai-good small { color: var(--lime); }
   .ai-card blockquote { margin: 16px 0 0; font-size: clamp(18px, 1.7vw, 22px); line-height: 1.45; letter-spacing: -0.01em; }
   .ai-bad blockquote { text-decoration: line-through; text-decoration-color: rgba(107,112,108,.45); }
@@ -137,7 +137,7 @@ BARS = '<div class="cs-bars">' + "".join(f'<i style="height:{h}%"></i>' for h in
 
 C = {
  "en": dict(
-  title="Enterprise · GetMarketing",
+  title="Enterprise: Done-for-You Marketing Automation with a Named Expert | GetMarketing",
   desc="We look at how your company works, pick the marketing work that eats your time and automate it. A named person checks every text, so it still sounds like you.",
   h1='<span class="hl">Enterprise:</span> <span class="h1-rest">marketing automation built around your&nbsp;company</span>',
   sub="We look at your setup, find the marketing work that eats your team’s time and automate it. A named person checks every text, so it still sounds like&nbsp;you.",
@@ -192,7 +192,7 @@ C = {
        ["Consultant, about €7,000 one time", "Expensive, a concept without execution", "The diagnosis is free, execution is&nbsp;included"]],
  ),
  "de": dict(
-  title="Enterprise · GetMarketing",
+  title="Enterprise: Marketing-Automatisierung mit fester Ansprechperson | GetMarketing",
   desc="Wir schauen uns an, wie dein Unternehmen arbeitet, wählen die Marketingarbeit aus, die euch Zeit kostet, und automatisieren sie. Eine feste Person prüft jeden Text, damit er nach dir klingt.",
   h1='<span class="hl">Enterprise:</span> <span class="h1-rest">Marketing-Automatisierung, gebaut um dein&nbsp;Unternehmen</span>',
   sub="Wir schauen uns euer Setup an, finden die Marketingarbeit, die eurem Team Zeit kostet, und automatisieren sie. Eine feste Person prüft jeden Text, damit er weiter nach dir&nbsp;klingt.",

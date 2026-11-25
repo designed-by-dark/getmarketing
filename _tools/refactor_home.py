@@ -37,7 +37,7 @@ def lead_section(old, lang):
       <h2>{L["h2"]}</h2>
       <p class="intro">{L["intro"]}</p>
       <ul class="lead-gets">{gets}</ul>
-      <div class="lead-who"><img src="/darya.jpg" alt="" width="52" height="52" /><p>{L["who"]}</p></div>
+      <div class="lead-who"><img src="/darya-avatar.jpg" alt="" width="52" height="52" loading="lazy" decoding="async" /><p>{L["who"]}</p></div>
     </div>
     <div class="lead-form-card">
       <div class="lf-head"><h3>{L["form_h"]}</h3><span>{L["step"]}</span></div>

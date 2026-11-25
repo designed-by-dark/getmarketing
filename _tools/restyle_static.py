@@ -12,7 +12,7 @@ PAGES = {  # file: (lang, counterpart, kind)
  "datenschutz.html": ("de", "/datenschutz-en.html", "legal"), "datenschutz-en.html": ("en", "/datenschutz.html", "legal"),
 }
 CSS = ('<link rel="stylesheet" href="/home.css?v=1" />\n<link rel="stylesheet" href="/home-hero.css?v=15" />\n'
-       '<link rel="stylesheet" href="/theme.css?v=25" />\n<link rel="stylesheet" href="/landing.css?v=4" />\n<link rel="stylesheet" href="/subpage.css?v=2" />')
+       '<link rel="stylesheet" href="/theme.css?v=31" />\n<link rel="stylesheet" href="/landing.css?v=4" />\n<link rel="stylesheet" href="/subpage.css?v=3" />')
 FONT = '<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />'
 
 def lead_and_mission(lang):
@@ -24,7 +24,7 @@ for rel, (lang, alt, kind) in PAGES.items():
     f = ROOT / rel; s = f.read_text()
     s = re.sub(r'<link href="https://fonts.googleapis.com/css2\?family=Geist[^>]*>', FONT, s)
     s = re.sub(r'<link rel="stylesheet" href="/site.css\?v=\d+" />', CSS, s)
-    s = s.replace('<script defer src="/nav-menu.js', '<script defer src="/site.js?v=1"></script>\n<script defer src="/nav-menu.js', 1) if "/site.js" not in s else s
+    s = s.replace('<script defer src="/nav-menu.js', '<script defer src="/site.js?v=3"></script>\n<script defer src="/nav-menu.js', 1) if "/site.js" not in s else s
     s = re.sub(r"<nav>.*?</nav>", lambda m: B.nav_for(lang, alt).replace('href="#', f'href="{B.T[lang]["home"]}#'), s, count=1, flags=re.S)
     foot = B.home_parts(lang)["footer"].replace('href="#', f'href="{B.T[lang]["home"]}#')
     foot = re.sub(r'(<div class="ft-legal">.*?)<a href="/(de/)?"( id="switch-en-foot")?>(Deutsch|English)</a>', lambda m: m.group(1) + f'<a href="{alt}">{m.group(4)}</a>', foot, flags=re.S)

@@ -623,7 +623,7 @@ footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(
 .rv-card blockquote { margin: 0; flex: 1; font-size: 16px; line-height: 1.55; color: #222; text-wrap: pretty; }
 .rv-card figcaption { display: flex; flex-direction: column; gap: 2px; padding-top: 12px; border-top: 1px solid #EEECE6; }
 .rv-card figcaption b { font-size: 13px; font-weight: 600; color: #111; }
-.rv-card figcaption span { font-size: 12px; color: #7A807C; line-height: 1.4; }
+.rv-card figcaption span { font-size: 12px; color: #5D635F; line-height: 1.4; }
 @media (max-width: 600px) { .rv-card { width: 280px; padding: 22px 20px 18px; } .rv-card blockquote { font-size: 15px; } }
 @media (prefers-reduced-motion: reduce) {
   .rv-track { animation: none; }
@@ -671,3 +671,37 @@ footer .ft-social a:hover, footer .ft-social a:focus-visible { background: rgba(
   .mv-a { margin: -64px 0 0 auto; }
   .mv-b { margin: 14px auto 0 0; }
 }
+
+/* ============ solutions links: footer block, end of topic pages, use-case hubs ============ */
+.ft-topics { margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.1); }
+.ft-topics .ft-topics-list { list-style: none; padding: 0; margin: 0; columns: 4; column-gap: 28px; }
+.ft-topics .ft-topics-list li { margin-bottom: 10px; break-inside: avoid; font-size: 14.5px; }
+.ft-topics .ft-topics-list a { color: rgba(255,255,255,.6); text-decoration: none; }
+.ft-topics .ft-topics-list a:hover, .ft-topics .ft-topics-list a:focus-visible { color: var(--lime); }
+@media (max-width: 900px) { .ft-topics .ft-topics-list { columns: 2; } }
+@media (max-width: 420px) { .ft-topics .ft-topics-list { columns: 1; } }
+.lp-related .lp-rel-list { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.lp-rel-list a { display: block; height: 100%; padding: 20px 22px; border-radius: 18px; background: #fff; box-shadow: var(--card-shadow, 0 1px 3px rgba(0,0,0,.08)); color: #111; font-weight: 600; font-size: 17px; line-height: 1.35; text-decoration: none; transition: transform .15s; }
+.lp-rel-list a:hover, .lp-rel-list a:focus-visible { transform: translateY(-2px); color: var(--forest); }
+.lp-topic-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+.lp-topic-group { background: #fff; border-radius: 20px; padding: 24px; box-shadow: var(--card-shadow, 0 1px 3px rgba(0,0,0,.08)); }
+.lp-topic-group h3 { font-size: 18px; margin-bottom: 12px; }
+.lp-topic-group ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.lp-topic-group a { color: var(--forest); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(27,67,50,.3); }
+.lp-topic-group a:hover, .lp-topic-group a:focus-visible { text-decoration-color: currentColor; }
+
+/* ============ accessibility helpers (see _tools/a11y.py) ============ */
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 1000; padding: 10px 16px; border-radius: 10px; background: var(--lime); color: var(--lime-ink); font-weight: 700; text-decoration: none; transition: top .15s; }
+.skip-link:focus { top: 12px; outline: 3px solid var(--forest); outline-offset: 2px; }
+.ft-h { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; margin: 0 0 14px; line-height: 1.4; }
+.dash-guide .dg-h { font-size: 20px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-top: 12px; color: #fff; }
+.ccal-grid:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* contrast: small grey and green text below 4.5:1 on white or off-white */
+:root { --accent-ink: #23704B; --muted: #6B706C; }
+footer .ft-h, .ft .ft-h { color: #fff; }
+.compare .no, .no { color: #6B7075; }
+.rv-card figcaption span, figcaption span, .cs-anon { color: #5D635F; }
+.ba-note, .about-footnote { color: #6B706C; }
+.ui-ok small { color: #616763; }
+.cmc-vs-label, .cmc-footer { color: rgba(255,255,255,.78); }
+.lp-topic-group li, .lp-rel-list li, .ft-topics-list li { text-wrap: pretty; }

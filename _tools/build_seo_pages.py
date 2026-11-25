@@ -15,6 +15,8 @@ from case_data import CASES
 import html, json, re, pathlib, datetime, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from no_orphans import fix as no_orphans
+import topics as TOP
+import sitemap as SM
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "_content"
@@ -209,7 +211,8 @@ def h1_html(h1, short):
     """Put the page keyword in the lime box, like the homepage headline."""
     txt = inline(h1)
     m = re.match(r"^(.{3,40}?):\s+(.+)$", txt)
-    if m: return f'<span class="hl">{m.group(1)}</span> <span class="h1-rest">{m.group(2)}</span>'
+    # keep the colon in the text, so the heading reads as one sentence ("AI CMO: the marketing lead ...")
+    if m: return f'<span class="hl">{m.group(1)}:</span> <span class="h1-rest">{m.group(2)}</span>'
     for key in sorted({short, re.sub(r"^(The|Der|Die|Das|Dein|Your|An|Ein)\s+", "", short)}, key=len, reverse=True):
         k = re.search(re.escape(key), txt, re.I)
         if k and len(key) >= 5: return txt[:k.start()] + f'<span class="hl">{txt[k.start():k.end()]}</span>' + txt[k.end():]
@@ -367,6 +370,8 @@ def market_demo(lang):
       </div>
     </div>'''
 
+DEMO_JS = '<script defer src="/content-calendar.js?v=9"></script>\n<script defer src="/dash-demo.js?v=3"></script>\n'
+
 def build_page(p, pages):
     lang, t, L = p["lang"], T[p["lang"]], LP[p["lang"]]
     h1, intro, hero_cta, body, closing = split_page(p["blocks"])
@@ -404,7 +409,16 @@ def build_page(p, pages):
     hreflang = (f'<link rel="alternate" hreflang="de" href="{SITE}/{de_s}/" />\n<link rel="alternate" hreflang="en" href="{SITE}/{en_s}/" />\n'
                 f'<link rel="alternate" hreflang="x-default" href="{SITE}/{en_s}/" />')
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": p["title"], "description": p["desc"], "url": url, "inLanguage": lang,
-           "dateModified": TODAY, "publisher": {"@type": "Organization", "name": "GetMarketing", "url": SITE, "logo": SITE + "/logo.jpg"}}]
+           "dateModified": SM.last_changed(SRC / p["file"]), "publisher": {"@type": "Organization", "name": "GetMarketing", "url": SITE, "logo": SITE + "/logo.jpg"},
+           "isPartOf": {"@type": "WebSite", "name": "GetMarketing", "url": SITE}},
+          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "GetMarketing", "item": SITE + t["home"]},
+              {"@type": "ListItem", "position": 2, "name": p["short"], "item": url}]}]
+    if p["slug"] in TOOL_PAGES:
+        ld.append({"@context": "https://schema.org", "@type": "WebApplication", "name": p["short"], "url": url, "inLanguage": lang,
+                   "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "description": p["desc"],
+                   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+                   "provider": {"@type": "Organization", "name": "GetMarketing", "url": SITE}})
     if faq:
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(" ".join(a))}} for q, a in faq]})
@@ -433,23 +447,25 @@ def build_page(p, pages):
 <meta property="og:title" content="{esc(p["title"])}" />
 <meta property="og:description" content="{esc(p["desc"])}" />
 <meta property="og:url" content="{url}" />
-<meta property="og:image" content="{SITE}/logo.jpg" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="{SITE}/{"og-home-de.jpg" if lang == "de" else "og-home.jpg"}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="GetMarketing" />
+<meta property="og:locale" content="{"de_DE" if lang == "de" else "en_US"}" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="/logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/home.css?v=1" />
 <link rel="stylesheet" href="/home-hero.css?v=15" />
-<link rel="stylesheet" href="/theme.css?v=25" />
+<link rel="stylesheet" href="/theme.css?v=31" />
 <link rel="stylesheet" href="/landing.css?v=4" />
 {ld_html}
-<script defer src="/content-calendar.js?v=9"></script>
-<script defer src="/dash-demo.js?v=2"></script>
-<script defer src="/site.js?v=1"></script>
+{"" if tool else DEMO_JS}<script defer src="/site.js?v=3"></script>
 <script defer src="/home.js?v=10"></script>
 <script defer src="/analytics.js"></script>
-<script defer src="/nav-menu.js?v=2"></script>
+<script defer src="/nav-menu.js?v=3"></script>
 </head>
 <body class="lp">
 <!-- generated from _content/{p["file"]} by _tools/build_seo_pages.py, edit the markdown, not this file -->
@@ -469,6 +485,8 @@ def build_page(p, pages):
 </header>
 
 {"".join(blocks_html)}
+
+{TOP.related_section(p["slug"])}
 
 {closing_html}
 
@@ -523,11 +541,8 @@ def main():
         html_out = build_page(p, pages)
         if p["slug"] in TOOL_PAGES: html_out = html_out.replace(f'href="{T[p["lang"]]["plan"]}" class="btn-lime"', f'href="{LP[p["lang"]]["app"]}" class="btn-lime"')
         out = ROOT / p["slug"] / "index.html"; out.parent.mkdir(exist_ok=True); out.write_text(no_orphans(html_out)); print("page", p["slug"])
-    urls = ["/", "/de/", "/pricing/", "/de/preise/", "/enterprise/", "/de/enterprise/", "/partners/", "/press/", "/de/presse/", "/de/partners/"] + [f'/{p["slug"]}/' for p in pages] + ["/case-studies/", "/de/referenzen/"] + [f'/case-studies/{c["slug"]["en"]}/' for c in CASES] + [f'/de/referenzen/{c["slug"]["de"]}/' for c in CASES]
-    (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-        "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
-    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
-    print(len(urls), "urls in sitemap")
+    n = SM.write()
+    print(n, "urls in sitemap")
 
 if __name__ == "__main__":
     main()

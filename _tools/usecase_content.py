@@ -32,13 +32,13 @@ MENU = {
 }
 
 HUB = {
-    "en": dict(title="Use cases · GetMarketing",
+    "en": dict(title="Use Cases: AI Marketing for Startups, Online Shops, Agencies and B2B | GetMarketing",
                desc="How startups, online shops, agencies and B2B companies use GetMarketing: AI agents that research, write, publish and measure, while you approve.",
                h1='<span class="hl">Use cases:</span> <span class="h1-rest">one system, built around how your business&nbsp;sells</span>',
                sub="Startups need output with a small team, shops need orders, agencies need capacity and B2B companies need their expertise to be found. Pick yours.",
                btn="Check my website for free", dare='Want it done for you? <a href="/enterprise/">See Enterprise&nbsp;→</a>',
                more="Read more"),
-    "de": dict(title="Lösungen · GetMarketing",
+    "de": dict(title="Lösungen: KI-Marketing für Startups, Onlineshops, Agenturen und B2B | GetMarketing",
                desc="Wie Startups, Onlineshops, Agenturen und B2B-Unternehmen GetMarketing nutzen: KI-Agenten recherchieren, schreiben, veröffentlichen und messen, du gibst frei.",
                h1='<span class="hl">Lösungen:</span> <span class="h1-rest">ein System, gebaut um die Art, wie du&nbsp;verkaufst</span>',
                sub="Startups brauchen Output mit kleinem Team, Shops brauchen Bestellungen, Agenturen brauchen Kapazität und B2B-Unternehmen brauchen Sichtbarkeit für ihr Fachwissen. Such dir deins aus.",

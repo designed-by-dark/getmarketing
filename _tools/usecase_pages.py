@@ -5,7 +5,7 @@
 
 Copy lives in _tools/usecase_content.py. Nav, footer and lead form come from the homepage
 (via build_static_pages), the layout CSS from enterprise_page. Writes
-use-cases/[...]/index.html and de/loesungen/[...]/index.html, adds the URLs to sitemap.xml
+use-cases/[...]/index.html and de/loesungen/[...]/index.html, rewrites sitemap.xml (_tools/sitemap.py)
 and puts the mega menu into every page (nav_usecases.py).
 """
 import datetime, pathlib, re, sys
@@ -13,6 +13,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import build_static_pages as S
 import enterprise_page as E
 import nav_usecases
+import topics as TOP
+import sitemap as SM
 from usecase_content import ORDER, SLUG, BASE, MENU, HUB, UC
 
 ROOT = S.ROOT
@@ -70,7 +72,7 @@ def usecase(key, lang):
            f'<a href="#start" class="btn-hero" data-interest="{c["interest"]}">{c["btn"]}</a></div></div></section>')
     cmp = S.table(c["cmp_h"], c["cmp_head"], c["cmp"], k=c["cmp_k"])
     body = "\n\n".join([E.ENT_CSS, UC_CSS, find, workflows, proof(c, lang), steps, cta, cmp,
-                        S.faq_section(lang, c["faq"], sec_id="faq"), "{LEAD}", interest_script(c["interest"])])
+                        S.faq_section(lang, c["faq"], sec_id="faq"), TOP.usecase_section(key, lang), "{LEAD}", interest_script(c["interest"])])
     action = (f'<a href="#start" class="btn-hero" data-interest="partner">{c["btn"]}</a>' if c["interest"] == "partner" else S.form(lang, c["btn"]))
     S.page(lang, key, c["title"], c["desc"], c["h1"], c["sub"], action, c["dare"], body,
            [S.offer_ld(lang), S.faq_ld(lang, c["faq"])], url(key, OTHER[lang]), hero_extra=E.hero_widgets(c))
@@ -89,7 +91,7 @@ def hub(lang):
     cards = "".join(card(k) for k in ORDER)
     grid = f'<section class="ent-sec" id="use-cases"><div class="wrap"><div class="uc-hub reveal">{cards}</div></div></section>'
     body = "\n\n".join([E.ENT_CSS, UC_CSS, grid, proof(UC["startups"][lang] | {
-        "stats_h": E.C[lang]["proof_h"], "stats": E.C[lang]["stats"]}, lang), "{LEAD}"])
+        "stats_h": E.C[lang]["proof_h"], "stats": E.C[lang]["stats"]}, lang), TOP.hub_section(lang), "{LEAD}"])
     S.page(lang, "hub", h["title"], h["desc"], h["h1"], h["sub"], S.form(lang, h["btn"]), h["dare"], body, [S.offer_ld(lang)], url("hub", OTHER[lang]))
 
 
@@ -108,17 +110,7 @@ def sync_assets():
 
 
 def sitemap():
-    p = ROOT / "sitemap.xml"
-    s = p.read_text()
-    add = ""
-    for key in ["hub"] + ORDER:
-        for lang in ("en", "de"):
-            loc = S.SITE + url(key, lang)
-            if f"<loc>{loc}</loc>" not in s:
-                add += f"  <url><loc>{loc}</loc><lastmod>{datetime.date.today().isoformat()}</lastmod></url>\n"
-    if add:
-        p.write_text(s.replace("</urlset>", add + "</urlset>"))
-    print("sitemap:", add.count("<url>"), "added")
+    print("sitemap:", SM.write(), "urls")
 
 
 if __name__ == "__main__":

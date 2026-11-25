@@ -198,15 +198,18 @@
   // Wrap the existing calendar content as its own view, add one container per other view
   var panes = {}, cal = document.createElement('div');
   cal.className = 'dv';
+  cal.setAttribute('role', 'tabpanel');
   while (main.firstChild) cal.appendChild(main.firstChild);
   main.appendChild(cal);
   panes.calendar = cal;
 
-  var guide = document.createElement('aside');
+  var guide = document.createElement('div');
   guide.className = 'dash-guide';
   guide.setAttribute('aria-live', 'polite');
   root.appendChild(guide);
+  side.setAttribute('role', 'group');
   side.setAttribute('aria-label', t('Dashboard sections', 'Bereiche im Dashboard'));
+  Array.prototype.forEach.call(side.querySelectorAll('ul'), function (ul) { ul.setAttribute('role', 'tablist'); ul.setAttribute('aria-orientation', 'vertical'); });
 
   var cur = 1, touched = false, pending = 3;
   function setCount() {
@@ -216,7 +219,7 @@
   function renderGuide(i) {
     var v = VIEWS[i], next = VIEWS[(i + 1) % VIEWS.length];
     guide.innerHTML = '<p class="dg-tag"><span></span>' + t('Interactive demo', 'Interaktive Demo') + '</p>' +
-      '<h4>' + v.name + '</h4><p class="dg-lead">' + v.lead + '</p><ul class="dg-pts">' + v.pts.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' +
+      '<p class="dg-h">' + v.name + '</p><p class="dg-lead">' + v.lead + '</p><ul class="dg-pts">' + v.pts.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' +
       (touched ? '' : '<p class="dg-hint"><span class="dg-wide">← ' + t('Click any section in the menu to explore it.', 'Klick auf einen Bereich im Menü, um ihn zu erkunden.') + '</span><span class="dg-narrow">↑ ' + t('Tap a section above to explore it.', 'Tipp oben auf einen Bereich, um ihn zu erkunden.') + '</span></p>') +
       '<div class="dg-foot"><small>' + (i + 1) + ' / ' + VIEWS.length + '</small><button type="button" class="dg-next">' + t('Next', 'Weiter') + ': ' + next.name + ' →</button></div>';
   }
@@ -227,13 +230,14 @@
     if (!panes[v.id]) {
       var p = document.createElement('div');
       p.className = 'dv';
+      p.setAttribute('role', 'tabpanel');
       p.innerHTML = v.html();
       main.appendChild(p);
       panes[v.id] = p;
     }
     Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== v.id; });
     panes[v.id].classList.remove('dv-in'); void panes[v.id].offsetWidth; panes[v.id].classList.add('dv-in');
-    items.forEach(function (li, j) { li.classList.toggle('on', j === i); if (j === i) li.setAttribute('aria-current', 'page'); else li.removeAttribute('aria-current'); });
+    items.forEach(function (li, j) { li.classList.toggle('on', j === i); li.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
     cur = i;
     if (fromUser) touched = true;
     setCount();
@@ -248,7 +252,8 @@
   }
 
   items.forEach(function (li, i) {
-    li.setAttribute('role', 'button');
+    li.setAttribute('role', 'tab');
+    li.setAttribute('aria-selected', 'false');
     li.tabIndex = 0;
     li.addEventListener('click', function () { show(i, true); });
     li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i, true); } });

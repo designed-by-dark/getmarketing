@@ -17,19 +17,19 @@ T = {
         "today_link": '<p><a href="/#how-it-works">See how GetMarketing works&nbsp;→</a></p>',
         "more": "More case&nbsp;studies", "btn": "Get a free analysis of your&nbsp;website", "facts": "",
         "back": '<a href="/case-studies/">← All case&nbsp;studies</a>', "anon": "We don’t name clients. The numbers come from the respective project. First results typically showed after 3–6&nbsp;months.",
-        "ov_title": "Case studies · GetMarketing", "ov_desc": "Real projects behind the GetMarketing method: B2B, e-commerce and local businesses, with the numbers from each project.",
+        "ov_title": "Case Studies: SEO and Lead Generation Results from Real Projects | GetMarketing", "ov_desc": "Real projects behind the GetMarketing method: B2B, e-commerce and local businesses, with the numbers from each project.",
         "ov_h1": '<span class="hl">Case studies:</span> <span class="h1-rest">what this method achieved in real&nbsp;projects</span>',
         "ov_sub": "GetMarketing is built on the approach Darya Kablash used for B2B, e-commerce and local clients. Every case shows the starting point, what was built and why it worked. SEO compounds: first results typically show after 3–6&nbsp;months.",
-        "read": "Read the case&nbsp;→", "suffix": " · Case study · GetMarketing"},
+        "read": "Read the case&nbsp;→", "suffix": " | GetMarketing"},
  "de": {"k_ch": "Ausgangslage", "h_ch": "Die Herausforderung", "k_did": "Was wir gemacht haben", "h_did": "Was wir aufgebaut&nbsp;haben",
         "k_why": "Warum es funktioniert hat", "h_why": "Wie das System funktioniert&nbsp;hat", "k_today": "Mit GetMarketing", "h_today": "So macht GetMarketing das&nbsp;heute",
         "today_link": '<p><a href="/de/#so-funktionierts">So funktioniert GetMarketing&nbsp;→</a></p>',
         "more": "Weitere&nbsp;Referenzen", "btn": "Kostenlose Analyse deiner Website", "facts": "",
         "back": '<a href="/de/referenzen/">← Alle&nbsp;Referenzen</a>', "anon": "Wir nennen keine Kunden. Die Zahlen stammen aus dem jeweiligen Projekt. Erste Ergebnisse zeigten sich meist nach 3–6&nbsp;Monaten.",
-        "ov_title": "Referenzen · GetMarketing", "ov_desc": "Echte Projekte hinter der GetMarketing-Methode: B2B, E-Commerce und lokale Anbieter, mit den Zahlen aus jedem Projekt.",
+        "ov_title": "Referenzen: SEO- und Leadgenerierungs-Ergebnisse aus echten Projekten | GetMarketing", "ov_desc": "Echte Projekte hinter der GetMarketing-Methode: B2B, E-Commerce und lokale Anbieter, mit den Zahlen aus jedem Projekt.",
         "ov_h1": '<span class="hl">Referenzen:</span> <span class="h1-rest">was diese Methode in echten Projekten erreicht&nbsp;hat</span>',
         "ov_sub": "GetMarketing basiert auf dem Vorgehen, mit dem Darya Kablash B2B-, E-Commerce- und lokale Kunden betreut hat. Jeder Case zeigt die Ausgangslage, was gebaut wurde und warum es funktioniert hat. SEO wirkt mit Verzögerung: Erste Ergebnisse zeigen sich meist nach 3–6&nbsp;Monaten.",
-        "read": "Zum Case&nbsp;→", "suffix": " · Referenz · GetMarketing"},
+        "read": "Zum Case&nbsp;→", "suffix": " | GetMarketing"},
 }
 
 CSS = """<style>
@@ -42,7 +42,7 @@ CSS = """<style>
   .cs-stat:first-child span { color: rgba(255,255,255,.78); }
   .cs-tag { display: inline-block; margin-bottom: 10px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); }
   .lp-split-head h2, .lp-sec .sec-head h2, .lp-hero h1 { hyphens: manual; -webkit-hyphens: manual; }
-  .cs-anon { margin-top: 14px; font-size: 13px; color: #7A807C; }
+  .cs-anon { margin-top: 14px; font-size: 13px; color: #5D635F; }
   .cs-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
   a.cs-card { display: flex; flex-direction: column; gap: 10px; padding: 28px 26px; background: #fff; border-radius: var(--r-card); box-shadow: var(--card-shadow); text-decoration: none; color: inherit; transition: transform .2s ease, box-shadow .2s ease; }
   a.cs-card:hover { transform: translateY(-3px); box-shadow: 0 24px 50px -28px rgba(13,29,21,.45); }
@@ -53,7 +53,7 @@ CSS = """<style>
   .lp-split-body .lp-checks li { font-size: 17px; }
   .cs-shot { margin: 22px auto 0; }
   .cs-shot img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: var(--card-shadow); background: #fff; }
-  .cs-shot figcaption { margin-top: 10px; font-size: 13px; color: #7A807C; text-align: center; }
+  .cs-shot figcaption { margin-top: 10px; font-size: 13px; color: #5D635F; text-align: center; }
   @media (max-width: 760px) { .cs-stats { grid-template-columns: 1fr; } }
 </style>"""
 
@@ -114,9 +114,17 @@ def build():
                 more(c, lang),
                 "{LEAD}"])
             plain_h1 = S.re.sub(r"<[^>]+>", "", c["h1"][lang])
-            S.page(lang, key, plain_h1 + t["suffix"], S.re.sub(r"<[^>]+>|&nbsp;", " ", c["card"][lang]).strip(),
+            desc = S.re.sub(r"\s+", " ", S.re.sub(r"<[^>]+>|&nbsp;", " ", c["card"][lang])).strip()
+            headline = S.re.sub(r"&nbsp;", " ", plain_h1)
+            art = {"@context": "https://schema.org", "@type": "Article", "headline": headline, "description": desc,
+                   "inLanguage": lang, "url": S.SITE + S.PATHS[key][lang], "image": S.SITE + "/case-studies/img/" + c["slug"]["en"] + ".jpg",
+                   "author": {"@type": "Person", "name": "Darya Kablash", "url": "https://dkablash.com/"},
+                   "publisher": {"@type": "Organization", "name": "GetMarketing", "url": S.SITE, "logo": {"@type": "ImageObject", "url": S.SITE + "/logo.jpg"}},
+                   "about": S.re.sub(r"<[^>]+>|&nbsp;", " ", c["tag"][lang]).strip()}
+            ld = ['<script type="application/ld+json">\n' + S.json.dumps(art, ensure_ascii=False, indent=1) + "\n</script>"]
+            S.page(lang, key, headline + t["suffix"], desc,
                    c["h1"][lang], f'<span class="cs-tag">{c["tag"][lang]}</span><br>' + c["sub"][lang],
-                   action(lang), t["back"], body, [], S.PATHS[key][other])
+                   action(lang), t["back"], body, ld, S.PATHS[key][other])
         key = "cases"
         S.PATHS[key] = dict(BASE)
         body = "\n\n".join([CSS,
