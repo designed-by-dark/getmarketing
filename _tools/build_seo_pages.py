@@ -486,11 +486,11 @@ def build_page(p, pages):
 
 {"".join(blocks_html)}
 
-{TOP.related_section(p["slug"])}
-
 {closing_html}
 
 {H["sections"]}
+
+{TOP.related_section(p["slug"])}
 
 {H["footer"]}
 </body>

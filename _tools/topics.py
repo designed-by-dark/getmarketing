@@ -3,7 +3,7 @@
 
 One list feeds every place that links to the topic pages:
   - the "Solutions" / "Lösungen" block in the footer of every page (apply_footer)
-  - the "Solutions" section at the end of every topic page (related_section, used by build_seo_pages.py)
+  - the small "Solutions" line at the end of every topic page (related_section, used by build_seo_pages.py)
   - the topic overview on the use-case hubs and the matching topics on each use-case page (usecase_pages.py)
 
   python3 _tools/topics.py            # put the footer block into every page (idempotent)
@@ -90,33 +90,25 @@ def related(slug, n=5):
     return [(f"/{s}/", BY_SLUG[s]["label"]) for s in out[:n]]
 
 
+def more_line(links, lang):
+    """One small, quiet line of links at the very end of a page, right above the footer."""
+    label = T[lang]["rel_k"]
+    items = " · ".join(f'<a href="{h}">{html.escape(l)}</a>' for h, l in links)
+    return f'<div class="lp-more"><div class="wrap"><p><span>{label}:</span> {items}</p></div></div>'
+
+
 def related_section(slug):
     lang = BY_SLUG[slug]["lang"]; t = T[lang]
-    links = related(slug) + [t["all_uc"], t["cases"]]
-    items = "".join(f'<li><a href="{h}">{html.escape(l)}&nbsp;→</a></li>' for h, l in links)
-    return (f'<section class="lp-sec lp-related" aria-labelledby="rel-h"><div class="wrap"><div class="sec-head reveal">'
-            f'<span class="lp-k">{t["rel_k"]}</span><h2 id="rel-h">{t["rel_h"]}</h2></div>'
-            f'<ul class="lp-rel-list reveal">{items}</ul></div></section>')
+    return more_line(related(slug) + [t["all_uc"], t["cases"]], lang)
 
 
 def hub_section(lang):
-    """All topic pages of one language, grouped, for the use-case hub."""
-    t = T[lang]
-    groups = []
-    for key, name in CLUSTERS[lang].items():
-        li = "".join(f'<li><a href="{h}">{html.escape(l)}</a></li>' for c, h, l in topics(lang) if c == key)
-        groups.append(f'<div class="lp-topic-group"><h3>{name}</h3><ul>{li}</ul></div>')
-    return (f'<section class="ent-sec lp-topics" id="topics" aria-labelledby="topics-h"><div class="wrap"><div class="sec-head reveal">'
-            f'<span class="lp-k">{t["hub_k"]}</span><h2 id="topics-h">{t["hub_h"]}</h2></div>'
-            f'<div class="lp-topic-grid reveal">{"".join(groups)}</div></div></section>')
+    """All topic pages of one language, for the use-case hub."""
+    return more_line([(h, l) for _, h, l in topics(lang)], lang)
 
 
 def usecase_section(key, lang):
-    t = T[lang]
-    items = "".join(f'<li><a href="/{in_lang(s, lang)}/">{html.escape(BY_SLUG[in_lang(s, lang)]["label"])}&nbsp;→</a></li>' for s in USECASE_TOPICS[key])
-    return (f'<section class="ent-sec lp-related" aria-labelledby="uc-topics-h"><div class="wrap"><div class="sec-head reveal">'
-            f'<span class="lp-k">{t["hub_k"]}</span><h2 id="uc-topics-h">{t["uc_h"]}</h2></div>'
-            f'<ul class="lp-rel-list reveal">{items}</ul></div></section>')
+    return more_line([(f"/{in_lang(s, lang)}/", BY_SLUG[in_lang(s, lang)]["label"]) for s in USECASE_TOPICS[key]], lang)
 
 
 def footer_block(lang):
