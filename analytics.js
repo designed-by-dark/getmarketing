@@ -129,7 +129,15 @@
     }
   }
 
+  // Only the live site counts. Local previews (localhost, 127.0.0.1) and the
+  // raw server address must not send data, or tests end up in the reports.
+  function isLiveHost() {
+    var host = (location.hostname || '').toLowerCase();
+    return host === 'getmarketing.team' || /\.getmarketing\.team$/.test(host);
+  }
+
   function enableAnalytics() {
+    if (!isLiveHost()) return;
     loadGA();
     loadAmplitude();   // trackLandingPageView() runs after Amplitude finishes init
     loadLeadfeeder();
