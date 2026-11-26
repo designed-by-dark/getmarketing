@@ -441,15 +441,15 @@ def build_page(p, pages):
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/home.css?v=1" />
 <link rel="stylesheet" href="/home-hero.css?v=15" />
-<link rel="stylesheet" href="/theme.css?v=25" />
+<link rel="stylesheet" href="/theme.css?v=30" />
 <link rel="stylesheet" href="/landing.css?v=4" />
 {ld_html}
 <script defer src="/content-calendar.js?v=9"></script>
 <script defer src="/dash-demo.js?v=2"></script>
-<script defer src="/site.js?v=1"></script>
+<script defer src="/site.js?v=3"></script>
 <script defer src="/home.js?v=10"></script>
 <script defer src="/analytics.js"></script>
-<script defer src="/nav-menu.js?v=2"></script>
+<script defer src="/nav-menu.js?v=3"></script>
 </head>
 <body class="lp">
 <!-- generated from _content/{p["file"]} by _tools/build_seo_pages.py, edit the markdown, not this file -->
