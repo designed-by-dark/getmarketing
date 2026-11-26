@@ -16,19 +16,19 @@ T = {
         "k_why": "Why it worked", "h_why": "How the system worked", "k_today": "With GetMarketing", "h_today": "How GetMarketing does this&nbsp;today",
         "today_link": '<p><a href="/#how-it-works">See how GetMarketing works&nbsp;→</a></p>',
         "more": "More case&nbsp;studies", "btn": "Get a free analysis of your&nbsp;website", "facts": "",
-        "back": '<a href="/case-studies/">← All case&nbsp;studies</a>', "anon": "We don’t name clients. The numbers come from the respective project. First results typically showed after 3–6&nbsp;months.",
+        "back": '<a href="/case-studies/">← All case&nbsp;studies</a>', "anon": "Most clients stay anonymous, so the focus stays on what was done and what it brought. The numbers come from the respective project. First results typically showed after 3–6&nbsp;months.",
         "ov_title": "Case studies · GetMarketing", "ov_desc": "Real projects behind the GetMarketing method: B2B, e-commerce and local businesses, with the numbers from each project.",
         "ov_h1": '<span class="hl">Case studies:</span> <span class="h1-rest">what this method achieved in real&nbsp;projects</span>',
-        "ov_sub": "GetMarketing is built on the approach Darya Kablash used for B2B, e-commerce and local clients. Every case shows the starting point, what was built and why it worked. SEO compounds: first results typically show after 3–6&nbsp;months.",
+        "ov_sub": "GetMarketing is built on the approach senior marketing managers use for B2B, e-commerce and local clients. Every case shows the starting point, what was built and why it worked. SEO compounds: first results typically show after 3–6&nbsp;months.",
         "read": "Read the case&nbsp;→", "suffix": " · Case study · GetMarketing"},
  "de": {"k_ch": "Ausgangslage", "h_ch": "Die Herausforderung", "k_did": "Was wir gemacht haben", "h_did": "Was wir aufgebaut&nbsp;haben",
         "k_why": "Warum es funktioniert hat", "h_why": "Wie das System funktioniert&nbsp;hat", "k_today": "Mit GetMarketing", "h_today": "So macht GetMarketing das&nbsp;heute",
         "today_link": '<p><a href="/de/#so-funktionierts">So funktioniert GetMarketing&nbsp;→</a></p>',
         "more": "Weitere&nbsp;Referenzen", "btn": "Kostenlose Analyse deiner Website", "facts": "",
-        "back": '<a href="/de/referenzen/">← Alle&nbsp;Referenzen</a>', "anon": "Wir nennen keine Kunden. Die Zahlen stammen aus dem jeweiligen Projekt. Erste Ergebnisse zeigten sich meist nach 3–6&nbsp;Monaten.",
+        "back": '<a href="/de/referenzen/">← Alle&nbsp;Referenzen</a>', "anon": "Die meisten Kunden bleiben anonym, so bleibt der Fokus auf dem, was gemacht wurde und was es gebracht hat. Die Zahlen stammen aus dem jeweiligen Projekt. Erste Ergebnisse zeigten sich meist nach 3–6&nbsp;Monaten.",
         "ov_title": "Referenzen · GetMarketing", "ov_desc": "Echte Projekte hinter der GetMarketing-Methode: B2B, E-Commerce und lokale Anbieter, mit den Zahlen aus jedem Projekt.",
         "ov_h1": '<span class="hl">Referenzen:</span> <span class="h1-rest">was diese Methode in echten Projekten erreicht&nbsp;hat</span>',
-        "ov_sub": "GetMarketing basiert auf dem Vorgehen, mit dem Darya Kablash B2B-, E-Commerce- und lokale Kunden betreut hat. Jeder Case zeigt die Ausgangslage, was gebaut wurde und warum es funktioniert hat. SEO wirkt mit Verzögerung: Erste Ergebnisse zeigen sich meist nach 3–6&nbsp;Monaten.",
+        "ov_sub": "GetMarketing basiert auf dem Vorgehen, mit dem Senior-Marketing-Manager B2B-, E-Commerce- und lokale Kunden betreuen. Jeder Case zeigt die Ausgangslage, was gebaut wurde und warum es funktioniert hat. SEO wirkt mit Verzögerung: Erste Ergebnisse zeigen sich meist nach 3–6&nbsp;Monaten.",
         "read": "Zum Case&nbsp;→", "suffix": " · Referenz · GetMarketing"},
 }
 
@@ -115,7 +115,7 @@ def build():
                 "{LEAD}"])
             plain_h1 = S.re.sub(r"<[^>]+>", "", c["h1"][lang])
             S.page(lang, key, plain_h1 + t["suffix"], S.re.sub(r"<[^>]+>|&nbsp;", " ", c["card"][lang]).strip(),
-                   c["h1"][lang], f'<span class="cs-tag">{c["tag"][lang]}</span><br>' + c["sub"][lang],
+                   c["h1"][lang], (f'<img src="{c["logo"]}" alt="" style="display:block;height:40px;width:auto;margin:0 auto 18px;filter:brightness(0) invert(1)">' if c.get("logo") else "") + f'<span class="cs-tag">{c["tag"][lang]}</span><br>' + c["sub"][lang],
                    action(lang), t["back"], body, [], S.PATHS[key][other])
         key = "cases"
         S.PATHS[key] = dict(BASE)
